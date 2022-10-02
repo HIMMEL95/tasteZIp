@@ -1,0 +1,1013 @@
+@font-face {
+    font-family: 'LeferiPoint-SpecialItalicA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-SpecialItalicA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ì´ˆê¸°í™” */
+html {overflow-y:scroll;}
+body {margin:0;padding:0;font-size:0.75em;background:#000; overflow:hidden; min-width:360px;}
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img, p {margin:0;padding:0;border:0}
+h1, h2, h3, h4, h5, h6 {font-size:1em;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
+
+ul, dl,dt,dd {margin:0;padding:0;list-style:none}
+legend {position:absolute;margin:0;padding:0;font-size:0;line-height:0;text-indent:-9999em;overflow:hidden}
+label, input, button, select{vertical-align:middle;font-size:1em}
+input, button {margin:0;padding:0;outline: none;
+font-size: 16px;
+font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Header */
+body.headerFixed{padding-top: 152px;}
+body.headerFixed #header{position: fixed; width: 100%; top: 0; z-index: 99; box-sizing: border-box; padding: 0 60px;}
+body.headerFixed #header .hd{border-top: 0; }
+body.headerFixed #header .hd nav {top: 20px;}
+
+#header{padding:50px 60px;
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+	background:#000;
+}
+#header .hd {border-top:1px solid #ffff; padding-top:20px; }
+#header .hd h1{float:left; color:#fff;}
+#header .hd nav{position: absolute; right: 60px; top: 70px;}
+#header .hd nav ul{margin:0px; padding:0px;list-style:none;}
+#header .hd nav ul li{position: relative;}
+#header .hd nav ul li a.cate{ font-family:"LeferiPoint-SpecialItalicA"; font-size: 20px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: normal; letter-spacing: normal; text-align: right; color: #cccccc; display:block; text-decoration:none;}
+#header .hd nav ul li a.cate.active{font-family: "LeferiPoint-SpecialItalicA"; font-size: 20px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: normal; letter-spacing: normal; text-align: right; color: #ffffff; text-decoration:underline;}
+#header .hd nav ul li a.cate:hover{font-family: "LeferiPoint-SpecialItalicA"; font-size: 20px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: normal; letter-spacing: normal; text-align: right; color: #ffffff; text-decoration:underline;}
+
+#header .hd nav ul li a.cateSub{font-family:"LeferiPoint-SpecialItalicA"; font-size: 12px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.83; letter-spacing: normal; text-align: right; text-decoration:none; display:block; color:#fff;}
+#header .hd nav ul li a.cateSub.active{font-family:"LeferiPoint-SpecialItalicA"; font-weight: 900;  font-stretch: normal; font-style: normal; line-height: 1.83; letter-spacing: normal; text-align: right; color: #ffffff; }
+
+#header .hd nav ul li > ul{display: none; position: absolute; top: 30px; right: 0;}
+#header .hd nav ul li.subMenu > ul{display: block;}
+
+/* ì „ì²´í™”ë©´ ë²„íŠ¼ */ 
+video::-webkit-media-controls-fullscreen-button {display: none !important;}
+/* ì¼ì‹œì •ì§€, ìž¬ìƒ ë²„íŠ¼ */
+video::-webkit-media-controls-play-button {display: none !important;} 
+/* ìž¬ìƒ ìŠ¬ë¼ì´ë“œ..? */
+video::-webkit-media-controls-timeline {display: none !important;} 
+/* í˜„ìž¬ ì§„í–‰ ì‹œê°„ */
+video::-webkit-media-controls-current-time-display{display: none !important;} 
+/* ì „ì²´ ì‹œê°„ */
+video::-webkit-media-controls-time-remaining-display {display: none !important;} 
+/* ìŒì†Œê±° ë²„íŠ¼ */
+video::-webkit-media-controls-mute-button {display: none !important;} 
+/* ë³¼ë¥¨ ì¡°ì ˆ ìŠ¬ë¼ì´ë“œ */
+video::-webkit-media-controls-volume-slider {display: none !important;} 
+/* ê´„í˜¸ì— display: none !important; ë¥¼ ì¶”ê°€í•˜ë©´ëœë‹¤. ì˜ˆ ) ì „ì²´í™”ë©´ ì „í™˜ ë²„íŠ¼ì„ ìˆ¨ê¸´ë‹¤. ë‹¤ë§Œ ë”ë¸”í´ë¦­ìœ¼ë¡œ ì „ì²´í™”ë©´ì´ ë˜ëŠ” ê¸°ëŠ¥ë“±ì€ ê·¸ëŒ€ë¡œê³  ë‹¨ì§€ ë²„íŠ¼ë§Œ ì—†ì•¤ë‹¤. */ video::-webkit-media-controls-fullscreen-button { display: none !important; }
+
+
+.ham_menu{
+	display: none;
+	position: absolute;
+	top: 40px;
+	right: 20px;
+}
+
+.ham_open{
+	display: inline-block;
+	width: 16px;
+	height: 12px;
+	background-image: url("http://leferitype.com/img/group-7.png");
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.ham_close{
+	display: inline-block;
+	width: 14px;
+	height: 13px;
+	background-image: url("http://leferitype.com/img/ham_close.png");
+	background-size: contain;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+
+@media screen and (max-width: 845px) {
+	body.headerFixed{padding-top: 92px;}
+	body.headerFixed #header{padding: 0 20px;}
+	body.headerFixed #header .ham_menu{
+		top: 20px;
+	}
+	
+	#header{
+		padding: 20px;
+	}
+
+	.ham_menu{
+		display: block;
+	}
+	
+	#header .hd nav{
+		display: none;
+		width: 100%;
+		position: inherit;
+	}
+
+	#header.m-active{
+		height: 100vh;
+	}
+
+	#header.m-active .hd nav ul li a.cate{
+		text-align: left;
+	}
+
+	#header.m-active .hd nav ul li a.cate.active{
+		 font-size: 25.6px;
+	}
+
+	#header.m-active .hd nav ul li a.cateSub.active{
+		text-align: left;
+		font-size: 19.2px;
+	}
+
+	#header.m-active .hd nav ul li a.cateSub{
+		text-align: left;
+		font-size: 19.2px;
+	}
+
+	#header.m-active .hd nav ul li > ul {
+		position: inherit;
+		top: inherit;
+		right: inherit;
+		padding-top: 13px;
+
+	}
+
+	#header.m-active .hd nav ul li > ul  > li{
+		padding-bottom: 10px;
+	}
+
+	#header.m-active .hd nav{
+		display: block;
+		padding-top: 37px;
+	}
+
+	#header.m-active .hd nav > ul > li{
+		padding-bottom: 4px;
+	}
+
+	#header.m-active .hd nav > ul > li a{
+		font-size: 25.6px;
+		font-weight: normal;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: normal;
+		letter-spacing: normal;
+		color: #cccccc;
+	}
+
+	#header.m-active .hd h1{
+		float: inherit;
+	}
+
+}
+
+
+
+
+
+/* Section1 */
+#intro{overflow:hidden; margin-top:220px;}
+
+#intro .introVideo{padding:420px 0px 0px; overflow:hidden; position: relative;}
+#intro .introVideo h1{position: absolute; top: 0; left: 0; padding:0px 60px; font-family:"LeferiPoint-SpecialItalicA"; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal;letter-spacing: normal; color: #ffffff; line-height: 0.92;}
+#intro .introVideo h1::after{
+	content: "";
+	position: absolute;
+	bottom: 15%;
+	right: 21%;
+	display: inline-block;
+	width: 75px;
+	height: 28px;
+	background-image: url("/img/sec1-typo.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 180%;
+}
+#intro .introVideo h1.textFixed{position: fixed; top: 60px;}
+#intro .introVideo h1.textAbsolute{position: absolute; bottom: 60px; left: 0; top: inherit;}
+
+@media screen and (max-width: 1200px) {
+	
+	#intro .introVideo{
+		padding:280px 0px 0px;
+	}
+
+	#intro .introVideo h1::after{
+		bottom: 15%;
+		right: 22%;
+		width: 45px;
+		height: 15px;
+		background-size: 180%;
+
+	}
+
+	#intro .introVideo h1{
+		font-size: 60px;
+	}
+}
+
+@media screen and (max-width: 845px) {
+
+	#intro{overflow:hidden; margin-top: 150px;}
+
+	#intro .introVideo h1{font-size: 42.5px; padding: 0px 20px; line-height: 0.92;}
+
+	#intro .introVideo{
+		padding:180px 0px 0px;
+	}
+	#intro .introVideo h1::after{
+		right: 14%;
+	}
+	#intro .introVideo h1.textAbsolute{
+		bottom: 20px;
+	}
+
+}
+
+
+
+
+/* Section2 */
+#overview{overflow:hidden; margin: 60px 0 0;}
+#overview .overview_title{padding:20px 60px; border-top:1px solid rgba(255,255,255,.3); border-bottom:1px solid rgba(255,255,255,.3);}
+#overview h1{font-family: LeferiPointBlack; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; letter-spacing: normal; color: #ffffff;}
+#overview .overviewWr{padding:90px 60px; overflow:hidden;}
+#overview .overviewWr .overviewTxt{overflow:hidden; float:left; font-family:"LeferiPointWhite"; font-size: 18px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 2; letter-spacing: normal; color: #ffffff;}
+#overview .overviewWr .overviewVideo{overflow:hidden; float:right; max-width:1180px;}
+#overview .overviewCont{padding: 90px 0;}
+#overview .overviewContWr{padding:0 60px 0 35%; overflow:hidden; position: relative;}
+#overview .overviewContWr .overviewTxt {
+	width: 20%;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding-left: 60px;
+}
+#overview .overviewContWr .overviewTxt p{
+	font-family:"LeferiPointWhite"; 
+	font-size: 16px; 
+	font-weight: normal; 
+	font-stretch: normal; 
+	font-style: normal; 
+	line-height: 1.75; 
+
+	color: #ffffff;
+	word-break: keep-all;
+}
+
+#overview .overviewContWr .overviewTxt p:first-child {
+	padding-bottom: 20px;
+}
+
+#overview .overviewContWr .overviewVideo {
+	width: 100%;
+	overflow: hidden;
+	float: left;
+	vertical-align: top;
+}
+
+
+
+@media screen and (max-width: 1680px) {
+	#overview .overviewContWr{
+		padding: 0 30px 0 35%;
+	}
+
+	#overview .overviewContWr .overviewTxt{
+		width: 30%;
+		padding-left: 30px;
+	}
+
+	#overview .overviewContWr .overviewTxt p{
+		font-size: 16px;
+	}
+}
+
+
+
+@media screen and (max-width: 1200px) {
+	#overview .overviewContWr{
+	}
+
+	#overview .overviewContWr .overviewTxt p{
+		font-size: 12px;
+	}
+
+}
+
+@media screen and (max-width: 845px) {
+
+	#overview .overview_title{
+		padding: 0;
+	}
+
+	#overview .overview_title h1 {
+		padding: 16px 20px;
+		font-size: 24px;
+		line-height: 0.92;
+	}
+
+	#overview .overviewCont{
+		padding: 24px 0;
+	}
+
+	#overview .overviewContWr{
+		display: block;
+		padding: 0 20px;
+	}
+
+	#overview .overviewContWr .overviewVideo{
+		float: inherit;
+		width: 100%;
+	}
+	
+	#overview .overviewContWr .overviewTxt {
+		width: 100%;
+		float: inherit;
+		position: inherit;
+		padding-bottom: 58px;
+		padding-left: 0
+	}
+
+
+
+
+	#overview .overviewContWr .overviewTxt p {
+		font-size: 12px;
+		padding-left: 0;
+	}
+
+}
+
+@media screen and (max-width: 845px) {
+	#overview h1{font-size: 24px; padding: 16px 20px; line-height: 0.92;}
+	#overview .overviewWr {
+		padding: 24px 20px;
+	}
+}
+
+
+
+/* Section3 */
+#recording{overflow:hidden;}
+#recording .recording_title{padding:20px 60px; border-top:1px solid rgba(255,255,255,.3); border-bottom:1px solid rgba(255,255,255,.3);}
+#recording .recording_title h1{font-family: LeferiPointBlack; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; letter-spacing: normal; color: #ffffff;}
+#recording .recordingCont{padding: 90px 0;}
+#recording .recordingContWr{padding:0 35% 0 60px; overflow:hidden; position: relative;}
+#recording .recordingContWr .recordingTxt {
+	width: 20%;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-right: 60px;
+}
+#recording .recordingContWr .recordingTxt p{
+	font-family:"LeferiPointWhite"; 
+	font-size: 16px; 
+	font-weight: normal; 
+	font-stretch: normal; 
+	font-style: normal; 
+	line-height: 1.75; 
+	letter-spacing: normal;
+	color: #ffffff;
+}
+
+#recording .recordingContWr .recordingTxt p:first-child {
+	padding-bottom: 20px;
+}
+
+#recording .recordingContWr .recordingVideo {
+	width: 100%;
+	overflow: hidden;
+	float: right;
+	vertical-align: top;
+}
+
+.rbotVideo{
+	position: relative;
+}
+
+.rbotVideo .rbot_text{
+	position: absolute;
+
+}
+
+
+@media screen and (max-width: 1680px) {
+	#recording .recordingContWr{
+			padding: 0 35% 0 30px;
+	}
+
+	#recording .recordingContWr .recordingTxt{
+		width: 30%;
+		padding-right: 30px;
+	}
+
+	#recording .recordingContWr .recordingTxt p{
+		font-size: 16px;
+	}
+}
+
+
+
+@media screen and (max-width: 1200px) {
+	#recording .recordingContWr{
+	}
+
+	#recording .recordingContWr .recordingTxt p{
+		font-size: 12px;
+	}
+
+}
+
+@media screen and (max-width: 845px) {
+	#rbotVideoWr {
+		height:auto !important;
+	}
+	#rbotVideoWr .rbotVideo {
+		padding-bottom:0 !important;
+		
+	}
+	#rbotVideoWr .rbotVideo_wrap {
+		position:static !important;
+		width:100% !important;
+	}
+	
+	#recording .recording_title{
+		padding: 0;
+	}
+
+	#recording .recording_title h1 {
+		padding: 16px 20px;
+		font-size: 56px;
+		line-height: 1;
+	}
+
+	#recording .recordingCont{
+		padding: 24px 0;
+	}
+
+	#recording .recordingContWr{
+		display: block;
+		padding: 0 20px;
+	}
+
+	#recording .recordingContWr .recordingVideo{
+		float: inherit;
+		width: 100%;
+	}
+	
+	#recording .recordingContWr .recordingTxt {
+		width: 100%;
+		float: inherit;
+		position: inherit;
+		padding-bottom: 58px;
+		padding-right: 0
+	}
+
+
+
+
+	#recording .recordingContWr .recordingTxt p {
+		font-size: 12px;
+		padding-left: 0;
+	}
+
+}
+
+#rbotVideoWr{
+	position: relative;
+	/*cursor : url("/img/mouse_cursor.svg") 42 42, auto;*/
+}
+
+#rbotVideoWr .rbotVideo{
+	padding-bottom: 56%;
+}
+#rbotVideoWr.content_fixed .rbotVideo_wrap{
+	position: fixed;
+	top: 0;
+}
+#rbotVideoWr .rbotVideo_wrap{
+	width: 9999px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#rbotVideoWr .rbotVideo_wrap > div{
+	float: left;
+	position: relative;
+}
+#rbotVideoWr .rbotVideo_wrap .txt{
+	width:100%;
+	position:absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align:left;
+	padding-left:60px;	
+	font-family: "LeferiPointBlack";
+	font-size: 280px;
+	font-weight: 900;
+	color:#fff;
+	line-height:0.9;
+}
+
+@media screen and (max-width: 845px) {
+	#rbotVideoWr .rbotVideo_wrap .txt{
+		font-size:24px;
+	}
+}
+
+
+
+/* Section4 */
+#family{overflow:hidden;}
+#family h1{font-family: "LeferiPointSpecial"; font-size: 200px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.1; letter-spacing: normal; color: #ffffff;}
+#family .familyWr{margin-top: 44px;}
+#family .familyWr h1{padding:70px 0px; text-align:center;}
+#family .familyWr h1:first-child{border-bottom:1px solid rgba(255, 255, 255, 0.3);}
+#family .familyWr h1:last-child{font-family: "LeferiPointBlack"; font-size: 180px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: 1.22; letter-spacing: normal; color: #ffffff;}
+
+
+.baseType_title p{
+	font-family:"LeferiPointWhite";
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.75;
+	letter-spacing: normal;
+	text-align: left;
+	color: #ffffff;
+	padding-top: 3px;
+	padding-left: 21.5%;
+	word-break: keep-all;
+}
+
+.baseType_title h2{
+	font-family: "LeferiPointBlack";
+	font-size: 80px;
+	font-weight: 900;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.15;
+	letter-spacing: normal;
+	color: #ffffff;
+}
+
+#spec_txt .baseType_title p { padding-top:5px;padding-left: 26.5%;}
+
+.baseType_title{display: flex; align-items: top; justify-content: center; width: 62%;  margin: 0 auto; padding: 130px 0 120px;}
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -16px;
+	margin-left: -16px;
+}
+
+.col-8 {
+	flex: 0 0 100%;
+	max-width: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.character-grid .grid {
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 32px;
+	padding-bottom: 0;
+	width: calc(100%);
+
+}
+
+
+.character-grid .grid .character-set-category {
+	display: flex;
+	font-size: calc(80vw / 32);
+	text-align: center;
+	width: 100%;
+	flex: 0 1 auto;
+	flex-flow: row;
+	flex-wrap: wrap;
+
+}
+
+.character-grid .grid .character-set-box.zoomed {
+	background: rgba(255, 255,255, 0.9);
+	box-shadow: 0 0;
+	color: #000;
+	display: none;
+	font-size: calc(84vw / 6.8);
+	height: 0;
+	line-height: calc(84vw / 3);
+	padding-top: 30%;
+	pointer-events: none;
+	position: absolute;
+	text-align: center;
+	transition: opacity 113ms cubic-bezier(.2,.2,.38,.9);
+	width: 30%;
+}
+
+.character-grid .grid .character-set-box.zoomed span{
+	color: #000;
+}
+
+.character-grid .grid #plex-character-zoomed {
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 10000;
+}
+
+.character-grid .grid .character-set-box {
+	line-height: calc(100vw / 10);
+	padding-top: 10%;
+	position: relative;
+	width: 10%;
+}
+
+.character-grid .grid .single-item.character-set-box {
+	border: 0!important;
+	box-shadow: 1px 0 0 0 #171717, 0 1px 0 0 #171717, 1px 1px 0 0 #171717, 1px 0 0 0 #171717 inset, 0 1px 0 0 #171717 inset;
+	color: #FFF;
+}
+
+.character-grid .grid .single-item.character-set-box span{
+	font-size: 1em;
+	font-family: "LeferiPointBlack";
+}
+
+.character-grid .grid .character-set-box span {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+
+}
+
+
+@media screen and (max-width: 1680px) {
+	.baseType_title p{
+		padding-left:12%;
+	}
+	#spec_txt .baseType_title p {padding-left: 18.5%;}
+
+}
+
+@media screen and (max-width: 1200px) {
+	#family h1{font-size: 100px;}
+	.baseType_title{width: 80%;}
+	.baseType_title p{padding-left:10%;}
+}
+
+
+@media screen and (max-width: 845px) {
+	#family .familyWr h1 {
+		font-size: 48.5px;
+		padding: 0 0 20px;
+		line-height: 1.1;
+	}
+
+	#family .familyWr h1:last-child{
+		padding: 9px 0 14px;
+	}
+
+	.baseType_title{width: 100%; display: block; padding: 58px 0 58px;}
+	.baseType_title h2{
+		font-size: 24px;
+		display: block;
+		text-align: center;
+	}
+	.baseType_title p{
+		font-size: 12px;
+		padding-left: 20px;
+		padding-right: 20px;
+		padding-top: 24px;
+		text-align: center;
+		line-height: 1.83;
+	}
+	.character-grid .grid .character-set-box {
+		line-height: calc(100vw / 5);
+		padding-top: 20%;
+		position: relative;
+		width: 20%;
+	}
+
+	.character-grid .grid .character-set-box.zoomed {
+		width: 50%;
+		padding-top: 50%;
+		line-height: calc(84vw / 1.8);
+	}
+
+	.character-grid .grid .single-item.character-set-box span:not(.zoomed_text){
+		font-size: 1.9em;
+		font-weight: 900;
+	}
+
+
+}
+
+
+/* Section5 */
+#weight{background:#121111}
+#weight .weightWr .weight_title{display:flex; align-items: top; justify-content: center; width: 62%; margin: 0 auto; padding: 130px 0 120px;}
+#weight .weightWr .weight_title h2{font-family: "LeferiPointBlack"; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: 1.15; letter-spacing: normal; color: #ffffff;}
+#weight .weightWr .weight_title p{font-family: "LeferiPointWhite"; font-size: 16px; font-weight: normal; font-stretch: normal; font-style: normal; letter-spacing: normal; text-align: left; color: #ffffff; padding-left:20%; padding-top:5px; word-break: keep-all; line-height:1.75;}
+#weight .weightCont{overflow:hidden;  margin:0px auto; width:100%;}
+#weight .weightCont div{float:left; text-align:center; padding-right:2%;}
+#weight .weightCont div:last-child{padding:0px;}
+#weight .weightCont div p.title{color:#fff; font-size: 280px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 356px; letter-spacing: normal;}
+#weight .weightCont div p.sub{font-family: "LeferiPointBlack"; font-size: 21px; font-weight: 900; font-stretch: normal; font-style: normal; letter-spacing: normal; color: #ffffff; line-height:31px;}
+#weight .weightCont div.white p.title{font-family: "LeferiPointWhite";}
+#weight .weightCont div.regular p.title{font-family: "LeferiBaseRegular";}
+#weight .weightCont div.special p.title{font-family: "LeferiPointSpecial";}
+#weight .weightCont div.bold p.title{font-family: "LeferiPointBold"; font-weight:bold;}
+#weight .weightCont div.black p.title{font-family: "LeferiPointBlack";}
+
+#feature .featureWr .feature_title{display:flex; align-items: top; justify-content: center; width: 62%; margin: 0 auto; padding: 130px 0 130px;}
+#feature .featureWr .feature_title h2{font-family: "LeferiPointBlack"; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: 1.15; letter-spacing: normal; color: #ffffff;}
+#feature .featureWr .feature_title p{font-family: "LeferiPointWhite"; font-size: 16px; font-weight: normal; font-stretch: normal; font-style: normal; letter-spacing: normal; text-align: left; color: #ffffff; padding-left:17%; padding-top:10px; word-break: keep-all; line-height:1.75;}
+#feature .featureCont .featureTop{padding-bottom:120px; display:flex; align-items: top; justify-content: center; width: 100%; margin: 0 auto; font-family: "LeferiPointSpecialItalic"; font-size: 460px; font-weight: normal; font-stretch: normal;  line-height: normal; letter-spacing: normal; text-align: center; color: #ffffff;}
+#feature .featureCont .featureWrapper{overflow:hidden;}
+#feature .featureCont .featureWrapper h1{display:flex; align-items: top; justify-content: center; width: 100%; margin: 0 auto; padding:120px 0; font-family:"LeferiPointBlack"; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: normal; letter-spacing: normal; color: #ffffff;}
+#feature .featureCont .featureBox{width: 1180px; padding-right: 500px; margin: 0 auto; position: relative; overflow: hidden;}
+#feature .featureCont .featureBox.featureBoxRight{padding-left: 500px; padding-right: 0;}
+#feature .featureCont .featureBox .featureFont{float:left; width:100%; overflow:hidden;}
+#feature .featureCont .featureBox .featureFont img{width:100%;}
+#feature .featureCont .featureBox .featureTxt{width: 449px; overflow: hidden; position: absolute; top:50%; right: 0; transform:translateY(-50%);}
+#feature .featureCont .featureBoxRight .featureTxt{left:0px; right:inherit;}
+#feature .featureCont .featureBox .featureTxt h1{font-family:"LeferiPointBlack";  font-size: 24px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: normal; letter-spacing: normal; color: #ffffff; margin-bottom:30px; padding:0; text-align:left; display:block;}
+#feature .featureCont .featureBox .featureTxt P{font-family:"LeferiPointWhite"; font-size: 16px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.75; letter-spacing: normal; color: #ffffff; text-align:left;     word-break: keep-all;}
+
+
+
+@media screen and (max-width: 1680px) {
+	#weight .weightWr .weight_title p {padding-left:10%;}
+	#feature .featureWr .feature_title p {padding-left:7%;}
+}
+
+@media screen and (max-width: 1180px) {
+	#feature .featureCont .featureBox{width: 100%; padding-right: 0;}
+	#weight .weightWr .weight_title{width: 100%;}
+	#weight .weightWr .weight_title p{padding-left:10%;}
+	#weight .weightCont{display:block; }
+	#weight .weightCont div{width:31%; padding:0px 1%;}
+	#weight .weightCont div p.title{line-height:normal;}
+	#weight .weightCont div p.title{font-size:200px;}
+	#weight .weightCont div p.title{line-height:256px;}
+
+	#feature .featureWr .feature_title{width: 80%;}
+	#feature .featureWr .feature_title p{padding-left:10%;}
+	#feature .featureCont .featureTop{font-size:320px;}
+	#feature .featureCont .featureWrapper h1{font-size:50px;}
+	/*#feature .featureCont .featureBox{padding: 0px 35% 0 30px;}*/
+	#feature .featureCont .featureBox.featureBoxRight{padding:0;}
+	#feature .featureCont .featureBox .featureTxt{width: 100%; position: inherit; top: inherit; padding: 20px 20px 40px; transform: inherit;}
+}
+
+
+@media screen and (max-width: 845px) {
+
+	#weight .weightWr .weight_title{width: 100%; display: block; padding: 58px 0;}
+	#weight .weightWr .weight_title h2{font-size: 24px;display: block;text-align: center;}
+	#weight .weightWr .weight_title p{font-size: 12px;padding-left: 20px;padding-right: 20px;padding-top: 24px;text-align: center;}
+	#weight .weightCont{display:block; padding-bottom:0px;}
+	#weight .weightCont div{width:48%}
+	#weight .weightCont div{padding:0px 1%;}
+	#weight .weightCont div p.title{line-height:normal;}
+	#weight .weightCont div p.title{font-size:136px;}
+	#weight .weightCont div p.title{line-height:156px;}
+
+	#feature .featureWr .feature_title{width: 100%; display: block; padding: 58px 0;}
+	#feature .featureWr .feature_title h2{font-size: 24px;display: block;text-align: center;}
+	#feature .featureWr .feature_title p{font-size: 12px;padding-left: 20px;padding-right: 20px;padding-top: 24px;text-align: center;}
+	#feature .featureCont{display:block; padding-bottom:58px;}
+	#feature .featureCont .featureTop{font-size:124px; padding-bottom:58px;}
+	#feature .featureCont .featureWrapper h1{font-size:24px; margin-bottom:50px;}
+	/*#feature .featureCont .featureBox{padding:0px 20px; margin-bottom:50px;}*/
+	#feature .featureCont .featureBox.featureBoxRight{padding:0px;}
+	#feature .featureCont .featureBox .featureFont{float:inherit; width:100%;}
+	
+	#feature .featureCont .featureBox .featureTxt h1{font-size:14px; margin:20px 0px;}
+	#feature .featureCont .featureBox .featureTxt P{font-size:12px;}
+	
+	#character h1.title { padding:58px 0 !important; }
+}
+
+
+
+/* Section6 */
+#down{overflow:hidden; background:#fff; padding:150px 0px;}
+#down .downWr{margin:0px auto; text-align:center;}
+#down .downWr h1{display:flex; align-items: top; justify-content: center; width: 100%; margin: 0 auto;  font-family:"LeferiPointBlack"; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: 1.13; letter-spacing: normal; text-align: center; color: #000000;}
+#down .downWr h2{font-family:"LeferiPointWhite"; font-size: 16px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.75; letter-spacing: normal; text-align: center; color: #000000;}
+#down .downWr .downArrow{margin:30px 0px;}
+#down .downWr a{margin-top:35px; font-family:"LeferiBaseBold"; font-size: 14px; font-weight: bold; font-stretch: normal; font-style: normal; line-height: normal; letter-spacing: normal; text-align: center; color: #000000; border: solid 1px #979797; display:inline-block; padding:15px 120px; text-decoration:none;}
+
+
+@media screen and (max-width: 1200px) {
+	
+}
+
+
+@media screen and (max-width: 845px) {
+	#down{padding:60px 20px;}
+	#down .downWr h1{font-size:24px;}
+	#down .downWr .downArrow{margin:20px 0px;}
+	#down .downWr h2{font-size:12px;}
+}
+
+
+
+/* Footer */
+#footer{padding:40px 60px; overflow:hidden;}
+#footer h1{float:left; overflow:hidden;}
+#footer nav{float:right; color:#fff;}
+#footer nav h2{font-family:"LeferiPointBlack"; font-size: 14px; font-weight: 900; font-stretch: normal; font-style: normal; line-height: 1.9; letter-spacing: normal; text-align: right; color: #ffffff; padding-right: 28px; position: relative; cursor: pointer;}
+#footer nav ul{margin:0px; padding:0px; overflow:hidden; list-style:none;}
+#footer nav ul li{}
+#footer nav ul li a{ color:#fff; }
+#ft_company{margin-top:50px; overflow:hidden;}
+#ft_company .ft_info > div{float:left; color:#fff; margin-right:50px;}
+#ft_company .ft_info > div p {font-family:"LeferiPointWhite"; font-size: 14px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 1.86;letter-spacing: normal; color: #ffffff;}
+#ft_company .ft_info > div a{font-family:"LeferiPointWhite"; font-size: 12px; font-weight: normal; font-stretch: normal; font-style: normal;line-height: 2.17; letter-spacing: normal; color: #ffffff;}
+
+.ft_hd{display: inline-block;
+	width: 100%;}
+
+.fnav_top{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 12px 7px;
+	background-image: url("./img/foot_nav_bottom.png");
+	position: absolute;
+	right: 0;
+	top: 0;
+
+}
+
+.family_site_list{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 30px;
+}
+
+#footer nav ul li:hover a{
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.family_site_list > li a{
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+
+.family_site_list.is-block{
+	display: block;
+}
+
+@media screen and (max-width: 845px) {
+	#footer{padding:30px 20px; }
+	#footer nav h2{font-size:12px;}
+	#ft_company .ft_info > div{float:inherit; margin-bottom:10px;}
+	#ft_company .ft_info > div p{font-size:12px;}
+	#ft_company .ft_info > div a{font-size:10px;}
+}
+
+/* custom */
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.content {
+	padding: 20px 60px;
+	height: 100%;
+}
+
+.col {
+	width: 20%;
+	margin: 50px 20px;
+}
+
+.recentCard {
+	height: 450px;
+	border-radius: 20px;
+}
+
+.card-img-top {
+	border-radius: 20px;
+	height: 450px;
+}
+
+.card-body {
+	background: #000000;
+	margin-top: 20px;
+}
+
+.card-title {
+	margin-top: 0;
+	font-size: 20px;
+	text-align: center;
+	color: white;
+	font-family: "Ghanachocolate";
+}
+
+.card-text {
+	margin-top: 10px;
+	color: white;
+	text-align: center;
+	font-size: 15px;
+	font-family: "ChosunilboNM";
+}
+
+.sub_title {
+	padding: 20px 60px;
+}
+
+.sub_title h2 {
+	font-family: "LeferiPoint-SpecialItalicA";
+	font-size: 50px;
+	color: white;
+	font-weight: 800;
+}
+
+.sub_title .recommendCard {
+	height: 650px;
+	border-radius: 20px;
+}
+
+.sub_title .card .card-img-top {
+	height: 650px;
+}
+
+/* offcanvas */
+.offcanvas-body {
+	color: white;
+}
+
+.nav-item {
+	font-family: "LeferiPoint-SpecialItalicA";
+	font-size: 30px;
+	text-align: center;
+}
+
+.sub {
+	font-family: "LeferiPoint-SpecialItalicA";
+	text-align: left;
+	font-size: 25px;
+}
+
+.search {
+	display: flex;
+	position: relative;
+}
+
+.searchBtn {
+	position: absolute;
+	right: 16px;
+	border: 0;
+}
+
+.nav-link:hover {
+	text-shadow: 1px 2px 15px orange;
+}
+
+.btn-outline-success {
+    --bs-btn-color: #000;
+    --bs-btn-border-color: none;
+    --bs-btn-hover-color: #FF7F00;
+    --bs-btn-hover-bg: none;
+    --bs-btn-hover-border-color: none;
+    --bs-btn-focus-shadow-rgb: 25,135,84;
+    --bs-btn-active-color: #FF7F00;
+    --bs-btn-active-bg: none;
+    --bs-btn-active-border-color: none;
+    --bs-btn-active-shadow: none;
+    --bs-btn-disabled-color: none;
+    --bs-btn-disabled-bg: transparent;
+    --bs-gradient: none;
+}

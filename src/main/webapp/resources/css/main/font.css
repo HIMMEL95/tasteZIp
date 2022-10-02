@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'LeferiBaseRegular';
+    src: url('../fonts/LeferiBaseRegular.eot');
+	src: url('../fonts/LeferiBaseRegular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'LeferiBaseBold';
+    src: url('../fonts/LeferiBaseBold.eot') format('embedded-opentype');
+	src: url('../fonts/LeferiBaseBold.woff') format('woff');
+}
+
+
+@font-face {
+     font-family: 'LeferiPointBlack';
+     src: url('../fonts/LeferiPointBlack.eot') format('embedded-opentype');
+	 src: url('../fonts/LeferiPointBlack.woff') format('woff');
+}
+
+
+@font-face {
+     font-family: 'LeferiPointBlackOblique';
+     src: url('../fonts/LeferiPointBlackOblique.eot') format('embedded-opentype');
+	 src: url('../fonts/LeferiPointBlackOblique.woff') format('woff');
+}
+
+
+@font-face {
+     font-family: 'LeferiPointSpecial';
+     src: url('../fonts/LeferiPointSpecial.eot') format('embedded-opentype');
+	 src: url('../fonts/LeferiPointSpecial.woff') format('woff');
+}
+
+
+@font-face {
+     font-family: 'LeferiPointSpecialItalic';
+     src: url('../fonts/LeferiPointSpecialItalic.eot') format('embedded-opentype');
+	 src: url('../fonts/LeferiPointSpecialItalic.woff') format('woff');
+}
+
+@font-face {
+     font-family: 'LeferiPointWhite';
+     src: url('../fonts/LeferiPointWhite.eot') format('embedded-opentype');
+	 src: url('../fonts/LeferiPointWhite.woff') format('woff');
+}
+
+@font-face {
+     font-family: 'LeferiPointWhiteOblique';
+     src: url('../fonts/LeferiPointWhiteOblique.eot') format('embedded-opentype');
+	 src: url('../fonts/LeferiPointWhiteOblique.woff') format('woff');
+}

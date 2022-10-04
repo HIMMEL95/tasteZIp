@@ -263,6 +263,16 @@
                                 </div>
                             </a>
                         </div>
+                        <div class="col">
+                            <a href="#">
+                                <div class="card recommendCard">
+                                    <img src="https://cdn.pixabay.com/photo/2017/08/06/06/43/pizza-2589575_960_720.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">피자</h5>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="sub_title">
@@ -292,6 +302,16 @@
                             <a href="#">
                                 <div class="card recommendCard">
                                     <img src="/resources/images/main/santorini.jpg" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">산토리니</h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="#">
+                                <div class="card recommendCard">
+                                    <img src="https://images.unsplash.com/photo-1613946069412-38f7f1ff0b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">산토리니</h5>

@@ -155,21 +155,8 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col">
-                        <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-                            </div>
-                        </a>
-                    </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col">
                         <a href="#">
                             <div class="card recentCard">
@@ -222,7 +209,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <section id="recording">

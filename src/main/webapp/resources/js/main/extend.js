@@ -114,8 +114,8 @@ $(document).ready(function(){
 		/***해더 메뉴 스크롤 글씨 액티브**/
 
 		var introTop = $("#intro").offset().top-40;
-		var overviewTop = $("#overview").offset().top-125;
-		var recordingTop = $("#recording").offset().top-125;
+		var overviewTop = $("#overview").offset().top-70;
+		var recordingTop = $("#recording").offset().top-160;
 		
 		if(scrolltop >= introTop && overviewTop > scrolltop){
 			$(".hd nav > ul > li > a").removeClass("active");

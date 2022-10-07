@@ -103,8 +103,8 @@
                     a review of<br>
                     such a good restaurant.
                 </h1>
-                <video autoplay="" muted="" loop="" playsinline="" preload="meta" width="100%" class="intro_video">
-                    <source src="/resources/images/main/matzipMainVideo.mp4" type="video/mp4">
+                <video autoplay muted volume="10" playsinline="" preload="meta" width="100%" class="intro_video">
+                    <source src="/resources/images/main/matzip.mp4" type="video/mp4">
                     지원하지 않는 웹 브라우저 입니다.
                 </video>
             </div>

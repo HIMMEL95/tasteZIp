@@ -10,4 +10,14 @@ public class MainController {
 	public String tasteMain() throws Exception {
 		return "infra/main/user/taste_main";
 	}
+	
+	@RequestMapping(value = "login")
+	public String login() throws Exception {
+		return "infra/main/user/login";
+	}
+	
+	@RequestMapping(value = "signUp")
+	public String signUp() throws Exception {
+		return "infra/main/user/signUp";
+	}
 }

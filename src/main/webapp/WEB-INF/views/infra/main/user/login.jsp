@@ -16,9 +16,9 @@
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/main/homePage/common.css">
-    <link rel="stylesheet" href="/resources/css/main/homePage/animate.css">
-    <link rel="stylesheet" href="/resources/css/main/homePage/font.css">
+    <link rel="stylesheet" href="/resources/css/main/common.css">
+    <link rel="stylesheet" href="/resources/css/main/animate.css">
+    <link rel="stylesheet" href="/resources/css/main/font.css">
     <script defer type="text/javascript" src="/resources/js/main/common.js"></script>
     <script defer type="text/javascript" src="/resources/js/main/extend.js"></script>
     

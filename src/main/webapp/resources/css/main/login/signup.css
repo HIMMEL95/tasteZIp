@@ -107,13 +107,14 @@ div {
 .form-label {
    /*  color: #6c757d; */
 	color: white;
-	font-size: .8rem;
+	font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
 }
 
-.form-label {
-    margin-bottom: 0.5rem;
+.text-danger {
+	font-size: 15px;
 }
 
 .form-control {
@@ -209,7 +210,8 @@ label {
 
 .text-muted {
     --bs-text-opacity: 1;
-    color: #6c757d !important;
+    /* color: #6c757d !important; */
+    color: #fff !important;
 }
 
 .text-sm {
@@ -473,4 +475,5 @@ img {
 	border: 1px solid transparent;
 	background-color: transparent;
 	color: white;
+	text-decoration: underline;
 }

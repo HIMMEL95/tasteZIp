@@ -22,64 +22,103 @@
 <body>
 
     <main>
-		<div class="container-fluid px-3">
-			<div class="row min-vh-100">
-				<div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
-						<div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
-							<div class="mb-5"><img class="img-fluid mb-3" src="https://d19m59y37dris4.cloudfront.net/directory/2-0-1/img/logo-square.svg" alt="..." style="max-width: 4rem;">
-								<h2>Welcome back</h2>
-							</div>	
-							<form class="form-validate">
+    	<form method="post" id="myForm" name="myForm">
+	    	<div class="container-fluid px-3">
+		      	<div class="row min-vh-100">
+		        	<div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
+		         		<div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
+				            <div class="mb-5">
+				            	<button class="homeBtn" id="homeBtn" type="button">		            	
+				            		<img class="img-fluid mb-3" src="https://cdn-icons-png.flaticon.com/128/553/553416.png" alt="..." style="max-width: 4rem;">
+				            	</button>
+				              	<h2>Welcome back</h2>
+				            </div>
+			            	<form class="form-validate">
 								<div class="mb-4">
-									<label class="form-label" for="loginUsername"> Email Address</label>
-									<input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required="" data-msg="Please enter your email">
-								</div>
+				                	<label class="form-label" for="loginUsername"> Email Address</label>
+				                	<input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required="" data-msg="Please enter your email">
+				              	</div>
 								<div class="mb-4">
 									<div class="row">
 										<div class="col">
 											<label class="form-label" for="loginPassword"> Password</label>
 										</div>
-										<div class="col-auto"><a class="form-text small text-primary" href="#">Forgot password?</a></div>
+										<div class="col-auto">
+											<a class="form-text small text-primary" href="#">Forgot password?</a>
+										</div>
 									</div>
 									<input class="form-control" name="loginPassword" id="loginPassword" placeholder="Password" type="password" required="" data-msg="Please enter your password">
-								</div>
-								<div class="mb-4">
-									<div class="form-check">
-										<input class="form-check-input" id="loginRemember" type="checkbox">
-										<label class="form-check-label text-muted" for="loginRemember"> <span class="text-sm">Remember me for 30 days</span></label>
-									</div>
-								</div>
-								<!-- Submit-->
-								<div class="d-grid">
-										<button class="btn btn-lg btn-primary">Sign in</button>
-								</div>
-								<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
-								<div class="d-grid gap-2">
-									<button class="btn btn-outline-primary btn-social"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>
-									<button class="btn btn-outline-muted btn-social"><i class="fa-2x fa-google fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Google</span></button>
-								</div>
-								<hr class="my-4">
-								<p class="text-center"><small class="text-muted text-center">Don't have an account yet? <a href="signup.html">Sign Up                </a></small></p>
-							</form>
-							<a class="close-absolute me-md-5 me-xl-6 pt-5" href="index.html"> 
-								<svg class="svg-icon w-3rem h-3rem">
-									<use xlink:href="#close-1"> </use>
-								</svg>
-							</a>
+		              			</div>
+			              		<div class="mb-4">
+			                		<div class="form-check">
+			                 	 		<input class="form-check-input" id="loginRemember" type="checkbox">
+		                 	 			<label class="form-check-label text-muted" for="loginRemember">
+		                	 		 		<span class="text-sm">Remember me for 30 days</span>
+	                	 		 		</label>
+			                		</div>
+			              		</div>
+			              	<!-- Submit-->
+				             	<div class="d-grid">
+				              		<button class="btn btn-lg btn-primary">Sign in</button>
+				              	</div>
+				              	<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
+				              	<div class="d-grid gap-2">
+					                <button class="btn btn btn-outline-primary btn-social"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>
+					                <button class="btn btn btn-outline-muted btn-social"><i class="fa-2x fa-google fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Google</span></button>
+				              	</div>
+				              	<hr class="my-4">
+				              	<p class="text-center">
+				              		<small class="text-muted text-center">
+				              			Don't have an account yet? 
+				              			<button class="signUpBtn" id="signUpBtn" type="button">Sign Up</button>
+			              			</small>
+		              			</p>
+			            	</form>
+			            	<a class="close-absolute me-md-5 me-xl-6 pt-5" href="/tasteMain"> 
+			              		<i class="fa-solid fa-xmark fa-2x"></i>
+		              		</a>
+			          	</div>
+			        </div>
+			        <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">
+			          <!-- Image-->
+						<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+							<div class="carousel-inner">
+						  		<div class="carousel-item active" data-bs-interval="5000">
+						      		<img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="...">
+						    	</div>
+						    	<div class="carousel-item" data-bs-interval="5000">
+						     		<img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="...">
+						    	</div>
+						    	<div class="carousel-item" data-bs-interval="5000">	
+						      		<img src="https://images.unsplash.com/photo-1558024920-b41e1887dc32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjMzfHxmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="...">
+						    	</div>
+						  	</div>
 						</div>
 					</div>
-				<div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">
-					<!-- Image-->
-					<div class="bg-cover h-100 me-n3" style="background-image: url(https://d19m59y37dris4.cloudfront.net/directory/2-0-1/img/photo/photo-1497436072909-60f360e1d4b1.jpg);"></div>
 				</div>
 			</div>
-		</div>        
+		</form>
     </main>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	var goUrlHome = "/tasteMain";
+    	var goUrlSign = "/signUp";
+    	var form = $("#myForm");
+    
+    	$("#homeBtn").on("click", function() {
+			form.attr("action", goUrlHome).submit();
+		})
+		
+		$("#signUpBtn").on("click", function() {
+			form.attr("action", goUrlSign).submit();
+		})
+    </script>
 </body>
 
 </html>

@@ -70,6 +70,11 @@
 										<div class="col">
 											<label class="form-label" for="gender"> Gender <span class="text-danger">*</span></label>
 											<input class="form-control" name="gender" id="gender" placeholder="Password" type="password" data-msg="Please enter your password">
+											<select id="gender" name="gender" aria-label=".form-select-lg example" onfocusout="validationUpdt()">
+				                                <option value="" <c:if test="${empty item.gender}">selected</c:if>>선택</option>
+				                                <option value="5" <c:if test="${item.gender eq 5 }">selected</c:if>>남성</option>
+				                                <option value="6" <c:if test="${item.gender eq 6 }">selected</c:if>>여성</option>
+				                            </select>
 										</div>
 									</div>
 		              			</div>
@@ -97,6 +102,93 @@
 								            </div>
 								        </div>
 								    </div>
+		              			</div>
+								<div class="mb-4">
+									<div class="row">
+										<div class="col">
+											<label class="form-label" for="radio_operator"> 통신사 <span class="text-danger">*</span></label>
+											<select id="radio_operator" name="radio_operator" aria-label=".form-select-lg example">
+				                            	<option value="" <c:if test="${empty item.radio_operator}">selected</c:if>>선택</option>
+				                                <option value="1" <c:if test="${item.radio_operator eq 1 }">selected</c:if>>SKT</option>
+				                                <option value="2" <c:if test="${item.radio_operator eq 2 }">selected</c:if>>KT</option>
+				                                <option value="3" <c:if test="${item.radio_operator eq 3 }">selected</c:if>>LGT</option>
+				                                <option value="4" <c:if test="${item.radio_operator eq 4 }">selected</c:if>>알뜰폰</option>
+				                            </select>
+										</div>
+										<div class="col">
+											<input class="form-control" name="gender" id="gender" placeholder="Password" type="text" data-msg="Please enter your phoneNumber">
+										</div>
+										<div class="col">
+											<button type="button" class="btn fw-bold text-dark certification" style="background-color: #0d6efd;">인증번호</button>
+										</div>
+									</div>
+		              			</div>
+		              			<div class="mb-4">
+		              				 <div class="row" hidden>
+					                    <div class="col-6">
+					                        <div class="input-control">
+					                            <label for="tel_certification">인증번호</label>
+					                            <input id="tel_certification" name="tel_certification" type="text" onfocusout="validationUpdt()"> 
+					                            <div class="msg" id="tel_certi_msg" name="tel_certi_msg" style="display: none;"></div>
+					                        </div>
+					                    </div>
+					                    <div class="col-2">
+					                        <div class="row">
+					                            <div class="col">
+					                                <button type="button" class="btn fw-bold text-dark certification"
+					                                    style="background-color: #0d6efd;">중복확인</button>
+					                            </div>
+					                        </div>
+					                    </div>
+					                </div>
+		              			</div>
+		              			<div class="mb-4">
+		              				<div class="row">
+					                    <div class="col-6">
+					                        <div class="input-control">
+					                        	<label class="form-label" for="zip"> 우편번호 <span class="text-danger">*</span></label>
+												<input class="form-control" name="zip" id="zip" placeholder="ZipCode" type="text" data-msg="Please enter your ZipCode">
+					                        </div>
+					                    </div>
+					                    <div class="col-6">
+					                        <div class="row">
+					                            <div class="col">
+					                            	<div style="height: 28px;"></div>
+					                                <button type="button" id="searchBtn" class="btn fw-bold text-dark certification"
+					                                    style="background-color: #0d6efd;">주소검색</button>
+					                                <button id="refresh" class="btn btn-danger fw-bold btn-sm shadow" type="button">
+					                                        <i class="fa-solid fa-arrow-rotate-right"></i>
+					                                </button>
+					                            </div>
+					                        </div>
+					                    </div>
+					                </div>
+		              			</div>
+		              			<div class="mb-4">
+		              				<div class="row">
+					                    <div class="col">
+					                        <div class="input-control">
+					                        	<label class="form-label" for="address"> Address <span class="text-danger">*</span></label>
+												<input class="form-control" name="address" id="address" placeholder="address" type="text" data-msg="Please enter your address">
+					                        </div>
+					                    </div>
+					                </div>
+		              			</div>
+		              			<div class="mb-4">
+		              				<div class="row">
+					                    <div class="col">
+					                        <div class="input-control">
+					                        	<label class="form-label" for="address_detail"> Detail Address <span class="text-danger">*</span></label>
+												<input class="form-control" name="address_detail" id="address_detail" placeholder="address_detail" type="text" data-msg="Please enter your address_detail">
+					                        </div>
+					                    </div>
+					                    <div class="col">
+					                        <div class="input-control">
+					                        	<label class="form-label" for="extraAddress"> Extra Address <span class="text-danger">*</span></label>
+												<input class="form-control" name="extraAddress" id="extraAddress" placeholder="extraAddress" type="text" data-msg="Please enter your extraAddress">
+					                        </div>
+					                    </div>
+					                </div>
 		              			</div>
 			              		<div class="mb-4">
 			                		<div class="form-check">

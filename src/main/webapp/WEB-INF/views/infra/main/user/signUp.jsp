@@ -29,7 +29,7 @@
 		         		<div class="w-100 py-5 px-md-5 px-xxl-6 position-relative">
 				            <div class="mb-5">
 				            	<button class="homeBtn" id="homeBtn" type="button">		            	
-				            		<img class="img-fluid mb-3" src="https://cdn-icons-png.flaticon.com/128/553/553416.png" alt="..." style="max-width: 4rem;">
+				            		<img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;">
 				            	</button>
 				              	<h2>Create Account</h2>
 				            </div>
@@ -225,13 +225,13 @@
 						<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
 							<div class="carousel-inner">
 						  		<div class="carousel-item active" data-bs-interval="5000">
-						      		<img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="...">
+						      		<img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" class="d-block w-100" alt="...">
 						    	</div>
 						    	<div class="carousel-item" data-bs-interval="5000">
-						     		<img src="https://images.unsplash.com/photo-1432139509613-5c4255815697?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzl8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="...">
+						     		<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" class="d-block w-100" alt="...">
 						    	</div>
 						    	<div class="carousel-item" data-bs-interval="5000">	
-						      		<img src="https://images.unsplash.com/photo-1558024920-b41e1887dc32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjMzfHxmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" class="d-block w-100" alt="...">
+						      		<img src="https://images.unsplash.com/photo-1589227365423-d87e646beaac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="d-block w-100" alt="...">
 						    	</div>
 						  	</div>
 						</div>

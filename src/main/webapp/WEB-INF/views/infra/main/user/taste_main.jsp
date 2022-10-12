@@ -31,7 +31,7 @@
 		<div class="hd">
 			<h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <img src="/resources/images/main/tasteZip_logo.png" style="width: 100px;">
+                    <img src="/resources/images/main/logo2.png" style="width: 100px;">
                 </button>
 			</h1>
             <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">

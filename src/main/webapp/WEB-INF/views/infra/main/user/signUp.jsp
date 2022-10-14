@@ -119,7 +119,7 @@
 											<input class="form-control" name="gender" id="gender" placeholder="Password" type="text" data-msg="Please enter your phoneNumber">
 										</div>
 										<div class="col">
-											<button type="button" class="btn fw-bold text-dark certification" style="background-color: #0d6efd;">인증번호</button>
+											<button type="button" class="btn fw-bold text-white certification" style="background-color: #FF5733;">인증번호</button>
 										</div>
 									</div>
 		              			</div>
@@ -135,14 +135,14 @@
 					                    <div class="col-2">
 					                        <div class="row">
 					                            <div class="col">
-					                                <button type="button" class="btn fw-bold text-dark certification"
-					                                    style="background-color: #0d6efd;">중복확인</button>
+					                                <button type="button" class="btn fw-bold text-white certification"
+					                                    style="background-color: #FF5733;">중복확인</button>
 					                            </div>
 					                        </div>
 					                    </div>
 					                </div>
 		              			</div>
-		              			<div class="mb-4">
+		              			<!-- <div class="mb-4">
 		              				<div class="row">
 					                    <div class="col-6">
 					                        <div class="input-control">
@@ -189,31 +189,11 @@
 					                        </div>
 					                    </div>
 					                </div>
-		              			</div>
-			              		<div class="mb-4">
-			                		<div class="form-check">
-			                 	 		<input class="form-check-input" id="loginRemember" type="checkbox">
-		                 	 			<label class="form-check-label text-muted" for="loginRemember">
-		                	 		 		<span class="text-sm">Remember me for 30 days</span>
-	                	 		 		</label>
-			                		</div>
-			              		</div>
+		              			</div> -->
 			              	<!-- Submit-->
 				             	<div class="d-grid">
-				              		<button class="btn btn-lg btn-primary" type="button" id="saveBtn">Sign in</button>
+				              		<button class="btn btn-lg btn-primary text-white" type="button" id="saveBtn" style="background: #FF5733; border: none;">Sign Up</button>
 				              	</div>
-				              	<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
-				              	<div class="d-grid gap-2">
-					                <button class="btn btn btn-outline-primary btn-social"><i class="fa-2x fa-facebook-f fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Facebook</span></button>
-					                <button class="btn btn btn-outline-muted btn-social"><i class="fa-2x fa-google fab btn-social-icon"> </i>Connect <span class="d-none d-sm-inline">with Google</span></button>
-				              	</div>
-				              	<hr class="my-4">
-				              	<p class="text-center">
-				              		<small class="text-muted text-center">
-				              			Don't have an account yet? 
-				              			<button class="signUpBtn" id="signUpBtn" type="button">Sign Up</button>
-			              			</small>
-		              			</p>
 			            	</form>
 			            	<a class="close-absolute me-md-5 me-xl-6 pt-5" href="/tasteMain"> 
 			              		<i class="fa-solid fa-xmark fa-2x"></i>

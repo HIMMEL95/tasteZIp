@@ -315,7 +315,7 @@
     <footer>
         <footer id="footer">
             <div class="ft_hd">
-            <h1><img src="/resources/images/main/tasteZip_logo.png" style="width: 80px;"></h1>
+            <h1><img src="/resources/images/main/logo2.png" style="width: 80px;"></h1>
             <nav>
                 <h2 class="family_button">FAMILY<span class="footnav fnav_top"></span>
                     <ul class="family_site_list">

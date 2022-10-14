@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'ghanachoco';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
 	background-color: black;
+    font-family: 'ghanachoco';
 }
 
 .px-3 {
@@ -81,6 +89,7 @@ img, svg {
 h2, .h2 {
     font-size: calc(1.325rem + .9vw);
     color: white;
+    font-family: 'ghanachoco' !important;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
@@ -476,4 +485,12 @@ img {
 	background-color: transparent;
 	color: white;
 	text-decoration: underline;
+}
+
+.carousel {
+	height: 100%;
+}
+
+.carousel-inner {
+	height: 100%;
 }

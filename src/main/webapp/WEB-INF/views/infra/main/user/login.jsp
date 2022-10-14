@@ -44,7 +44,7 @@
 											<label class="form-label" for="loginPassword"> Password</label>
 										</div>
 										<div class="col-auto">
-											<a class="form-text small text-primary" href="#">Forgot password?</a>
+											<a class="form-text small" href="#" style="color: #FF5733;">Forgot password?</a>
 										</div>
 									</div>
 									<input class="form-control" name="loginPassword" id="loginPassword" placeholder="Password" type="password" required="" data-msg="Please enter your password">
@@ -59,7 +59,7 @@
 			              		</div>
 			              	<!-- Submit-->
 				             	<div class="d-grid">
-				              		<button class="btn btn-lg btn-primary">Sign in</button>
+				              		<button class="btn btn-lg text-white" style="background: #FF5733; border: none;">Sign in</button>
 				              	</div>
 				              	<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
 				              	<div class="d-grid gap-2">

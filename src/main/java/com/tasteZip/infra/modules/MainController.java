@@ -20,4 +20,9 @@ public class MainController {
 	public String signUp() throws Exception {
 		return "infra/main/user/signUp";
 	}
+	
+	@RequestMapping(value = "order")
+	public String order() throws Exception {
+	    return "infra/main/order/orderTest";
+	}
 }

@@ -14,28 +14,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>네이버 스포츠</title>
-    <script>"Microsoft Internet Explorer" === navigator.appName && (window.onload = function () { "false" !== window.sessionStorage.getItem("gameCenterIeAlert") && (window.sessionStorage.setItem("gameCenterIeAlert", "false"), alert("Internet Explorer 10 이하 버전의 유저에게는 일부 서비스가 정상 작동하지 않을 수 있습니다. 원활한 서비스를 위해 상위 버전으로 업그레이드 후 이용해 주시기를 권해드립니다.")) })</script>
-    <link
-        href="https://ssl.pstatic.net/static.sports/resources/web-ui/game/220804-183157/static/css/main.5632a96e.chunk.css"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-        href="https://ssl.pstatic.net/static.sports/resources/web-ui/game/220804-183157/static/css/14.ec71709b.chunk.css">
-    <script charset="utf-8"
-        src="https://ssl.pstatic.net/static.sports/resources/web-ui/game/220804-183157/static/js/14.956e9981.chunk.js"></script>
-    <link id="naver-splugin-css" rel="stylesheet" type="text/css"
-        href="https://ssl.pstatic.net/spi/css/20210531/spi_standard_m_https.css">
-    <script type="text/javascript" charset="utf-8"
-        src="https://ssl.pstatic.net/static.cbox/js/cbox.core.js?v=1383187"></script>
-    <style type="text/css" id="_cbox_default_style_"></style>
-    <link type="text/css" rel="stylesheet"
-        href="https://ssl.pstatic.net/static.cbox/20220804143236/css/comment_sports_talk.css" charset="utf-8">
+    <title>Order</title>
     <title>Game View</title>
+    <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="/resources/css/user/game.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/user/gameView.css" rel="stylesheet" type="text/css">
-    <link href="/resources/css/user/comment.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/resources/css/main/homePage/common.css">
+    <link rel="stylesheet" href="/resources/css/main/homePage/animate.css">
+    <link rel="stylesheet" href="/resources/css/main/homePage/font.css">
 </head>
 
 <body>
@@ -83,32 +69,13 @@
                     </ul>
                 </div>
             </div>
-			<div class="ham_menu">
-				<a href="javascript:;" class="ham_open_btn"><span class="ham_icon ham_open"></span></a>
-			</div>
-			<nav>
-				<ul>
-					<li>
-						<a href="javascript:;" id="intro_menu" class="cate" data-id="intro">
-							Intro
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;" id="overview_menu" class="cate" data-id="overview">
-							Recently Visited
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;" id="recording_menu" class="cate" data-id="recording">
-							Recommend
-						</a>
-					</li>
-				</ul>
-			</nav>
 		</div>
 	</header>
 
     <main>
+    	<div class="container">
+    		
+    	</div>
     </main>
 
     <footer>

@@ -13,7 +13,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>ZIpCodeGroup</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-		<link rel="stylesheet" href="/resources/css/codeGroupList.css">
+		<link rel="stylesheet" href="/resources/css/xdmin/codeGroup/codeGroupList.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -41,18 +41,18 @@
 						</nav>
 					</div>
 				</div>
-				<div style="background-color: #e3f2fd;">
-					<div class="container" >
+				<div class="bg-dark">
+					<div class="container">
 						<nav class="navbar navbar-expand-lg">
-							<a class="navbar-brand" href="#">Navbar</a>
+							<a class="navbar-brand text-white" href="#">MATZIP</a>
 							<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 								<div class="navbar-nav">
-									<a class="nav-link active" aria-current="page" href="#">회원관리</a>
-									<a class="nav-link" href="#">서비스관리</a>
-									<a class="nav-link" href="#">사이트관리</a>
-									<a class="nav-link" href="#">로그관리</a>
-									<a class="nav-link" href="#">시스템관리</a>
-									<a class="nav-link" href="#">시스템관리</a>
+									<a class="nav-link active text-white" aria-current="page" href="#">Code</a>
+									<a class="nav-link text-white" href="#">서비스관리</a>
+									<a class="nav-link text-white" href="#">사이트관리</a>
+									<a class="nav-link text-white" href="#">로그관리</a>
+									<a class="nav-link text-white" href="#">시스템관리</a>
+									<a class="nav-link text-white" href="#">시스템관리</a>
 								</div>
 							</div>
 						</nav>
@@ -202,13 +202,80 @@
 										</table>
 										<%-- <%@include file="../../common/xdmin/includeV1/pagination.jsp"%> --%>
 									</div>
+									<div class="row align-items-center m-2">
+			                            <div class="col-2">
+			                                <button class="border-0 btn shadow" type="button" data-bs-toggle="modal"
+			                                    data-bs-target="#deleteModal">
+			                                    <i class="fa-solid fa-trash fa-lg text-danger"></i>
+			                                </button>
+			                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
+			                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			                                    <div class="modal-dialog">
+			                                        <div class="modal-content">
+			                                            <div class="modal-header">
+			                                                <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
+			                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+			                                                    aria-label="Close"></button>
+			                                            </div>
+			                                            <div class="modal-body fs-6">
+			                                                선택하신 게시물을 정말로 삭제하시겠습니까?
+			                                            </div>
+			                                            <div class="modal-footer">
+			                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+			                                                <button type="button" class="btn btn-primary">삭제</button>
+			                                            </div>
+			                                        </div>
+			                                    </div>
+			                                </div>
+			                                <button class="border-0 btn btn-danger shadow" type="button" data-bs-toggle="modal"
+			                                    data-bs-target="#deleteModal">
+			                                    <i class="fa-solid fa-xmark"></i>
+			                                </button>
+			                            </div>
+			                            <div class="col-2 offset-8" align="right">
+			                                <button class="border-0 btn bg-success shadow" type="button" data-bs-toggle="modal"
+			                                    data-bs-target="#deleteModal">
+			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
+			                                </button>
+			                                <a class="border-0 btn shadow bg-primary" role="button" id="btnForm">
+			                                    <i class="fa-regular fa-plus fa-1x" style="color: white;"></i>
+			                                </a>
+			                            </div>
+			                        </div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</form>
-			<div class="container-fluid pe-4 ps-3">
+			<footer>
+		        <div class="footer">
+		            <div class="footer_inner">
+		                <!--[주]고객센터,제휴문의,서비스안내-->
+		                <ul class="footer_link" id="footer_link">
+		                    <li><a target="_blank" class="footer_item" href="http://www.naver.com/rules/service.html"
+		                            id="fot.agreement"><span class="text">이용약관</span></a></li>
+		                    <li><a target="_blank" class="footer_item" href="http://www.naver.com/rules/privacy.html"
+		                            id="fot.privacy"><span class="text"><strong>개인정보처리방침</strong></span></a></li>
+		                    <li><a target="_blank" class="footer_item" href="http://www.naver.com/rules/disclaimer.html"
+		                            id="fot.disclaimer"><span class="text">책임의 한계와 법적고지</span></a></li>
+		                    <li><a target="_blank" class="footer_item"
+		                            href="https://help.naver.com/support/service/main.nhn?serviceNo=532" id="fot.help"><span
+		                                class="text">회원정보 고객센터</span></a></li>
+		                </ul>
+		                <div class="footer_copy">
+		                    <a id="fot.naver" target="_blank" href="https://www.navercorp.com">
+		                        <img src="/resources/images/SPOPIA1.png" alt="logo" style="width: 45px;">
+		                    </a>
+		                    <span class="text">Copyright</span>
+		                    <span class="corp">© SPOPIA Corp.</span>
+		                    <span class="text">All Rights Reserved.</span>
+		                </div>
+		            </div>
+		        </div>
+		    </footer>
+			
+			<!-- <div class="container-fluid pe-4 ps-3">
 				<div class="row">
 					<div class="col-md-2 offset-4"> 
 						<button class="btn btn-danger del" type="button" onclick=deleteValue(); data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa-solid fa-trash-can"></i></button>
@@ -262,7 +329,7 @@
 						</ul>
 					</div>
 				</div>
-			</nav>			
+			</nav>			 -->
 		</main>
 	
 		<!-- end --> 

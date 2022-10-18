@@ -22,37 +22,43 @@
 <body>
 	<!-- start -->
 	<header>
-		<div class="header bg-light">
-			<div class="container">
-				<div class="row d">
-					<nav class="navbar col">
-						<div class="col">
-							<a class="navbar-brand" href="#"> <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="align-text-top ms-5"> <span></span> Management System
-							</a>
-						</div>
-						<div class="row offset-5">
-							<div class="userimg col">
-								<img alt="" src="../../user/img/user.png" style="width: 60px; height: 40px; border-radius: 100px;" class="me-4 mb-4 "> <span id="nm" class="d-inline-block">Tony Chang <br> Administrator
-								</span>
-							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-			<div style="background-color: #e3f2fd;">
+			<div class="header bg-dark">
 				<div class="container">
-					<nav class="navbar navbar-expand-lg">
-						<a class="navbar-brand" href="#">Navbar</a>
-						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-							<div class="navbar-nav">
-								<a class="nav-link active" aria-current="page" href="#">회원관리</a> <a class="nav-link" href="#">서비스관리</a> <a class="nav-link" href="#">사이트관리</a> <a class="nav-link" href="#">로그관리</a> <a class="nav-link" href="#">시스템관리</a> <a class="nav-link" href="#">시스템관리</a>
+					<div class="row">
+						<nav class="navbar col" style="padding-bottom : 0px;">
+							<div class="col">
+								<a class="navbar-brand" href="#">
+									<img class="" src="/resources/images/main/logo2.png" style="width: 80px;">
+									<span class="text-white" id="MATZIP">MATZIP</span>
+								</a>
 							</div>
-						</div>
-					</nav>
+							<div class="row offset-5">
+								<div class="userimg col">
+									<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
+									<span class="d-inline-block text-white" id="MATZIP">Tony Chang <br> Administrator</span>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<div class="bg-dark">
+					<div class="container">
+						<nav class="navbar navbar-expand-lg">
+							<div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="padding-left: 350px;">
+								<div class="navbar-nav">
+									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
+									<a class="nav-link text-white me-3" href="#">회원관리</a>
+									<a class="nav-link text-white me-3" href="#">사장님관리</a>
+									<a class="nav-link text-white me-3" href="#">매장관리</a>
+									<a class="nav-link text-white me-3" href="#">story관리</a>
+									<a class="nav-link text-white" href="#">시스템관리</a>
+								</div>
+							</div>
+						</nav>
+					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
 		<form id="myform" name="myform" method="post" autocomplete="off">
@@ -70,34 +76,34 @@
 								<ul>
 									<li>
 										<a href="#" class="active">
-											<span class="icon"><i class="fas fa-home"></i></span>
-											<span class="item">Home</span>
+											<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
+											<span class="item" style="color: black;" id="sidebar">Home</span>
 										</a>
 									</li>
 									<li>
 										<a href="#">
 											<span class="icon"><i class="fas fa-desktop"></i></span>
-											<span class="item">Dashboard</span>
+											<span class="item" style="color: black;" id="sidebar">Dashboard</span>
 										</a>
 									</li>
 									<li>
 										<a href="#">
 											<span class="icon"><i class="fas fa-user-friends"></i></span>
-											<span class="item">Orders</span>
+											<span class="item" style="color: black;" id="sidebar">Orders</span>
 										</a>
 									</li>
 									<li><hr class="dropdown-divider" style="color: lightgray;"></li>
 									<li>
 										<a href="#">
 											<span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-											<span class="item">Account</span>
+											<span class="item" style="color: black;" id="sidebar">Account</span>
 										</a>
 									</li>
 								</ul>
 							</div>
 						</div>
-						<div class="col">
-							<h2 class="needs-validation mt-2">코드그룹 관리</h2>
+						<div class="col" style="padding-top: 20px;">
+							<h2 class="needs-validation mt-2">CodeGroup Form</h2>
 							<div class="content">
 								<div class="row">
 									<div class="col">

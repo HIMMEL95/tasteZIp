@@ -1,3 +1,39 @@
+@font-face {
+    font-family: 'LeferiPoint-SpecialItalicA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-SpecialItalicA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+#MATZIP {
+    font-family: 'LeferiPoint-SpecialItalicA';
+}
+
+h2{
+    font-family: 'LeferiPoint-SpecialItalicA';
+}
+
+#Total {
+    font-family: 'LeferiPoint-SpecialItalicA';
+}
+
+#sidebar {
+    font-family: 'LeferiPoint-SpecialItalicA';
+}
+
+#navbar {
+	font-family: 'LeferiPoint-WhiteObliqueA';
+}
+
+
 .info {
     cursor:pointer;
 }
@@ -9,6 +45,7 @@
 }
 .header {
     height: 80px;
+    font-family: 'LeferiPoint-SpecialItalicA';
 }
 .content {
     margin-top: 20px;
@@ -149,4 +186,12 @@ option {
 
 a{
 	text-decoration: none;
+}
+
+.fa-solid, .fas {
+    color: black;
+}
+
+#selecBox {
+	box-shadow: 10px 5px 5px #6e6e6e;
 }

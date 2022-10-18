@@ -22,20 +22,20 @@
 	<body>
 		<!-- start -->
 		<header>
-			<div class="header bg-light">
+			<div class="header bg-dark">
 				<div class="container">
-					<div class="row d">
-						<nav class="navbar col">
+					<div class="row">
+						<nav class="navbar col" style="padding-bottom : 0px;">
 							<div class="col">
-								<a class="navbar-brand" href="#">
-									<img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="align-text-top ms-5">
-									<span></span> Management System
+								<a class="navbar-brand">
+									<img src="/resources/images/main/logo2.png" style="width: 80px;">
+									<span class="text-white" id="MATZIP">MATZIP</span>
 								</a>
 							</div>
 							<div class="row offset-5">
 								<div class="userimg col">
 									<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
-									<span id="nm" class="d-inline-block">Tony Chang <br> Administrator</span>
+									<span id="MATZIP" class="d-inline-block text-white">Tony Chang <br> Administrator</span>
 								</div>
 							</div>
 						</nav>
@@ -44,14 +44,13 @@
 				<div class="bg-dark">
 					<div class="container">
 						<nav class="navbar navbar-expand-lg">
-							<a class="navbar-brand text-white" href="#">MATZIP</a>
-							<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white" aria-current="page" href="#">Code</a>
-									<a class="nav-link text-white" href="#">서비스관리</a>
-									<a class="nav-link text-white" href="#">사이트관리</a>
-									<a class="nav-link text-white" href="#">로그관리</a>
-									<a class="nav-link text-white" href="#">시스템관리</a>
+									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
+									<a class="nav-link text-white me-3" href="#">회원관리</a>
+									<a class="nav-link text-white me-3" href="#">사장님관리</a>
+									<a class="nav-link text-white me-3" href="#">매장관리</a>
+									<a class="nav-link text-white me-3" href="#">story관리</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
 								</div>
 							</div>
@@ -70,41 +69,40 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-3">
-								<div class="sidebar">
+								<div class="sidebar mt-3">
 									<!--menu item-->
 									<ul>
 										<li>
 											<a href="#" class="active">
-												<span class="icon"><i class="fas fa-home"></i></span>
-												<span class="item">Home</span>
+												<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
+												<span class="item" style="color: black;" id="sidebar">Home</span>
 											</a>
 										</li>
 										<li>
 											<a href="#">
 												<span class="icon"><i class="fas fa-desktop"></i></span>
-												<span class="item">Dashboard</span>
+												<span class="item" style="color: black;" id="sidebar">Dashboard</span>
 											</a>
 										</li>
 										<li>
 											<a href="#">
 												<span class="icon"><i class="fas fa-user-friends"></i></span>
-												<span class="item">Orders</span>
+												<span class="item" style="color: black;" id="sidebar">Orders</span>
 											</a>
 										</li>
-										<li><hr class="dropdown-divider" style="color: lightgray;"></li>
 										<li>
 											<a href="#">
 												<span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-												<span class="item">Account</span>
+												<span class="item" style="color: black;" id="sidebar">Account</span>
 											</a>
 										</li>
 									</ul>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col mt-3">
 								<div class="content">
-									<h2 class="row needs-validation ms-3 mt-3">코드그룹 관리</h2>
-									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 shadow-lg bg-body rounded" novalidate>
+									<h2 class="row needs-validation ms-3 mt-5">CodeGroup List</h2>
+									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
 												<select class="form-select" id="shDelNy" name="shDelNy">
@@ -149,28 +147,27 @@
 											</div>
 										</div>
 									</div>
-									<span class="ms-3 mt-5">Total: </span>
+									<span class="ms-3 mt-5" id="Total">Total: </span>
 									<div class="ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
-										<table class="table table-striped table-hover text-center">
+										<table class="table table-striped table-hover text-center" id="selecBox">
 											<thead>
-												<tr style="background-color: #6666cc;">
+												<tr class="bg-dark">
 													<th scope="col">
 														<input type="checkbox" name="chk_all" id="chk_all" href="">
 													</th>
-													<th>#</th>
-													<th class="td1" scope="col">코드그룹 코드</th>
-													<th class="td2" scope="col">코드그룹 이름(한글)</th>
-													<th class="td3" scope="col">코드그룹 이름(영문)</th>
-													<th class="td4" scope="col">주소</th>
-													<th class="td4" scope="col">등록일</th>
-													<th class="td4" scope="col">수정일</th>
+													<th class="text-white">#</th>
+													<th class="td1 text-white" scope="col">코드그룹 코드</th>
+													<th class="td2 text-white" scope="col">코드그룹 이름(한글)</th>
+													<th class="td3 text-white" scope="col">코드그룹 이름(영문)</th>
+													<th class="td4 text-white" scope="col">기타</th>
+													<th class="td5 text-white" scope="col">기타2</th>
 												</tr>
 											</thead>
 											<tbody>
 												<%-- <c:choose>
 													<c:when test="${fn:length(list) eq 0}">
 														<tr>
-															<td class="text-center" colspan="8">There is no data!</td>
+															<td class="text-center" colspan="7">There is no data!</td>
 														</tr>
 													</c:when>
 													<c:otherwise>		
@@ -190,14 +187,13 @@
 														</c:forEach>
 													</c:otherwise>
 												</c:choose> --%>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
 											</tbody>
 										</table>
 										<%-- <%@include file="../../common/xdmin/includeV1/pagination.jsp"%> --%>
@@ -253,83 +249,27 @@
 		            <div class="footer_inner">
 		                <!--[주]고객센터,제휴문의,서비스안내-->
 		                <ul class="footer_link" id="footer_link">
-		                    <li><a target="_blank" class="footer_item" href="http://www.naver.com/rules/service.html"
+		                    <li><a target="_blank" class="footer_item" href="#"
 		                            id="fot.agreement"><span class="text">이용약관</span></a></li>
-		                    <li><a target="_blank" class="footer_item" href="http://www.naver.com/rules/privacy.html"
+		                    <li><a target="_blank" class="footer_item" href="#l"
 		                            id="fot.privacy"><span class="text"><strong>개인정보처리방침</strong></span></a></li>
-		                    <li><a target="_blank" class="footer_item" href="http://www.naver.com/rules/disclaimer.html"
+		                    <li><a target="_blank" class="footer_item" href="#"
 		                            id="fot.disclaimer"><span class="text">책임의 한계와 법적고지</span></a></li>
 		                    <li><a target="_blank" class="footer_item"
-		                            href="https://help.naver.com/support/service/main.nhn?serviceNo=532" id="fot.help"><span
+		                            href="#" id="fot.help"><span
 		                                class="text">회원정보 고객센터</span></a></li>
 		                </ul>
 		                <div class="footer_copy">
-		                    <a id="fot.naver" target="_blank" href="https://www.navercorp.com">
-		                        <img src="/resources/images/SPOPIA1.png" alt="logo" style="width: 45px;">
+		                    <a  id="fot.naver" target="_blank" href="https://www.navercorp.com">
+		                        <img class="bg-dark" src="/resources/images/main/logo2.png" alt="logo" style="width: 45px;">
 		                    </a>
 		                    <span class="text">Copyright</span>
-		                    <span class="corp">© SPOPIA Corp.</span>
+		                    <span class="corp">© MATZIP Corp.</span>
 		                    <span class="text">All Rights Reserved.</span>
 		                </div>
 		            </div>
 		        </div>
 		    </footer>
-			
-			<!-- <div class="container-fluid pe-4 ps-3">
-				<div class="row">
-					<div class="col-md-2 offset-4"> 
-						<button class="btn btn-danger del" type="button" onclick=deleteValue(); data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa-solid fa-trash-can"></i></button>
-						<div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalCenterTitle">삭제하시겠습니까?</h5>
-										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body"  align="center">
-										<i class="fas fa-light fa-triangle-exclamation me-2" style="color: red;"></i>
-										삭제된 정보는 복구할 수가 없습니다.
-									</div>
-									<div class="modal-footer">
-										<a>
-											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-										</a>
-										<a href="/codeGroup/codeGroupList">
-											<button type="button" class="btn btn-danger">삭제</button>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-2 offset-3" align="right">
-						<button class="btn btn-primary" type="button" id="btnForm" name="btnForm"><i class="fa-solid fa-plus"></i></button>
-					</div>
-				</div>
-			</div>
-			<nav class="navbar navbar-expand-lg bg-white mt-5 mb-3 position-absolute bottom-30 start-50 translate-middle-x">
-				<div class="container-fluid">
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav">
-							<li class="nav-item">
-							<a class="nav-link">이용약관</a>
-							</li>
-							<li class="nav-item">
-							<a class="nav-link">개인정보처리방침</a>
-							</li>
-							<li class="nav-item">
-							<a class="nav-link">이메일무단수집거부</a>
-							</li>
-							<li class="nav-item">
-							<a class="nav-link">안내사항</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link disabled">© DL, All rights reserved.</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>			 -->
 		</main>
 	
 		<!-- end --> 

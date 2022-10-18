@@ -13,7 +13,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>ZIpCode</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-		<link rel="stylesheet" href="/resources/css/codeGroupList.css">
+		<link rel="stylesheet" href="/resources/css/codeList.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -103,7 +103,7 @@
 							</div>
 							<div class="col">
 								<div class="content">
-									<h2 class="row needs-validation ms-3 mt-3">코드그룹 관리</h2>
+									<h2 class="row needs-validation ms-3 mt-3">코드 관리</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 shadow-lg bg-body rounded" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
@@ -227,7 +227,7 @@
 										<a>
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
 										</a>
-										<a href="/codeGroup/codeGroupList">
+										<a href="/code/codeList">
 											<button type="button" class="btn btn-danger">삭제</button>
 										</a>
 									</div>
@@ -268,8 +268,16 @@
 		<!-- end --> 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
-		<script>
-			
-		</script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    	<script type="text/javascript">
+    		var goUrlForm = "/code/codeForm";
+    		
+    		var form = $("#myForm");
+    		
+    		$("#btnForm").on("click", function() {
+				form.attr("action", goUrlForm).submit();
+			})
+    	</script>
 	</body>
 </html>

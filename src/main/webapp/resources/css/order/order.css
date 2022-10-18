@@ -52,6 +52,16 @@ main {
 	z-index: 10;
 }
 
+.btn_fold, .btn_fold:hover {
+    overflow: hidden;
+    display: inline-block;
+    width: 22px;
+    height: 49px;
+    font-size: 0;
+    color: transparent;
+    vertical-align: top;
+}
+
 .btn_fold.expand, .btn_fold.expand:hover {
     overflow: hidden;
     display: inline-block;
@@ -62,7 +72,15 @@ main {
     vertical-align: top;
 }
 
+.btn_fold:hover {
+	background-position: -428px -347px;
+}
+
 .btn_fold.expand {
+    background-position: -428px -245px;
+}
+
+.btn_fold.expand:hover {
     background-position: -428px -245px;
 }
 
@@ -110,6 +128,10 @@ button {
     background: #fff;
     min-width: 600px;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%), 5px 0 15px 0 rgb(0 0 0 / 10%);
+}
+
+.panel.-fold {
+	box-shadow: none;
 }
 
 .panel_top {
@@ -567,7 +589,7 @@ h3 {
 .heading:after {
     position: absolute;
     left: 127px;
-    right: -190px;
+    right: 25px;
     top: 8px;
     height: 1px;
     background: #dbdee0;
@@ -584,7 +606,7 @@ h3 {
     margin-top: 16px;
 }
 
-[_nghost-ahg-c89] .heading[_ngcontent-ahg-c89] {
+.heading2 {
     margin-bottom: 12px;
     padding: 0 25px;
     font-size: 19px;
@@ -592,6 +614,32 @@ h3 {
     color: #121212;
     letter-spacing: -.72px;
 }
+
+.option_selector_wrap {
+    position: absolute;
+    top: -2px;
+    right: 20px;
+    padding: 4px 20px 4px 5px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #242424;
+}
+
+.option_selector_wrap .point {
+	color: #437bfe;
+    font-weight: 700;
+}
+
+.option_selector_wrap .point:after, .option_selector_wrap span:after {
+    content: " ";
+}
+
+
+
+
+
+
+
 
 
 

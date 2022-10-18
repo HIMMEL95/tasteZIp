@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/order.css">
+	<script defer type="text/javascript" src="/resources/js/order/order.js"></script>
 </head>
 
 <body>
@@ -77,7 +78,8 @@
 		<div class="container" id="container">
 			<div class="sideInfo">
 				<div class="handle">
-					<button type="button" class="btn_fold expand">접기</button>
+					<input type="hidden" name="handle_value" id="handle_value" value="1">
+					<button type="button" id="handle" class="btn_fold expand">접기</button>
 				</div>
 				<div class="panel">
 					<div class="panel_top">
@@ -151,12 +153,17 @@
 								<!-- contents s -->
 								<div class="contents">
 									<div class="around_wrap">
-										<h3 _ngcontent-ahg-c90="" class="heading">
-											<span _ngcontent-ahg-c90="" class="blind">Smart Around</span>
+										<h3 class="heading">
+											<span class="blind">Smart Around</span>
 										</h3>
 										<div class="around_content">
 											<div class="around_place_card ng-star-inserted">
-												<h3 _ngcontent-ahg-c89="" class="heading">주변</h3>
+												<h3 class="heading2">주변</h3>
+												<div>
+													<button type="button" class="option_selector_wrap">
+														<strong class="point">아침/오전</strong>
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>

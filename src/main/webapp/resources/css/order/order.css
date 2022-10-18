@@ -1,0 +1,255 @@
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    content: none;
+}
+
+div {
+	display: block;
+}
+
+main {
+	display: flex;
+	height: 100%;
+}
+
+.sidebar {
+	position: relative;
+	z-index: 210;
+	box-sizing: border-box;
+}
+
+.container {
+	position: relative;
+	flex: 1 0 auto;
+}
+
+.sideInfo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 200;
+}
+
+.handle {
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	transform: translateY(-50%);
+	z-index: 10;
+}
+
+.btn_fold.expand, .btn_fold.expand:hover {
+    overflow: hidden;
+    display: inline-block;
+    width: 22px;
+    height: 49px;
+    font-size: 0;
+    color: transparent;
+    vertical-align: top;
+}
+
+.btn_fold.expand {
+    background-position: -428px -245px;
+}
+
+.btn_fold, .btn_fold.expand, .btn_fold.expand:hover, .btn_fold:hover {
+    background-image: url(https://ssl.pstatic.net/static/maps/v5/pc/20220531112111/home.png);
+    background-size: 508px 492px;
+}
+
+body.windows .base_map, body.windows .nm-tooltip, body.windows button, body.windows frequent-place-use-agreement-popup, body.windows input, body.windows label, body.windows layout, body.windows select, body.windows textarea {
+    font-family: notosanskr,Malgun Gothic,맑은 고딕,Dotum,돋움,sans-serif;
+}
+
+button, select {
+    line-height: inherit;
+    border-radius: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+button, input, label, select, textarea {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    appearance: none;
+    background-color: transparent;
+}
+
+button {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.panel {
+    height: 100%;
+    background: #fff;
+    min-width: 600px;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%), 5px 0 15px 0 rgb(0 0 0 / 10%);
+}
+
+.panel_top {
+	display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.search {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 580px;
+    margin: auto;
+    padding: 15px 25px;
+}
+
+.search_wrap {
+	position: relative;
+}
+
+.search_box {
+    position: relative;
+    z-index: 110;
+    height: 42px;
+    padding-left: 45px;
+    border: 2px solid #19ce60;
+    border-radius: 5px;
+}
+
+.search_btn {
+	overflow: hidden;
+    display: inline-block;
+    width: 25px;
+    height: 24px;
+    font-size: 0;
+    color: transparent;
+    vertical-align: top;
+    background-position: 0 -112px;
+    position: absolute;
+    top: 9px;
+    left: 15px;
+    background-image: url(https://ssl.pstatic.net/static/maps/v5/pc/20220531112111/search.png);
+    background-size: 194px 190px;
+}
+
+.input_box {
+	position: relative;
+    z-index: 0;
+    padding-right: 43px;
+}
+
+.label_search {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    color: #9c9c9c;
+    line-height: 44px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    height: 42px;
+    letter-spacing: -.2px;
+}
+
+.input_search, .input_search:active {
+    position: relative;
+    color: #000;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    height: 42px;
+    letter-spacing: -.2px;
+    outline: none;
+}
+
+button, input, label, select, textarea {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    appearance: none;
+    background-color: transparent;
+}
+
+input {
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+}
+
+.weather {
+	display: block;
+    margin: 0 25px -1px;
+    flex: none;
+}
+
+.weather_card {
+	padding-bottom: 17px;
+}
+
+.weather_card .card_hearder {
+	position: relative;
+    min-height: 24px;
+    padding-right: 60px;
+}
+
+.weather_card .address {
+    display: inline-block;
+    font-size: 19px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: -.73px;
+    color: #333;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.card_button {
+	position: absolute;
+    top: 0;
+    right: 0;
+    height: 21px;
+    padding: 0 8px;
+    border: 1px solid #bbb;
+    border-radius: 11px;
+    font-size: 11px;
+    color: #767676;
+    letter-spacing: -.37px;
+    cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+}
+
+

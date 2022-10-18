@@ -7,7 +7,7 @@
 
 <%-- <jsp:useBean id="CodeServiceImpl" class="com.spopia.infra.modules.code.CodeServiceImpl"/> --%>
 
-<!doctype html>
+<!doctype html> 
 <html lang="ko">
 
 <head>
@@ -19,103 +19,97 @@
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/main/homePage/common.css">
-    <link rel="stylesheet" href="/resources/css/main/homePage/animate.css">
-    <link rel="stylesheet" href="/resources/css/main/homePage/font.css">
+	<link rel="stylesheet" href="/resources/css/order/order.css">
 </head>
 
 <body>
     <!-- start -->
-    <header id="header">
-		<div class="hd">
-			<h1>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <img src="/resources/images/main/logo2.png" style="width: 100px;">
-                </button>
-			</h1>
-            <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                    <button type="button" class="btn-close bg-white" data-bs-dismiss="offcanvas" aria-label="Close" ></button>
-                </div>
-                <div class="offcanvas-body">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2 search" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success searchBtn border-0" type="submit"><i class="fa-solid fa-magnifying-glass-location fa-2x"></i></button>
-                    </form>
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mt-2">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Order</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Favorite</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Crew Chat</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Story</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">My Review</a>
-                        </li>
-                        <hr>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/signUp">SignUp</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-		</div>
-	</header>
-
+    
     <main>
-    	<div class="container">
-    		
-    	</div>
+    	<div id="sidebar" class="sidebar">
+	    	<div class="d-flex flex-column flex-shrink-0 bg-dark align-center" style="width: 4.5rem; height: 100vh;">
+			    <a href="/" class="d-block p-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+					<img alt="" src="/resources/images/main/logo2.png" width="40" height="30">
+					<span class="visually-hidden">Icon-only</span>
+			    </a>
+			    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+					<li class="nav-item">
+						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fas fa-light fa-heart text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
+			    </ul>
+			    <div class="dropdown">
+					<a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+						<img src="https://github.com/mdo.png" alt="mdo" width="30" height="30" class="rounded-circle">
+					</a>
+					<ul class="dropdown-menu text-small shadow" style="">
+						<li><a class="dropdown-item" href="#">New project...</a></li>
+						<li><a class="dropdown-item" href="#">Settings</a></li>
+						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="#">Sign out</a></li>
+					</ul>
+			    </div>
+			</div>
+		</div>
+		
+		<div class="container" id="container">
+			<div class="sideInfo">
+				<div class="handle">
+					<button type="button" class="btn_fold expand">접기</button>
+				</div>
+				<div class="panel">
+					<div class="panel_top">
+						<!-- search s -->
+						<div class="search">
+							<div class="search_wrap">
+								<div class="search_box">
+									<button class="search_btn" type="button">검색</button>
+									<div class="input_box">
+										<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
+										<input type="text" autocomplete="none" autofocus class="input_search">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- search e -->
+						<!-- weather s -->
+						<div class="weather">
+							<div class="weather_card">
+								<div class="card_hearder">
+									<a class="address">강남구 역삼1동</a>
+									<button type="button" class="card_button">위치수정</button>
+								</div>
+								<div class="card_content"></div>
+							</div>
+						</div>
+						<!-- weather e -->
+					</div>
+				</div>
+			</div>
+		</div>
     </main>
-
-    <footer>
-        <footer id="footer">
-            <div class="ft_hd">
-            <h1><img src="/resources/images/main/logo2.png" style="width: 80px;"></h1>
-            <nav>
-                <h2 class="family_button">FAMILY<span class="footnav fnav_top"></span>
-                    <ul class="family_site_list">
-                        <li>
-                            <a href="http://www.leferi.com/">Homepage</a>
-                        </li>
-                        <li>
-                            <a href="http://leferimarketing.com">Marketing</a>
-                        </li>
-                    </ul>
-                </h2>
-            </nav>
-            </div>
-            <div id="ft_company">
-                <div class="ft_info">
-                    <div>
-                        <p>서울 서초구 서초대로 77길 55, 에이프로 스퀘어 3층(서초동)</p>
-                        <p>사업자등록번호 111-11-11111</p>
-                    </div>
-                    <div>
-                        <p>bbluesky7738@gmail.com</p>
-                        <p>gottkfkd@gmail.com</p>
-                        <p>skwlsrud3@gmail.com</p>
-                        <p>heejee.yun@gmail.com</p>
-                    </div>
-                    <div>
-                        <p>
-                            +82 2 532 6509
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </footer>
 
     <!-- end -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

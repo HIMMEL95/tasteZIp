@@ -23,6 +23,6 @@ public class MainController {
 	
 	@RequestMapping(value = "order")
 	public String order() throws Exception {
-	    return "infra/main/order/orderTest";
+	    return "infra/main/order/order";
 	}
 }

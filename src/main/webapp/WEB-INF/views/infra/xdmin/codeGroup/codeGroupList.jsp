@@ -269,7 +269,42 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
 		<script>
-			
+		
+		var goUrlList = "/codeGroup/codeGroupList"; 
+		var goUrlInst = "/codeGroup/codeGroupInst";
+		var goUrlUpdt = "/codeGroup/codeGroupUpdt";	
+		var goUrlUele = "/codeGroup/codeGroupUele";	
+		var goUrlDele = "/codeGroup/codeGroupDele";	
+		var goUrlForm = "/codeGroup/codeGroupForm";
+		
+		var form = $("form[name=myForm]");
+		
+		var ccgSeq = $("input:hidden[name=ccgSeq]");
+		
+		
+		 $("#btnReset").on("click", function(){
+			 $(location).attr("href", goUrlList);
+		 });
+		 
+		// 페이지 네이션 만들기
+		 goList = function(thisPage) {
+ 			$("input:hidden[name=thisPage]").val(thisPage);
+ 			form.attr("action", goUrlList).submit();
+ 		};
+ 		
+ 		/* var seq = $("input:hidden[name=ccgSeq]"); */
+
+ 		
+ 		$('#btnForm').on("click", function() {
+ 			goForm(0);                
+ 		});
+
+ 		goForm = function(keyValue) {
+ 	    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
+ 	    	ccgSeq.val(keyValue);
+ 			form.attr("action", goUrlForm).submit();
+ 		}
+		
 		</script>
 	</body>
 </html>

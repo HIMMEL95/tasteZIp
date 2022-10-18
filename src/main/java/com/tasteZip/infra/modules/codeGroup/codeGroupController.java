@@ -11,4 +11,9 @@ public class codeGroupController {
 	public String codeGroupList() throws Exception {
 		return "infra/xdmin/codeGroup/codeGroupList";
 	}
+	
+	@RequestMapping(value = "codeGroupForm")
+	public String codeGroupForm() throws Exception {
+		return "infra/xdmin/codeGroup/codeGroupForm";
+	}
 }

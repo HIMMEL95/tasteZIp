@@ -38,12 +38,6 @@
 									<span id="nm" class="d-inline-block">Tony Chang <br> Administrator</span>
 								</div>
 							</div>
-							<div class="col">
-								<select class="form-select col" id="emailSelect" required style="width: 90px;">
-									<option selected>언어</option>
-									<option>한국어</option>
-								</select>
-							</div>
 						</nav>
 					</div>
 				</div>

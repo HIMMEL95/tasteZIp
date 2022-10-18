@@ -1,0 +1,7 @@
+ifcgSeq,ifcgAnother,ifcgName,ifcgNameEng,ifcgUseNy,ifcgOrder,ifcgExplanation,ifcgDelNy,ifcgReferenceV1,ifcgReferenceV2,ifcgReferenceV3,ifcgReferenceI1,ifcgReferenceI2,ifcgReferenceI3,ifcgCreatedAt,ifcgModifiedAt
+1,,통신사,radio_operator,1,,통신사분류,0,,,,,,,,
+2,,성별,gender,1,,성별분류,0,,,,,,,,
+3,,결제수단,pay_div,1,,결제수단분류,0,,,,,,,,
+4,,sns연동,sns_div,1,,sns연동분류,0,,,,,,,,
+5,,사용자분류,user_div,1,,사용자분류,0,,,,,,,,
+6,,요일,day,1,,요일분류,0,,,,,,,,

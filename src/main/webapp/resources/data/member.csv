@@ -1,1 +1,6 @@
-
+ifmmMember,ifmmId,ifmmName,ifmmPwd,ifmmDob,ifmmGender,ifmmEmail,ifmmRadioOperator,ifmmPhone,ifmmZipcode,ifmmAddress,ifmmDetailAddress,ifmmUserDiv,ifmmSnsDiv,ifmmEmailCheck,ifmmCreatedAt,ifmmModifiedAt,ifmmDelNy
+1,jkjk,김진경,1234,1993-05-07,5,jk@naver.com,1,1012341234,12345,서울시 은평구,은평아파트,15,8,1,,,0
+2,cherryontop,윤희지,1234,1990-01-01,5,hee@naver.com,2,1025565231,23458,서울시 관악구,관악아파트,15,8,1,,,0
+3,skylee,이하늘,1234,1995-07-07,4,hasky@naver.com,3,1012341235,56126,서울시 강남구,강남빌딩,15,8,1,,,0
+4,lalala,박라엘,1234,1996-08-08,5,lala@naver.com,1,1012341425,32842,서울시 강남구,강남빌딩,15,8,1,,,0
+5,jerrymom,허현,1234,1994-11-05,5,jerry@naver.com,1,1012341451,52145,서울시 성동구,성동구아파트,13,8,1,,,0

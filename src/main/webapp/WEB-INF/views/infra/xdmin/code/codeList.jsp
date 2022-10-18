@@ -4,3 +4,272 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>ZIpCode</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+		<link rel="stylesheet" href="/resources/css/codeGroupList.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	</head>
+	
+	<body>
+		<!-- start -->
+		<header>
+			<div class="header bg-light">
+				<div class="container">
+					<div class="row d">
+						<nav class="navbar col">
+							<div class="col">
+								<a class="navbar-brand" href="#">
+									<img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="align-text-top ms-5">
+									<span></span> Management System
+								</a>
+							</div>
+							<div class="row offset-5">
+								<div class="userimg col">
+									<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
+									<span id="nm" class="d-inline-block">Tony Chang <br> Administrator</span>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<div style="background-color: #e3f2fd;">
+					<div class="container" >
+						<nav class="navbar navbar-expand-lg">
+							<a class="navbar-brand" href="#">Navbar</a>
+							<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+								<div class="navbar-nav">
+									<a class="nav-link active" aria-current="page" href="#">회원관리</a>
+									<a class="nav-link" href="#">서비스관리</a>
+									<a class="nav-link" href="#">사이트관리</a>
+									<a class="nav-link" href="#">로그관리</a>
+									<a class="nav-link" href="#">시스템관리</a>
+									<a class="nav-link" href="#">시스템관리</a>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<form id="myForm" name="myForm" method="post">
+			<%-- 	<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
+				<input type="hidden" name="ccgSeq" value='<c:out value="${vo.ccgSeq }"></c:out>'> --%>
+				<div style="height: 55px"></div>
+				<div class="wrapper">
+					<div class="container">
+						<div class="row">
+							<div class="col-3">
+								<div class="sidebar">
+									<!--menu item-->
+									<ul>
+										<li>
+											<a href="#" class="active">
+												<span class="icon"><i class="fas fa-home"></i></span>
+												<span class="item">Home</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<span class="icon"><i class="fas fa-desktop"></i></span>
+												<span class="item">Dashboard</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<span class="icon"><i class="fas fa-user-friends"></i></span>
+												<span class="item">Orders</span>
+											</a>
+										</li>
+										<li><hr class="dropdown-divider" style="color: lightgray;"></li>
+										<li>
+											<a href="#">
+												<span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+												<span class="item">Account</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col">
+								<div class="content">
+									<h2 class="row needs-validation ms-3 mt-3">코드그룹 관리</h2>
+									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 shadow-lg bg-body rounded" novalidate>
+										<div class="row mb-2">
+											<div class="col-md-3">
+												<select class="form-select" id="shDelNy" name="shDelNy">
+			                                       	<%-- <option value="" <c:if test="${empty vo.shDelNy }">selected</c:if>>선택</option>
+			                                        <option value="0" <c:if test="${vo.shDelNy eq 0 }">selected</c:if>>N</option>
+			                                        <option value="1" <c:if test="${vo.shDelNy eq 1 }">selected</c:if>>Y</option> --%>
+			                                        <option value=""> 선택</option>
+			                                    </select>
+											</div>
+											<div class="col-md-3">
+												<select class="form-select" id="shUpdt" name="shUpdt">
+			                                        <option value=""> 선택</option>
+<%-- 													<option value="" <c:if test="${empty vo.shUpdt }">selected</c:if>>선택</option>
+													<option value="1" <c:if test="${vo.shUpdt eq 1 }">selected</c:if>>등록일</option>
+													<option value="2" <c:if test="${vo.shUpdt eq 2 }">selected</c:if>>수정일</option> --%>
+												</select>
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control" id="datepickerS" placeholder="시작일">
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control" id="datepickerE" placeholder="종료일">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<select class="form-select" id="shOption" name="shOption">
+			                                        <option value=""> 선택</option>
+			                                        <%-- <option value="" <c:if test="${empty vo.shOption }">selected</c:if>>검색구분</option>
+			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
+			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드그룹 이름(한글)</option>
+			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>코드그룹 이름(영문)</option> --%>
+			                                    </select>
+											</div>
+											<div class="col-md-3">
+												<input type="text" class="form-control" name="shValue" id="shValue" value="<c:out value="${vo.shValue }"/>" autocomplete="off">
+												<div class="invalid-feedback" id="shValueFeeback"></div>
+											</div>
+											<div class="col-md-2">
+												<button class="btn btn-warning" type="submit" id="searching"><i class="fa-solid fa-magnifying-glass"></i></button>
+												<button class="btn btn-danger" type="reset" id="btnReset" name="btnReset"><i class="fa-solid fa-rotate-right"></i></button>
+											</div>
+										</div>
+									</div>
+									<span class="ms-3 mt-5">Total: </span>
+									<div class="ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
+										<table class="table table-striped table-hover text-center">
+											<thead>
+												<tr style="background-color: #6666cc;">
+													<th scope="col">
+														<input type="checkbox" name="chk_all" id="chk_all" href="">
+													</th>
+													<th>#</th>
+													<th class="td1" scope="col">코드그룹 코드</th>
+													<th class="td2" scope="col">코드그룹 이름(한글)</th>
+													<th class="td3" scope="col">코드그룹 이름(영문)</th>
+													<th class="td4" scope="col">주소</th>
+													<th class="td4" scope="col">등록일</th>
+													<th class="td4" scope="col">수정일</th>
+												</tr>
+											</thead>
+											<tbody>
+												<%-- <c:choose>
+													<c:when test="${fn:length(list) eq 0}">
+														<tr>
+															<td class="text-center" colspan="8">There is no data!</td>
+														</tr>
+													</c:when>
+													<c:otherwise>		
+														<c:forEach items="${list}" var="list" varStatus="status">
+															<tr onclick="newPage()" class="info">
+																<th scope="row" class="td1" src="./memberMod.html">
+																	<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
+																</th>
+																<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
+																<td>${list.ccgSeq}</td>
+																<td><a href="javascript:goForm(<c:out value="${list.ccgSeq }"/>)" class="text-decoration-none"><c:out value="${list.name }"/></a></td>
+																<td>${list.name_eng}</td>
+																<td>${list.count}</td>
+																<td>-</td>
+																<td>-</td>
+															</tr>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose> --%>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+											</tbody>
+										</table>
+										<%-- <%@include file="../../common/xdmin/includeV1/pagination.jsp"%> --%>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="container-fluid pe-4 ps-3">
+				<div class="row">
+					<div class="col-md-2 offset-4"> 
+						<button class="btn btn-danger del" type="button" onclick=deleteValue(); data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="fa-solid fa-trash-can"></i></button>
+						<div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalCenterTitle">삭제하시겠습니까?</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body"  align="center">
+										<i class="fas fa-light fa-triangle-exclamation me-2" style="color: red;"></i>
+										삭제된 정보는 복구할 수가 없습니다.
+									</div>
+									<div class="modal-footer">
+										<a>
+											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+										</a>
+										<a href="/codeGroup/codeGroupList">
+											<button type="button" class="btn btn-danger">삭제</button>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 offset-3" align="right">
+						<button class="btn btn-primary" type="button" id="btnForm" name="btnForm"><i class="fa-solid fa-plus"></i></button>
+					</div>
+				</div>
+			</div>
+			<nav class="navbar navbar-expand-lg bg-white mt-5 mb-3 position-absolute bottom-30 start-50 translate-middle-x">
+				<div class="container-fluid">
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+							<a class="nav-link">이용약관</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link">개인정보처리방침</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link">이메일무단수집거부</a>
+							</li>
+							<li class="nav-item">
+							<a class="nav-link">안내사항</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link disabled">© DL, All rights reserved.</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>			
+		</main>
+	
+		<!-- end --> 
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
+		<script>
+			
+		</script>
+	</body>
+</html>

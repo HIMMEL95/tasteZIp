@@ -149,7 +149,6 @@
 											</div>
 										</div>
 									</div>
-									<span class="ms-3 mt-5">Total: </span>
 									<div class="ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
 										<table class="table table-striped table-hover text-center">
 											<thead>
@@ -205,6 +204,27 @@
 								</div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col">
+								<nav aria-label="Page navigation example">
+									<ul class="pagination">
+										<li class="page-item">
+											<a class="page-link" href="#" aria-label="Previous">
+												<span aria-hidden="true">&laquo;</span>
+											</a>
+										</li>
+										<li class="page-item"><a class="page-link" href="#">1</a></li>
+										<li class="page-item"><a class="page-link" href="#">2</a></li>
+										<li class="page-item"><a class="page-link" href="#">3</a></li>
+										<li class="page-item">
+											<a class="page-link" href="#" aria-label="Next">
+												<span aria-hidden="true">&raquo;</span>
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -235,9 +255,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-2 offset-3" align="right">
+					<div class="col-md-2" align="right">
 						<button class="btn btn-primary" type="button" id="btnForm" name="btnForm"><i class="fa-solid fa-plus"></i></button>
-					</div>
+					</div>	
 				</div>
 			</div>
 			<nav class="navbar navbar-expand-lg bg-white mt-5 mb-3 position-absolute bottom-30 start-50 translate-middle-x">

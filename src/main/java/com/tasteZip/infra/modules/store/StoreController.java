@@ -10,16 +10,25 @@ public class StoreController {
 	
 	//관리자 스토어
 	
+	@RequestMapping(value = "xdminStoreList")
+	public String storeList() throws Exception {
+	    return "infra/xdmin/store/storeList";
+	}
+	
+	@RequestMapping(value = "xdminStoreForm")
+	public String storeForm() throws Exception {
+	    return "infra/xdmin/store/storeForm";
+	}
 	
 	// 오너 스토어
 	
 	@RequestMapping(value = "ownerStoreList")
-	public String storeList() throws Exception {
+	public String ownerStoreList() throws Exception {
 	    return "infra/owner/store/storeList";
 	}
 	
 	@RequestMapping(value = "ownerStoreForm")
-	public String storeForm() throws Exception {
+	public String ownerStoreForm() throws Exception {
 	    return "infra/owner/store/storeForm";
 	}
 	

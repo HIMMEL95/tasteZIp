@@ -162,8 +162,6 @@
 													<th class="td4 text-white" scope="col">기타</th>
 													<th class="td5 text-white" scope="col">기타2</th>
 													<th class="td5 text-white" scope="col">기타3</th>
-													<th class="td5 text-white" scope="col">기타4</th>
-													<th class="td5 text-white" scope="col">기타5</th>
 													<th class="td5 text-white" scope="col">기타6</th>
 												</tr>
 											</thead>
@@ -194,8 +192,6 @@
 												<td scope="row" class="td1" src="">
 													<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
 												</td>
-												<td>-</td>
-												<td>-</td>
 												<td>-</td>
 												<td>-</td>
 												<td>-</td>

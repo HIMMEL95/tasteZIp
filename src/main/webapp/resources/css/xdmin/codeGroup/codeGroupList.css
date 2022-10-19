@@ -172,3 +172,7 @@ a{
 #selecBox {
 	box-shadow: 10px 5px 5px #6e6e6e;
 }
+
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1500px;
+}

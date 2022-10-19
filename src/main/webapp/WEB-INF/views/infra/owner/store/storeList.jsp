@@ -11,7 +11,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>MemberList</title>
+		<title>Owner Store</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link rel="stylesheet" href="/resources/css/xdmin/codeGroup/codeGroupList.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -56,12 +56,13 @@
 						<nav class="navbar navbar-expand-lg">
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">CodeGroup</a>
-									<a class="nav-link text-white me-3" href="/member/memberList">회원관리</a>
-									<a class="nav-link text-white me-3" href="#">주문관리</a>
-									<a class="nav-link text-white me-3" href="#">가게관리</a>
-									<a class="nav-link text-white me-3" href="#">메뉴관리</a>
+									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="#">Code</a>
+									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Member</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
+									<a class="nav-link text-white me-3 topNav" href="/store/xstoreList">Store</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Story</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
 								</div>
 							</div>
@@ -77,12 +78,12 @@
 				<input type="hidden" name="ccgSeq" value='<c:out value="${vo.ccgSeq }"></c:out>'> --%>
 				<div style="height: 55px"></div>
 				<div class="wrapper">
-					<div class="container">
+					<div class="container" style="height: 100vh;">
 						<div class="row">
-							<div class="col-3">
+							<div class="col-3" style="padding-right: 0px; width: 312px;">
 								<div class="sidebar mt-3">
 									<!--menu item-->
-									<ul>
+									<ul style="padding-left: 0px; padding-top: 20px;">
 										<li>
 											<a href="#" class="active">
 												<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
@@ -112,7 +113,7 @@
 							</div>
 							<div class="col mt-3">
 								<div class="content">
-									<h2 class="row needs-validation ms-3 mt-5">My Store</h2>
+									<h2 class="row needs-validation ms-3 mt-5">Owner Store</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
@@ -255,28 +256,28 @@
 					</div>
 				</div>
 			</form>
-			<footer>
+			<footer class="bg-dark">
 		        <div class="footer">
 		            <div class="footer_inner">
 		                <!--[주]고객센터,제휴문의,서비스안내-->
 		                <ul class="footer_link" id="footer_link">
 		                    <li><a target="_blank" class="footer_item" href="#"
-		                            id="fot.agreement"><span class="text">이용약관</span></a></li>
+		                            id="fot.agreement"><span class="text text-white">이용약관</span></a></li>
 		                    <li><a target="_blank" class="footer_item" href="#l"
-		                            id="fot.privacy"><span class="text"><strong>개인정보처리방침</strong></span></a></li>
+		                            id="fot.privacy"><span class="text text-white">개인정보처리방침</span></a></li>
 		                    <li><a target="_blank" class="footer_item" href="#"
-		                            id="fot.disclaimer"><span class="text">책임의 한계와 법적고지</span></a></li>
+		                            id="fot.disclaimer"><span class="text text-white">책임의 한계와 법적고지</span></a></li>
 		                    <li><a target="_blank" class="footer_item"
 		                            href="#" id="fot.help"><span
-		                                class="text">회원정보 고객센터</span></a></li>
+		                                class="text text-white">회원정보 고객센터</span></a></li>
 		                </ul>
 		                <div class="footer_copy">
 		                    <a  id="fot.naver" target="_blank" href="https://www.navercorp.com">
-		                        <img class="bg-dark" src="/resources/images/main/logo2.png" alt="logo" style="width: 45px;">
+		                        <img src="/resources/images/main/logo2.png" alt="logo" style="width: 45px;">
 		                    </a>
-		                    <span class="text">Copyright</span>
-		                    <span class="corp">© MATZIP Corp.</span>
-		                    <span class="text">All Rights Reserved.</span>
+		                    <span class="text text-white">Copyright</span>
+		                    <span class="corp text-white">© MATZIP Corp.</span>
+		                    <span class="text text-white">All Rights Reserved.</span>
 		                </div>
 		            </div>
 		        </div>

@@ -11,22 +11,12 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>MemberList</title>
+		<title>OrderList</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link rel="stylesheet" href="/resources/css/xdmin/codeGroup/codeGroupList.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-		<style>
-			.overflow-x-auto {
-				overflow-x: auto;
-			}
-					
-			.overflow-x-auto table {
-				width: auto!important; 
-				white-space: nowrap;
-			}
-		</style>
 	</head>
 	
 	<body>
@@ -56,14 +46,15 @@
 						<nav class="navbar navbar-expand-lg">
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">CodeGroup</a>
-									<a class="nav-link text-white me-3" href="/member/memberList">회원관리</a>
-									<a class="nav-link text-white me-3" href="#">주문관리</a>
-									<a class="nav-link text-white me-3" href="#">가게관리</a>
-									<a class="nav-link text-white me-3" href="#">메뉴관리</a>
+									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
+									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
+									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
+									<a class="nav-link me-3 topNav" href="/order/orderList" style="color: #ff7f00">Order</a>
+									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Story</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
-								</div>
+								</div>s
 							</div>
 						</nav>
 					</div>
@@ -77,12 +68,12 @@
 				<input type="hidden" name="ccgSeq" value='<c:out value="${vo.ccgSeq }"></c:out>'> --%>
 				<div style="height: 55px"></div>
 				<div class="wrapper">
-					<div class="container">
+					<div class="container" style="height: 100vh;">
 						<div class="row">
-							<div class="col-3">
+							<div class="col-3" style="padding-right: 0px; width: 312px;">
 								<div class="sidebar mt-3">
 									<!--menu item-->
-									<ul>
+									<ul style="padding-left: 0px; padding-top: 20px;">
 										<li>
 											<a href="#" class="active">
 												<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
@@ -167,12 +158,11 @@
 														<input type="checkbox" name="chk_all" id="chk_all" href="">
 													</th>
 													<th class="text-white">#</th>
-													<th class="text-white" scope="col">예약자</th>
-													<th class="text-white" scope="col">가게명</th>
-													<th class="text-white" scope="col">메뉴명</th>
-													<th class="text-white" scope="col">가격</th>
-													<th class="text-white" scope="col">결제수단</th>
-													<th class="text-white" scope="col">결제일</th>
+													<th class="text-white" scope="col">OPEN TIME</th>
+													<th class="text-white" scope="col">CLOSE TIME</th>
+													<th class="text-white" scope="col">전화번호</th>
+													<th class="text-white" scope="col">주소</th>
+													<th class="text-white" scope="col">등록일</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -200,7 +190,6 @@
 													</c:otherwise>
 												</c:choose> --%>
 												<td><input type="checkbox"></td>
-												<td>-</td>
 												<td>-</td>
 												<td>-</td>
 												<td>-</td>
@@ -257,28 +246,28 @@
 					</div>
 				</div>
 			</form>
-			<footer>
+			<footer class="bg-dark">
 		        <div class="footer">
 		            <div class="footer_inner">
 		                <!--[주]고객센터,제휴문의,서비스안내-->
 		                <ul class="footer_link" id="footer_link">
 		                    <li><a target="_blank" class="footer_item" href="#"
-		                            id="fot.agreement"><span class="text">이용약관</span></a></li>
+		                            id="fot.agreement"><span class="text text-white">이용약관</span></a></li>
 		                    <li><a target="_blank" class="footer_item" href="#l"
-		                            id="fot.privacy"><span class="text"><strong>개인정보처리방침</strong></span></a></li>
+		                            id="fot.privacy"><span class="text text-white">개인정보처리방침</span></a></li>
 		                    <li><a target="_blank" class="footer_item" href="#"
-		                            id="fot.disclaimer"><span class="text">책임의 한계와 법적고지</span></a></li>
+		                            id="fot.disclaimer"><span class="text text-white">책임의 한계와 법적고지</span></a></li>
 		                    <li><a target="_blank" class="footer_item"
 		                            href="#" id="fot.help"><span
-		                                class="text">회원정보 고객센터</span></a></li>
+		                                class="text text-white">회원정보 고객센터</span></a></li>
 		                </ul>
 		                <div class="footer_copy">
 		                    <a  id="fot.naver" target="_blank" href="https://www.navercorp.com">
-		                        <img class="bg-dark" src="/resources/images/main/logo2.png" alt="logo" style="width: 45px;">
+		                        <img src="/resources/images/main/logo2.png" alt="logo" style="width: 45px;">
 		                    </a>
-		                    <span class="text">Copyright</span>
-		                    <span class="corp">© MATZIP Corp.</span>
-		                    <span class="text">All Rights Reserved.</span>
+		                    <span class="text text-white">Copyright</span>
+		                    <span class="corp text-white">© MATZIP Corp.</span>
+		                    <span class="text text-white">All Rights Reserved.</span>
 		                </div>
 		            </div>
 		        </div>
@@ -290,12 +279,11 @@
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
 		<script>
 		
-		var goUrlList = "/codeGroup/codeGroupList"; 
-		var goUrlInst = "/codeGroup/codeGroupInst";
-		var goUrlUpdt = "/codeGroup/codeGroupUpdt";	
-		var goUrlUele = "/codeGroup/codeGroupUele";	
-		var goUrlDele = "/codeGroup/codeGroupDele";	
-		var goUrlForm = "/codeGroup/codeGroupForm";
+		var goUrlList = "/order/orderList"; 
+		var goUrlInst = "/order/orderListInst";
+		var goUrlUpdt = "/order/orderListUpdt";	
+		var goUrlUele = "/order/orderListUele";	
+		var goUrlDele = "/order/orderListDele";	
 		
 		var form = $("form[name=myForm]");
 		

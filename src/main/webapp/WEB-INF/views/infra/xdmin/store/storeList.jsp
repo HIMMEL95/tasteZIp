@@ -46,11 +46,11 @@
 						<nav class="navbar navbar-expand-lg">
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
-									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
+									<a class="nav-link text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
+									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList" style="color: #ff7f00">CodeGroup</a>
 									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
-									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
-									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
+									<a class="nav-link text-white me-3 topNav" href="/order/orderList">Order</a>
+									<a class="nav-link me-3 topNav" href="/store/xdminStoreList" style="color: #ff7f00">Store</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Story</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
@@ -103,7 +103,7 @@
 							</div>
 							<div class="col mt-3">
 								<div class="content">
-									<h2 class="row needs-validation ms-3 mt-5">Xdmin Store List</h2>
+									<h2 class="row needs-validation ms-3 mt-5">Store List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">

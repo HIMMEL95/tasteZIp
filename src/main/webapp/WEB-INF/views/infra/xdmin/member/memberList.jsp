@@ -56,10 +56,10 @@
 						<nav class="navbar navbar-expand-lg">
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
+									<a class="nav-link text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
 									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
-									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
-									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
+									<a class="nav-link me-3 topNav" href="/member/memberList"  style="color: #ff7f00">Member</a>
+									<a class="nav-link text-white me-3 topNav" href="/order/orderList">Order</a>
 									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Story</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
@@ -78,7 +78,7 @@
 				<input type="hidden" name="ccgSeq" value='<c:out value="${vo.ccgSeq }"></c:out>'> --%>
 				<div style="height: 55px"></div>
 				<div class="wrapper">
-					<div class="container">
+					<div class="container" style="height: 100vh;">
 						<div class="row">
 							<div class="col-3" style="padding-right: 0px; width: 312px;">
 								<div class="sidebar mt-3">
@@ -256,28 +256,28 @@
 					</div>
 				</div>
 			</form>
-			<footer>
+			<footer class="bg-dark">
 		        <div class="footer">
 		            <div class="footer_inner">
 		                <!--[주]고객센터,제휴문의,서비스안내-->
 		                <ul class="footer_link" id="footer_link">
 		                    <li><a target="_blank" class="footer_item" href="#"
-		                            id="fot.agreement"><span class="text">이용약관</span></a></li>
+		                            id="fot.agreement"><span class="text text-white">이용약관</span></a></li>
 		                    <li><a target="_blank" class="footer_item" href="#l"
-		                            id="fot.privacy"><span class="text"><strong>개인정보처리방침</strong></span></a></li>
+		                            id="fot.privacy"><span class="text text-white">개인정보처리방침</span></a></li>
 		                    <li><a target="_blank" class="footer_item" href="#"
-		                            id="fot.disclaimer"><span class="text">책임의 한계와 법적고지</span></a></li>
+		                            id="fot.disclaimer"><span class="text text-white">책임의 한계와 법적고지</span></a></li>
 		                    <li><a target="_blank" class="footer_item"
 		                            href="#" id="fot.help"><span
-		                                class="text">회원정보 고객센터</span></a></li>
+		                                class="text text-white">회원정보 고객센터</span></a></li>
 		                </ul>
 		                <div class="footer_copy">
 		                    <a  id="fot.naver" target="_blank" href="https://www.navercorp.com">
-		                        <img class="bg-dark" src="/resources/images/main/logo2.png" alt="logo" style="width: 45px;">
+		                        <img src="/resources/images/main/logo2.png" alt="logo" style="width: 45px;">
 		                    </a>
-		                    <span class="text">Copyright</span>
-		                    <span class="corp">© MATZIP Corp.</span>
-		                    <span class="text">All Rights Reserved.</span>
+		                    <span class="text text-white">Copyright</span>
+		                    <span class="corp text-white">© MATZIP Corp.</span>
+		                    <span class="text text-white">All Rights Reserved.</span>
 		                </div>
 		            </div>
 		        </div>

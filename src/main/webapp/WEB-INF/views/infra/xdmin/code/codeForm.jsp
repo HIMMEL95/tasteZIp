@@ -11,7 +11,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ZipCodeGroupForm</title>
+	<title>CodeForm</title>
 	<link rel="stylesheet" href="/resources/css/xdmin/codeGroup/codeGroupList.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -22,43 +22,45 @@
 <body>
 	<!-- start -->
 	<header>
-			<div class="header bg-dark">
-				<div class="container">
-					<div class="row">
-						<nav class="navbar col" style="padding-bottom : 0px;">
-							<div class="col">
-								<a class="navbar-brand" href="#">
-									<img class="" src="/resources/images/main/logo2.png" style="width: 80px;">
-									<span class="text-white" id="MATZIP">MATZIP</span>
-								</a>
+		<div class="header bg-dark">
+			<div class="container">
+				<div class="row">
+					<nav class="navbar col" style="padding-bottom : 0px;">
+						<div class="col">
+							<a class="navbar-brand">
+								<img src="/resources/images/main/logo2.png" style="width: 80px;">
+								<span class="text-white" id="MATZIP">MATZIP</span>
+							</a>
+						</div>
+						<div class="row offset-5">
+							<div class="userimg col">
+								<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
+								<span id="MATZIP" class="d-inline-block text-white">Tony Chang <br> Administrator</span>
 							</div>
-							<div class="row offset-5">
-								<div class="userimg col">
-									<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
-									<span class="d-inline-block text-white" id="MATZIP">Tony Chang <br> Administrator</span>
-								</div>
-							</div>
-						</nav>
-					</div>
-				</div>
-				<div class="bg-dark">
-					<div class="container">
-						<nav class="navbar navbar-expand-lg">
-							<div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="padding-left: 350px;">
-								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
-									<a class="nav-link text-white me-3" href="#">회원관리</a>
-									<a class="nav-link text-white me-3" href="#">사장님관리</a>
-									<a class="nav-link text-white me-3" href="#">매장관리</a>
-									<a class="nav-link text-white me-3" href="#">story관리</a>
-									<a class="nav-link text-white" href="#">시스템관리</a>
-								</div>
-							</div>
-						</nav>
-					</div>
+						</div>
+					</nav>
 				</div>
 			</div>
-		</header>
+			<div class="bg-dark">
+				<div class="container">
+					<nav class="navbar navbar-expand-lg">
+						<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
+							<div class="navbar-nav">
+								<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
+								<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">codeGroup</a>
+								<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
+								<a class="nav-link text-white me-3 topNav" href="#">Order</a>
+								<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
+								<a class="nav-link text-white me-3 topNav" href="#">Story</a>
+								<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
+								<a class="nav-link text-white" href="#">시스템관리</a>
+							</div>s
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
 		<form id="myform" name="myform" method="post" autocomplete="off">
@@ -212,12 +214,12 @@
 					</div>
 				</form>
 		
-	<form name="formVo" id="formVo" method="post">
+ 		<form name="formVo" id="formVo" method="post">
 			<!-- *Vo.jsp s -->
-			<%@include file="codeGroupVo.jsp"%>
+			<%@include file="codeVo.jsp"%>
 			<!-- #-> -->
 			<!-- *Vo.jsp e -->
-		</form>
+		</form> 
 	</main>
 
 	<!-- end -->
@@ -230,11 +232,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 
-		var goUrlList = "/codeGroup/codeGroupList"; /* #-> */
-		var goUrlInst = "/codeGroup/codeGroupInst"; /* #-> */
-		var goUrlUpdt = "/codeGroup/codeGroupUpdt"; /* #-> */
-		var goUrlUele = "/codeGroup/codeGroupUele"; /* #-> */
-		var goUrlDele = "/codeGroup/codeGroupDele"; /* #-> */
+		var goUrlList = "/code/codeList"; /* #-> */
+		var goUrlInst = "/code/codeInst"; /* #-> */
+		var goUrlUpdt = "/code/codeUpdt"; /* #-> */
+		var goUrlUele = "/code/codeUele"; /* #-> */
+		var goUrlDele = "/code/codeDele"; /* #-> */
 
 		var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
 

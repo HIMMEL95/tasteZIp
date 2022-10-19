@@ -47,7 +47,7 @@
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
 									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
-									<a class="nav-link text-white me-3 topNav" href="/code/codeList">codeGroup</a>
+									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">codeGroup</a>
 									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
 									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>

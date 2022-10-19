@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>ZipCodeForm</title>
-	<link rel="stylesheet" href="/resources/css/codeList.css">
+	<link rel="stylesheet" href="/resources/css/xdmin/code/codeList.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -22,37 +22,43 @@
 <body>
 	<!-- start -->
 	<header>
-		<div class="header bg-light">
-			<div class="container">
-				<div class="row d">
-					<nav class="navbar col">
-						<div class="col">
-							<a class="navbar-brand" href="#"> <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="align-text-top ms-5"> <span></span> Management System
-							</a>
-						</div>
-						<div class="row offset-5">
-							<div class="userimg col">
-								<img alt="" src="../../user/img/user.png" style="width: 60px; height: 40px; border-radius: 100px;" class="me-4 mb-4 "> <span id="nm" class="d-inline-block">Tony Chang <br> Administrator
-								</span>
-							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-			<div style="background-color: #e3f2fd;">
+			<div class="header bg-dark">
 				<div class="container">
-					<nav class="navbar navbar-expand-lg">
-						<a class="navbar-brand" href="#">Navbar</a>
-						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-							<div class="navbar-nav">
-								<a class="nav-link active" aria-current="page" href="#">회원관리</a> <a class="nav-link" href="#">서비스관리</a> <a class="nav-link" href="#">사이트관리</a> <a class="nav-link" href="#">로그관리</a> <a class="nav-link" href="#">시스템관리</a> <a class="nav-link" href="#">시스템관리</a>
+					<div class="row">
+						<nav class="navbar col" style="padding-bottom : 0px;">
+							<div class="col">
+								<a class="navbar-brand" href="#">
+									<img class="" src="/resources/images/main/logo2.png" style="width: 80px;">
+									<span class="text-white" id="MATZIP">MATZIP</span>
+								</a>
 							</div>
-						</div>
-					</nav>
+							<div class="row offset-5">
+								<div class="userimg col">
+									<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
+									<span class="d-inline-block text-white" id="MATZIP">Tony Chang <br> Administrator</span>
+								</div>
+							</div>
+						</nav>
+					</div>
+				</div>
+				<div class="bg-dark">
+					<div class="container">
+						<nav class="navbar navbar-expand-lg">
+							<div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="padding-left: 350px;">
+								<div class="navbar-nav">
+									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
+									<a class="nav-link text-white me-3" href="#">회원관리</a>
+									<a class="nav-link text-white me-3" href="#">사장님관리</a>
+									<a class="nav-link text-white me-3" href="#">매장관리</a>
+									<a class="nav-link text-white me-3" href="#">story관리</a>
+									<a class="nav-link text-white" href="#">시스템관리</a>
+								</div>
+							</div>
+						</nav>
+					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
 		<form id="myform" name="myform" method="post" autocomplete="off">
@@ -63,25 +69,41 @@
 			<div style="height: 70px"></div>
 			<div class="wrapper">
 				<div class="container">
-					<div class="row">
+					<div class="row" style="height: 800px;">
 						<div class="col-3">
 							<div class="sidebar">
 								<!--menu item-->
 								<ul>
-									<li><a href="#" class="active"> <span class="icon"><i class="fa-solid fa-angle-right"></i></span> <span class="item">Home</span>
-									</a></li>
-									<li><a href="#"> <span class="icon"><i class="fa-solid fa-angle-right"></i></span> <span class="item">Dashboard</span>
-									</a></li>
-									<li><a href="#"> <span class="icon"><i class="fa-solid fa-angle-right"></i></span> <span class="item">Orders</span>
-									</a></li>
+									<li>
+										<a href="#" class="active">
+											<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
+											<span class="item" style="color: black;" id="sidebar">Home</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span class="icon"><i class="fas fa-desktop"></i></span>
+											<span class="item" style="color: black;" id="sidebar">Dashboard</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<span class="icon"><i class="fas fa-user-friends"></i></span>
+											<span class="item" style="color: black;" id="sidebar">Orders</span>
+										</a>
+									</li>
 									<li><hr class="dropdown-divider" style="color: lightgray;"></li>
-									<li><a href="#"> <span class="icon"><i class="fa-solid fa-angle-right"></i></span> <span class="item">Account</span>
-									</a></li>
+									<li>
+										<a href="#">
+											<span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+											<span class="item" style="color: black;" id="sidebar">Account</span>
+										</a>
+									</li>
 								</ul>
 							</div>
 						</div>
-						<div class="col">
-							<h2 class="needs-validation mt-2">코드 관리</h2>
+						<div class="col" style="padding-top: 20px;">
+							<h2 class="needs-validation mt-2">code Form</h2>
 							<div class="content">
 								<div class="row">
 									<div class="col">
@@ -147,71 +169,55 @@
 									</div>
 								</div>
 							</div>
+							<div class="row align-items-center mt-5">
+	                            <div class="col-2">
+	                                <button class="border-0 btn bg-secondary shadow" type="button" id="btnList">
+	                                    <i class="fa-solid fa-bars" style="color: white;"></i>
+	                                </button>
+	                                <button id="btnUel" value="Uel" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
+	                                    data-bs-target="#deleteModal">
+	                                    <i class="fa-solid fa-xmark" style="color: white;"></i>
+	                                </button>
+	                            </div>
+	                            <div class="col-3 offset-7" align="right">
+	                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
+	                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	                                    <div class="modal-dialog">
+	                                        <div class="modal-content">
+	                                            <div class="modal-header">
+	                                                <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
+	                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+	                                                    aria-label="Close"></button>
+	                                            </div>
+	                                            <div class="modal-body fs-6">
+	                                           		선택하신 게시물을 정말로 삭제하시겠습니까?
+	                                            </div>
+	                                            <div class="modal-footer">
+	                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+	                                                <button id="delBtn" type="button" class="btn btn-primary">삭제</button>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
+	                                    data-bs-target="#deleteModal">
+	                                    <i class="fa-solid fa-trash-can" style="color: white;"></i>
+	                                </button>
+	                                <button id="btnSave" class="border-0 btn bg-success shadow" type="button">
+	                                    <i class="fa-regular fa-bookmark" style="color: white;"></i>
+	                                </button>
+	                            </div>
+	                        </div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</form>
-		<div class="row mt-3">
-			<div class="col-md-2 offset-3">
-				<button class="btn" type="button" name="btnList" id="btnList" style="background-color: gray">
-					<i class="fas fa-thin fa-list-ul"></i>
-				</button>
-			</div>
-			<div class="col-md-6 offset-md-4" align="right">
-				<button class="btn btn-danger del" type="button" name="ueleteBtn" onclick=deleteValue(); data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
-					<i class="fa-solid fa-xmark"></i>
-				</button>
-				<div class="modal fade" id="exampleModalCenter1" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalCenterTitle">삭제하시겠습니까?</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-							<div class="modal-body" align="center">
-								<i class="fas fa-light fa-triangle-exclamation me-2" style="color: red;"></i> 그룹 리스트에서 해당 정보가 사라집니다.
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-								<button type="button" class="btn btn-danger" id="ueleteBtn" name="ueleteBtn">삭제</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<button class="btn btn-danger" type="button" onclick=deleteValue(); data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
-					<i class="fa-solid fa-trash-can"></i>
-				</button>
-				<div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalCenterTitle">삭제하시겠습니까?</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-							<div class="modal-body" align="center">
-								<i class="fas fa-light fa-triangle-exclamation me-2" style="color: red;"></i> 삭제된 정보는 복구할 수가 없습니다.
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-								<button type="button" class="btn btn-danger" id="deleteBtn" name="deleteBtn">삭제</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<button type="button" id="btnSave" name="btnSave" class="btn btn-success">
-					<i class="fa-regular fa-bookmark"></i>
-				</button>
-				<button type="button" id="btnSave1" name="btnSave" class="btn btn-success">t</button>
-				<!-- <button class="btn btn-success" type="button" href="../admin/codeModForm.html" onclick=here()><i class="fa-regular fa-bookmark"></i></button> -->
-			</div>
-		</div>
-		<%-- <form name="formVo" id="formVo" method="post">
+				</form>
+		
+		 <form name="formVo" id="formVo" method="post">
 			<!-- *Vo.jsp s -->
 			<%@include file="codeVo.jsp"%>
 			<!-- #-> -->
 			<!-- *Vo.jsp e -->
-		</form> --%>
+		</form> 
 	</main>
 
 	<!-- end -->
@@ -220,16 +226,28 @@
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bd29bc43140391b0206f367d2b8c01eb&libraries=services"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 
-		var goUrlList = "/code/codeList"; 
+		var goUrlList = "/code/codeList"; /* #-> */
+		var goUrlInst = "/code/codeInst"; /* #-> */
+		var goUrlUpdt = "/code/codeUpdt"; /* #-> */
+		var goUrlUele = "/code/codeUele"; /* #-> */
+		var goUrlDele = "/code/codeDele"; /* #-> */
 
-		 
+		var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
 
+		var form = $("form[name=myform]");
+		var formVo = $("form[name=formVo]");
+		
 		$("#btnList").on("click", function() {
 			formVo.attr("action", goUrlList).submit();
 		});
 
+		 
+		
+		
 	</script>
 </body>
 </html>

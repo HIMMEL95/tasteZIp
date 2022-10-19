@@ -17,6 +17,10 @@
     font-family: 'LeferiPoint-SpecialItalicA';
 }
 
+.topNav {
+	 font-family: 'LeferiPoint-SpecialItalicA';
+}
+
 h2{
     font-family: 'LeferiPoint-SpecialItalicA';
 }
@@ -61,14 +65,7 @@ h2{
 		font-family: 'Open Sans', sans-serif;
 	}
 
-	.wrapper .sidebar{
-		top: 0;
-		left: 0;
-		width: 225px;
-		height: 100vh;
-		padding: 20px 0;
-		transition: all 0.5s ease;
-	}
+    /* 사이드 바 내부 설정 */
 	.wrapper .sidebar ul li a{
 	text-decoration-line: none;
     display: block;
@@ -78,32 +75,12 @@ h2{
     position: relative;
 	}
 
-	.wrapper .sidebar ul li a .icon{
-		color: #dee4ec;
-		width: 30px;
-		display: inline-block;
-	}
-	
-	.map_wrap {position:relative;width:100%;height:350px;}
-    .title {font-weight:bold;display:block;}
-    .hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
-    #centerAddr {display:block;margin-top:2px;font-weight: normal;}
-    .bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-    
     .addScroll{
 		overflow-y:auto;
 		height: 90px;
 		background-color:#E9ECEF;
 	}
  	
-	.input-file-button{
-		padding: 4px 25px;
-		background-color:#FF6600;
-		border-radius: 4px;
-		color: white;
-		cursor: pointer;
-	}
-	
 	/* footer 영역 */
 .footer {
     margin: 0 40px;

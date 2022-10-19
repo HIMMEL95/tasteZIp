@@ -7,12 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/store/")
 public class StoreController {
 	
-	@RequestMapping(value = "storeList")
+	
+	//관리자 스토어
+	
+	
+	// 오너 스토어
+	
+	@RequestMapping(value = "ownerStoreList")
 	public String storeList() throws Exception {
 	    return "infra/owner/store/storeList";
 	}
 	
-	@RequestMapping(value = "storeForm")
+	@RequestMapping(value = "ownerStoreForm")
 	public String storeForm() throws Exception {
 	    return "infra/owner/store/storeForm";
 	}

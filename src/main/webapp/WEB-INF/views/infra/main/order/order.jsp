@@ -29,7 +29,7 @@
     <main>
     	<div id="sidebar" class="sidebar">
 	    	<div class="d-flex flex-column flex-shrink-0 bg-dark align-center" style="width: 4.5rem; height: 100vh;">
-			    <a href="/" class="d-block p-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+			    <a href="/tasteMain" class="d-block p-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
 					<img alt="" src="/resources/images/main/logo2.png" width="40" height="30">
 					<span class="visually-hidden">Icon-only</span>
 			    </a>
@@ -162,6 +162,9 @@
 												<div>
 													<button type="button" class="option_selector_wrap">
 														<strong class="point">아침/오전</strong>
+														<span>시간대</span>
+														<strong class="point">추천순</strong>
+														<strong class="blind">설정 펼치기</strong>
 													</button>
 												</div>
 											</div>

@@ -72,6 +72,10 @@ main {
     vertical-align: top;
 }
 
+.btn_fold {
+	background-position: -428px -347px;
+}
+
 .btn_fold:hover {
 	background-position: -428px -347px;
 }
@@ -634,11 +638,27 @@ h3 {
     content: " ";
 }
 
+.option_selector_wrap:after {
+    overflow: hidden;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    font-size: 0;
+    color: transparent;
+    vertical-align: top;
+    background-position: -452px -245px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    margin: auto;
+    content: "";
+}
 
-
-
-
-
+.option_selector_wrap.-open:after, .option_selector_wrap.-open:hover:after, .option_selector_wrap:after, .option_selector_wrap:hover:after {
+    background-image: url(https://ssl.pstatic.net/static/maps/v5/pc/20220531112111/home.png);
+    background-size: 508px 492px;
+}
 
 
 

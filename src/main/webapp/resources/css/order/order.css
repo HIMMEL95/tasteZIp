@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 
 .dropdown-toggle::after {
@@ -27,6 +28,11 @@ main {
 	position: relative;
 	z-index: 210;
 	box-sizing: border-box;
+}
+
+.map_container {
+    display: flex;
+    height: 100%;
 }
 
 .container {
@@ -659,7 +665,6 @@ h3 {
     background-image: url(https://ssl.pstatic.net/static/maps/v5/pc/20220531112111/home.png);
     background-size: 508px 492px;
 }
-
 
 
 

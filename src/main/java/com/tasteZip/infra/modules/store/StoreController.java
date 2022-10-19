@@ -20,16 +20,4 @@ public class StoreController {
 	    return "infra/xdmin/store/storeForm";
 	}
 	
-	// 오너 스토어
-	
-	@RequestMapping(value = "ownerStoreList")
-	public String ownerStoreList() throws Exception {
-	    return "infra/owner/store/ownerStoreList";
-	}
-	
-	@RequestMapping(value = "ownerStoreForm")
-	public String ownerStoreForm() throws Exception {
-	    return "infra/owner/store/ownerStoreForm";
-	}
-	
 }

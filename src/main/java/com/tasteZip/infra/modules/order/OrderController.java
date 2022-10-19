@@ -9,7 +9,7 @@ public class OrderController {
 	
 	@RequestMapping(value = "orderList")
 	public String orderList() throws Exception {
-	    return "infra/owner/order/orderList";
+	    return "infra/xdmin/order/orderList";
 	}
 	
 }

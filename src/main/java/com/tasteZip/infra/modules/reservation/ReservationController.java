@@ -9,6 +9,6 @@ public class ReservationController {
 	
 	@RequestMapping(value = "reservationList")
 	public String storeList() throws Exception {
-	    return "infra/owner/reservation/reservationList";
+	    return "infra/xdmin/reservation/reservationList";
 	}
 }

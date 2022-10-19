@@ -9,7 +9,7 @@ public class CommentController {
 	
 	@RequestMapping(value = "commentList")
 	public String reviewList() throws Exception {
-	    return "infra/owner/comment/commentList";
+	    return "infra/xdmin/comment/commentList";
 	}
 	
 

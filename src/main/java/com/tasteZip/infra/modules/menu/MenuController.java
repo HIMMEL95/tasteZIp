@@ -9,12 +9,12 @@ public class MenuController {
 	
 	@RequestMapping(value = "ownerMenuList")
 	public String ownerMenuList() throws Exception {
-	    return "infra/owner/menu/ownerMenuList";
+	    return "infra/xdmin/menu/ownerMenuList";
 	}
 	
 	@RequestMapping(value = "ownerMenuForm")
 	public String ownerMenuForm() throws Exception {
-	    return "infra/owner/menu/ownerMenuForm";
+	    return "infra/xdmin/menu/ownerMenuForm";
 	}
 
 }

@@ -57,10 +57,11 @@
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
 									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
+									<a class="nav-link active text-white me-3" aria-current="page" href="#">CodeGroup</a>
 									<a class="nav-link text-white me-3" href="/member/memberList">회원관리</a>
-									<a class="nav-link text-white me-3" href="#">사장님관리</a>
-									<a class="nav-link text-white me-3" href="#">매장관리</a>
-									<a class="nav-link text-white me-3" href="#">story관리</a>
+									<a class="nav-link text-white me-3" href="#">주문관리</a>
+									<a class="nav-link text-white me-3" href="#">가게관리</a>
+									<a class="nav-link text-white me-3" href="#">관리</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
 								</div>
 							</div>
@@ -172,11 +173,8 @@
 													<th class="text-white" scope="col">성별</th>
 													<th class="text-white" scope="col">이메일</th>
 													<th class="text-white" scope="col">전화번호</th>
-													<th class="text-white" scope="col">주소</th>
 													<th class="text-white" scope="col">사용자구분</th>
 													<th class="text-white" scope="col">SNS 연동</th>
-													<th class="text-white" scope="col">이메일 수신여부</th>
-													<th class="text-white" scope="col">삭제여부</th>
 													<th class="text-white" scope="col">등록일</th>
 												</tr>
 											</thead>
@@ -204,9 +202,6 @@
 														</c:forEach>
 													</c:otherwise>
 												</c:choose> --%>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
 												<td>-</td>
 												<td>-</td>
 												<td>-</td>

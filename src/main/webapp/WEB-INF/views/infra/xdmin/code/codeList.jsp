@@ -11,7 +11,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>ZIpCodeGroup</title>
+		<title>ZIpcode</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link rel="stylesheet" href="/resources/css/xdmin/codeGroup/codeGroupList.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -47,7 +47,7 @@
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
 									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
-									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
+									<a class="nav-link text-white me-3 topNav" href="/code/codeList">codeGroup</a>
 									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
 									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
@@ -279,12 +279,12 @@
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
 		<script>
 		
-		var goUrlList = "/codeGroup/codeGroupList"; 
-		var goUrlInst = "/codeGroup/codeGroupInst";
-		var goUrlUpdt = "/codeGroup/codeGroupUpdt";	
-		var goUrlUele = "/codeGroup/codeGroupUele";	
-		var goUrlDele = "/codeGroup/codeGroupDele";	
-		var goUrlForm = "/codeGroup/codeGroupForm";
+		var goUrlList = "/code/codeList"; 
+		var goUrlInst = "/code/codeInst";
+		var goUrlUpdt = "/code/codeUpdt";	
+		var goUrlUele = "/code/codeUele";	
+		var goUrlDele = "/code/codeDele";	
+		var goUrlForm = "/code/codeForm";
 		
 		var form = $("form[name=myForm]");
 		

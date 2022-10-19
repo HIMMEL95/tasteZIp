@@ -112,7 +112,7 @@
 							</div>
 							<div class="col mt-3">
 								<div class="content">
-									<h2 class="row needs-validation ms-3 mt-5">My Store</h2>
+									<h2 class="row needs-validation ms-3 mt-5">Menu List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
@@ -167,11 +167,12 @@
 														<input type="checkbox" name="chk_all" id="chk_all" href="">
 													</th>
 													<th class="text-white">#</th>
-													<th class="text-white" scope="col">OPEN TIME</th>
-													<th class="text-white" scope="col">CLOSE TIME</th>
-													<th class="text-white" scope="col">전화번호</th>
-													<th class="text-white" scope="col">주소</th>
+													<th class="text-white" scope="col">이름</th>
+													<th class="text-white" scope="col">가격</th>
+													<th class="text-white" scope="col">가게명</th>
+													<th class="text-white" scope="col">할인여부</th>
 													<th class="text-white" scope="col">등록일</th>
+													<th class="text-white" scope="col">수정일</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -199,7 +200,6 @@
 													</c:otherwise>
 												</c:choose> --%>
 												<td><input type="checkbox"></td>
-												<td>-</td>
 												<td>-</td>
 												<td>-</td>
 												<td>-</td>

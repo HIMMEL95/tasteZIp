@@ -61,7 +61,7 @@
 									<a class="nav-link text-white me-3" href="/member/memberList">회원관리</a>
 									<a class="nav-link text-white me-3" href="#">주문관리</a>
 									<a class="nav-link text-white me-3" href="#">가게관리</a>
-									<a class="nav-link text-white me-3" href="#">관리</a>
+									<a class="nav-link text-white me-3" href="#">메뉴관리</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
 								</div>
 							</div>

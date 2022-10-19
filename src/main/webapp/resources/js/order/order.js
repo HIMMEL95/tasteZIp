@@ -12,4 +12,6 @@ $("#handle").on("click", function() {
 		$("#handle").addClass("expand");
 		$("#handle").html("접기");
 	}
-})
+});
+ 
+

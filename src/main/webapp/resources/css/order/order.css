@@ -1,7 +1,6 @@
 body {
-	margin: 0;
-	padding: 0;
 	overflow: hidden;
+	display: block;
 }
 
 .dropdown-toggle::after {
@@ -24,6 +23,12 @@ main {
 	height: 100%;
 }
 
+.clearfix::ater {
+	content: "";
+	display: block;
+	clear: both;
+}
+
 .sidebar {
 	position: relative;
 	z-index: 210;
@@ -31,11 +36,6 @@ main {
 }
 
 .map_container {
-    display: flex;
-    height: 100%;
-}
-
-.container {
 	position: relative;
 	flex: 1 0 auto;
 	margin: 0;

@@ -24,12 +24,12 @@ public class StoreController {
 	
 	@RequestMapping(value = "ownerStoreList")
 	public String ownerStoreList() throws Exception {
-	    return "infra/owner/store/storeList";
+	    return "infra/owner/store/ownerStoreList";
 	}
 	
 	@RequestMapping(value = "ownerStoreForm")
 	public String ownerStoreForm() throws Exception {
-	    return "infra/owner/store/storeForm";
+	    return "infra/owner/store/ownerStoreForm";
 	}
 	
 }

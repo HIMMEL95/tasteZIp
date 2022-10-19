@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/menu/")
 public class MenuController {
 	
-	@RequestMapping(value = "menuList")
-	public String menuList() throws Exception {
-	    return "infra/owner/menu/menuList";
+	@RequestMapping(value = "ownerMenuList")
+	public String ownerMenuList() throws Exception {
+	    return "infra/owner/menu/ownerMenuList";
 	}
 	
-	@RequestMapping(value = "menuForm")
-	public String menuForm() throws Exception {
-	    return "infra/owner/menu/menuForm";
+	@RequestMapping(value = "ownerMenuForm")
+	public String ownerMenuForm() throws Exception {
+	    return "infra/owner/menu/ownerMenuForm";
 	}
 
 }

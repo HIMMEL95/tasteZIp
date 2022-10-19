@@ -46,11 +46,11 @@
 						<nav class="navbar navbar-expand-lg">
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="#">Code</a>
+									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
 									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
-									<a class="nav-link text-white me-3 topNav" href="#">Member</a>
+									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
-									<a class="nav-link text-white me-3 topNav" href="/store/xstoreList">Store</a>
+									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Story</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>

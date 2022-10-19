@@ -46,13 +46,15 @@
 						<nav class="navbar navbar-expand-lg">
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="#">Code</a>
+									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
 									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
-									<a class="nav-link text-white me-3 topNav" href="#">Member</a>
-									<a class="nav-link text-white me-3 topNav" href="/store/storeList">Store</a>
+									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
+									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
 									<a class="nav-link text-white me-3 topNav" href="#">Story</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
-								</div>
+								</div>s
 							</div>
 						</nav>
 					</div>
@@ -68,7 +70,7 @@
 				<div class="wrapper">
 					<div class="container" style="height: 100vh;">
 						<div class="row">
-							<div class="col-3">
+							<div class="col-3" style="padding-right: 0px; width: 312px;">
 								<div class="sidebar mt-3">
 									<!--menu item-->
 									<ul style="padding-left: 0px; padding-top: 20px;">
@@ -142,27 +144,25 @@
 												<div class="invalid-feedback" id="shValueFeeback"></div>
 											</div>
 											<div class="col-md-2">
-												<button class="btn btn-warning" type="submit" id="searching"><i class="fa-solid fa-magnifying-glass"></i></button>
-												<button class="btn btn-danger" type="reset" id="btnReset" name="btnReset"><i class="fa-solid fa-rotate-right"></i></button>
+												<button class="btn btn-light" type="submit" id="searching"><i class="fa-solid fa-magnifying-glass"></i></button>
+												<button class="btn btn-secondary" type="reset" id="btnReset" name="btnReset"><i class="fa-solid fa-rotate-right"></i></button>
 											</div>
 										</div>
 									</div>
 									<span class="ms-3 mt-5" id="Total">Total: </span>
-									<div class="ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
-										<table class="table table-striped table-hover text-center" id="selecBox"  style="width: auto;">
+									<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
+										<table class="table table-striped table-hover text-center" id="selecBox">
 											<thead>
 												<tr class="bg-dark">
 													<th scope="col">
 														<input type="checkbox" name="chk_all" id="chk_all" href="">
 													</th>
 													<th class="text-white">#</th>
-													<th class="td1 text-white" scope="col">코드그룹 코드</th>
-													<th class="td2 text-white" scope="col">코드그룹 이름(한글)</th>
-													<th class="td3 text-white" scope="col">코드그룹 이름(영문)</th>
-													<th class="td4 text-white" scope="col">기타</th>
-													<th class="td5 text-white" scope="col">기타2</th>
-													<th class="td5 text-white" scope="col">기타3</th>
-													<th class="td5 text-white" scope="col">기타6</th>
+													<th class="text-white" scope="col">OPEN TIME</th>
+													<th class="text-white" scope="col">CLOSE TIME</th>
+													<th class="text-white" scope="col">전화번호</th>
+													<th class="text-white" scope="col">주소</th>
+													<th class="text-white" scope="col">등록일</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -189,11 +189,7 @@
 														</c:forEach>
 													</c:otherwise>
 												</c:choose> --%>
-												<td scope="row" class="td1" src="">
-													<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
-												</td>
-												<td>-</td>
-												<td>-</td>
+												<td><input type="checkbox"></td>
 												<td>-</td>
 												<td>-</td>
 												<td>-</td>
@@ -206,9 +202,9 @@
 									</div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
-			                                <button class="border-0 btn bg-dark shadow" type="button" data-bs-toggle="modal"
+			                                <button class="border-0 btn shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
-			                                    <i class="fa-solid fa-trash fa-lg text-white"></i>
+			                                    <i class="fa-solid fa-trash fa-lg"></i>
 			                                </button>
 			                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
 			                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -229,13 +225,13 @@
 			                                        </div>
 			                                    </div>
 			                                </div>
-			                                <button class="border-0 btn bg-secondary shadow" type="button" data-bs-toggle="modal"
+			                                <button class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-xmark text-white"></i>
 			                                </button>
 			                            </div>
 			                            <div class="col-2 offset-8" align="right">
-			                                <button class="border-0 btn bg-secondary shadow" type="button" data-bs-toggle="modal"
+			                                <button class="border-0 btn bg-success shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>

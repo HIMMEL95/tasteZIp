@@ -56,12 +56,13 @@
 						<nav class="navbar navbar-expand-lg">
 							<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
 								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">CodeGroup</a>
-									<a class="nav-link text-white me-3" href="/member/memberList">회원관리</a>
-									<a class="nav-link text-white me-3" href="#">주문관리</a>
-									<a class="nav-link text-white me-3" href="#">가게관리</a>
-									<a class="nav-link text-white me-3" href="#">메뉴관리</a>
+									<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
+									<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">CodeGroup</a>
+									<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Order</a>
+									<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Story</a>
+									<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
 									<a class="nav-link text-white" href="#">시스템관리</a>
 								</div>
 							</div>
@@ -79,10 +80,10 @@
 				<div class="wrapper">
 					<div class="container">
 						<div class="row">
-							<div class="col-3">
+							<div class="col-3" style="padding-right: 0px; width: 312px;">
 								<div class="sidebar mt-3">
 									<!--menu item-->
-									<ul>
+									<ul style="padding-left: 0px; padding-top: 20px;">
 										<li>
 											<a href="#" class="active">
 												<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
@@ -167,14 +168,10 @@
 														<input type="checkbox" name="chk_all" id="chk_all" href="">
 													</th>
 													<th class="text-white">#</th>
-													<th class="text-white" scope="col">아이디</th>
-													<th class="text-white" scope="col">이름</th>
-													<th class="text-white" scope="col">생년월일</th>
-													<th class="text-white" scope="col">성별</th>
-													<th class="text-white" scope="col">이메일</th>
+													<th class="text-white" scope="col">OPEN TIME</th>
+													<th class="text-white" scope="col">CLOSE TIME</th>
 													<th class="text-white" scope="col">전화번호</th>
-													<th class="text-white" scope="col">사용자구분</th>
-													<th class="text-white" scope="col">SNS 연동</th>
+													<th class="text-white" scope="col">주소</th>
 													<th class="text-white" scope="col">등록일</th>
 												</tr>
 											</thead>
@@ -202,11 +199,7 @@
 														</c:forEach>
 													</c:otherwise>
 												</c:choose> --%>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
+												<td><input type="checkbox"></td>
 												<td>-</td>
 												<td>-</td>
 												<td>-</td>

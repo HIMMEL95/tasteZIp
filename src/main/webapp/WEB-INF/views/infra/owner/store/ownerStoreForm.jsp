@@ -18,6 +18,11 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src="/resources/js/commonXdmin.js"></script>
 	<script src="/resources/common/js/common.js"></script>
+	<style type="text/css">
+		.form-label{
+			font-weight: bold;
+		}
+	</style>
 </head>
 <body>
 	<!-- start -->
@@ -103,69 +108,49 @@
 							</div>
 						</div>
 						<div class="col" style="padding-top: 20px;">
-							<h2 class="needs-validation mt-2">CodeGroup Form</h2>
+							<h2 class="needs-validation mt-2">My Store Form</h2>
 							<div class="content">
 								<div class="row">
-									<div class="col">
-										<label for="ccgSeq" class="form-label">코드그룹 코드</label> <input type="text" class="form-control" id="ccgSeq" placeholder="영문(대소문자),숫자">
-									</div>
-									<div class="col">
-										<label for="codeGroup_another" class="form-label">코드그룹 코드(Another)</label> <input type="text" class="form-control" id="codeGroup_another" name="codeGroup_another" placeholder="영문(대소문자),숫자" value="">
-									</div>
+									<label for="ccgSeq" class="form-label">오픈시간</label> 
+									<div class="col-6"><input type="date" class="form-control" id="" name="" placeholder=""></div>
+									 ~ <div class="col-5"><input type="date" class="form-control" id="" name="" placeholder=""></div>
 								</div>
-								<div class="row mt-3">
-									<div class="col">
-										<label for="name" class="form-label">코드그룹 이름(한글)</label> 
-										<input type="text" class="form-control" id="name" name="name" placeholder="한글,숫자">
-									</div>
-									<div class="col">
-										<label for="name_eng" class="form-label">코드그룹 이름(영문)</label> <input type="text" class="form-control" id="name_eng" name="name_eng" placeholder="영문(대소문자),숫자">
-									</div>
-								</div>
-								<div class="row mt-3">
-									<div class="col">
-										<label for="codeGroup_use" class="form-label">사용여부</label> <select class="form-select" id="codeGroup_use" name="codeGroup_use">
-											<%-- <option selected disabled value="">선택</option>
-											<option value="0" <c:if test = "${item.codeGroup_use eq 0}">selected</c:if>>N</option>
-											<option value="1" <c:if test = "${item.codeGroup_use eq 1}">selected</c:if>>Y</option> --%>
-											<option value=""> 선택</option>
-										</select>
-									</div>
-									<div class="col">
-										<label for="codeGroup_or" class="form-label">순서</label> <input type="text" class="form-control" id="codeGroup_or" name="codeGroup_or" placeholder="숫자">
-									</div>
-								</div>
-								<div class="row mt-3">
-									<div class="col">
-										<label for="codeGroup_con" class="form-label">설명</label>
-										<textarea class="form-control" id="codeGroup_con" placeholder="Required example textarea"></textarea>
-									</div>
-									<div class="col">
-										<label for="ifcgDelNy" class="form-label">삭제여부</label> <select class="form-select" id="ifcgDelNy" name="ifcgDelNy">
-											<option value="0">N</option>
-											<option value="1">Y</option>
-										</select>
-									</div>
-								</div>
-								<div class="row mt-3">
-									<div class="col">
-										<label for="codeGroup_V1" class="form-label">예비1(Varchar type)</label> <input type="text" class="form-control" id="codeGroup_V1" name="codeGroup_V1" placeholder="영문(대소문자),숫자">
-									</div>
-									<div class="col">
-										<label for="codeGroup_V2" class="form-label">예비2(Varchar type)</label> <input type="text" class="form-control" id="codeGroup_V2" name="codeGroup_V2" placeholder="영문(대소문자),숫자">
-									</div>
-								</div>
-								<div class="row mt-3">
+								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-6">
-										<label for="codeGroup_V3" class="form-label">예비3(Varchar type)</label><input type="text" class="form-control" id="codeGroup_V3" name="codeGroup_V3" placeholder="영문(대소문자),숫자">
+										<label for="name" class="form-label">전화번호</label> 
+										<input type="text" class="form-control" id="" name="" placeholder="01000000000">
 									</div>
 								</div>
-								<div class="row mt-3">
-									<div class="col">
-										<label for="codeGroup_I1" class="form-label">예비1 (Int type)</label><input type="text" class="form-control" id="codeGroup_I1" name="codeGroup_I1" placeholder="숫자">
+								<div class="row mt-3" style="margin-top: 3rem;">
+									<label for="name" class="form-label">우편번호</label> 
+									<div class="col-8">	
+						   				<input type="text" class="form-control" id="" name="" value="">
+						   			</div>
+						   			<div class="col-4">
+						   				<button type="button" class="btn btn-outline-dark" onclick=""> 우편번호 검색 </button>
+						   				<button class="btn btn-outline-dark" type="button" id="" style="height: 2.4rem;"><i class="fa-solid fa-rotate-left"></i></button>
+					   				</div>
+								</div>
+								<div class="row mt-3" style="margin-top: 3rem;">
+									<div class="col-6">	
+										<label for="name" class="form-label">상세주소</label> 
+						   				<input type="text" class="form-control" id="" name="" value="">
+						   			</div>
+						   			<div class="col-6">
+						   				<label for="name" class="form-label">참고 항목</label>
+						   				<input type="text" class="form-control" id="" name="" value=""> 
+					   				</div>
+								</div>
+								<div class="row mt-3" style="margin-top: 3rem;">
+									<div class="col-12">
+										<label for="name" class="form-label">간편 길안내</label> 
+										<input type="text" class="form-control" id="" name="" placeholder="">
 									</div>
-									<div class="col">
-										<label for="codeGroup_I2" class="form-label">예비2 (Int type)</label><input type="text" class="form-control" id="codeGroup_I2" name="codeGroup_I2" placeholder="숫자">
+								</div>
+								<div class="row mt-3" style="margin-top: 3rem;">
+									<div class="col-12">
+										<label for="name" class="form-label">가게 소개글</label> 
+										<input type="text" class="form-control" id="" name="" placeholder="">
 									</div>
 								</div>
 							</div>
@@ -214,7 +199,6 @@
 		
 		 <form name="formVo" id="formVo" method="post">
 			<!-- *Vo.jsp s -->
-			<%@include file="codeGroupVo.jsp"%>
 			<!-- #-> -->
 			<!-- *Vo.jsp e -->
 		</form> 

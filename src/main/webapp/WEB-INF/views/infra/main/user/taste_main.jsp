@@ -49,16 +49,16 @@
                             <a class="nav-link active" aria-current="page" href="/order">Order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Favorite</a>
+                            <a class="nav-link" href="/favorite">Favorite</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Crew Chat</a>
+                            <a class="nav-link" href="/chat">Crew Chat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Story</a>
+                            <a class="nav-link" href="/story">Story</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">My Review</a>
+                            <a class="nav-link" href="/comment">My Review</a>
                         </li>
                         <hr>
                         <li class="nav-item">

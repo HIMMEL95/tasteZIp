@@ -1,7 +1,12 @@
 package com.tasteZip.infra.modules;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MainController {
@@ -25,4 +30,36 @@ public class MainController {
 	public String order() throws Exception {
 	    return "infra/main/order/order";
 	}
+	
+	@RequestMapping(value = "chat")
+	public String chat() throws Exception {
+	    return "infra/main/chat/chat";
+	}
+	
+	@RequestMapping(value = "comment")
+	public String comment() throws Exception {
+	    return "infra/main/comment/comment";
+	}
+	
+	@RequestMapping(value = "story")
+	public String story() throws Exception {
+	    return "infra/main/story/story";
+	}
+	
+	@RequestMapping(value = "favorite") 
+	public String favorite() throws Exception {
+	    return "infra/main/favorite/favorite";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "test")
+	public Map<String, Object> test() throws Exception{
+	    Map<String, Object> returnMap = new HashMap<String, Object>();
+	    
+	    returnMap.put("rt", "success");
+	    
+	    return returnMap;
+	}
+	
+	
 }

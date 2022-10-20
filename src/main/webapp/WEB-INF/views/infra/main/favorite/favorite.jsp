@@ -75,107 +75,57 @@
 			</div>
 		</div>
 		<div class="map_container" id="container">
-			<div class="sideInfo">
-				<div class="handle">
-					<input type="hidden" name="handle_value" id="handle_value" value="1">
-					<button type="button" id="handle" class="btn_fold expand">접기</button>
-				</div>
-				<div class="panel">
-					<div class="panel_top">
-						<!-- search s -->
-						<div class="search">
-							<div class="search_wrap">
-								<div class="search_box">
-									<button class="search_btn" type="button">검색</button>
-									<div class="input_box">
-										<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
-										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
+			<form id="myForm" name="myForm">
+				<div class="sideInfo">
+					<div class="handle">
+						<input type="hidden" name="handle_value" id="handle_value" value="1">
+						<button type="button" id="handle" class="btn_fold expand">접기</button>
+					</div>
+					<div class="panel">
+						<div class="panel_top">
+							<!-- search s -->
+							<div class="search">
+								<div class="search_wrap">
+									<div class="search_box">
+										<button class="search_btn" type="button">검색</button>
+										<div class="input_box">
+											<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
+											<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- search e -->
-						<div class="ng-star-inserted">
-							<div class="main -top_space">
-								<!-- weather s -->
-								<div class="weather">
-									<div class="weather_card">
-										<div class="card_hearder">
-											<a class="address">강남구 역삼1동</a>
-											<button type="button" class="card_button">위치수정</button>
-										</div>
-										<div class="card_content">
-											<a class="date_info_wrap"> 
-												<dl class="weather_area">
-													<div class="half">
-														<dt class="time_text">오전</dt>
-														<dd class="icon_weather1">
-															<span class="blind">맑음</span>
-														</dd>
+							<!-- search e -->
+							<div class="ng-star-inserted">
+								<div class="main -top_space">
+									<!-- contents s -->
+									<div class="contents">
+										<div class="around_wrap">
+											<h3 class="heading">
+												<span class="blind">Smart Around</span>
+											</h3>
+											<div class="around_content">
+												<div class="around_place_card ng-star-inserted">
+													<h3 class="heading2">주변</h3>
+													<div>
+														<button type="button" class="option_selector_wrap">
+															<strong class="point">아침/오전</strong>
+															<span>시간대</span>
+															<strong class="point">추천순</strong>
+															<strong class="blind">설정 펼치기</strong>
+														</button>
 													</div>
-													<div class="half">
-														<dt class="time_text">오후</dt>
-														<dd class="icon_weather1">
-															<span class="blind">맑음</span>
-														</dd>
-													</div>
-												</dl>
-												<dl class="temper_area">
-													<div class="half">
-														<dt class="blind">오전</dt>
-														<dd class="temper">2</dd>
-													</div>
-													<div class="half">
-														<dt class="blind">오후</dt>
-														<dd class="temper">14</dd>
-													</div>
-												</dl>
-											</a>
-											<a class="dust_area ng-star-inserted">
-												<dl class="dust_info_list">
-													<div class="dust">
-														<dt class="label">미세</dt>
-														<dd class="value -good">좋음</dd>
-													</div>
-												</dl>
-												<dl class="dust_info_list">
-													<div class="dust">
-														<dt class="label">초미세</dt>
-														<dd class="value -good">좋음</dd>
-													</div>
-												</dl>
-											</a>
-										</div>
-									</div>
-								</div>
-								<!-- weather e -->
-								<!-- contents s -->
-								<div class="contents">
-									<div class="around_wrap">
-										<h3 class="heading">
-											<span class="blind">Smart Around</span>
-										</h3>
-										<div class="around_content">
-											<div class="around_place_card ng-star-inserted">
-												<h3 class="heading2">주변</h3>
-												<div>
-													<button type="button" class="option_selector_wrap">
-														<strong class="point">아침/오전</strong>
-														<span>시간대</span>
-														<strong class="point">추천순</strong>
-														<strong class="blind">설정 펼치기</strong>
-													</button>
 												</div>
 											</div>
 										</div>
 									</div>
+									<!-- contents e -->
 								</div>
-								<!-- contents e -->
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 			<div id="map" style="width:100%;height:100%;"></div>
 		</div>
     </main>

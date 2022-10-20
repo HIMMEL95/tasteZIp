@@ -51,6 +51,11 @@ public class MainController {
 	    return "infra/main/favorite/favorite";
 	}
 	
+	@RequestMapping(value = "reservation") 
+    public String reservation() throws Exception {
+        return "infra/main/reservation/reservation";
+    }
+	
 	@ResponseBody
 	@RequestMapping(value = "test")
 	public Map<String, Object> test() throws Exception{

@@ -15,11 +15,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <title>Order</title>
-    <title>Game View</title>
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
+	<link rel="stylesheet" href="/resources/css/order/order.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -88,7 +88,6 @@
 								<div class="search_wrap">
 									<div class="search_box">
 										<button class="search_btn" type="button">검색</button>
-										<button type="button" id="test">test</button>
 										<div class="input_box">
 											<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
 											<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
@@ -167,6 +166,87 @@
 															<strong class="point">추천순</strong>
 															<strong class="blind">설정 펼치기</strong>
 														</button>
+														<div _ngcontent-sea-c85="" class="option_value_wrap ng-star-inserted">
+															<div _ngcontent-sea-c85="" class="time_option_area">
+																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_MORNING" value="MORNING">
+																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_MORNING">아침/오전</label>
+																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_LUNCH" value="LUNCH">
+																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_LUNCH">점심</label>
+																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_AFTERNOON" value="AFTERNOON">
+																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_AFTERNOON">오후</label>
+																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_EVENING" value="EVENING">
+																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_EVENING">저녁</label>
+																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_NIGHT" value="NIGHT">
+																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_NIGHT">심야</label>
+															</div>
+															<div _ngcontent-sea-c85="" class="sort_option_area">
+																<input _ngcontent-sea-c85="" type="radio" name="sort" class="blind ng-star-inserted" id="sort_RECOMMEND" value="RECOMMEND">
+																<label _ngcontent-sea-c85="" class="sort_option ng-star-inserted" for="sort_RECOMMEND">추천순</label>
+																<input _ngcontent-sea-c85="" type="radio" name="sort" class="blind ng-star-inserted" id="sort_REVIEW" value="REVIEW">
+																<label _ngcontent-sea-c85="" class="sort_option ng-star-inserted" for="sort_REVIEW">리뷰순</label>
+															</div>
+															<a _ngcontent-sea-c85="" target="_blank" class="button_help" href="https://m.help.naver.com/support/service/main.help?serviceNo=19898">
+																<span _ngcontent-sea-c85="" class="blind">도움말</span>
+															</a>
+														</div>
+													</div>
+													<!-- 주변 카드 뷰 -->
+													<div>
+														<div class="card_wrap">
+															<div class="card_inner">
+																<div class="image_area">
+																	<span class="image_count">
+																		<em>1</em>
+																		/10
+																	</span>
+																	<div class="iamge">
+																		<img alt="" width="550" height="250" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220726_123%2F16588060664715aleR_JPEG%2FKakaoTalk_Photo_2022-07-26-12-20-35_007.jpeg&type=f&size=340x180">
+																	</div>
+																	<button type="button" class="btn_go_entry">
+																		<span class="blind">라브리크 서울 상세보기</span>
+																	</button>
+																	<div class="image_paging">
+																		<button type="button" class="rolling_arrow -prev">
+																			이전 이미지
+																		</button>
+																		<button type="button" class="rolling_arrow -next">
+																			다음 이미지
+																		</button>
+																	</div>
+																	<div class="text_area">
+																		<div class="header_text_area">
+																			<strong class="name_text">라브리크 서울</strong>
+																			<span class="sub_text">디저트</span>
+																		</div>
+																	</div>
+																	<p class="desc_text"> 뉴트럴 뉴브런치, 그리고 커피와 와인Light but not light 가볍지만 가볍지 않은 즐거움으로 여러분앞에 선사 하겠습니다. feel it coming </p>
+																	<dl class="info_list">
+																		<div class="info_item">
+																			<dt class="term">
+																				리뷰
+																			</dt>
+																			<dd class="desc">
+																				<strong>70</strong>
+																			</dd>
+																		</div>
+																		<div class="info_item">
+																			<dt class="term">
+																				평균
+																			</dt>
+																			<dd class="desc">
+																				<strong>5,000</strong>원
+																			</dd>
+																		</div>
+																	</dl>
+																	<button type="button" class="btn_go_entry">
+																		<span class="blind">라브리크 서울 상세보기</span>
+																	</button>
+																</div>
+																<button type="button" class="btn_favorite">
+																	<span class="blind">즐겨찾기 설정</span>
+																</button>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>

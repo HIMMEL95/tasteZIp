@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
+	<link rel="stylesheet" href="/resources/css/chat/chatRoom.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -97,7 +98,69 @@
 						<!-- search e -->
 						<div class="ng-star-inserted">
 							<div class="main -top_space">
+							
 								<!-- contents s -->
+								<div class="contents">
+									<div class="container-fluid" style="hight: 50px; background: #E6E6E6" >
+										<div class="row hh">
+											<div class="col-2 text-start" style="margin-left: 1rem;">
+										      <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" style="width: 50px; height: 50px;">
+										    </div>
+										    <div class="col-8 text-start">
+										        <h4><b>Robo Cop</b></h4>
+										        <p class="text-muted">Layin' down the law since like before Christ...</p>
+										    </div>
+									    </div>
+									 </div>
+									<div class="mesgs">
+										  <div class="msg_history" style="margin-top: 2rem;">
+											<div class="incoming_msg">
+											  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" > </div>
+											  <div class="received_msg">
+												<div class="received_withd_msg">
+												  <p>Test which is a new approach to have all
+													solutions</p>
+												  <span class="time_date"> 11:01 AM    |    June 9</span></div>
+											  </div>
+											</div>
+											<div class="outgoing_msg">
+											  <div class="sent_msg">
+												<p>Test which is a new approach to have all
+												  solutions</p>
+												<span class="time_date"> 11:01 AM    |    June 9</span> </div>
+											</div>
+											<div class="incoming_msg">
+											  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+											  <div class="received_msg">
+												<div class="received_withd_msg">
+												  <p>Test, which is a new approach to have</p>
+												  <span class="time_date"> 11:01 AM    |    Yesterday</span></div>
+											  </div>
+											</div>
+											<div class="outgoing_msg">
+											  <div class="sent_msg">
+												<p>Apollo University, Delhi, India Test</p>
+												<span class="time_date"> 11:01 AM    |    Today</span> </div>
+											</div>
+											<div class="incoming_msg">
+											  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+											  <div class="received_msg">
+												<div class="received_withd_msg">
+												  <p>We work directly with our designers and suppliers,
+													and sell direct to you, which means quality, exclusive
+													products, at a price anyone can afford.</p>
+												  <span class="time_date"> 11:01 AM    |    Today</span></div>
+											  </div>
+											</div>
+										  </div>
+									  <div class="type_msg">
+										<div class="input_msg_write">
+										  <input type="text" class="write_msg" placeholder="Type a message" />
+										  <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+										</div>
+									  </div>
+									</div>										 
+								</div>
 								<!-- contents e -->
 							</div>
 						</div>

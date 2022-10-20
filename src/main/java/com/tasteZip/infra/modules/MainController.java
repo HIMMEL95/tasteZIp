@@ -36,6 +36,11 @@ public class MainController {
 	    return "infra/main/chat/chat";
 	}
 	
+	@RequestMapping(value = "chatRoom")
+	public String chatRoom() throws Exception {
+	    return "infra/main/chat/chatRoom";
+	}
+	
 	@RequestMapping(value = "comment")
 	public String comment() throws Exception {
 	    return "infra/main/comment/comment";

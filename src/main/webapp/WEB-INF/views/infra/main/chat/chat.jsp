@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
+	<link rel="stylesheet" href="/resources/css/chat/chat.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -97,78 +98,146 @@
 						<!-- search e -->
 						<div class="ng-star-inserted">
 							<div class="main -top_space">
-								<!-- weather s -->
-								<div class="weather">
-									<div class="weather_card">
-										<div class="card_hearder">
-											<a class="address">강남구 역삼1동</a>
-											<button type="button" class="card_button">위치수정</button>
-										</div>
-										<div class="card_content">
-											<a class="date_info_wrap"> 
-												<dl class="weather_area">
-													<div class="half">
-														<dt class="time_text">오전</dt>
-														<dd class="icon_weather1">
-															<span class="blind">맑음</span>
-														</dd>
-													</div>
-													<div class="half">
-														<dt class="time_text">오후</dt>
-														<dd class="icon_weather1">
-															<span class="blind">맑음</span>
-														</dd>
-													</div>
-												</dl>
-												<dl class="temper_area">
-													<div class="half">
-														<dt class="blind">오전</dt>
-														<dd class="temper">2</dd>
-													</div>
-													<div class="half">
-														<dt class="blind">오후</dt>
-														<dd class="temper">14</dd>
-													</div>
-												</dl>
-											</a>
-											<a class="dust_area ng-star-inserted">
-												<dl class="dust_info_list">
-													<div class="dust">
-														<dt class="label">미세</dt>
-														<dd class="value -good">좋음</dd>
-													</div>
-												</dl>
-												<dl class="dust_info_list">
-													<div class="dust">
-														<dt class="label">초미세</dt>
-														<dd class="value -good">좋음</dd>
-													</div>
-												</dl>
-											</a>
-										</div>
-									</div>
-								</div>
-								<!-- weather e -->
+							
 								<!-- contents s -->
 								<div class="contents">
-									<div class="around_wrap">
-										<h3 class="heading">
-											<span class="blind">Smart Around</span>
-										</h3>
-										<div class="around_content">
-											<div class="around_place_card ng-star-inserted">
-												<h3 class="heading2">주변</h3>
-												<div>
-													<button type="button" class="option_selector_wrap">
-														<strong class="point">아침/오전</strong>
-														<span>시간대</span>
-														<strong class="point">추천순</strong>
-														<strong class="blind">설정 펼치기</strong>
-													</button>
+									<div class="inbox_people">
+							          <div class="headind_srch">
+							            <div class="recent_heading">
+							              <h4>My Chatting List</h4>
+							            </div>
+							            <div class="card-header">
+											<div class="input-group">
+												<input type="text" placeholder="Search..." name="" class="form-control sch">
+												<div class="input-group-prepend">
+													<span class="input-group-text sch_btn"><i class="fas fa-search"></i></span>
 												</div>
 											</div>
 										</div>
-									</div>
+							          </div>
+							          <div class="inbox_chat">
+							            <div class="chat_list active_chat">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>가나다 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput2 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput3 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput4 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput5 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput6 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput7 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput8 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>Sunil Rajput9 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>하하하10 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>하하하11 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							            <div class="chat_list">
+							              <div class="chat_people">
+							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_ib">
+							                  <h5>하하하12 <span class="chat_date">Dec 25</span></h5>
+							                  <p>Test, which is a new approach to have all solutions 
+							                    astrology under one roof.</p>
+							                </div>
+							              </div>
+							            </div>
+							          </div>
+							        </div>	 
 								</div>
 								<!-- contents e -->
 							</div>

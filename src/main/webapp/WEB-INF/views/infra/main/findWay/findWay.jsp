@@ -14,13 +14,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>comment</title>
+    <title>findWay</title>
     <title>Game View</title>
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
-	<link rel="stylesheet" href="/resources/css/comment/comment.css">
+	<link rel="stylesheet" href="/resources/css/findWay/findWay.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -83,74 +83,52 @@
 				</div>
 				<div class="panel">
 					<div class="panel_top">
+						<div class="btn-group m-3" role="group" aria-label="Basic outlined example">
+					  		<button type="button" class="btn btn-outline-secondary">
+					  			<i class="fa-solid fa-bus-simple"></i>
+					  			대중교통
+			  				</button>
+						  	<button type="button" class="btn btn-outline-secondary">
+								<i class="fa-solid fa-car"></i>
+						  		자동차
+					  		</button>
+						  	<button type="button" class="btn btn-outline-secondary">
+						  		<i class="fa-solid fa-person-walking"></i>
+						  		도보
+					  		</button>
+						  	<button type="button" class="btn btn-outline-secondary">
+						  		<i class="fa-solid fa-person-biking"></i>
+						  		자전거
+					  		</button>
+						</div>
 						<!-- search s -->
-						<div class="search">
+						<div class="search mt-5">
 							<div class="search_wrap">
-								<div class="search_box">
-									<button class="search_btn" type="button">검색</button>
+								<div class="search_box2">
 									<div class="input_box">
-										<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
+										<label class="label_search">출발지를 입력하세요.</label>
+										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
+									</div>
+								</div>
+								<div class="search_box2">
+									<div class="input_box">
+										<label class="label_search">도착지를 입력하세요.</label>
 										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
 									</div>
 								</div>
 							</div>
 						</div>
 						<!-- search e -->
+						<div>
+							<button type="button" class="btn btn-outline-secondary" id="reTyping">
+								<i class="fa-solid fa-arrows-rotate"></i>
+								다시입력
+							</button>
+						</div>
 						<div class="ng-star-inserted">
 							<div class="main -top_space">
 								<!-- contents s -->
-								<div class="ms-2 me-2">
-									 <input type="text" class="form-control" id="#" placeholder="댓글을 입력해주세요.">
-								</div>
-								<div class="mt-4">
-									<table class="ms-4">
-										<tr>
-											<td type="button">최신순</td>
-											<td class="ps-3" type="button">인기순</td>
-										</tr>
-									</table>
-									<hr class="ms-3 me-3">
-								</div>
-								<div class="mt-3 ms-5" style="display: flex;">
-									<div style="display: flex; align-items: center;">
-										<img alt="" src="../resources/images/main/user.png" style="width: 40px; height: 40px;">
-										<div style="margin: 0 10px;">
-											<p>아이디</p>
-											<p>2022.10.20 15:24:31</p>
-										</div>
-									</div>
-									<div class="navigation" style="margin-left: 300px;">
-					                    <ul class="nav_ul" style="list-style: none;">
-			                    			<li class="nav_li">
-					                            <div class="action">
-					                                <div class="profile" onclick="menuToggle();">
-					                                    <i class="fa-solid fa-ellipsis-vertical"></i>
-					                                </div>
-					                                <div class="menu">
-					                                    <ul class="pro_ul">
-															<li class="pro_li">
-					                                            <a class="pro_a" role="button" id="editBtn" href="/member/memberUView?seq=${sessSeq }" style="cursor: pointer;">
-					                                                <i class="fa-solid fa-eraser me-2"></i>
-					                                                수정하기
-					                                            </a>
-					                                        </li>
-					                                        <li class="pro_li">
-					                                            <a class="pro_a" href="#">
-					                                                <i class="fa-solid fa-trash-can me-2"></i>
-					                                                삭제하기
-					                                            </a>
-					                                        </li>
-					                                    </ul>
-					                                </div>
-					                            </div>
-					                        </li>
-					                    </ul>
-					                </div>
-								</div>
-								<div id="commendContent">
-									<p>작성한 내용을 띄어줍니다.작성한 내용을 띄어줍니다.작성한 내용을 띄어줍니다.작성한 내용을 띄어줍니다.</p>
-								</div>
-								<hr class="ms-3 me-3">
+								
 								<!-- contents e -->
 							</div>
 						</div>

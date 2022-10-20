@@ -1,0 +1,14 @@
+.search_box2{
+   	position: relative;
+    z-index: 110;
+    height: 42px;
+    padding-left: 45px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+#reTyping {
+	margin-top: 100px;
+	margin-left: 20px;
+	
+}

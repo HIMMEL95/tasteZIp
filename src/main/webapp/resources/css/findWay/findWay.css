@@ -1,14 +1,39 @@
 .search_box2{
    	position: relative;
-    z-index: 110;
-    height: 42px;
+    height: 50px;
     padding-left: 45px;
     border: 1px solid lightgrey;
     border-radius: 5px;
 }
 
 #reTyping {
-	margin-top: 100px;
+	margin-top: 50px;
 	margin-left: 20px;
 	
+}
+
+#reTyping2 {
+	margin-top: 50px;
+	margin-right: 50px;
+}
+
+.rotate {
+	width: 40px;
+	height: 40px;
+	border: 1px solid lightgrey; 
+	border-radius: 30px;
+	
+}
+
+.A {
+	border: 1px solid lightgrey; 
+	border-radius: 30px;
+}
+
+.span {
+    width: 30px;
+    height: 30px;
+    justify-items: center;
+    padding-top: 1px;
+    border-radius: 50%;
 }

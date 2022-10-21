@@ -106,30 +106,100 @@
 							<div class="search_wrap">
 								<div class="search_box2">
 									<div class="input_box">
-										<label class="label_search">출발지를 입력하세요.</label>
-										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
+										<label class="label_search"><img alt="" src="/resources/images/main/placeholder_b.png" style="width: 20px;"> 출발지를 입력하세요.</label>
+										<input type="text" id="place1" autocomplete="none" autofocus class="input_search">
 									</div>
 								</div>
 								<div class="search_box2">
 									<div class="input_box">
-										<label class="label_search">도착지를 입력하세요.</label>
-										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
+										<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"> 도착지를 입력하세요.</label>
+										<input type="text" id="place2" autocomplete="none" autofocus class="input_search">
 									</div>
 								</div>
 							</div>
 						</div>
-						<!-- search e -->
-						<div>
-							<button type="button" class="btn btn-outline-secondary" id="reTyping">
-								<i class="fa-solid fa-arrows-rotate"></i>
-								다시입력
+						<div style="margin-left: 500px; margin-top: 20px; z-index: 200;">
+							<button type="button" class="btn rotate bg-white">
+								<img alt="이미지" src="/resources/images/main/upAndDown.png" style="width: 20px; padding-right: 3px; padding-bottom: 4px;">
 							</button>
 						</div>
+						<!-- search e -->
+						
+						<div>
+							<button style="float: left;" type="button" class="btn btn-outline-secondary" id="reTyping">
+								<i class="fas fa-solid fa-arrows-rotate"></i>
+								다시입력
+							</button>
+							<button style="float:right; display:inline-block;" type="button" class="btn btn-outline-secondary" id="reTyping2">
+								길찾기
+								<i class="fa-solid fa-angle-right"></i>
+							</button>
+						</div>
+						
+						<!-- location information s -->
 						<div class="ng-star-inserted">
-							<div class="main -top_space">
+							<div class="main -top_space" style="padding-top: 50px; ">
 								<!-- contents s -->
-								
+								<h5 class="ms-4 fw-bold">장소</h5>
+								<hr class="ms-4 me-3">
+								<div class="ms-4" type="button">
+									<div style="display: flex; align-items: center;">
+										<span class="bg-black text-white text-center span">A</span>
+										<div style="margin: 0 10px;">
+											<p class="fw-bold" style="font-size: 18px;">강남역 2호선</p>
+										</div>
+									</div>
+									<table class="ms-5">
+										<tr>
+											<td class="pe-2">지하철, 전철</td>
+											<td class="pe-2">|</td>
+											<td>02-6110-2221</td>
+											<td>
+												<button type="button">
+													<img alt="" src="/resources/images/main/placeholder_b.png" style="width: 40px; margin-left: 230px;">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4">서울특별시 강남구 강남대로 396</td>
+										</tr>
+									</table>
+								</div>
+								<hr class="ms-4 me-3">
+								<div class="ms-4" type="button">
+									<div style="display: flex; align-items: center;">
+										<span class="bg-black text-white text-center span">B</span>
+										<div style="margin: 0 10px;">
+											<p class="fw-bold" style="font-size: 18px;">신논현역 4호선</p>
+										</div>
+									</div>
+									<table class="ms-5">
+										<tr>
+											<td class="pe-2">지하철, 전철</td>
+											<td class="pe-2">|</td>
+											<td>02-6110-2221</td>
+											<td>
+												<button type="button">
+													<img alt="" src="/resources/images/main/placeholder_r.png" style="width: 40px; margin-left: 230px;">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4">서울특별시 강남구 강남대로 396</td>
+										</tr>
+									</table>
+								</div>
+								<hr class="ms-4 me-3">
 								<!-- contents e -->
+								<footer>
+									<div style="position: fixed;">
+										<p>
+											<span class="ms-4 me-2">힘난다버거 신논현역점</span>
+											<i class="fa-solid fa-arrow-right-long me-2"></i>
+											<span>강남역 2호선</span>
+										</p>
+									</div>
+								</footer>
 							</div>
 						</div>
 					</div>
@@ -151,7 +221,6 @@
 	<script>
 	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 		
 		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 		var options = { //지도를 생성할 때 필요한 기본 옵션

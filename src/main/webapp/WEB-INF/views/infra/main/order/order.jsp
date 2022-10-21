@@ -19,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
-	<link rel="stylesheet" href="/resources/css/order/main.css">
+	<link rel="stylesheet" href="/resources/css/order/order.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -96,164 +96,130 @@
 								</div>
 							</div>
 							<!-- search e -->
-							<div class="ng-star-inserted">
-								<div class="main -top_space">
-									<!-- weather s -->
-									<div class="weather">
-										<div class="weather_card">
-											<div class="card_hearder">
-												<a class="address">강남구 역삼1동</a>
-												<button type="button" class="card_button">위치수정</button>
-											</div>
-											<div class="card_content">
-												<a class="date_info_wrap"> 
-													<dl class="weather_area">
-														<div class="half">
-															<dt class="time_text">오전</dt>
-															<dd class="icon_weather1">
-																<span class="blind">맑음</span>
-															</dd>
-														</div>
-														<div class="half">
-															<dt class="time_text">오후</dt>
-															<dd class="icon_weather1">
-																<span class="blind">맑음</span>
-															</dd>
-														</div>
-													</dl>
-													<dl class="temper_area">
-														<div class="half">
-															<dt class="blind">오전</dt>
-															<dd class="temper">2</dd>
-														</div>
-														<div class="half">
-															<dt class="blind">오후</dt>
-															<dd class="temper">14</dd>
-														</div>
-													</dl>
-												</a>
-												<a class="dust_area ng-star-inserted">
-													<dl class="dust_info_list">
-														<div class="dust">
-															<dt class="label">미세</dt>
-															<dd class="value -good">좋음</dd>
-														</div>
-													</dl>
-													<dl class="dust_info_list">
-														<div class="dust">
-															<dt class="label">초미세</dt>
-															<dd class="value -good">좋음</dd>
-														</div>
-													</dl>
-												</a>
-											</div>
-										</div>
-									</div>
-									<!-- weather e -->
-									<!-- contents s -->
-									<div class="contents">
-										<div class="around_wrap">
-											<h3 class="heading">
-												<span class="blind">Smart Around</span>
-											</h3>
-											<div class="around_content">
-												<div class="around_place_card ng-star-inserted">
-													<h3 class="heading2">주변</h3>
-													<div>
-														<button type="button" class="option_selector_wrap">
-															<strong class="point">아침/오전</strong>
-															<span>시간대</span>
-															<strong class="point">추천순</strong>
-															<strong class="blind">설정 펼치기</strong>
-														</button>
-														<div _ngcontent-sea-c85="" class="option_value_wrap ng-star-inserted">
-															<div _ngcontent-sea-c85="" class="time_option_area">
-																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_MORNING" value="MORNING">
-																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_MORNING">아침/오전</label>
-																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_LUNCH" value="LUNCH">
-																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_LUNCH">점심</label>
-																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_AFTERNOON" value="AFTERNOON">
-																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_AFTERNOON">오후</label>
-																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_EVENING" value="EVENING">
-																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_EVENING">저녁</label>
-																<input _ngcontent-sea-c85="" type="radio" name="time" class="blind ng-star-inserted" id="time_NIGHT" value="NIGHT">
-																<label _ngcontent-sea-c85="" class="time_option ng-star-inserted" for="time_NIGHT">심야</label>
-															</div>
-															<div _ngcontent-sea-c85="" class="sort_option_area">
-																<input _ngcontent-sea-c85="" type="radio" name="sort" class="blind ng-star-inserted" id="sort_RECOMMEND" value="RECOMMEND">
-																<label _ngcontent-sea-c85="" class="sort_option ng-star-inserted" for="sort_RECOMMEND">추천순</label>
-																<input _ngcontent-sea-c85="" type="radio" name="sort" class="blind ng-star-inserted" id="sort_REVIEW" value="REVIEW">
-																<label _ngcontent-sea-c85="" class="sort_option ng-star-inserted" for="sort_REVIEW">리뷰순</label>
-															</div>
-															<a _ngcontent-sea-c85="" target="_blank" class="button_help" href="https://m.help.naver.com/support/service/main.help?serviceNo=19898">
-																<span _ngcontent-sea-c85="" class="blind">도움말</span>
+							<div class="ng-star-inserted entry-layout">
+								<!-- content s -->
+								<div class="entry-place-bridge">
+									<div class="entry_wrap loaded ng-star-inserted">
+										<div class="place_on_pcmap">
+											<div class="place_didmount" id="app-root">
+												<div style="width: 100%; height: 100%;">
+													<div class="BXtr_ tAvTy">
+														<div class="place_tab_shadow FFTct IOXHr">
+															<a href="#" role="button" class="DDfpb">
+																<img class="back" alt="" src="https://cdn-icons-png.flaticon.com/512/54/54321.png"> 
 															</a>
+															<h1 class="bh9OH">힘난다버거 신논현역점</h1>
 														</div>
-													</div>
-													<!-- 주변 카드 뷰 -->
-													<div>
-														<div class="card_wrap">
-															<div class="card_inner">
-																<div class="image_area">
-																	<span class="image_count">
-																		<em>1</em>
-																		/10
-																	</span>
-																	<div class="iamge">
-																		<img alt="" width="550" height="250" src="https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220726_123%2F16588060664715aleR_JPEG%2FKakaoTalk_Photo_2022-07-26-12-20-35_007.jpeg&type=f&size=340x180">
-																	</div>
-																	<button type="button" class="btn_go_entry">
-																		<span class="blind">라브리크 서울 상세보기</span>
-																	</button>
-																	<div class="image_paging">
-																		<button type="button" class="rolling_arrow -prev">
-																			이전 이미지
-																		</button>
-																		<button type="button" class="rolling_arrow -next">
-																			다음 이미지
-																		</button>
-																	</div>
-																	<div class="text_area">
-																		<div class="header_text_area">
-																			<strong class="name_text">라브리크 서울</strong>
-																			<span class="sub_text">디저트</span>
+														<div role="main" style="width:100%; height: 300px;">
+															<div class="place_img">
+																<div class="uDR4i fnRPu" style="height: 300px;">
+																	<div class="CEX4u">
+																		<div class="fNygA">
+																			<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
+																				<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
+																					<span class="place_blind">업체</span>
+																				</div>
+																			</a>
 																		</div>
 																	</div>
-																	<p class="desc_text"> 뉴트럴 뉴브런치, 그리고 커피와 와인Light but not light 가볍지만 가볍지 않은 즐거움으로 여러분앞에 선사 하겠습니다. feel it coming </p>
-																	<dl class="info_list">
-																		<div class="info_item">
-																			<dt class="term">
-																				리뷰
-																			</dt>
-																			<dd class="desc">
-																				<strong>70</strong>
-																			</dd>
+																	<div class="CEX4u">
+																		<div class="hEm4D" style="height: 150px;">
+																			<div class="CEX4u">
+																				<div class="fNygA">
+																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
+																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
+																							<span class="place_blind">업체</span>
+																						</div>
+																					</a>
+																				</div>
+																			</div>
+																			<div class="CEX4u">
+																				<div class="fNygA">
+																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
+																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210617_121%2F1623912521068keJva_JPEG%2FZiLevh5CYoctWhXDNk2X8VQa.jpg);background-position:50% 0" id="ibu_1">
+																							<span class="place_blind">업체</span>
+																						</div>
+																					</a>
+																				</div>
+																			</div>
 																		</div>
-																		<div class="info_item">
-																			<dt class="term">
-																				평균
-																			</dt>
-																			<dd class="desc">
-																				<strong>5,000</strong>원
-																			</dd>
+																		<div class="hEm4D" style="height: 150px;">
+																			<div class="CEX4u">
+																				<div class="fNygA">
+																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
+																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210617_121%2F1623912521068keJva_JPEG%2FZiLevh5CYoctWhXDNk2X8VQa.jpg);background-position:50% 0" id="ibu_1">
+																							<span class="place_blind">업체</span>
+																						</div>
+																					</a>
+																				</div>
+																			</div>
+																			<div class="CEX4u">
+																				<div class="fNygA">
+																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
+																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210617_295%2F1623897525124lEBxL_JPEG%2F3ZYLhGCEVube9SJ0RpIbniJK.jpg);background-position:50% 0" id="ibu_1">
+																							<span class="place_blind">업체</span>
+																						</div>
+																						<span class="xez5V" style="font-size: ">
+																							<i class="fas fa-light fa-camera fa-2x mb-2"></i>
+																							645개 더보기
+																						</span>
+																					</a>
+																				</div>
+																			</div>																			
 																		</div>
-																	</dl>
-																	<button type="button" class="btn_go_entry">
-																		<span class="blind">라브리크 서울 상세보기</span>
-																	</button>
+																	</div>
 																</div>
-																<button type="button" class="btn_favorite">
-																	<span class="blind">즐겨찾기 설정</span>
-																</button>
 															</div>
+															<div class="place_section">
+																<div class="zD5Nm f7aZ0">
+																	<div class="YouOG">
+																		<span class="Fc1rA">힘난다버거 신논현역점</span>
+																		<span class="DJJvD">햄버거</span>
+																	</div>
+																	<div class="dAsGb">
+																		<span class="PXMot LXIwF">
+																			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13" class="GWkzU" aria-hidden="true">
+																				<path d="M8.26 4.68h4.26a.48.48 0 01.28.87L9.35 8.02l1.33 4.01a.48.48 0 01-.18.54.48.48 0 01-.56 0l-3.44-2.5-3.44 2.5a.48.48 0 01-.74-.54l1.33-4L.2 5.54a.48.48 0 01.28-.87h4.26l1.3-4a.48.48 0 01.92 0l1.3 4z"></path>
+																			</svg>
+																			<span class="place_blind">별점</span>
+																			<em>4.35</em>
+																			/5
+																		</span>
+																		<span class="PXMot">
+																			<a href="/restaurant/1470422298/review/visitor" role="button" class="place_bluelink">
+																				방문자리뷰
+																				<em>414</em>
+																			</a>
+																		</span>
+																		<span class="PXMot">
+																			<a href="/restaurant/1470422298/review/ugc" role="button" class="place_bluelink">
+																				블로그리뷰<!-- --> 
+																				<em>85</em>
+																			</a>
+																		</span>
+																	</div>
+																</div>
+																<div class="X0C1I"></div>
+																<div class="sVyWx"></div>
+																<div class="UoIF_ Afmx0 cgBhJ"></div>
+															</div>
+															<div class="place_fixed_maintab">
+																
+															</div>
+															<div>
+																
+															</div>																
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<!-- contents e -->
 								</div>
+								<div class="entry-close-button">
+									
+								</div>
+								<!-- content e -->
 							</div>
 						</div>
 					</div>

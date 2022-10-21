@@ -71,6 +71,11 @@ public class MainController {
 		return "infra/main/findWay/findWay";
 	}
 	
+	@RequestMapping(value = "main") 
+    public String main() throws Exception {
+        return "infra/main/order/main";
+    }
+	
 	@ResponseBody
 	@RequestMapping(value = "test")
 	public Map<String, Object> test() throws Exception{

@@ -20,6 +20,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
 	<link rel="stylesheet" href="/resources/css/chat/chat.css">
+	<link rel="stylesheet" href="/resources/css/story/story.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -105,19 +106,21 @@
 							            <div class="recent_heading">
 							              <h4>My Chatting List</h4>
 							            </div>
-							            <div class="card-header">
-											<div class="input-group">
-												<input type="text" placeholder="Search..." name="" class="form-control sch">
-												<div class="input-group-prepend">
-													<span class="input-group-text sch_btn"><i class="fas fa-search"></i></span>
-												</div>
+							           <div class="container" style="margin-top: 2rem;">
+										<div class="row justify-content-center">
+											<div class="SearchBox">
+												<input type="text" class="SearchBox-input" placeholder="Search">
+												<button class="SearchBox-button">
+													<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
+												</button>
 											</div>
 										</div>
+									</div>
 							          </div>
 							          <div class="inbox_chat">
 							            <div class="chat_list active_chat">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
 							                <div class="chat_ib">
 							                  <h5>가나다 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -127,7 +130,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput2 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -137,7 +140,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput3 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -147,7 +150,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput4 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -157,7 +160,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput5 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -167,7 +170,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput6 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -177,7 +180,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput7 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -187,7 +190,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput8 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -197,7 +200,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>Sunil Rajput9 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -207,7 +210,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>하하하10 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -217,7 +220,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>하하하11 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
@@ -227,7 +230,7 @@
 							            </div>
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="chat_ib">
 							                  <h5>하하하12 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 

@@ -104,7 +104,7 @@
 									<div class="container-fluid" style="hight: 50px; background: #E6E6E6" >
 										<div class="row hh">
 											<div class="col-2 text-start" style="margin-left: 1rem;">
-										      <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" style="width: 50px; height: 50px;">
+										      <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 										    </div>
 										    <div class="col-8 text-start">
 										        <h4><b>Robo Cop</b></h4>
@@ -115,7 +115,7 @@
 									<div class="mesgs">
 										  <div class="msg_history" style="margin-top: 2rem;">
 											<div class="incoming_msg">
-											  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil" > </div>
+											  <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImgSm"></div>
 											  <div class="received_msg">
 												<div class="received_withd_msg">
 												  <p>Test which is a new approach to have all
@@ -130,7 +130,7 @@
 												<span class="time_date"> 11:01 AM    |    June 9</span> </div>
 											</div>
 											<div class="incoming_msg">
-											  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+											  <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImgSm"></div>
 											  <div class="received_msg">
 												<div class="received_withd_msg">
 												  <p>Test, which is a new approach to have</p>
@@ -143,7 +143,7 @@
 												<span class="time_date"> 11:01 AM    |    Today</span> </div>
 											</div>
 											<div class="incoming_msg">
-											  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+											 <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImgSm"></div>
 											  <div class="received_msg">
 												<div class="received_withd_msg">
 												  <p>We work directly with our designers and suppliers,

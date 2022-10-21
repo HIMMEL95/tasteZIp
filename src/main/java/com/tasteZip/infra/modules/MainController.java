@@ -51,6 +51,11 @@ public class MainController {
 	    return "infra/main/story/story";
 	}
 	
+	@RequestMapping(value = "storyView")
+	public String storyView() throws Exception {
+	    return "infra/main/story/storyView";
+	}
+	
 	@RequestMapping(value = "favorite") 
 	public String favorite() throws Exception {
 	    return "infra/main/favorite/favorite";

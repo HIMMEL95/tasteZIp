@@ -126,6 +126,7 @@
 										<div class="row" style="margin-top: 2rem;">
 											<div class="col"><h4>Follower</h4></div>
 										</div>
+										<a href="/storyView">
 										<div class="row justify-content-between" style="margin-top: 2rem;">
 								            <div class="col-1"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="col-5 text-start">
@@ -134,6 +135,7 @@
 							                </div>
 							                <div class="col-5 text-end"><button type="button" class="btn btn-outline-secondary" style="width: 100px; height: 44px;">팔로잉</div>
 							            </div>
+							            </a>
 										<div class="row justify-content-between" style="margin-top: 2rem;">
 								            <div class="col-1"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
 							                <div class="col-5 text-start">

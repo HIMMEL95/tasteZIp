@@ -103,3 +103,9 @@ h4{
   margin: 0;
   padding: 18px 16px 10px;
 }
+a{
+	color: black;
+}
+a:hover {
+    color: #f46f00;
+}

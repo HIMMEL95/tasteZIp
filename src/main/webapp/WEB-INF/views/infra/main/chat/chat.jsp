@@ -118,16 +118,18 @@
 									</div>
 							          </div>
 							          <div class="inbox_chat">
-							            <div class="chat_list active_chat">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
-							                <div class="chat_ib">
-							                  <h5>가나다 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
+							            <a href="/chatRoom">
+								            <div class="chat_list active_chat">
+								              <div class="chat_people">
+								                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
+								                <div class="chat_ib">
+								                  <h5>가나다 <span class="chat_date">Dec 25</span></h5>
+								                  <p>Test, which is a new approach to have all solutions 
+								                    astrology under one roof.</p>
+								                </div>
+								              </div>
+								            </div>
+							            </a>
 							            <div class="chat_list">
 							              <div class="chat_people">
 							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>

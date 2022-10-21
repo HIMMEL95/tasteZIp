@@ -14,12 +14,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>Order</title>
+    <title>Story View</title>
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
-	<link rel="stylesheet" href="/resources/css/story/story.css">
+	<link rel="stylesheet" href="/resources/css/story/storyView.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -99,58 +99,42 @@
 							<div class="main -top_space">
 								<!-- contents s -->
 								<div class="contents">
-									<div class="container" style="width: 90%">
-										<div class="row">
-											<div class="col-12" style="margin-top: 2rem;"><h4>Invitation</h4></div>
-											<div class="row justify-content-center" style="margin-top: 2rem;">
-												<div class="col-1 text-end">
-													<img src="https://blog.kakaocdn.net/dn/Sq4OD/btqzlkr13eD/dYwFnscXEA6YIOHckdPDDk/img.jpg" alt="sunil" style="width: 30px; height: 30px;">
-												</div>
-												<div class="col-10 text-start">
-													<h5><b>카카오톡 친구 추가</b></h5>
-												</div>
-												<div class="col-1 text-end">
-													<i class="fa-solid fa-arrow-right" style="width: 30px; height: 30px;"></i>
-												</div>
-											</div>
-										</div>
-										<div class="row justify-content-center"><hr style="margin-top: 2rem;"></div>
-										<div class="row justify-content-center">
-											<div class="SearchBox">
-												<input type="text" class="SearchBox-input" placeholder="Search">
-												<button class="SearchBox-button">
-													<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
-												</button>
-											</div>
-										</div>
-										<div class="row" style="margin-top: 2rem;">
-											<div class="col"><h4>Follower</h4></div>
-										</div>
-										<div class="row justify-content-between" style="margin-top: 2rem;">
+									<div class="container" style="width: 90%; text-align: center;">
+										<div class="row justify-content-between" style="margin-top: 1rem;">
 								            <div class="col-1"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="col-5 text-start">
-							                  <h5>ID</h5>
-							                  <p>infomation</p>
-							                </div>
-							                <div class="col-5 text-end"><button type="button" class="btn btn-outline-secondary" style="width: 100px; height: 44px;">팔로잉</div>
+							                <div class="col-2 text-start text-white">아이디</div>
+							                <div class="col-8 text-end text-white">2022-10-21 15:00:00</div>
+							                <div class="col-1 text-end text-white"><i class="fa-solid fa-ellipsis"></i></div>
 							            </div>
-										<div class="row justify-content-between" style="margin-top: 2rem;">
-								            <div class="col-1"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="col-5 text-start">
-							                  <h5>ID</h5>
-							                  <p>infomation</p>
-							                </div>
-							                <div class="col-5 text-end"><button type="button" class="btn btn-outline-secondary" style="width: 100px; height: 44px;">요청됨</div>
-							            </div>
-										<div class="row justify-content-between" style="margin-top: 2rem;">
-								            <div class="col-1"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="col-5 text-start">
-							                  <h5>ID</h5>
-							                  <p>infomation</p>
-							                </div>
-							                <div class="col-5 text-end"><button type="button" class="btn btn-outline-secondary" style="width: 100px; height: 44px;">팔로잉</div>
-							            </div>
-									</div>
+										<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+										  <div class="carousel-indicators">
+										    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+										    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+										    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+										  </div>
+										  <div class="carousel-inner" style="margin-top: 1rem;">
+										    <div class="carousel-item active">
+										      <img class="imageSize" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="d-block w-100" alt="...">
+										    </div>
+										    <div class="carousel-item">
+										      <img class="imageSize" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="d-block w-100" alt="...">
+										    </div>
+										    <div class="carousel-item">
+										      <img class="imageSize" src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=749&q=80" class="d-block w-100" alt="...">
+										    </div>
+										  </div>
+										  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+										    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+										    <span class="visually-hidden">Previous</span>
+										  </button>
+										  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+										    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+										    <span class="visually-hidden">Next</span>
+										  </button>
+										</div>
+										
+									
+						            </div>
 								</div>
 								<!-- contents e -->
 							</div>

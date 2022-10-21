@@ -1,0 +1,42 @@
+h4{
+	font-family: 'ghanachoco' !important;
+}
+
+@font-face {
+    font-family: 'ghanachoco';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.container{
+	font-family: 'Pretendard-Regular';
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.chatImg{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+}
+
+#carouselExampleIndicators{
+	width: 512px;
+	height: 770px
+}
+
+.contents{
+	background: black;
+	overflow-y: auto;	
+}
+
+.imageSize{
+	width: 512px;
+	height: 770px;
+}

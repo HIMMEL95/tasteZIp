@@ -76,6 +76,11 @@ public class MainController {
         return "infra/main/order/main";
     }
 	
+	@RequestMapping(value = "menu")
+	public String menu() throws Exception {
+	    return "infra/main/order/menu";
+	}
+	
 	@ResponseBody
 	@RequestMapping(value = "test")
 	public Map<String, Object> test() throws Exception{

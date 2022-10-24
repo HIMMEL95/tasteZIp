@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'ghanachoco';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.titlefont{
+	color: white;
+	font-family: 'ghanachoco';
+}
+
+.navbar-nav{
+	--bs-nav-link-hover-color: #ff6b00;
+}
+
+.rounded-circle{
+	width: 60px;
+	height: 60px;
+	border-radius: 100%;
+	margin-left: 2rem;
+}
+
+a {
+    color: #212529;
+    text-decoration: none;
+}
+
+a :hover{
+	color: #ff6b00;
+}
+
+.font{
+	font-family: 'Pretendard-Regular';
+}
+
+.menuTitle{
+	font-family: 'ghanachoco' !important;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+#account-menu{
+	font-size: 20px;
+}
+
+#btnVisit{
+	width: 100px;
+}

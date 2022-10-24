@@ -64,9 +64,10 @@
               <div class="d-lg-block collapse" id="account-menu">
                 <ul class="list-unstyled mb-0">
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageMain"><b>My Page</b></a></li>
-                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageOrder"><b>My Order and Reservation</b></a></li>
+                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageOrder"><b>My Order</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageStory"><b>My Story</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageReview"><b>My Review</b></a></li>
+                  <li class="mt-5 pt-5"><button type="button" class="btn btn-dark text-center mb-3" id="logout"><b>Log out</b></buttton></li>
                 </ul>
               </div>
             </div>

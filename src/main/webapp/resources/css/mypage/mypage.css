@@ -46,9 +46,20 @@ a :hover{
 }
 
 #account-menu{
-	font-size: 20px;
+	font-size: 25px;
 }
 
 #btnVisit{
 	width: 100px;
+}
+
+#logout{
+	width: 300px;
+	margin-left: 2.4rem;
+}
+
+.card{
+	padding-left: 0px;
+	padding-right: 0px;
+	
 }

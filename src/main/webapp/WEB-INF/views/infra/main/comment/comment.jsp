@@ -59,6 +59,11 @@
 							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
+					<li>
+						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
 				</ul>
 				<div class="dropdown">
 					<a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -98,9 +103,18 @@
 						<div class="ng-star-inserted">
 							<div class="main -top_space">
 								<!-- contents s -->
-								<div class="ms-2 me-2">
-									 <input type="text" class="form-control" id="#" placeholder="댓글을 입력해주세요.">
-								</div>
+								<table class="me-4">
+									<tr>
+										<td>
+											<input class="form-control ms-4">
+										</td>
+										<td>
+											<button>
+												<i class="fa-regular fa-comment-dots"></i>
+											</button>
+										</td>
+									</tr>
+								</table>
 								<div class="mt-4">
 									<table class="ms-4">
 										<tr>

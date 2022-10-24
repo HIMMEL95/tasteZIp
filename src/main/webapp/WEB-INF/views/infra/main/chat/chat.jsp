@@ -60,6 +60,11 @@
 							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
+					<li>
+						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
 				</ul>
 				<div class="dropdown">
 					<a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

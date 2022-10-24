@@ -36,28 +36,33 @@
 				</a>
 				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 					<li class="nav-item">
-						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/order" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/favorite" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-heart text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/chat" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/story" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/comment" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
+					<li>
+						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
 				</ul>
@@ -106,14 +111,14 @@
 							<div class="search_wrap">
 								<div class="search_box2">
 									<div class="input_box">
-										<label class="label_search"><img alt="" src="/resources/images/main/placeholder_b.png" style="width: 20px;"> 출발지를 입력하세요.</label>
-										<input type="text" id="place1" autocomplete="none" autofocus class="input_search">
+										<label class="label_search"><img alt="" src="/resources/images/main/placeholder_b.png" style="width: 20px;"></label>
+										<input type="text" id="place1" autocomplete="none" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요.">
 									</div>
 								</div>
 								<div class="search_box2">
 									<div class="input_box">
-										<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"> 도착지를 입력하세요.</label>
-										<input type="text" id="place2" autocomplete="none" autofocus class="input_search">
+										<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"></label>
+										<input type="text" id="place2" autocomplete="none" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
 									</div>
 								</div>
 							</div>
@@ -124,7 +129,6 @@
 							</button>
 						</div>
 						<!-- search e -->
-						
 						<div>
 							<button style="float: left;" type="button" class="btn btn-outline-secondary" id="reTyping">
 								<i class="fas fa-solid fa-arrows-rotate"></i>
@@ -189,12 +193,28 @@
 										</tr>
 									</table>
 								</div>
-								<hr class="ms-4 me-3">
 								<!-- contents e -->
+								<hr class="ms-4 me-3 mt-5">
+								<ul class="pagination justify-content-center  active">
+									<li class="page-item">
+										<a class="page-link" href="#" aria-label="Previous">
+											<span aria-hidden="true">&laquo;</span>
+										</a>
+									</li>
+									<li class="page-item"><a class="page-link" href="#">1</a></li>
+									<li class="page-item"><a class="page-link" href="#">2</a></li>
+									<li class="page-item"><a class="page-link" href="#">3</a></li>
+									<li class="page-item">
+										<a class="page-link" href="#" aria-label="Next">
+											<span aria-hidden="true">&raquo;</span>
+										</a>
+									</li>
+								</ul>
+								<hr class="ms-4 me-3">
 								<footer>
 									<div style="position: fixed;">
 										<p>
-											<span class="ms-4 me-2">힘난다버거 신논현역점</span>
+											<span class="ms-5 me-2">힘난다버거 신논현역점</span>
 											<i class="fa-solid fa-arrow-right-long me-2"></i>
 											<span>강남역 2호선</span>
 										</p>

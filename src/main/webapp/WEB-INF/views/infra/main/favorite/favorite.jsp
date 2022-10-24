@@ -19,6 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
+	<link rel="stylesheet" href="/resources/css/favorite/favorite.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -58,6 +59,11 @@
 							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
+					<li>
+						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
+						</a>
+					</li>
 				</ul>
 				<div class="dropdown">
 					<a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -88,7 +94,7 @@
 									<div class="search_box">
 										<button class="search_btn" type="button">검색</button>
 										<div class="input_box">
-											<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
+											<label class="label_search">리스트검색</label>
 											<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
 										</div>
 									</div>
@@ -98,26 +104,53 @@
 							<div class="ng-star-inserted">
 								<div class="main -top_space">
 									<!-- contents s -->
-									<div class="contents">
-										<div class="around_wrap">
-											<h3 class="heading">
-												<span class="blind">Smart Around</span>
-											</h3>
-											<div class="around_content">
-												<div class="around_place_card ng-star-inserted">
-													<h3 class="heading2">주변</h3>
-													<div>
-														<button type="button" class="option_selector_wrap">
-															<strong class="point">아침/오전</strong>
-															<span>시간대</span>
-															<strong class="point">추천순</strong>
-															<strong class="blind">설정 펼치기</strong>
-														</button>
-													</div>
-												</div>
-											</div>
-										</div>
+									<table class="mt-3 me-2">
+										<tr>
+											<td>
+												<h2 class="ms-4" style="color: #ff7f00; text-shadow: 2px 5px lightgrey;">MapZip List</h2>
+											</td>
+											<td>
+												<h5 class="me-3" style="text-align: right;">nn개</h5>
+											</td>
+										</tr>
+									</table>
+									<hr class="ms-4 me-3">
+									<table>
+										<tr>
+											<td>
+												<select class="form-select ms-4 me-3" aria-label="Default select example" style="width: 100px; border-style: none; ">
+													<option value="1">최신순</option>
+													<option value="2">거리순</option>
+													<option value="3">...</option>
+												</select>	
+											</td>
+											<td style="width: 70px">
+												<button type="button" class="btn">
+													<a style="text-align: right;">삭제</a>
+												</button>
+											</td>
+											<td>
+												<input type="checkbox" class="form-check-input" name="chkAll" id="chAll" onclick="checkAll(this)">
+											</td>
+										</tr>
+									</table>
+									<!-- List s -->
+									<hr class="ms-4 me-3">
+									<div class="ms-4 me-3">
+										<h3>오리지널시카고피자 홍대본점</h3>
+										<a class="pt-2" style="display: block; color: #666666; font-size: 18px;">서울특별시 마포구 서교동 395-78 3층</a>
+										<a style="color: #666666; font-size: 18px;"></a>
+										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
 									</div>
+									<hr class="ms-4 me-3">
+									<div class="ms-4 me-3">
+										<h3>이놀로지</h3>
+										<a class="pt-2" style="display: block; color: #666666; font-size: 18px;">서울특별시 마포구 대흥동 255-2 지1층</a>
+										<a style="color: #666666; font-size: 18px;">대흥역 3번 출구 도보 100m</a>
+										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
+									</div>
+									<hr class="ms-4 me-3">
+									<!-- List s -->
 									<!-- contents e -->
 								</div>
 							</div>
@@ -166,7 +199,44 @@
 		
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
+		
+	</script>
+	<script type="text/javascript">
+	function checkSelectAll()  {
+		// 전체 체크박스
+		const checkboxes 
+			= document.querySelectorAll('input[name="chkBox"]');
+		// 선택된 체크박스
+		const checked 
+			= document.querySelectorAll('input[name="chkBox"]:checked');
+		// select all 체크박스
+		const selectAll 
+			= document.querySelector('input[name="chkAll"]');
+		
+		if(checkboxes.length === checked.length)  {
+			selectAll.checked = true;
+		}else {
+			selectAll.checked = false;
+		}
 
+	}
+	// 하위 체크박스 전체 선택시 전체박스 체크
+	function checkAll(selectAll)  {
+		const checkboxes 
+			= document.getElementsByName('chkBox');
+		
+		checkboxes.forEach((checkbox) => {
+			checkbox.checked = selectAll.checked
+		})
+	}
+	function deleteValue(){
+		var ur1 = "delete";
+		var valueArr = new Array();
+		var list = $()
+	}
+	function newPage() {
+		window.location.href = ''
+	}
 	</script>
 </body>
 

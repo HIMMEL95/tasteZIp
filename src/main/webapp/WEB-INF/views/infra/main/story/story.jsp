@@ -106,7 +106,7 @@
 								<div class="contents">
 									<div class="container" style="width: 90%">
 										<div class="row">
-											<div class="col-12" style="margin-top: 2rem;"><h4>Invitation</h4></div>
+											<div class="col-12" style="margin-top: 2rem; text-shadow: 2px 5px lightgrey;"><h4>Invitation</h4></div>
 											<div class="row justify-content-center" style="margin-top: 2rem;">
 												<div class="col-1 text-end">
 													<img src="https://blog.kakaocdn.net/dn/Sq4OD/btqzlkr13eD/dYwFnscXEA6YIOHckdPDDk/img.jpg" alt="sunil" style="width: 30px; height: 30px;">

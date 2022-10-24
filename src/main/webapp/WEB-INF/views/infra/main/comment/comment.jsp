@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>comment</title>
+    <title>Comment</title>
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -103,10 +103,11 @@
 						<div class="ng-star-inserted">
 							<div class="main -top_space">
 								<!-- contents s -->
+								<h2 class="ms-4 mb-3 title" style="text-shadow: 2px 5px lightgrey;">Comment</h2>
 								<table class="me-4">
 									<tr>
 										<td>
-											<input class="form-control ms-4">
+											<input class="form-control ms-4" placeholder="댓글을 입력해주세요.">
 										</td>
 										<td>
 											<button>

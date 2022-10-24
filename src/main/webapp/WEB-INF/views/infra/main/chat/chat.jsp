@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>Order</title>
+    <title>Chat</title>
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -109,7 +109,7 @@
 									<div class="inbox_people">
 							          <div class="headind_srch">
 							            <div class="recent_heading">
-							              <h4>My Chatting List</h4>
+							              <h4 style="text-shadow: 2px 5px lightgrey;">My Chatting List</h4>
 							            </div>
 							           <div class="container" style="margin-top: 2rem;">
 										<div class="row justify-content-center">

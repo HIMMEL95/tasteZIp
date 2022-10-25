@@ -59,39 +59,21 @@ a :hover{
 }
 
 .card{
+	width: 260px;
+	height: 500px;
 	padding-left: 0px;
 	padding-right: 0px;
-	
-}
-.cardbb{
-    height: 170px;
 }
 
-.cardcc{
-	height: 145px;
+.card-img{
+	width: 100%;
+	height: 100%;
 }
 
-.storeImg{
-	width: 120px;
-	height: 80px;
+.arrow{
+	color: black;
 }
 
-.hrstyle{
-	border: 0;
-	height: 17px;
-	background: #8F8F8F;
-}
-
-.wide{
-	width: 97%;
-	margin: auto;
-}
-
-.cardBorder{
-	--bs-card-border-width: 0px;
-}
-
-#starValue{
-	color: #ff8000;
-	font-size: 15px;
+.arrow2{
+	color: black;
 }

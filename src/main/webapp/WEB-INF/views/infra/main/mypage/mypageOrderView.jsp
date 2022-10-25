@@ -76,75 +76,72 @@
           <section class="col-lg-8">
             <!-- list-->
            	
-           		<div class="cotainer">
-           			<div class="row mt-5 menuTitle"><h3><b>Mypage Main</b></h3></div>
-           			<div class="row pt-5 mb-3 font"><h4><b>My Favorite Store</b></h4></div>
-           			<div class="row">
-          				<div class="col-4">
-	          				<div class="card font" style="width: 17rem; padding-left: 0px;padding-right: 0px;">
-							  <img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="card-img-top" alt="...">
-							  <div class="card-body cardbb">
-							    <h5 class="card-title"><b>에그드랍</b></h5>
-							    <p class="card-text">에그드랍 소개, 안녕하세요 여기는 에그드랍입니다.</p>
-							    <a href="#" class="btn btn-dark" id="btnVisit">방문하기</a>
-							  </div>
+           		<div class="container">
+           			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
+           		</div>
+           		<div class="container">
+           			<div class="row pt-5 mb-3 font"><h4><b>주문 상세 내역</b></h4></div>
+           			
+           			<!-- 주문자정보 -->
+           			<hr class="hrstyle mt-2 mb-2">
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
+	           			<div class="row mt-2 mb-4">
+							<div class="col-2">
+								<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg">
+							</div>
+							<div class="col-10">
+								<div><h5><b>에그드랍</b></h5></div>
+								<div><span>주문날짜: 2022-10-11 10:00:00</span></div>
 							</div>
 						</div>
-						<div class="col-4">
-	          				<div class="card font" style="width: 17rem; padding-left: 0px;padding-right: 0px;">
-							  <img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="card-img-top" alt="...">
-							  <div class="card-body cardbb">
-							    <h5 class="card-title"><b>에그드랍</b></h5>
-							    <p class="card-text">에그드랍 소개, 안녕하세요 여기는 에그드랍입니다.</p>
-							    <a href="#" class="btn btn-dark" id="btnVisit">방문하기</a>
-							  </div>
-							</div>
+					</div>
+           			<hr class="hrstyle mt-2 mb-2">
+           			<!-- 가게 정보 -->
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>주문자 정보</b></h4></div>
+	           			<div class="row mb-2">
+							<div class="col-10"><span><b>주문자</b></span></div>
+							<div class="col-2 text-end"><span>이름</span></div>
 						</div>
-						<div class="col-4">
-	          				<div class="card font" style="width: 17rem; padding-left: 0px;padding-right: 0px;">
-							  <img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="card-img-top" alt="...">
-							  <div class="card-body cardbb">
-							    <h5 class="card-title"><b>에그드랍</b></h5>
-							    <p class="card-text">에그드랍 소개, 안녕하세요 여기는 에그드랍입니다.</p>
-							    <a href="#" class="btn btn-dark" id="btnVisit">방문하기</a>
-							  </div>
-							</div>
+						<div class="row mb-2">
+							<div class="col-10"><span><b>전화번호</b></span></div>
+							<div class="col-2 text-end"><span>010-1234-1234</span></div>
+						</div>
+						<div class="row mb-4">
+							<div class="col-8"><span><b>이메일</b></span></div>
+							<div class="col-4 text-end"><span>example@naver.com</span></div>
 						</div>
            			</div>
-           			
-           			<div class="row pt-5 mb-3 font"><h4><b>Recently Visited Store</b></h4></div>
-           			<div class="row">
-          				<div class="col-4">
-	          				<div class="card font" style="width: 17rem; padding-left: 0px;padding-right: 0px;">
-							  <img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="card-img-top" alt="...">
-							  <div class="card-body cardbb">
-							    <h5 class="card-title"><b>에그드랍</b></h5>
-							    <p class="card-text">에그드랍 소개, 안녕하세요 여기는 에그드랍입니다.</p>
-							    <a href="#" class="btn btn-dark" id="btnVisit">방문하기</a>
-							  </div>
-							</div>
+           			<hr class="hrstyle mt-2 mb-2">
+           			<!-- 가격 정보 -->
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>주문 정보</b></h4></div>
+						<div class="row mb-2">
+							<div class="col-10"><span>총 상품금액</span></div>
+							<div class="col-2 text-end"><span>1,437,400원</span></div>
 						</div>
-						<div class="col-4">
-	          				<div class="card font" style="width: 17rem; padding-left: 0px;padding-right: 0px;">
-							  <img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="card-img-top" alt="...">
-							  <div class="card-body cardbb">
-							    <h5 class="card-title"><b>에그드랍</b></h5>
-							    <p class="card-text">에그드랍 소개, 안녕하세요 여기는 에그드랍입니다.</p>
-							    <a href="#" class="btn btn-dark" id="btnVisit">방문하기</a>
-							  </div>
-							</div>
+						<div class="row mb-2">
+							<div class="col-10"><span>상품 할인 금액</span></div>
+							<div class="col-2 text-end"><span> - 63,400원</span></div>
 						</div>
-						<div class="col-4">
-	          				<div class="card font" style="width: 17rem; padding-left: 0px;padding-right: 0px;">
-							  <img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="card-img-top" alt="...">
-							  <div class="card-body cardbb">
-							    <h5 class="card-title"><b>에그드랍</b></h5>
-							    <p class="card-text">에그드랍 소개, 안녕하세요 여기는 에그드랍입니다.</p>
-							    <a href="#" class="btn btn-dark" id="btnVisit">방문하기</a>
-							  </div>
-							</div>
+						<div class="row mb-2">
+							<div class="col-10"><span>쿠폰 할인 금액</span></div>
+							<div class="col-2 text-end"><span> - 40,000원</span></div>
 						</div>
-           			</div
+						<hr style="margin-top: 1rem;">
+						<div class="row justify-content-between mb-2">
+							<div class="col-2" id="finalPrice"><h5><b>총 결제 금액</b></h5></div>
+							<div class="col-2 text-end" id="finalPrice"><span><h5><b>1,334,000원</b></h5></span></div>
+						</div>
+						<div class="row justify-content-between mb-4">
+							<div class="col-3"><span>카카오 페이 결제 금액</span></div>
+							<div class="col-2 text-end" id="finalPrice"><span>1,334,000원</span></div>
+						</div>				
+						<div class="row justify-content-center mt-5">
+							<div class="col text-center"><a type="button" href="/mypage/mypageOrder" class="btn btn-outline-dark" style="width: 400px;"><b>주문리스트로 돌아가기</b></a></div>
+						</div>
+           			</div>
            		</div>
            	
           </section>

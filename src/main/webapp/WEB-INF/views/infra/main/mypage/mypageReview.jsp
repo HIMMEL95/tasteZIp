@@ -76,10 +76,83 @@
           <section class="col-lg-8">
             <!-- list-->
            	
-           		<div class="cotainer">
+           		<div class="container">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Review</b></h3></div>
            		</div>
-           	
+           		<div class="container">
+           			<div class="row justify-content-between mt-5">
+           				<div class="col-1 text-start"><a href="#"><i class="fa-solid fa-bars"></i>&nbsp;전체</a></div>
+           				<div class="col-9 text-start"><a href="#"><i class="fa-regular fa-images"></i>&nbsp;사진</a></div>
+           				<div class="col-2 text-end">
+           					<select class="form-select" aria-label="Default select example">
+							  <option selected>최신순</option>
+							  <option value="최신순">최신순</option>
+							  <option value="오래된순">오래된순</option>
+							</select>
+           				</div>
+           			</div>
+           			
+           			<!-- review List -->
+           			<div class="row mt-5">
+           				<div class="card shadow bg-body rounded cardBorder">
+						  <div class="card-body">
+						    <div class="row justify-content-between">
+						    	<h4><b>힘난다 버거</b></h4>
+						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
+						    	<div class="col-9 text-start" id="starValue">
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	&nbsp;<span><b>5점</b></span>
+						    	</div>
+						    </div>
+						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						  </div>
+						</div>
+           			</div>
+           			
+           			<div class="row mt-3">
+           				<div class="card shadow bg-body rounded cardBorder">
+						  <div class="card-body">
+						    <div class="row justify-content-between">
+						    	<h4><b>힘난다 버거</b></h4>
+						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
+						    	<div class="col-9 text-start" id="starValue">
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	&nbsp;<span><b>5점</b></span>
+						    	</div>
+						    </div>
+						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						  </div>
+						</div>
+           			</div>
+           			
+           			<div class="row mt-3">
+           				<div class="card shadow bg-body rounded cardBorder">
+						  <div class="card-body">
+						    <div class="row justify-content-between">
+						    	<h4><b>힘난다 버거</b></h4>
+						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
+						    	<div class="col-9 text-start" id="starValue">
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	<i class="fa-solid fa-star"></i>
+							    	&nbsp;<span><b>5점</b></span>
+						    	</div>
+						    </div>
+						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						  </div>
+						</div>
+           			</div>
+           		</div>
           </section>
         </div>
       </div>

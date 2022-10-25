@@ -81,17 +81,17 @@
            			<div class="row pt-5 mb-3 font"><h4><b>Order List</b></h4></div>
            			<div class="row pt-3">
 	           			<div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">에그드랍</h5>
+					      <div class="card-body cardcc">
+					        <h5 class="card-title"><b>에그드랍</b></h5>
 					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
-					        <a href="#" class="btn btn-dark">주문 내역 보기</a>
+					        <a href="/mypage/mypageOrderView" class="btn btn-dark">주문 내역 보기</a>
 					      </div>
 					    </div>
 					</div>
 					<div class="row pt-3">
 	           			<div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">에그드랍</h5>
+					      <div class="card-body cardcc">
+					        <h5 class="card-title"><b>에그드랍</b></h5>
 					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
 					        <a href="#" class="btn btn-dark">주문 내역 보기</a>
 					      </div>
@@ -99,8 +99,8 @@
 					</div>	
 					<div class="row pt-3">
 	           			<div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">에그드랍</h5>
+					      <div class="card-body cardcc">
+					        <h5 class="card-title"><b>에그드랍</b></h5>
 					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
 					        <a href="#" class="btn btn-dark">주문 내역 보기</a>
 					      </div>

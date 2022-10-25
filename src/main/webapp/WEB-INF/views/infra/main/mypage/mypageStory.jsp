@@ -16,7 +16,7 @@
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/mypage/mypage.css">
+    <link rel="stylesheet" href="/resources/css/mypage/mypageStory.css">
 </head>
 
 <body>
@@ -76,9 +76,98 @@
           <section class="col-lg-8">
             <!-- list-->
            	
-           		<div class="cotainer">
-           			<div class="row mt-5 menuTitle"><h3><b>Mypage Story</b></h3></div>
-           		</div>
+       			<div class="row mt-5 menuTitle"><h3><b>Mypage Story</b></h3></div>
+
+       			<!-- content -->
+       			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+				  <div class="carousel-inner">
+				    <div class="carousel-item active">
+						<div class="row">
+							<div class="col">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=722&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1609951651556-5334e2706168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+						</div>
+				    </div>
+				    <div class="carousel-item">
+						<div class="row">
+							<div class="col">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGZvb2R8ZW58MHwxfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1532939624-3af1308db9a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1559054663-e8d23213f55c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+						</div>
+				    </div>
+				    <div class="carousel-item">
+				    	<div class="row">
+				    		<div class="col-4">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+							<div class="col-4">
+								<div class="card">
+								  <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img" alt="...">
+								  <div class="card-img-overlay">
+								  </div>
+								</div>
+							</div>
+						</div>
+				    </div>
+				  </div>
+				  <div>
+					  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+					    <span class="arrow" aria-hidden="true"><i class="fa-solid fa-circle-arrow-left"></i></span>
+					    <span class="visually-hidden">Previous</span>
+					  </button>
+					  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+					    <span class="arrow2" aria-hidden="true"><i class="fa-solid fa-circle-arrow-right"></i></span>
+					    <span class="visually-hidden">Next</span>
+					  </button>
+				  </div>
+				</div>
            	
           </section>
         </div>

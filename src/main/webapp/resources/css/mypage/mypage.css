@@ -5,6 +5,12 @@
     font-style: normal;
 }
 
+/* @media screen and (max-width: 1399px) {
+	.store {
+		
+	}
+} */
+
 .titlefont{
 	color: white;
 	font-family: 'ghanachoco';
@@ -51,11 +57,16 @@ a :hover{
 
 #btnVisit{
 	width: 100px;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #logout{
-	width: 300px;
-	margin-left: 2.4rem;
+	width: 200px;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .card{

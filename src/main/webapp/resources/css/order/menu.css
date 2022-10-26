@@ -636,12 +636,16 @@ img, fieldset {
 .section_contents.place {
     margin-top: 0;
 }
+
 .section_contents.local_pay {
     min-height: auto;
     background-color: #f4f7f9;
 }
+
 .section_contents {
     position: relative;
+    min-height: 100vh;
+    background-color: #e9ebee;
 }
 
 .section_contents.place .order_area {
@@ -676,7 +680,7 @@ img, fieldset {
     overflow: hidden;
     width: 100%;
     max-width: 720px;
-    height: 52px;
+    height: 102px;
     margin: 0 auto;
     box-sizing: border-box;
     border-bottom: 1px solid;
@@ -727,7 +731,6 @@ img, fieldset {
     background-color: #ffffff;
     z-index: 100;
 }
-
 button, input[type='button'], input[type='submit'], input[type='reset'] {
     -webkit-appearance: button;
 }
@@ -738,16 +741,6 @@ button {
 
 label, button {
     cursor: pointer;
-}
-body, input, textarea, select, table, button, code {
-    font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-}
-body, p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button {
-    margin: 0;
-    padding: 0;
-    -webkit-text-size-adjust: none;
 }
 
 button {
@@ -762,6 +755,35 @@ button {
     text-align: center;
     align-items: flex-start;
     box-sizing: border-box;
+}
+
+.slick-arrow.slick-prev .ico_arrow {
+    transform: rotate(180deg);
+}
+
+.slick-arrow .ico_arrow {
+    width: 10px;
+    height: 12px;
+    fill: #424242;
+}
+
+svg {
+    display: inline-block;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 .smart_category .category_box .category_list {
@@ -779,6 +801,7 @@ ul {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
+    padding-left: 2px;
 }
 
 .smart_category .category_box .category_list .category_active {
@@ -808,6 +831,12 @@ li {
     line-height: 29px;
 }
 
+a {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .smart_category .category_box .category_list .category_item .tab.active .tab_text {
     font-weight: bold;
     border-radius: 14.5px;
@@ -821,12 +850,6 @@ li {
     letter-spacing: -0.3px;
     color: #333;
 }
-
-
-
-
-
-
 
 
 

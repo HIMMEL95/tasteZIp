@@ -1,0 +1,179 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
+
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <title>맛Zip Mypage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/css/mypage/mypage.css">
+</head>
+
+<body>
+	<!-- 상단 -->
+		<nav class="navbar navbar-expand-lg bg-dark">
+		  <div class="container-fluid">
+		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		      <!-- <div class="navbar-nav">
+		        <a class="nav-link" aria-current="page" href="#">Main</a>
+		        <a class="nav-link" href="#">My Order</a>
+		        <a class="nav-link" href="#">My Review</a>
+		        <a class="nav-link" href="#">My Story</a>
+		      </div> -->
+		    </div>
+		  </div>
+		</nav>
+	
+		<div class="page-title-overlap bg-dark pt-4">
+			<div class="container d-lg-flex justify-content-between py-2 py-lg-3">
+				<div class="order-lg-1 pe-lg-4 text-center text-lg-start">
+					<h1 class="h3 text-white mb-0 mb-4 titlefont">My page</h1>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container pt-4 pb-5 mb-2 mb-md-4 font">
+        <div class="row">
+          <!-- Sidebar-->
+          <aside class="col-lg-4 pt-4 pt-lg-0 pe-xl-5 mt-3">
+            <div class="bg-white rounded-3 shadow-lg pt-1 mb-5 mb-lg-0">
+              <div class="d-md-flex justify-content-between align-items-center text-center text-md-start p-4">
+                <div class="d-md-flex align-items-center">
+                  <div class="mx-auto mb-2 mx-md-0 mb-md-0" style="width: 7rem;">
+                  	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner">
+                  </div>
+                  <div class="ps-md-3">
+                    <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
+                  </div>
+                </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
+              </div>
+              <div class="d-lg-block collapse" id="account-menu">
+                <ul class="list-unstyled mb-0">
+                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageMain"><b>My Page</b></a></li>
+                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageOrder"><b>My Order</b></a></li>
+                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageStory"><b>My Story</b></a></li>
+                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageReview"><b>My Review</b></a></li>
+                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="logout"><b>Log out</b></buttton></li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+          <!-- Content  -->
+          <section class="col-lg-8">
+            <!-- list-->
+           	
+           		<div class="container">
+           			<div class="row mt-5 menuTitle"><h3><b>Mypage Reservation</b></h3></div>
+           		</div>
+           		<div class="container">
+           			<div class="row pt-5 mb-3 font"><h4><b>예약 상세 내역</b></h4></div>
+           			
+           			<!-- 주문자정보 -->
+           			<hr class="hrstyle mt-2 mb-2">
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
+	           			<div class="row mt-2 mb-4">
+							<div class="col-2">
+								<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg">
+							</div>
+							<div class="col-10">
+								<div><h5><b>에그드랍</b></h5></div>
+								<div><span>예약일정: 2022-10-11 10:00:00</span></div>
+								<div><span>예약인원: 1명</span></div>
+								<div><span>가게주소: 서울특별시 강남구 도산대로 에그드랍 신논현점</span></div>
+							</div>
+						</div>
+					</div>
+           			<hr class="hrstyle mt-2 mb-2">
+           			<!-- 가게 정보 -->
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>예약자 정보</b></h4></div>
+	           			<div class="row mb-2">
+							<div class="col-10"><span><b>성명</b></span></div>
+							<div class="col-2 text-end"><span>이름</span></div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-10"><span><b>전화번호</b></span></div>
+							<div class="col-2 text-end"><span>010-1234-1234</span></div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-8"><span><b>이메일</b></span></div>
+							<div class="col-4 text-end"><span>example@naver.com</span></div>
+						</div>
+						<div class="row mb-4">
+							<div class="col-8"><span><b>요청사항</b></span></div>
+							<div class="col-4 text-end"><span>none</span></div>
+						</div>
+           			</div>
+           			<hr class="hrstyle mt-2 mb-2">
+           			<!-- 가게 정보 -->
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>예약 메뉴 정보</b></h4></div>
+	           			<div class="row mb-2">
+							<div class="col-9"><span>햄에그 샌드위치</span></div>
+							<div class="col-1 text-end"><span>수량: 1</span></div>
+							<div class="col-2 text-end"><span>금액: 10,000</span></div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-9"><span>햄에그 샌드위치</span></div>
+							<div class="col-1 text-end"><span>수량: 1</span></div>
+							<div class="col-2 text-end"><span>금액: 10,000</span></div>
+						</div>
+						<div class="row mb-3"> 
+							<div class="col-9"><span>햄에그 샌드위치</span></div>
+							<div class="col-1 text-end"><span>수량: 1</span></div>
+							<div class="col-2 text-end"><span>금액: 10,000</span></div>
+						</div>
+           			</div>
+           			<hr class="hrstyle mt-2 mb-2">
+           			<!-- 가격 정보 -->
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>예약 정보</b></h4></div>
+						<div class="row mb-2">
+							<div class="col-10"><span>총 메뉴 수량</span></div>
+							<div class="col-2 text-end"><span>3개</span></div>
+						</div>
+						<div class="row mb-2">
+							<div class="col-10"><span>총 예약 금액</span></div>
+							<div class="col-2 text-end"><span> 30,000원</span></div>
+						</div>
+						<hr style="margin-top: 1rem;">
+						<div class="row justify-content-between mb-2">
+							<div class="col-2" id="finalPrice"><h5><b>예상 결제 금액</b></h5></div>
+							<div class="col-2 text-end" id="finalPrice"><span><h5><b>30,000원</b></h5></span></div>
+						</div>
+						<div class="row justify-content-center mt-5">
+							<div class="col text-center"><a type="button" href="/mypage/mypageReservation" class="btn btn-outline-dark" style="width: 400px;"><b>예약리스트로 돌아가기</b></a></div>
+						</div>
+           			</div>
+           		</div>
+           	
+          </section>
+        </div>
+      </div>
+	
+
+
+<!-- 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>

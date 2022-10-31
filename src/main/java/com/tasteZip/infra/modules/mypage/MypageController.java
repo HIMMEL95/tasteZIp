@@ -38,6 +38,21 @@ public class MypageController {
 	public String mypageStory() throws Exception {
 	    return "infra/main/mypage/mypageStory";
 	}
+
+	@RequestMapping(value = "mypageReservation")
+	public String mypageReservation() throws Exception {
+		return "infra/main/mypage/mypageReservation";
+	}
+	
+	@RequestMapping(value = "mypageReservationView")
+	public String mypageReservationView() throws Exception {
+		return "infra/main/mypage/mypageReservationView";
+	}
+	
+	@RequestMapping(value = "mypageBucket")
+	public String mypageBucket() throws Exception {
+		return "infra/main/mypage/mypageBucket";
+	}
 	
 	
 		

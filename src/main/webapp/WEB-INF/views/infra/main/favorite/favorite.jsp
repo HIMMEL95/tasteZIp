@@ -72,7 +72,7 @@
 					<ul class="dropdown-menu text-small shadow" style="">
 						<li><a class="dropdown-item" href="#">New project...</a></li>
 						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="#">Profile</a></li>
+						<li><a class="dropdown-item" href="/mypage/mypageMain">My Page</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="#">Sign out</a></li>
 					</ul>

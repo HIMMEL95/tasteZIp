@@ -54,8 +54,10 @@ a :hover{
 }
 
 #logout{
-	width: 300px;
-	margin-left: 2.4rem;
+	width: 200px;
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .card{

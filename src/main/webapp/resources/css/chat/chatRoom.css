@@ -235,3 +235,8 @@
 		height: 35px;
 		border-radius: 100%;
 }
+
+input {
+	color: #000;
+	caret-color:#ff7f00;
+}

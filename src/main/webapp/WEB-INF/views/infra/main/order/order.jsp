@@ -221,13 +221,13 @@
 																	<div class="ngGKH">
 																		<div class="flicking-viewport" style="user-select: none; -webkit-user-drag: none; touch-action: pan-y;">
 																			<div class="flicking-camera" style="transform: translate(0px);">
-																				<a href="/restaurant/1470422298/home?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
+																				<a href="/order" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">홈</span>
 																				</a>
-																				<a href="/restaurant/1470422298/menu?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/menu" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">메뉴</span>
 																				</a>
-																				<a href="/restaurant/1470422298/review?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/comment" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">리뷰</span>
 																				</a>
 																			</div>

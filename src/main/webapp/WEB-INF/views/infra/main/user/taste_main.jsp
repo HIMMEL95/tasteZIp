@@ -46,7 +46,7 @@
                     </form>
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 mt-2">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/order">Order</a>
+                            <a class="nav-link active" aria-current="page" href="/main">Order</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/favorite">Favorite</a>
@@ -58,7 +58,7 @@
                             <a class="nav-link" href="/story">Story</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/comment">My Review</a>
+                            <a class="nav-link" href="/comment">Comment</a>
                         </li>
                         <hr>
                         <li class="nav-item">

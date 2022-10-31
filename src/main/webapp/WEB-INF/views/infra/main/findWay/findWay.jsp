@@ -124,8 +124,8 @@
 							</div>
 						</div>
 						<div style="margin-left: 500px; margin-top: 20px; z-index: 200;">
-							<button type="button" class="btn rotate bg-white">
-								<img alt="이미지" src="/resources/images/main/upAndDown.png" style="width: 20px; padding-right: 3px; padding-bottom: 4px;">
+							<button type="button" class=" btn btnRotate rotate bg-white">
+								<img alt="이미지" src="/resources/images/main/upAndDown.png" style="width: 20px; padding-right: 5px; padding-bottom: 4px;">
 							</button>
 						</div>
 						<!-- search e -->

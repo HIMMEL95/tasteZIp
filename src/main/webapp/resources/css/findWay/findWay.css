@@ -37,3 +37,14 @@
     padding-top: 1px;
     border-radius: 50%;
 }
+
+.btnRotate:hover {
+	border-color: #ff7f00;
+}
+
+input {
+	color: #000;
+	caret-color:#ff7f00;
+	cursor: url(/resources/images/main/cursor_o.png), auto !important;
+}
+

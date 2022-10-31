@@ -125,9 +125,7 @@
 												</select>	
 											</td>
 											<td style="width: 70px">
-												<button type="button" class="btn">
-													<a style="text-align: right;">삭제</a>
-												</button>
+												<button type="button" class="btn btn-outline-danger" >삭제</button>
 											</td>
 											<td>
 												<input type="checkbox" class="form-check-input" name="chkAll" id="chAll" onclick="checkAll(this)">
@@ -138,16 +136,16 @@
 									<hr class="ms-4 me-3">
 									<div class="ms-4 me-3">
 										<h3>오리지널시카고피자 홍대본점</h3>
+										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
 										<a class="pt-2" style="display: block; color: #666666; font-size: 18px;">서울특별시 마포구 서교동 395-78 3층</a>
 										<a style="color: #666666; font-size: 18px;"></a>
-										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
 									</div>
 									<hr class="ms-4 me-3">
 									<div class="ms-4 me-3">
 										<h3>이놀로지</h3>
+										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
 										<a class="pt-2" style="display: block; color: #666666; font-size: 18px;">서울특별시 마포구 대흥동 255-2 지1층</a>
 										<a style="color: #666666; font-size: 18px;">대흥역 3번 출구 도보 100m</a>
-										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
 									</div>
 									<hr class="ms-4 me-3">
 									<!-- List s -->

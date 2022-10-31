@@ -107,7 +107,7 @@
 									<div class="entry_wrap loaded ng-star-inserted">
 										<div class="place_on_pcmap">
 											<div class="place_didmount" id="app-root">
-												<div style="width: 100%; height: 100%;">
+												<div style="width: 100%; height: 100vh;">
 													<div class="BXtr_ tAvTy">
 														<div class="place_tab_shadow FFTct IOXHr">
 															<a href="#" role="button" class="DDfpb">
@@ -164,7 +164,7 @@
 																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210617_295%2F1623897525124lEBxL_JPEG%2F3ZYLhGCEVube9SJ0RpIbniJK.jpg);background-position:50% 0" id="ibu_1">
 																							<span class="place_blind">업체</span>
 																						</div>
-																						<span class="xez5V" style="font-size: ">
+																						<span class="xez5V">
 																							<i class="fas fa-light fa-camera fa-2x mb-2"></i>
 																							645개 더보기
 																						</span>
@@ -221,10 +221,10 @@
 																	<div class="ngGKH">
 																		<div class="flicking-viewport" style="user-select: none; -webkit-user-drag: none; touch-action: pan-y;">
 																			<div class="flicking-camera" style="transform: translate(0px);">
-																				<a href="/restaurant/1470422298/home?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
+																				<a href="/restaurant/1470422298/home?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">홈</span>
 																				</a>
-																				<a href="/restaurant/1470422298/menu?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/restaurant/1470422298/menu?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">메뉴</span>
 																				</a>
 																				<a href="/restaurant/1470422298/review?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
@@ -233,116 +233,185 @@
 																			</div>
 																		</div>
 																	</div>
-																</div>
-															</div>
-															<div style="min-height: calc(100vh - 50px - 47px)">
-																<div data-nclicks-area-code="btp">
-																	<div class="place_section" data-nclicks-area-code="qmn">
-																		<h2 class="place_section_header">
-																			메뉴
-																			<em class="place_section_count">77</em>
-																			<div class="rNxBQ">
-																				<span class="N5pEx">
-																					<a href="#" target="_self" role="button" class="place_bluelink EMAxw">메뉴판 이미지로 보기</a>
-																				</span>
+																	<div class="naver_order place">
+																		<div class="order_info_area">
+																			<div class="info_main">
+																				<div class="info_main_title">
+																					<div class="title">
+																						<svg viewBox="0 0 18 18" class="ico_n_logo">
+																							<path fill-rule="evenodd" d="M18 0v18H0V0h18zM7.255 4.582H4.473v9.054h2.915V8.79l3.357 4.846h2.782V4.582h-2.915v4.846L7.255 4.582z"></path>
+																						</svg>
+																						주문
+																					</div>
+																					<div class="title_logo">
+																						<div class="logo_thumb">
+																							<img class="thumb" src="https://naverbooking-phinf.pstatic.net/20210525_218/162190971282744RH1_PNG/image.png?type=f110_110" width="39" height="39" alt="brand logo">
+																						</div>
+																					</div>
+																				</div>
+																				<div class="info_main_notice">
+																					<div class="notice_desc">
+																						<div class="desc_type ico_takeout">
+																							포장주문이 가능한 가게입니다.
+																						</div>
+																					</div>
+																				</div>
 																			</div>
-																		</h2>
-																		<div class="place_section_content">
-																			<ul class="mpoxR">
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_0" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_225%2F1659601447159oiLVI_JPEG%2F%25C4%25A1%25C1%25EE%25B9%25F6%25B0%25C5%25BC%25BC%25C6%25AE_%25B4%25EB%25C1%25F6_1.jpg" alt="힘난다치즈버거 샐러드 set" width="100%" height="auto">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">힘난다치즈버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">10,800원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_1" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_236%2F1659601498314GPi3d_JPEG%2F%25B8%25D3%25BD%25AC%25B7%25EB%25C4%25A1%25C1%25EE%25B9%25F6%25B0%25C5_%25B4%25EB%25C1%25F6_1.jpg" alt="머쉬룸치즈버거 샐러드 set" width="100%" height="auto">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">머쉬룸치즈버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">10,900원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_2" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_229%2F1659601555613jjbEA_JPEG%2F%25BA%25A3%25C0%25CC%25C4%25C1%25C4%25A1%25C1%25EE%25B9%25F6%25B0%25C5%25BC%25BC%25C6%25AE_%25B4%25EB%25C1%25F6_1.jpg" alt="베이컨치즈버거 샐러드 set" width="100%" height="auto">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">베이컨치즈버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">11,900원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_3" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_90%2F16596017292880evFB_JPEG%2F%25BA%25D2%25BD%25BA%25B9%25F6%25B0%25C5%25BC%25BC%25C6%25AE_%25B4%25EB%25C1%25F6_1.jpg" alt="힘난다불스버거 샐러드 set" width="100%" height="auto">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">힘난다불스버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">12,400원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
-																			</ul>
 																		</div>
-																		<div class="lfH3O">
-																			<a href="/restaurant/1470422298/menu/list" target="_self" role="button" class="fvwqf">
-																				<span class="iNSaH">메뉴</span>
-																				더보기
-																				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13" class="W0cVZ" aria-hidden="true" style="margin-top: 30px; margin-left: 10px">
-																					<path fill-rule="evenodd" d="M8.5 0l-.71.7 5.3 5.3H0v1h13.08L7.8 12.3l.7.7L15 6.5z"></path>
-																				</svg>
-																			</a>
+																	</div>
+																	<div class="naver_order_contents">
+																		<div class="section_contents local_pay place">
+																			<div class="order_area">
+																				<div class="smart_category slick-slider general_place">
+																					<div class="category_box">
+																						<div class="category_box_inner">
+																							<div class="category_scroll">
+																								<span class="blur_left"></span>
+																								<button class="slick-arrow slick-prev slick-disabled" type="button">
+																									<svg viewBox="0 0 10 13" class="ico_arrow">
+																										<path d="M3.1 12.2L2 11.1l4.2-4.2L2 2.6l1.1-1.1 5.4 5.4-5.4 5.3z"></path>
+																									</svg>
+																									<span class="blind">이전</span>
+																								</button>
+																								<ul class="category_list" style="position: relative;">
+																									<div class="category_active" style="height: 29px; transform: translate3d(18px, 0px, 0px); width: 55px;"></div>
+																									<li id="category_3234748_PICKUP" class="category_item" data-active="true">
+																										<a href="#" class="tab active">
+																											<span class="tab_text" data-active="true" style="transition: color 0.3s ease 0s;">추천</span>
+																										</a>
+																									</li>
+																									<li id="category_2575392_PICKUP" class="category_item" data-active="false">
+																										<a href="#" class="tab">
+																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1인 세트메뉴</span>
+																										</a>
+																									</li>
+																									<li id="category_3234751_PICKUP" class="category_item" data-active="false">
+																										<a href="#" class="tab">
+																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">NEW EGG DROP</span>
+																										</a>
+																									</li>
+																									<li id="category_3234752_PICKUP" class="category_item" data-active="false">
+																										<a href="#" class="tab">
+																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">EGG SANDWICH</span>
+																										</a>
+																									</li>
+																									<li id="category_2575392_PICKUP" class="category_item" data-active="false">
+																										<a href="#" class="tab">
+																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1인 세트메뉴</span>
+																										</a>
+																									</li>
+																									<li id="category_3234751_PICKUP" class="category_item" data-active="false">
+																										<a href="#" class="tab">
+																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">NEW EGG DROP</span>
+																										</a>
+																									</li>
+																									<li id="category_3234752_PICKUP" class="category_item" data-active="false">
+																										<a href="#" class="tab">
+																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">EGG SANDWICH</span>
+																										</a>
+																									</li>
+																								</ul>
+																								<button class="slick-arrow slick-next" type="button">
+																									<svg viewBox="0 0 10 13" class="ico_arrow">
+																										<path d="M3.1 12.2L2 11.1l4.2-4.2L2 2.6l1.1-1.1 5.4 5.4-5.4 5.3z"></path>
+																									</svg>
+																									<span class="blind">다음</span>
+																								</button>
+																								<span class="blur_right"></span>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																				<div class="order_list">
+																					<div class="order_list_wrap">
+																						<div class="order_list_inner">
+																							<div class="order_list_tit">
+																								<span class="title">새로 나온 메뉴</span>
+																							</div>
+																							<ul class="order_list_area">
+																								<li class="order_list_item">
+																									<div class="item_info">
+																										<a href="#" class="info_link">
+																											<div class="info_img">
+																												<span class="img_box">
+																													<img class="img" src="https://naverbooking-phinf.pstatic.net/20220729_261/16590576950643sgnW_PNG/3_%C0%DA%B8%F9%BF%A1%C0%CC%B5%E5_A_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
+																												</span>
+																											</div>
+																											<div class="info_detail">
+																												<div class="tit">
+																													자몽 에이드
+																													<span class="ico_group">
+																														<i class="ico_new">N</i>
+																													</span>
+																												</div>
+																												<div class="detail">
+																													<span class="detail_txt">
+																														자몽의 상큼함을 가득 담은 시원한 자몽 에이드
+																													</span>
+																												</div>
+																												<div class="price">
+																													3,600<!-- -->원
+																												</div>
+																											</div>
+																										</a>
+																										<a href="#" class="btn_shop" role="button">
+																											<div class="btn_box">
+																												<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
+																													<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
+																												</svg>
+																											</div>
+																										</a>
+																									</div>
+																								</li>
+																							</ul>
+																						</div>
+																					</div>
+																					<div class="order_list_wrap store_delivery">
+																						<div class="order_list_inner">
+																							<div class="order_list_tit">
+																								<span class="title">1인 세트메뉴</span>
+																								<button type="button" class="btn_fold2">
+																									<i class="fa-solid fa-angle-down"></i>
+																								</button>
+																							</div>
+																							<ul class="order_list_area">
+																								<li class="order_list_item">
+																									<div class="item_info">
+																										<a href="#" class="info_link">
+																											<div class="info_img">
+																												<span class="img_box">
+																													<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
+																												</span>
+																											</div>
+																											<div class="info_detail">
+																												<div class="tit">
+																													미스터에그 세트
+																													<span class="ico_group"></span>
+																												</div>
+																												<div class="detail">
+																													<span class="detail_txt">&lt;미스터에그 + 해쉬브라운 + 아메리카노&gt; 부드러운 스크램블 에그와 브리오쉬, 에그드랍의 특제 소스가 어우러진 샌드위치와 고소하고 부드러운 해쉬브라운, 아메리카노를 합리적인 가격으로 즐길 수 있는 ※세트메뉴음료 변경 시 에이드와 탄산음료는 HOT을 선택하여도 차가운 음료로 제공됩니다.</span>
+																												</div>
+																												<div class="price">7,400원</div>
+																											</div>
+																										</a>
+																										<a href="#" class="btn_shop" role="button">
+																											<div class="btn_box">
+																												<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
+																													<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
+																												</svg>
+																											</div>
+																										</a>
+																									</div>
+																								</li>
+																							</ul>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
 																		</div>
 																	</div>
 																</div>
-															</div>																
+															</div>
 														</div>
 													</div>
 												</div>
@@ -400,33 +469,6 @@
 		
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		
-	</script>
-	<script type="text/javascript">
-		var form = $("#myForm");
-
-		$("#test").on("click", function() {
-			
-			$.ajax({
-   				async: true 
-   				,cache: false
-   				,type: "post"
-   				/* ,dataType:"json" */
-   				,url: "test"
-   				/* ,data : $("#formLogin").serialize() */
-   				,data : { }
-   				,success: function(response) {
-   					if(response.rt == "success") {
-   						window.location.href = "/favorite";
-   					} else {
-   						alert("sadsda")	;
-   					}
-   				}
-   				,error : function(jqXHR, textStatus, errorThrown){
-   					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-   				}
-   			});
-		})
 		
 	</script>
 </body>

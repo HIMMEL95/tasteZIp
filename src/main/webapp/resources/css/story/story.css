@@ -109,3 +109,8 @@ a{
 a:hover {
     color: #f46f00;
 }
+
+input {
+	color: #000;
+	caret-color:#ff7f00;
+}

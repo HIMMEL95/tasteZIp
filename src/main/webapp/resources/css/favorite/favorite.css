@@ -29,3 +29,8 @@
 .title {
 	 font-family: 'ghanachoco';
 }
+
+input {
+	color: #000;
+	caret-color:#ff7f00;
+}

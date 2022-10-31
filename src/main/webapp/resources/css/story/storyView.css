@@ -40,3 +40,8 @@ h4{
 	width: 512px;
 	height: 770px;
 }
+
+input {
+	color: #000;
+	caret-color:#ff7f00;
+}

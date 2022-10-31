@@ -851,26 +851,347 @@ a {
     color: #333;
 }
 
+.slick-arrow.slick-next {
+    right: 15px;
+}
 
+.slick-arrow .ico_arrow {
+    width: 10px;
+    height: 12px;
+    fill: #424242;
+}
 
+svg {
+    display: inline-block;
+}
 
+.smart_category .category_box .blur_right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    bottom: 0;
+    border-radius: 0 20px 0 0;
+    background: linear-gradient(to right, rgba(255,255,255,0), #fff 65%);
+    background-image: linear-gradient(to right, var(--booking-color-bg2-rgb), var(--booking-color-bg2) 65%);
+    pointer-events: none;
+}
 
+.slick-arrow {
+    display: none !important;
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    margin-top: -16px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 7%), 0 0 2px 0 rgb(0 0 0 / 8%);
+    border-radius: 50%;
+    background-color: #ffffff;
+    z-index: 100;
+}
 
+slick-arrow .ico_arrow {
+    width: 10px;
+    height: 12px;
+    fill: #424242;
+}
 
+.section_contents .order_area .order_list {
+    position: relative;
+    margin-top: 10px;
+}
 
+.section_contents .order_area .order_list .order_list_wrap {
+    background-color: #fff;
+}
 
+.section_contents .order_area .order_list .order_list_wrap .order_list_inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
 
+.section_contents .order_area .order_list .order_list_filter+.order_list_wrap .order_list_tit {
+    padding-top: 10px;
+}
+.section_contents .order_area .order_list .order_list_tit {
+    position: relative;
+    padding: 28px 18px 0;
+}
 
+.section_contents .order_area .order_list .order_list_tit:before, .section_contents .order_area .order_list .order_list_tit:after {
+    content: ' ';
+    display: table;
+}
 
+.section_contents .order_area .order_list .order_list_tit .title {
+    z-index: 0;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    font-family: NanumSquareEB, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    color: #333;
+}
 
+.section_contents .order_area .order_list .order_list_tit:after {
+    clear: both;
+}
 
+.section_contents .order_area .order_list .order_list_tit:before, .section_contents .order_area .order_list .order_list_tit:after {
+    content: ' ';
+    display: table;
+}
 
+.section_contents .order_area .order_list .order_list_tit+.order_list_area {
+    margin-top: 8px;
+}
 
+ul, ol {
+    list-style: none;
+}
 
+.section_contents .order_area .order_list .item_info {
+    position: relative;
+    margin: 0 18px;
+}
 
+.section_contents .order_area .order_list .info_link {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 60px;
+    padding: 18px 0;
+}
 
+.section_contents .order_area .order_list .info_img {
+    position: relative;
+    min-width: 100px;
+    min-height: 50px;
+    margin-right: 12px;
+}
 
+.section_contents .order_area .order_list .info_img .img_box {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 110px;
+    border-radius: 2px;
+    text-align: center;
+    background-color: #fff;
+}
 
+.section_contents .order_area .order_list .info_img .img_box .img {
+    position: relative;
+    top: 0;
+    object-fit: cover;
+}
 
+img, fieldset {
+    border: 0;
+}
 
+.section_contents .order_area .order_list .info_img .img_box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.06);
+}
 
+.section_contents .order_area .order_list .info_detail {
+    overflow: hidden;
+    width: 100%;
+    letter-spacing: -0.3px;
+}
+
+.section_contents .order_area .order_list .info_detail .tit {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 22px;
+    color: #333;
+}
+
+.section_contents .order_area .order_list .info_detail .tit .ico_group {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.section_contents .order_area .order_list .info_detail .tit .ico_new {
+    margin-left: 4px;
+    vertical-align: 1px;
+    width: 16px;
+    height: 16px;
+    background-position: -575px -448px;
+}
+
+.ly_info .icon.ico_adult, .ly_info .icon.ico_order, .ly_info .icon.ico_alert_green, .alert_box_wrapper .ico_coupon_percent, .coupon_profile .profile_info .btn_more .ico_more, .coupon_profile .profile_info .box_more .more_link .ico_disconnect, .coupon_stamp .stamp_title .btn_more .ico_more, .coupon_stamp .stamp_title .box_more .more_link .ico_disconnect, .coupon_stamp .stamp_btn_area .btn_add::before, .stamp_list .stamp_item .ico_stamp, .stamp_list .stamp_item .ico_stamp_reward, .stamp_achievement .achievement_item.achieved .item_number::before, .stamp_message::before, .stamp_message .message_info .ico_alert, .coupon_ticket .ticket_use .btn_use .ico_btn, .coupon_ticket.use .btn_use .ico_btn, .coupon_ticket.ready .btn_use .ico_btn, .coupon_ticket.qr_code .btn_use .ico_btn, .coupon_ticket.unusable .btn_use .ico_btn, .coupon_ticket.used .btn_use .ico_btn, .coupon_gift_modal .modal_header .ico_gift::before, .section_booking_info .plus_membership .membership_text::before, .confirm_alert_con .local_order_popup .order_selection .selection .ico_dine_in, .confirm_alert_con .local_order_popup .order_selection .selection .ico_take_out, .confirm_alert_con .local_order_popup .order_selection .selection .ico_drive_through, .confirm_alert_con .local_order_popup .order_selection .selection .ico_to_go, .confirm_alert_con .local_order_popup .order_selection .selection .ico_delivery, .confirm_alert_con .local_order_popup .order_selection .selection .ico_pick_up, .confirm_alert_con .local_order_popup .order_selection .selection .ico_room_delivery, .confirm_alert_con .local_order_popup .order_selection .selection .ico_delivery_motorcycle, .confirm_alert_con .local_order_popup .order_selection .selection .ico_robot_delivery, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) .ico_dine_in, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) ~ .selection .ico_dine_in, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) .ico_take_out, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) ~ .selection .ico_take_out, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) .ico_drive_through, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) ~ .selection .ico_drive_through, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) .ico_delivery, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) ~ .selection .ico_delivery, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) .ico_robot_delivery, .confirm_alert_con .local_order_popup .order_selection .selection:first-child:nth-last-child(3) ~ .selection .ico_robot_delivery, .confirm_alert_con .local_order_popup .category_popup_contents .category_popup_item .item_box .item_image .no_img, .confirm_alert_con .local_order_popup .store_popup_header::before, .confirm_alert_con .local_order_popup .membership_popup_header::before, .confirm_alert_con .local_order_popup .store_popup_header .header_address::before, .confirm_alert_con .local_order_popup .membership_popup_header .header_address::before, .section_review .notice2_area .text::before, .section_review .notice2_area .text::after, .my_detail .go_menu_link .ico_menu, .ordered_card .card_contents .text .custom_txt::before, .ordered_card .card_contents .text .custom_txt::after, .ordered_card .card_body .minimap_area .view_larger::after, .ordered_card .card_body .charge_area .charge_list .coupon_gift_title.cancel .ico_coupon, .ordered_card .card_body .charge_area .charge_list .coupon_gift_title.cancel .ico_coupon.gift, .ordered_card .card_body .charge_area .charge_list .coupon_gift_title .ico_coupon, .ordered_card .card_body .charge_area .charge_list .coupon_gift_title .ico_coupon.gift, .user_header.local_pay .hub_page_link .hub_title::before, .user_header.local_pay .btn_home .ico_n_logo, .user_header.local_pay .btn_home .ico_n_logo.line, .user_header .selection_box .state .ico_table_order_on, .user_header .selection_box .state .ico_pickup_on, .user_header .selection_box .state .ico_table_order, .user_header .selection_box .state .ico_pickup, .user_header .seat_info_area::before, .section_contents .order_area .order_filter .filter_view .view_box:first-child .label::before, .section_contents .order_area .order_filter .filter_view .view_box:first-child input[type='radio'].check:checked+.label::before, .section_contents .order_area .order_filter .filter_view .view_box:last-child .label::before, .section_contents .order_area .order_filter .filter_view .view_box:last-child input[type='radio'].check:checked+.label::before, .section_contents .order_area .banner_promotion .banner_box::before, .section_contents .order_area .recent_order_area .recent_order_list .info_wrap .btn_shop.disabled_ani .ico_cart, .section_contents .order_area .recent_order_area .recent_order_list .info_wrap .btn_shop .ico_cart, .section_contents .order_area .recent_order_area .recent_order_list .info_wrap .btn_shop .ico_cart.full, .section_contents .order_area .order_list .order_list_tit .period .ico_period, .section_contents .order_area .order_list .order_list_tit .adult .ico_adult, .section_contents .order_area .order_list .order_list_tit .ico_new, .section_contents .order_area .order_list .info_img .no_img.food, .section_contents .order_area .order_list .info_detail .tit .ico_pepper1, .section_contents .order_area .order_list .info_detail .tit .ico_pepper2, .section_contents .order_area .order_list .info_detail .tit .ico_pepper3, .section_contents .order_area .order_list .info_detail .tit .ico_new, .section_contents .order_area .order_list .info_detail .detail .detail_star::before, .section_contents .order_area .order_list .promotion_info .image_inner.no_img::after, .order_alert_info .info_inner::before, .order_close_wrap .order_close_inner::before, .order_flow_wrap .order_box1 .tooltip_free_promotion.disabled .image_wrap::before, .order_flow_wrap .order_box1 .tooltip_free_promotion .image_wrap::before, .order_flow_wrap .order_box1 .tooltip_free_promotion .image_inner.no_img::after, .order_flow_wrap .order_box1 .toast_min_order_price::before, .order_flow_wrap .order_box1 .toast_min_order_price::after, .order_flow_wrap .order_box1 .btn_order.disabled_ani .btn_box .order_ico .ico_cart, .order_flow_wrap .order_box1 .btn_order .btn_box .order_ico .ico_cart, .order_flow_wrap .order_box1 .btn_order .btn_box .order_ico .ico_cart.full, .order_flow_wrap .order_box2 .qr_area .btn_qr::before, .order_flow_wrap .order_option_area .option_content .promotion_menu_info .info_thumb::before, .order_flow_wrap .order_option_area .option_content .promotion_menu_info .thumb_wrap.no_img::after, .order_flow_wrap .order_option_area .option_content .menu_info .info_thumb .thumb_wrap.no_img::before, .order_flow_wrap .order_option_area .option_content .set_menu .info_thumb .thumb_wrap.no_img::before, .order_flow_wrap .order_option_area .option_content .content_bottom .option_alert .ico_info, .section_menu_detail .menu_card .ico_new, .section_menu_detail .menu_card .ico_pepper1, .section_menu_detail .menu_card .ico_pepper2, .section_menu_detail .menu_card .ico_pepper3, .section_menu_detail .menu_card .star_rating::before, .section_menu_detail .menu_card .menu_detail .select_box .box_tab.active .tab_text .ico_takeout, .section_menu_detail .menu_card .menu_detail .select_box .box_tab.active .tab_text .ico_dine, .section_menu_detail .menu_card .menu_detail .select_box .box_tab.active .tab_text .ico_dt, .section_menu_detail .menu_card .menu_detail .select_box .box_tab.active .tab_text .ico_delivery, .section_menu_detail .menu_card .menu_detail .select_box .box_tab.active .tab_text .ico_robot, .section_menu_detail .menu_card .menu_detail .select_box .box_tab .tab_text .ico_takeout, .section_menu_detail .menu_card .menu_detail .select_box .box_tab .tab_text .ico_dine, .section_menu_detail .menu_card .menu_detail .select_box .box_tab .tab_text .ico_dt, .section_menu_detail .menu_card .menu_detail .select_box .box_tab .tab_text .ico_delivery, .section_menu_detail .menu_card .menu_detail .select_box .box_tab .tab_text .ico_robot, .no_menu_review.delivery .text_box::after, .no_menu_review.pickup .text_box::after, .no_menu_review .text_box::after, .section_blog .list_blog .author_area .author_img .ico_thumb, .section_order_error .error_content .ico_out_of_service, .section_order_error .error_content .ico_out_of_menu, .section_place_error .ico_out_of_service, .section_place_error .button_area .ico_refresh, .order_form .section_order_info.type_table::after, .order_form .section_order_info.type_pickup::after, .order_form .section_order_info.type_drive::after, .order_form .section_order_info.type_delivery::after, .order_form .section_order_info.type_robot::after, .order_form .hub_store_header .store_name::before, .order_form .hub_store_header .alert_price .alert_text::before, .order_form .menu_title .title_right .ico_gift, .order_form .menu_list .menu .img_wrap .no_img.coupon, .order_form .menu_list .menu .img_wrap .no_img.default, .order_form .menu_list .menu .img_wrap .no_img.packaging, .order_form .menu_list .menu .info_wrap .sold_out::before, .order_form .figure_area .price .popover_event::before, .order_form .present_price_area .btn_title::before, .order_form .present_price_area .present_price_list .present_item .icon.gift, .order_form .present_price_area .present_price_list .present_item .icon.discount, .order_form .plus_membership .membership_text::before, .order_form .section_order_extra .info_area .info_title .ico_alert_red, .order_form .section_order_extra .num_area .tooltip_button .ico_info, .order_form .section_order_extra .delivery_seat_info_area .input_box .label_seat_info, .order_form .section_order_extra .map_area .map_location .btn_expand .ico_expand, .order_form .agreement_area.my_coupon .agreement_check_all .check:checked+.label .ico_check, .order_form .agreement_area.my_coupon .agreement_check_all .ico_check, .order_form .button_pay .ico_npay, .local_pay_footer .footer_logo .ico_naver_logo, .section_confirm_toast .ico_info_toast, .naver_order .order_info_area .info_main .info_main_title .title_logo::before, .naver_order .order_info_area .info_main .info_main_title .title_logo.convenience::before, .naver_order .order_info_area .info_main .info_main_title .title_logo .logo_thumb .ico_cu, .naver_order .order_info_area .info_main .info_main_title .title_logo .logo_thumb .thumb_circle .thumb_ico, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_takeout, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_dine, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_dt, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_delivery, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_robot, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_takeout, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_dine, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_dt, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_delivery, .naver_order .order_info_area .info_main .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_robot, .naver_order .order_info_area .info_main .info_main_location .location_change .button_change::after, .address_wrap .address_box::before, .naver_order .order_info_area .info_main .info_main_notice .notice_desc .desc_type.ico_takeout::before, .naver_order .order_info_area .info_main .info_main_notice .notice_desc .desc_type.ico_dine::before, .naver_order .order_info_area .info_main .info_main_notice .notice_desc .desc_type.ico_dt::before, .naver_order .order_info_area .info_main .info_main_notice .notice_desc .desc_type.ico_delivery::before, .naver_order .order_info_area .info_main .info_main_notice .notice_desc .desc_type.ico_robot::before, .naver_order .order_info_area .info_menu .menu_scroll .top_img .noimg.food, .coupon_header .header_gnb .box_more .more_link .ico_disconnect, .coupon_header .header_gnb .box_more .more_link .ico_ticket, .coupon_bookmark_add::before, .coupon_bookmark_add .add_btn::before, .stamp_no_list .message_info::before, .stamp_no_list .message_link.add_customer::before, .coupon_customer_wrap .customer_info .btn_more .ico_more, .coupon_customer_wrap .customer_info .box_more .more_link .ico_disconnect, .hub_page_wrap .page_header .service_area .btn_home .ico_n_logo, .hub_page_wrap .page_header .promotion_area .promotion_title::before, .hub_page_wrap .page_header .promotion_area .btn_promotion::after, .hub_page_wrap .page_header .seat_area::before, .hub_page_wrap .page_header .button_my::before, .hub_page_wrap .page_header.img_type .btn_home .ico_n_logo, .hub_page_wrap .page_header.img_type .button_my::before, .hub_page_wrap .page_header.img_type .btn_promotion::after, .hub_page_wrap .page_header.img_type .seat_area::before, .hub_page_wrap .page_contents .info_menu .menu_scroll .top_img .noimg.food, .hub_page_wrap .page_contents .filter_select .select_box .ico_order, .hub_page_wrap .page_contents .filter_select .select_box .ico_price, .hub_page_wrap .page_contents .filter_select .select_box .ico_seat, .hub_page_wrap .page_contents .filter_select .select_box .ico_wait, .hub_page_wrap .page_contents .filter_no_content .title::before, .hub_page_wrap .page_contents .store_list .info_box .menu_info::before, .hub_page_wrap .page_contents .merge_store_list .menu_list .menu_item .btn_cart .ico_cart, .hub_page_wrap .page_contents .merge_store_list .menu_list .menu_item .btn_cart .ico_cart.full, .hub_page_wrap .promotion_flow_wrap .promotion_title .smart_order::before, .hub_page_wrap .preparing_header .button_my::before, .hub_page_wrap .preparing_contents .in_contents .ico_preparing, .hub_page_wrap .preparing_contents .in_contents .ico_comingsoon, .hub_page_wrap .preparing_contents .contents_card .date .ico_clock, .place_my_wrapper .section_map .minimap_area .view_larger .ico_arrow, .option_flow_wrap .menu_option_section .content_top .menu_info .info_thumb .thumb_wrap.no_img::before, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_takeout, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_dine, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_dt, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_delivery, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_robot, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch.active .tab_text .ico_table, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_takeout, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_dine, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_dt, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_delivery, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_robot, .smart_order.hub_home .smart_info .info_area .info_title .info_main_tab .tab_switch_box .tab_switch .tab_text .ico_table, .smart_order .smart_place .place_type .type.active .ico_table, .smart_order .smart_place .place_type .type.active .ico_pre_order, .smart_order .smart_place .place_type .type.active .ico_takeout, .smart_order .smart_place .place_type .type.active .ico_drive, .smart_order .smart_place .place_type .ico_pre_order, .smart_order .smart_place .place_type .ico_delivery, .smart_order .smart_place .place_type .ico_drive, .smart_order .smart_place .place_type_text .ico_pre_order::before, .smart_order .smart_place .place_type_text .ico_table::before, .smart_order .smart_place .place_type_text .ico_takeout::before, .smart_order .smart_place .place_type_text .ico_qr::before, .smart_order .smart_info .info_area .info_menu .menu_scroll .top_img .noimg.food, .smart_order .smart_info .info_area .info_coupon .coupon_stamps .stamps_item:only-child .stamp_box.first_visit::after, .smart_category .category_box .category_button .btn_all_category .ico_all, .image_category .ico_group .ico_new, .image_category .item_image.no_img::before, .image_category .btn_all .ico_all, .image_category .btn_all_category .ico_all, .smart_recommend .recommend_list .recommend_item .img_box .ico_group .ico_pepper1, .smart_recommend .recommend_list .recommend_item .img_box .ico_group .ico_pepper2, .smart_recommend .recommend_list .recommend_item .img_box .ico_group .ico_pepper3, .smart_recommend .recommend_list .recommend_item .img_box .ico_group .ico_new, .smart_recommend .recommend_list .recommend_item .wrap_img.no_img::after, .smart_gift_modal .gift_content .content_title .ico_gift::before, .smart_gift_modal .gift_content .content_title .sub_text::before, .smart_gift_modal .gift_content .content_title .sub_text::after, .smart_gift_modal .gift_content .content_body .gift_item .box_info .info_top .top_image.no_img::before, .order_promotion_wrap .promotion_list .promotion_item .img_box .ico_group .ico_pepper1, .order_promotion_wrap .promotion_list .promotion_item .img_box .ico_group .ico_pepper2, .order_promotion_wrap .promotion_list .promotion_item .img_box .ico_group .ico_pepper3, .order_promotion_wrap .promotion_list .promotion_item .img_box .ico_group .ico_new, .order_promotion_wrap .promotion_list .promotion_item .wrap_img.no_img::after, .smart_product_tab .product_tab_all .btn_all_category .ico_all {
+    display: inline-block;
+    overflow: hidden;
+    color: transparent;
+    white-space: nowrap;
+    background-image: url(/public/images/sprites/sp_local_pay-f3df3532.png);
+    background-size: 773px 671px;
+}
+
+.section_contents .order_area .order_list .info_detail .detail {
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    max-height: 38px;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: -0.4px;
+    color: #8f8f8f;
+}
+
+.section_contents .order_area .order_list .info_detail .price {
+    margin-top: 4px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #fc4c42;
+}
+
+.section_contents .order_area .order_list .btn_shop {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 3px 0 rgb(0 0 0 / 4%);
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    transform: translateY(-50%);
+    border: solid 1px;
+    border-color: #e5e5e5;
+    background-color: #fff;
+    color: #8f8f8f;
+}
+
+.section_contents .order_area .order_list .btn_shop .btn_box {
+    position: relative;
+    height: 100%;
+}
+
+.section_contents .order_area .order_list .btn_shop .btn_box .ico_cart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    fill: #03c75a;
+}
+
+.section_contents .order_area .order_list .order_list_wrap+.order_list_wrap {
+    border-top: 11px solid;
+    border-color: #f4f7f9;
+}
+
+.section_contents .order_area .order_list .order_list_wrap {
+    background-color: #fff;
+}
+
+.section_contents .order_area .order_list .order_list_wrap .order_list_inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.section_contents .order_area .order_list .order_list_tit:before, .section_contents .order_area .order_list .order_list_tit:after {
+    content: ' ';
+    display: table;
+}
+
+.section_contents .order_area .order_list .order_list_wrap.store_delivery.fold .order_list_tit .btn_fold {
+    top: 16px;
+}
+
+.section_contents .order_area .order_list .order_list_tit .title {
+    z-index: 0;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    font-family: NanumSquareEB, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    color: #333;
+}
+
+.section_contents .order_area .order_list .order_list_wrap.store_delivery.fold .order_list_tit .btn_fold {
+    top: 16px;
+}
+
+.section_contents .order_area .order_list .order_list_wrap.store_delivery .btn_fold {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    padding: 10px 18px;
+    color: #000;
+}
+
+.btn_fold .fn-booking {
+    transform: rotate(180deg);
+}
+
+.fn-booking {
+    display: inline-block;
+    height: 1em;
+    line-height: 1em;
+}
+
+.fn-booking-up2:before {
+    content: "\EA42";
+}
+
+.fn-booking:before {
+    font-family: 'Naver booking Icons';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline;
+    text-decoration: inherit;
+    width: 1em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    -webkit-font-smoothing: antialiased;
+}
+
+.section_contents .order_area .order_list .order_list_tit:after {
+    clear: both;
+}
+
+.section_contents .order_area .order_list .order_list_tit:before, .section_contents .order_area .order_list .order_list_tit:after {
+    content: ' ';
+    display: table;
+}
+
+.fa-angle-down {
+	margin-left: 400px;
+	font-size: 22px;
+	color: #6B6868;	
+}
+
+input {
+	color: #000;
+	caret-color:#ff7f00;
+	cursor: url(/resources/images/main/cursor_o.png), auto !important;
+}

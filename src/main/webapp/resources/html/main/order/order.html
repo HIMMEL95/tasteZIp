@@ -519,11 +519,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script> -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec2655da82c3779d622f0aff959060e6&libraries=services"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services,clusterer,drawing"></script>
 	<script>
-	
+	/* 
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+		var infowindow = new kakao.maps.InfoWindow({zIndex:1}); */
 		
 		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 		var options = { //지도를 생성할 때 필요한 기본 옵션
@@ -532,8 +532,9 @@
 		};
 	
 		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
 	
-		var mapTypeControl = new kakao.maps.MapTypeControl();
+/* 		var mapTypeControl = new kakao.maps.MapTypeControl();
 	
 		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
 		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
@@ -544,37 +545,9 @@
 		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 	
 		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
-		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
 		
 		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		
-	</script>
-	<script type="text/javascript">
-		var form = $("#myForm");
-
-		$("#test").on("click", function() {
-			
-			$.ajax({
-   				async: true 
-   				,cache: false
-   				,type: "post"
-   				/* ,dataType:"json" */
-   				,url: "test"
-   				/* ,data : $("#formLogin").serialize() */
-   				,data : { }
-   				,success: function(response) {
-   					if(response.rt == "success") {
-   						window.location.href = "/favorite";
-   					} else {
-   						alert("sadsda")	;
-   					}
-   				}
-   				,error : function(jqXHR, textStatus, errorThrown){
-   					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-   				}
-   			});
-		})
+		var map = new kakao.maps.Map(mapContainer, mapOption);  */
 		
 	</script>
 </body>

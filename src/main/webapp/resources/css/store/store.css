@@ -58,6 +58,7 @@ img{ max-width:100%;}
     font-style: normal;
 }
 
+.chat_ib h3 {font-weight: 600;}
 .chat_ib h3 span{ font-size:13px; float:right;}
 .chat_ib p{ font-size:14px; color:#989898; margin:auto}
 .chat_img {
@@ -72,7 +73,7 @@ img{ max-width:100%;}
 
 .chat_people{ overflow:hidden; clear:both;}
 .chat_list {
-  border-bottom: 1px solid #c4c4c4;
+  border-top: 1px solid #c4c4c4;
   margin: 0;
   padding: 18px 16px 10px;
 }

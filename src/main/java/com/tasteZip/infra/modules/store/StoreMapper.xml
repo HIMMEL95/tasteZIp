@@ -6,7 +6,7 @@
 
 <mapper namespace="com.tasteZip.infra.modules.store.StoreMapper">
 
-	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.Store.Store"></resultMap>
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.store.Store"></resultMap>
     
 	<sql id ="selectCommon">
 		from store s

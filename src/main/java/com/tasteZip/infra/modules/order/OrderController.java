@@ -16,6 +16,11 @@ public class OrderController {
     public String mypageOrder() throws Exception {
         return "infra/main/mypage/mypageOrder";
     }
+
+    @RequestMapping(value = "menuOrder")
+    public String menuOrder() throws Exception {
+    	return "infra/main/order/menuOrder";
+    }
     
     @RequestMapping(value = "mypageOrderView")
     public String mypageOrderView() throws Exception {

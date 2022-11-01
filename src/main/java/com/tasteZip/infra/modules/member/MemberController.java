@@ -16,4 +16,9 @@ public class MemberController {
 	public String memberForm() throws Exception {
 	    return "infra/xdmin/member/memberForm";
 	}
+	
+	@RequestMapping(value = "mypageMemberForm")
+	public String mypageMemberForm() throws Exception {
+	    return "infra/user/member/mypageMemberForm";
+	}
 }

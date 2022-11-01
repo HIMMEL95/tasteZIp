@@ -16,7 +16,7 @@
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/mypage/mypage.css">
+    <link rel="stylesheet" href="/resources/css/mypage/mypageMemberForm.css">
 </head>
 
 <body>
@@ -77,23 +77,96 @@
             <!-- list-->
            	
            		<div class="cotainer">
-           			<div class="row mt-5 mb-5 menuTitle"><h3><b><i class="fa-solid fa-bucket"></i> Mypage Bucket</b></h3></div>
-           			<div class="row mb-2 justify-content-between">
-           				<div class="col-3 text-start"><h5><b><input class="check" type="checkbox" name="check" onclick="selectAll(this)"> 전체선택</b></h5></div>
-           				<div class="col-9 text-end"><button type="button" class="btn btn-outline-dark">전체 삭제</button></div>
-           			</div> 
-           			<hr>
-           			<div class="row mt-3">
-           				<div class="card shadow bg-body rounded cardBorder">
-						  <div class="card-body">
-						    <div class="row justify-content-between">
-						    	<h4><b><input class="check" type="checkbox" name="check" onclick="selectAll(this)"> 힘난다 버거</b></h4>
-						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
-						    </div>
-						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						  </div>
+           			<div class="row mt-5 mb-5 menuTitle"><h3><b>내 정보 수정</b></h3></div>
+           			<div class="container text-center mb-5" style="margin-top: 2rem;">
+					<label class="form-label">프로필 사진</label>
+						<div class="row justify-content-center">
+							<div class="col-3 text-center">
+				    			<img id="preview-image" src="https://intermusicakorea.com/common/img/default_profile.png" class="profile">
+							</div>
 						</div>
-           			</div>
+					</div>
+				
+				
+				<!-- 항목 -->
+				
+				
+				<div class="container">
+					<div class="row gy-3" id="firstrow">
+						<div class="col-6">
+							<label class="form-label">이름</label>
+				   			<input type="text" class="form-control" value="" placeholder="이름" name ="name" id="name" readonly>
+						</div>
+						<div class="col-6">
+							<label class="form-label">아이디</label>
+				   			<input type="text" class="form-control"	value="" placeholder="아이디" name ="id" id="id" readonly>
+						</div>
+						<div class="col-6">
+							<label class="form-label">생년월일</label>
+				   			<input type="text" class="form-control" value="" placeholder ="1990-01-01" name="dob" id="dob">
+						</div>
+						<div class="col-6">
+							<label class="form-label">성별</label>
+							<div class="row" style="margin-left: 10px;">
+								<div class="col-3 form-check form-check-inline" name="gender">
+								  <input class="form-check-input" type="radio" value="" name="gender" id="gender1">
+								  <label class="form-check-label" for="gender1">
+								    남성
+								  </label>
+								</div>
+								<div class="col-3 form-check form-check-inline" name="gender">
+								  <input class="form-check-input" type="radio" value="" name="gender" id="gender2">
+								  <label class="form-check-label" for="gender2">
+								    여성
+								  </label>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<label class="form-label">연락처</label>
+							<div class="input-group">
+							  <select class="form-select col-2" aria-label="Default select example" name="telCompany" id="telCompany">
+								  <option selected>통신사</option>
+								  <option value="1">SKT</option>
+								  <option value="2">LGT</option>
+								  <option value="3">KT</option>
+							  </select>
+							  <input type="mobile" class="form-control" style="width: 50%" placeholder="01000000000" name="phone" value="" id="phone">
+							</div>
+						</div>
+						<div class="col-6">
+							<label for="email" class="form-label">이메일</label>
+							<div class="input-group">
+						   		<input type="text" class="form-control" placeholder="example@naver.com" value="" name="emailInsert" id="emailInsert">
+					   		</div>
+						</div>
+						<div class="col-6">
+							<label class="form-label">이메일 수신동의</label>
+							<div class="row" style="margin-left: 10px;">
+								<div class="col-6 form-check" name="emailNY">
+								  <input class="form-check-input" type="radio" name="emailNY" value="1" <c:if test="${item.emailNY eq 1 }"> checked</c:if> id="flexRadioDefault1" >
+								  <label class="form-check-label" for="flexRadioDefault1">
+								    동의
+								  </label>
+								</div>
+								<div class="col-6 form-check">
+								  <input class="form-check-input" type="radio" name="emailNY" value="0" <c:if test="${item.emailNY eq 0 }"> checked</c:if> id="flexRadioDefault2">
+								  <label class="form-check-label" for="flexRadioDefault2">
+								    비동의
+								  </label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container" id="aaa">
+					<div class="row justify-content-center">
+						<button type="button" class="btn" id="Modification">수정하기</button>&emsp;<button type="button" class="btn btn-dark" id="Cancel">최소하기</button>
+					</div>
+				</div>
+				<br>
+				<br>
+			</div>
            		</div>
            	
           </section>

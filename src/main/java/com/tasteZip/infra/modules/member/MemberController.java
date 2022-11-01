@@ -19,6 +19,6 @@ public class MemberController {
 	
 	@RequestMapping(value = "mypageMemberForm")
 	public String mypageMemberForm() throws Exception {
-	    return "infra/user/member/mypageMemberForm";
+	    return "infra/main/member/mypageMemberForm"; 
 	}
 }

@@ -84,7 +84,7 @@
            			</div> 
            			<hr>
            			<div class="row mt-3">
-						<div class="col-1 text-center"><input class="check" type="checkbox" name="check" onclick="selectAll(this)"></div>
+						<div class="col-1 text-center"><input class="check" type="checkbox" name="check"></div>
            				<div class="col-11">
 	           				<div class="card shadow bg-body rounded cardBorder">
 							  <div class="card-body">
@@ -107,7 +107,7 @@
 						</div>
            			</div>
            			<div class="row mt-3">
-						<div class="col-1 text-center"><input class="check" type="checkbox" name="check" onclick="selectAll(this)"></div>
+						<div class="col-1 text-center"><input class="check" type="checkbox" name="check"></div>
            				<div class="col-11">
 	           				<div class="card shadow bg-body rounded cardBorder">
 							  <div class="card-body">
@@ -144,5 +144,15 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+		function selectAll(selectAll)  {
+		  const checkboxes 
+		       = document.getElementsByName('check');
+		  
+		  checkboxes.forEach((checkbox) => {
+		    checkbox.checked = selectAll.checked;
+		  })
+		}
+    </script>
 </body>
 </html>

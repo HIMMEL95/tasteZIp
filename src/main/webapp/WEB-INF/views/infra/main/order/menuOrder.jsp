@@ -18,9 +18,9 @@
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<link rel="stylesheet" href="../../../css/order/mapBasic.css">
-	<link rel="stylesheet" href="../../../css/order/menuOrder.css">
-	<script defer type="text/javascript" src="../../../js/order/mapBasic.js"></script>
+	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
+	<link rel="stylesheet" href="/resources/css/order/menuOrder.css">
+	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
 <body>
@@ -84,7 +84,7 @@
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
-						<button type="button" id="handle" class="btn_fold expand">ì ê¸°</button>
+						<button type="button" id="handle" class="btn_fold expand">접기</button>
 					</div>
 					<div class="panel">
 						<div class="panel_top">
@@ -92,9 +92,9 @@
 							<div class="search">
 								<div class="search_wrap">
 									<div class="search_box">
-										<button class="search_btn" type="button">ê²ì</button>
+										<button class="search_btn" type="button">검색</button>
 										<div class="input_box">
-											<label class="label_search">ì¥ì, ë²ì¤, ì§íì² , ëë¡ ê²ì</label>
+											<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
 											<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
 										</div>
 									</div>
@@ -108,7 +108,7 @@
 										<img class="back" alt="" src="https://cdn-icons-png.flaticon.com/512/54/54321.png"> 
 									</div>
 									<div class="col">
-										<h4 class="col" style="margin-top: 12px;">ìê·¸ëë ì ë¼íì­ì </h4>
+										<h4 class="col" style="margin-top: 12px;">에그드랍 신논현역점</h4>
 									</div>
 								</div>
 								<div class="place_fixed_maintab">
@@ -117,16 +117,16 @@
 											<div class="flicking-viewport" style="user-select: none; -webkit-user-drag: none; touch-action: pan-y;">
 												<div class="flicking-camera" style="transform: translate(0px);">
 													<a href="/restaurant/1470422298/home?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
-														<span class="veBoZ">í</span>
+														<span class="veBoZ">홈</span>
 													</a>
 													<a href="/restaurant/1470422298/menu?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
-														<span class="veBoZ">ë©ë´</span>
+														<span class="veBoZ">메뉴</span>
 													</a>
 													<a href="/restaurant/1470422298/review?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
-														<span class="veBoZ">ìì½</span>
+														<span class="veBoZ">예약</span>
 													</a>
 													<a href="/restaurant/1470422298/review?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
-														<span class="veBoZ">ë¦¬ë·°</span>
+														<span class="veBoZ">리뷰</span>
 													</a>
 												</div>
 											</div>
@@ -139,7 +139,7 @@
 															<svg viewBox="0 0 18 18" class="ico_n_logo">
 																<path fill-rule="evenodd" d="M18 0v18H0V0h18zM7.255 4.582H4.473v9.054h2.915V8.79l3.357 4.846h2.782V4.582h-2.915v4.846L7.255 4.582z"></path>
 															</svg>
-															ì£¼ë¬¸
+															주문
 														</div>
 														<div class="title_logo">
 															<div class="logo_thumb">
@@ -150,7 +150,7 @@
 													<div class="info_main_notice">
 														<div class="notice_desc">
 															<div class="desc_type ico_takeout">
-																í¬ì¥ì£¼ë¬¸ì´ ê°ë¥í ê°ê²ìëë¤.
+																포장주문이 가능한 가게입니다.
 															</div>
 														</div>
 													</div>
@@ -169,18 +169,18 @@
 																		<svg viewBox="0 0 10 13" class="ico_arrow">
 																			<path d="M3.1 12.2L2 11.1l4.2-4.2L2 2.6l1.1-1.1 5.4 5.4-5.4 5.3z"></path>
 																		</svg>
-																		<span class="blind">ì´ì </span>
+																		<span class="blind">이전</span>
 																	</button>
 																	<ul class="category_list" style="position: relative;">
 																		<div class="category_active" style="height: 29px; transform: translate3d(18px, 0px, 0px); width: 55px;"></div>
 																		<li id="category_3234748_PICKUP" class="category_item" data-active="true">
 																			<a href="#" class="tab active">
-																				<span class="tab_text" data-active="true" style="transition: color 0.3s ease 0s;">ì¶ì²</span>
+																				<span class="tab_text" data-active="true" style="transition: color 0.3s ease 0s;">추천</span>
 																			</a>
 																		</li>
 																		<li id="category_2575392_PICKUP" class="category_item" data-active="false">
 																			<a href="#" class="tab">
-																				<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1ì¸ ì¸í¸ë©ë´</span>
+																				<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1인 세트메뉴</span>
 																			</a>
 																		</li>
 																		<li id="category_3234751_PICKUP" class="category_item" data-active="false">
@@ -195,7 +195,7 @@
 																		</li>
 																		<li id="category_2575392_PICKUP" class="category_item" data-active="false">
 																			<a href="#" class="tab">
-																				<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1ì¸ ì¸í¸ë©ë´</span>
+																				<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1인 세트메뉴</span>
 																			</a>
 																		</li>
 																		<li id="category_3234751_PICKUP" class="category_item" data-active="false">
@@ -213,7 +213,7 @@
 																		<svg viewBox="0 0 10 13" class="ico_arrow">
 																			<path d="M3.1 12.2L2 11.1l4.2-4.2L2 2.6l1.1-1.1 5.4 5.4-5.4 5.3z"></path>
 																		</svg>
-																		<span class="blind">ë¤ì</span>
+																		<span class="blind">다음</span>
 																	</button>
 																	<span class="blur_right"></span>
 																</div>
@@ -224,7 +224,7 @@
 														<div class="order_list_wrap">
 															<div class="order_list_inner">
 																<div class="order_list_tit">
-																	<span class="title">ìë¡ ëì¨ ë©ë´</span>
+																	<span class="title">새로 나온 메뉴</span>
 																</div>
 																<ul class="order_list_area">
 																	<li class="order_list_item">
@@ -232,29 +232,29 @@
 																			<a href="#" class="info_link">
 																				<div class="info_img">
 																					<span class="img_box">
-																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220729_261/16590576950643sgnW_PNG/3_%C0%DA%B8%F9%BF%A1%C0%CC%B5%E5_A_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="ì¬ë¤ì¼">
+																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220729_261/16590576950643sgnW_PNG/3_%C0%DA%B8%F9%BF%A1%C0%CC%B5%E5_A_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
 																					</span>
 																				</div>
 																				<div class="info_detail">
 																					<div class="tit">
-																						ìëª½ ìì´ë
+																						자몽 에이드
 																						<span class="ico_group">
 																							<i class="ico_new">N</i>
 																						</span>
 																					</div>
 																					<div class="detail">
 																						<span class="detail_txt">
-																							ìëª½ì ìí¼í¨ì ê°ë ë´ì ììí ìëª½ ìì´ë
+																							자몽의 상큼함을 가득 담은 시원한 자몽 에이드
 																						</span>
 																					</div>
 																					<div class="price">
-																						3,600<!-- -->ì
+																						3,600<!-- -->원
 																					</div>
 																				</div>
 																			</a>
 																			<a href="#" class="btn_shop" role="button">
 																				<div class="btn_box">
-																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="ì£¼ë¬¸íê¸°">
+																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
 																						<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
 																					</svg>
 																				</div>
@@ -267,7 +267,7 @@
 														<div class="order_list_wrap store_delivery">
 															<div class="order_list_inner">
 																<div class="order_list_tit">
-																	<span class="title">1ì¸ ì¸í¸ë©ë´</span>
+																	<span class="title">1인 세트메뉴</span>
 																	<button type="button" class="btn_fold2">
 																		<i class="fa-solid fa-angle-down"></i>
 																	</button>
@@ -278,23 +278,23 @@
 																			<a href="#" class="info_link">
 																				<div class="info_img">
 																					<span class="img_box">
-																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="ì¬ë¤ì¼">
+																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
 																					</span>
 																				</div>
 																				<div class="info_detail">
 																					<div class="tit">
-																						ë¯¸ì¤í°ìê·¸ ì¸í¸
+																						미스터에그 세트
 																						<span class="ico_group"></span>
 																					</div>
 																					<div class="detail">
-																						<span class="detail_txt">&lt;ë¯¸ì¤í°ìê·¸ + í´ì¬ë¸ë¼ì´ + ìë©ë¦¬ì¹´ë¸&gt; ë¶ëë¬ì´ ì¤í¬ë¨ë¸ ìê·¸ì ë¸ë¦¬ì¤ì¬, ìê·¸ëëì í¹ì  ìì¤ê° ì´ì°ë¬ì§ ìëìì¹ì ê³ ìíê³  ë¶ëë¬ì´ í´ì¬ë¸ë¼ì´, ìë©ë¦¬ì¹´ë¸ë¥¼ í©ë¦¬ì ì¸ ê°ê²©ì¼ë¡ ì¦ê¸¸ ì ìë â»ì¸í¸ë©ë´ìë£ ë³ê²½ ì ìì´ëì íì°ìë£ë HOTì ì ííì¬ë ì°¨ê°ì´ ìë£ë¡ ì ê³µë©ëë¤.</span>
+																						<span class="detail_txt">&lt;미스터에그 + 해쉬브라운 + 아메리카노&gt; 부드러운 스크램블 에그와 브리오쉬, 에그드랍의 특제 소스가 어우러진 샌드위치와 고소하고 부드러운 해쉬브라운, 아메리카노를 합리적인 가격으로 즐길 수 있는 ※세트메뉴음료 변경 시 에이드와 탄산음료는 HOT을 선택하여도 차가운 음료로 제공됩니다.</span>
 																					</div>
-																					<div class="price">7,400ì</div>
+																					<div class="price">7,400원</div>
 																				</div>
 																			</a>
 																			<a href="#" class="btn_shop" role="button">
 																				<div class="btn_box">
-																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="ì£¼ë¬¸íê¸°">
+																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
 																						<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
 																					</svg>
 																				</div>
@@ -307,7 +307,7 @@
 														<div class="order_list_wrap store_delivery">
 															<div class="order_list_inner">
 																<div class="order_list_tit">
-																	<span class="title">1ì¸ ì¸í¸ë©ë´</span>
+																	<span class="title">1인 세트메뉴</span>
 																	<button type="button" class="btn_fold2">
 																		<i class="fa-solid fa-angle-down"></i>
 																	</button>
@@ -318,23 +318,23 @@
 																			<a href="#" class="info_link">
 																				<div class="info_img">
 																					<span class="img_box">
-																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="ì¬ë¤ì¼">
+																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
 																					</span>
 																				</div>
 																				<div class="info_detail">
 																					<div class="tit">
-																						ë¯¸ì¤í°ìê·¸ ì¸í¸
+																						미스터에그 세트
 																						<span class="ico_group"></span>
 																					</div>
 																					<div class="detail">
-																						<span class="detail_txt">&lt;ë¯¸ì¤í°ìê·¸ + í´ì¬ë¸ë¼ì´ + ìë©ë¦¬ì¹´ë¸&gt; ë¶ëë¬ì´ ì¤í¬ë¨ë¸ ìê·¸ì ë¸ë¦¬ì¤ì¬, ìê·¸ëëì í¹ì  ìì¤ê° ì´ì°ë¬ì§ ìëìì¹ì ê³ ìíê³  ë¶ëë¬ì´ í´ì¬ë¸ë¼ì´, ìë©ë¦¬ì¹´ë¸ë¥¼ í©ë¦¬ì ì¸ ê°ê²©ì¼ë¡ ì¦ê¸¸ ì ìë â»ì¸í¸ë©ë´ìë£ ë³ê²½ ì ìì´ëì íì°ìë£ë HOTì ì ííì¬ë ì°¨ê°ì´ ìë£ë¡ ì ê³µë©ëë¤.</span>
+																						<span class="detail_txt">&lt;미스터에그 + 해쉬브라운 + 아메리카노&gt; 부드러운 스크램블 에그와 브리오쉬, 에그드랍의 특제 소스가 어우러진 샌드위치와 고소하고 부드러운 해쉬브라운, 아메리카노를 합리적인 가격으로 즐길 수 있는 ※세트메뉴음료 변경 시 에이드와 탄산음료는 HOT을 선택하여도 차가운 음료로 제공됩니다.</span>
 																					</div>
-																					<div class="price">7,400ì</div>
+																					<div class="price">7,400원</div>
 																				</div>
 																			</a>
 																			<a href="#" class="btn_shop" role="button">
 																				<div class="btn_box">
-																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="ì£¼ë¬¸íê¸°">
+																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
 																						<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
 																					</svg>
 																				</div>
@@ -347,7 +347,7 @@
 														<div class="order_list_wrap store_delivery">
 															<div class="order_list_inner">
 																<div class="order_list_tit">
-																	<span class="title">1ì¸ ì¸í¸ë©ë´</span>
+																	<span class="title">1인 세트메뉴</span>
 																	<button type="button" class="btn_fold2">
 																		<i class="fa-solid fa-angle-down"></i>
 																	</button>
@@ -358,23 +358,23 @@
 																			<a href="#" class="info_link">
 																				<div class="info_img">
 																					<span class="img_box">
-																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="ì¬ë¤ì¼">
+																						<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
 																					</span>
 																				</div>
 																				<div class="info_detail">
 																					<div class="tit">
-																						ë¯¸ì¤í°ìê·¸ ì¸í¸
+																						미스터에그 세트
 																						<span class="ico_group"></span>
 																					</div>
 																					<div class="detail">
-																						<span class="detail_txt">&lt;ë¯¸ì¤í°ìê·¸ + í´ì¬ë¸ë¼ì´ + ìë©ë¦¬ì¹´ë¸&gt; ë¶ëë¬ì´ ì¤í¬ë¨ë¸ ìê·¸ì ë¸ë¦¬ì¤ì¬, ìê·¸ëëì í¹ì  ìì¤ê° ì´ì°ë¬ì§ ìëìì¹ì ê³ ìíê³  ë¶ëë¬ì´ í´ì¬ë¸ë¼ì´, ìë©ë¦¬ì¹´ë¸ë¥¼ í©ë¦¬ì ì¸ ê°ê²©ì¼ë¡ ì¦ê¸¸ ì ìë â»ì¸í¸ë©ë´ìë£ ë³ê²½ ì ìì´ëì íì°ìë£ë HOTì ì ííì¬ë ì°¨ê°ì´ ìë£ë¡ ì ê³µë©ëë¤.</span>
+																						<span class="detail_txt">&lt;미스터에그 + 해쉬브라운 + 아메리카노&gt; 부드러운 스크램블 에그와 브리오쉬, 에그드랍의 특제 소스가 어우러진 샌드위치와 고소하고 부드러운 해쉬브라운, 아메리카노를 합리적인 가격으로 즐길 수 있는 ※세트메뉴음료 변경 시 에이드와 탄산음료는 HOT을 선택하여도 차가운 음료로 제공됩니다.</span>
 																					</div>
-																					<div class="price">7,400ì</div>
+																					<div class="price">7,400원</div>
 																				</div>
 																			</a>
 																			<a href="#" class="btn_shop" role="button">
 																				<div class="btn_box">
-																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="ì£¼ë¬¸íê¸°">
+																					<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
 																						<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
 																					</svg>
 																				</div>
@@ -393,14 +393,14 @@
 								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000;">
 									<div style="height: 170px;">
 										<div class="pt-3">
-											<span class="ps-5">ìëª½ìì´ë</span>
+											<span class="ps-5">자몽에이드</span>
 											<button type="button" class=" btn btnOrder position-relative">
-												ì£¼ë¬¸íê¸°
+												주문하기
 												<i class="fa-solid fa-cart-plus"></i>
 												<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
 											</button>
 										</div>
-										<span class="ps-5" style="font-weight: bold; color: red;">3,600ì</span>
+										<span class="ps-5" style="font-weight: bold; color: red;">3,600원</span>
 									</div>
 								</div>
 								<!-- content e -->
@@ -424,31 +424,31 @@
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec2655da82c3779d622f0aff959060e6&libraries=services"></script>
 	<script>
 	
-		// ë§ì»¤ë¥¼ í´ë¦­íë©´ ì¥ìëªì íì¶í  ì¸í¬ìëì° ìëë¤
+		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 		
-		var container = document.getElementById('map'); //ì§ëë¥¼ ë´ì ìì­ì DOM ë í¼ë°ì¤
-		var options = { //ì§ëë¥¼ ìì±í  ë íìí ê¸°ë³¸ ìµì
-			center: new kakao.maps.LatLng(37.5021008334827, 127.024465815419), //ì§ëì ì¤ì¬ì¢í.
-			level: 3 //ì§ëì ë ë²¨(íë, ì¶ì ì ë)
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(37.5021008334827, 127.024465815419), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
 		};
 	
-		var map = new kakao.maps.Map(container, options); //ì§ë ìì± ë° ê°ì²´ ë¦¬í´
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 	
 		var mapTypeControl = new kakao.maps.MapTypeControl();
 	
-		// ì§ëì ì»¨í¸ë¡¤ì ì¶ê°í´ì¼ ì§ëìì íìë©ëë¤
-		// kakao.maps.ControlPositionì ì»¨í¸ë¡¤ì´ íìë  ìì¹ë¥¼ ì ìíëë° TOPRIGHTë ì¤ë¥¸ìª½ ìë¥¼ ìë¯¸í©ëë¤
+		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
 		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
 	
-		// ì§ë íë ì¶ìë¥¼ ì ì´í  ì ìë  ì¤ ì»¨í¸ë¡¤ì ìì±í©ëë¤
+		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 		var zoomControl = new kakao.maps.ZoomControl();
 		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 	
-		// ì§ëì êµíµì ë³´ë¥¼ íìíëë¡ ì§ëíìì ì¶ê°í©ëë¤
+		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
 		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
 		
-		// ì§ëë¥¼ ìì±í©ëë¤    
+		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
 		
 	</script>

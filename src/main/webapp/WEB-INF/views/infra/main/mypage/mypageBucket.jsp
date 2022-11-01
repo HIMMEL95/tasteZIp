@@ -84,14 +84,49 @@
            			</div> 
            			<hr>
            			<div class="row mt-3">
-           				<div class="card shadow bg-body rounded cardBorder">
-						  <div class="card-body">
-						    <div class="row justify-content-between">
-						    	<h4><b><input class="check" type="checkbox" name="check" onclick="selectAll(this)"> 힘난다 버거</b></h4>
-						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
-						    </div>
-						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						  </div>
+						<div class="col-1 text-center"><input class="check" type="checkbox" name="check" onclick="selectAll(this)"></div>
+           				<div class="col-11">
+	           				<div class="card shadow bg-body rounded cardBorder">
+							  <div class="card-body">
+							    <div class="row justify-content-center">
+							    	<div class="col-3 text-center">
+							    		<h5><b>가게이름</b></h5>
+							    		<h6><b>에그드랍</b></h6>
+							    	</div>
+							    	<div class="col-3 text-center">
+							    		<h5><b>메뉴이름</b></h5>
+							    		<h6>햄에그 샌드위치 세트</h6>
+							    	</div>
+							    	<div class="col-6 text-center">
+							    		<h5><b>가격</b></h5>
+							    		<h6 style="color: red;"><b>10,000원</b> (수량: 1개)</h6>
+							    	</div>
+							    </div>
+							  </div>
+							</div>
+						</div>
+           			</div>
+           			<div class="row mt-3">
+						<div class="col-1 text-center"><input class="check" type="checkbox" name="check" onclick="selectAll(this)"></div>
+           				<div class="col-11">
+	           				<div class="card shadow bg-body rounded cardBorder">
+							  <div class="card-body">
+							    <div class="row justify-content-center">
+							    	<div class="col-3 text-center">
+							    		<h5><b>가게이름</b></h5>
+							    		<h6><b>에그드랍</b></h6>
+							    	</div>
+							    	<div class="col-3 text-center">
+							    		<h5><b>메뉴이름</b></h5>
+							    		<h6>햄에그 샌드위치 세트</h6>
+							    	</div>
+							    	<div class="col-6 text-center">
+							    		<h5><b>가격</b></h5>
+							    		<h6 style="color: red;"><b>10,000원</b> (수량: 1개)</h6>
+							    	</div>
+							    </div>
+							  </div>
+							</div>
 						</div>
            			</div>
            		</div>

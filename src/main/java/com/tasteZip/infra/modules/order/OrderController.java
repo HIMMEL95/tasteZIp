@@ -12,4 +12,14 @@ public class OrderController {
 	    return "infra/xdmin/order/orderList";
 	}
 	
+    @RequestMapping(value = "mypageOrder")
+    public String mypageOrder() throws Exception {
+        return "infra/main/mypage/mypageOrder";
+    }
+    
+    @RequestMapping(value = "mypageOrderView")
+    public String mypageOrderView() throws Exception {
+        return "infra/main/mypage/mypageOrderView";
+    }
+	
 }

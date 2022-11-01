@@ -11,4 +11,14 @@ public class ReservationController {
 	public String storeList() throws Exception {
 	    return "infra/xdmin/reservation/reservationList";
 	}
+	
+   @RequestMapping(value = "mypageReservation")
+    public String mypageReservation() throws Exception {
+        return "infra/main/mypage/mypageReservation";
+    }
+    
+    @RequestMapping(value = "mypageReservationView")
+    public String mypageReservationView() throws Exception {
+        return "infra/main/mypage/mypageReservationView";
+    }
 }

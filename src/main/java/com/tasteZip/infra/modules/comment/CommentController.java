@@ -12,4 +12,10 @@ public class CommentController {
 	    return "infra/xdmin/comment/commentList";
 	}
 	
+	// 리뷰
+    @RequestMapping(value = "mypageReview")
+    public String mypageReview() throws Exception {
+        return "infra/main/mypage/mypageReview";
+    }
+    
 }

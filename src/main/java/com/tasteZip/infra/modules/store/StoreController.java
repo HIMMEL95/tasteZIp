@@ -20,4 +20,6 @@ public class StoreController {
 	    return "infra/xdmin/store/storeForm";
 	}
 	
+	
+	
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tasteZip.infra.modules.store.StoreMapper">
+
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.Store.Store"></resultMap>
+    
+	<sql id ="selectCommon">
+		from store s
+		where 1=1
+			and g.gcDelNy = 0
+			<if test="shDelNy != null and !shDelNy.equals('')">AND gcDelNy = #{shDelNy}</if>
+			<choose>
+				<when test="shOption == 1">AND gameDate LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND team_home LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND team_away LIKE CONCAT('%',#{shValue},'%')</when>
+				<otherwise></otherwise>
+			</choose>
+			<choose>
+				<when test="shDate == 1">AND gCreatedAt BETWEEN #{startDate} AND #{endDate}</when>
+				<otherwise></otherwise>
+			</choose>
+	</sql>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			select 
+				s.ifstSeq
+				,s.ifstName
+				,s.ifstPhone
+				,s.ifstAddress
+				,s.ifstInfo
+				,s.ifstDirections
+				,s.ifstOrderNy
+				,s.ifstCreatedAt
+		    <include refid="selectCommon"></include>
+		    ORDER BY 
+		    	s.ifstCreatedAte DESC
+		   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql" />
+	</select>
+	
+</mapper>

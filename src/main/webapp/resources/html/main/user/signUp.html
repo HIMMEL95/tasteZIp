@@ -64,9 +64,9 @@
 											<label class="form-label" for="gender"> Gender <span class="text-danger">*</span></label>
 											<input class="form-control" name="gender" id="gender" placeholder="Password" type="password" data-msg="Please enter your password">
 											<select id="gender" name="gender" aria-label=".form-select-lg example" onfocusout="validationUpdt()">
-				                                <option value="" <c:if test="${empty item.gender}">selected</c:if>>선택</option>
+				                               <!--  <option value="" <c:if test="${empty item.gender}">selected</c:if>>선택</option>
 				                                <option value="5" <c:if test="${item.gender eq 5 }">selected</c:if>>남성</option>
-				                                <option value="6" <c:if test="${item.gender eq 6 }">selected</c:if>>여성</option>
+				                                <option value="6" <c:if test="${item.gender eq 6 }">selected</c:if>>여성</option> -->
 				                            </select>
 										</div>
 									</div>
@@ -88,7 +88,7 @@
 								            <label for="ifmmEmailConsent" class="form-label">이메일 정보 마케팅 사용 동의</label>
 								            <div class="form-check">
 								            	<input type="hidden" id="ifmmEmailConsentNy" name="ifmmEmailConsentNy" value="0">
-								                <input type="checkbox" id="ifmmEmailConsent" name="ifmmEmailConsent" class="form-check-input" <c:if test="${item.ifmmEmailConsentNy eq 1 }">checked</c:if>>
+								                <!-- <input type="checkbox" id="ifmmEmailConsent" name="ifmmEmailConsent" class="form-check-input" <c:if test="${item.ifmmEmailConsentNy eq 1 }">checked</c:if>> -->
 								                <label for="ifmmEmailConsentNy" class="form-check-label text-muted">
 								                    동의합니다
 								                </label>
@@ -101,11 +101,11 @@
 										<div class="col">
 											<label class="form-label" for="radio_operator"> 통신사 <span class="text-danger">*</span></label>
 											<select id="radio_operator" name="radio_operator" aria-label=".form-select-lg example">
-				                            	<option value="" <c:if test="${empty item.radio_operator}">selected</c:if>>선택</option>
+				                            	<!-- <option value="" <c:if test="${empty item.radio_operator}">selected</c:if>>선택</option>
 				                                <option value="1" <c:if test="${item.radio_operator eq 1 }">selected</c:if>>SKT</option>
 				                                <option value="2" <c:if test="${item.radio_operator eq 2 }">selected</c:if>>KT</option>
 				                                <option value="3" <c:if test="${item.radio_operator eq 3 }">selected</c:if>>LGT</option>
-				                                <option value="4" <c:if test="${item.radio_operator eq 4 }">selected</c:if>>알뜰폰</option>
+				                                <option value="4" <c:if test="${item.radio_operator eq 4 }">selected</c:if>>알뜰폰</option> -->
 				                            </select>
 										</div>
 										<div class="col">

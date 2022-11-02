@@ -16,8 +16,7 @@ public class CommentDao {
 	private static String namespace = "com.tasteZip.infra.modules.comment.CommentMapper";
 	
 	public List<Comment> myReview(CommentVo vo){ 
-		List<Comment> list = sqlSession.selectList(namespace + ".myReview", vo);
-		return list; 								
+		return sqlSession.selectList(namespace + ".myReview", vo);
 	}
 	
 	public int selectOneCount(CommentVo vo) {

@@ -14,13 +14,6 @@ public class CommentController {
 	@Autowired
 	CommentServiceImpl service;
 	
-	
-	  private void setSearchAndPaging(CommentVo vo) throws Exception {
-		  vo.setIfcmDelNy(vo.getIfcmDelNy() == null ? 0: vo.getIfcmDelNy());
-		  vo.setParamsPaging(service.selectOneCount(vo)); 
-	  }
-	 
-	
 	@RequestMapping(value = "commentList")
 	public String reviewList() throws Exception {
 	    return "infra/xdmin/comment/commentList";
@@ -30,8 +23,10 @@ public class CommentController {
     @RequestMapping(value = "mypageReview")
     public String mypageReview(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
     	
-		setSearchAndPaging(vo);
-		
+    	System.out.println("sdsdf");
+    	vo.setParamsPaging(service.selectOneCount(vo));
+    	System.out.println("123123");
+    	
 		List<Comment> list = service.myReview(vo);
 		model.addAttribute("list", list); 
     	

@@ -141,5 +141,17 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    	var goUrlList = "/comment/mypageReview";
+    	var form = $("#myForm");
+    	
+    	var ifcmSeq = $("input:hidden[name=ifcmSeq]");
+    	
+    	goList = function(thisPage) {
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		};
+    </script>
 </body>
 </html>

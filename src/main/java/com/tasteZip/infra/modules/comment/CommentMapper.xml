@@ -8,7 +8,7 @@
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.comment.Comment"></resultMap>
 
 	<select id="myReview" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql"></include>
+		<include refid="Base.selectListUpperForMysql"/>
 		SELECT
 			c.ifcmSeq
 			,c.ifcmComment

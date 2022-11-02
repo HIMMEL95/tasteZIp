@@ -1,4 +1,3 @@
-
 <!doctype html> 
 <html lang="ko">
 
@@ -6,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>Chat</title>
+    <title>Store</title>
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -97,27 +96,62 @@
 								<!-- contents s -->
 								<div class="contents">
 									<div class="inbox_chat">
-							            <a href="/chatRoom">
+							            <div class="store">
 								            <div class="chat_list">
 												<div class="chat_people">
 													<div class="chat_ib">
 														<h3>에그드랍 신논현역점</h3>
-														<p>Test, which is a new approach to have all solutions 
-															astrology under one roof.</p>
+														<p>
+															서울 서초구 서초동 
+															<button type="button" id="popover" class="btn" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="서울 서초구 서초대로 77길 62지 1층 106호">
+																<input type="hidden" value="0" name="poValue">
+																<i id="popoverBtn" class="fa-solid fa-angle-down"></i>
+															</button>
+														</p>
+														<div>영업 중 <span style="margin: 0 20px; color: #989898">방문자리뷰 1,166</span></div>
+													</div>
+													<div class="RDerd">
+														<div class="kXw6i S7rj5">
+															<div class="ZmKZC">
+																<span class="JsCty Sw_zU">
+																	<a href="#" target="_self" role="button" class="_T0lO">출발</a>
+																	<a href="#" target="_self" role="button" class="_T0lO">도착</a>
+																</span>
+																<span class="JsCty x1dWO">
+																	<a href="#" target="_self" role="button" class="_T0lO">
+																		<span class="place_blind">거리뷰</span>
+																		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="yR6ue" aria-hidden="true">
+																			<path d="M10 0c4.4 0 7.95 3.5 7.95 7.79a7.6 7.6 0 01-1.23 4.15l-6.33 8.02a.5.5 0 01-.78 0l-6.38-8.1A7.6 7.6 0 012.05 7.8 7.89 7.89 0 0110 0zm0 1.54A6.38 6.38 0 003.55 7.8c0 1.18.34 2.33.96 3.28l5.5 6.92 5.44-6.86a6.08 6.08 0 001-3.34A6.37 6.37 0 0010 1.54zM6.75 6.92h6.5a.5.5 0 01.5.5v.54a.5.5 0 01-.5.5h-6.5a.5.5 0 01-.5-.5v-.54a.5.5 0 01.5-.5z"></path>
+																		</svg>
+																	</a>
+																</span>
+																<span class="JsCty">
+																	<a href="#" target="_self" role="button" class="_T0lO">
+																		<span class="Dl8SE">
+																			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="yR6ue" aria-hidden="true">
+																				<path d="M11.4 1.3h4.2V16H.4V1.3h4.1V0h1.1v1.3h4.9V0h1.1l-.2 1.3zm3.2 2.1H1.4V15h13.1l.1-11.6zM6.7 8.8v3.4H4.6V5.9h2.1l2.5 3.4V5.9h2.1v6.3h-2L6.7 8.8z"></path>
+																			</svg>
+																		</span>
+																		예약
+																	</a>
+																</span>
+																<span class="JsCty">
+																	<a href="#" target="_self" role="button" class="_T0lO">
+																		<span class="Dl8SE">
+																			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="yR6ue" aria-hidden="true">
+																				<path d="M5.69 2H2v12h3.86V7.58L10.31 14H14V2h-3.86v6.42z"></path>
+																			</svg>
+																		</span>
+																		주문
+																	</a>
+																</span>
+															</div>
+														</div>
 													</div>
 												</div>
 								            </div>
-							            </a>
-							            <div class="chat_list">
-											<div class="chat_people">
-												<div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-												<div class="chat_ib">
-													<h5>Sunil Rajput2 <span class="chat_date">Dec 25</span></h5>
-													<p>Test, which is a new approach to have all solutions 
-														astrology under one roof.</p>
-												</div>
-											</div>
 							            </div>
+							            
 										<!-- contents e -->
 							          </div>
 									  <div style="margin: 0 auto;">
@@ -188,6 +222,22 @@
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
 
+	</script>
+	<script type="text/javascript">
+		const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+		const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+		
+		$("#popover").on("click", function() {
+			if ($("input[name=poValue]").val() == 0) {
+				$("input[name=poValue]").val(1);
+				$("#popoverBtn").removeClass("fa-angle-down");
+				$("#popoverBtn").addClass("fa-angle-up");
+			} else {
+				$("input[name=poValue]").val(0);
+				$("#popoverBtn").addClass("fa-angle-down");
+				$("#popoverBtn").removeClass("fa-angle-up");
+			}
+		})
 	</script>
 </body>
 

@@ -1,0 +1,263 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="rb" uri="http://www.springframework.org/tags"%>
+
+<%-- <jsp:useBean id="CodeServiceImpl" class="com.tasteZip.infra.modules.code.CodeServiceImpl" /> --%>
+
+<!doctype html> 
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Store</title>
+    <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
+	<link rel="stylesheet" href="/resources/css/store/store.css">
+	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
+</head>
+
+<body>
+    <!-- start -->
+    
+    <form name="myForm">
+    	<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+       	<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+       	<input type="hidden" name="seq" value='<c:out value="${vo.seq }"></c:out>'>
+	    <main class="clearfix">
+			<div id="sidebar" class="sidebar">
+				<div class="d-flex flex-column flex-shrink-0 bg-dark align-center" style="width: 4.5rem; height: 100vh;">
+					<a href="/tasteMain" class="d-block p-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+						<img alt="" src="/resources/images/main/logo2.png" width="40" height="30">
+						<span class="visually-hidden">Icon-only</span>
+					</a>
+					<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+						<li class="nav-item">
+							<a href="/order" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+								<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/favorite" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+								<i class="fas fa-light fa-heart text-white" style="font-size: 22px;"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/chat" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+								<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/story" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+								<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/comment" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+								<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+								<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
+							</a>
+						</li>
+					</ul>
+					<div class="dropdown">
+						<a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src="https://github.com/mdo.png" alt="mdo" width="30" height="30" class="rounded-circle">
+						</a>
+						<ul class="dropdown-menu text-small shadow" style="">
+							<li><a class="dropdown-item" href="#">New project...</a></li>
+							<li><a class="dropdown-item" href="#">Settings</a></li>
+							<li><a class="dropdown-item" href="#">Profile</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">Sign out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="map_container" id="container">
+				<div class="sideInfo">
+					<div class="handle">
+						<input type="hidden" name="handle_value" id="handle_value" value="1">
+						<button type="button" id="handle" class="btn_fold expand">접기</button>
+					</div>
+					<div class="panel">
+						<div class="panel_top">
+							<!-- search s -->
+							<div class="search">
+								<div class="search_wrap">
+									<div class="search_box">
+										<button class="search_btn" type="submit">검색</button>
+										<div class="input_box">
+											<label class="label_search">장소 검색</label>
+											<input type="text" id="shValue" name="shValue" autocomplete="none" autofocus class="input_search" oninput="change_text()">
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- search e -->
+							<div class="ng-star-inserted">
+								<div class="main -top_space">
+									<!-- contents s -->
+									<div class="contents">
+										<div class="inbox_chat">
+								            <div class="store">
+								            	<c:forEach items="${list }" var="list" varStatus="status">
+										            <div class="chat_list">
+														<div class="chat_people">
+															<div class="chat_ib">
+																<h3>${list.ifstName }</h3>
+																<p>
+																	${list.ifstAddress }
+																	<button type="button" id="popover" class="btn" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="${list.ifstAddress }">
+																		<input type="hidden" value="0" name="poValue">
+																		<i id="popoverBtn" class="fa-solid fa-angle-down"></i>
+																	</button>
+																</p>
+																<div>영업 중 <span style="margin: 0 20px; color: #989898">방문자리뷰 1,166</span></div>
+															</div>
+															<div class="RDerd">
+																<div class="kXw6i S7rj5">
+																	<div class="ZmKZC">
+																		<span class="JsCty Sw_zU">
+																			<a href="#" target="_self" role="button" class="_T0lO">출발</a>
+																			<a href="#" target="_self" role="button" class="_T0lO">도착</a>
+																		</span>
+																		<span class="JsCty x1dWO">
+																			<a href="#" target="_self" role="button" class="_T0lO">
+																				<span class="place_blind">거리뷰</span>
+																				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="yR6ue" aria-hidden="true">
+																					<path d="M10 0c4.4 0 7.95 3.5 7.95 7.79a7.6 7.6 0 01-1.23 4.15l-6.33 8.02a.5.5 0 01-.78 0l-6.38-8.1A7.6 7.6 0 012.05 7.8 7.89 7.89 0 0110 0zm0 1.54A6.38 6.38 0 003.55 7.8c0 1.18.34 2.33.96 3.28l5.5 6.92 5.44-6.86a6.08 6.08 0 001-3.34A6.37 6.37 0 0010 1.54zM6.75 6.92h6.5a.5.5 0 01.5.5v.54a.5.5 0 01-.5.5h-6.5a.5.5 0 01-.5-.5v-.54a.5.5 0 01.5-.5z"></path>
+																				</svg>
+																			</a>
+																		</span>
+																		<span class="JsCty">
+																			<a href="#" target="_self" role="button" class="_T0lO">
+																				<span class="Dl8SE">
+																					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="yR6ue" aria-hidden="true">
+																						<path d="M11.4 1.3h4.2V16H.4V1.3h4.1V0h1.1v1.3h4.9V0h1.1l-.2 1.3zm3.2 2.1H1.4V15h13.1l.1-11.6zM6.7 8.8v3.4H4.6V5.9h2.1l2.5 3.4V5.9h2.1v6.3h-2L6.7 8.8z"></path>
+																					</svg>
+																				</span>
+																				예약
+																			</a>
+																		</span>
+																		<span class="JsCty">
+																			<a href="#" target="_self" role="button" class="_T0lO">
+																				<span class="Dl8SE">
+																					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="yR6ue" aria-hidden="true">
+																						<path d="M5.69 2H2v12h3.86V7.58L10.31 14H14V2h-3.86v6.42z"></path>
+																					</svg>
+																				</span>
+																				주문
+																			</a>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+										            </div>
+								            	</c:forEach>
+								            </div>
+											<!-- contents e -->
+								          </div>
+										  <%@include file="../../xdmin/includeV1/pagination.jsp" %>
+								        </div>	 
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="map" style="width:100%;height:100%;"></div>
+			</div>
+	    </main>
+    </form>
+
+    <!-- end -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script> -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec2655da82c3779d622f0aff959060e6&libraries=services"></script>
+	<script>
+	
+		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+		
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(37.5021008334827, 127.024465815419), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
+		};
+	
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	
+		var mapTypeControl = new kakao.maps.MapTypeControl();
+	
+		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+	
+		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+	
+		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
+		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
+		
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+	</script>
+	<script type="text/javascript">
+		const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+		const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+		
+		$("#popover").on("click", function() {
+			if ($("input[name=poValue]").val() == 0) {
+				$("input[name=poValue]").val(1);
+				$("#popoverBtn").removeClass("fa-angle-down");
+				$("#popoverBtn").addClass("fa-angle-up");
+			} else {
+				$("input[name=poValue]").val(0);
+				$("#popoverBtn").addClass("fa-angle-down");
+				$("#popoverBtn").removeClass("fa-angle-up");
+			}
+		})
+		
+		change_text = function() {
+			var content = $("#shValue").val();
+			
+			if (content != null || content != "") {
+				$(".label_search").text("");
+			}
+			
+			if (content.length == 0 || content == '') {
+				$(".label_search").text("장소 검색");
+			}
+		}
+		
+		var goUrlList = "/store/storeList";
+    	var seq = $("input:hidden[name=seq]");
+    	var form = $("#myForm");
+    	
+    	
+    	goList = function(thisPage) {
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		};
+	</script>
+</body>
+
+</html>

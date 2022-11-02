@@ -18,4 +18,7 @@ public class StoreDao {
     private static String namespace = "com.tasteZip.infra.modules.store.StoreMapper";
     
     public List<Store> selectList(StoreVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
+    public int selectOneCount(StoreVo vo) {
+        return sqlSession.selectOne(namespace + ".selectOneCount", vo);
+    }
 }

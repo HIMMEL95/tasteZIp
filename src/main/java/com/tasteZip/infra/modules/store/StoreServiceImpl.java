@@ -15,4 +15,10 @@ public class StoreServiceImpl implements StoreService {
     public List<Store> selectList(StoreVo vo) throws Exception {
         return dao.selectList(vo);
     }
+
+    @Override
+    public int selectOneCount(StoreVo vo) throws Exception {
+        return dao.selectOneCount(vo);
+    }
+    
 }

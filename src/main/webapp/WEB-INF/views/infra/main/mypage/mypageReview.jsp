@@ -21,6 +21,8 @@
 
 <body>
 	<!-- 상단 -->
+	<form id="myform" name="myform" method="post">
+		<%@include file="CommentVo.jsp"%>
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
@@ -94,70 +96,42 @@
            			</div>
            			
            			<!-- review List -->
-           			<div class="row mt-5">
-           				<div class="card shadow bg-body rounded cardBorder">
-						  <div class="card-body">
-						    <div class="row justify-content-between">
-						    	<h4><b>힘난다 버거</b></h4>
-						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
-						    	<div class="col-9 text-start" id="starValue">
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	&nbsp;<span><b>5점</b></span>
-						    	</div>
-						    </div>
-						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						  </div>
-						</div>
-           			</div>
-           			
-           			<div class="row mt-3">
-           				<div class="card shadow bg-body rounded cardBorder">
-						  <div class="card-body">
-						    <div class="row justify-content-between">
-						    	<h4><b>힘난다 버거</b></h4>
-						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
-						    	<div class="col-9 text-start" id="starValue">
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	&nbsp;<span><b>5점</b></span>
-						    	</div>
-						    </div>
-						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						  </div>
-						</div>
-           			</div>
-           			
-           			<div class="row mt-3">
-           				<div class="card shadow bg-body rounded cardBorder">
-						  <div class="card-body">
-						    <div class="row justify-content-between">
-						    	<h4><b>힘난다 버거</b></h4>
-						    	<div class="col-3 text-start"><span>서울시 강남구 신논현점</span></div>
-						    	<div class="col-9 text-start" id="starValue">
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	<i class="fa-solid fa-star"></i>
-							    	&nbsp;<span><b>5점</b></span>
-						    	</div>
-						    </div>
-						    <p class="card-text mt-4">Content: Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						  </div>
-						</div>
-           			</div>
+          			<c:choose>
+          				<c:when test="${fn:length(list) eq 0}">
+          					<h4 class="text-center">There is no data!</t4>
+          				</c:when>
+          				<c:otherwise>
+          					<c:forEach items="${list}" var="list" varStatus="status">
+			           			<div class="row mt-5">
+			           				<div class="card shadow bg-body rounded cardBorder">
+									  <div class="card-body">
+									    <div class="row justify-content-between">
+									    	<h4><b>${list.ifstName}</b></h4>
+									    	<div class="col-3 text-start"><span>${list.ifstAddress}</span></div>
+									    	<div class="col-9 text-start" id="starValue">
+										    	<i class="fa-solid fa-star"></i>
+										    	<i class="fa-solid fa-star"></i>
+										    	<i class="fa-solid fa-star"></i>
+										    	<i class="fa-solid fa-star"></i>
+										    	<i class="fa-solid fa-star"></i>
+										    	&nbsp;<span><b>${list.ifcmGrade}</b></span>
+									    	</div>
+									    </div>
+									    <p class="card-text mt-4">${list.ifcmComment}</p>
+									  </div>
+									</div>
+			           			</div>
+          					</c:forEach>
+          				</c:otherwise>
+          			</c:choose>
+          			<div class="mt-5">		
+						<%@include file="../../xdmin/includeV1/pagination.jsp"%>
+					</div>
            		</div>
           </section>
         </div>
       </div>
-	
+	</form>
 
 
 <!-- 스크립트 -->

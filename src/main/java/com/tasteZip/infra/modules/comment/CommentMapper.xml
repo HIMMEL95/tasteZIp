@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tasteZip.infra.modules.comment.CommentMapper">
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.comment.Comment"></resultMap>
+
+	<select id="myReview" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql"></include>
+		SELECT
+			c.ifcmSeq
+			,c.ifcmComment
+			,c.ifcmCreatedAt
+			,c.ifcmModifiedAt
+			,c.ifcmDelNy
+			,c.ifmmSeq
+			,c.ifcmGrade
+			,s.ifstName
+			,s.ifstAddress
+		FROM review c
+			JOIN store s on s.ifstSeq = c.ifstSeq
+		WHERE 1=1
+		ORDER BY c.ifcmSeq DESC
+		<include refid="Base.orderByLimitForMysql" />
+		) aa
+		limit 5 offset #{startRnumForMysql}
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM review c
+		WHERE 1=1
+	</select>
+
+
+</mapper>

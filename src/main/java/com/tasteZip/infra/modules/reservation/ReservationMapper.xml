@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tasteZip.infra.modules.reservation.ReservationMapper">
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.reservation.Reservation"></resultMap>
+
+	<select id="mypageReservationList" resultMap="resultMapObj"> 
+		<include refid="Base.selectListUpperForMysql" />
+		SELECT
+		 b.ifstName
+		 ,a.ifrvDate
+		 ,a.ifrvTime
+		 from reservation a
+		 left join store b on b.ifstSeq =a.ifstSeq
+			 where 1=1
+			 and a.ifmmSeq = 1
+		<include refid="Base.selectListLowerForMysql" />
+	</select>
+
+</mapper> 

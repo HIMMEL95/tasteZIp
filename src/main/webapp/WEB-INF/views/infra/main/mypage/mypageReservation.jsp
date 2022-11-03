@@ -76,39 +76,32 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
-           	
+           		<form method="post" name="formList" id="formList">
+           		<input type="hidden" name="ifmmSeq" value="1">
+           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            		<div class="cotainer">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Reservation</b></h3></div>
            			<div class="row pt-5 mb-3 font"><h4><b>Reservation List</b></h4></div>
            			<div class="row pt-3">
-	           			<div class="card">
-					      <div class="card-body cardcc">
-					        <h5 class="card-title"><b>에그드랍</b></h5>
-					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
-					        <a href="/reservation/mypageReservationView" class="btn btn-dark">예약 내역 보기</a>
-					      </div>
-					    </div>
+           				<c:choose>
+							<c:when test="${fn:length(list) eq 0}">
+								<div class="col-12 text-center"><h5>예약 내역이 존재하지 않습니다.</h5></div>
+							</c:when>
+							<c:otherwise>
+								<c:forEach items="${list}" var="list" varStatus="status">
+				           			<div class="card">
+								      <div class="card-body cardcc">
+								        <h5 class="card-title"><b><c:out value="${list.ifstName}"/></b></h5>
+								        <p class="card-text">주문날짜: <c:out value="${list.ifrvDate}"/>&nbsp;<c:out value="${list.ifrvTime}"/></p>
+								        <a href="/reservation/mypageReservationView" class="btn btn-dark">예약 내역 보기</a>
+								      </div>
+								    </div>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</div>
-					<div class="row pt-3">
-	           			<div class="card">
-					      <div class="card-body cardcc">
-					        <h5 class="card-title"><b>에그드랍</b></h5>
-					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
-					        <a href="#" class="btn btn-dark">예약 내역 보기</a>
-					      </div>
-					    </div>
-					</div>	
-					<div class="row pt-3">
-	           			<div class="card">
-					      <div class="card-body cardcc">
-					        <h5 class="card-title"><b>에그드랍</b></h5>
-					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
-					        <a href="#" class="btn btn-dark">예약 내역 보기</a>
-					      </div>
-					    </div>
-					</div>		
            		</div>
-           	
+           		</form>
           </section>
         </div>
       </div>
@@ -122,5 +115,21 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+  	  var goUrlList = "/reservation/mypageReservation";
+  	  var goUrlForm = "/reservation/mypageReservationView";
+  	  
+	  /* 	goForm = function(keyValue) {
+	    	seq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		} */
+  	  
+		goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
+  	  
+    </script>
 </body>
 </html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tasteZip.infra.modules.code.CodeMapper">
+
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.code.Code"></resultMap>
+	
+	<select id="selectList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			select 
+				m.ifmnSeq
+				,m.ifmnName
+				,m.ifmnPrice
+				,m.ifmnInfo
+				,m.ifmnSet_div
+		    from menu m
+			where 1=1
+		   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql" />
+	</select>
+
+	<select id="setDiv" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			select 
+				m.ifmnSet_div
+		    from menu m
+			where 1=1
+			group by
+				m.ifmnSet_div
+		   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql" />
+	</select>
+
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		from menu m
+		where 1=1
+			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
+	</select>
+	
+	<select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
+		SELECT 
+			ifccSeq
+			, ifccName
+			, ifcgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND ifccDelNy = 0
+		    AND ifccUseNy = 1
+    </select>
+	
+</mapper>

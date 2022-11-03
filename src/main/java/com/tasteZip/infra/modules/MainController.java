@@ -1,15 +1,24 @@
 package com.tasteZip.infra.modules;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tasteZip.infra.modules.menu.Menu;
+import com.tasteZip.infra.modules.menu.MenuServiceImpl;
+import com.tasteZip.infra.modules.menu.MenuVo;
+
 @Controller
 public class MainController {
+    
+    @Autowired
+    MenuServiceImpl mService;
 
 	@RequestMapping(value = "tasteMain")
 	public String tasteMain() throws Exception {
@@ -77,7 +86,14 @@ public class MainController {
     }
 	
 	@RequestMapping(value = "menu")
-	public String menu() throws Exception {
+	public String menu(MenuVo vo, Model model) throws Exception {
+	    
+	    List<Menu> list = mService.selectList(vo);
+	    model.addAttribute("list", list);
+	    
+	    List<Menu> setDiv = mService.setDiv(vo);
+	    model.addAttribute("setDiv", setDiv);
+	    
 	    return "infra/main/order/menu";
 	}
 	

@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<%-- <jsp:useBean id="CodeServiceImpl" class="com.spopia.infra.modules.code.CodeServiceImpl"/> --%>
+<jsp:useBean id="CodeServiceImpl" class="com.tasteZip.infra.modules.code.CodeServiceImpl"/>
 
 <!doctype html> 
 <html lang="ko">
@@ -81,6 +81,7 @@
 		</div>
 		<div class="map_container" id="container">
 			<form id="myForm" name="myForm">
+				<input type="hidden" name="seq" value='<c:out value="${vo.seq }"></c:out>'>
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
@@ -92,10 +93,10 @@
 							<div class="search">
 								<div class="search_wrap">
 									<div class="search_box">
-										<button class="search_btn" type="button">검색</button>
+										<button class="search_btn" type="submit">검색</button>
 										<div class="input_box">
-											<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
-											<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
+											<label class="label_search">장소 검색</label>
+											<input type="text" id="shValue" name="shValue" autocomplete="none" autofocus class="input_search" oninput="change_text()">
 										</div>
 									</div>
 								</div>
@@ -262,148 +263,59 @@
 																	<div class="naver_order_contents">
 																		<div class="section_contents local_pay place">
 																			<div class="order_area">
-																				<div class="smart_category slick-slider general_place">
-																					<div class="category_box">
-																						<div class="category_box_inner">
-																							<div class="category_scroll">
-																								<span class="blur_left"></span>
-																								<button class="slick-arrow slick-prev slick-disabled" type="button">
-																									<svg viewBox="0 0 10 13" class="ico_arrow">
-																										<path d="M3.1 12.2L2 11.1l4.2-4.2L2 2.6l1.1-1.1 5.4 5.4-5.4 5.3z"></path>
-																									</svg>
-																									<span class="blind">이전</span>
-																								</button>
-																								<ul class="category_list" style="position: relative;">
-																									<div class="category_active" style="height: 29px; transform: translate3d(18px, 0px, 0px); width: 55px;"></div>
-																									<li id="category_3234748_PICKUP" class="category_item" data-active="true">
-																										<a href="#" class="tab active">
-																											<span class="tab_text" data-active="true" style="transition: color 0.3s ease 0s;">추천</span>
-																										</a>
-																									</li>
-																									<li id="category_2575392_PICKUP" class="category_item" data-active="false">
-																										<a href="#" class="tab">
-																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1인 세트메뉴</span>
-																										</a>
-																									</li>
-																									<li id="category_3234751_PICKUP" class="category_item" data-active="false">
-																										<a href="#" class="tab">
-																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">NEW EGG DROP</span>
-																										</a>
-																									</li>
-																									<li id="category_3234752_PICKUP" class="category_item" data-active="false">
-																										<a href="#" class="tab">
-																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">EGG SANDWICH</span>
-																										</a>
-																									</li>
-																									<li id="category_2575392_PICKUP" class="category_item" data-active="false">
-																										<a href="#" class="tab">
-																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">1인 세트메뉴</span>
-																										</a>
-																									</li>
-																									<li id="category_3234751_PICKUP" class="category_item" data-active="false">
-																										<a href="#" class="tab">
-																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">NEW EGG DROP</span>
-																										</a>
-																									</li>
-																									<li id="category_3234752_PICKUP" class="category_item" data-active="false">
-																										<a href="#" class="tab">
-																											<span class="tab_text" data-active="false" style="transition: color 0.3s ease 0s;">EGG SANDWICH</span>
-																										</a>
-																									</li>
-																								</ul>
-																								<button class="slick-arrow slick-next" type="button">
-																									<svg viewBox="0 0 10 13" class="ico_arrow">
-																										<path d="M3.1 12.2L2 11.1l4.2-4.2L2 2.6l1.1-1.1 5.4 5.4-5.4 5.3z"></path>
-																									</svg>
-																									<span class="blind">다음</span>
-																								</button>
-																								<span class="blur_right"></span>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
 																				<div class="order_list">
-																					<div class="order_list_wrap">
-																						<div class="order_list_inner">
-																							<div class="order_list_tit">
-																								<span class="title">새로 나온 메뉴</span>
-																							</div>
-																							<ul class="order_list_area">
-																								<li class="order_list_item">
-																									<div class="item_info">
-																										<a href="#" class="info_link">
-																											<div class="info_img">
-																												<span class="img_box">
-																													<img class="img" src="https://naverbooking-phinf.pstatic.net/20220729_261/16590576950643sgnW_PNG/3_%C0%DA%B8%F9%BF%A1%C0%CC%B5%E5_A_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
-																												</span>
-																											</div>
-																											<div class="info_detail">
-																												<div class="tit">
-																													자몽 에이드
-																													<span class="ico_group">
-																														<i class="ico_new">N</i>
-																													</span>
-																												</div>
-																												<div class="detail">
-																													<span class="detail_txt">
-																														자몽의 상큼함을 가득 담은 시원한 자몽 에이드
-																													</span>
-																												</div>
-																												<div class="price">
-																													3,600<!-- -->원
-																												</div>
-																											</div>
-																										</a>
-																										<a href="#" class="btn_shop" role="button">
-																											<div class="btn_box">
-																												<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
-																													<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
-																												</svg>
-																											</div>
-																										</a>
-																									</div>
-																								</li>
-																							</ul>
-																						</div>
-																					</div>
 																					<div class="order_list_wrap store_delivery">
 																						<div class="order_list_inner">
-																							<div class="order_list_tit">
-																								<span class="title">1인 세트메뉴</span>
-																								<button type="button" class="btn_fold2">
-																									<i class="fa-solid fa-angle-down"></i>
-																								</button>
-																							</div>
-																							<ul class="order_list_area">
-																								<li class="order_list_item">
-																									<div class="item_info">
-																										<a href="#" class="info_link">
-																											<div class="info_img">
-																												<span class="img_box">
-																													<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
-																												</span>
-																											</div>
-																											<div class="info_detail">
-																												<div class="tit">
-																													미스터에그 세트
-																													<span class="ico_group"></span>
-																												</div>
-																												<div class="detail">
-																													<span class="detail_txt">&lt;미스터에그 + 해쉬브라운 + 아메리카노&gt; 부드러운 스크램블 에그와 브리오쉬, 에그드랍의 특제 소스가 어우러진 샌드위치와 고소하고 부드러운 해쉬브라운, 아메리카노를 합리적인 가격으로 즐길 수 있는 ※세트메뉴음료 변경 시 에이드와 탄산음료는 HOT을 선택하여도 차가운 음료로 제공됩니다.</span>
-																												</div>
-																												<div class="price">7,400원</div>
-																											</div>
-																										</a>
-																										<a href="#" class="btn_shop" role="button">
-																											<div class="btn_box">
-																												<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
-																													<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
-																												</svg>
-																											</div>
-																										</a>
-																									</div>
-																								</li>
-																							</ul>
+																							<c:set var="listCodeSet" value="${CodeServiceImpl.selectListCachedCode('7') }" />
+																							<c:forEach items="${setDiv }" var="setDiv" varStatus="status">
+																								<div class="order_list_tit">
+																									<span class="title">
+																										<c:forEach items="${listCodeSet }" var="listSet" varStatus="statusSet">
+																											<c:if test="${setDiv.ifmnSet_div eq listSet.ifccSeq}"><c:out value="${listSet.ifccName }"/></c:if>
+																										</c:forEach>
+																									</span>
+																									<button type="button" class="btn_fold2" onclick="popover(${status.index})">
+																										<input type="hidden" value="0" name="popValue">
+																										<i id="popoverBtn" class="fa-solid fa-angle-down"></i>
+																									</button>
+																								</div>
+																								<c:forEach items="${list }" var="list" varStatus="status">
+																									<c:choose>
+																										<c:when test="${setDiv.ifmnSet_div eq list.ifmnSet_div }">
+																											<ul class="order_list_area">
+																												<li class="order_list_item">
+																													<div class="item_info">
+																														<a href="#" class="info_link">
+																															<div class="info_img">
+																																<span class="img_box">
+																																	<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
+																																</span>
+																															</div>
+																															<div class="info_detail">
+																																<div class="tit">
+																																	${list.ifmnName }
+																																	<span class="ico_group"></span>
+																																</div>
+																																<div class="detail">
+																																	<span class="detail_txt">${list.ifmnInfo }</span>
+																																</div>
+																																<div class="price">${list.ifmnPrice }원</div>
+																															</div>
+																														</a>
+																														<a href="#" class="btn_shop" role="button">
+																															<div class="btn_box">
+																																<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
+																																	<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
+																																</svg>
+																															</div>
+																														</a>
+																													</div>
+																												</li>
+																											</ul>
+																										</c:when>
+																									</c:choose>
+																								</c:forEach>
+																							</c:forEach>
 																						</div>
 																					</div>
 																				</div>
@@ -470,6 +382,37 @@
 		// 지도를 생성합니다    
 		var map = new kakao.maps.Map(mapContainer, mapOption); 
 		
+	</script>
+	<script type="text/javascript">
+		change_text = function() {
+			var content = $("#shValue").val();
+			
+			if (content != null || content != "") {
+				$(".label_search").text("");
+			}
+			
+			if (content.length == 0 || content == '') {
+				$(".label_search").text("장소 검색");
+			}
+		};
+		
+		
+		
+		popover = function(keyValue) {
+			if ($("input[name=popValue]").val() == 0) {
+				$("input[name=popValue]").val(1);
+				$("#popoverBtn").removeClass("fa-angle-down");
+				$("#popoverBtn").addClass("fa-angle-up");
+				var i = $("#popover").index(e); // 같은 클래스 내 index 값을 가져옴
+			 	document.getElementsByClassName("order_list_area")[i].css("display", "");
+			} else {
+				$("input[name=popValue]").val(0);
+				$("#popoverBtn").addClass("fa-angle-down");
+				$("#popoverBtn").removeClass("fa-angle-up");
+				var i = $("#popover").index(e); // 같은 클래스 내 index 값을 가져옴
+			 	document.getElementsByClassName("order_list_area")[i].css("display", "none");
+			}
+		}
 	</script>
 </body>
 

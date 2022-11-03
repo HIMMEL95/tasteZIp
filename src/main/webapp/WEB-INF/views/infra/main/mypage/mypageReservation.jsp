@@ -48,7 +48,7 @@
                   <div class="ps-md-3">
                     <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
                   </div>
-                </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
+                </div><a class="btn btn-dark d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
               </div>
               <div class="d-lg-block collapse" id="account-menu">
                 <ul class="list-unstyled mb-0">
@@ -78,7 +78,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${list}" var="list" varStatus="status">
-				           			<div class="card">
+				           			<div class="card mb-3">
 								      <div class="card-body cardcc">
 								        <h5 class="card-title"><b><c:out value="${list.ifstName}"/></b></h5>
 								        <p class="card-text">주문날짜: <c:out value="${list.ifrvDate}"/>&nbsp;<c:out value="${list.ifrvTime}"/></p>

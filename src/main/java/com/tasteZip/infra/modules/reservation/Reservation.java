@@ -20,6 +20,14 @@ public class Reservation {
 	private String ifstInfo;
 	private String ifstDirections;
 	
+	// member
+	private String ifmmName;
+	private String ifmmPhone;
+	private String ifmmEmail;
+	
+	// menu
+	private String ifmnName;
+	
 	// ________________________________
 	
 	public String getIfrvSeq() {
@@ -106,5 +114,30 @@ public class Reservation {
 	public void setIfstDirections(String ifstDirections) {
 		this.ifstDirections = ifstDirections;
 	}
+	public String getIfmmName() {
+		return ifmmName;
+	}
+	public void setIfmmName(String ifmmName) {
+		this.ifmmName = ifmmName;
+	}
+	public String getIfmmPhone() {
+		return ifmmPhone;
+	}
+	public void setIfmmPhone(String ifmmPhone) {
+		this.ifmmPhone = ifmmPhone;
+	}
+	public String getIfmmEmail() {
+		return ifmmEmail;
+	}
+	public void setIfmmEmail(String ifmmEmail) {
+		this.ifmmEmail = ifmmEmail;
+	}
+	public String getIfmnName() {
+		return ifmnName;
+	}
+	public void setIfmnName(String ifmnName) {
+		this.ifmnName = ifmnName;
+	}
+	
 	
 }

@@ -1,17 +1,17 @@
-package com.tasteZip.infra.modules.reservation;
+package com.tasteZip.infra.modules.mypage;
 
 import com.tasteZip.infra.common.constants.Constants;
 
-public class ReservationVo {
-
-	 private Integer shOption;
-	 private String shValue;
-	 private Integer shDelNy;
+public class MypageVo {
 	
-	 private String ifstSeq;
-	 private String ifmmSeq;
-	 
-	 
+	private Integer shOption;
+	private String shValue;
+	private Integer shDelNy;
+	
+	private String ifstSeq;
+	private String ifmnSeq;
+	private String ifmmSeq;
+	
 	public Integer getShOption() {
 		return shOption;
 	}
@@ -36,18 +36,19 @@ public class ReservationVo {
 	public void setIfstSeq(String ifstSeq) {
 		this.ifstSeq = ifstSeq;
 	}
+	public String getIfmnSeq() {
+		return ifmnSeq;
+	}
+	public void setIfmnSeq(String ifmnSeq) {
+		this.ifmnSeq = ifmnSeq;
+	}
 	public String getIfmmSeq() {
 		return ifmmSeq;
 	}
 	public void setIfmmSeq(String ifmmSeq) {
 		this.ifmmSeq = ifmmSeq;
 	}
-	
-	
-	
-	
-	
-	
+
 	
 //	paging
 	private int thisPage = 1;									// 현재 페이지
@@ -153,6 +154,5 @@ public class ReservationVo {
 		this.startRnumForMysql = startRnumForMysql;
 	}
 	
-
-	 
+	
 }

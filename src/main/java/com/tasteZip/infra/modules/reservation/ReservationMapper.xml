@@ -6,7 +6,7 @@
     
 <mapper namespace="com.tasteZip.infra.modules.reservation.ReservationMapper">
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.reservation.Reservation"></resultMap>
-
+ 
 	<select id="mypageReservationList" resultMap="resultMapObj"> 
 		<include refid="Base.selectListUpperForMysql" />
 		SELECT

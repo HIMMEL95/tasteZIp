@@ -78,7 +78,7 @@
 							</c:when>
 							<c:otherwise>
 								<c:forEach items="${list}" var="list" varStatus="status">
-				           			<div class="card">
+				           			<div class="card mb-3">
 								      <div class="card-body cardcc">
 								        <h5 class="card-title"><b><c:out value="${list.ifstName}"/></b></h5>
 								        <p class="card-text">주문날짜: <c:out value="${list.ifrvDate}"/>&nbsp;<c:out value="${list.ifrvTime}"/></p>

@@ -15,7 +15,7 @@ public class ReservationDao {
 	@Resource(name = "sqlSession")
 	private SqlSession sqlSession;
 	
-	private static String namespace = "com.class101project.modules.reservation.ReservationMapper";
+	private static String namespace = "com.tasteZip.infra.modules.reservation.ReservationMapper";
 	
 	public List<Reservation> mypageReservationList(ReservationVo vo){ return sqlSession.selectList(namespace + ".mypageReservationList", vo); }
 }

@@ -17,6 +17,7 @@
 		 left join store b on b.ifstSeq =a.ifstSeq
 			 where 1=1
 			 and a.ifmmSeq = 1
+		Order by a.ifrvDate DESC
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 

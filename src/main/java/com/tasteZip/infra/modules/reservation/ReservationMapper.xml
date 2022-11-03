@@ -10,9 +10,9 @@
 	<select id="mypageReservationList" resultMap="resultMapObj"> 
 		<include refid="Base.selectListUpperForMysql" />
 		SELECT
-		 b.ifstName
-		 ,a.ifrvDate
-		 ,a.ifrvTime
+			 b.ifstName
+			 ,a.ifrvDate
+			 ,a.ifrvTime
 		 from reservation a
 		 left join store b on b.ifstSeq =a.ifstSeq
 			 where 1=1

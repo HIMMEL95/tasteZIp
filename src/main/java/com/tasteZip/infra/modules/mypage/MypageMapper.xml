@@ -4,8 +4,22 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper  namespace="com.tasteZip.infra.modules.mypage.MypageMapper">
+<mapper namespace="com.tasteZip.infra.modules.mypage.MypageMapper">
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.mypage.Mypage"></resultMap>
 
-
-
+	<select id="bucketList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			SELECT
+				b.ifstName
+			    ,c.ifmnName
+			    ,a.iforPrice
+			    ,a.iforCount
+		    FROM buy a
+		    LEFT JOIN store b on b.ifstSeq = a.ifstSeq
+		    LEFT JOIN menu c on c.ifmnSeq = a.ifmnSeq
+			    WHERE 1=1
+			    AND a.ifmmSeq = 2
+			    ORDER BY a.iforCreatedAt DESC
+		<include refid="Base.selectListLowerForMysql" />
+	</select>
 </mapper>

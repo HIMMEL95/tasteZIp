@@ -48,7 +48,7 @@
                   <div class="ps-md-3">
                     <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
                   </div>
-                </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
+                </div><a class="btn btn-dark d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
               </div>
               <div class="d-lg-block collapse" id="account-menu">
                 <ul class="list-unstyled mb-0">
@@ -73,52 +73,42 @@
            				<div class="col-9 text-end"><button type="button" class="btn btn-outline-dark">전체 삭제</button></div>
            			</div> 
            			<hr>
-           			<div class="row mt-3">
-						<div class="col-1 text-center"><input class="check" type="checkbox" name="check"></div>
-           				<div class="col-11">
-	           				<div class="card shadow bg-body rounded cardBorder">
-							  <div class="card-body">
-							    <div class="row justify-content-center">
-							    	<div class="col-3 text-center">
-							    		<h5><b>가게이름</b></h5>
-							    		<h6><b>에그드랍</b></h6>
-							    	</div>
-							    	<div class="col-3 text-center">
-							    		<h5><b>메뉴이름</b></h5>
-							    		<h6>햄에그 샌드위치 세트</h6>
-							    	</div>
-							    	<div class="col-6 text-center">
-							    		<h5><b>가격</b></h5>
-							    		<h6 style="color: red;"><b>10,000원</b> (수량: 1개)</h6>
-							    	</div>
-							    </div>
-							  </div>
-							</div>
-						</div>
-           			</div>
-           			<div class="row mt-3">
-						<div class="col-1 text-center"><input class="check" type="checkbox" name="check"></div>
-           				<div class="col-11">
-	           				<div class="card shadow bg-body rounded cardBorder">
-							  <div class="card-body">
-							    <div class="row justify-content-center">
-							    	<div class="col-3 text-center">
-							    		<h5><b>가게이름</b></h5>
-							    		<h6><b>에그드랍</b></h6>
-							    	</div>
-							    	<div class="col-3 text-center">
-							    		<h5><b>메뉴이름</b></h5>
-							    		<h6>햄에그 샌드위치 세트</h6>
-							    	</div>
-							    	<div class="col-6 text-center">
-							    		<h5><b>가격</b></h5>
-							    		<h6 style="color: red;"><b>10,000원</b> (수량: 1개)</h6>
-							    	</div>
-							    </div>
-							  </div>
-							</div>
-						</div>
-           			</div>
+           			<form method="post" name="formList" id="formList">
+	           		<input type="hidden" name="ifmmSeq" value="2">
+	           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+	           		<c:choose>
+						<c:when test="${fn:length(list) eq 0}">
+							<div class="col-12 text-center"><h5>장바구니 내역이 존재하지 않습니다.</h5></div>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${list}" var="list" varStatus="status">
+			           			<div class="row mt-3 mb-3">
+									<div class="col-1 text-center"><input class="check" type="checkbox" name="check"></div>
+			           				<div class="col-11">
+				           				<div class="card shadow bg-body rounded cardBorder">
+										  <div class="card-body">
+										    <div class="row justify-content-center">
+										    	<div class="col-3 text-center">
+										    		<h5><b>가게이름</b></h5>
+										    		<h6><b><c:out value="${list.ifstName}"/></b></h6>
+										    	</div>
+										    	<div class="col-3 text-center">
+										    		<h5><b>메뉴이름</b></h5>
+										    		<h6><c:out value="${list.ifmnName}"/></h6>
+										    	</div>
+										    	<div class="col-6 text-center">
+										    		<h5><b>가격</b></h5>
+										    		<h6 style="color: red;"><b><fmt:formatNumber type="number" value="${list.iforPrice}" pattern="#,###"/>원</b> (수량: <c:out value="${list.iforCount}"/>개)</h6>
+										    	</div>
+										    </div>
+										  </div>
+										</div>
+									</div>
+			           			</div>
+			          		</c:forEach>
+			          </c:otherwise>
+				</c:choose>
+				</form>
            		</div>
            	
           </section>
@@ -143,6 +133,16 @@
 		    checkbox.checked = selectAll.checked;
 		  })
 		}
+    </script>
+    <script type="text/javascript">
+    
+   		 var goUrlList = "/mypage/mypageBucket";
+   		 
+   		goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
+   		 
     </script>
 </body>
 </html>

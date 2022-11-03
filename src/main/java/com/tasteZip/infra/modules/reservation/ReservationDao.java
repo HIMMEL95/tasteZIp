@@ -17,5 +17,13 @@ public class ReservationDao {
 	
 	private static String namespace = "com.tasteZip.infra.modules.reservation.ReservationMapper";
 	
-	public List<Reservation> mypageReservationList(ReservationVo vo){ return sqlSession.selectList(namespace + ".mypageReservationList", vo); }
+	// list
+	public List<Reservation> selectListMyRV(ReservationVo vo){ return sqlSession.selectList(namespace + ".selectListMyRV", vo); }
+	
+	
+	//selectOne
+		public Reservation selectOneMyRV(ReservationVo vo) {
+			Reservation result = sqlSession.selectOne(namespace + ".selectOneMyRV", vo);
+			return result;
+		}
 }

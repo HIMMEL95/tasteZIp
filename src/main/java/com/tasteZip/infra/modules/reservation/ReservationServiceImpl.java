@@ -11,8 +11,16 @@ public class ReservationServiceImpl implements ReservationService{
 	@Autowired
 	ReservationDao dao;
 	
+	
+	// list
 	@Override
-	public List<Reservation> mypageReservationList(ReservationVo vo) throws Exception {
-		return dao.mypageReservationList(vo);
+	public List<Reservation> selectListMyRV(ReservationVo vo) throws Exception {
+		return dao.selectListMyRV(vo);
+	}
+	
+	// selectOne
+	@Override
+	public Reservation selectOneMyRV(ReservationVo vo) throws Exception{
+		return dao.selectOneMyRV(vo);
 	}
 }

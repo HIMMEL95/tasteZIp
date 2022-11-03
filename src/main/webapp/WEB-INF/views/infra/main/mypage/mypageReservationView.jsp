@@ -48,7 +48,7 @@
                   <div class="ps-md-3">
                     <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
                   </div>
-                </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
+                </div><a class="btn btn-dark d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Menu List</a>
               </div>
               <div class="d-lg-block collapse" id="account-menu">
                 <ul class="list-unstyled mb-0">
@@ -73,6 +73,9 @@
            			<div class="row pt-5 mb-3 font"><h4><b>예약 상세 내역</b></h4></div>
            			
            			<!-- 주문자정보 -->
+           			<form  id="form" name="form" method="post">
+           			<input type="hidden" name="ifmmSeq" value="1"/> 
+					<input type="hidden" name="ifrvSeq" value="8"/> 
            			<hr class="hrstyle mt-2 mb-2">
            			<div class="wide">
 	           			<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
@@ -81,10 +84,10 @@
 								<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg">
 							</div>
 							<div class="col-10">
-								<div><h5><b>에그드랍</b></h5></div>
-								<div><span>예약일정: 2022-10-11 10:00:00</span></div>
-								<div><span>예약인원: 1명</span></div>
-								<div><span>가게주소: 서울특별시 강남구 도산대로 에그드랍 신논현점</span></div>
+								<div><h5><b><c:out value="${item.ifstName}"/></b></h5></div>
+								<div><span>예약일정: <c:out value="${item.ifrvDate}"/></span></div>
+								<div><span>예약인원: <c:out value="${item.ifrvPerson}"/>명</span></div>
+								<div><span>가게주소: <c:out value="${item.ifstAddress}"/></span></div>
 							</div>
 						</div>
 					</div>
@@ -94,64 +97,39 @@
 	           			<div class="row mt-4 mb-3"><h4><b>예약자 정보</b></h4></div>
 	           			<div class="row mb-2">
 							<div class="col-10"><span><b>성명</b></span></div>
-							<div class="col-2 text-end"><span>이름</span></div>
+							<div class="col-2 text-end"><span><c:out value="${item.ifmmName}"/></span></div>
 						</div>
 						<div class="row mb-2">
 							<div class="col-10"><span><b>전화번호</b></span></div>
-							<div class="col-2 text-end"><span>010-1234-1234</span></div>
+							<div class="col-2 text-end"><span><c:out value="${item.ifmmPhone}"/></span></div>
 						</div>
 						<div class="row mb-2">
 							<div class="col-8"><span><b>이메일</b></span></div>
-							<div class="col-4 text-end"><span>example@naver.com</span></div>
-						</div>
-						<div class="row mb-4">
-							<div class="col-8"><span><b>요청사항</b></span></div>
-							<div class="col-4 text-end"><span>none</span></div>
+							<div class="col-4 text-end"><span><c:out value="${item.ifmmEmail}"/></span></div>
 						</div>
            			</div>
-           			<hr class="hrstyle mt-2 mb-2">
+           			<hr class="hrstyle mt-4 mb-4">
            			<!-- 가게 정보 -->
            			<div class="wide">
-	           			<div class="row mt-4 mb-3"><h4><b>예약 메뉴 정보</b></h4></div>
-	           			<div class="row mb-2">
-							<div class="col-9"><span>햄에그 샌드위치</span></div>
-							<div class="col-1 text-end"><span>수량: 1</span></div>
-							<div class="col-2 text-end"><span>금액: 10,000</span></div>
+	           			<div class="row mt-3 mb-3"><h4><b>예약 정보</b></h4></div>
+	           			<div class="row">
+							<div class="col-7"><span><c:out value="${item.ifmnName}"/></span></div>
+							<div class="col-1 text-end"><span><b>수량:</b> <c:out value="${item.ifrvCount}"/></span></div>
+							<div class="col-1 text-end"><span><b>인원:</b> <c:out value="${item.ifrvPerson}"/></span></div>
+							<div class="col-3 text-end"><span style="color: red;"><b>총 예약 금액: <fmt:formatNumber type="number" value="${item.ifrvPrice}" pattern="#,###"/>원</b></span></div>
 						</div>
-						<div class="row mb-2">
-							<div class="col-9"><span>햄에그 샌드위치</span></div>
-							<div class="col-1 text-end"><span>수량: 1</span></div>
-							<div class="col-2 text-end"><span>금액: 10,000</span></div>
-						</div>
-						<div class="row mb-3"> 
-							<div class="col-9"><span>햄에그 샌드위치</span></div>
-							<div class="col-1 text-end"><span>수량: 1</span></div>
-							<div class="col-2 text-end"><span>금액: 10,000</span></div>
-						</div>
-           			</div>
-           			<hr class="hrstyle mt-2 mb-2">
-           			<!-- 가격 정보 -->
-           			<div class="wide">
-	           			<div class="row mt-4 mb-3"><h4><b>예약 정보</b></h4></div>
-						<div class="row mb-2">
-							<div class="col-10"><span>총 메뉴 수량</span></div>
-							<div class="col-2 text-end"><span>3개</span></div>
-						</div>
-						<div class="row mb-2">
-							<div class="col-10"><span>총 예약 금액</span></div>
-							<div class="col-2 text-end"><span> 30,000원</span></div>
-						</div>
-						<hr style="margin-top: 1rem;">
+	           			<hr class="mt-4 mb-4">
+	          			<!-- 가격 정보 -->
 						<div class="row justify-content-between mb-2">
 							<div class="col-2" id="finalPrice"><h5><b>예상 결제 금액</b></h5></div>
-							<div class="col-2 text-end" id="finalPrice"><span><h5><b>30,000원</b></h5></span></div>
+							<div class="col-2 text-end" id="finalPrice"><span style="color: red;"><h5><b><fmt:formatNumber type="number" value="${item.ifrvPrice}" pattern="#,###"/>원</b></h5></span></div>
 						</div>
 						<div class="row justify-content-center mt-5">
-							<div class="col text-center"><a type="button" href="/mypage/mypageReservation" class="btn btn-outline-dark" style="width: 400px;"><b>예약리스트로 돌아가기</b></a></div>
+							<div class="col text-center"><button type="button" class="btn btn-outline-dark" id="BtnBack" style="width: 400px;"><b>예약리스트로 돌아가기</b></button></div>
 						</div>
-           			</div>
+					</div>
            		</div>
-           	
+           		</form>
           </section>
         </div>
       </div>
@@ -165,5 +143,16 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    	
+    	var goUrlView = "/reservation/mypageReservation";
+    	var form = $("form[name=form]");
+    	var seq = $("input:hidden[name=ifmmSeq]");
+    	var seq = $("input:hidden[name=ifrvSeq]");
+    	
+    	$("#BtnBack").on("click", function(){
+			form.attr("action", goUrlView).submit();
+		});
+    </script>
 </body>
 </html>

@@ -7,18 +7,38 @@
 <mapper namespace="com.tasteZip.infra.modules.reservation.ReservationMapper">
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.reservation.Reservation"></resultMap>
  
-	<select id="mypageReservationList" resultMap="resultMapObj"> 
+	<select id="selectListMyRV" resultMap="resultMapObj"> 
 		<include refid="Base.selectListUpperForMysql" />
 		SELECT
-			 b.ifstName
-			 ,a.ifrvDate
-			 ,a.ifrvTime
-		 from reservation a
-		 left join store b on b.ifstSeq =a.ifstSeq
+			 s.ifstName
+			 ,r.ifrvDate
+			 ,r.ifrvTime
+		 from reservation r
+		 left join store s on s.ifstSeq = r.ifstSeq
 			 where 1=1
-			 and a.ifmmSeq = 1
-		Order by a.ifrvDate DESC
+			 and r.ifmmSeq = 1
+		Order by r.ifrvDate DESC
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 
+	<select id="selectOneMyRV" resultMap="resultMapObj">
+		SELECT 
+			  s.ifstName
+			 ,r.ifrvDate
+			 ,r.ifrvPerson
+			 ,s.ifstAddress
+			 ,mm.ifmmName
+			 ,mm.ifmmPhone
+			 ,mm.ifmmEmail
+			 ,mn.ifmnName
+			 ,r.ifrvCount
+			 ,r.ifrvPrice
+		 FROM reservation r
+		 Left join store s on s.ifstSeq = r.ifstSeq
+		 Left join member mm on mm.ifmmSeq = r.ifmmSeq
+		 Left join menu mn on mn.ifmnSeq = r.ifmnSeq
+			 WHERE 1=1
+			 AND r.ifmmSeq = 1
+			 AND r.ifrvSeq = 8
+	</select>
 </mapper> 

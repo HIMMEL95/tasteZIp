@@ -23,14 +23,18 @@ public class ReservationController {
    @RequestMapping(value = "mypageReservation")
     public String mypageReservation(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
 	   
-	   List<Reservation> list = service.mypageReservationList(vo);
+	   List<Reservation> list = service.selectListMyRV(vo);
 	   model.addAttribute("list", list); 
 	   
         return "infra/main/mypage/mypageReservation"; 
     }
     
     @RequestMapping(value = "mypageReservationView")
-    public String mypageReservationView() throws Exception {
+    public String mypageReservationView(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+    	
+    	Reservation item = service.selectOneMyRV(vo);
+    	model.addAttribute("item", item);
+    	
         return "infra/main/mypage/mypageReservationView";
     }
 }

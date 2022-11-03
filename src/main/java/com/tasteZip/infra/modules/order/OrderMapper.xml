@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tasteZip.infra.modules.order.OrderMapper">
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.order.Order"></resultMap>
+
+	<select id="myOrder" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql2"/>
+		SELECT
+			b.iforSeq
+			,b.ifmnSeq
+			,b.iforCount
+			,b.iforPrice
+			,b.iforPay
+			,b.iforDelNy
+			,b.iforCreatedAt
+			,b.ifmmSeq
+			,s.ifstName
+		FROM buy b
+			JOIN store s on s.ifstSeq = b.ifstSeq
+		WHERE 1=1
+		ORDER BY b.iforSeq DESC
+		<include refid="Base.orderByLimitForMysql" />
+		<include refid="Base.selectListLowerForMysql2" /> 
+	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			b.iforSeq
+			,b.ifmnSeq
+			,b.iforCount
+			,b.iforPrice
+			,b.iforPay
+			,b.iforDelNy
+			,b.iforCreatedAt
+			,s.ifstName
+			,m.ifmmName
+			,m.ifmmPhone
+			,m.ifmmEmail
+		FROM buy b
+			JOIN store s on s.ifstSeq = b.ifstSeq
+			JOIN member m on m.ifmmSeq = b.ifmmSeq
+		WHERE 1=1
+		 	and m.ifmmSeq = 1  <!-- 일단 조건값을 넣어줌 -->
+		ORDER BY b.iforSeq DESC
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM buy b
+		WHERE 1=1
+	</select>
+
+</mapper>

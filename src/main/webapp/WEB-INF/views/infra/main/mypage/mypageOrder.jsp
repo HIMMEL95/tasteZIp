@@ -21,6 +21,8 @@
 
 <body>
 	<!-- 상단 -->
+	<form id="myform" name="myform" method="post">
+		<%@include file="OrderVo.jsp"%>
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
@@ -65,42 +67,35 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
-           	
            		<div class="cotainer">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
            			<div class="row pt-5 mb-3 font"><h4><b>Order List</b></h4></div>
-           			<div class="row pt-3">
-	           			<div class="card">
-					      <div class="card-body cardcc">
-					        <h5 class="card-title"><b>에그드랍</b></h5>
-					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
-					        <a href="/order/mypageOrderView" class="btn btn-dark">주문 내역 보기</a>
-					      </div>
-					    </div>
-					</div>
-					<div class="row pt-3">
-	           			<div class="card">
-					      <div class="card-body cardcc">
-					        <h5 class="card-title"><b>에그드랍</b></h5>
-					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
-					        <a href="#" class="btn btn-dark">주문 내역 보기</a>
-					      </div>
-					    </div>
-					</div>	
-					<div class="row pt-3">
-	           			<div class="card">
-					      <div class="card-body cardcc">
-					        <h5 class="card-title"><b>에그드랍</b></h5>
-					        <p class="card-text">주문날짜: 2022-10-24 10:00:00</p>
-					        <a href="#" class="btn btn-dark">주문 내역 보기</a>
-					      </div>
-					    </div>
-					</div>		
+           			<c:choose>
+           				<c:when test="${fn:length(list) eq 0}">
+          					<h4 class="text-center">There is no data!</t4>
+          				</c:when>
+          				<c:otherwise>
+          					<c:forEach items="${list}" var="list" varStatus="status">
+			           			<div class="row pt-3">
+				           			<div class="card">
+								      <div class="card-body cardcc">
+								        <h5 class="card-title"><b>${list.ifstName}</b></h5>
+								        <p class="card-text">주문날짜: ${list.iforCreatedAt}</p>
+								        <a href="/order/mypageOrderView" class="btn btn-dark">주문 내역 보기</a>
+								      </div>
+								    </div>
+								</div>
+          					</c:forEach>
+          				</c:otherwise>
+           			</c:choose>
            		</div>
-           	
           </section>
+          <div class="mt-5">		
+			<%@include file="../../xdmin/includeV1/pagination2.jsp"%>
+		</div>
         </div>
-      </div>
+     </div>
+   </form>
 	
 
 
@@ -111,5 +106,17 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    	var goUrlList = "/order/mypageOrder";
+    	var form = $("#myform");
+    	
+    	var iforSeq = $("input:hidden[name=iforSeq]");
+    	
+    	goList = function(thisPage) {
+			$("input:hidden[name=thisPage2]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		};
+    </script>
 </body>
 </html>

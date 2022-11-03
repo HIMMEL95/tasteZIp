@@ -14,11 +14,19 @@
 		) aa
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</sql>
-	
+
 	<sql id="orderByLimitForMysql">
 		limit 99999999999
 	</sql>
 	
+	<sql id="selectListUpperForMysql2">
+		select ab.* from (
+	</sql>
+
+	<sql id="selectListLowerForMysql2">	
+		) ab
+		limit #{rowNumToShow2} offset #{startRnumForMysql2}
+	</sql>
 	
 	<sql id="insertRegModColumn">	
 		,regIp

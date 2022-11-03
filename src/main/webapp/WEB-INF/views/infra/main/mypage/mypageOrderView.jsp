@@ -21,6 +21,8 @@
 
 <body>
 	<!-- 상단 -->
+	<form id="myform" name="myform" method="post">
+		<%@include file="OrderVo.jsp"%>
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
@@ -73,7 +75,7 @@
            			<div class="row pt-5 mb-3 font"><h4><b>주문 상세 내역</b></h4></div>
            			
            			<!-- 주문자정보 -->
-           			<hr class="hrstyle mt-2 mb-2">
+					<hr class="hrstyle mt-2 mb-2">
            			<div class="wide">
 	           			<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
 	           			<div class="row mt-2 mb-4">
@@ -81,8 +83,8 @@
 								<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg">
 							</div>
 							<div class="col-10">
-								<div><h5><b>에그드랍</b></h5></div>
-								<div><span>주문날짜: 2022-10-11 10:00:00</span></div>
+								<div><h5><b>${item.ifstName}</b></h5></div>
+								<div><span>주문날짜: ${item.iforCreatedAt}</span></div>
 							</div>
 						</div>
 					</div>
@@ -92,15 +94,15 @@
 	           			<div class="row mt-4 mb-3"><h4><b>주문자 정보</b></h4></div>
 	           			<div class="row mb-2">
 							<div class="col-10"><span><b>주문자</b></span></div>
-							<div class="col-2 text-end"><span>이름</span></div>
+							<div class="col-2 text-end"><span>${item.ifmmName}</span></div>
 						</div>
 						<div class="row mb-2">
 							<div class="col-10"><span><b>전화번호</b></span></div>
-							<div class="col-2 text-end"><span>010-1234-1234</span></div>
+							<div class="col-2 text-end"><span>${item.ifmmPhone}</span></div>
 						</div>
 						<div class="row mb-4">
 							<div class="col-8"><span><b>이메일</b></span></div>
-							<div class="col-4 text-end"><span>example@naver.com</span></div>
+							<div class="col-4 text-end"><span>${item.ifmmName}</span></div>
 						</div>
            			</div>
            			<hr class="hrstyle mt-2 mb-2">
@@ -133,10 +135,10 @@
 						</div>
            			</div>
            		</div>
-           	
           </section>
         </div>
       </div>
+    </form>
 	
 
 
@@ -147,5 +149,17 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    	var goUrlList = "/order/mypageOrderView";
+    	var form = $("#myform");
+    	
+    	var iforSeq = $("input:hidden[name=iforSeq]");
+    	
+    	goList = function(thisPage) {
+			$("input:hidden[name=thisPage2]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		};
+    </script>
 </body>
 </html>

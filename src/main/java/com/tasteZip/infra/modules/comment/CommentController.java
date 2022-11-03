@@ -23,9 +23,7 @@ public class CommentController {
     @RequestMapping(value = "mypageReview")
     public String mypageReview(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
     	
-    	System.out.println("sdsdf");
-    	vo.setParamsPaging(service.selectOneCount(vo));
-    	System.out.println("123123");
+    	vo.setParamsPaging2(service.selectOneCount(vo));
     	
 		List<Comment> list = service.myReview(vo);
 		model.addAttribute("list", list); 

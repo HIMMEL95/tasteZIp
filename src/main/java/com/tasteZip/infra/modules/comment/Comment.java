@@ -11,8 +11,10 @@ public class Comment {
 	public Integer ifcmGrade;
 	public String ifstSeq;
 	
+// ------- join store s ----------
 	public String ifstName;
 	public String ifstAddress;
+// ------- join store e ----------
 	
 	public Integer getIfcmGrade() {
 		return ifcmGrade;

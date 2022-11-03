@@ -23,5 +23,4 @@ public class CommentDao {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
 	
-	
 }

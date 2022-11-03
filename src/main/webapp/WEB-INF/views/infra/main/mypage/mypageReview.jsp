@@ -114,7 +114,7 @@
           				</c:otherwise>
           			</c:choose>
           			<div class="mt-5">		
-						<%@include file="../../xdmin/includeV1/pagination.jsp"%>
+						<%@include file="../../xdmin/includeV1/pagination2.jsp"%>
 					</div>
            		</div>
           </section>
@@ -133,12 +133,12 @@
     <script type="text/javascript">
     
     	var goUrlList = "/comment/mypageReview";
-    	var form = $("#myForm");
+    	var form = $("#myform");
     	
     	var ifcmSeq = $("input:hidden[name=ifcmSeq]");
     	
     	goList = function(thisPage) {
-			$("input:hidden[name=thisPage]").val(thisPage);
+			$("input:hidden[name=thisPage2]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		};
     </script>

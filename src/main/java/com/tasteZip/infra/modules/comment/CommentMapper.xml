@@ -8,7 +8,7 @@
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.comment.Comment"></resultMap>
 
 	<select id="myReview" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql"/>
+		<include refid="Base.selectListUpperForMysql2"/>
 		SELECT
 			c.ifcmSeq
 			,c.ifcmComment
@@ -24,8 +24,7 @@
 		WHERE 1=1
 		ORDER BY c.ifcmSeq DESC
 		<include refid="Base.orderByLimitForMysql" />
-		) aa
-		limit 5 offset #{startRnumForMysql}
+		<include refid="Base.selectListLowerForMysql2" /> 
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">

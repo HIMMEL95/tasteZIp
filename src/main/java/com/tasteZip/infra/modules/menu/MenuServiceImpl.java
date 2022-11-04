@@ -17,12 +17,23 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
+    public int selectOneCount(MenuVo vo) throws Exception {
+    	return dao.selectOneCount(vo);
+    }
+ 
+    @Override
+    public List<Menu> selectList2(MenuVo vo) throws Exception {
+    	return dao.selectList2(vo);
+    }
+    
+    @Override
+    public int selectOneCount2(MenuVo vo) throws Exception {
+    	return dao.selectOneCount2(vo);
+    }
+    
+    @Override
     public List<Menu> setDiv(MenuVo vo) throws Exception {
         return dao.setDiv(vo);
     }
 
-    @Override
-    public int selectOneCount(MenuVo vo) throws Exception {
-        return dao.selectOneCount(vo);
-    }
 }

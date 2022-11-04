@@ -19,10 +19,37 @@
 		    from menu m
 			where 1=1
 				<if test="shValue != null and !shValue.equals('')">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</if>
-		   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql" />
 	</select>
 
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		from menu m
+		where 1=1
+			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
+	</select>
+	
+	<select id="selectList2" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql2" />
+			select 
+				m.ifmnSeq
+				,m.ifmnName
+				,m.ifmnPrice
+				,m.ifmnInfo
+				,m.ifmnSet_div
+		    from menu m
+			where 1=1
+	   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql2" />
+	</select>
+
+	<select id="selectOneCount2" resultType="Integer">
+		SELECT COUNT(*)
+		from menu m
+		where 1=1
+	</select>
+	
 	<select id="setDiv" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
@@ -34,15 +61,9 @@
 				m.ifmnSet_div
 			order by 
 				m.ifmnSet_div
-		   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql" />
 	</select>
 
-	<select id="selectOneCount" resultType="Integer">
-		SELECT COUNT(*)
-		from menu m
-		where 1=1
-			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
-	</select>
 	
 </mapper>

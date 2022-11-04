@@ -5,6 +5,12 @@ import java.util.List;
 public interface MenuService {
 
     public List<Menu> selectList(MenuVo vo) throws Exception;
-    public List<Menu> setDiv(MenuVo vo) throws Exception;
     public int selectOneCount(MenuVo vo) throws Exception;
+    
+    public List<Menu> selectList2(MenuVo vo) throws Exception;
+    public int selectOneCount2(MenuVo vo) throws Exception;
+    
+    public List<Menu> setDiv(MenuVo vo) throws Exception;
+    
+    
 }

@@ -9,6 +9,7 @@ public class MenuVo extends BaseVo {
     private String shValue;
     private Integer shDelNy;
     private Integer shDate;
+    private Integer shUpdt;
     private String startDate;
     private String endDate;
     
@@ -42,7 +43,13 @@ public class MenuVo extends BaseVo {
     public void setShDate(Integer shDate) {
         this.shDate = shDate;
     }
-    public String getStartDate() {
+    public Integer getShUpdt() {
+		return shUpdt;
+	}
+	public void setShUpdt(Integer shUpdt) {
+		this.shUpdt = shUpdt;
+	}
+	public String getStartDate() {
         return startDate;
     }
     public void setStartDate(String startDate) {

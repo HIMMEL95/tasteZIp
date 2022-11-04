@@ -176,7 +176,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<%-- <c:choose>
+												<c:choose>
 													<c:when test="${fn:length(list) eq 0}">
 														<tr>
 															<td class="text-center" colspan="7">There is no data!</td>
@@ -198,14 +198,7 @@
 															</tr>
 														</c:forEach>
 													</c:otherwise>
-												</c:choose> --%>
-												<td><input type="checkbox"></td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
-												<td>-</td>
+												</c:choose>
 											</tbody>
 										</table>
 										<%-- <%@include file="../../common/xdmin/includeV1/pagination.jsp"%> --%>

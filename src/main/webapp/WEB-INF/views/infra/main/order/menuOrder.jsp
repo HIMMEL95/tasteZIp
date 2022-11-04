@@ -30,7 +30,7 @@
 		<div id="sidebar" class="sidebar">
 			<div class="d-flex flex-column flex-shrink-0 bg-dark align-center" style="width: 4.5rem; height: 100vh;">
 				<a href="/tasteMain" class="d-block p-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-					<img alt="" src="../../../images/main/logo2.png" width="40" height="30">
+					<img alt="" src="/resources/images/main/logo2.png" width="40" height="30">
 					<span class="visually-hidden">Icon-only</span>
 				</a>
 				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">

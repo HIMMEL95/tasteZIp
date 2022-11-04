@@ -1195,3 +1195,11 @@ input {
 	caret-color:#ff7f00;
 	cursor: url(/resources/images/main/cursor_o.png), auto !important;
 }
+
+.btnOrder {
+	float: right;
+	width: 110px;
+	height: 50px;
+	color: white;
+    background-color: #ff7f00;
+}

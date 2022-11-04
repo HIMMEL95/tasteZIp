@@ -275,14 +275,14 @@
 																										</c:forEach>
 																									</span>
 																									<button type="button" class="btn_fold2" onclick="popover(${status.index})">
-																										<input type="hidden" value="0" name="popValue">
-																										<i id="popoverBtn" class="fa-solid fa-angle-down"></i>
+																										<input type="hidden" value="0" name="popValue${status.index }">
+																										<i id="popoverBtn${status.index }" class="fa-solid fa-angle-down"></i>
 																									</button>
 																								</div>
-																								<c:forEach items="${list }" var="list" varStatus="status">
+																								<c:forEach items="${list }" var="list" varStatus="status2">
 																									<c:choose>
 																										<c:when test="${setDiv.ifmnSet_div eq list.ifmnSet_div }">
-																											<ul class="order_list_area">
+																											<ul class="order_list_area${status.index }" style="display: none;">
 																												<li class="order_list_item">
 																													<div class="item_info">
 																														<a href="#" class="info_link">
@@ -299,7 +299,9 @@
 																																<div class="detail">
 																																	<span class="detail_txt">${list.ifmnInfo }</span>
 																																</div>
-																																<div class="price">${list.ifmnPrice }원</div>
+																																<div class="price">
+																																	<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원
+																																</div>
 																															</div>
 																														</a>
 																														<a href="#" class="btn_shop" role="button">
@@ -331,8 +333,16 @@
 										</div>
 									</div>
 								</div>
-								<div class="entry-close-button">
-									
+								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000;">
+									<div class="pt-3">
+										<span class="ps-5">자몽에이드</span>
+									</div>
+									<span class="ps-5" style="font-weight: bold; color: red;">3,600원</span>
+									<button type="button" class="btn btnOrder position-relative" style="margin-left: 200px; float: right; margin-bottom: 0px; bottom: 20px; right: 40px;">
+										주문하기
+										<i class="fa-solid fa-cart-plus"></i>
+										<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+									</button>
 								</div>
 								<!-- content e -->
 							</div>
@@ -396,21 +406,17 @@
 			}
 		};
 		
-		
-		
 		popover = function(keyValue) {
-			if ($("input[name=popValue]").val() == 0) {
-				$("input[name=popValue]").val(1);
-				$("#popoverBtn").removeClass("fa-angle-down");
-				$("#popoverBtn").addClass("fa-angle-up");
-				var i = $("#popover").index(e); // 같은 클래스 내 index 값을 가져옴
-			 	document.getElementsByClassName("order_list_area")[i].css("display", "");
+			if ($("input[name=popValue"+keyValue+"]").val() == 0) {
+				$("input[name=popValue"+keyValue+"]").val(1);
+				$("#popoverBtn"+keyValue).removeClass("fa-angle-down");
+				$("#popoverBtn"+keyValue).addClass("fa-angle-up");
+				$(".order_list_area"+keyValue).css("display", "");
 			} else {
-				$("input[name=popValue]").val(0);
-				$("#popoverBtn").addClass("fa-angle-down");
-				$("#popoverBtn").removeClass("fa-angle-up");
-				var i = $("#popover").index(e); // 같은 클래스 내 index 값을 가져옴
-			 	document.getElementsByClassName("order_list_area")[i].css("display", "none");
+				$("input[name=popValue"+keyValue+"]").val(0);
+				$("#popoverBtn"+keyValue).addClass("fa-angle-down");
+				$("#popoverBtn"+keyValue).removeClass("fa-angle-up");
+				$(".order_list_area"+keyValue).css("display", "none");
 			}
 		}
 	</script>

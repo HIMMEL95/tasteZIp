@@ -70,38 +70,97 @@
 				<div class="wrapper">
 					<div class="container" style="height: 100vh;">
 						<div class="row">
-							<div class="col-3" style="padding-right: 0px; width: 312px;">
-								<div class="sidebar mt-3">
-									<!--menu item-->
-									<ul style="padding-left: 0px; padding-top: 20px;">
-										<li>
-											<a href="#" class="active">
-												<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
-												<span class="item" style="color: black;" id="sidebar">Home</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="icon"><i class="fas fa-desktop"></i></span>
-												<span class="item" style="color: black;" id="sidebar">Dashboard</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="icon"><i class="fas fa-user-friends"></i></span>
-												<span class="item" style="color: black;" id="sidebar">Orders</span>
-											</a>
-										</li>
-										<li>
-											<a href="#">
-												<span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-												<span class="item" style="color: black;" id="sidebar">Account</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-							<div class="col mt-3">
+							<div class="col-lg-3">
+		                        <!-- Advanced filter responsive toggler START -->
+		                        <nav class="navbar navbar-expand-lg mx-0">
+		                            <div class="d-flex align-items-center d-lg-none">
+		                                <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas"
+		                                    data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+		                                    <i class="btn btn-primary fw-bold fa-solid fa-sliders-h text-white" style="background: #212529;"></i>
+		                                    <span class="h6 mb-0 fw-bold d-lg-none ms-2">항목</span>
+		                                </button>
+		                            </div>
+		                            <nav class="navbar navbar-expand-lg mx-0">
+		                                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar"
+		                                    style="visibility: visible; width:250px;" aria-modal="true" role="dialog">
+		                                    <div class="offcanvas-header">
+		                                        <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas"
+		                                            aria-label="Close"></button>
+		                                    </div>
+		                                    <div class="offcanvas-body d-block px-2 px-lg-0">
+		                                        <div class="card overflow-hidden">
+		                                            <img src="https://cdn.pixabay.com/photo/2017/03/27/14/21/chairs-2179044__340.jpg" class="card-img-top" alt="background"
+		                                                style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+		                                            <div class="card-body pt-0">
+		                                                <div class="text-center">
+		                                                    <%-- <div class="avatar avatar-lg mt-n5 mb-3">
+		                                                        <a href="#"><img class="avatar-img rounded border border-white border-3"
+		                                                                src="/resources/images/diano.jpg" style="width: 50px;" alt=""></a>
+		                                                    </div>
+		                                                    <div class="mt-2 mb-4">
+		                                                        <span class="mb-0"><a href="/member/memberUView"><c:out value="${sessName }"/></a></span>
+		                                                        <small><c:out value="${sessId }"/></small><br>
+		                                                        <small><c:out value="${sessEmail }"/></small>
+		                                                    </div> --%>
+		                                                    <hr>
+		                                                    <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/member/memberList">
+		                                                                <span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Home</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/article/articleList">
+		                                                                <span class="icon"><i class="fas fa-desktop"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Dashboard</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/comment/commentList">
+		                                                                <span class="icon"><i class="fas fa-user-friends"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Orders</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/game/gameList">
+		                                                                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Account</span>
+		                                                            </a>
+		                                                        </li>
+		                                                    </ul>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                        <ul class="nav small mt-4 justify-content-center lh-1">
+		                                            <li class="nav-item">
+		                                                <a class="nav-link" href="my-profile-about.html">About</a>
+		                                            </li>
+		                                            <li class="nav-item">
+		                                                <a class="nav-link" href="settings.html">Settings</a>
+		                                            </li>
+		                                            <li class="nav-item">
+		                                                <a class="nav-link" target="_blank" href="https://support.webestica.com/login">Support
+		                                                </a>
+		                                            </li>
+		                                            <li class="nav-item">
+		                                                <a class="nav-link" target="_blank" href="docs/index.html">Docs </a>
+		                                            </li>
+		                                            <li class="nav-item">
+		                                                <a class="nav-link" href="help.html">Help</a>
+		                                            </li>
+		                                            <li class="nav-item">
+		                                                <a class="nav-link" href="privacy-and-terms.html">Privacy &amp; terms</a>
+		                                            </li>
+		                                        </ul>
+		                                        <p class="small text-center mt-1">©2022 <a class="text-body" target="_blank" href="#"> TASTEZIP
+		                                            </a></p>
+		                                    </div>
+		                                </div>
+		                            </nav>
+		                        </nav>
+		                    </div>
+							<div class="col-md col-lg-9 mt-3">
 								<div class="content">
 									<h2 class="row needs-validation ms-3 mt-5">Store List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>

@@ -1,5 +1,7 @@
 package com.tasteZip.infra.modules.codeGroup;
 
+import java.util.List;
+
 import com.tasteZip.infra.common.constants.Constants;
 
 public class CodeGroupVo {
@@ -12,7 +14,10 @@ public class CodeGroupVo {
 	private String shDateEnd;
 	private Integer shOptionDate;
 	
-	private String ifcgSeq; 
+	private String ifcgSeq;
+	private String ifcgName;
+	private String ifcgNameEng;
+
 	
 	public Integer getShOption() {
 		return shOption;
@@ -70,6 +75,24 @@ public class CodeGroupVo {
 	public void setIfcgSeq(String ifcgSeq) {
 		this.ifcgSeq = ifcgSeq;
 	}
+
+
+	public String getIfcgName() {
+		return ifcgName;
+	}
+
+	public void setIfcgName(String ifcgName) {
+		this.ifcgName = ifcgName;
+	}
+
+	public String getIfcgNameEng() {
+		return ifcgNameEng;
+	}
+
+	public void setIfcgNameEng(String ifcgNameEng) {
+		this.ifcgNameEng = ifcgNameEng;
+	}
+
 
 
 
@@ -227,4 +250,28 @@ public class CodeGroupVo {
 				
 			}
 	
+	// form, List 구분
+	
+		private Integer formNY;
+
+
+		public Integer getFormNY() {
+			return formNY;
+		}
+		public void setFormNY(Integer formNY) {
+			this.formNY = formNY;
+		}
+			
+		
+		// 리스트 체크박스 선택
+		 private List<CodeGroupVo> seqVoList;
+
+		public List<CodeGroupVo> getSeqVoList() {
+			return seqVoList;
+		}
+
+		public void setSeqVoList(List<CodeGroupVo> seqVoList) {
+			this.seqVoList = seqVoList;
+		}
+
 }

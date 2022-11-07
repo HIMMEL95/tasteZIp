@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class CodeGroupDao {
 
@@ -22,5 +23,36 @@ public class CodeGroupDao {
 
 	// selectOne Count
 	public int selectOneCount(CodeGroupVo vo) {return sqlSession.selectOne(namespace + ".selectOneCount", vo);}
+	
+	//insert
+	public int insert(CodeGroup dto) {
+		int result = sqlSession.insert(namespace + ".insert", dto);
+		System.out.println("dao insert: " + result);
+		return result;
+	}
+	
+	public CodeGroup selectOne(CodeGroupVo vo) {
+		CodeGroup result = sqlSession.selectOne(namespace + ".selectOne", vo);
+		System.out.println("dao result: " + result);
+		return result;
+	}
+	
+	public int update(CodeGroup dto) {
+		return sqlSession.update(namespace + ".update", dto);
+	}
+	
+	public int uelete(CodeGroup dto) {
+		return sqlSession.update(namespace + ".uelete", dto);
+	}
+	
+	//list uelete
+	public int ueleteList(String seq) {
+		return sqlSession.update(namespace + ".ueleteList", seq);
+	}
+	
+	
+	public int delete(CodeGroupVo vo) {
+		return sqlSession.delete(namespace + ".delete", vo);
+	}
 	
 }

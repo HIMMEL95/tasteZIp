@@ -62,10 +62,11 @@
 		</div>
 	</header>
 	<main>
-		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
-		<form id="myform" name="myform" method="post" autocomplete="off">
+		<form  id="form" name="form" method="post" >
+		<input type="hidden" name="formNY" value="1">
+		<%-- <input type="hidden" name="ifcgSeq" value="<c:out value="${vo.ifcgSeq}"/>"/> --%>
 			<!-- *Vo.jsp s -->
-			<%-- <%@include file="codeGroupVo.jsp"%> --%>
+			<%@include file="codeGroupVo.jsp"%>
 			<!-- *Vo.jsp e -->
 			
 			<div style="height: 70px"></div>
@@ -109,114 +110,150 @@
 							<div class="content">
 								<div class="row">
 									<div class="col">
-										<label for="ccgSeq" class="form-label">코드그룹 코드</label> <input type="text" class="form-control" id="ccgSeq" placeholder="영문(대소문자),숫자">
+										<label for="ccgSeq" class="form-label">코드그룹 코드</label>
+										<input type="text" class="form-control" name="ifcgSeq" value="<c:out value="${item.ifcgSeq}"/>" placeholder="영문(대소문자),숫자">
 									</div>
 									<div class="col">
-										<label for="codeGroup_another" class="form-label">코드그룹 코드(Another)</label> <input type="text" class="form-control" id="codeGroup_another" name="codeGroup_another" placeholder="영문(대소문자),숫자" value="">
+										<label for="codeGroup_another" class="form-label">코드그룹 코드(Another)</label> 
+										<input type="text" class="form-control" id="codeGroup_another" placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
 										<label for="name" class="form-label">코드그룹 이름(한글)</label> 
-										<input type="text" class="form-control" id="name" name="name" placeholder="한글,숫자">
+										<input type="text" class="form-control" id="name" name="ifcgName" value="<c:out value="${item.ifcgName}"/>" placeholder="한글,숫자">
 									</div>
 									<div class="col">
-										<label for="name_eng" class="form-label">코드그룹 이름(영문)</label> <input type="text" class="form-control" id="name_eng" name="name_eng" placeholder="영문(대소문자),숫자">
+										<label for="name_eng" class="form-label">코드그룹 이름(영문)</label> 
+										<input type="text" class="form-control" id="name_eng" name="ifcgNameEng" value="<c:out value="${item.ifcgNameEng}"/>" placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
-										<label for="codeGroup_use" class="form-label">사용여부</label> <select class="form-select" id="codeGroup_use" name="codeGroup_use">
-											<%-- <option selected disabled value="">선택</option>
-											<option value="0" <c:if test = "${item.codeGroup_use eq 0}">selected</c:if>>N</option>
-											<option value="1" <c:if test = "${item.codeGroup_use eq 1}">selected</c:if>>Y</option> --%>
-											<option value=""> 선택</option>
-										</select>
+										<label for="codeGroup_use" class="form-label">사용여부</label>
+										<select class="form-select" aria-label="Default select example" name="ifcgUseNy" id="ifcgUseNy">
+										  <option value="1" <c:if test="${item.ifcgUseNy eq 1 }"> selected</c:if>>Y</option>
+										  <option value="0" <c:if test="${item.ifcgUseNy eq 0 }"> selected</c:if>>N</option>
+									  	</select>
 									</div>
 									<div class="col">
-										<label for="codeGroup_or" class="form-label">순서</label> <input type="text" class="form-control" id="codeGroup_or" name="codeGroup_or" placeholder="숫자">
+										<label for="codeGroup_or" class="form-label">순서</label> 
+										<input type="text" class="form-control" id="codeGroup_or" name="ifcgOrder" value="<c:out value="${item.ifcgOrder}"/>" placeholder="숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
 										<label for="codeGroup_con" class="form-label">설명</label>
-										<textarea class="form-control" id="codeGroup_con" placeholder="Required example textarea"></textarea>
+										<input class="form-control" name="ifcgExplanation" value="<c:out value="${item.ifcgExplanation}"/>"placeholder="코드그룹 설명">
 									</div>
 									<div class="col">
-										<label for="ifcgDelNy" class="form-label">삭제여부</label> <select class="form-select" id="ifcgDelNy" name="ifcgDelNy">
-											<option value="0">N</option>
-											<option value="1">Y</option>
-										</select>
+										<label for="ifcgDelNy" class="form-label">삭제여부</label>
+										<select class="form-select" name="ifcgDelNy" aria-label="Default select example">
+										  <option value="1" <c:if test="${item.ifcgDelNy eq 1 }"> selected</c:if>>Y</option>
+										  <option value="0" <c:if test="${item.ifcgDelNy eq 0 }"> selected</c:if>>N</option>
+									  	</select>
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
-										<label for="codeGroup_V1" class="form-label">예비1(Varchar type)</label> <input type="text" class="form-control" id="codeGroup_V1" name="codeGroup_V1" placeholder="영문(대소문자),숫자">
+										<label for="codeGroup_V1" class="form-label">예비1(Varchar type)</label> 
+										<input type="text" class="form-control" id="ifcgReferenceV1" placeholder="영문(대소문자),숫자">
 									</div>
 									<div class="col">
-										<label for="codeGroup_V2" class="form-label">예비2(Varchar type)</label> <input type="text" class="form-control" id="codeGroup_V2" name="codeGroup_V2" placeholder="영문(대소문자),숫자">
+										<label for="codeGroup_V2" class="form-label">예비2(Varchar type)</label> 
+										<input type="text" class="form-control" id="ifcgReferenceV2" placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col-6">
-										<label for="codeGroup_V3" class="form-label">예비3(Varchar type)</label><input type="text" class="form-control" id="codeGroup_V3" name="codeGroup_V3" placeholder="영문(대소문자),숫자">
+										<label for="codeGroup_V3" class="form-label">예비3(Varchar type)</label>
+										<input type="text" class="form-control" id="ifcgReferenceV3"  placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
-										<label for="codeGroup_I1" class="form-label">예비1 (Int type)</label><input type="text" class="form-control" id="codeGroup_I1" name="codeGroup_I1" placeholder="숫자">
+										<label for="codeGroup_I1" class="form-label">예비1 (Int type)</label>
+										<input type="text" class="form-control" id="ifcgReferenceI1" name="codeGroup_I1" placeholder="숫자">
 									</div>
 									<div class="col">
-										<label for="codeGroup_I2" class="form-label">예비2 (Int type)</label><input type="text" class="form-control" id="codeGroup_I2" name="codeGroup_I2" placeholder="숫자">
+										<label for="codeGroup_I2" class="form-label">예비2 (Int type)</label>
+										<input type="text" class="form-control" id="ifcgReferenceI2" name="codeGroup_I2" placeholder="숫자">
+									</div>
+								</div>
+								<div class="row mt-3">
+									<div class="col-6">
+										<label for="codeGroup_V3" class="form-label">예비3 (Int type)</label>
+										<input type="text" class="form-control" id="ifcgReferenceI3"  placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 							</div>
-							<div class="row align-items-center mt-5">
+							<div class="row align-items-center mt-5 mb-5">
 	                            <div class="col-2">
 	                                <button class="border-0 btn bg-secondary shadow" type="button" id="btnList">
 	                                    <i class="fa-solid fa-bars" style="color: white;"></i>
 	                                </button>
-	                                <button id="btnUel" value="Uel" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
-	                                    data-bs-target="#deleteModal">
+	                                <button class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
 	                                    <i class="fa-solid fa-xmark" style="color: white;"></i>
 	                                </button>
 	                            </div>
+	                            
+	                            <!-- uele -->
 	                            <div class="col-3 offset-7" align="right">
-	                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
-	                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	                                    <div class="modal-dialog">
-	                                        <div class="modal-content">
-	                                            <div class="modal-header">
-	                                                <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
-	                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-	                                                    aria-label="Close"></button>
-	                                            </div>
-	                                            <div class="modal-body fs-6">
-	                                           		선택하신 게시물을 정말로 삭제하시겠습니까?
-	                                            </div>
-	                                            <div class="modal-footer">
-	                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-	                                                <button id="delBtn" type="button" class="btn btn-primary">삭제</button>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                                <button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
-	                                    data-bs-target="#deleteModal">
+	                               <!-- x버튼 Modal -->
+									<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel2"><b>MATZIP</b></h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        정말로 삭제하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-dark" id="btnUelete">삭제 </button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+	                                
+	                                <button class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
 	                                    <i class="fa-solid fa-trash-can" style="color: white;"></i>
 	                                </button>
 	                                <button id="btnSave" class="border-0 btn bg-success shadow" type="button">
 	                                    <i class="fa-regular fa-bookmark" style="color: white;"></i>
 	                                </button>
+	                                
+	                                <!-- 휴지통 Modal -->
+									<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel"><b>MATZIP</b></h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        정말로 삭제하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-dark" id="btnDelete">삭제 </button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
 	                            </div>
 	                        </div>
 						</div>
 					</div>
 				</form>
+				
 		
 		 <form name="formVo" id="formVo" method="post">
 			<!-- *Vo.jsp s -->
 			<%@include file="codeGroupVo.jsp"%>
+			<input type="hidden" name="ifcgSeq" value="<c:out value="${vo.ifcgSeq}"/>"/>
 			<!-- #-> -->
 			<!-- *Vo.jsp e -->
 		</form> 
@@ -230,26 +267,41 @@
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bd29bc43140391b0206f367d2b8c01eb&libraries=services"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
-
-		var goUrlList = "/codeGroup/codeGroupList"; /* #-> */
-		var goUrlInst = "/codeGroup/codeGroupInst"; /* #-> */
-		var goUrlUpdt = "/codeGroup/codeGroupUpdt"; /* #-> */
-		var goUrlUele = "/codeGroup/codeGroupUele"; /* #-> */
-		var goUrlDele = "/codeGroup/codeGroupDele"; /* #-> */
-
-		var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
-
-		var form = $("form[name=myform]");
+	<script type="text/javascript">
+		
+		var goUrlList = "/codeGroup/codeGroupList"; 			
+		var goUrlInst = "/codeGroup/codeGroupInst"; 			
+		var goUrlUpdt = "/codeGroup/codeGroupUpdt";				
+		var goUrlUele = "/codeGroup/codeGroupUele";				
+		var goUrlDele = "/codeGroup/codeGroupDele";				
+		
+		var seq = $("input:hidden[name=ifcgSeq]");				
+		
+		var form = $("form[name=form]");
 		var formVo = $("form[name=formVo]");
 		
-		$("#btnList").on("click", function() {
+		$("#btnSave").on("click", function(){
+
+			if (seq.val() == "0" || seq.val() == ""){
+		   		form.attr("action", goUrlInst).submit();
+		   	} else {
+		   		form.attr("action", goUrlUpdt).submit();
+		   	}
+		});
+		
+		$("#btnList").on("click", function(){
 			formVo.attr("action", goUrlList).submit();
 		});
-
-		 
+	 	
+	</script>
+	<script>
+		$("#btnUelete").on("click", function() {
+			form.attr("action", goUrlUele).submit();
+		});
 		
-		
+		$("#btnDelete").on("click", function() {
+			form.attr("action", goUrlDele).submit();
+		});
 	</script>
 </body>
 </html>

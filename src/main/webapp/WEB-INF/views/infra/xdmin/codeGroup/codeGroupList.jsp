@@ -117,7 +117,7 @@
 			                                    </select>
 											</div>
 											<div class="col-md-3">
-												<select class="form-select" id="shUpdt" name="shUpdt">
+												<select class="form-select" id="shOptionDate" name="shOptionDate">
 													<option value="" <c:if test="${empty vo.shOptionDate }">selected</c:if>>선택</option>
 													<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>등록일</option>
 													<option value="2" <c:if test="${vo.shOptionDate eq 2 }">selected</c:if>>수정일</option>
@@ -250,6 +250,7 @@
 						</div>
 					</div>
 				</div>
+				<div id="listUele"></div>
 			</form>
 			<footer class="bg-dark">
 		        <div class="footer">
@@ -333,6 +334,35 @@
 	  		$("#btnExcel").on("click", function(){
 				$(location).attr("href", goUrlExcel);
 			});
+			
+		</script>
+		<!-- 체크박스 삭제 -->
+		<script type="text/javascript">
+		
+				uelItem = function(){
+				
+				var txt = "";
+				var checkbox = $("input[name=check]:checked");
+				
+				var form = $("form[name=formList]");
+
+				checkbox.each(function(i) {
+					
+					var addtag = "";
+					
+					var tr = checkbox.parent().parent().eq(i);
+					var td = tr.children();
+					
+					txt += td.eq(1).text() + "  ";
+					
+					addtag = '<input type="hidden" name="seqVoList['+i+'].seq" value="'+ td.eq(1).text() +'">'
+					  
+					$("#listUele").append(addtag);
+					
+				});
+				
+				form.attr("action", "/codeGroup/codeGroupUele" ).submit();
+				}
 			
 		</script>
 		<script type="text/javascript">

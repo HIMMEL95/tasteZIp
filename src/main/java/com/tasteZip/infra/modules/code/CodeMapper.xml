@@ -8,37 +8,45 @@
 
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.code.Code"></resultMap>
 	
+	<!-- paging -->
+	<sql id ="selectCommon">
+		from code cc 
+		WHERE 1=1
+				
+		<if test="shDelNy !=null and !shDelNy.equals('')">AND cc.ifccDelNy = #{shDelNy}</if>
+		<if test="shValue != null"></if>
+		
+		
+		<choose>
+			<when test="shOption == 1">AND cc.ifccSeq = #{shValue}</when>
+			<when test="shOption == 2">AND cc.ifccName LIKE CONCAT('%', #{shValue},'%')</when>
+			<when test="shOption == 3">AND cc.ifccNameEng LIKE CONCAT('%', #{shValue},'%')</when>
+		</choose>
+		
+		<choose>
+			<when test="shOptionDate == 1">AND cc.ifccCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			<when test="shOptionDate == 2">AND cc.ifccModifiedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>
+	</sql>
+
+
+	<!-- =============================== -->
+	<!-- selectList -->
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
-				m.ifmnSeq
-				,m.ifmnName
-				,m.ifmnPrice
-				,m.ifmnInfo
-				,m.ifmnSet_div
-		    from menu m
-			where 1=1
+				cc.*
+			<include refid="selectCommon" />
+			ORDER BY cc.ifccSeq DESC
 		   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql" />
 	</select>
 
-	<select id="setDiv" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql" />
-			select 
-				m.ifmnSet_div
-		    from menu m
-			where 1=1
-			group by
-				m.ifmnSet_div
-		   	<include refid="Base.orderByLimitForMysql" />
-	   	<include refid="Base.selectListLowerForMysql" />
-	</select>
-
+	<!-- =============================== -->
+	<!-- selectOne Count -->
 	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
-		from menu m
-		where 1=1
-			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
+		<include refid="selectCommon" />
 	</select>
 	
 	<select id="selectListCachedCodeArrayList" resultMap="resultMapObj">
@@ -52,5 +60,85 @@
 			AND ifccDelNy = 0
 		    AND ifccUseNy = 1
     </select>
+    
+    
+    <!-- =============================== -->
+	<!-- insert -->
+	<insert id="insert">
+		INSERT INTO code(
+			,ifccName
+			,ifccNameEng
+			,ifccUseNy
+			,ifccOrder
+			,ifccExplanation
+			,ifccDelNy
+			,ifccCreatedAt
+		)
+		VALUES (
+			,#{ifccName}
+			,#{ifccNameEng}
+			,1
+			,#{ifccOrder}
+			,#{ifccExplanation}
+			,0
+			,now()
+		)
+		<selectKey resultType="String" keyProperty="ifccSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 	
+	
+	<!-- =============================== -->
+	<!-- update -->
+	<update id="update">
+		UPDATE code
+		SET
+			ifccName = #{ifccName}
+			,ifccNameEng = #{ifccNameEng}
+			,ifccUseNy = #{ifccUseNy}
+			,ifccOrder = #{ifccOrder}
+			,ifccExplanation = #{ifccExplanation}
+			,ifccDelNy = #{ifccDelNy}
+			,ifccModifiedAt = now()
+		WHERE
+			ifccSeq = #{ifccSeq}
+	</update>
+	
+	
+	<!-- =============================== -->
+	<!-- uelete -->
+	<update id="uelete">
+		UPDATE code
+		SET
+			ifccDelNy = 1
+		WHERE 1=1 
+			AND ifccSeq = #{ifccSeq}
+	</update>
+	
+	<!-- uele List -->
+	<update id="ueleteList">
+		UPDATE code
+		SET
+			ifccDelNy = 1
+		WHERE 1=1 
+			AND ifccSeq = #{ifccSeq}
+	</update>
+	
+	<!-- =============================== -->
+	<!-- delete -->
+	<delete id="delete">
+		DELETE FROM code WHERE 1=1 AND ifccSeq = #{ifccSeq}
+	</delete>
+	
+	
+	<!-- =============================== -->
+	<!-- selectone -->
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			a.*
+			FROM code a
+			WHERE 1=1
+			AND a.ifccSeq = #{ifccSeq}
+	</select>
 </mapper>

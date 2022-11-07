@@ -14,7 +14,10 @@
 				s.ifstSeq
 				,s.ifstName
 				,s.ifstPhone
+				,s.ifstZipCode
 				,s.ifstAddress
+				,s.ifstAddressDetail
+				,s.ifstAddressExtra
 				,s.ifstInfo
 				,s.ifstDirections
 				,s.ifstOrderNy
@@ -34,5 +37,125 @@
 		where 1=1
 			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
 	</select>
+	
+	<!-- xdmin s -->
+	<select id="xdminSelectList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql2" />
+			select 
+				s.ifstSeq
+				,s.ifstName
+				,s.ifstPhone
+				,s.ifstZipCode
+				,s.ifstAddress
+				,s.ifstAddressDetail
+				,s.ifstAddressExtra
+				,s.ifstInfo
+				,s.ifstDirections
+				,s.ifstOrderNy
+				,s.ifstDelNy
+				,s.ifstCreatedAt
+		    from store s
+			where 1=1
+				<if test="shDelNy != null and !shDelNy.equals('')">AND ifstDelNy = #{shDelNy}</if>
+				<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
+				<choose>
+					<when test="shOption == 1">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
+					<when test="shOption == 2">AND ifstPhone LIKE CONCAT('%',#{shValue},'%')</when>
+					<when test="shOption == 3">AND ifstAddress LIKE CONCAT('%',#{shValue},'%')</when>
+				</choose>
+		    ORDER BY 
+		    	s.ifstCreatedAt DESC
+		   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql2" />
+	</select> 
+	
+	<select id="xdminSelectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		from store s
+		where 1=1
+	</select>
+	
+	<select id="xdminSelectOne" resultMap="resultMapObj">
+		select 
+			s.ifstSeq
+			,s.ifstName
+			,s.ifstPhone
+			,s.ifstZipCode
+			,s.ifstAddress
+			,s.ifstAddressDetail
+			,s.ifstAddressExtra
+			,s.ifstInfo
+			,s.ifstDirections
+			,s.ifstOrderNy
+	    from store s
+		where 1=1
+			and s.ifstSeq = #{ifstSeq}
+	</select> 
+	
+	<insert id="insert">
+		INSERT INTO store (
+			ifstName 
+			,ifstPhone 
+			,ifstZipCode
+			,ifstAddress
+			,ifstAddressDetail
+			,ifstAddressExtra
+			,ifstInfo 
+			,ifstDirections 
+			,ifstOrderNy
+			,ifstDelNy
+			,ifstCreatedAt
+			,ifstModifiedAt
+		)
+		VALUES (
+			#{ifstName}
+			,#{ifstPhone}
+			,#{ifstZipCode}
+			,#{ifstAddress}
+			,#{ifstAddressDetail}
+			,#{ifstAddressExtra}
+			,#{ifstInfo}
+			,#{ifstDirections}
+			,#{ifstOrderNy}
+			,0
+			,now()
+			,now()
+		)
+		<selectKey resultType="String" keyProperty="ifstSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<update id="update">
+		UPDATE store
+		SET
+			ifstName = #{ifstName}
+			,ifstPhone = #{ifstPhone}
+			,ifstZipCode = #{ifstZipCode}
+			,ifstAddress = #{ifstAddress}
+			,ifstAddressDetail = #{ifstAddressDetail}
+			,ifstAddressExtra = #{ifstAddressExtra}
+			,ifstInfo = #{ifstInfo}
+			,ifstDirections = #{ifstDirections}
+			,ifstOrderNy = #{ifstOrderNy}
+			,ifstModifiedAt = now()
+		where 1=1
+			and ifstSeq = #{ifstSeq}
+	</update>
+	
+	<update id="uelete">
+		UPDATE store
+		SET
+			ifstDelNy = 1
+		where 1=1
+			and ifstDelNy = #{ifstDelNy}
+	</update>
+	
+	<delete id="delete">
+		DELETE
+		FROM store where ifstSeq = #{ifstSeq}
+	</delete>
+	
+	<!-- xdmin e --> 
 	
 </mapper>

@@ -4,18 +4,18 @@ import com.tasteZip.infra.common.base.BaseVo;
 
 public class StoreVo extends BaseVo {
     
-    private String shOption;
+    private Integer shOption;
     private String shValue;
     private Integer shDelNy;
-    private Integer shDate;
-    private String startDate;
-    private String endDate;
-    private String seq;
+    private Integer shOptionDate;
+    private String shDateStart;
+    private String shDateEnd;
+    private String ifstSeq;
     
-    public String getShOption() {
+    public Integer getShOption() {
         return shOption;
     }
-    public void setShOption(String shOption) {
+    public void setShOption(Integer shOption) {
         this.shOption = shOption;
     }
     public String getShValue() {
@@ -30,28 +30,28 @@ public class StoreVo extends BaseVo {
     public void setShDelNy(Integer shDelNy) {
         this.shDelNy = shDelNy;
     }
-    public Integer getShDate() {
-        return shDate;
+    public Integer getShOptionDate() {
+        return shOptionDate;
     }
-    public void setShDate(Integer shDate) {
-        this.shDate = shDate;
+    public void setShOptionDate(Integer shOptionDate) {
+        this.shOptionDate = shOptionDate;
     }
-    public String getStartDate() {
-        return startDate;
+    public String getShDateStart() {
+        return shDateStart;
     }
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public void setShDateStart(String shDateStart) {
+        this.shDateStart = shDateStart;
     }
-    public String getEndDate() {
-        return endDate;
+    public String getShDateEnd() {
+        return shDateEnd;
     }
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public void setShDateEnd(String shDateEnd) {
+        this.shDateEnd = shDateEnd;
     }
-    public String getSeq() {
-        return seq;
+    public String getIfstSeq() {
+        return ifstSeq;
     }
-    public void setSeq(String seq) {
-        this.seq = seq;
+    public void setIfstSeq(String ifstSeq) {
+        this.ifstSeq = ifstSeq;
     }
 }

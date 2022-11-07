@@ -111,9 +111,147 @@
 							<h2 class="needs-validation mt-2">My Store Form</h2>
 							<div class="content">
 								<div class="row">
-									<label for="ccgSeq" class="form-label">오픈시간</label> 
-									<div class="col-6"><input type="date" class="form-control" id="" name="" placeholder=""></div>
-									 ~ <div class="col-5"><input type="date" class="form-control" id="" name="" placeholder=""></div>
+									<div class="col">
+										<div class="accordion" id="accordionExample">
+											<div class="accordion-item">
+												<h2 class="accordion-header" id="headingOne">
+													<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+														 오픈 시간
+													</button>
+												</h2>
+												<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+													<div class="accordion-body">
+														<div class="row">
+															<div class="col-2">
+																<label for="ccgSeq" class="form-label">일요일</label> 
+															</div>
+															<div class="col-2">
+																<select class="form-select" id="shOptionDate" name="shOptionDate">
+																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																</select>
+															</div>
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+															</div>
+															~
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-2">
+																<label for="ccgSeq" class="form-label">월요일</label> 
+															</div>
+															<div class="col-2">
+																<select class="form-select" id="shOptionDate" name="shOptionDate">
+																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																</select>
+															</div>
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+															</div>
+															~
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-2">
+																<label for="ccgSeq" class="form-label">화요일</label> 
+															</div>
+															<div class="col-2">
+																<select class="form-select" id="shOptionDate" name="shOptionDate">
+																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																</select>
+															</div>
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+															</div>
+															~
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-2">
+																<label for="ccgSeq" class="form-label">수요일</label> 
+															</div>
+															<div class="col-2">
+																<select class="form-select" id="shOptionDate" name="shOptionDate">
+																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																</select>
+															</div>
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+															</div>
+															~
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-2">
+																<label for="ccgSeq" class="form-label">목요일</label> 
+															</div>
+															<div class="col-2">
+																<select class="form-select" id="shOptionDate" name="shOptionDate">
+																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																</select>
+															</div>
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+															</div>
+															~
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-2">
+																<label for="ccgSeq" class="form-label">금요일</label> 
+															</div>
+															<div class="col-2">
+																<select class="form-select" id="shOptionDate" name="shOptionDate">
+																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																</select>
+															</div>
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+															</div>
+															~
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-2">
+																<label for="ccgSeq" class="form-label">토요일</label> 
+															</div>
+															<div class="col-2">
+																<select class="form-select" id="shOptionDate" name="shOptionDate">
+																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																</select>
+															</div>
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+															</div>
+															~
+															<div class="col">
+																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-6">

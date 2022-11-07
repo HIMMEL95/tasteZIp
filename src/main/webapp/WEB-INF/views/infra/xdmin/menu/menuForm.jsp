@@ -67,10 +67,7 @@
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
 		<form id="myform" name="myform" method="post" autocomplete="off">
-			<!-- *Vo.jsp s -->
-			<%-- <%@include file="codeVo.jsp"%> --%>
-			<!-- *Vo.jsp e -->
-			
+			<%@include file="menuVo.jsp"%>
 			<div style="height: 70px"></div>
 			<div class="wrapper">
 				<div class="container">
@@ -112,33 +109,36 @@
 							<div class="content">
 								<div class="row">
 									<div class="col-6">
-										<label class="form-label">코드</label> <input type="text" class="form-control">
+										<label class="form-label">코드</label> 
+										<input type="text" class="form-control" value="<c:out value="${item.ifmnSeq}"/>">
 									</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-12">	
 										<label class="form-label">메뉴이름</label> 
-						   				<input type="text" class="form-control" id="" name="" value="">
+						   				<input type="text" class="form-control" id="" name="" value="<c:out value="${item.ifmnName}"/>">
 						   			</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
 										<label class="form-label">가격</label> 
-										<input class="form-control">
+										<input class="form-control" value="<c:out value="${item.ifmnPrice}"/>">
 									</div>
 									<div class="col">
-										<label class="form-label">할인가</label> <input type="text" class="form-control">
+										<label class="form-label">할인가</label> 
+										<input type="text" class="form-control" value="<c:out value="${item.ifmnDiscount}"/>">
 									</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-12">	
 										<label class="form-label">정보</label> 
-						   				<textarea class="form-control" aria-label="With textarea"></textarea>
+						   				<textarea class="form-control" aria-label="With textarea">${item.ifmnInfo}</textarea>
 						   			</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col-6">
-										<label class="form-label">세트여부</label> <select class="form-select">
+										<label class="form-label">세트여부</label> 
+										<select class="form-select" value="<c:out value="${item.ifmnSet_div}"/>">
 											<option selected disabled value="">선택</option>
 											<option>N</option>
 											<option>Y</option>
@@ -147,7 +147,8 @@
 								</div>
 								<div class="row mt-3">
 									<div class="col-2">
-										<label class="form-label">통신사</label> <select class="form-select" >
+										<label class="form-label">통신사</label> 
+										<select class="form-select">
 											<option selected disabled value="">선택</option>
 											<option>KT</option>
 											<option>SKT</option>
@@ -162,7 +163,8 @@
 								</div>
 								<div class="row mt-3">
 									<div class="col-12">
-										<label class="form-label">이메일</label> <input type="text" class="form-control" placeholder="영문(대소문자),숫자, @이후 전체 이메일 주소 포함 ">
+										<label class="form-label">이메일</label> 
+										<input type="text" class="form-control" placeholder="영문(대소문자),숫자, @이후 전체 이메일 주소 포함 ">
 									</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
@@ -394,13 +396,27 @@
 		var form = $("form[name=myform]");
 		var formVo = $("form[name=formVo]");
 		
+		 
+	 	$("#btnSave").on("click", function() {
+			if (ccgSeq.val() == "0" || ccgSeq.val() == "") {
+				form.attr("action", goUrlInst).submit();
+			} else {
+				form.attr("action", goUrlUpdt).submit();
+			}
+		});
+		
 		$("#btnList").on("click", function() {
 			formVo.attr("action", goUrlList).submit();
 		});
+		
+		$("#deleteBtn").on("click", function() {
+			formVo.attr("action", goUrlDele).submit();
+		});
 
-		 
-		
-		
+		$("#ueleteBtn").on("click", function() {
+			formVo.attr("action", goUrlUele).submit();
+		});
+
 	</script>
 </body>
 </html>

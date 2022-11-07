@@ -10,8 +10,9 @@ public class MenuVo extends BaseVo {
     private Integer shDelNy;
     private Integer shDate;
     private Integer shUpdt;
-    private String startDate;
-    private String endDate;
+	private String shDateStart;
+	private String shDateEnd;
+	private Integer shOptionDate;
     
     public String getIfmnSeq() {
         return ifmnSeq;
@@ -49,16 +50,24 @@ public class MenuVo extends BaseVo {
 	public void setShUpdt(Integer shUpdt) {
 		this.shUpdt = shUpdt;
 	}
-	public String getStartDate() {
-        return startDate;
-    }
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
-    public String getEndDate() {
-        return endDate;
-    }
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
+	public String getShDateStart() {
+		return shDateStart;
+	}
+	public void setShDateStart(String shDateStart) {
+		this.shDateStart = shDateStart;
+	}
+	public String getShDateEnd() {
+		return shDateEnd;
+	}
+	public void setShDateEnd(String shDateEnd) {
+		this.shDateEnd = shDateEnd;
+	}
+	public Integer getShOptionDate() {
+		return shOptionDate;
+	}
+	public void setShOptionDate(Integer shOptionDate) {
+		this.shOptionDate = shOptionDate;
+	}
+	
+
 }

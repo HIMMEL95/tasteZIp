@@ -32,8 +32,35 @@ public class MenuServiceImpl implements MenuService {
     }
     
     @Override
+	public Menu selectOne(MenuVo vo) throws Exception {
+    	return dao.selectOne(vo);
+	}
+
+	@Override
     public List<Menu> setDiv(MenuVo vo) throws Exception {
         return dao.setDiv(vo);
     }
+
+	@Override
+	public int insert(Menu dto) throws Exception {
+		return dao.insert(dto);
+	}
+
+	@Override
+	public int update(Menu dto) throws Exception {
+		return dao.update(dto);
+	}
+
+	@Override
+	public int uelete(Menu dto) throws Exception {
+		return dao.uelete(dto);
+	}
+
+	@Override
+	public int delete(MenuVo vo) throws Exception {
+		return dao.delete(vo);
+	}
+	
+	
 
 }

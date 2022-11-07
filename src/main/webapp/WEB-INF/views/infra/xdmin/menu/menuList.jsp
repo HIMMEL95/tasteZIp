@@ -14,7 +14,7 @@
 		<title>Menu List</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link rel="stylesheet" href="/resources/css/xdmin/codeGroup/codeGroupList.css">
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="/code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 	  	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<style>
@@ -44,7 +44,7 @@
 							</div>
 							<div class="row offset-5">
 								<div class="userimg col">
-									<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
+									<img alt="" src="/resources/image/main/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
 									<span id="MATZIP" class="d-inline-block text-white">Tony Chang <br> Administrator</span>
 								</div>
 							</div>
@@ -73,7 +73,9 @@
 		</header>
 		<main>
 			<form id="myForm" name="myForm" method="post">
-				<%@include file="menuVo.jsp"%>
+				<input type="hidden" name="thisPage2" value="<c:out value="${vo.thisPage2}" default="1"/>">
+				<input type="hidden" name="rowNumToShow2" value="${vo.rowNumToShow2}">
+				<input type="hidden" name="ifmnSeq" value="<c:out value="${vo.ifmnSeq}"/>"/>
 				<div style="height: 55px"></div>
 				<div class="wrapper">
 					<div class="container" style="height: 100vh;">
@@ -116,40 +118,37 @@
 										<div class="row mb-2">
 											<div class="col-md-3">
 												<select class="form-select" id="shDelNy" name="shDelNy">
-			                                       	<%-- <option value="" <c:if test="${empty vo.shDelNy }">selected</c:if>>선택</option>
+			                                      <option value="" <c:if test="${empty vo.shDelNy }">selected</c:if>>삭제여부</option>
 			                                        <option value="0" <c:if test="${vo.shDelNy eq 0 }">selected</c:if>>N</option>
-			                                        <option value="1" <c:if test="${vo.shDelNy eq 1 }">selected</c:if>>Y</option> --%>
-			                                        <option value=""> 선택</option>
+			                                        <option value="1" <c:if test="${vo.shDelNy eq 1 }">selected</c:if>>Y</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
 												<select class="form-select" id="shUpdt" name="shUpdt">
-			                                        <option value=""> 선택</option>
-<%-- 													<option value="" <c:if test="${empty vo.shUpdt }">selected</c:if>>선택</option>
+ 													<option value="" <c:if test="${empty vo.shUpdt }">selected</c:if>>선택</option>
 													<option value="1" <c:if test="${vo.shUpdt eq 1 }">selected</c:if>>등록일</option>
-													<option value="2" <c:if test="${vo.shUpdt eq 2 }">selected</c:if>>수정일</option> --%>
+													<option value="2" <c:if test="${vo.shUpdt eq 2 }">selected</c:if>>수정일</option>
 												</select>
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerS" placeholder="시작일">
+												<input type="text" class="form-control" id="shDateStart" placeholder="시작일">
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerE" placeholder="종료일">
+												<input type="text" class="form-control" id="shDateEnd" placeholder="종료일">
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-3">
-												<select class="form-select" id="shOption" name="shOption">
-			                                        <option value=""> 선택</option>
-			                                        <%-- <option value="" <c:if test="${empty vo.shOption }">selected</c:if>>검색구분</option>
-			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
-			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드그룹 이름(한글)</option>
-			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>코드그룹 이름(영문)</option> --%>
+			                                    <select class="form-select" id="shOption" name="shOption">
+			                                        <option value="" <c:if test="${empty vo.shOption }">selected</c:if>>선택</option>
+			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>메뉴이름</option>
+			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>메뉴가격</option>
+			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>메뉴정보</option>
+			                                        <option value="4" <c:if test="${vo.shOption eq 4 }">selected</c:if>>세트정보</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" name="shValue" id="shValue" value="<c:out value="${vo.shValue }"/>" autocomplete="off">
-												<div class="invalid-feedback" id="shValueFeeback"></div>
+												<input placeholder="검색어를 입력해주세요." type="text" class="form-control" name="shValue" id="shValue" value="${vo.shValue }">
 											</div>
 											<div class="col-md-2">
 												<button class="btn btn-light" type="submit" id="searching"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -183,20 +182,24 @@
 													</c:when>
 													<c:otherwise>
 														<c:forEach items="${list}" var="list" varStatus="status">
-															<tr onclick="newPage()" class="info">
-																<td scope="row" src="./menuForm.jsp">
-																	<input type="checkbox" onclick="checkSelectAll(this)">
-																</td>
-																<td>
-																	<c:out value="${vo.totalRows2 - ((vo.thisPage2 - 1) * vo.rowNumToShow2 + status.index) }"/>
-																</td>
-																<td>${list.ifmnSeq}</td>
-																<td>${list.ifmnName}</td>
-																<td>${list.ifmnPrice}</td>
-																<td>${list.ifmnInfo}</td>
-																<td>${list.ifmnSet_div}</td>
-																<td>${list.ifmnCreatedAt}</td>
-															</tr>
+																<tr onclick="goForm(${list.ifmnSeq})" class="info">
+																	<td scope="row" src="#">
+																		<input type="checkbox" onclick="checkSelectAll(this)">
+																	</td>
+																	<td>
+																		<c:out value="${vo.totalRows2 - ((vo.thisPage2 - 1) * vo.rowNumToShow2 + status.index) }"/>
+																	</td>
+																	<td>${list.ifmnSeq}</td>
+																	<td>
+																		${list.ifmnName }
+																	</td>
+																	<td>
+																		<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>
+																	</td>
+																	<td>${list.ifmnInfo}</td>
+																	<td>${list.ifmnSet_div}</td>
+																	<td>${list.ifmnCreatedAt}</td>
+																</tr>
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>
@@ -236,7 +239,7 @@
 			                            </div>
 			                            <div class="col-2 offset-8" align="right">
 			                                <button class="border-0 btn bg-success shadow" type="button" data-bs-toggle="modal"
-			                                    data-bs-target="#deleteModal">
+			                                    data-bs-target="#deleteModal" id="btnExcel" name="btnExcel">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>
 			                                <a class="border-0 btn shadow bg-dark" role="button" id="btnForm">
@@ -285,24 +288,28 @@
 		<script>
 		
 		var goUrlList = "/menu/menuList";
-		var goUrlForm = "/menu/menuForm"; 
-		/* var goUrlInst = "/menu/menuInst";
+		var goUrlInst = "/menu/menuInst";
 		var goUrlUpdt = "/menu/menuUpdt";	
 		var goUrlUele = "/menu/menuUele";	
-		var goUrlDele = "/menu/menuDele";*/	
+		var goUrlDele = "/menu/menuDele";	
+		var goUrlForm = "/menu/menuForm"; 
 		
-    	var form = $("#myForm");
+		var excelUri = "/excelDownload";
+		
+		var form = $("form[name=myForm]");
     	
     	var ifmnSeq = $("input:hidden[name=ifmnSeq]");
     	
+		$("#btnReset").on("click", function(){
+			 $(location).attr("href", goUrlList);
+		 });
+		
+    	 // 페이지 네이션
+    	 
     	goList = function(thisPage) {
 			$("input:hidden[name=thisPage2]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		};
-		
-		$("#btnReset").on("click", function(){
-			 $(location).attr("href", goUrlList);
-		 });
 		
 		//form으로 이동
  		
@@ -315,10 +322,29 @@
  			form.attr("action", goUrlForm).submit();
  		} 
  		 
- 		 
 	 	// ----- 체크박스 -----
 	 	
+	 	$("#checkboxAll").click(function() {
+			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+			else $("input[name=checkboxSeq]").prop("checked", false);
+		});
+	
+	
+		$("input[name=checkboxSeq]").click(function() {
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+			
+			if(total != checked) $("#checkboxAll").prop("checked", false);
+			else $("#checkboxAll").prop("checked", true); 
+		});
 
+	 	// ----- 엑셀 다운 -----
+	 	
+	 	$("#btnExcel").click(function() {
+			form.attr("action", excelUri).submit();
+		});
+	 	
+	 	
 		</script>
 	</body>
 </html>

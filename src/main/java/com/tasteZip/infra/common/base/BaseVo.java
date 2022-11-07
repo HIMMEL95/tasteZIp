@@ -3,6 +3,8 @@ package com.tasteZip.infra.common.base;
 import com.tasteZip.infra.common.constants.Constants;
 
 public class BaseVo {
+	
+//	paging	
 	private int thisPage = 1;
 	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;
 	private int pageNumToShow = Constants.PAGE_NUM_TO_SHOW;
@@ -26,8 +28,7 @@ public class BaseVo {
 	private int endPage2;
 	
 	private int startRnumForMysql2 = 0;
-	
-	
+
 	
 	public void setParamsPaging(int totalRows) {
 		setTotalRows(totalRows);

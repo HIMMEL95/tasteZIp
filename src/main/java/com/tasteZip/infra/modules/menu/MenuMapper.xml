@@ -18,7 +18,7 @@
 				,m.ifmnSet_div
 		    from menu m
 			where 1=1
-				<if test="shValue != null and !shValue.equals('')">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</if>
+		<if test="shValue != null and !shValue.equals('')">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</if>
 	   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql" />
 	</select>
@@ -38,16 +38,42 @@
 				,m.ifmnPrice
 				,m.ifmnInfo
 				,m.ifmnSet_div
-		    from menu m
-			where 1=1
-	   	<include refid="Base.orderByLimitForMysql" />
+			FROM menu m
+			WHERE 1=1
+			<choose>
+				<when test="shOption == 1">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 2">AND ifmnPrice = #{shValue}</when>
+				<when test="shOption == 3">AND ifmnInfo LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 4">AND ifmnSet_div LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+			ORDER BY m.ifmnSeq DESC
+		   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql2" />
 	</select>
-
+	
 	<select id="selectOneCount2" resultType="Integer">
 		SELECT COUNT(*)
 		from menu m
 		where 1=1
+		<choose>
+			<when test="shOption == 1">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 2">AND ifmnPrice = #{shValue}</when>
+			<when test="shOption == 3">AND ifmnInfo LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 4">AND ifmnSet_div LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+		ORDER BY m.ifmnSeq DESC
+	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			m.ifmnSeq
+			,m.ifmnName
+			,m.ifmnPrice
+			,m.ifmnInfo
+			,m.ifmnSet_div
+	    from menu m
+		where 1=1
+	 		AND m.ifmnSeq = #{ifmnSeq}
 	</select>
 	
 	<select id="setDiv" resultMap="resultMapObj">
@@ -64,6 +90,58 @@
 	   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql" />
 	</select>
+	
+	<insert id="insert">
+		INSERT INTO menu (
+			m.ifmnSeq
+			,m.ifmnName
+			,m.ifmnPrice
+			,m.ifmnInfo
+			,m.ifmnDiscount
+			,m.ifmnSet_div
+			,m.ifmnDelNy
+		)
+		VALUES (
+			#{ifmnSeq}
+			,#{ifmnName}
+			,#{ifmnPrice}
+			,#{ifmnInfo}
+			,#{ifmnDiscount}
+			,#{ifmnSet_div}
+			,#{ifmnDelNy}
+		)
+		
+		<selectKey resultType="String" keyProperty="ifmnSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<update id="update">
+	 	UPDATE menu
+	 	SET
+			m.ifmnName = #{ifmnName}
+			,m.ifmnPrice = #{ifmnPrice}
+			,m.ifmnInfo = #{ifmnInfo}
+			,m.ifmnSet_div = #{ifmnSet_div}
+ 			
+		WHERE
+			m.ifmnSeq = #{m.ifmnSeq}
+ 	</update>
+ 	
+ 	<update id="uelete">
+	 	UPDATE menu
+	 	SET
+	 		ifmnDelNy = 1
+		WHERE 
+			m.ifmnSeq = #{m.ifmnSeq}
+ 	</update>
+ 	
+ 	<delete id="delete">
+ 		DELETE FROM 
+ 			menu 
+		WHERE 
+			m.ifmnSeq = #{m.ifmnSeq}
+ 	</delete>
 
 	
 </mapper>

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.tasteZip.infra.common.util.UtilDateTime;
 
 @Controller
 @RequestMapping(value = "/menu/")
@@ -18,17 +20,47 @@ public class MenuController {
 	@RequestMapping(value = "menuList")
 	public String menuList(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
 		
-		vo.setParamsPaging2(service.selectOneCount2(vo));
-		
-		List<Menu> list2 = service.selectList2(vo);
-		model.addAttribute("list", list2); 
+		vo.setParamsPaging2(service.selectOneCount2(vo)); 
+
+		List<Menu> list = service.selectList2(vo);
+		model.addAttribute("list", list); 
 		
 		return "infra/xdmin/menu/menuList";
 	}
 	
 	@RequestMapping(value = "menuForm")
-	public String menuForm() throws Exception {
+	public String menuForm(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+		
+		Menu item = service.selectOne(vo);
+		 model.addAttribute("item", item);
+		 
 		return "infra/xdmin/menu/menuForm";
+	}
+
+	@RequestMapping(value= "menuUpdt")
+	public String MenuUpdt(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		service.update(dto);
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/menu/menuList";
+		
+	}
+	
+	@RequestMapping(value= "menuUele")
+	public String MenuUele(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		service.uelete(dto);
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/menu/menuList";
+	}
+	
+
+	@RequestMapping(value= "menuDele")
+	public String MenuDele(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		service.delete(vo);
+		
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/menu/menuList";
 	}
 	
 // -------------- 가게 주인 ------------	

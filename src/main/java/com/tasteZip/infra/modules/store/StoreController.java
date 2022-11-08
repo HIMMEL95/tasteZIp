@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/store/")
@@ -50,7 +51,31 @@ public class StoreController {
 	    
 	    Store item = service.xdminSelectOne(vo);
 	    model.addAttribute("item", item);
+	    
+	    List<Store> day = service.day(dto);
+	    model.addAttribute("day", day);
+	    
+	    List<Store> opening = service.opening(dto);
+	    model.addAttribute("opening", opening);
 	    return "infra/xdmin/store/storeForm";
+	}
+	
+	@RequestMapping(value = "storeInst")
+	public String storeInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	    service.inst(dto);
+	    
+	    vo.setIfstSeq(dto.getIfrtSeq());
+	    redirectAttributes.addFlashAttribute("vo", vo);
+	    return "redirect:/store/xdminStoreForm";
+	}
+
+	@RequestMapping(value = "storeUpdt")
+	public String storeUpdt(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	    service.inst(dto);
+	    
+	    vo.setIfstSeq(dto.getIfrtSeq());
+	    redirectAttributes.addFlashAttribute("vo", vo);
+	    return "redirect:/store/xdminStoreForm";
 	}
 	
 	@RequestMapping(value = "storeDele")

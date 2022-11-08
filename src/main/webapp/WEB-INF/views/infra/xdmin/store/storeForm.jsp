@@ -67,10 +67,7 @@
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
 		<form id="myform" name="myform" method="post" autocomplete="off">
-			<!-- *Vo.jsp s -->
-			<%-- <%@include file="codeGroupVo.jsp"%> --%>
-			<!-- *Vo.jsp e -->
-			
+			<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 			<div style="height: 70px"></div>
 			<div class="wrapper">
 				<div class="container">
@@ -121,132 +118,178 @@
 												</h2>
 												<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 													<div class="accordion-body">
-														<div class="row">
-															<div class="col-2">
-																<label for="ccgSeq" class="form-label">일요일</label> 
-															</div>
-															<div class="col-2">
-																<select class="form-select" id="shOptionDate" name="shOptionDate">
-																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
-																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
-																</select>
-															</div>
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
-															</div>
-															~
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-2">
-																<label for="ccgSeq" class="form-label">월요일</label> 
-															</div>
-															<div class="col-2">
-																<select class="form-select" id="shOptionDate" name="shOptionDate">
-																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
-																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
-																</select>
-															</div>
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
-															</div>
-															~
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-2">
-																<label for="ccgSeq" class="form-label">화요일</label> 
-															</div>
-															<div class="col-2">
-																<select class="form-select" id="shOptionDate" name="shOptionDate">
-																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
-																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
-																</select>
-															</div>
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
-															</div>
-															~
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-2">
-																<label for="ccgSeq" class="form-label">수요일</label> 
-															</div>
-															<div class="col-2">
-																<select class="form-select" id="shOptionDate" name="shOptionDate">
-																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
-																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
-																</select>
-															</div>
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
-															</div>
-															~
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-2">
-																<label for="ccgSeq" class="form-label">목요일</label> 
-															</div>
-															<div class="col-2">
-																<select class="form-select" id="shOptionDate" name="shOptionDate">
-																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
-																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
-																</select>
-															</div>
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
-															</div>
-															~
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-2">
-																<label for="ccgSeq" class="form-label">금요일</label> 
-															</div>
-															<div class="col-2">
-																<select class="form-select" id="shOptionDate" name="shOptionDate">
-																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
-																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
-																</select>
-															</div>
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
-															</div>
-															~
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
-															</div>
-														</div>
-														<div class="row">
-															<div class="col-2">
-																<label for="ccgSeq" class="form-label">토요일</label> 
-															</div>
-															<div class="col-2">
-																<select class="form-select" id="shOptionDate" name="shOptionDate">
-																	<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
-																	<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
-																</select>
-															</div>
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
-															</div>
-															~
-															<div class="col">
-																<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
-															</div>
-														</div>
+														<c:choose>
+															<c:when test="${empty item.ifstSeq }">
+																<div class="row">
+																	<div class="col-2">
+																		<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
+																		<label for="ccgSeq" class="form-label">
+																			일요일
+																			<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
+																				<c:if test="${item.ifrtDay eq listDay.ifccSeq}">selected</c:if>${listDay.ifccName }1
+																			</c:forEach>
+																		</label> 
+																	</div>
+																	<div class="col-2">
+																		<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																			<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-2">
+																		<label for="ccgSeq" class="form-label">월요일</label> 
+																	</div>
+																	<div class="col-2">
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																			<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-2">
+																		<label for="ccgSeq" class="form-label">화요일</label> 
+																	</div>
+																	<div class="col-2">
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																			<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-2">
+																		<label for="ccgSeq" class="form-label">수요일</label> 
+																	</div>
+																	<div class="col-2">
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																			<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-2">
+																		<label for="ccgSeq" class="form-label">목요일</label> 
+																	</div>
+																	<div class="col-2">
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																			<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-2">
+																		<label for="ccgSeq" class="form-label">금요일</label> 
+																	</div>
+																	<div class="col-2">
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																			<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-2">
+																		<label for="ccgSeq" class="form-label">토요일</label> 
+																	</div>
+																	<div class="col-2">
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>휴무</option>
+																			<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>영업</option>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+															</c:when>	
+															<c:otherwise>
+																<div class="row">
+																	<div class="col-2">
+																		<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
+																		<label for="ccgSeq" class="form-label">
+																			<c:forEach items="${listCodeDay}" var="listDay" varStatus="statuDay">
+																				<c:if test="${item.ifrtDay eq listDay.ifccSeq}">selected</c:if><c:out value="${listDay.ifccName }"/>
+																			</c:forEach>
+																		</label> 
+																	</div>
+																	<div class="col-2">
+																		<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
+																		<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<option value="">선택</option>
+																			<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
+																				<option value="${item.ifrtOpening }" <c:if test="${item.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
+																			</c:forEach>
+																		</select>
+																	</div>
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime">
+																	</div>
+																	~
+																	<div class="col">
+																		<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime">
+																	</div>
+																</div>
+															</c:otherwise>
+														</c:choose>
 													</div>
 												</div>
 											</div>
@@ -254,41 +297,68 @@
 									</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
-									<div class="col-6">
-										<label for="name" class="form-label">전화번호</label> 
-										<input type="text" class="form-control" id="" name="" placeholder="01000000000">
+									<div class="col">
+										<label for="ifstName" class="form-label">이름</label> 
+										<input type="text" class="form-control" id="ifstName" name="ifstName" value="${item.ifstName }">
+									</div>
+									<div class="col">
+										<label for="ifstPhone" class="form-label">전화번호</label> 
+										<input type="text" class="form-control" id="ifstPhone" name="ifstPhone" placeholder="01000000000" value="${item.ifstPhone }">
 									</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
-									<label for="name" class="form-label">우편번호</label> 
-									<div class="col-8">	
-						   				<input type="text" class="form-control" id="" name="" value="">
+									<label for="ifstOrderNy" class="form-label">주문제공여부</label> 
+					   				<div class="col-6">
+										<select class="form-select" id="ifstOrderNy" name="ifstOrderNy">
+											<option value="">선택</option>
+											<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>X</option>
+											<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>O</option>
+										</select>
+									</div>
+								</div>
+								<div class="row mt-3" style="margin-top: 3rem;">
+									<label for="ifstZipCode" class="form-label">우편번호</label> 
+									<div class="col-6">	
+						   				<input type="text" class="form-control" id="ifstZipCode" name="ifstZipCode" value="${item.ifstZipCode }">
 						   			</div>
-						   			<div class="col-4">
-						   				<button type="button" class="btn btn-outline-dark" onclick=""> 우편번호 검색 </button>
+						   			<div class="col">
+						   				<button type="button" class="btn btn-outline-dark" id="searchBtn"> 우편번호 검색 </button>
 						   				<button class="btn btn-outline-dark" type="button" id="" style="height: 2.4rem;"><i class="fa-solid fa-rotate-left"></i></button>
 					   				</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
-									<div class="col-6">	
-										<label for="name" class="form-label">상세주소</label> 
-						   				<input type="text" class="form-control" id="" name="" value="">
+									<label for="ifstAddress" class="form-label">주소</label> 
+									<div class="col">	
+						   				<input type="text" class="form-control" id="ifstAddress" name="ifstAddress" value="${item.ifstAddress }">
 						   			</div>
-						   			<div class="col-6">
-						   				<label for="name" class="form-label">참고 항목</label>
-						   				<input type="text" class="form-control" id="" name="" value=""> 
-					   				</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
+									<div class="col-6">	
+										<label for="v" class="form-label">상세주소</label> 
+						   				<input type="text" class="form-control" id="ifstAddressDetail" name="ifstAddressDetail" value="${item.ifstAddressDetail }">
+						   			</div>
+						   			<div class="col-6">
+						   				<label for="ifstAddressExtra" class="form-label">참고 항목</label>
+						   				<input type="text" class="form-control" id="ifstAddressExtra" name="ifstAddressExtra" value="${item.ifstAddressExtra }"> 
+					   				</div>
+								</div>
+								<div class="row">
+				                	<div class="col">
+				                		<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+											<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1;width: 20px;" onclick="foldDaumPostcode()" alt="접기 버튼">
+										</div>
+				                	</div>
+				                </div>
+								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-12">
-										<label for="name" class="form-label">간편 길안내</label> 
-										<input type="text" class="form-control" id="" name="" placeholder="">
+										<label for="ifstDirections" class="form-label">간편 길안내</label> 
+										<input type="text" class="form-control" id="ifstDirections" name="ifstDirections" placeholder="" value="${item.ifstDirections }">
 									</div>
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-12">
-										<label for="name" class="form-label">가게 소개글</label> 
-										<input type="text" class="form-control" id="" name="" placeholder="">
+										<label for="ifstInfo" class="form-label">가게 소개글</label> 
+										<input type="text" class="form-control" id="ifstInfo" name="ifstInfo" placeholder="" value="${item.ifstInfo }">
 									</div>
 								</div>
 							</div>
@@ -297,31 +367,31 @@
 	                                <button class="border-0 btn bg-secondary shadow" type="button" id="btnList">
 	                                    <i class="fa-solid fa-bars" style="color: white;"></i>
 	                                </button>
-	                                <button id="btnUel" value="Uel" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
+	                                <button id="btnUel" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
 	                                    data-bs-target="#deleteModal">
-	                                    <i class="fa-solid fa-xmark" style="color: white;"></i>
+	                                    <i class="fa-solid fa-xmark text-white"></i>
 	                                </button>
 	                            </div>
 	                            <div class="col-3 offset-7" align="right">
 	                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
-	                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	                                    <div class="modal-dialog">
-	                                        <div class="modal-content">
-	                                            <div class="modal-header">
-	                                                <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
-	                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-	                                                    aria-label="Close"></button>
-	                                            </div>
-	                                            <div class="modal-body fs-6">
-	                                           		선택하신 게시물을 정말로 삭제하시겠습니까?
-	                                            </div>
-	                                            <div class="modal-footer">
-	                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-	                                                <button id="delBtn" type="button" class="btn btn-primary">삭제</button>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                </div>
+		                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		                                <div class="modal-dialog">
+		                                    <div class="modal-content">
+		                                        <div class="modal-header">
+		                                            <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
+		                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+		                                                aria-label="Close"></button>
+		                                        </div>
+		                                        <div class="modal-body fs-6">
+		                                       		선택하신 게시물을 정말로 삭제하시겠습니까?
+		                                        </div>
+		                                        <div class="modal-footer">
+		                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+		                                            <button id="delBtn" type="button" class="btn btn-primary">삭제</button>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
 	                                <button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
 	                                    data-bs-target="#deleteModal">
 	                                    <i class="fa-solid fa-trash-can" style="color: white;"></i>
@@ -352,13 +422,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>
 
-		var goUrlList = "/codeGroup/codeGroupList"; /* #-> */
-		var goUrlInst = "/codeGroup/codeGroupInst"; /* #-> */
-		var goUrlUpdt = "/codeGroup/codeGroupUpdt"; /* #-> */
-		var goUrlUele = "/codeGroup/codeGroupUele"; /* #-> */
-		var goUrlDele = "/codeGroup/codeGroupDele"; /* #-> */
+		var goUrlList = "/store/xdminStoreList"; /* #-> */
+		var goUrlInst = "/store/storeInst"; /* #-> */
+		var goUrlUpdt = "/store/storeUpdt"; /* #-> */
+		var goUrlUel = "/store/storeUele";
+        var goUrlDel = "/store/storeDele";
 
-		var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
+		var ifstSeq = $("input:hidden[name=ifstSeq]"); /* #-> */
 
 		var form = $("form[name=myform]");
 		var formVo = $("form[name=formVo]");
@@ -367,9 +437,123 @@
 			formVo.attr("action", goUrlList).submit();
 		});
 
-		 
+		$("#btnUel").on("click", function() {
+			DelValidation("#delBtn", goUrlUel, "선택하신 게시물을 삭제하시겠습니까?");
+		})
 		
+		$("#btnDel").on("click", function() {
+			DelValidation("#delBtn", goUrlDel, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
+		})
 		
+		DelValidation = function(confirm, url, msg) {
+			$(".modal-body").html(msg);
+			$(confirm).on("click", function() {
+				form.attr("action", url).submit();
+			})
+		}
+		
+		$("#btnSave").on("click", function() {
+			if (ifstSeq.val() == 0 || ifstSeq.val() == "") {
+				form.attr("action", goUrlInst).submit();
+			} else {
+				form.attr("action", goUrlUpdt).submit();
+			}
+		})
+		
+	</script>
+	<script type="text/javascript">
+		var element_wrap = document.getElementById('wrap');
+	    
+	    function foldDaumPostcode() {
+	        // iframe을 넣은 element를 안보이게 한다.
+	        element_wrap.style.display = 'none';
+	    }
+	    
+	    function daumPostCode() {
+	    	var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+	        new daum.Postcode({
+	            oncomplete: function(data) {
+	                // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+	
+	                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+	                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+	                var addr = ''; // 주소 변수
+	                var extraAddr = ''; // 참고항목 변수
+	
+	                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+	                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+	                    addr = data.roadAddress;
+	                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+	                    addr = data.jibunAddress;
+	                }
+	
+	                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+	                if(data.userSelectedType === 'R'){
+	                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+	                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+	                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+	                        extraAddr += data.bname;
+	                    }
+	                    // 건물명이 있고, 공동주택일 경우 추가한다.
+	                    if(data.buildingName !== '' && data.apartment === 'Y'){
+	                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                    }
+	                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+	                    if(extraAddr !== ''){
+	                        extraAddr = ' (' + extraAddr + ')';
+	                    }
+	                    // 조합된 참고항목을 해당 필드에 넣는다.
+	                    document.getElementById("ifstAddressExtra").value = extraAddr;
+	                
+	                } else {
+	                    document.getElementById("ifstAddressExtra").value = '';
+	                }
+	
+	            	// 우편번호와 주소 정보를 해당 필드에 넣는다.
+	                document.getElementById('ifstZipCode').value = data.zonecode;
+	                document.getElementById("ifstAddress").value = addr;
+	                // 커서를 상세주소 필드로 이동한다.
+	                document.getElementById("ifstAddressDetail").focus();
+	                
+	    			/* var geocoder = new daum.maps.services.Geocoder();
+	    			
+	    			geocoder.addressSearch(addr, function(result, status) {
+	    				if(status === daum.maps.services.Status.OK) {
+	    					$("#lat").val(result[0].y);
+	    					$("#long").val(result[0].x);
+	    				}
+	    			}); */
+	
+	                // iframe을 넣은 element를 안보이게 한다.
+	                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+	                element_wrap.style.display = 'none';
+	
+	                // 우편번호 찾기 화면이 보이기 이전으로 scroll 위치를 되돌린다.
+	                document.body.scrollTop = currentScroll;
+	            },
+	            // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
+	            onresize : function(size) {
+	                element_wrap.style.height = size.height+'px';
+	            },
+	            width : '100%',
+	            height : '100%'
+	        }).embed(element_wrap);
+	
+	        // iframe을 넣은 element를 보이게 한다.
+	        element_wrap.style.display = 'block';
+	    	
+	    };
+	    
+	    $("#refresh").on("click", function() {
+			$("#ifstZipCode").val('');
+			$("#ifstAddress").val('');
+			$("#ifstAddressDetail").val('');
+			$("#ifstAddressExtra").val('');
+		});
+	    
+	    $("#searchBtn").on("click", function() {
+        	daumPostCode();
+		});
 	</script>
 </body>
 </html>

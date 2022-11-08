@@ -16,6 +16,13 @@ public class Store {
     private String ifstCreatedAt;
     private String ifstModifiedAt;
     
+    private String ifrtSeq;
+    private Integer ifrtDay;
+    private String ifrtStartTime;
+    private String ifrtEndTime;
+    private Integer ifrtOpening;
+    
+    // store dto
     public String getIfstSeq() {
         return ifstSeq;
     }
@@ -93,5 +100,37 @@ public class Store {
     }
     public void setIfstModifiedAt(String ifstModifiedAt) {
         this.ifstModifiedAt = ifstModifiedAt;
+    }
+    
+    // runningTime dto
+    public String getIfrtSeq() {
+        return ifrtSeq;
+    }
+    public void setIfrtSeq(String ifrtSeq) {
+        this.ifrtSeq = ifrtSeq;
+    }
+    public Integer getIfrtDay() {
+        return ifrtDay;
+    }
+    public void setIfrtDay(Integer ifrtDay) {
+        this.ifrtDay = ifrtDay;
+    }
+    public String getIfrtStartTime() {
+        return ifrtStartTime;
+    }
+    public void setIfrtStartTime(String ifrtStartTime) {
+        this.ifrtStartTime = ifrtStartTime;
+    }
+    public String getIfrtEndTime() {
+        return ifrtEndTime;
+    }
+    public void setIfrtEndTime(String ifrtEndTime) {
+        this.ifrtEndTime = ifrtEndTime;
+    }
+    public Integer getIfrtOpening() {
+        return ifrtOpening;
+    }
+    public void setIfrtOpening(Integer ifrtOpening) {
+        this.ifrtOpening = ifrtOpening;
     }
 }

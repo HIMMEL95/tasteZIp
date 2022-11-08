@@ -96,9 +96,38 @@
 			,s.ifstInfo
 			,s.ifstDirections
 			,s.ifstOrderNy
+			,rt.ifrtDay
+            ,rt.ifrtStartTime
+            ,rt.ifrtEndTime
+            ,rt.ifrtOpening
 	    from store s
+	    	left join runningTime rt on rt.ifstSeq = s.ifstSeq
 		where 1=1
 			and s.ifstSeq = #{ifstSeq}
+	</select> 
+
+	<select id="day" resultMap="resultMapObj">
+		select 
+			rt.ifrtDay
+            ,rt.ifrtOpening
+	    from store s
+	    	inner join runningTime rt on rt.ifstSeq = s.ifstSeq
+		where 1=1
+			and s.ifstSeq = #{ifstSeq}
+		group by 
+			ifrtDay
+	</select> 
+
+	<select id="opening" resultMap="resultMapObj">
+		select 
+			rt.ifrtDay
+            ,rt.ifrtOpening
+	    from store s
+	    	inner join runningTime rt on rt.ifstSeq = s.ifstSeq
+		where 1=1
+			and s.ifstSeq = #{ifstSeq}
+		group by 
+			ifrtOpening
 	</select> 
 	
 	<insert id="insert">
@@ -134,6 +163,26 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+
+	<insert id="runningInsert">
+		INSERT INTO runningTime (
+			ifrtDay 
+			,ifrtStartTime 
+			,ifrtEndTime
+			,ifrtOpening
+			,ifstSeq
+		)
+		VALUES (
+			#{ifrtDay}
+			,#{ifrtStartTime}
+			,#{ifrtEndTime}
+			,#{ifrtOpening}
+			,#{ifstSeq}
+		)
+		<selectKey resultType="String" keyProperty="ifrtSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 	
 	<update id="update">
 		UPDATE store
@@ -148,6 +197,18 @@
 			,ifstDirections = #{ifstDirections}
 			,ifstOrderNy = #{ifstOrderNy}
 			,ifstModifiedAt = now()
+		where 1=1
+			and ifstSeq = #{ifstSeq}
+	</update>
+
+	<update id="runningUpdate">
+		UPDATE store
+		SET
+			ifrtDay = #{ifrtDay}
+			,ifrtStartTime = #{ifrtStartTime}
+			,ifrtEndTime = #{ifrtEndTime}
+			,ifrtOpening = #{ifrtOpening}
+			,ifstSeq = #{ifstSeq}
 		where 1=1
 			and ifstSeq = #{ifstSeq}
 	</update>

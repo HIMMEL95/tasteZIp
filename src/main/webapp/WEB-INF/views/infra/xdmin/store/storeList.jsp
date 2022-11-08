@@ -229,7 +229,7 @@
 													</c:when>
 													<c:otherwise>		
 														<c:forEach items="${list}" var="list" varStatus="status">
-															<tr onclick="newPage()" class="info">
+															<tr onclick="goForm(${list.ifstSeq})" class="info" style="cursor: pointer;">
 																<th scope="row" class="td1" src="./memberMod.html">
 																	<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
 																</th>

@@ -21,193 +21,296 @@
 </head>
 <body>
 	<!-- start -->
-	<header>
-		<div class="header bg-dark">
-			<div class="container">
-				<div class="row">
-					<nav class="navbar col" style="padding-bottom : 0px;">
-						<div class="col">
-							<a class="navbar-brand">
-								<img src="/resources/images/main/logo2.png" style="width: 80px;">
-								<span class="text-white" id="MATZIP">MATZIP</span>
-							</a>
-						</div>
-						<div class="row offset-5">
-							<div class="userimg col">
-								<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
-								<span id="MATZIP" class="d-inline-block text-white">Tony Chang <br> Administrator</span>
-							</div>
-						</div>
-					</nav>
-				</div>
-			</div>
-			<div class="bg-dark">
-				<div class="container">
-					<nav class="navbar navbar-expand-lg">
-						<div class="collapse navbar-collapse" id="navbar" style="padding-left: 350px;">
-							<div class="navbar-nav">
-								<a class="nav-link active text-white me-3 topNav" aria-current="page" href="/code/codeList">Code</a>
-								<a class="nav-link text-white me-3 topNav" href="/codeGroup/codeGroupList">codeGroup</a>
-								<a class="nav-link text-white me-3 topNav" href="/member/memberList">Member</a>
-								<a class="nav-link text-white me-3 topNav" href="#">Order</a>
-								<a class="nav-link text-white me-3 topNav" href="/store/xdminStoreList">Store</a>
-								<a class="nav-link text-white me-3 topNav" href="#">Story</a>
-								<a class="nav-link text-white me-3 topNav" href="#">Menu</a>
-								<a class="nav-link text-white" href="#">시스템관리</a>
-							</div>s
-						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
+	<header class="navbar-light fixed-top header-static bg-mode align-items-center">
+	        <!-- 상단 -->
+	        <nav class="navbar navbar-expand-lg bg-dark">
+	            <div class="container px-3 px-xl-5 pt-1">
+	                <!-- Logo START -->
+	                <a class="navbar-brand" href="/sportMain">
+	                    <img src="/resources/images/main/logo2.png" style="width: 80px;">
+						<span class="text-white" id="MATZIP">MATZIP</span>
+	                </a>
+	                <!-- Profile START -->
+	                <div class="dropdown">
+	                    <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
+	                        <li class="me-2">
+	                            <a class="p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside"
+	                                data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+	                                <img class="avatar-img rounded-circle" src="/resources/images/diano.jpg" alt="avatar"
+	                                    style="width: 40px;">
+	                            </a>
+	                            <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
+	                                aria-labelledby="profileDropdown">
+	                                <!-- Profile info -->
+	                                <li class="px-3">
+	                                    <div class="d-flex align-items-center">
+	                                        <!-- Avatar -->
+	                                        <div class="avatar mt-2">
+	                                            <img class="avatar-img rounded-circle shadow" src="/resources/images/diano.jpg"
+	                                                alt="avatar" style="width: 30px;">
+	                                        </div>
+	                                        <div>
+	                                            <a class="fs-6 fw-bold" href="/member/memberUView?seq=${sessSeq }"><c:out value="${sessName }"/> </a>
+	                                            <p class="small m-0"><c:out value="${sessEmail }"/> </p>
+	                                        </div>
+	                                    </div>
+	                                    <hr>
+	                                </li>
+	                                <!-- Links -->
+	                                <li>
+	                                    <a class="dropdown-item" href="/member/memberUView?seq=${sessSeq }">
+	                                        <i class="fa-solid fa-user me-2"></i>
+	                                        Edit Profile
+	                                    </a>
+	                                </li>
+	                                <!-- <li>
+	                                    <a class="dropdown-item" href="#">
+	                                        <i class="fa-solid fa-gear me-2"></i>
+	                                        Account Settings
+	                                    </a>
+	                                </li> -->
+	                                <li>
+	                                    <a class="dropdown-item" href="#">
+	                                        <i class="fa-solid fa-circle-info me-2"></i>
+	                                        Help
+	                                    </a>
+	                                </li>
+	                                <li>
+	                                    <a class="dropdown-item bg-danger-soft-hover" id="signOutBtn" >
+	                                        <i class="fa-solid fa-power-off me-2"></i>
+	                                        Sign Out
+	                                    </a>
+	                                </li>
+	                                <!-- Dark mode switch START -->
+	                            </ul>
+	                        </li>
+	                    </ul>
+	                </div>
+	                <!-- Profile START -->
+	            </div>
+	        </nav>
+	    </header>
 	<main>
-		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
-		<form id="myform" name="myform" method="post" autocomplete="off">
-			<!-- *Vo.jsp s -->
-			<%-- <%@include file="codeGroupVo.jsp"%> --%>
-			<!-- *Vo.jsp e -->
-			
+		<form  id="form" name="form" method="post" >
+		<input type="hidden" name="formNY" value="1">
+		<input type="hidden" name="ifccSeq" value="<c:out value="${vo.ifccSeq}"/>"/>
+		<%@include file="codeVo.jsp"%>
 			<div style="height: 70px"></div>
 			<div class="wrapper">
 				<div class="container">
 					<div class="row" style="height: 800px;">
-						<div class="col-3">
-							<div class="sidebar">
-								<!--menu item-->
-								<ul>
-									<li>
-										<a href="#" class="active">
-											<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Home</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<span class="icon"><i class="fas fa-desktop"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Dashboard</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<span class="icon"><i class="fas fa-user-friends"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Orders</span>
-										</a>
-									</li>
-									<li><hr class="dropdown-divider" style="color: lightgray;"></li>
-									<li>
-										<a href="#">
-											<span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Account</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+						<div class="col-lg-3">
+		                        <!-- Advanced filter responsive toggler START -->
+		                        <nav class="navbar navbar-expand-lg mx-0">
+		                            <div class="d-flex align-items-center d-lg-none">
+		                                <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas"
+		                                    data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+		                                    <i class="btn btn-primary fw-bold fa-solid fa-sliders-h text-white" style="background: #212529;"></i>
+		                                    <span class="h6 mb-0 fw-bold d-lg-none ms-2">항목</span>
+		                                </button>
+		                            </div>
+		                            <nav class="navbar navbar-expand-lg mx-0">
+		                                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar"
+		                                    style="visibility: visible; width:250px;" aria-modal="true" role="dialog">
+		                                    <div class="offcanvas-header">
+		                                        <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas"
+		                                            aria-label="Close"></button>
+		                                    </div>
+		                                    <div class="offcanvas-body d-block px-2 px-lg-0">
+		                                        <div class="card overflow-hidden">
+		                                            <img src="https://cdn.pixabay.com/photo/2017/03/27/14/21/chairs-2179044__340.jpg" class="card-img-top" alt="background"
+		                                                style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+		                                            <div class="card-body pt-0">
+		                                                <div class="text-center">
+		                                                    <hr>
+		                                                    <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/member/memberList">
+		                                                                <span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Home</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/member/memberList">
+		                                                                <span class="icon"><i class="fa-solid fa-user"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Member</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/order/orderList">
+		                                                                <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Order</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/store/xdminStoreList">
+		                                                                <span class="icon"><i class="fa-solid fa-store"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Store</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="#">
+		                                                                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Story</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/menu/menuList">
+		                                                                <span class="icon"><i class="fa-solid fa-utensils"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Menu</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/code/codeList">
+		                                                                <span class="icon"><i class="fa-solid fa-code"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Code</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/codeGroup/codeGroupList">
+		                                                                <span class="icon"><i class="fa-solid fa-layer-group"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">CodeGroup</span>
+		                                                            </a>
+		                                                        </li>
+		                                                    </ul>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                        <p class="small text-center mt-1">©2022 <a class="text-body" target="_blank" href="#"> TASTEZIP
+		                                            </a></p>
+		                                    </div>
+		                                </div>
+		                            </nav>
+		                        </nav>
+		                    </div>
 						<div class="col" style="padding-top: 20px;">
 							<h2 class="needs-validation mt-2">Code Form</h2>
 							<div class="content">
-								<div class="row">
+								<div class="row mt-3">
 									<div class="col">
-										<label for="ccgSeq" class="form-label">코드그룹 코드</label> <input type="text" class="form-control" id="ccgSeq" placeholder="영문(대소문자),숫자">
+										<label class="form-label"><b>코드 이름(한글)</b></label>
+	   									<input type="text" class="form-control" value="<c:out value="${item.ifccName}"/>" placeholder="" name="ifccName" placeholder="한글,숫자">
 									</div>
 									<div class="col">
-										<label for="codeGroup_another" class="form-label">코드그룹 코드(Another)</label> <input type="text" class="form-control" id="codeGroup_another" name="codeGroup_another" placeholder="영문(대소문자),숫자" value="">
+										<label class="form-label"><b>코드 이름(영문)</b></label>
+	   									<input type="text" class="form-control" value="<c:out value="${item.ifccNameEng}"/>" placeholder="" name="ifccNameEng" placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
-										<label for="name" class="form-label">코드그룹 이름(한글)</label> 
-										<input type="text" class="form-control" id="name" name="name" placeholder="한글,숫자">
-									</div>
-									<div class="col">
-										<label for="name_eng" class="form-label">코드그룹 이름(영문)</label> <input type="text" class="form-control" id="name_eng" name="name_eng" placeholder="영문(대소문자),숫자">
-									</div>
-								</div>
-								<div class="row mt-3">
-									<div class="col">
-										<label for="codeGroup_use" class="form-label">사용여부</label> <select class="form-select" id="codeGroup_use" name="codeGroup_use">
-											<%-- <option selected disabled value="">선택</option>
-											<option value="0" <c:if test = "${item.codeGroup_use eq 0}">selected</c:if>>N</option>
-											<option value="1" <c:if test = "${item.codeGroup_use eq 1}">selected</c:if>>Y</option> --%>
-											<option value=""> 선택</option>
+										<label for="codeGroup_use" class="form-label">사용여부</label> 
+										<select class="form-select" aria-label="Default select example" name="ifccUseNy">
+											<option value="1" <c:if test="${item.ifccUseNy eq 1 }"> selected</c:if>>Y</option>
+											<option value="0" <c:if test="${item.ifccUseNy eq 0 }"> selected</c:if>>N</option>
 										</select>
 									</div>
 									<div class="col">
-										<label for="codeGroup_or" class="form-label">순서</label> <input type="text" class="form-control" id="codeGroup_or" name="codeGroup_or" placeholder="숫자">
+										<label for="codeGroup_or" class="form-label">순서</label> 
+										<input type="text" class="form-control" name="ifccOrder" value="<c:out value="${item.ifccOrder}"/>" placeholder="숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
 										<label for="codeGroup_con" class="form-label">설명</label>
-										<textarea class="form-control" id="codeGroup_con" placeholder="Required example textarea"></textarea>
+										<input type="text" class="form-control" value="<c:out value="${item.ifccExplanation}"/>" name="ifccExplanation" placeholder="">
 									</div>
 									<div class="col">
-										<label for="ifcgDelNy" class="form-label">삭제여부</label> <select class="form-select" id="ifcgDelNy" name="ifcgDelNy">
-											<option value="0">N</option>
-											<option value="1">Y</option>
+										<label for="ifcgDelNy" class="form-label">삭제여부</label> 
+										<select class="form-select" aria-label="Default select example" name="ifccDelNy">
+											<option value="1" <c:if test="${item.ifccDelNy eq 1 }"> selected</c:if>>Y</option>
+											<option value="0" <c:if test="${item.ifccDelNy eq 0 }"> selected</c:if>>N</option>
 										</select>
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
-										<label for="codeGroup_V1" class="form-label">예비1(Varchar type)</label> <input type="text" class="form-control" id="codeGroup_V1" name="codeGroup_V1" placeholder="영문(대소문자),숫자">
+										<label for="codeGroup_V1" class="form-label">예비1(Varchar type)</label> 
+										<input type="text" class="form-control" placeholder="영문(대소문자),숫자">
 									</div>
 									<div class="col">
-										<label for="codeGroup_V2" class="form-label">예비2(Varchar type)</label> <input type="text" class="form-control" id="codeGroup_V2" name="codeGroup_V2" placeholder="영문(대소문자),숫자">
+										<label for="codeGroup_V2" class="form-label">예비2(Varchar type)</label> 
+										<input type="text" class="form-control" placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col-6">
-										<label for="codeGroup_V3" class="form-label">예비3(Varchar type)</label><input type="text" class="form-control" id="codeGroup_V3" name="codeGroup_V3" placeholder="영문(대소문자),숫자">
+										<label for="codeGroup_V3" class="form-label">예비3(Varchar type)</label>
+										<input type="text" class="form-control" placeholder="영문(대소문자),숫자">
 									</div>
 								</div>
 								<div class="row mt-3">
 									<div class="col">
-										<label for="codeGroup_I1" class="form-label">예비1 (Int type)</label><input type="text" class="form-control" id="codeGroup_I1" name="codeGroup_I1" placeholder="숫자">
+										<label for="codeGroup_I1" class="form-label">예비1 (Int type)</label>
+										<input type="text" class="form-control" placeholder="숫자">
 									</div>
 									<div class="col">
-										<label for="codeGroup_I2" class="form-label">예비2 (Int type)</label><input type="text" class="form-control" id="codeGroup_I2" name="codeGroup_I2" placeholder="숫자">
+										<label for="codeGroup_I2" class="form-label">예비2 (Int type)</label>
+										<input type="text" class="form-control" placeholder="숫자">
+									</div>
+								</div>
+								<div class="row mt-3">
+									<div class="col-6">
+										<label for="codeGroup_V3" class="form-label">예비3(Int type)</label>
+										<input type="text" class="form-control" placeholder="숫자">
 									</div>
 								</div>
 							</div>
-							<div class="row align-items-center mt-5">
+							<div class="row align-items-center mt-5 mb-5">
 	                            <div class="col-2">
 	                                <button class="border-0 btn bg-secondary shadow" type="button" id="btnList">
 	                                    <i class="fa-solid fa-bars" style="color: white;"></i>
 	                                </button>
-	                                <button id="btnUel" value="Uel" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
-	                                    data-bs-target="#deleteModal">
+	                                <button class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal2">
 	                                    <i class="fa-solid fa-xmark" style="color: white;"></i>
 	                                </button>
 	                            </div>
+	                            
+	                            <!-- uele -->
 	                            <div class="col-3 offset-7" align="right">
-	                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
-	                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	                                    <div class="modal-dialog">
-	                                        <div class="modal-content">
-	                                            <div class="modal-header">
-	                                                <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
-	                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-	                                                    aria-label="Close"></button>
-	                                            </div>
-	                                            <div class="modal-body fs-6">
-	                                           		선택하신 게시물을 정말로 삭제하시겠습니까?
-	                                            </div>
-	                                            <div class="modal-footer">
-	                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-	                                                <button id="delBtn" type="button" class="btn btn-primary">삭제</button>
-	                                            </div>
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                                <button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
-	                                    data-bs-target="#deleteModal">
+	                               <!-- x버튼 Modal -->
+									<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel2"><b>MATZIP</b></h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        정말로 삭제하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-dark" id="btnUelete">삭제 </button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+	                                
+	                                <button class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
 	                                    <i class="fa-solid fa-trash-can" style="color: white;"></i>
 	                                </button>
 	                                <button id="btnSave" class="border-0 btn bg-success shadow" type="button">
 	                                    <i class="fa-regular fa-bookmark" style="color: white;"></i>
 	                                </button>
+	                                
+	                                <!-- 휴지통 Modal -->
+									<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h5 class="modal-title" id="exampleModalLabel"><b>MATZIP</b></h5>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        정말로 삭제하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+									        <button type="button" class="btn btn-dark" id="btnDelete">삭제 </button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
 	                            </div>
 	                        </div>
 						</div>
@@ -215,10 +318,8 @@
 				</form>
 		
  		<form name="formVo" id="formVo" method="post">
-			<!-- *Vo.jsp s -->
-			<%@include file="codeVo.jsp"%>
-			<!-- #-> -->
-			<!-- *Vo.jsp e -->
+ 		<input type="hidden" name="ifccSeq" value="<c:out value="${vo.ifccSeq}"/>"/>
+ 		<%@include file="codeVo.jsp"%>
 		</form> 
 	</main>
 
@@ -230,26 +331,40 @@
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bd29bc43140391b0206f367d2b8c01eb&libraries=services"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
+	<script type="text/javascript">
 
-		var goUrlList = "/code/codeList"; /* #-> */
-		var goUrlInst = "/code/codeInst"; /* #-> */
-		var goUrlUpdt = "/code/codeUpdt"; /* #-> */
-		var goUrlUele = "/code/codeUele"; /* #-> */
-		var goUrlDele = "/code/codeDele"; /* #-> */
+		var goUrlList = "/code/codeList";
+		var goUrlInst = "/code/codeInst";
+		var goUrlUpdt = "/code/codeUpdt";
+		var goUrlUele = "/code/codeUele";
+		var goUrlDele = "/code/codeDele";
 
-		var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
+		var seq = $("input:hidden[name=ifccSeq]");
 
-		var form = $("form[name=myform]");
+		var form = $("form[name=form]");
 		var formVo = $("form[name=formVo]");
 		
-		$("#btnList").on("click", function() {
+		$("#btnSave").on("click", function(){
+			if (seq.val() == "0" || seq.val() == ""){
+		   		form.attr("action", goUrlInst).submit(); 
+		   	} else {
+		   		form.attr("action", goUrlUpdt).submit();
+		   	}
+		}); 
+		
+		$("#btnList").on("click", function(){
 			formVo.attr("action", goUrlList).submit();
 		});
-
-		 
 		
+	</script>
+	<script>
+		$("#btnUelete").on("click", function() {
+			form.attr("action", goUrlUele).submit();
+		});
 		
+		$("#btnDelete").on("click", function() {
+			form.attr("action", goUrlDele).submit();
+		});
 	</script>
 </body>
 </html>

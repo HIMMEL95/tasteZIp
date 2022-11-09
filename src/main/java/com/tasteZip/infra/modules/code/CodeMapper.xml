@@ -102,7 +102,7 @@
 			,ifccDelNy = #{ifccDelNy}
 			,ifccModifiedAt = now()
 		WHERE
-			ifccSeq = #{ifccSeq}
+			ifccSeq = #{ifccSeq} 
 	</update>
 	
 	

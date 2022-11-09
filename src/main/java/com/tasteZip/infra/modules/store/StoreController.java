@@ -52,6 +52,9 @@ public class StoreController {
 	    Store item = service.xdminSelectOne(vo);
 	    model.addAttribute("item", item);
 	    
+	    List<Store> running = service.openingList(dto);
+	    model.addAttribute("running", running);
+	    
 	    List<Store> day = service.day(dto);
 	    model.addAttribute("day", day);
 	    

@@ -24,6 +24,7 @@ public class StoreDao {
     public List<Store> xdminSelectList(StoreVo vo) { return sqlSession.selectList(namespace + ".xdminSelectList", vo); }
     public int xdminSelectOneCount(StoreVo vo) { return sqlSession.selectOne(namespace + ".xdminSelectOneCount", vo); }
     public Store xdminSelectOne(StoreVo vo) { return sqlSession.selectOne(namespace + ".xdminSelectOne", vo); }
+    public List<Store> openingList(Store dto) { return sqlSession.selectList(namespace + ".openingList", dto); }
     public List<Store> day(Store dto) { return sqlSession.selectList(namespace + ".day", dto); }
     public List<Store> opening(Store dto) { return sqlSession.selectList(namespace + ".opening", dto); }
     

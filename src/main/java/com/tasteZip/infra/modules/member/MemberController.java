@@ -16,7 +16,10 @@ public class MemberController {
     
 	@RequestMapping(value = "memberList")
 	public String memberList(MemberVo vo, Model model) throws Exception {
-	    
+
+	    System.out.println("totalRows : " + vo.getTotalRows());
+	    System.out.println("totalRows : " + service.selectOneCount(vo));	    
+	    vo.setParamsPaging(service.selectOneCount(vo));
 	    List<Member> list = service.selectList(vo);
 	    model.addAttribute("list", list);
 	    return "infra/xdmin/member/memberList";

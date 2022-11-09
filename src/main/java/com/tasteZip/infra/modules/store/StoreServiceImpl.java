@@ -1,5 +1,6 @@
 package com.tasteZip.infra.modules.store;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Store xdminSelectOne(StoreVo vo) throws Exception {
         return dao.xdminSelectOne(vo);
+    }
+    
+    @Override
+    public List<Store> openingList(Store dto) throws Exception {
+        return dao.openingList(dto);
     }
     
     @Override
@@ -80,10 +86,13 @@ public class StoreServiceImpl implements StoreService {
     
     public void inst(Store dto) throws Exception {
         insert(dto);
-        runningInsert(dto);
+        for (int i=0; i<7; i++) {
+            runningInsert(dto);
+        }
     }
     
     public void updt(Store dto) throws Exception {
+        
         update(dto);
         runningUpdate(dto);
     }

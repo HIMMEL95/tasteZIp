@@ -96,24 +96,29 @@
 			,s.ifstInfo
 			,s.ifstDirections
 			,s.ifstOrderNy
-			,rt.ifrtDay
-            ,rt.ifrtStartTime
-            ,rt.ifrtEndTime
-            ,rt.ifrtOpening
 	    from store s
-	    	left join runningTime rt on rt.ifstSeq = s.ifstSeq
 		where 1=1
 			and s.ifstSeq = #{ifstSeq}
 	</select> 
 
+	<select id="openingList" resultMap="resultMapObj">
+		select 
+			rt.ifrtDay
+            ,rt.ifrtStartTime
+            ,rt.ifrtEndTime
+            ,rt.ifrtOpening
+            ,rt.ifstSeq
+	    from runningTime rt
+		where 1=1
+			and rt.ifstSeq = #{ifstSeq}
+	</select> 
+	
 	<select id="day" resultMap="resultMapObj">
 		select 
 			rt.ifrtDay
             ,rt.ifrtOpening
-	    from store s
-	    	inner join runningTime rt on rt.ifstSeq = s.ifstSeq
+	    from runningTime rt
 		where 1=1
-			and s.ifstSeq = #{ifstSeq}
 		group by 
 			ifrtDay
 	</select> 
@@ -122,10 +127,8 @@
 		select 
 			rt.ifrtDay
             ,rt.ifrtOpening
-	    from store s
-	    	inner join runningTime rt on rt.ifstSeq = s.ifstSeq
+	    from runningTime rt
 		where 1=1
-			and s.ifstSeq = #{ifstSeq}
 		group by 
 			ifrtOpening
 	</select> 

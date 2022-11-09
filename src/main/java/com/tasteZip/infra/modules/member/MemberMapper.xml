@@ -13,25 +13,28 @@
 		WHERE 1=1
 		<if test="shDelNy != null and !shDelNy.equals('')">AND ifmmDelNy = #{shDelNy}</if>
 		<choose>
-			<when test="shOption == 1">AND ifmmifmmSeq = #{shValue}</when>
-			<when test="shOption == 2">AND ifmmifmmName LIKE CONCAT('%',#{shValue},'%')</when>
-			<when test="shOption == 3">AND ifmmifmmId LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 1">AND ifmmSeq = #{shValue}</when>
+			<when test="shOption == 2">AND ifmmName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND ifmmId LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
 	</sql>
 	
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
-				m.ifmmifmmSeq
-				,m.ifmmifmmId
-				,m.ifmmifmmName
-				,m.ifmmifmmDob
-				,m.ifmmifmmGender
-				,m.ifmmifmmEmail
-				,m.ifmmifmmPhone
-				,m.ifmmifmmCreatedAt
+				m.ifmmSeq
+				,m.ifmmId
+				,m.ifmmName
+				,m.ifmmPhone
+				,m.ifmmEmail
+				,m.ifmmGender
+				,m.ifmmZipCode
+				,m.ifmmAddress
+				,m.ifmmDetailAddress
+				,m.ifmmExtraAddress
+				,m.ifmmCreatedAt
 			<include refid="selectCommon"></include>
-			ORDER BY m.ifmmifmmCreatedAt DESC
+			ORDER BY m.ifmmCreatedAt DESC
 			<include refid="Base.orderByLimitForMysql" />
 		<include refid="Base.selectListLowerForMysql" />
 	</select>

@@ -3,16 +3,20 @@ package com.tasteZip.infra.modules.comment;
 public class Comment {
 	
 	public String ifcmSeq;
-	public String ifmmSeq;
-	public String ifcmComment;
+	public String ifcmComment; 
 	public String ifcmCreatedAt;
 	public String ifcmModifiedAt;
 	public Integer ifcmDelNy;
-	public Integer ifcmGrade;
-	public String ifstSeq;
+	public Integer ifcmGrade; 
+	
+// ------- join member s ----------	
+	public String ifmmSeq; 
+	public String ifmmName; 
+// ------- join member e ----------	
 	
 // ------- join store s ----------
-	public String ifstName;
+	public String ifstSeq;
+	public String ifstName; 
 	public String ifstAddress;
 // ------- join store e ----------
 	
@@ -76,7 +80,11 @@ public class Comment {
 	public void setIfstAddress(String ifstAddress) {
 		this.ifstAddress = ifstAddress;
 	}
-	
-	
-	
+	public String getIfmmName() {
+		return ifmmName;
+	}
+	public void setIfmmName(String ifmmName) {
+		this.ifmmName = ifmmName;
+	}
+
 }

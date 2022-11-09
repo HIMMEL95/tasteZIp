@@ -26,84 +26,169 @@
 </head>
 <body>
 	<!-- start -->
-	<header>
-			<div class="header bg-dark">
-				<div class="container">
-					<div class="row">
-						<nav class="navbar col" style="padding-bottom : 0px;">
-							<div class="col">
-								<a class="navbar-brand" href="#">
-									<img class="" src="/resources/images/main/logo2.png" style="width: 80px;">
-									<span class="text-white" id="MATZIP">MATZIP</span>
-								</a>
-							</div>
-							<div class="row offset-5">
-								<div class="userimg col">
-									<img alt="" src="/resources/images/main/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
-									<span class="d-inline-block text-white" id="MATZIP">Tony Chang <br> Administrator</span>
-								</div>
-							</div>
-						</nav>
-					</div>
-				</div>
-				<div class="bg-dark">
-					<div class="container">
-						<nav class="navbar navbar-expand-lg">
-							<div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="padding-left: 350px;">
-								<div class="navbar-nav">
-									<a class="nav-link active text-white me-3" aria-current="page" href="#">Code</a>
-									<a class="nav-link text-white me-3" href="#">회원관리</a>
-									<a class="nav-link text-white me-3" href="#">사장님관리</a>
-									<a class="nav-link text-white me-3" href="#">매장관리</a>
-									<a class="nav-link text-white me-3" href="#">story관리</a>
-									<a class="nav-link text-white" href="#">시스템관리</a>
-								</div>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
+	<header class="navbar-light fixed-top header-static bg-mode align-items-center">
+	        <!-- 상단 -->
+	        <nav class="navbar navbar-expand-lg bg-dark">
+	            <div class="container px-3 px-xl-5 pt-1">
+	                <!-- Logo START -->
+	                <a class="navbar-brand" href="/sportMain">
+	                    <img src="/resources/images/main/logo2.png" style="width: 80px;">
+						<span class="text-white" id="MATZIP">MATZIP</span>
+	                </a>
+	                <!-- Profile START -->
+	                <div class="dropdown">
+	                    <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
+	                        <li class="me-2">
+	                            <a class="p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside"
+	                                data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+	                                <img class="avatar-img rounded-circle" src="/resources/images/diano.jpg" alt="avatar" style="width: 40px;">
+	                            </a>
+	                            <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
+	                                aria-labelledby="profileDropdown">
+	                                <!-- Profile info -->
+	                                <li class="px-3">
+	                                    <div class="d-flex align-items-center">
+	                                        <!-- Avatar -->
+	                                        <div class="avatar mt-2">
+	                                            <img class="avatar-img rounded-circle shadow" src="/resources/images/diano.jpg"
+	                                                alt="avatar" style="width: 30px;">
+	                                        </div>
+	                                        <div>
+	                                            <a class="fs-6 fw-bold" href="/member/memberUView?seq=${sessSeq }"><c:out value="${sessName }"/> </a>
+	                                            <p class="small m-0"><c:out value="${sessEmail }"/> </p>
+	                                        </div>
+	                                    </div>
+	                                    <hr>
+	                                </li>
+	                                <!-- Links -->
+	                                <li>
+	                                    <a class="dropdown-item" href="/member/memberUView?seq=${sessSeq }">
+	                                        <i class="fa-solid fa-user me-2"></i>
+	                                        Edit Profile
+	                                    </a>
+	                                </li>
+	                                <!-- <li>
+	                                    <a class="dropdown-item" href="#">
+	                                        <i class="fa-solid fa-gear me-2"></i>
+	                                        Account Settings
+	                                    </a>
+	                                </li> -->
+	                                <li>
+	                                    <a class="dropdown-item" href="#">
+	                                        <i class="fa-solid fa-circle-info me-2"></i>
+	                                        Help
+	                                    </a>
+	                                </li>
+	                                <li>
+	                                    <a class="dropdown-item bg-danger-soft-hover" id="signOutBtn" >
+	                                        <i class="fa-solid fa-power-off me-2"></i>
+	                                        Sign Out
+	                                    </a>
+	                                </li>
+	                                <!-- Dark mode switch START -->
+	                            </ul>
+	                        </li>
+	                    </ul>
+	                </div>
+	                <!-- Profile START -->
+	            </div>
+	        </nav>
+	    </header>
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
 		<form id="myform" name="myform" method="post" autocomplete="off">
 			<%@include file="menuVo.jsp"%>
-			<div style="height: 70px"></div>
+			<div style="height: 100px"></div>
 			<div class="wrapper">
-				<div class="container">
-					<div class="row" style="height: 800px;">
-						<div class="col-3">
-							<div class="sidebar">
-								<!--menu item-->
-								<ul>
-									<li>
-										<a href="#" class="active">
-											<span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Home</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<span class="icon"><i class="fas fa-desktop"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Dashboard</span>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<span class="icon"><i class="fas fa-user-friends"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Orders</span>
-										</a>
-									</li>
-									<li><hr class="dropdown-divider" style="color: lightgray;"></li>
-									<li>
-										<a href="#">
-											<span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-											<span class="item" style="color: black;" id="sidebar">Account</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+				<div class="container" style="height: 100vh;">
+					<div class="row" >
+						<div class="col-lg-3">
+		                        <!-- Advanced filter responsive toggler START -->
+		                        <nav class="navbar navbar-expand-lg mx-0">
+		                            <div class="d-flex align-items-center d-lg-none">
+		                                <button class="border-0 bg-transparent" type="button" data-bs-toggle="offcanvas"
+		                                    data-bs-target="#offcanvasSideNavbar" aria-controls="offcanvasSideNavbar">
+		                                    <i class="btn btn-primary fw-bold fa-solid fa-sliders-h text-white" style="background: #212529;"></i>
+		                                    <span class="h6 mb-0 fw-bold d-lg-none ms-2">항목</span>
+		                                </button>
+		                            </div>
+		                            <nav class="navbar navbar-expand-lg mx-0">
+		                                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSideNavbar"
+		                                    style="visibility: visible; width:250px;" aria-modal="true" role="dialog">
+		                                    <div class="offcanvas-header">
+		                                        <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas"
+		                                            aria-label="Close"></button>
+		                                    </div>
+		                                    <div class="offcanvas-body d-block px-2 px-lg-0">
+		                                        <div class="card overflow-hidden">
+		                                            <img src="https://images.pexels.com/photos/313700/pexels-photo-313700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="background"
+		                                                style="height: 200px; background-position: center; background-size: cover; background-repeat: no-repeat;">
+		                                            <div class="card-body pt-0">
+		                                                <div class="text-center">
+		                                                    <hr>
+		                                                    <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/member/memberList">
+		                                                                <span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Home</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/member/memberList">
+		                                                                <span class="icon"><i class="fa-solid fa-user"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Member</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/order/orderList">
+		                                                                <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Order</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/store/xdminStoreList">
+		                                                                <span class="icon"><i class="fa-solid fa-store"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Store</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="#">
+		                                                                <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Story</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/menu/menuList">
+		                                                                <span class="icon"><i class="fa-solid fa-utensils"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Menu</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/code/codeList">
+		                                                                <span class="icon"><i class="fa-solid fa-code"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Code</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/codeGroup/codeGroupList">
+		                                                                <span class="icon"><i class="fa-solid fa-layer-group"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">CodeGroup</span>
+		                                                            </a>
+		                                                        </li>
+		                                                    </ul>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                        <p class="small text-center mt-1">©2022 
+			                                        <a class="text-body" target="_blank" href="#"> 
+			                                        	TASTEZIP
+		                                            </a>
+	                                            </p>
+		                                    </div>
+		                                </div>
+		                            </nav>
+		                        </nav>
+		                    </div>
 						<div class="col" style="padding-top: 20px;">
 							<h2 class="needs-validation mt-2">Menu Form</h2>
 							<div class="content">
@@ -276,7 +361,7 @@
 							</div>
 							<div class="row align-items-center mt-5">
 	                            <div class="col-2">
-	                                <button class="border-0 btn bg-secondary shadow" type="button" id="btnList">
+	                                <button  class="border-0 btn bg-secondary shadow" type="button" id="btnList">
 	                                    <i class="fa-solid fa-bars" style="color: white;"></i>
 	                                </button>
 	                                <button id="btnUel" value="Uel" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
@@ -304,8 +389,7 @@
 	                                        </div>
 	                                    </div>
 	                                </div>
-	                                <button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
-	                                    data-bs-target="#deleteModal">
+	                                <button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal">
 	                                    <i class="fa-solid fa-trash-can" style="color: white;"></i>
 	                                </button>
 	                                <button id="btnSave" class="border-0 btn bg-success shadow" type="button">
@@ -416,6 +500,23 @@
 		$("#ueleteBtn").on("click", function() {
 			formVo.attr("action", goUrlUele).submit();
 		});
+		
+	// ----- 게시물 삭제 -----
+	 	
+	 	$("#btnUel").on("click", function() {
+			DelValidation("#delBtn", goUrlUele, "선택하신 게시물을 삭제하시겠습니까?");
+		})
+		
+		$("#btnDel").on("click", function() {
+			DelValidation("#delBtn", goUrlDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
+		})
+		
+		DelValidation = function(confirm, url, msg) {
+			$(".modal-body").html(msg);
+			$(confirm).on("click", function() {
+				form.attr("action", goUrlList).submit();
+			})
+		}
 
 	</script>
 </body>

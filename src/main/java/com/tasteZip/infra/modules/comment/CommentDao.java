@@ -18,9 +18,19 @@ public class CommentDao {
 	public List<Comment> myReview(CommentVo vo){ 
 		return sqlSession.selectList(namespace + ".myReview", vo);
 	}
-	
 	public int selectOneCount(CommentVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
+	}
+	
+	
+	public List<Comment> selectList2(CommentVo vo) { 
+		return sqlSession.selectList(namespace + ".selectList2", vo); 
+	}
+    public int selectOneCount2(CommentVo vo) { 
+    	return sqlSession.selectOne(namespace +".selectOneCount2", vo); 
+	}
+    public Comment selectOne(CommentVo vo) {
+    	return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
 	
 }

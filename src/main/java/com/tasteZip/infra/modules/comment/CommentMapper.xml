@@ -32,6 +32,62 @@
 		FROM review c
 		WHERE 1=1
 	</select>
+	
+	<select id="selectList2" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql2" />
+			SELECT
+			c.ifcmSeq
+			,c.ifcmComment
+			,c.ifcmCreatedAt
+			,c.ifcmModifiedAt
+			,c.ifcmDelNy
+			,c.ifcmGrade
+			,s.ifstName
+			,s.ifstAddress
+			,m.ifmmName
+		FROM comment c
+			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
+			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
+		WHERE 1=1
+		<if test="shDelNy != null and !shDelNy.equals('')">AND ifcmDelNy = #{shDelNy}</if>
+		<if test="shOptionDate == 1">AND ifcmCreatedAt between #{shDateStart} and #{shDateEnd}</if>
+		<choose>
+			<when test="shOption == 1">AND ifcmComment LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 2">AND ifcmGrade = #{shValue}</when>
+			<when test="shOption == 3">AND ifmmifmmName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 4">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+		ORDER BY c.ifcmSeq DESC
+	   	<include refid="Base.orderByLimitForMysql" />
+   		<include refid="Base.selectListLowerForMysql2" />
+	</select>
+	
+	<select id="selectOneCount2" resultType="Integer">
+		SELECT COUNT(*)
+		from comment c
+		where 1=1
+		<if test="shDelNy != null and !shDelNy.equals('')">AND ifcmDelNy = #{shDelNy}</if>
+		<if test="shOptionDate == 1">AND ifcmCreatedAt between #{shDateStart} and #{shDateEnd}</if>
+		<choose>
+			<when test="shOption == 1">AND ifcmComment LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 2">AND ifcmGrade = #{shValue}</when>
+			<when test="shOption == 3">AND ifmmifmmName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 4">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+		ORDER BY c.ifcmSeq DESC
+	</select>
+	
+	<!-- <select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			m.ifmnSeq
+			,m.ifmnName
+			,m.ifmnPrice
+			,m.ifmnInfo
+			,m.ifmnSet_div
+	    from menu m
+		where 1=1
+	 		AND c.ifcmSeq = #{ifcmSeq}
+	</select> -->
 
 
 </mapper>

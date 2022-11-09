@@ -14,10 +14,6 @@ public class CommentController {
 	@Autowired
 	CommentServiceImpl service;
 	
-	@RequestMapping(value = "commentList")
-	public String reviewList() throws Exception {
-	    return "infra/xdmin/comment/commentList";
-	}
 	
 	// 리뷰
     @RequestMapping(value = "mypageReview")
@@ -30,5 +26,20 @@ public class CommentController {
     	
         return "infra/main/mypage/mypageReview";
     }
+    
+ // --------------- 관리자 --------------
+    
+    @RequestMapping(value = "commentList")
+    public String commentList(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
+    	
+    	vo.setParamsPaging2(service.selectOneCount2(vo)); 
+
+		List<Comment> list = service.selectList2(vo);
+		model.addAttribute("list", list); 
+    	
+    	return "infra/xdmin/comment/commentList";
+    }
+    
+    
     
 }

@@ -15,10 +15,23 @@ public class CommentServiceImpl implements CommentService{
 		List<Comment> list = dao.myReview(vo);
 		return list;
 	}
-
 	@Override
 	public int selectOneCount(CommentVo vo) throws Exception {
 		return dao.selectOneCount(vo);
+	}
+
+	
+	@Override
+	public List<Comment> selectList2(CommentVo vo) throws Exception {
+		return dao.selectList2(vo);
+	}
+	@Override
+	public int selectOneCount2(CommentVo vo) throws Exception {
+		return dao.selectOneCount2(vo);
+	}
+	@Override
+	public Comment selectOne(CommentVo vo) throws Exception {
+		return dao.selectOne(vo);
 	}
 	
 

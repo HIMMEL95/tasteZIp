@@ -61,6 +61,5 @@ public class MenuServiceImpl implements MenuService {
 		return dao.delete(vo);
 	}
 	
-	
 
 }

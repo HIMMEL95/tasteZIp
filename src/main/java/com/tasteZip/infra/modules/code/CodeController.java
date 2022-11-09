@@ -41,6 +41,7 @@ public class CodeController {
 	@RequestMapping(value = "codeForm")
 	public String codeForm(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 		
+		System.out.println("vo.getifccSeq: " + vo.getIfccSeq()); 
 		Code item = service.selectOne(vo);
 		model.addAttribute("item", item);
 		

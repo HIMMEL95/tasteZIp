@@ -17,8 +17,15 @@ public class CodeVo {
 	private String ifccSeq;
 	private String ifccName;
 	private String ifccNameEng;
+	private String seq;
 	
 	
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
 	public Integer getShOption() {
 		return shOption;
 	}

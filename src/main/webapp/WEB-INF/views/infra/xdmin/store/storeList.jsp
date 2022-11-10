@@ -21,28 +21,6 @@
 	
 	<body>
 		<!-- start -->
-		<!-- <header>
-			<div class="header bg-dark">
-				<div class="container">
-					<div class="row">
-						<nav class="navbar col" style="padding-bottom : 0px;">
-							<div class="col">
-								<a class="navbar-brand">
-									<img src="/resources/images/main/logo2.png" style="width: 80px;">
-									<span class="text-white" id="MATZIP">MATZIP</span>
-								</a>
-							</div>
-							<div class="row offset-5">
-								<div class="userimg col">
-									<img alt="" src="../resources/image/user.png" style=" width: 60px; height: 40px;border-radius: 100px;" class="me-4 mb-4 ">
-									<span id="MATZIP" class="d-inline-block text-white">Tony Chang <br> Administrator</span>
-								</div>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header> -->
 		<header class="navbar-light fixed-top header-static bg-mode align-items-center">
 	        <!-- 상단 -->
 	        <nav class="navbar navbar-expand-lg bg-dark">

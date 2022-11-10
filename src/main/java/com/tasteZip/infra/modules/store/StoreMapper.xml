@@ -118,7 +118,6 @@
 			rt.ifrtDay
             ,rt.ifrtOpening
 	    from runningTime rt
-		where 1=1
 		group by 
 			ifrtDay
 	</select> 
@@ -128,7 +127,6 @@
 			rt.ifrtDay
             ,rt.ifrtOpening
 	    from runningTime rt
-		where 1=1
 		group by 
 			ifrtOpening
 	</select> 

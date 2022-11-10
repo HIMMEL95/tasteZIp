@@ -1,6 +1,5 @@
 package com.tasteZip.infra.modules.store;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,8 +84,19 @@ public class StoreServiceImpl implements StoreService {
     }
     
     public void inst(Store dto) throws Exception {
+        
         insert(dto);
-        for (int i=0; i<7; i++) {
+        
+        for (int i=0; i<dto.getIfrtOpeningArray().length; i++) {
+            int ifrtDay = dto.getIfrtDayArray()[i];
+            String ifrtStartTime = dto.getIfrtStartTimeArray()[i].toString();
+            String ifrtEndTime = dto.getIfrtEndTimeArray()[i].toString();
+            int ifrtOpening = dto.getIfrtOpeningArray()[i];
+            
+            dto.setIfrtDay(ifrtDay); 
+            dto.setIfrtStartTime(ifrtStartTime);
+            dto.setIfrtEndTime(ifrtEndTime);
+            dto.setIfrtOpening(ifrtOpening);
             runningInsert(dto);
         }
     }
@@ -94,6 +104,17 @@ public class StoreServiceImpl implements StoreService {
     public void updt(Store dto) throws Exception {
         
         update(dto);
-        runningUpdate(dto);
+        for (int i=0; i<dto.getIfrtOpeningArray().length; i++) {
+            int ifrtDay = dto.getIfrtDayArray()[i];
+            String ifrtStartTime = dto.getIfrtStartTimeArray()[i].toString();
+            String ifrtEndTime = dto.getIfrtEndTimeArray()[i].toString();
+            int ifrtOpening = dto.getIfrtOpeningArray()[i];
+            
+            dto.setIfrtDay(ifrtDay); 
+            dto.setIfrtStartTime(ifrtStartTime);
+            dto.setIfrtEndTime(ifrtEndTime);
+            dto.setIfrtOpening(ifrtOpening);
+            runningUpdate(dto);
+        }
     }
 }

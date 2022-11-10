@@ -204,33 +204,34 @@
 												<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 													<div class="accordion-body">
 														<c:choose>
-															<c:when test="${item.ifstSeq eq 0}">
+															<c:when test="${item.ifstSeq eq 0 or empty item.ifstSeq }">
+															<input type="hidden" id="test" value="${item.ifstSeq }">
 																<c:forEach items="${day }" var="list2" varStatus="status">
 																	<div class="row">
 																		<div class="col-2">
-																			${list2.ifrtDay }
 																			<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
-																			<label for="ccgSeq" class="form-label">
+																			<select class="form-select" id="ifrtDayArray" name="ifrtDayArray">
+																				<option value="">선택</option>
 																				<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
-																					<c:if test="${list2.ifrtDay eq listDay.ifccSeq}"><c:out value="${listDay.ifccName }"/></c:if>
+																					<option value="${listDay.ifccSeq }" <c:if test="${list2.ifrtDay eq listDay.ifccSeq}">selected</c:if>><c:out value="${listDay.ifccName }"/></option>
 																				</c:forEach>
-																			</label> 
+																			</select>
 																		</div>
 																		<div class="col-2">
 																			<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																			<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray">
 																				<option value="">선택</option>
 																				<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
-																					<option value="${list2.ifrtOpening }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
+																					<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
 																				</c:forEach>
 																			</select>
 																		</div>
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime" value="${list.ifrtStartTime }">
+																			<input type="time" class="form-control" id="ifrtStartTimeArray" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
 																		</div>
 																		~
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime" value="${list.ifrtEndTime }">
+																			<input type="time" class="form-control" id="ifrtEndTimeArray" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
 																		</div>
 																	</div>
 																</c:forEach>
@@ -240,28 +241,28 @@
 																	<div class="row">
 																		<div class="col-2">
 																			<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
-																			<label for="ccgSeq" class="form-label">
-																				1${list.ifrtDay }
+																			<select class="form-select" id="ifrtDayArray" name="ifrtDayArray" disabled>
+																				<option value="">선택</option>
 																				<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
-																					<c:if test="${list.ifrtDay eq listDay.ifccSeq}"><c:out value="${listDay.ifccName }"/></c:if>
+																					<option value="${listDay.ifccSeq }" <c:if test="${list.ifrtDay eq listDay.ifccSeq}">selected</c:if>><c:out value="${listDay.ifccName }"/></option>
 																				</c:forEach>
-																			</label> 
+																			</select>
 																		</div>
 																		<div class="col-2">
 																			<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																			<select class="form-select" id="ifrtOpening" name="ifrtOpening">
+																			<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray">
 																				<option value="">선택</option>
 																				<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
-																					<option value="${list.ifrtOpening }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
+																					<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
 																				</c:forEach>
 																			</select>
 																		</div>
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtStartTime" name="ifrtStartTime" value="${list.ifrtStartTime }">
+																			<input type="time" class="form-control" id="ifrtStartTimeArray" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
 																		</div>
 																		~
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtEndTime" name="ifrtEndTime" value="${list.ifrtEndTime }">
+																			<input type="time" class="form-control" id="ifrtEndTimeArray" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
 																		</div>
 																	</div>
 																</c:forEach>

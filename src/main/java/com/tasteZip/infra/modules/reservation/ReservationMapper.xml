@@ -7,6 +7,26 @@
 <mapper namespace="com.tasteZip.infra.modules.reservation.ReservationMapper">
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.reservation.Reservation"></resultMap>
  
+ 	<sql id ="selectCommon">
+	 	FROM reservation r
+			JOIN store s on s.ifstSeq = r.ifstSeq
+			JOIN member m on m.ifmmSeq = r.ifmmSeq
+			JOIN menu mn on mn.ifmnSeq = r.ifmnSeq
+		wHERE 1=1		
+		<if test="shDelNy !=null and !shDelNy.equals('')">AND r.ifrvDelNy = #{shDelNy}</if>
+		<if test="shValue != null"></if>
+		
+		<choose>
+			<when test="shOption == 1">AND s.ifstName = #{shValue}</when>
+			<when test="shOption == 2">AND mn.ifmnName LIKE CONCAT('%', #{shValue},'%')</when>
+			<when test="shOption == 3">AND m.ifmmName LIKE CONCAT('%', #{shValue},'%')</when>
+		</choose>
+		
+		<choose>
+			<when test="shOptionDate == 1">AND r.ifrvCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>
+	</sql> 
+	
 	<select id="selectListMyRV" resultMap="resultMapObj"> 
 		<include refid="Base.selectListUpperForMysql" />
 		SELECT
@@ -20,7 +40,32 @@
 		Order by r.ifrvDate DESC
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
-
+	
+	<!-- dmin list -->
+	<select id="selectList" resultMap="resultMapObj"> 
+		<include refid="Base.selectListUpperForMysql" />
+		SELECT
+			 r.ifrvSeq
+			 ,s.ifstName
+			 ,mn.ifmnName
+			 ,m.ifmmName
+			 ,m.ifmmPhone
+			 ,r.ifrvCount
+			 ,r.ifrvPerson
+			 ,r.ifrvPrice
+			 ,r.ifrvDate
+			 ,r.ifrvTime
+		<include refid="selectCommon" /> 
+		Order by r.ifrvSeq DESC
+		<include refid="Base.selectListLowerForMysql" />
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM reservation r
+		WHERE 1=1
+	</select>
+	
 	<select id="selectOneMyRV" resultMap="resultMapObj">
 		SELECT 
 			  s.ifstName
@@ -41,4 +86,13 @@
 			 AND r.ifmmSeq = 1
 			 AND r.ifrvSeq = 8
 	</select>
+	
+	<!-- list Uele -->
+	<update id="ueleteList">
+		UPDATE reservation
+		SET
+			ifrvDelNy = 1
+		WHERE
+			ifrvSeq = #{ifrvSeq}
+	</update>
 </mapper> 

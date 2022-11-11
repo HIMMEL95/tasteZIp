@@ -60,8 +60,8 @@ public class CodeGroupServiceImpl implements CodeGroupService{
 	
 	// uelete List
 	@Override
-	public int ueleteList(String seq) throws Exception {
-		return dao.ueleteList(seq);
+	public int ueleteList(String ifcgSeq) throws Exception {
+		return dao.ueleteList(ifcgSeq);
 	}
 	
 	

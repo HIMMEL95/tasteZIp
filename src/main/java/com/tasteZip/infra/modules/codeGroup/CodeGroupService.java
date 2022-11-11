@@ -24,7 +24,7 @@ public interface CodeGroupService {
 	public int uelete(CodeGroup dto) throws Exception;
 	
 	// list uelete
-	public int ueleteList(String seq) throws Exception;
+	public int ueleteList(String ifcgSeq) throws Exception;
 	
 	//delete
 	public int delete(CodeGroupVo vo) throws Exception;

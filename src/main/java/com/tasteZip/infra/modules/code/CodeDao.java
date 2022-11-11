@@ -57,8 +57,8 @@ public class CodeDao {
 	
 	
     // uele List 
-    public int ueleteList(String seq) {
-		return sqlSession.update(namespace + ".uelete", seq);
+    public int ueleteList(String ifccSeq) {
+		return sqlSession.update(namespace + ".uelete", ifccSeq);
 	}
     
     

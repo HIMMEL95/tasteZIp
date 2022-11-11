@@ -19,12 +19,25 @@ public class OrderDao {
 		return sqlSession.selectList(namespace + ".myOrder", vo);
 	}
 	
+	// xdmin list
+	public List<Order> selectList(OrderVo vo){ 
+		return sqlSession.selectList(namespace + ".selectList", vo);
+	}
+	
+	
+	//selectone Count
 	public int selectOneCount(OrderVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
 	
+	
+	//selectone
 	public Order selectOne(OrderVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
 
+	//list uele
+	public int ueleteList(String iforSeq) {
+		return sqlSession.update(namespace + ".ueleteList", iforSeq);
+	}
 }

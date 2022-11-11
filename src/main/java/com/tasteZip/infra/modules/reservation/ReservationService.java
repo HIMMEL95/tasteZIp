@@ -6,8 +6,18 @@ public interface ReservationService {
 
 	// list
 	public List<Reservation> selectListMyRV(ReservationVo vo) throws Exception;
+	
+	
+	// xdmin list
+	public List<Reservation> selectList(ReservationVo vo) throws Exception;
 
 	
 	// selectOne
 	public Reservation selectOneMyRV(ReservationVo vo) throws Exception;
+	
+	// selectone Count
+	public int selectOneCount(ReservationVo vo) throws Exception;
+	
+	//uele list
+	public int ueleteList(String ifrvSeq) throws Exception;
 }

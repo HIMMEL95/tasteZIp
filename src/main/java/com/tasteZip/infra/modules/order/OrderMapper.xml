@@ -6,7 +6,27 @@
     
 <mapper namespace="com.tasteZip.infra.modules.order.OrderMapper">
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.order.Order"></resultMap>
-
+	
+	<sql id ="selectCommon">
+	 	FROM buy b
+			JOIN store s on s.ifstSeq = b.ifstSeq
+			JOIN member m on m.ifmmSeq = b.ifmmSeq
+			JOIN menu mn on mn.ifmnSeq = b.ifmnSeq
+		wHERE 1=1		
+		<if test="shDelNy !=null and !shDelNy.equals('')">AND b.iforDelNy = #{shDelNy}</if>
+		<if test="shValue != null"></if>
+		
+		<choose>
+			<when test="shOption == 1">AND s.ifstName = #{shValue}</when>
+			<when test="shOption == 2">AND mn.ifmnName LIKE CONCAT('%', #{shValue},'%')</when>
+			<when test="shOption == 3">AND m.ifmmName LIKE CONCAT('%', #{shValue},'%')</when>
+		</choose>
+		
+		<choose>
+			<when test="shOptionDate == 1">AND b.iforCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>
+	</sql> 
+	
 	<select id="myOrder" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql2"/>
 		SELECT
@@ -53,5 +73,29 @@
 		FROM buy b
 		WHERE 1=1
 	</select>
-
+	
+	<!-- 관리자 list -->
+	<select id="selectList" resultMap="resultMapObj">
+		SELECT
+			b.iforSeq
+			,s.ifstName
+			,mn.ifmnName
+			,m.ifmmName
+			,m.ifmmPhone
+			,b.iforCount
+			,b.iforPrice
+			,b.iforPay
+			,b.iforCreatedAt
+		<include refid="selectCommon" />
+		ORDER BY b.iforSeq DESC
+	</select>
+	
+	<!-- list Uele -->
+	<update id="ueleteList">
+		UPDATE buy
+		SET
+			iforDelNy = 1
+		WHERE
+			iforSeq = #{iforSeq}
+	</update>
 </mapper>

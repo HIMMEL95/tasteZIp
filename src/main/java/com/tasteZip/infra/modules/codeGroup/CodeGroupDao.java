@@ -46,8 +46,8 @@ public class CodeGroupDao {
 	}
 	
 	//list uelete
-	public int ueleteList(String seq) {
-		return sqlSession.update(namespace + ".ueleteList", seq);
+	public int ueleteList(String ifcgSeq) {
+		return sqlSession.update(namespace + ".ueleteList", ifcgSeq);
 	}
 	
 	

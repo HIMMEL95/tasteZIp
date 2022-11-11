@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class ReservationDao {
 
@@ -21,9 +22,24 @@ public class ReservationDao {
 	public List<Reservation> selectListMyRV(ReservationVo vo){ return sqlSession.selectList(namespace + ".selectListMyRV", vo); }
 	
 	
+	// xdmin list
+	public List<Reservation> selectList(ReservationVo vo){ return sqlSession.selectList(namespace + ".selectList", vo); }
+	
 	//selectOne
-		public Reservation selectOneMyRV(ReservationVo vo) {
-			Reservation result = sqlSession.selectOne(namespace + ".selectOneMyRV", vo);
-			return result;
-		}
+	public Reservation selectOneMyRV(ReservationVo vo) {
+		Reservation result = sqlSession.selectOne(namespace + ".selectOneMyRV", vo);
+		return result;
+	}
+
+	//selectone Count
+	public int selectOneCount(ReservationVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
+	}
+	
+	//list uele
+	public int ueleteList(String ifrvSeq) {
+		return sqlSession.update(namespace + ".ueleteList", ifrvSeq);
+	}
+		
 }
+

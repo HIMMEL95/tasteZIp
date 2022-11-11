@@ -1,5 +1,7 @@
 package com.tasteZip.infra.modules.reservation;
 
+import java.util.List;
+
 import com.tasteZip.infra.common.constants.Constants;
 
 public class ReservationVo {
@@ -10,7 +12,11 @@ public class ReservationVo {
 	
 	 private String ifstSeq;
 	 private String ifmmSeq;
+	 private String ifrvSeq;
 	 
+	 private String shDateStart;
+	 private String shDateEnd;
+	 private Integer shOptionDate;
 	 
 	public Integer getShOption() {
 		return shOption;
@@ -42,14 +48,34 @@ public class ReservationVo {
 	public void setIfmmSeq(String ifmmSeq) {
 		this.ifmmSeq = ifmmSeq;
 	}
-	
-	
-	
-	
-	
-	
-	
-//	paging
+	public String getIfrvSeq() {
+		return ifrvSeq;
+	}
+	public void setIfrvSeq(String ifrvSeq) {
+		this.ifrvSeq = ifrvSeq;
+	}
+	public String getShDateStart() {
+		return shDateStart;
+	}
+	public void setShDateStart(String shDateStart) {
+		this.shDateStart = shDateStart;
+	}
+	public String getShDateEnd() {
+		return shDateEnd;
+	}
+	public void setShDateEnd(String shDateEnd) {
+		this.shDateEnd = shDateEnd;
+	}
+	public Integer getShOptionDate() {
+		return shOptionDate;
+	}
+	public void setShOptionDate(Integer shOptionDate) {
+		this.shOptionDate = shOptionDate;
+	}
+
+
+
+	//	paging
 	private int thisPage = 1;									// 현재 페이지
 	private int rowNumToShow = Constants.ROW_NUM_TO_SHOW;		// 화면에 보여줄 데이터 줄 갯수
 	private int pageNumToShow = Constants.PAGE_NUM_TO_SHOW;		// 화면에 보여줄 페이징 번호 갯수
@@ -153,6 +179,66 @@ public class ReservationVo {
 		this.startRnumForMysql = startRnumForMysql;
 	}
 	
+	public void setParamsPaging(int totalRows) {
+		
+		//		setThisPage(3);
+		
+				setTotalRows(totalRows);
+		
+				if (getTotalRows() == 0) {
+					setTotalPages(1);
+				} else {
+					setTotalPages(getTotalRows() / getRowNumToShow());
+				}
+		
+				if (getTotalRows() % getRowNumToShow() > 0) {
+					setTotalPages(getTotalPages() + 1);
+				}
+		
+				if (getTotalPages() < getThisPage()) {
+					setThisPage(getTotalPages());
+				}
+				
+				setStartPage(((getThisPage() - 1) / getPageNumToShow()) * getPageNumToShow() + 1);
+		
+				setEndPage(getStartPage() + getPageNumToShow() - 1);
+		
+				if (getEndPage() > getTotalPages()) {
+					setEndPage(getTotalPages());
+				}
+				
+				setEndRnumForOracle((getRowNumToShow() * getThisPage()));
+				setStartRnumForOracle((getEndRnumForOracle() - getRowNumToShow()) + 1);
+				if (getStartRnumForOracle() < 1) setStartRnumForOracle(1);
+				
+				if (thisPage == 1) {
+					setStartRnumForMysql(0);
+				} else {
+					setStartRnumForMysql((getRowNumToShow() * (getThisPage()-1)));
+				}
+				
+		//		System.out.println("getThisPage():" + getThisPage());
+		//		System.out.println("getTotalRows():" + getTotalRows());
+		//		System.out.println("getRowNumToShow():" + getRowNumToShow());
+		//		System.out.println("getTotalPages():" + getTotalPages());
+		//		System.out.println("getStartPage():" + getStartPage());
+		//		System.out.println("getEndPage():" + getEndPage());		
+		//		System.out.println("getStartRnumForOracle():" + getStartRnumForOracle());
+		//		System.out.println("getEndRnumForOracle():" + getEndRnumForOracle());
+		//		System.out.println("getStartRnumForMysql(): " + getStartRnumForMysql());
+				
+			}
+	
+		
+		// 리스트 체크박스 선택
+		 private List<ReservationVo> seqVoList;
 
+		public List<ReservationVo> getSeqVoList() {
+			return seqVoList;
+		}
+
+		public void setSeqVoList(List<ReservationVo> seqVoList) {
+			this.seqVoList = seqVoList;
+		}
 	 
 }

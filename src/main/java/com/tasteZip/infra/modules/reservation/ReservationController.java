@@ -15,10 +15,49 @@ public class ReservationController {
 	@Autowired
 	ReservationServiceImpl service;
 	
+	// search and paging
+	public void setSearchAndPaging(ReservationVo vo) throws Exception{
+		vo.setParamsPaging(service.selectOneCount(vo));
+	}
+	
 	@RequestMapping(value = "reservationList")
-	public String reservationList() throws Exception {
+	public String reservationList(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+		
+		setSearchAndPaging(vo);
+		
+		if (vo.getTotalRows() > 0) {
+			List<Reservation> list = service.selectList(vo);
+			model.addAttribute("list", list);
+		}
+		
 	    return "infra/xdmin/reservation/reservationList";
 	}
+	
+	
+	@RequestMapping(value = "ReservationUele")
+	public String ReservationUele(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+		
+		String returnString = "";
+		
+			
+			for(ReservationVo vItem : vo.getSeqVoList()) {
+				
+				service.ueleteList(vItem.getIfrvSeq());
+				
+				setSearchAndPaging(vo);
+				
+				if(vo.getTotalRows() > 0) {
+					List<Reservation> list = service.selectList(vo);
+					model.addAttribute("list", list);
+				}
+
+				returnString = "infra/xdmin/reservation/reservationList";
+			}
+			
+		
+		return returnString;
+	}
+	
 	
    @RequestMapping(value = "mypageReservation")
     public String mypageReservation(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {

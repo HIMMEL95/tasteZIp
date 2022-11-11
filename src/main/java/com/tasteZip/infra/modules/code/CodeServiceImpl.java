@@ -62,8 +62,8 @@ public class CodeServiceImpl implements CodeService{
 	
 	// uele List
     @Override
-	public int ueleteList(String seq) throws Exception{
-		return dao.ueleteList(seq);
+	public int ueleteList(String ifccSeq) throws Exception{
+		return dao.ueleteList(ifccSeq);
 	}
 	
 	

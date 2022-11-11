@@ -25,7 +25,7 @@ public interface CodeService {
 	public int uelete(Code dto) throws Exception;
 	
 	//uele list
-	public int ueleteList(String seq) throws Exception;
+	public int ueleteList(String ifccSeq) throws Exception;
 	
 	// dele
 	public int delete(CodeVo vo) throws Exception;

@@ -17,9 +17,9 @@ public class CodeGroupController {
 	CodeGroupServiceImpl service;
 	
 	// search and paging
-		public void setSearchAndPaging(CodeGroupVo vo) throws Exception{
-			vo.setParamsPaging(service.selectOneCount(vo));
-		}
+	public void setSearchAndPaging(CodeGroupVo vo) throws Exception{
+		vo.setParamsPaging(service.selectOneCount(vo));
+	}
 	
 	// list
 	@RequestMapping(value = "codeGroupList")

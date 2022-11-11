@@ -104,10 +104,18 @@ public class Order {
 	}
 // ------- join member e ----------
 	
-	
+// ------- join menu s ----------
+	public String ifmnName;
 
+	public String getIfmnName() {
+		return ifmnName;
+	}
+	public void setIfmnName(String ifmnName) {
+		this.ifmnName = ifmnName;
+	}
 	
-	
+// ------- join menu e ----------
+		
 
 	
 }

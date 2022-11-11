@@ -39,8 +39,8 @@ public class StoreServiceImpl implements StoreService {
     }
     
     @Override
-    public List<Store> openingList(Store dto) throws Exception {
-        return dao.openingList(dto);
+    public List<Store> openingList(StoreVo vo) throws Exception {
+        return dao.openingList(vo);
     }
     
     @Override
@@ -54,8 +54,13 @@ public class StoreServiceImpl implements StoreService {
     }
 
     @Override
-    public int delete(StoreVo vo) throws Exception {
-        return dao.delete(vo);
+    public int sDelete(StoreVo vo) throws Exception {
+        return dao.sDelete(vo);
+    }
+
+    @Override
+    public int rtDelete(StoreVo vo) throws Exception {
+        return dao.rtDelete(vo);
     }
 
     @Override
@@ -81,6 +86,11 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public int runningUpdate(Store dto) throws Exception {
         return dao.runningUpdate(dto);
+    }
+    
+    public void delete(StoreVo vo) throws Exception {
+        rtDelete(vo);
+        sDelete(vo);
     }
     
     public void inst(Store dto) throws Exception {

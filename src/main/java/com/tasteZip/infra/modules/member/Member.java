@@ -14,14 +14,14 @@ public class Member {
     private Integer ifmmZipCode;
     private String ifmmAddress;
     private String ifmmDetailAddress;
-    private String ifmExtraAddress;
+    private String ifmmExtraAddress;
     private Integer ifmmUserDiv;
     private Integer ifmmSnsDiv;
     private Integer ifmmEMailcheck;
     private String ifmmSnsImg;
     private String ifmmCreatedAt;
     private String ifmmModifiedAt;
-    private Integer ifmmDelny;
+    private Integer ifmmDelNy;
     
     public String getIfmmSeq() {
         return ifmmSeq;
@@ -95,11 +95,11 @@ public class Member {
     public void setIfmmDetailAddress(String ifmmDetailAddress) {
         this.ifmmDetailAddress = ifmmDetailAddress;
     }
-    public String getIfmExtraAddress() {
-        return ifmExtraAddress;
+    public String getIfmmExtraAddress() {
+        return ifmmExtraAddress;
     }
-    public void setIfmExtraAddress(String ifmExtraAddress) {
-        this.ifmExtraAddress = ifmExtraAddress;
+    public void setIfmmExtraAddress(String ifmmExtraAddress) {
+        this.ifmmExtraAddress = ifmmExtraAddress;
     }
     public Integer getIfmmUserDiv() {
         return ifmmUserDiv;
@@ -137,10 +137,10 @@ public class Member {
     public void setIfmmModifiedAt(String ifmmModifiedAt) {
         this.ifmmModifiedAt = ifmmModifiedAt;
     }
-    public Integer getIfmmDelny() {
-        return ifmmDelny;
+    public Integer getIfmmDelNy() {
+        return ifmmDelNy;
     }
-    public void setIfmmDelny(Integer ifmmDelny) {
-        this.ifmmDelny = ifmmDelny;
+    public void setIfmmDelny(Integer ifmmDelNy) {
+        this.ifmmDelNy = ifmmDelNy;
     }
 }

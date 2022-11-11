@@ -1,7 +1,5 @@
 package com.tasteZip.infra.modules.store;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +24,10 @@ public class StoreController {
 	
 	@Autowired
 	StoreServiceImpl service;
+	
+	public void setSearchAndPaging(StoreVo vo) throws Exception {
+	    vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+	}
 
 	// main
 	@RequestMapping(value = "storeList")
@@ -41,6 +43,7 @@ public class StoreController {
 	//관리자 스토어
 	@RequestMapping(value = "xdminStoreList")
 	public String xdminStoreList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+	    setSearchAndPaging(vo);
 	    vo.setParamsPaging2(service.xdminSelectOneCount(vo));
 	    List<Store> list = service.xdminSelectList(vo);
 	    model.addAttribute("list", list);
@@ -53,8 +56,8 @@ public class StoreController {
 	    
 	    Store item = service.xdminSelectOne(vo);
 	    model.addAttribute("item", item);
-	    
-	    List<Store> running = service.openingList(dto);
+	   
+	    List<Store> running = service.openingList(vo);
 	    model.addAttribute("running", running);
 	    
 	    System.out.println("day 실행중?");
@@ -72,16 +75,18 @@ public class StoreController {
 	public String storeInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
 	    service.inst(dto);
 	    
-	    vo.setIfstSeq(dto.getIfrtSeq());
+	    vo.setIfstSeq(dto.getIfstSeq());
 	    redirectAttributes.addFlashAttribute("vo", vo);
 	    return "redirect:/store/xdminStoreForm";
 	}
 
 	@RequestMapping(value = "storeUpdt")
 	public String storeUpdt(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
-	    service.inst(dto);
+	    service.updt(dto);
 	    
-	    vo.setIfstSeq(dto.getIfrtSeq());
+	    vo.setIfstSeq(dto.getIfstSeq());
+	    System.out.println("seq : " +  vo.getIfstSeq());
+	    System.out.println("seq : " +  dto.getIfstSeq());
 	    redirectAttributes.addFlashAttribute("vo", vo);
 	    return "redirect:/store/xdminStoreForm";
 	}
@@ -89,13 +94,13 @@ public class StoreController {
 	@RequestMapping(value = "storeDele")
 	public String storeDele(StoreVo vo) throws Exception {
 	    service.delete(vo);
-	    return "redirect:/store/storeList";
+	    return "redirect:/store/xdminStoreList";
 	}
 
 	@RequestMapping(value = "storeUele")
 	public String storeUele(Store dto) throws Exception {
 	    service.uelete(dto);
-	    return "redirect:/store/storeList";
+	    return "redirect:/store/xdminStoreList";
 	}
 	
 	//excel Download

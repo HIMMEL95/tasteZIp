@@ -191,6 +191,9 @@
 	                    </div>
 						<div class="col" style="padding-top: 20px;">
 							<h2 class="needs-validation mt-2">My Store Form</h2>
+							<div class="card">
+								<p class="fw-bold" style="margin: 20px 15px;"><i class="fa-solid fa-star-of-life"></i> 휴무 날도 영엽일과 동일하게 영업 시간을 작성해주세요!</p>
+							</div>
 							<div class="content">
 								<div class="row">
 									<div class="col">
@@ -219,7 +222,7 @@
 																		</div>
 																		<div class="col-2">
 																			<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																			<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray">
+																			<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})">
 																				<option value="">선택</option>
 																				<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
 																					<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
@@ -227,11 +230,11 @@
 																			</select>
 																		</div>
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtStartTimeArray" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
+																			<input type="time" class="form-control" id="ifrtStartTimeArray${status.index }" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
 																		</div>
 																		~
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtEndTimeArray" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
+																			<input type="time" class="form-control" id="ifrtEndTimeArray${status.index }" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
 																		</div>
 																	</div>
 																</c:forEach>
@@ -241,7 +244,7 @@
 																	<div class="row">
 																		<div class="col-2">
 																			<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
-																			<select class="form-select" id="ifrtDayArray" name="ifrtDayArray" disabled>
+																			<select class="form-select" id="ifrtDayArray" name="ifrtDayArray" readonly>
 																				<option value="">선택</option>
 																				<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
 																					<option value="${listDay.ifccSeq }" <c:if test="${list.ifrtDay eq listDay.ifccSeq}">selected</c:if>><c:out value="${listDay.ifccName }"/></option>
@@ -250,7 +253,7 @@
 																		</div>
 																		<div class="col-2">
 																			<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																			<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray">
+																			<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})">
 																				<option value="">선택</option>
 																				<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
 																					<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
@@ -258,11 +261,11 @@
 																			</select>
 																		</div>
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtStartTimeArray" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
+																			<input type="time" class="form-control" id="ifrtStartTimeArray${status.index }" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
 																		</div>
 																		~
 																		<div class="col">
-																			<input type="time" class="form-control" id="ifrtEndTimeArray" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
+																			<input type="time" class="form-control" id="ifrtEndTimeArray${status.index }" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
 																		</div>
 																	</div>
 																</c:forEach>
@@ -289,8 +292,8 @@
 					   				<div class="col-6">
 										<select class="form-select" id="ifstOrderNy" name="ifstOrderNy">
 											<option value="">선택</option>
-											<option value="0" <c:if test="${vo.shOptionDate eq 0 }">selected</c:if>>X</option>
-											<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>O</option>
+											<option value="0" <c:if test="${item.ifstOrderNy eq 0 }">selected</c:if>>X</option>
+											<option value="1" <c:if test="${item.ifstOrderNy eq 1 }">selected</c:if>>O</option>
 										</select>
 									</div>
 								</div>
@@ -336,7 +339,7 @@
 								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-12">
 										<label for="ifstInfo" class="form-label">가게 소개글</label> 
-										<input type="text" class="form-control" id="ifstInfo" name="ifstInfo" placeholder="" value="${item.ifstInfo }">
+										<textarea class="form-control" id="ifstInfo" name="ifstInfo" aria-label="With textarea" rows="5">${item.ifstInfo }</textarea>
 									</div>
 								</div>
 							</div>
@@ -406,7 +409,7 @@
 		var goUrlUel = "/store/storeUele";
         var goUrlDel = "/store/storeDele";
 
-		var ifstSeq = $("input:hidden[name=ifstSeq]"); /* #-> */
+		var ifstSeq = $("input[name=ifstSeq]"); /* #-> */
 
 		var form = $("form[name=myform]");
 		var formVo = $("form[name=formVo]");
@@ -532,6 +535,11 @@
 	    $("#searchBtn").on("click", function() {
         	daumPostCode();
 		});
+	    
+		refreshTime = function(keyValue) {
+	    	$("#ifrtStartTimeArray"+keyValue).val("");
+			$("#ifrtEndTimeArray"+keyValue).val("");
+	    }
 	</script>
 </body>
 </html>

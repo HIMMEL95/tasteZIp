@@ -24,6 +24,7 @@
 				,s.ifstCreatedAt
 		    from store s
 			where 1=1
+				and s.ifstDelNy = 0
 				<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
 		    ORDER BY 
 		    	s.ifstCreatedAt DESC
@@ -56,6 +57,7 @@
 				,s.ifstCreatedAt
 		    from store s
 			where 1=1
+				and ifstDelNy = 0
 				<if test="shDelNy != null and !shDelNy.equals('')">AND ifstDelNy = #{shDelNy}</if>
 				<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
 				<choose>
@@ -203,7 +205,7 @@
 	</update>
 
 	<update id="runningUpdate">
-		UPDATE store
+		UPDATE runningTime
 		SET
 			ifrtDay = #{ifrtDay}
 			,ifrtStartTime = #{ifrtStartTime}
@@ -212,6 +214,7 @@
 			,ifstSeq = #{ifstSeq}
 		where 1=1
 			and ifstSeq = #{ifstSeq}
+			and ifrtDay = #{ifrtDay}
 	</update>
 	
 	<update id="uelete">
@@ -219,12 +222,17 @@
 		SET
 			ifstDelNy = 1
 		where 1=1
-			and ifstDelNy = #{ifstDelNy}
+			and ifstSeq = #{ifstSeq}
 	</update>
 	
-	<delete id="delete">
+	<delete id="sDelete">
 		DELETE
 		FROM store where ifstSeq = #{ifstSeq}
+	</delete>
+
+	<delete id="rtDelete">
+		DELETE
+		FROM runningTime where ifstSeq = #{ifstSeq}
 	</delete>
 	
 	<!-- xdmin e --> 

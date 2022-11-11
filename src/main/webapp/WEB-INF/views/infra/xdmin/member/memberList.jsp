@@ -102,9 +102,9 @@
 	    </header>
 		<main>
 			<form id="myForm" name="myForm" method="post">
-				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage}" default="1"/>">
-				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow}"/>">
-				<input type="hidden" name="ifmmSeq" value='<c:out value="${vo.ifmmSeq }"></c:out>'>
+				<input type="hidden" name="thisPage2" value="<c:out value="${vo.thisPage2 }" default="1"/>">
+               	<input type="hidden" name="rowNumToShow2" value="<c:out value="${vo.rowNumToShow2 }"/>">
+               	<input type="hidden" name="ifmmSeq" value='<c:out value="${vo.ifmmSeq }"></c:out>'>
 				<div style="height: 100px"></div>
 				<div class="wrapper">
 					<div class="container" style="height: 100vh;">
@@ -133,7 +133,7 @@
 		                                            <div class="card-body pt-0">
 		                                                <div class="text-center">
 		                                                    <hr>
-		                                                    <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+		                                                     <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
 		                                                        <li class="nav-item">
 		                                                            <a class="nav-link" href="/member/memberList">
 		                                                                <span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
@@ -153,9 +153,21 @@
 		                                                            </a>
 		                                                        </li>
 		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/reservation/reservationList">
+		                                                                <span class="icon"><i class="fa-solid fa-comments"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Reservation</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
 		                                                            <a class="nav-link" href="/store/xdminStoreList">
 		                                                                <span class="icon"><i class="fa-solid fa-store"></i></span>
 																		<span class="item" style="color: black;" id="sidebar">Store</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/comment/commentList">
+		                                                                <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Comment</span>
 		                                                            </a>
 		                                                        </li>
 		                                                        <li class="nav-item">
@@ -195,7 +207,7 @@
 		                    </div>
 							<div class="col">
 								<div class="content">
-									<h2 class="row needs-validation ms-3">MemberList</h2>
+									<h2 class="row needs-validation ms-3">Member List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
@@ -203,37 +215,32 @@
 			                                       	<option value="" <c:if test="${empty vo.shDelNy }">selected</c:if>>선택</option>
 			                                        <option value="0" <c:if test="${vo.shDelNy eq 0 }">selected</c:if>>N</option>
 			                                        <option value="1" <c:if test="${vo.shDelNy eq 1 }">selected</c:if>>Y</option>
-			                                        <option value=""> 선택</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
-												<select class="form-select" id="shUpdt" name="shUpdt">
-			                                        <option value=""> 선택</option>
-													<option value="" <c:if test="${empty vo.shUpdt }">selected</c:if>>선택</option>
-													<option value="1" <c:if test="${vo.shUpdt eq 1 }">selected</c:if>>등록일</option>
-													<option value="2" <c:if test="${vo.shUpdt eq 2 }">selected</c:if>>수정일</option>
+												<select class="form-select" id="shOptionDate" name="shOptionDate">
+													<option value="" <c:if test="${empty vo.shOptionDate }">selected</c:if>>선택</option>
+													<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>등록일</option>
 												</select>
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerS" placeholder="시작일">
+												<input type="text" class="form-control" id="datepickerS" name="shDateStart" placeholder="시작일">
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerE" placeholder="종료일">
+												<input type="text" class="form-control" id="datepickerE" name="shDateEnd" placeholder="종료일">
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-3">
 												<select class="form-select" id="shOption" name="shOption">
-			                                        <option value=""> 선택</option>
-			                                        <option value="" <c:if test="${empty vo.shOption }">selected</c:if>>검색구분</option>
-			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>코드그룹 코드</option>
-			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>코드그룹 이름(한글)</option>
-			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>코드그룹 이름(영문)</option>
+			                                        <option value="" <c:if test="${empty vo.shOption }">selected</c:if>>선택</option>
+			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>이름</option>
+			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>전화번호</option>
+			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>이메일</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
 												<input type="text" class="form-control" name="shValue" id="shValue" value="<c:out value="${vo.shValue }"/>" autocomplete="off">
-												<div class="invalid-feedback" id="shValueFeeback"></div>
 											</div>
 											<div class="col-md-2">
 												<button class="btn btn-light" type="submit" id="searching"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -241,7 +248,7 @@
 											</div>
 										</div>
 									</div>
-									<span class="ms-3 mt-5" id="Total">Total: ${vo.totalRows }</span>
+									<span class="ms-3 mt-5" id="Total">Total: ${vo.totalRows2 } </span>
 									<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
 										<table class="table table-striped table-hover text-center" id="selecBox">
 											<thead>
@@ -252,10 +259,9 @@
 													<th class="text-white">#</th>
 													<th class="text-white" scope="col">이름</th>
 													<th class="text-white" scope="col">아이디</th>
-													<th class="text-white" scope="col">전화번호</th>
+													<th class="text-white" scope="col">생년월일</th>
 													<th class="text-white" scope="col">이메일</th>
 													<th class="text-white" scope="col">주소</th>
-													<th class="text-white" scope="col">상세주소</th>
 													<th class="text-white" scope="col">등록일</th>
 												</tr>
 											</thead>
@@ -263,22 +269,21 @@
 												<c:choose>
 													<c:when test="${fn:length(list) eq 0}">
 														<tr>
-															<td class="text-center" colspan="7">There is no data!</td>
+															<td class="text-center" colspan="8">There is no data!</td>
 														</tr>
 													</c:when>
 													<c:otherwise>		
 														<c:forEach items="${list}" var="list" varStatus="status">
-															<tr onclick="goForm(<c:out value="${list.ifmmSeq }"/>)" class="info">
+															<tr onclick="goForm(${list.ifmmSeq})" class="info" style="cursor: pointer;">
 																<th scope="row" class="td1" src="./memberMod.html">
 																	<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
 																</th>
-																<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
-																<td>${list.ifmmName}</td>
-																<td>${list.ifmmId }</td>
-																<td>${list.ifmmPhone}</td>
-																<td>${list.ifmmEmail}</td>
-																<td>${list.ifmmAddress}</td>
-																<td>${list.ifmmDetailAddress}</td>
+																<td><c:out value="${vo.totalRows2 - ((vo.thisPage2 - 1) * vo.rowNumToShow2 + status.index) }"/></td>
+																<td>${list.ifmmName }</td>
+																<td>${list.ifmmId}</td>
+																<td>${list.ifmmDob}</td>
+																<td>${list.ifmmEmail }</td>
+																<td>${list.ifmmAddress }</td>
 																<td>${list.ifmmCreatedAt }</td>
 															</tr>
 														</c:forEach>
@@ -286,46 +291,42 @@
 												</c:choose>
 											</tbody>
 										</table>
-										<%@include file="../includeV1/pagination.jsp"%>
+										<%@include file="../includeV1/pagination2.jsp"%>
 									</div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
-			                                <button class="border-0 btn shadow" type="button" data-bs-toggle="modal"
+			                                <button id="btnDel" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-trash fa-lg"></i>
 			                                </button>
 			                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
-			                                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			                                    <div class="modal-dialog">
-			                                        <div class="modal-content">
-			                                            <div class="modal-header">
-			                                                <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
-			                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-			                                                    aria-label="Close"></button>
-			                                            </div>
-			                                            <div class="modal-body fs-6">
-			                                                선택하신 게시물을 정말로 삭제하시겠습니까?
-			                                            </div>
-			                                            <div class="modal-footer">
-			                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-			                                                <button type="button" class="btn btn-primary">삭제</button>
-			                                            </div>
-			                                        </div>
-			                                    </div>
-			                                </div>
-			                                <button class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
+				                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				                                <div class="modal-dialog">
+				                                    <div class="modal-content">
+				                                        <div class="modal-header">
+				                                            <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
+				                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+				                                                aria-label="Close"></button>
+				                                        </div>
+				                                        <div class="modal-body fs-6">
+				                                       		선택하신 게시물을 정말로 삭제하시겠습니까?
+				                                        </div>
+				                                        <div class="modal-footer">
+				                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+				                                            <button id="delBtn" type="button" class="btn btn-primary">삭제</button>
+				                                        </div>
+				                                    </div>
+				                                </div>
+				                            </div>
+			                                <button id="btnUel" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-xmark text-white"></i>
 			                                </button>
 			                            </div>
 			                            <div class="col-2 offset-8" align="right">
-			                                <button class="border-0 btn bg-success shadow" type="button" data-bs-toggle="modal"
-			                                    data-bs-target="#deleteModal">
+			                                <button class="border-0 btn bg-success shadow" id="excelBtn" type="button">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>
-			                                <a class="border-0 btn shadow bg-dark" role="button" id="btnForm">
-			                                    <i class="fa-regular fa-plus fa-1x" style="color: white;"></i>
-			                                </a>
 			                            </div>
 			                        </div>
 								</div>
@@ -365,43 +366,64 @@
 		<!-- end --> 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
-		
-		var goUrlList = "/member/xdminMemberList"; 
-		var goUrlInst = "/member/memberInst";
-		var goUrlUpdt = "/member/memberUpdt";	
-		var goUrlUele = "/member/memberUele";	
-		var goUrlDele = "/member/memberDele";	
-		var goUrlForm = "/member/memberForm";
-		
-		var form = $("form[name=myForm]");
-		
-		var ccgSeq = $("input:hidden[name=ccgSeq]");
-		
-		
-		 $("#btnReset").on("click", function(){
-			 $(location).attr("href", goUrlList);
-		 });
+			
+			var goUrlList = "/member/memberList"; 
+			var goUrlUele = "/member/memberUele";	
+			var goUrlDele = "/member/memberDele";
+			var goUrlExcel = "/member/excelDownload";
+			
+			var form = $("form[name=myForm]");
+			
+			var ifmmSeq = $("input[name=ifmmSeq]");
+
+			$(function() {
+		  		$("#datepickerS").datepicker({
+		  			dateFormat: "yy-mm-dd"
+		  			,showMonthAfterYear: true
+		  			,showOtherMonths: true
+		  		});
+		  		$("#datepickerE").datepicker({
+		  			dateFormat: "yy-mm-dd"
+	    			,showMonthAfterYear: true
+	    			,showOtherMonths: true
+	    		});
+		  	})
+			
+			$("#btnReset").on("click", function(){
+				$(location).attr("href", goUrlList);
+			});
 		 
-		// 페이지 네이션 만들기
-		 goList = function(thisPage) {
- 			$("input:hidden[name=thisPage]").val(thisPage);
- 			form.attr("action", goUrlList).submit();
- 		};
- 		
- 		/* var seq = $("input:hidden[name=ccgSeq]"); */
-
- 		
- 		$('#btnForm').on("click", function() {
- 			goForm(0);                
- 		});
-
- 		goForm = function(keyValue) {
- 	    	/* if(keyValue != 0) seq.val(btoa(keyValue)); */
- 	    	ccgSeq.val(keyValue);
- 			form.attr("action", goUrlForm).submit();
- 		}
-		
+			// 페이지 네이션 만들기
+			goList = function(thisPage) {
+				$("input[name=thisPage2]").val(thisPage);
+				form.attr("action", goUrlList).submit();
+			}
+	 		
+	 		/* var seq = $("input:hidden[name=ccgSeq]"); */
+			
+	 		$("#excelBtn").on("click", function() {
+				form.attr("action", goUrlExcel).submit();
+			})
+			
+			$("#btnUel").on("click", function() {
+				DelValidation("#delBtn", goUrlUele, "선택하신 게시물을 삭제하시겠습니까?");
+				alert("uel")
+			})
+			
+			$("#btnDel").on("click", function() {
+				DelValidation("#delBtn", goUrlDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
+				alert("del")
+			})
+			
+			DelValidation = function(confirm, url, msg) {
+				$(".modal-body").html(msg);
+				$(confirm).on("click", function() {
+					form.attr("action", url).submit();
+				})
+			}
 		</script>
 	</body>
 </html>

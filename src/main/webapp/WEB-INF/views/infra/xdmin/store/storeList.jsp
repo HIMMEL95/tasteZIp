@@ -123,7 +123,7 @@
 		                                            <div class="card-body pt-0">
 		                                                <div class="text-center">
 		                                                    <hr>
-		                                                    <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
+		                                                     <ul class="nav nav-link-secondary flex-column fw-bold gap-2">
 		                                                        <li class="nav-item">
 		                                                            <a class="nav-link" href="/member/memberList">
 		                                                                <span class="icon"><i class="fas fa-home" style="color: black;"></i></span>
@@ -143,9 +143,21 @@
 		                                                            </a>
 		                                                        </li>
 		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/reservation/reservationList">
+		                                                                <span class="icon"><i class="fa-solid fa-comments"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Reservation</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
 		                                                            <a class="nav-link" href="/store/xdminStoreList">
 		                                                                <span class="icon"><i class="fa-solid fa-store"></i></span>
 																		<span class="item" style="color: black;" id="sidebar">Store</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/comment/commentList">
+		                                                                <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Comment</span>
 		                                                            </a>
 		                                                        </li>
 		                                                        <li class="nav-item">
@@ -182,7 +194,7 @@
 		                            </nav>
 		                        </nav>
 		                    </div>
-							<div class="col-md col-lg-9">
+							<div class="col">
 								<div class="content">
 									<h2 class="row needs-validation ms-3">Store List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
@@ -225,7 +237,7 @@
 											</div>
 										</div>
 									</div>
-									<span class="ms-3 mt-5" id="Total">Total: </span>
+									<span class="ms-3 mt-5" id="Total">Total: ${vo.totalRows2 } </span>
 									<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
 										<table class="table table-striped table-hover text-center" id="selecBox">
 											<thead>
@@ -246,7 +258,7 @@
 												<c:choose>
 													<c:when test="${fn:length(list) eq 0}">
 														<tr>
-															<td class="text-center" colspan="7">There is no data!</td>
+															<td class="text-center" colspan="8">There is no data!</td>
 														</tr>
 													</c:when>
 													<c:otherwise>		
@@ -390,7 +402,7 @@
 			})
 			
 			goList = function(thisPage) {
-				$("input[name=thisPage]").val(thisPage);
+				$("input[name=thisPage2]").val(thisPage);
 				form.attr("action", goUrlList).submit();
 			}
 			

@@ -68,6 +68,6 @@ public class CommentVo extends BaseVo{
 	public void setShOptionDate(Integer shOptionDate) {
 		this.shOptionDate = shOptionDate;
 	}
-		
+	
 
 }

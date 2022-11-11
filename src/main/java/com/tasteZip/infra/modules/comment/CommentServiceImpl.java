@@ -21,6 +21,7 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	
+	// ----------------------------    
 	@Override
 	public List<Comment> selectList2(CommentVo vo) throws Exception {
 		return dao.selectList2(vo);
@@ -33,8 +34,22 @@ public class CommentServiceImpl implements CommentService{
 	public Comment selectOne(CommentVo vo) throws Exception {
 		return dao.selectOne(vo);
 	}
-	
-
+	@Override
+	public int insert(Comment dto) throws Exception {
+		return dao.insert(dto);
+	}
+	@Override
+	public int update(Comment dto) throws Exception {
+		return dao.update(dto);
+	}
+	@Override
+	public int uelete(Comment dto) throws Exception {
+		return dao.uelete(dto);
+	}
+	@Override
+	public int delete(CommentVo vo) throws Exception {
+		return dao.delete(vo);
+	}
 	
 	
 	

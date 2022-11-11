@@ -33,28 +33,28 @@
 		WHERE 1=1
 	</select>
 	
+	 <!--          관리자 mapper s        -->	
+	
 	<select id="selectList2" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql2" />
 			SELECT
 			c.ifcmSeq
 			,c.ifcmComment
 			,c.ifcmCreatedAt
-			,c.ifcmModifiedAt
-			,c.ifcmDelNy
 			,c.ifcmGrade
 			,s.ifstName
 			,s.ifstAddress
 			,m.ifmmName
 		FROM comment c
-			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
 			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
+			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
 		WHERE 1=1
 		<if test="shDelNy != null and !shDelNy.equals('')">AND ifcmDelNy = #{shDelNy}</if>
 		<if test="shOptionDate == 1">AND ifcmCreatedAt between #{shDateStart} and #{shDateEnd}</if>
 		<choose>
 			<when test="shOption == 1">AND ifcmComment LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 2">AND ifcmGrade = #{shValue}</when>
-			<when test="shOption == 3">AND ifmmifmmName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND ifmmName LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 4">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
 		ORDER BY c.ifcmSeq DESC
@@ -65,29 +65,71 @@
 	<select id="selectOneCount2" resultType="Integer">
 		SELECT COUNT(*)
 		from comment c
+			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
+			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
 		where 1=1
 		<if test="shDelNy != null and !shDelNy.equals('')">AND ifcmDelNy = #{shDelNy}</if>
 		<if test="shOptionDate == 1">AND ifcmCreatedAt between #{shDateStart} and #{shDateEnd}</if>
 		<choose>
 			<when test="shOption == 1">AND ifcmComment LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 2">AND ifcmGrade = #{shValue}</when>
-			<when test="shOption == 3">AND ifmmifmmName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND ifmmName LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 4">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
 		ORDER BY c.ifcmSeq DESC
 	</select>
 	
-	<!-- <select id="selectOne" resultMap="resultMapObj">
+	 <select id="selectOne" resultMap="resultMapObj">
 		SELECT
-			m.ifmnSeq
-			,m.ifmnName
-			,m.ifmnPrice
-			,m.ifmnInfo
-			,m.ifmnSet_div
-	    from menu m
+			c.ifcmSeq
+			,c.ifcmComment
+			,c.ifcmGrade
+			,s.ifstName
+			,s.ifstAddress
+			,m.ifmmName
+	    from comment c
+	    	LEFT JOIN store s on s.ifstSeq = c.ifstSeq
+			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
 		where 1=1
-	 		AND c.ifcmSeq = #{ifcmSeq}
-	</select> -->
+	 		AND c.ifcmSeq = #{ifcmSeq}  <!-- #안에 있는 값들은 입력받는 곳에 name값 그대로 가져오기 -->
+	</select> 
 
+	<insert id="insert">
+		INSERT INTO comment (
+			c.ifcmSeq
+			,c.ifcmComment
+		)
+		VALUES (
+			#{ifcmSeq}
+			,#{ifcmComment}
+		)
+		
+		<selectKey resultType="String" keyProperty="ifcmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<update id="update">
+	 	UPDATE comment
+	 	SET
+			c.ifcmComment = #{ifcmComment}
+		WHERE
+			c.ifcmSeq = #{ifcmSeq}
+ 	</update>
+ 	
+ 	<update id="uelete">
+	 	UPDATE comment
+	 	SET
+	 		ifcmDelNy = 1
+		WHERE 1=1
+			and c.ifcmDelNy = #{ifcmDelNy}
+ 	</update>
+ 	
+ 	<delete id="delete">
+ 		DELETE FROM 
+ 			comment 
+		WHERE 
+			c.ifcmSeq = #{ifcmSeq}
+ 	</delete>
 
 </mapper>

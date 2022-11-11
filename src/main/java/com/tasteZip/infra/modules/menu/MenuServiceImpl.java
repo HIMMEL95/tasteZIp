@@ -21,6 +21,8 @@ public class MenuServiceImpl implements MenuService {
     	return dao.selectOneCount(vo);
     }
  
+
+    // ----------------------------    
     @Override
     public List<Menu> selectList2(MenuVo vo) throws Exception {
     	return dao.selectList2(vo);

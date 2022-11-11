@@ -97,7 +97,7 @@
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
 		<form id="myform" name="myform" method="post" autocomplete="off">
-			<%@include file="menuVo.jsp"%>
+			<input type="hidden" name="ifmnSeq" value="<c:out value="${vo.ifmnSeq}"/>"/>
 			<div style="height: 100px"></div>
 			<div class="wrapper">
 				<div class="container" style="height: 100vh;">

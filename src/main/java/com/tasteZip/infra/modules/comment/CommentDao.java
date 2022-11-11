@@ -22,7 +22,7 @@ public class CommentDao {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
 	
-	
+	// ------------------
 	public List<Comment> selectList2(CommentVo vo) { 
 		return sqlSession.selectList(namespace + ".selectList2", vo); 
 	}
@@ -32,5 +32,10 @@ public class CommentDao {
     public Comment selectOne(CommentVo vo) {
     	return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
+    
+    public int insert(Comment dto) {return sqlSession.insert(namespace + ".insert", dto); }
+	public int update(Comment dto) {return sqlSession.update(namespace + ".update", dto); }
+	public int uelete(Comment dto) {return sqlSession.update(namespace + ".uelete", dto); }
+	public int delete(CommentVo vo) {return sqlSession.delete(namespace + ".delete", vo); }
 	
 }

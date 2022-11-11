@@ -30,6 +30,8 @@
 			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
 	</select>
 	
+	<!--              관리자 mapper s               -->	
+ 
 	<select id="selectList2" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql2" />
 			select 

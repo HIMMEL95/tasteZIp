@@ -152,9 +152,21 @@
 		                                                            </a>
 		                                                        </li>
 		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/reservation/reservationList">
+		                                                                <span class="icon"><i class="fa-solid fa-comments"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Reservation</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
 		                                                            <a class="nav-link" href="/store/xdminStoreList">
 		                                                                <span class="icon"><i class="fa-solid fa-store"></i></span>
 																		<span class="item" style="color: black;" id="sidebar">Store</span>
+		                                                            </a>
+		                                                        </li>
+		                                                        <li class="nav-item">
+		                                                            <a class="nav-link" href="/comment/commentList">
+		                                                                <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
+																		<span class="item" style="color: black;" id="sidebar">Comment</span>
 		                                                            </a>
 		                                                        </li>
 		                                                        <li class="nav-item">

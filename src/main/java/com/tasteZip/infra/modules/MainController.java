@@ -109,8 +109,8 @@ public class MainController {
 	
 	// ---------------- 관리자 ---------------------
 	
-	@RequestMapping(value = "homeMain")
+	@RequestMapping(value = "xdminMain")
 	public String homeMain() throws Exception {
-		return "infra/xdmin/home/homeMain";
+		return "infra/xdmin/home/xdminMain";
 	}
 }

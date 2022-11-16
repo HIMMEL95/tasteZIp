@@ -148,7 +148,7 @@ public class MemberController {
                cell = row.createCell(12);
                cellStyle.setAlignment(HorizontalAlignment.CENTER);
                cell.setCellStyle(cellStyle);
-               cell.setCellValue(list.get(i).getIfmmEMailcheck());
+               cell.setCellValue(list.get(i).getIfmmEmailcheck());
                
                cell = row.createCell(13);
                cellStyle.setAlignment(HorizontalAlignment.CENTER);

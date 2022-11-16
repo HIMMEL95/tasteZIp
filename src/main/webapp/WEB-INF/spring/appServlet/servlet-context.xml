@@ -24,27 +24,28 @@
 	<context:component-scan base-package="com.tasteZip.infra" />
 	
 	<!-- session interceptor s 2022.03.13 for logincheck -->
-<!-- 	<interceptors>
+	<interceptors>
 		<interceptor>
 			<mapping path="/**"/>
 			<exclude-mapping path="/resources/**" />
-			<exclude-mapping path="/userLogin" />
-			<exclude-mapping path="/xdminLogin" />
+			<exclude-mapping path="/login" />
 			<exclude-mapping path="/loginCheck" />
-			<exclude-mapping path="/signUpInst" />
-			<exclude-mapping path="/sportMain" />
-			<exclude-mapping path="/idCheck" />
-			<exclude-mapping path="/articleView" />
-			<exclude-mapping path="/gameView" />
+			<exclude-mapping path="/tasteMain" />
+			<exclude-mapping path="/main" />
+			<exclude-mapping path="/tasteMain" />
+			<exclude-mapping path="/order" />
+			<exclude-mapping path="/favorite" />
+			<exclude-mapping path="/menu" />
+			<exclude-mapping path="/store" />
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/signUp" />
 			<exclude-mapping path="/findId" />
 			<exclude-mapping path="/xdminLoginCheck" />
 			<exclude-mapping path="/test/**" />
 			<exclude-mapping path="/rest/**" />
-			<beans:bean id="checkLoginSessionInterception" class="com.spopia.infra.common.interceptor.CheckLoginSessionInterception"/>
+			<beans:bean id="checkLoginSessionInterception" class="com.tasteZip.infra.common.interceptor.CheckLoginSessionInterception"/>
 		</interceptor>
-	</interceptors>	 -->
+	</interceptors>	
 	<!-- session interceptor e 2022.03.13 for logincheck -->
 	
 </beans:beans>

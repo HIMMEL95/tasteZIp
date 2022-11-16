@@ -49,4 +49,125 @@
 		<include refid="selectCommon" />
 	</select>
 	
+	<!-- login check s -->
+	<select id="loginCheck" resultMap="resultMapObj">
+		select 
+			m.ifmmSeq
+			,m.ifmmId
+			,m.ifmmName
+			,m.ifmmEmail
+			,m.ifmmUserDiv
+			,m.ifmmSnsDiv
+			,m.ifmmSnsImg
+		from member m
+		where 1=1 
+			and ifmmId = #{ifmmId} 
+			and ifmmDelNy = 0
+	</select>	
+	
+	<select id="snsLoginCheck" resultMap="resultMapObj">
+		select 
+			m.ifmmSeq
+			,m.ifmmId
+			,m.ifmmName
+			,m.ifmmEmail
+			,m.ifmmUserDiv
+			,m.ifmmSnsDiv
+			,m.ifmmSnsImg
+		from user u
+		where 1=1 
+			and ifmmName = #{ifmmName}
+			and ifmmEmail = #{ifmmEmail}
+			and ifmmDelNy = 0
+	</select>
+
+	<select id="xdminLoginCheck" resultMap="resultMapObj">
+		select 
+			m.ifmmSeq
+			,m.ifmmId
+			,m.ifmmName
+			,m.ifmmEmail
+			,m.ifmmUserDiv
+			,m.ifmmSnsDiv
+			,m.ifmmSnsImg
+		from user u
+		where 1=1 
+			and ifmmId = #{ifmmId} 
+			and ifmmPwd = #{ifmmPwd}
+			and ifmmUserDiv = 15
+			and ifmmDelNy = 0
+	</select>
+	<!-- login check  -->
+	
+	<!-- user insert s -->
+	<insert id="userInsert">
+		INSERT INTO member (
+			ifmmSeq
+			,ifmmId
+			,ifmmName
+			,ifmmPwd
+			,ifmmDob
+			,ifmmGender
+			,ifmmEmail
+			,ifmmRadioOperator
+			,ifmmPhone
+			,ifmmZipCode
+			,ifmmAddress
+			,ifmmDetailAddress
+			,ifmmExtraAddress
+			,ifmmUserDiv
+			,ifmmSnsDiv
+			,ifmmEmailCheck
+			,ifmmCreatedAt
+			,ifmmModifiedAt
+			,ifmmDelNy
+		)
+		VALUES (
+			#{ifmmSeq}
+			,#{ifmmId}
+			,#{ifmmName}
+			,#{ifmmPwd}
+			,#{ifmmDob}
+			,#{ifmmGender}
+			,#{ifmmEmail}
+			,#{ifmmRadioOperator}
+			,#{ifmmPhone}
+			,#{ifmmZipCode}
+			,#{ifmmAddress}
+			,#{ifmmDetailAddress}
+			,#{ifmmExtraAddress}
+			,13
+			,0
+			,#{ifmmEmailCheck}
+			,now()
+			,now()
+			,0
+		)
+		<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	<!-- user insert e -->
+	
+	<!-- user Update s -->
+	<update id="userUpdate">
+		UPDATE member
+		SET
+			ifmmName = #{ifmmName}
+			,ifmmId = #{ifmmId}
+			,ifmmDob = #{ifmmDob}
+			,ifmmGender = #{ifmmGender}
+			,ifmmEmail = #{ifmmEmail}
+			,ifmmRadioOperator = #{ifmmRadioOperator}
+			,ifmmPhone = #{ifmmPhone}
+			,ifmmZipCode = #{ifmmZipCode}
+			,ifmmAddress = #{ifmmAddress}
+			,ifmmDetailAddress = #{ifmmDetailAddress}
+			,ifmmExtraAddress = #{ifmmExtraAddress}
+			,modifiedAt = now()
+		where 1=1
+			and ifmmSeq = #{ifmmSeq}
+	</update>
+	<!-- user Update e -->
+	
 </mapper>

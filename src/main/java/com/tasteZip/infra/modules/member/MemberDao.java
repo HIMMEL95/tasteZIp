@@ -20,4 +20,14 @@ public class MemberDao {
     //ifmmMember
     public List<Member> selecList(MemberVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
     public int selectOneCount(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
+
+    // login
+    public Member loginCheck(Member dto) { return sqlSession.selectOne(namespace + ".loginCheck", dto); }
+    public Member snsLoginCheck(Member dto) { return sqlSession.selectOne(namespace + ".snsLoginCheck", dto); }
+    public Member xdminLoginCheck(Member dto) { return sqlSession.selectOne(namespace + "xdminLoginCheck", dto); }
+
+    /* insert & update */
+    public int memberInst(Member dto) { return sqlSession.insert(namespace + ".userInsert", dto); }
+    public int memberUpdt(Member dto) { return sqlSession.update(namespace + ".userUpdate", dto); }
+
 }

@@ -28,16 +28,6 @@ public class MemberController {
         vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
     }
     
-	@RequestMapping(value = "memberList")
-	public String memberList(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
-	    setSearchAndPaging(vo);
-	    
-	    vo.setParamsPaging2(service.selectOneCount(vo));
-	    List<Member> list = service.selectList(vo);
-	    model.addAttribute("list", list);
-	    return "infra/xdmin/member/memberList";
-	}
-	
 	@RequestMapping(value = "memberForm")
 	public String memberForm() throws Exception {
 	    return "infra/xdmin/member/memberForm";
@@ -184,4 +174,29 @@ public class MemberController {
            workbook.close();
        }
    }
+   
+ // ------------------------ 관리자 ------------------------
+   
+   @RequestMapping(value = "xdminMemberList")
+	public String xdminMember(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		
+		setSearchAndPaging(vo);
+		return "infra/xdmin/member/xdminMemberList";
+	}
+	
+	@RequestMapping(value = "xdminMemberLita")
+	public String xdminMemberLita(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		
+		  if (vo.getTotalRows() > 0) { 
+			  List<Member> list = service.selectList(vo);
+			  model.addAttribute("list", list); 
+		  }
+		
+		return "infra/xdmin/member/xdminMemberLita";
+	}
+   
+ 
 }

@@ -70,7 +70,7 @@ button {
 }
 
 .left-bar {
-  background-color: var(--bg-color);
+  background-color: #353536;
   width: 230px;
   border-right: 1px solid #e3e7f7;
   position: relative;
@@ -81,7 +81,7 @@ button {
 }
 
 .item {
-  color: var(--main-color);
+  color: #f7f8fc;
   margin-bottom: 14px;
   font-weight: 500;
 }

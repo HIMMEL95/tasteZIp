@@ -280,28 +280,28 @@
                     	  <div class="col">
 	                    	  <a href="#">
 								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/family_restaurant.jpg);"></div>
+								    <div class="b-game-card__cover" style="background-image: url(https://t1.daumcdn.net/cfile/tistory/2122564F5777D82638);"></div>
 								  </div>
 							  </a>
 						  </div>
 						  <div class="col">
 	                    	  <a href="#">
 								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/black_restaurant.jpg);"></div>
+								    <div class="b-game-card__cover" style="background-image: url(https://t1.daumcdn.net/cfile/tistory/990B8C3359F838652B);"></div>
 								  </div>
 							  </a>
 						  </div>
 						  <div class="col">
 	                    	  <a href="#">
 								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/santorini.jpg);"></div>
+								    <div class="b-game-card__cover" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMVhrs0gzSAjpKtXY5GeWL8BUojZqa1nnbwQ&usqp=CAU);"></div>
 								  </div>
 							  </a>
 						  </div>
 						  <div class="col">
 	                    	  <a href="#">
 								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1613946069412-38f7f1ff0b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);"></div>
+								    <div class="b-game-card__cover" style="background-image: url(https://mblogthumb-phinf.pstatic.net/MjAxOTEyMDhfMTk1/MDAxNTc1NzczNzQzMDU2.ocUcRJ6rFYm-Xs-cPvhDuYMGxsSOnQb8Ik4lEVITQSYg.hNH0xlh9bJtUVapBR4EjB9o_20W_JM-0UgwWuvDlb1Mg.JPEG.pinkmint86/IMG_0627.JPG?type=w800);"></div>
 								  </div>
 							  </a>
 						  </div>

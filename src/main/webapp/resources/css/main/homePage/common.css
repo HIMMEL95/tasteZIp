@@ -245,7 +245,7 @@ video::-webkit-media-controls-volume-slider {display: none !important;}
 /* Section2 */
 #overview{overflow:hidden; margin: 60px 0 0;}
 #overview .overview_title{padding:20px 60px; border-top:1px solid rgba(255,255,255,.3); border-bottom:1px solid rgba(255,255,255,.3);}
-#overview h1{font-family: LeferiPointBlack; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; letter-spacing: normal; color: #ffffff;}
+#overview h1{font-family: LeferiPointBlack; font-size: 45px; font-weight: 900; font-stretch: normal; font-style: normal; letter-spacing: normal; color: #ffffff;}
 #overview .overviewWr{padding:90px 60px; overflow:hidden;}
 #overview .overviewWr .overviewTxt{overflow:hidden; float:left; font-family:"LeferiPointWhite"; font-size: 18px; font-weight: normal; font-stretch: normal; font-style: normal; line-height: 2; letter-spacing: normal; color: #ffffff;}
 #overview .overviewWr .overviewVideo{overflow:hidden; float:right; max-width:1180px;}
@@ -368,7 +368,7 @@ video::-webkit-media-controls-volume-slider {display: none !important;}
 /* Section3 */
 #recording{overflow:hidden;}
 #recording .recording_title{padding:20px 60px; border-top:1px solid rgba(255,255,255,.3); border-bottom:1px solid rgba(255,255,255,.3);}
-#recording .recording_title h1{font-family: LeferiPointBlack; font-size: 80px; font-weight: 900; font-stretch: normal; font-style: normal; letter-spacing: normal; color: #ffffff;}
+#recording .recording_title h1{font-family: LeferiPointBlack; font-size: 45px; font-weight: 900; font-stretch: normal; font-style: normal; letter-spacing: normal; color: #ffffff;}
 #recording .recordingCont{padding: 90px 0;}
 #recording .recordingContWr{padding:0 35% 0 60px; overflow:hidden; position: relative;}
 #recording .recordingContWr .recordingTxt {

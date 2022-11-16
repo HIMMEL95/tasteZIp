@@ -425,7 +425,7 @@
 		
 		// ----- form으로 이동 -----
  		
- 		 $('#btnForm').on("click", function() {
+ 		 $('#').on("click", function() {
  			goForm(0);                
  		});
  		

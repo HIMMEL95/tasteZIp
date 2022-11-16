@@ -17,7 +17,7 @@ public class Member {
     private String ifmmExtraAddress;
     private Integer ifmmUserDiv;
     private Integer ifmmSnsDiv;
-    private Integer ifmmEMailcheck;
+    private Integer ifmmEmailcheck;
     private String ifmmSnsImg;
     private String ifmmCreatedAt;
     private String ifmmModifiedAt;
@@ -113,11 +113,11 @@ public class Member {
     public void setIfmmSnsDiv(Integer ifmmSnsDiv) {
         this.ifmmSnsDiv = ifmmSnsDiv;
     }
-    public Integer getIfmmEMailcheck() {
-        return ifmmEMailcheck;
+    public Integer getIfmmEmailcheck() {
+        return ifmmEmailcheck;
     }
-    public void setIfmmEMailcheck(Integer ifmmEMailcheck) {
-        this.ifmmEMailcheck = ifmmEMailcheck;
+    public void setIfmmEmailcheck(Integer ifmmEmailcheck) {
+        this.ifmmEmailcheck = ifmmEmailcheck;
     }
     public String getIfmmSnsImg() {
         return ifmmSnsImg;

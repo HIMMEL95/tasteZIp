@@ -35,31 +35,23 @@
 				            </div>
 			            	<form class="form-validate">
 								<div class="mb-4">
-				                	<label class="form-label" for="loginUsername"> Email Address</label>
-				                	<input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="name@address.com" autocomplete="off" required="" data-msg="Please enter your email">
+				                	<label class="form-label" for="ifmmId"> Id </label>
+				                	<input class="form-control" name="ifmmId" id="ifmmId" type="text" placeholder="Id"  autocomplete="off" data-msg="Please enter your id">
 				              	</div>
 								<div class="mb-4">
 									<div class="row">
 										<div class="col">
-											<label class="form-label" for="loginPassword"> Password</label>
+											<label class="form-label" for="ifmmPwd"> Password</label>
 										</div>
 										<div class="col-auto">
 											<a class="form-text small" href="#" style="color: #FF5733;">Forgot password?</a>
 										</div>
 									</div>
-									<input class="form-control" name="loginPassword" id="loginPassword" placeholder="Password" type="password" required="" data-msg="Please enter your password">
+									<input class="form-control" name="ifmmPwd" id="ifmmPwd" placeholder="Password" type="password" data-msg="Please enter your password">
 		              			</div>
-			              		<div class="mb-4">
-			                		<div class="form-check">
-			                 	 		<input class="form-check-input" id="loginRemember" type="checkbox">
-		                 	 			<label class="form-check-label text-muted" for="loginRemember">
-		                	 		 		<span class="text-sm">Remember me for 30 days</span>
-	                	 		 		</label>
-			                		</div>
-			              		</div>
 			              	<!-- Submit-->
 				             	<div class="d-grid">
-				              		<button class="btn btn-lg text-white" style="background: #FF5733; border: none;">Sign in</button>
+				              		<button class="btn btn-lg text-white" id="loginBtn" style="background: #FF5733; border: none;">Sign in</button>
 				              	</div>
 				              	<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
 				              	<div class="d-grid gap-2">
@@ -118,6 +110,28 @@
 		$("#signUpBtn").on("click", function() {
 			form.attr("action", goUrlSign).submit();
 		})
+		
+		$("#loginBtn").on("click", function() {
+			$.ajax({
+				async: true
+				,cache: false
+				,type:"POST"
+				,url: "/loginCheck"
+				,data: {"ifmmId": $("#ifmmId").val(), "ifmmPwd": $("#ifmmPwd").val()}
+				,success : function(response) {
+					if (response.rt == "fail") {
+						alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+						return false;
+					} else {
+						alert("sadsa")
+						window.location.href = "/tasteMain";
+					}
+				},
+				error : function(jqXHR, status, error) {
+					alert("알 수 없는 에러 [ " + error + " ]");
+				}
+			});
+		});
     </script>
 </body>
 

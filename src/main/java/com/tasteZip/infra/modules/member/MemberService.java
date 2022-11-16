@@ -6,4 +6,14 @@ public interface MemberService {
 
     public List<Member> selectList(MemberVo vo) throws Exception;
     public int selectOneCount(MemberVo vo) throws Exception;
+    
+    // login s
+    public Member loginCheck(Member dto) throws Exception;
+    public Member snsLoginCheck(Member dto) throws Exception;
+    public Member xdminLoginCheck(Member dto) throws Exception;
+    // login e
+    
+    /* insert & update */
+    public int memberInst(Member dto) throws Exception;
+    public int memberUpdt(Member dto) throws Exception;
 }

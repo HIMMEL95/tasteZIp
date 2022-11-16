@@ -112,47 +112,68 @@
         
         <section id="overview">
             <div class="overview_title">
-                <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">Recently Visited</h1>
+                <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp; font-family: 'LeferiPoint-SpecialItalicA';">Recently Visited</h1>
             </div>
-            <div class="content">
+            <div class="content" style="font-family: 'Pretendard-Regular';">
                 <div class="row">
                     <div class="col">
                         <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
+                            <figure class="snip1515">
+							  <div class="profile-image">
+							  	<img src="/resources/images/main/restaurant.jpg"/>
+							  </div>
+							  <figcaption>
+							    <b><h4 class="card-title">힘난다 버거</h4></b>
                                 <p class="card-text">서울 서초구 사평대로56길 7</p>
                                 <p class="card-text">한일유앤아이 1층</p>
                                 <p class="card-text">02-595-6768</p>
-                            </div>
+							  </figcaption>
+							</figure>
                         </a>
                     </div>
                     <div class="col">
                         <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
+                            <figure class="snip1515">
+							  <div class="profile-image">
+							  	<img src="/resources/images/main/restaurant.jpg"/>
+							  </div>
+							  <figcaption>
+							    <b><h4 class="card-title">힘난다 버거</h4></b>
                                 <p class="card-text">서울 서초구 사평대로56길 7</p>
                                 <p class="card-text">한일유앤아이 1층</p>
                                 <p class="card-text">02-595-6768</p>
-                            </div>
+							  </figcaption>
+							</figure>
                         </a>
                     </div>
                     <div class="col">
                         <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
+                            <figure class="snip1515">
+							  <div class="profile-image">
+							  	<img src="/resources/images/main/restaurant.jpg"/>
+							  </div>
+							  <figcaption>
+							    <b><h4 class="card-title">힘난다 버거</h4></b>
                                 <p class="card-text">서울 서초구 사평대로56길 7</p>
                                 <p class="card-text">한일유앤아이 1층</p>
                                 <p class="card-text">02-595-6768</p>
-                            </div>
+							  </figcaption>
+							</figure>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="#">
+                            <figure class="snip1515">
+							  <div class="profile-image">
+							  	<img src="/resources/images/main/restaurant.jpg"/>
+							  </div>
+							  <figcaption>
+							    <b><h4 class="card-title">힘난다 버거</h4></b>
+                                <p class="card-text">서울 서초구 사평대로56길 7</p>
+                                <p class="card-text">한일유앤아이 1층</p>
+                                <p class="card-text">02-595-6768</p>
+							  </figcaption>
+							</figure>
                         </a>
                     </div>
                 </div>
@@ -214,97 +235,77 @@
         </section>
         <section id="recording">
             <div class="recording_title">
-                <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">Recommend</h1>
+                <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp; font-family: 'LeferiPoint-SpecialItalicA'">Recommend</h1>
             </div>
             <div class="recommend_content">
                 <div class="sub_title">
                     <h2>Menu</h2>
-                    <div class="row">
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="/resources/images/main/icecream.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">아이스크림</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="/resources/images/main/meat.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">스테이크</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="/resources/images/main/pasta.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">파스타</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="https://cdn.pixabay.com/photo/2017/08/06/06/43/pizza-2589575_960_720.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">피자</h5>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="row justify-content-center">
+                    	<div class="l-container">
+                    	  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/icecream.jpg);"></div>
+								  </div>
+							  </a>
+						  </div>
+						  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/meat.jpg);"></div>
+								  </div>
+							  </a>
+						  </div>
+						  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/pasta.jpg);"></div>
+								  </div>
+							  </a>
+						  </div>
+						  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/06/06/43/pizza-2589575_960_720.jpg);"></div>
+								  </div>
+							  </a>
+						  </div>
+						</div>
                     </div>
                 </div>
                 <div class="sub_title">
                     <h2>Restaurant</h2> 
-                    <div class="row">
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="/resources/images/main/family_restaurant.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">패밀리 레스토랑</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="/resources/images/main/black_restaurant.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">블랙 레스토랑</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="/resources/images/main/santorini.jpg" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">산토리니</h5>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card recommendCard">
-                                    <img src="https://images.unsplash.com/photo-1613946069412-38f7f1ff0b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" class="card-img-top" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">산토리니</h5>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="row justify-content-center">
+                    	<div class="l-container">
+                    	  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/family_restaurant.jpg);"></div>
+								  </div>
+							  </a>
+						  </div>
+						  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/black_restaurant.jpg);"></div>
+								  </div>
+							  </a>
+						  </div>
+						  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/santorini.jpg);"></div>
+								  </div>
+							  </a>
+						  </div>
+						  <div class="col">
+	                    	  <a href="#">
+								  <div class="b-game-card">
+								    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1613946069412-38f7f1ff0b65?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);"></div>
+								  </div>
+							  </a>
+						  </div>
+						</div>
                     </div>
                 </div>                       
                 </div>

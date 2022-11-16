@@ -94,8 +94,8 @@
 									<div class="search_box">
 										<button class="search_btn" type="button">검색</button>
 										<div class="input_box">
-											<label class="label_search">리스트검색</label>
-											<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
+											<label class="label_search"></label>
+											<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search" placeholder="리스트검색">
 										</div>
 									</div>
 								</div>

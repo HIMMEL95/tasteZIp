@@ -321,6 +321,7 @@ video::-webkit-media-controls-volume-slider {display: none !important;}
 		padding: 16px 20px;
 		font-size: 24px;
 		line-height: 0.92;
+		font-family: 'LeferiPoint-SpecialItalicA';
 	}
 
 	#overview .overviewCont{
@@ -918,16 +919,18 @@ a {
 }
 
 .recentCard {
-	width: 300px;
+	width: 100%;
 	height: 200px;
 }
+
+
 
 .card {
 	background: #000;
 }
 
 .card-img-top {
-	width: 300px;
+	width: 100%;
 	height: 200px;
 }
 
@@ -938,10 +941,10 @@ a {
 
 .card-title {
 	margin-top: 0;
-	font-size: 20px;
+	font-size: 25px;
+	font-weight: bolder;
 	text-align: center;
 	color: white;
-	font-family: "Ghanachocolate";
 }
 
 .card-text {
@@ -950,7 +953,6 @@ a {
 	text-align: center;
 	font-size: 15px;
 	
-	font-family: "ChosunilboNM";
 }
 
 .sub_title {
@@ -1018,4 +1020,136 @@ a {
     --bs-btn-disabled-color: none;
     --bs-btn-disabled-bg: transparent;
     --bs-gradient: none;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Open+sans);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+.snip1515 {
+  font-family: 'Pretendard-Regular';
+  position: relative;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #000000;
+  text-align: center;
+  line-height: 1.4em;
+  font-size: 14px;
+  box-shadow: none !important;
+}
+
+.snip1515 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.snip1515 .profile-image {
+  display: inline-block;
+  width: 80%;
+  z-index: 1;
+  position: relative;
+  padding: 10px;
+  border: 2px solid #ff7f00;
+}
+
+.snip1515 .profile-image img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.snip1515 figcaption {
+  width: 100%;
+  background-color: #151515;
+  color: #413F3F;
+  padding: 125px 25px 25px;
+  margin-top: -100px;
+  display: inline-block;
+}
+
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.l-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+  padding: 30px;
+}
+@media screen and (max-width: 760px) {
+  .l-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.b-game-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-bottom: 150%;
+  perspective: 1000px;
+}
+.b-game-card__cover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-size: cover;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transform-origin: top center;
+  will-change: transform;
+  transform: skewX(0.001deg);
+  transition: transform 0.35s ease-in-out;
+}
+.b-game-card__cover::after {
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background: linear-gradient(226deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 60%);
+  transform: translateY(-20%);
+  will-change: transform;
+  transition: transform 0.65s cubic-bezier(0.18, 0.9, 0.58, 1);
+}
+.b-game-card:hover .b-game-card__cover {
+  transform: rotateX(7deg) translateY(-6px);
+}
+.b-game-card:hover .b-game-card__cover::after {
+  transform: translateY(0%);
+}
+.b-game-card::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 12px 12px rgba(0, 0, 0, 0.4);
+  will-change: opacity;
+  transform-origin: top center;
+  transform: skewX(0.001deg);
+  transition: transform 0.35s ease-in-out, opacity 0.5s ease-in-out;
+}
+.b-game-card:hover::before {
+  opacity: 0.6;
+  transform: rotateX(7deg) translateY(-6px) scale(1.05);
 }

@@ -56,7 +56,7 @@ button {
 }
 
 .task-manager {
-  display: flex;
+  display: -webkit-box;
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;

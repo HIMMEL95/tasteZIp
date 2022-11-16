@@ -28,10 +28,6 @@ public class MemberController {
         vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
     }
     
-	@RequestMapping(value = "memberForm")
-	public String memberForm() throws Exception {
-	    return "infra/xdmin/member/memberForm";
-	}
 	
 	@RequestMapping(value = "mypageMemberForm")
 	public String mypageMemberForm() throws Exception {
@@ -196,6 +192,11 @@ public class MemberController {
 		  }
 		
 		return "infra/xdmin/member/xdminMemberLita";
+	}
+	
+	@RequestMapping(value = "xdminMemberForm")
+	public String xdminMemberForm() throws Exception {
+	    return "infra/xdmin/member/xdminMemberForm";
 	}
    
  

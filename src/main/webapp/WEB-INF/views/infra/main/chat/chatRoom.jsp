@@ -21,6 +21,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
 	<link rel="stylesheet" href="/resources/css/chat/chatRoom.css">
+	<link rel="stylesheet" href="/resources/css/story/story.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
 
@@ -50,7 +51,7 @@
 							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
-					<li>
+				<!-- 	<li>
 						<a href="/story" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
 						</a>
@@ -59,7 +60,7 @@
 						<a href="/comment" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
 						</a>
-					</li>
+					</li> -->
 					<li>
 						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
@@ -88,25 +89,22 @@
 				</div>
 				<div class="panel">
 					<div class="panel_top">
-						<!-- search s -->
-						<div class="search">
-							<div class="search_wrap">
-								<div class="search_box">
-									<button class="search_btn" type="button">검색</button>
-									<div class="input_box">
-										<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
-										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- search e -->
 						<div class="ng-star-inserted">
-							<div class="main -top_space">
-							
+							<div class="main -top_space" style="padding-top: 0px;">
+								
 								<!-- contents s -->
 								<div class="contents">
-									<div class="container-fluid" style="hight: 50px; background: #E6E6E6" >
+									<div class="container" style="margin-top: 2rem;">
+										<div class="row justify-content-center">
+											<div class="SearchBox">
+												<input type="text" class="SearchBox-input" placeholder="Search">
+												<button class="SearchBox-button">
+													<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
+												</button>
+											</div>
+										</div>
+							 		  </div>
+									<div class="container-fluid" style="hight: 50px; background: #E6E6E6; margin-top: 3rem;" >
 										<div class="row hh">
 											<div class="col-2 text-start" style="margin-left: 1rem;">
 										      <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>

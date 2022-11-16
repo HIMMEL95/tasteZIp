@@ -49,7 +49,7 @@
 							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="/story" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
 						</a>
@@ -57,6 +57,11 @@
 					<li>
 						<a href="/comment" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
+						</a>
+					</li> -->
+					<li>
+						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
 				</ul>

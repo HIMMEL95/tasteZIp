@@ -50,7 +50,7 @@
 							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
-					<li>
+				<!-- 	<li>
 						<a href="/story" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
 						</a>
@@ -59,7 +59,7 @@
 						<a href="/comment" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
 						</a>
-					</li>
+					</li> -->
 					<li>
 						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
@@ -88,21 +88,7 @@
 				</div>
 				<div class="panel">
 					<div class="panel_top">
-						<!-- search s -->
-						<div class="search">
-							<div class="search_wrap">
-								<div class="search_box">
-									<button class="search_btn" type="button">검색</button>
-									<div class="input_box">
-										<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
-										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- search e -->
 						<div class="ng-star-inserted">
-							<div class="main -top_space">
 							
 								<!-- contents s -->
 								<div class="contents">
@@ -120,7 +106,7 @@
 												</button>
 											</div>
 										</div>
-									</div>
+									   </div>
 							          </div>
 							          <div class="inbox_chat">
 							            <a href="/chatRoom">
@@ -249,7 +235,6 @@
 							        </div>	 
 								</div>
 								<!-- contents e -->
-							</div>
 						</div>
 					</div>
 				</div>

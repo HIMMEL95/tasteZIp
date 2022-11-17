@@ -141,7 +141,6 @@ h2{
 }
 
 .footer .footer_link li+li::before {
-    content: '';
     position: absolute;
     top: 4px;
     left: 4px;
@@ -194,4 +193,14 @@ a{
 
 #selecBox {
 	box-shadow: 10px 5px 5px #6e6e6e;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
 }

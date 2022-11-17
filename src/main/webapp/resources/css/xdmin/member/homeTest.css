@@ -650,3 +650,54 @@ a{
 #selecBox {
 	box-shadow: 10px 5px 5px #6e6e6e;
 }
+
+.action-list a {
+	transition: all 0.2s linear;
+	color: #f7f8fc;
+}
+
+.Home:hover{
+	 transform: scale(1.4);
+	 color: #f7f8fc;
+}
+.Member:hover{
+	 transform: scale(1.4);
+	 color: #f7f8fc;
+}
+.Order:hover{
+	 transform: scale(1.4);
+	 color: #f7f8fc;
+}
+.Reservation:hover{
+	 transform: scale(1.4);
+	 color: #f7f8fc;
+}
+.Store:hover{
+	 transform: scale(1.4);
+	 color: #f7f8fc;
+}
+.Menu:hover{
+	 transform: scale(1.4);
+	 color: #f7f8fc;
+}
+.Comment:hover{
+	 transform: scale(1.4);
+	 color: #f7f8fc;
+}
+
+.b {
+	transition: all 0.2s linear;
+	color: #8891a4;
+}
+.Code:hover{
+	 transform: scale(1.4);
+	 color: #8891a4;
+}
+.CodeGroup:hover{
+	 transform: scale(1.4);
+	 color: #8891a4;
+}
+
+
+
+

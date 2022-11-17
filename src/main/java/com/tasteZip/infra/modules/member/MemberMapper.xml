@@ -62,6 +62,7 @@
 		from member m
 		where 1=1 
 			and ifmmId = #{ifmmId} 
+			and ifmmPwd = #{ifmmPwd}
 			and ifmmDelNy = 0
 	</select>	
 	
@@ -169,5 +170,23 @@
 			and ifmmSeq = #{ifmmSeq}
 	</update>
 	<!-- user Update e -->
+	
+	<select id="codeGender" resultMap="resultMapObj">
+		select 
+			c.ifccSeq
+			,c.ifccName
+		from code c
+		where 1=1 
+			and c.ifcgSeq = '2'
+	</select>
+
+	<select id="codeRadio" resultMap="resultMapObj">
+		select 
+			c.ifccSeq
+			,c.ifccName
+		from code c
+		where 1=1 
+			and c.ifcgSeq = '1'
+	</select>
 	
 </mapper>

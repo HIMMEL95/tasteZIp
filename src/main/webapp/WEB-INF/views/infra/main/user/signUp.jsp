@@ -5,6 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.tasteZip.infra.modules.code.CodeServiceImpl"/>
+
 <!doctype html>
 <html lang="ko">
 
@@ -68,11 +70,15 @@
 											<input class="form-control" name="ifmmDob" id="ifmmDob" placeholder="Password" type="text" data-msg="Please enter your password">
 										</div>
 										<div class="col">
+											<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('2') }" />
 											<label class="form-label" for="ifmmGender"> Gender <span class="text-danger">*</span></label>
 											<select id="ifmmGender" name="ifmmGender" class="form-control" aria-label=".form-select-lg example" onfocusout="validationUpdt()">
 				                                <option value="" <c:if test="${empty item.gender}">selected</c:if>>선택</option>
-				                                <option value="5" <c:if test="${item.gender eq 5 }">selected</c:if>>남성</option>
-				                                <option value="6" <c:if test="${item.gender eq 6 }">selected</c:if>>여성</option>
+				                                <c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
+													<option value="${listGender.ifccSeq }" <c:if test="${item.gAbroadNy eq listGender.ifccSeq}">selected</c:if>><c:out value="${listGender.ifccName }"/></option>
+												</c:forEach>
+				                                <option value="4" <c:if test="${item.gender eq 4 }">selected</c:if>>남성</option>
+				                                <option value="5" <c:if test="${item.gender eq 5 }">selected</c:if>>여성</option>
 				                            </select>
 										</div>
 									</div>
@@ -233,7 +239,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
     
-    	var goUrlInst = "/signUpInst";
+    	var goUrlInst = "/member/memberInst";
     	var goUrlHome = "/tasteMain";
     	var goUrlSign = "/signUp";
     	var form = $("#myForm");
@@ -341,23 +347,25 @@
 		});
 		// 우편번호 e
 		
+    </script>
+    <script type="text/javascript">
 		$("#saveBtn").on("click", function() {
-      		form.attr("action", goUrlInst).submit();
       		swAlert("회원가입", "회원가입을 축하합니다.!!!", "success");
+      		form.attr("action", goUrlInst).submit();
 		});
 		
 		 function swAlert(title, text, icon) {
-				swal({
-					title: title
-					,text: text
-					,icon: icon
-					,buttons: "확인"
-				}).then((value) => {
-					if (value) {
-						loaction.href = "/tasteMain";
-					}
-				})
-			}
+			swal({
+				title: title
+				,text: text
+				,icon: icon
+				,buttons: "확인"
+			}).then((value) => {
+				if (value) {
+					loaction.href = "/tasteMain";
+				}
+			})
+		}
     </script>
 </body>
 

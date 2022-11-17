@@ -29,7 +29,7 @@ public class LoginController {
     }
     
     @ResponseBody
-    @RequestMapping("loginCheck")
+    @RequestMapping(value = "loginCheck")
     public Map<String, Object> loginCheck(Member dto, HttpSession httpSession) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         

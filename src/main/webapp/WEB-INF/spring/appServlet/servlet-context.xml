@@ -30,6 +30,7 @@
 			<exclude-mapping path="/resources/**" />
 			<exclude-mapping path="/login" />
 			<exclude-mapping path="/loginCheck" />
+			<exclude-mapping path="/member/memberInst" />
 			<exclude-mapping path="/tasteMain" />
 			<exclude-mapping path="/main" />
 			<exclude-mapping path="/tasteMain" />
@@ -51,5 +52,14 @@
 		</interceptor>
 	</interceptors>	
 	<!-- session interceptor e 2022.03.13 for logincheck -->
+	
+	<!-- fileUpload s 2022.03.30 --> 
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding" value="UTF-8"/>
+		<!-- <beans:property name="maxUploadSize" value="52428800"/> --> <!-- 50MB -->
+		<beans:property name="maxUploadSize" value="10485760"/> <!-- 10MB -->
+		<!-- <beans:property name="maxInMemorySize" value="1048576"/> --> <!-- 1MB -->
+	</beans:bean>
+	<!-- fileUpload e 2022.03.30 -->
 	
 </beans:beans>

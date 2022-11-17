@@ -27,11 +27,16 @@ public class MemberController {
     public void setSearchAndPaging(MemberVo vo) throws Exception {
         vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
     }
-    
 	
 	@RequestMapping(value = "mypageMemberForm")
 	public String mypageMemberForm() throws Exception {
 	    return "infra/main/member/mypageMemberForm"; 
+	}
+	
+	@RequestMapping(value = "memberInst")
+	public String memberInst(Member dto) throws Exception {
+	    service.memberInst(dto);
+	    return "redirect:/login";
 	}
 	
 	//excel Download
@@ -144,7 +149,7 @@ public class MemberController {
                cell = row.createCell(12);
                cellStyle.setAlignment(HorizontalAlignment.CENTER);
                cell.setCellStyle(cellStyle);
-               cell.setCellValue(list.get(i).getIfmmEmailcheck());
+               cell.setCellValue(list.get(i).getIfmmEmailCheck());
                
                cell = row.createCell(13);
                cellStyle.setAlignment(HorizontalAlignment.CENTER);

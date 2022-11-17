@@ -15,12 +15,12 @@ public final class Constants {
 	public static final int UPDATE_AFTER_TYPE = 1;
 	
 // CheckLoginSessionInterception 
-	public static final String URL_LOGINFORM = "/shareLogin";
+	public static final String URL_LOGINFORM = "/login";
 	
 // login time
 	public static final int SESSION_MINUTE = 30;
 	
-	public static final String URL_USERLOGINFORM = "/userLogin";
+	public static final String URL_USERLOGINFORM = "/login";
 	public static final String URL_ADDINLOGINFORM = "/xdminLogin";
 	
 	public static final String DATETIME_FORMAT_BASIC = "yyyy-MM-dd HH:mm:ss";

@@ -58,9 +58,18 @@
                             <a class="nav-link" href="/comment">Comment</a>
                         </li>
                         <hr>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
-                        </li>
+                        <c:choose>
+                        	<c:when test="${empty sessSeq }">
+		                        <li class="nav-item">
+		                            <a class="nav-link" id="loginBtn">Login</a>
+		                        </li>
+                        	</c:when>
+                        	<c:otherwise>
+		                        <li class="nav-item">
+		                            <a class="nav-link" id="signOutBtn">Logout</a>
+		                        </li>
+                        	</c:otherwise>
+                        </c:choose>
                         <li class="nav-item">
                             <a class="nav-link" href="/signUp">SignUp</a>
                         </li>
@@ -353,6 +362,26 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    	var goUrlLogin = "/login";
+    	
+    	$("#loginBtn").on("click", function() {
+			window.location.href = goUrlLogin;
+		})
+		
+		$("#signOutBtn").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
+		});
+    </script>
 </body>
 
 </html>

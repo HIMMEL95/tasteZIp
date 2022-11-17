@@ -77,8 +77,6 @@
 				                                <c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
 													<option value="${listGender.ifccSeq }" <c:if test="${item.gAbroadNy eq listGender.ifccSeq}">selected</c:if>><c:out value="${listGender.ifccName }"/></option>
 												</c:forEach>
-				                                <option value="4" <c:if test="${item.gender eq 4 }">selected</c:if>>남성</option>
-				                                <option value="5" <c:if test="${item.gender eq 5 }">selected</c:if>>여성</option>
 				                            </select>
 										</div>
 									</div>
@@ -108,9 +106,13 @@
 								<div class="mb-4">
 									<div class="row">
 										<div class="col">
+											<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('1') }" />
 											<label class="form-label" for="ifmmRadioOperator"> 통신사 <span class="text-danger">*</span></label>
 											<select id="ifmmRadioOperator" name="ifmmRadioOperator" class="form-control" aria-label=".form-select-lg example">
 				                            	<option value="" <c:if test="${empty item.ifmmRadioOperator}">selected</c:if>>선택</option>
+				                            	<c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
+													<option value="${listGender.ifccSeq }" <c:if test="${item.gAbroadNy eq listGender.ifccSeq}">selected</c:if>><c:out value="${listGender.ifccName }"/></option>
+												</c:forEach>
 				                                <option value="1" <c:if test="${item.ifmmRadioOperator eq 1 }">selected</c:if>>SKT</option>
 				                                <option value="2" <c:if test="${item.ifmmRadioOperator eq 2 }">selected</c:if>>LGT</option>
 				                                <option value="3" <c:if test="${item.ifmmRadioOperator eq 3 }">selected</c:if>>KT</option>

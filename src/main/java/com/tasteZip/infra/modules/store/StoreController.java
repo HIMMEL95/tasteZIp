@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 @Controller
 @RequestMapping(value = "/store/")
 public class StoreController {
@@ -204,4 +205,37 @@ public class StoreController {
             workbook.close();
         }
     }
+
+// ------------------------ 관리자 ------------------------
+
+	@RequestMapping(value = "xdminStoreList1")
+	public String xdminStoreList1(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+		
+		setSearchAndPaging(vo);
+		return "infra/xdmin/store/xdminStoreList1";
+	}
+	
+	@RequestMapping(value = "xdminStoreLita")
+	public String xdminStoreLita(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		
+		  if (vo.getTotalRows() > 0) { 
+			  List<Store> list = service.selectList(vo);
+			  model.addAttribute("list", list); 
+		  }
+		
+		return "infra/xdmin/store/xdminStoreLita";
+	}
+	
+	@RequestMapping(value = "xdminStoreForm1") 
+	public String xdminStoreForm1() throws Exception {
+	    return "infra/xdmin/store/xdminStoreForm1";
+	}
+	
+	
+
+
 }
+

@@ -50,7 +50,7 @@
                   <div class="ps-md-3">
                     <h3 class="fs-base mb-0"><c:out value="${sessId}"/></h3><span class="text-accent fs-sm font"><c:out value="${sessEmail}"/></span>
                   </div>
-                </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
+                </div><a class="btn btn-dark d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
               </div>
               <div class="d-lg-block collapse" id="account-menu">
                 <ul class="list-unstyled mb-0">
@@ -85,7 +85,7 @@
 								      	<input type="hidden" name="iforSeq" value="${list.iforSeq}">
 								        <h5 class="card-title"><b>${list.ifstName}</b></h5>
 								        <p class="card-text">주문날짜: ${list.iforCreatedAt}</p>
-								        <button type="button" id="btnView${status.index }" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button>
+								        <button type="button" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button>
 								      </div>
 								    </div>
 								</div>
@@ -114,15 +114,11 @@
   	  var seq = $("input[name=iforSeq]");
   	  
   	  var form = $("#formList");
-  	  
+	   	
 	   	goForm = function(keyValue) {
-	   		seq.val(keyValue);
+			seq.val(keyValue);
 			form.attr("action", goUrlForm).submit();
 		}
-  	  	
-	   	$("#btnView").on("click", function() {
-			form.attr("action", goUrlForm).submit();
-		})
 		
     </script>
     <script type="text/javascript">

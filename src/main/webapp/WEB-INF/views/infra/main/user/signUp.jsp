@@ -5,8 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<jsp:useBean id="CodeServiceImpl" class="com.tasteZip.infra.modules.code.CodeServiceImpl"/>
-
 <!doctype html>
 <html lang="ko">
 
@@ -19,6 +17,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/css/main/login/signup.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	<!-- datepicker s -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<!-- datepicker e -->
 </head>
 
 <body>
@@ -70,13 +76,11 @@
 											<input class="form-control" name="ifmmDob" id="ifmmDob" placeholder="Password" type="text" data-msg="Please enter your password">
 										</div>
 										<div class="col">
-											<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('2') }" />
 											<label class="form-label" for="ifmmGender"> Gender <span class="text-danger">*</span></label>
-											<select id="ifmmGender" name="ifmmGender" class="form-control" aria-label=".form-select-lg example" onfocusout="validationUpdt()">
+											<select id="ifmmGender" name="ifmmGender" class="form-control" aria-label=".form-select-lg example">
 				                                <option value="" <c:if test="${empty item.gender}">selected</c:if>>선택</option>
-				                                <c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
-													<option value="${listGender.ifccSeq }" <c:if test="${item.gAbroadNy eq listGender.ifccSeq}">selected</c:if>><c:out value="${listGender.ifccName }"/></option>
-												</c:forEach>
+				                                <option value="4" <c:if test="${item.gender eq 4 }">selected</c:if>>남성</option>
+				                                <option value="5" <c:if test="${item.gender eq 5 }">selected</c:if>>여성</option>
 				                            </select>
 										</div>
 									</div>
@@ -94,8 +98,8 @@
 								        <div class="col">
 								            <label for="ifmmEmailCheck" class="form-label">이메일 정보 마케팅 사용 동의</label>
 								            <div class="form-check">
-								            	<input type="hidden" id="ifmmEmailConsentNy" name="ifmmEmailConsentNy" value="0">
-								                <input type="checkbox" id="ifmmEmailCheck" name="ifmmEmailCheck" class="form-check-input" <c:if test="${item.ifmmEmailConsentNy eq 1 }">checked</c:if>>
+								            	<input type="hidden" id="ifmmEmailCheck" name="ifmmEmailCheck" value="0">
+								                <input type="checkbox" id="emailCheck" name="emailCheck" class="form-check-input" <c:if test="${item.ifmmEmailConsentNy eq 1 }">checked</c:if>>
 								                <label for="ifmmEmailConsentNy" class="form-check-label text-muted">
 								                    동의합니다
 								                </label>
@@ -106,13 +110,9 @@
 								<div class="mb-4">
 									<div class="row">
 										<div class="col">
-											<c:set var="listCodeGender" value="${CodeServiceImpl.selectListCachedCode('1') }" />
 											<label class="form-label" for="ifmmRadioOperator"> 통신사 <span class="text-danger">*</span></label>
 											<select id="ifmmRadioOperator" name="ifmmRadioOperator" class="form-control" aria-label=".form-select-lg example">
 				                            	<option value="" <c:if test="${empty item.ifmmRadioOperator}">selected</c:if>>선택</option>
-				                            	<c:forEach items="${listCodeGender}" var="listGender" varStatus="statusGender">
-													<option value="${listGender.ifccSeq }" <c:if test="${item.gAbroadNy eq listGender.ifccSeq}">selected</c:if>><c:out value="${listGender.ifccName }"/></option>
-												</c:forEach>
 				                                <option value="1" <c:if test="${item.ifmmRadioOperator eq 1 }">selected</c:if>>SKT</option>
 				                                <option value="2" <c:if test="${item.ifmmRadioOperator eq 2 }">selected</c:if>>LGT</option>
 				                                <option value="3" <c:if test="${item.ifmmRadioOperator eq 3 }">selected</c:if>>KT</option>
@@ -202,8 +202,26 @@
 				                </div>
 			              	<!-- Submit-->
 				             	<div class="d-grid">
-				              		<button class="btn btn-lg btn-primary text-white" type="button" id="saveBtn" style="background: #FF5733; border: none;">Sign Up</button>
+				              		<button class="btn btn-lg btn-primary text-white" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background: #FF5733; border: none;">Sign Up</button>
 				              	</div>
+				              	<!-- Modal -->
+								<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h1 class="modal-title fs-5" id="exampleModalLabel">회원가입 여부</h1>
+												<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												정말로 회원가입을 하기겠습니까?
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+												<button type="button" id="saveBtn" class="btn btn-primary">가입</button>
+											</div>
+										</div>
+									</div>
+								</div>
 			            	</form>
 			            	<a class="close-absolute me-md-5 me-xl-6 pt-5" href="/tasteMain"> 
 			              		<i class="fa-solid fa-xmark fa-2x"></i>
@@ -235,16 +253,21 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
     
     	var goUrlInst = "/member/memberInst";
     	var goUrlHome = "/tasteMain";
     	var goUrlSign = "/signUp";
     	var form = $("#myForm");
+    	
+    	 $(function() {
+ 	   		$("#ifmmDob").datepicker({
+ 	   			dateFormat: "yy-mm-dd"
+ 	   			,showMonthAfterYear: true
+ 	   			,showOtherMonths: true
+ 	   		});
+ 	   	})
     
     	$("#homeBtn").on("click", function() {
 			form.attr("action", goUrlHome).submit();
@@ -351,23 +374,19 @@
 		
     </script>
     <script type="text/javascript">
+    
 		$("#saveBtn").on("click", function() {
-      		swAlert("회원가입", "회원가입을 축하합니다.!!!", "success");
       		form.attr("action", goUrlInst).submit();
 		});
 		
-		 function swAlert(title, text, icon) {
-			swal({
-				title: title
-				,text: text
-				,icon: icon
-				,buttons: "확인"
-			}).then((value) => {
-				if (value) {
-					loaction.href = "/tasteMain";
-				}
-			})
-		}
+		$("#emailCheck").on("change", function() {
+			if ($('#ifmmEmailCheck').val() == "1") {
+				$('#ifmmEmailCheck').val("0");
+			} else {
+				$('#ifmmEmailCheck').val("1");
+			}
+	    	alert($("#ifmmEmailCheck").val())
+		})
     </script>
 </body>
 

@@ -32,6 +32,6 @@ public class MemberDao {
     
     /* code list */
     public List<Member> codeGender(Member dto) { return sqlSession.selectList(namespace + ".codeGender", dto); }
-    public List<Member> codeRadio(Member dto) { return sqlSession.selectList(namespace + "codeRadio", dto); }
+    public List<Member> codeRadio(Member dto) { return sqlSession.selectList(namespace + ".codeRadio", dto); }
 
 }

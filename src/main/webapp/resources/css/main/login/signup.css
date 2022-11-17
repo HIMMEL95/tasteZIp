@@ -494,3 +494,7 @@ img {
 .carousel-inner {
 	height: 100%;
 }
+
+.carousel-item img {
+	height: 1122px;
+}

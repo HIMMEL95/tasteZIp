@@ -16,4 +16,8 @@ public interface MemberService {
     /* insert & update */
     public int memberInst(Member dto) throws Exception;
     public int memberUpdt(Member dto) throws Exception;
+    
+    /* code list */
+    public List<Member> codeGender(Member dto) throws Exception;
+    public List<Member> codeRadio(Member dto) throws Exception;
 }

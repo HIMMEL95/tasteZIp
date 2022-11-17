@@ -37,6 +37,13 @@
 			<exclude-mapping path="/tasteMain" />
 			<exclude-mapping path="/order" />
 			<exclude-mapping path="/favorite" />
+			<exclude-mapping path="/chat" />
+			<exclude-mapping path="/chatRoom" />
+			<exclude-mapping path="/story" />
+			<exclude-mapping path="/storyView" />
+			<exclude-mapping path="/comment" />
+			<exclude-mapping path="/findWay" />
+			<exclude-mapping path="/reservation" />
 			<exclude-mapping path="/menu" />
 			<exclude-mapping path="/store" />
 			<exclude-mapping path="/" />

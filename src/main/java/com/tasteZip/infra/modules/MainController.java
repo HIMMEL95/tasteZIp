@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tasteZip.infra.modules.member.Member;
+import com.tasteZip.infra.modules.member.MemberServiceImpl;
 import com.tasteZip.infra.modules.menu.Menu;
 import com.tasteZip.infra.modules.menu.MenuServiceImpl;
 import com.tasteZip.infra.modules.menu.MenuVo;
@@ -19,6 +21,8 @@ public class MainController {
     
     @Autowired
     MenuServiceImpl mService;
+    @Autowired
+    MemberServiceImpl mbService;
 
 	@RequestMapping(value = "tasteMain")
 	public String tasteMain() throws Exception {
@@ -31,7 +35,7 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "signUp")
-	public String signUp() throws Exception {
+	public String signUp(Member dto, Model model) throws Exception {
 		return "infra/main/user/signUp";
 	}
 	
@@ -95,16 +99,6 @@ public class MainController {
 	    model.addAttribute("setDiv", setDiv);
 	    
 	    return "infra/main/order/menu";
-	}
-	
-	@ResponseBody
-	@RequestMapping(value = "test")
-	public Map<String, Object> test() throws Exception{
-	    Map<String, Object> returnMap = new HashMap<String, Object>();
-	    
-	    returnMap.put("rt", "success");
-	    
-	    return returnMap;
 	}
 	
 	// ---------------- 관리자 ---------------------

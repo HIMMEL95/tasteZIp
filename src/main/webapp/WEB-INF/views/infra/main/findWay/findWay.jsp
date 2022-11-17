@@ -75,7 +75,7 @@
 						<li><a class="dropdown-item" href="#">Settings</a></li>
 						<li><a class="dropdown-item" href="/mypage/mypageMain">My Page</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Sign out</a></li>
+						<li><button type="button" id="signOutBtn" class="dropdown-item">Sign out</button></li>
 					</ul>
 				</div>
 			</div>
@@ -236,8 +236,7 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script> -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec2655da82c3779d622f0aff959060e6&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
 	<script>
 	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
@@ -263,9 +262,6 @@
 		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
 		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
 		
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-
 		 function menuToggle() {
             const toggleMenu = document.querySelector('.menu');
             toggleMenu.classList.toggle('active')

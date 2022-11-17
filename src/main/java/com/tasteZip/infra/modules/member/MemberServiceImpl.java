@@ -43,11 +43,23 @@ public class MemberServiceImpl implements MemberService{
     /* insert & update */
     @Override
     public int memberInst(Member dto) throws Exception {
+        dto.setIfmmPwd(UtilSecurity.encryptSha256(dto.getIfmmPwd()));
         return dao.memberInst(dto);
     }
 
     @Override
     public int memberUpdt(Member dto) throws Exception {
         return dao.memberUpdt(dto);
+    }
+
+    /* code list */
+    @Override
+    public List<Member> codeGender(Member dto) throws Exception {
+        return dao.codeGender(dto);
+    }
+
+    @Override
+    public List<Member> codeRadio(Member dto) throws Exception {
+        return dao.codeRadio(dto);
     }
 }

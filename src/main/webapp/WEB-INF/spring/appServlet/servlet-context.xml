@@ -56,8 +56,8 @@
 			<exclude-mapping path="/member/xdminMemberList" />
 			<exclude-mapping path="/member/xdminMemberForm" />
 			<!-- storeForm/List -->
-			<exclude-mapping path="/store/xdminStoreList" />
-			<exclude-mapping path="/store/xdminStoreForm" />
+			<exclude-mapping path="/store/xdminStoreList1" />
+			<exclude-mapping path="/store/xdminStoreForm1" />
 			
 			<beans:bean id="checkLoginSessionInterception" class="com.tasteZip.infra.common.interceptor.CheckLoginSessionInterception"/>
 		</interceptor>

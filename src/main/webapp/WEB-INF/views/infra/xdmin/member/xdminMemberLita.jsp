@@ -7,7 +7,7 @@
 
 		  <!-- content s -->
   	<%@include file="../includeV1/totalAndRowNum.jsp" %>
-	<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
+	<div class=" ms-3 mt-3 bg-body rounded">
 		<table class="table table-striped table-hover text-center" id="selecBox">
 			<thead>
 				<tr class="bg-dark">

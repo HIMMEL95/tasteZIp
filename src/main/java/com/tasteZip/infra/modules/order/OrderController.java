@@ -1,6 +1,9 @@
 package com.tasteZip.infra.modules.order;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,8 +66,11 @@ public class OrderController {
 	
 	// mypage list
     @RequestMapping(value = "mypageOrder")
-    public String mypageOrder(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
+    public String mypageOrder(@ModelAttribute("vo") OrderVo vo, Model model, HttpSession httpSession) throws Exception {
     	
+    	String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
+		
 		vo.setParamsPaging2(service.selectOneCount(vo));
 		
 		List<Order> list = service.myOrder(vo);
@@ -81,8 +87,15 @@ public class OrderController {
     }
     
     @RequestMapping(value = "mypageOrderView")
-    public String mypageOrderView(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
+    public String mypageOrderView(@ModelAttribute("vo") OrderVo vo, Order dto, Model model, HttpSession httpSession) throws Exception {
     	
+    	String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
+		
+		
+		vo.setIforSeq(dto.getIforSeq());
+		
+		
 		Order item = service.selectOne(vo);
 		model.addAttribute("item", item);
     	

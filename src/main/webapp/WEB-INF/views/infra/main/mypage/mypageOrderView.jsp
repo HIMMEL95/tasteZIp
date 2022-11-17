@@ -48,7 +48,7 @@
                   	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner">
                   </div>
                   <div class="ps-md-3">
-                    <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
+                    <h3 class="fs-base mb-0"><c:out value="${sessId}"/></h3><span class="text-accent fs-sm font"><c:out value="${sessEmail}"/></span>
                   </div>
                 </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
               </div>
@@ -59,7 +59,7 @@
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/reservation/mypageReservation"><b>My Reservation</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/comment/mypageReview"><b>My Review</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageBucket"><b>My Bucket</b></a></li>
-                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="logout"><b>Log out</b></buttton></li>
+                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="signOutBtn"><b>Log out</b></buttton></li>
                 </ul>
               </div>
             </div>
@@ -72,6 +72,9 @@
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
            		</div>
            		<div class="container">
+           		<form method="post" name="formList" id="formList">
+           		<%-- <input type="hidden" name="ifmmSeq" value="${sessSeq }"> --%>
+           		<input type="hidden" name="iforSeq" value="${item.iforSeq}"/> 
            			<div class="row pt-5 mb-3 font"><h4><b>주문 상세 내역</b></h4></div>
            			
            			<!-- 주문자정보 -->
@@ -102,7 +105,7 @@
 						</div>
 						<div class="row mb-4">
 							<div class="col-8"><span><b>이메일</b></span></div>
-							<div class="col-4 text-end"><span>${item.ifmmName}</span></div>
+							<div class="col-4 text-end"><span>${item.ifmmEmail}</span></div>
 						</div>
            			</div>
            			<hr class="hrstyle mt-2 mb-2">
@@ -111,30 +114,31 @@
 	           			<div class="row mt-4 mb-3"><h4><b>주문 정보</b></h4></div>
 						<div class="row mb-2">
 							<div class="col-10"><span>총 상품금액</span></div>
-							<div class="col-2 text-end"><span>1,437,400원</span></div>
+							<div class="col-2 text-end"><span><fmt:formatNumber type="number" value="${item.iforPrice}" pattern="#,###"/>원</span></div>
 						</div>
-						<div class="row mb-2">
+						<!-- <div class="row mb-2">
 							<div class="col-10"><span>상품 할인 금액</span></div>
 							<div class="col-2 text-end"><span> - 63,400원</span></div>
 						</div>
 						<div class="row mb-2">
 							<div class="col-10"><span>쿠폰 할인 금액</span></div>
 							<div class="col-2 text-end"><span> - 40,000원</span></div>
-						</div>
+						</div> -->
 						<hr style="margin-top: 1rem;">
-						<div class="row justify-content-between mb-2">
+						<div class="row justify-content-between mb-2" style="color: red;">
 							<div class="col-2" id="finalPrice"><h5><b>총 결제 금액</b></h5></div>
-							<div class="col-2 text-end" id="finalPrice"><span><h5><b>1,334,000원</b></h5></span></div>
+							<div class="col-2 text-end" id="finalPrice"><span><h5><b><fmt:formatNumber type="number" value="${item.iforPrice}" pattern="#,###"/>원</b></h5></span></div>
 						</div>
 						<div class="row justify-content-between mb-4">
 							<div class="col-3"><span>카카오 페이 결제 금액</span></div>
-							<div class="col-2 text-end" id="finalPrice"><span>1,334,000원</span></div>
+							<div class="col-2 text-end" id="finalPrice"><span><fmt:formatNumber type="number" value="${item.iforPrice}" pattern="#,###"/>원</span></div>
 						</div>				
 						<div class="row justify-content-center mt-5">
-							<div class="col text-center"><a type="button" href="/mypage/mypageOrder" class="btn btn-outline-dark" style="width: 400px;"><b>주문리스트로 돌아가기</b></a></div>
+							<div class="col text-center"><a type="button" href="/order/mypageOrder" class="btn btn-outline-dark" style="width: 400px;"><b>주문리스트로 돌아가기</b></a></div>
 						</div>
            			</div>
            		</div>
+           		</form>
           </section>
         </div>
       </div>
@@ -154,12 +158,26 @@
     	var goUrlList = "/order/mypageOrderView";
     	var form = $("#myform");
     	
-    	var iforSeq = $("input:hidden[name=iforSeq]");
+    	var seq = $("input:hidden[name=iforSeq]");
     	
     	goList = function(thisPage) {
 			$("input:hidden[name=thisPage2]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		};
+    </script>
+     <script type="text/javascript">
+	    $("#signOutBtn").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
+		});
     </script>
 </body>
 </html>

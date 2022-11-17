@@ -18,7 +18,14 @@ public class OrderVo extends BaseVo{
 	private String shDateEnd;
 	private Integer shOptionDate;
 	
+	private String ifmmSeq;
 	
+	public String getIfmmSeq() {
+		return ifmmSeq;
+	}
+	public void setIfmmSeq(String ifmmSeq) {
+		this.ifmmSeq = ifmmSeq;
+	}
 	public String getIforSeq() {
 		return iforSeq;
 	}

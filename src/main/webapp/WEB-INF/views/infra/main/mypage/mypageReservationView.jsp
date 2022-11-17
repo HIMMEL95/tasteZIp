@@ -46,7 +46,7 @@
                   	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner">
                   </div>
                   <div class="ps-md-3">
-                    <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
+                    <h3 class="fs-base mb-0"><c:out value="${sessId}"/></h3><span class="text-accent fs-sm font"><c:out value="${sessEmail}"/></span>
                   </div>
                 </div><a class="btn btn-dark d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Menu List</a>
               </div>
@@ -57,7 +57,7 @@
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/reservation/mypageReservation"><b>My Reservation</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/comment/mypageReview"><b>My Review</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageBucket"><b>My Bucket</b></a></li>
-                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="logout"><b>Log out</b></buttton></li>
+                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="signOutBtn"><b>Log out</b></buttton></li>
                 </ul>
               </div>
             </div>
@@ -74,8 +74,8 @@
            			
            			<!-- 주문자정보 -->
            			<form  id="form" name="form" method="post">
-           			<input type="hidden" name="ifmmSeq" value="1"/> 
-					<input type="hidden" name="ifrvSeq" value="8"/> 
+           			<%-- <input type="hidden" name="ifmmSeq" value="${sessSeq}"/>  --%>
+					<input type="hidden" name="ifrvSeq" value="${item.ifrvSeq}"/> 
            			<hr class="hrstyle mt-2 mb-2">
            			<div class="wide">
 	           			<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
@@ -113,9 +113,9 @@
            			<div class="wide">
 	           			<div class="row mt-3 mb-3"><h4><b>예약 정보</b></h4></div>
 	           			<div class="row">
-							<div class="col-7"><span><c:out value="${item.ifmnName}"/></span></div>
-							<div class="col-1 text-end"><span><b>수량:</b> <c:out value="${item.ifrvCount}"/></span></div>
-							<div class="col-1 text-end"><span><b>인원:</b> <c:out value="${item.ifrvPerson}"/></span></div>
+							<div class="col-5"><span><c:out value="${item.ifmnName}"/></span></div>
+							<div class="col-2 text-end"><span><b>수량:</b> <c:out value="${item.ifrvCount}"/>명</span></div>
+							<div class="col-2 text-end"><span><b>인원:</b> <c:out value="${item.ifrvPerson}"/>명</span></div>
 							<div class="col-3 text-end"><span style="color: red;"><b>총 예약 금액: <fmt:formatNumber type="number" value="${item.ifrvPrice}" pattern="#,###"/>원</b></span></div>
 						</div>
 	           			<hr class="mt-4 mb-4">
@@ -152,6 +152,20 @@
     	
     	$("#BtnBack").on("click", function(){
 			form.attr("action", goUrlView).submit();
+		});
+    </script>
+    <script type="text/javascript">
+	    $("#signOutBtn").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
 		});
     </script>
 </body>

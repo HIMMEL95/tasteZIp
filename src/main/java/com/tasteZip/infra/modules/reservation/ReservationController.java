@@ -2,6 +2,8 @@ package com.tasteZip.infra.modules.reservation;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -60,7 +62,10 @@ public class ReservationController {
 	
 	
    @RequestMapping(value = "mypageReservation")
-    public String mypageReservation(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+    public String mypageReservation(@ModelAttribute("vo") ReservationVo vo, Model model, HttpSession httpSession) throws Exception {
+	   
+	   String seq = httpSession.getAttribute("sessSeq").toString();
+	   vo.setIfmmSeq(seq);
 	   
 	   List<Reservation> list = service.selectListMyRV(vo);
 	   model.addAttribute("list", list); 
@@ -69,8 +74,13 @@ public class ReservationController {
     }
     
     @RequestMapping(value = "mypageReservationView")
-    public String mypageReservationView(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+    public String mypageReservationView(@ModelAttribute("vo") ReservationVo vo, Reservation dto, Model model, HttpSession httpSession) throws Exception {
     	
+    	vo.setIfrvSeq(dto.getIfrvSeq());
+
+    	String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
+		
     	Reservation item = service.selectOneMyRV(vo);
     	model.addAttribute("item", item);
     	

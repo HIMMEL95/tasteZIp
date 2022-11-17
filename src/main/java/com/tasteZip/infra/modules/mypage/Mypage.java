@@ -30,7 +30,6 @@ public class Mypage{
 	private String ifmnDiscount;
 	private String ifmnSet_div;
 	
-	
 	public String getIforSeq() {
 		return iforSeq;
 	}
@@ -157,6 +156,4 @@ public class Mypage{
 	public void setIfmnSet_div(String ifmnSet_div) {
 		this.ifmnSet_div = ifmnSet_div;
 	}
-
-	
 }

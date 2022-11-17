@@ -46,7 +46,7 @@
                   	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner">
                   </div>
                   <div class="ps-md-3">
-                    <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
+                    <h3 class="fs-base mb-0"><c:out value="${sessId}"/></h3><span class="text-accent fs-sm font"><c:out value="${sessEmail}"/></span>
                   </div>
                 </div><a class="btn btn-dark d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
               </div>
@@ -74,7 +74,7 @@
            			</div> 
            			<hr>
            			<form method="post" name="formList" id="formList">
-	           		<input type="hidden" name="ifmmSeq" value="2">
+           			<input type="hidden" name="ifmmSeq" value="${sessSeq }">
 	           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 	           		<c:choose>
 						<c:when test="${fn:length(list) eq 0}">
@@ -125,6 +125,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
+    
 		function selectAll(selectAll)  {
 		  const checkboxes 
 		       = document.getElementsByName('check');
@@ -136,12 +137,9 @@
     </script>
     <script type="text/javascript">
     
-   		 var goUrlList = "/mypage/mypageBucket";
+   		var goUrlList = "/mypage/mypageBucket";
+   		var form = $("form[name=formList]");
    		 
-   		goList = function(thisPage){
-			$("input:hidden[name=thisPage]").val(thisPage);
-			form.attr("action", goUrlList).submit();
-		}
    		 
     </script>
 </body>

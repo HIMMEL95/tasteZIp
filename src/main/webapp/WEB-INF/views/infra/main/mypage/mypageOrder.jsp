@@ -48,7 +48,7 @@
                   	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner">
                   </div>
                   <div class="ps-md-3">
-                    <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
+                    <h3 class="fs-base mb-0"><c:out value="${sessId}"/></h3><span class="text-accent fs-sm font"><c:out value="${sessEmail}"/></span>
                   </div>
                 </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
               </div>
@@ -59,7 +59,7 @@
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/reservation/mypageReservation"><b>My Reservation</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/comment/mypageReview"><b>My Review</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageBucket"><b>My Bucket</b></a></li>
-                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="logout"><b>Log out</b></buttton></li>
+                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="signOutBtn"><b>Log out</b></buttton></li>
                 </ul>
               </div>
             </div>
@@ -70,29 +70,31 @@
            		<div class="cotainer">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
            			<div class="row pt-5 mb-3 font"><h4><b>Order List</b></h4></div>
+           			<form method="post" name="formList" id="formList">
+           			<input type="hidden" name="ifmmSeq" value="${sessSeq }">
+	           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            			<c:choose>
            				<c:when test="${fn:length(list) eq 0}">
-          					<h4 class="text-center">There is no data!</t4>
+          					<h4 class="text-center">주문 내역이 존재하지 않습니다.</t4>
           				</c:when>
           				<c:otherwise>
           					<c:forEach items="${list}" var="list" varStatus="status">
 			           			<div class="row pt-3">
 				           			<div class="card">
 								      <div class="card-body cardcc">
+								      	<input type="hidden" name="iforSeq" value="${list.iforSeq}">
 								        <h5 class="card-title"><b>${list.ifstName}</b></h5>
 								        <p class="card-text">주문날짜: ${list.iforCreatedAt}</p>
-								        <a href="/order/mypageOrderView" class="btn btn-dark">주문 내역 보기</a>
+								        <button type="button" id="btnView${status.index }" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button>
 								      </div>
 								    </div>
 								</div>
           					</c:forEach>
           				</c:otherwise>
            			</c:choose>
+           			</form>
            		</div>
           </section>
-          <div class="mt-5">		
-			<%@include file="../../xdmin/includeV1/pagination2.jsp"%>
-		</div>
         </div>
      </div>
    </form>
@@ -107,16 +109,35 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-    
-    	var goUrlList = "/order/mypageOrder";
-    	var form = $("#myform");
-    	
-    	var iforSeq = $("input:hidden[name=iforSeq]");
-    	
-    	goList = function(thisPage) {
-			$("input:hidden[name=thisPage2]").val(thisPage);
-			form.attr("action", goUrlList).submit();
-		};
+  	  var goUrlList = "/order/mypageOrder";
+  	  var goUrlForm = "/order/mypageOrderView";
+  	  var seq = $("input[name=iforSeq]");
+  	  
+  	  var form = $("#formList");
+  	  
+	   	goForm = function(keyValue) {
+	   		seq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		}
+  	  	
+	   	$("#btnView").on("click", function() {
+			form.attr("action", goUrlForm).submit();
+		})
+		
+    </script>
+    <script type="text/javascript">
+	    $("#signOutBtn").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
+		});
     </script>
 </body>
 </html>

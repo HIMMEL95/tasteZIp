@@ -2,6 +2,8 @@ package com.tasteZip.infra.modules.mypage;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,8 +25,10 @@ public class MypageController {
 	}
 
 	@RequestMapping(value = "mypageBucket")
-	public String mypageBucket(@ModelAttribute("vo") MypageVo vo, Model model) throws Exception {
+	public String mypageBucket(@ModelAttribute("vo") MypageVo vo, Mypage dto, Model model, HttpSession httpSession) throws Exception {
 		
+		String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
 		List<Mypage> list = service.bucketList(vo);
 		model.addAttribute("list", list);
 		

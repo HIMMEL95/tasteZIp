@@ -42,7 +42,8 @@
 		FROM buy b
 			JOIN store s on s.ifstSeq = b.ifstSeq
 		WHERE 1=1
-		ORDER BY b.iforSeq DESC
+		AND b.ifmmSeq = #{ifmmSeq}
+		ORDER BY b.iforCreatedAt DESC
 		<include refid="Base.orderByLimitForMysql" />
 		<include refid="Base.selectListLowerForMysql2" /> 
 	</select>
@@ -64,8 +65,8 @@
 			JOIN store s on s.ifstSeq = b.ifstSeq
 			JOIN member m on m.ifmmSeq = b.ifmmSeq
 		WHERE 1=1
-		 	and m.ifmmSeq = 1  <!-- 일단 조건값을 넣어줌 -->
-		ORDER BY b.iforSeq DESC
+		 	and b.iforSeq = #{iforSeq}  <!-- 일단 조건값을 넣어줌 -->
+		ORDER BY b.iforCreatedAt DESC
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">

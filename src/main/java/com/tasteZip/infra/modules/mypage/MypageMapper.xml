@@ -18,7 +18,7 @@
 		    LEFT JOIN store b on b.ifstSeq = a.ifstSeq
 		    LEFT JOIN menu c on c.ifmnSeq = a.ifmnSeq
 			    WHERE 1=1
-			    AND a.ifmmSeq = 2
+			    AND a.ifmmSeq = #{ifmmSeq}
 			    ORDER BY a.iforCreatedAt DESC
 		<include refid="Base.selectListLowerForMysql" />
 	</select>

@@ -31,12 +31,13 @@
 		<include refid="Base.selectListUpperForMysql" />
 		SELECT
 			 s.ifstName
+			 ,r.ifrvSeq
 			 ,r.ifrvDate
 			 ,r.ifrvTime
 		 from reservation r
 		 left join store s on s.ifstSeq = r.ifstSeq
 			 where 1=1
-			 and r.ifmmSeq = 1
+			 and r.ifmmSeq = #{ifmmSeq}
 		Order by r.ifrvDate DESC
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
@@ -68,7 +69,8 @@
 	
 	<select id="selectOneMyRV" resultMap="resultMapObj">
 		SELECT 
-			  s.ifstName
+			  r.ifrvSeq
+			 ,s.ifstName
 			 ,r.ifrvDate
 			 ,r.ifrvPerson
 			 ,s.ifstAddress
@@ -83,8 +85,7 @@
 		 Left join member mm on mm.ifmmSeq = r.ifmmSeq
 		 Left join menu mn on mn.ifmnSeq = r.ifmnSeq
 			 WHERE 1=1
-			 AND r.ifmmSeq = 1
-			 AND r.ifrvSeq = 8
+			 AND r.ifrvSeq = #{ifrvSeq}
 	</select>
 	
 	<!-- list Uele -->

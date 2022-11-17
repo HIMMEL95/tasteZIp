@@ -74,7 +74,7 @@
 						<li><a class="dropdown-item" href="#">Settings</a></li>
 						<li><a class="dropdown-item" href="#">Profile</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Sign out</a></li>
+						<li><button type="button" id="signOutBtn" class="dropdown-item">Sign out</button></li>
 					</ul>
 				</div>
 			</div>
@@ -560,31 +560,18 @@
 		
 	</script>
 	<script type="text/javascript">
-		var form = $("#myForm");
-
-		$("#test").on("click", function() {
-			
+	 	$("#signOutBtn").on("click", function() {
 			$.ajax({
-   				async: true 
-   				,cache: false
-   				,type: "post"
-   				/* ,dataType:"json" */
-   				,url: "test"
-   				/* ,data : $("#formLogin").serialize() */
-   				,data : { }
-   				,success: function(response) {
-   					if(response.rt == "success") {
-   						window.location.href = "/favorite";
-   					} else {
-   						alert("sadsda")	;
-   					}
-   				}
-   				,error : function(jqXHR, textStatus, errorThrown){
-   					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-   				}
-   			});
-		})
-		
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
+		});
 	</script>
 </body>
 

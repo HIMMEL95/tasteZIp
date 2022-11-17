@@ -37,7 +37,6 @@ public class LoginController {
         Member result = service.loginCheck(dto);
         
         if (result != null) {
-            
             httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
             httpSession.setAttribute("sessSeq", result.getIfmmSeq());
             httpSession.setAttribute("sessId", result.getIfmmId());
@@ -59,17 +58,8 @@ public class LoginController {
     public Map<String, Object> logoutProc(HttpSession httpSession) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         
-        String sns = httpSession.getAttribute("sessSns").toString();
-        System.out.println("test : " + sns);
-        
-        if (sns.equals("1")) {
-            System.out.println("네이버 로그아웃 왜 안됨?");
-            httpSession.invalidate();
-            returnMap.put("rt", "naver");
-        } else {
-            httpSession.invalidate();
-            returnMap.put("rt", "success");
-        }
+        httpSession.invalidate();
+        returnMap.put("rt", "success");
 
         return returnMap;
     }

@@ -111,25 +111,18 @@
 			form.attr("action", goUrlSign).submit();
 		})
 		
-    </script>
-    <script type="text/javascript">
     	$("#loginBtn").on("click", function() {
-    		var ifmmId = $("#ifmmId").val();
-			var ifmmPwd = $("#ifmmPwd").val();
-			
 			$.ajax({
 				async: true
 				,cache: false
 				,type:"POST"
 				,url: "/loginCheck"
-				,data: {"ifmmId": ifmmId, "ifmmPwd": ifmmPwd}
+				,data: {"ifmmId": $("#ifmmId").val(), "ifmmPwd": $("#ifmmPwd").val()}
 				,success : function(response) {
-					if (response.rt == "fail") {
-						alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
-						return false;
+					if (response.rt == "success") {
+						alert("asda")
 					} else {
-						alert("asdsad");
-						window.location.href = "/tasteMain";
+						alert("fail")
 					}
 				},
 				error : function(jqXHR, status, error) {

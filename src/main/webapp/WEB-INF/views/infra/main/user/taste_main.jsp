@@ -55,9 +55,6 @@
                             <a class="nav-link" href="/chat">Crew Chat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/story">Story</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/comment">Comment</a>
                         </li>
                         <hr>

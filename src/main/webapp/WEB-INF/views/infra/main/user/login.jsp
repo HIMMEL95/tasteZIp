@@ -51,7 +51,7 @@
 		              			</div>
 			              	<!-- Submit-->
 				             	<div class="d-grid">
-				              		<button class="btn btn-lg text-white" id="loginBtn" style="background: #FF5733; border: none;">Sign in</button>
+				              		<button type="button" class="btn btn-lg text-white" id="loginBtn" style="background: #FF5733; border: none;">Sign in</button>
 				              	</div>
 				              	<hr class="my-3 hr-text letter-spacing-2" data-content="OR">
 				              	<div class="d-grid gap-2">
@@ -120,7 +120,7 @@
 				,data: {"ifmmId": $("#ifmmId").val(), "ifmmPwd": $("#ifmmPwd").val()}
 				,success : function(response) {
 					if (response.rt == "success") {
-						alert("asda")
+						window.location.href = "/tasteMain";
 					} else {
 						alert("fail")
 					}

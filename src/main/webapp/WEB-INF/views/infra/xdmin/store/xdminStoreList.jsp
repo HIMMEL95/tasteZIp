@@ -39,7 +39,7 @@
                	<input type="hidden" name="rowNumToShow" value="10">
                	<input type="hidden" name="ifstSeq" value=''>
 				<div class="wrapper">
-					<div class="container" style="height: 100vh; width: 90vh;">
+					<div class="container" style="height: 100vh; width: 100vh;">
 						<div class="row">
 							<div class="col">
 								<div class="content">

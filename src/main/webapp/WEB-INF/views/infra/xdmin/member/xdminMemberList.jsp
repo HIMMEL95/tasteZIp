@@ -35,11 +35,12 @@
 		  <!-- content s -->
 		  <div class="page-content">
 		  	<form id="formList" name="formList" method="post">
+		  	<%-- <%@include file="memberVo.jsp"%> --%>
 				<input type="hidden" name="thisPage" value="1">
-               	<input type="hidden" name="rowNumToShow" value="10">
-               	<input type="hidden" name="ifmmSeq" value=''>
+               	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
+               	<input type="hidden" name="ifmmSeq" value="${vo.ifmmSeq}">
 				<div class="wrapper">
-					<div class="container" style="height: 100vh; width: 90vh;">
+					<div class="container" style="height: 100vh; width: 100vh;">
 						<div class="row">
 							<div class="col">
 								<div class="content">
@@ -84,6 +85,7 @@
 											</div>
 										</div>
 									</div>
+									<!-- lita s -->
 									<div id="lita"></div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
@@ -168,15 +170,12 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script>
+		<script type="text/javascript">
 			
 			var goUrlList = "/member/xdminMemberList"; 
-			var goUrlForm = "/member/xdminMemberForm"; 
 			var goUrlUele = "/member/memberUele";	
 			var goUrlDele = "/member/memberDele";
 			var goUrlExcel = "/member/excelDownload";
-			
-			var form = $("form[name=formList]");
 			
 			var ifmmSeq = $("input[name=ifmmSeq]");
 
@@ -219,32 +218,14 @@
 				alert("del")
 			})
 			
-				 $("#btnForm").on("click", function(){
-				 $(location).attr("href", goUrlForm);
-			 });
-			
-
-			
 			DelValidation = function(confirm, url, msg) {
 				$(".modal-body").html(msg);
 				$(confirm).on("click", function() {
 					form.attr("action", url).submit();
 				})
 			}
-	 		
-	 	// ----- form으로 이동 -----
-	 		
-	 	
-	 		 /* $('#btnForm').on("click", function() {
-	 			goForm(0);                
-	 		});
-	 		
-	 		 goForm = function(keyValue) {
-	 			ifmmSeq.val(keyValue);
-	 			form.attr("action", goUrlForm).submit();
-	 		}  */
-	 		</script>
-	 		
+	 		 
+ 		</script>
 	 	<script type="text/javascript">
 	 		
 	 	// ----- Lita ajax -----

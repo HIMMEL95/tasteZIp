@@ -5,7 +5,7 @@
 
 <input type="hidden" name="ifmnSeq" value="<c:out value="${vo.ifmnSeq}"/>"/>
 
-<i<input type="hidden" name="shDelNy" value="<c:out value="${vo.shDelNy}"/>"/>
+<input type="hidden" name="shDelNy" value="<c:out value="${vo.shDelNy}"/>"/>
 <input type="hidden" name="shDate" value="<c:out value="${vo.shDate}"/>"/>
 
 <input type="hidden" name="startDate" value="<c:out value="${vo.shDateStart}"/>"/>

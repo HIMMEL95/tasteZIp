@@ -41,7 +41,7 @@
 								<td>${list.ifstName }</td>
 								<td>${list.ifstPhone}</td>
 								<td>${list.ifstAddress}</td>
-								<td>${list.ifstInfo }</td>
+								<td class="text-truncate">${list.ifstInfo }</td>
 								<td>${list.ifstCreatedAt }</td>
 							</tr>
 						</c:forEach>

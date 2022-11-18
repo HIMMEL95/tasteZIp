@@ -6,10 +6,10 @@
 <input type="hidden" name="shDelNy" value="<c:out value="${vo.shDelNy}"/>"/>
 <input type="hidden" name="shDate" value="<c:out value="${vo.shDate}"/>"/>
 
+<input type="hidden" name="ifmmSeq" value="<c:out value="${vo.ifmmSeq}"/>"/>
+
 <input type="hidden" name="startDate" value="<c:out value="${vo.startDate}"/>"/>
 <input type="hidden" name="endDate" value="<c:out value="${vo.endDate}"/>"/>
 
 <input type="hidden" name="shOption" value="<c:out value="${vo.shOption}"/>"/>
 <input type="hidden" name="shValue" value="<c:out value="${vo.shValue}"/>"/>
-
-<input type="hidden" name="ccSeq" value="<c:out value="${vo.ccSeq}"/>"/>

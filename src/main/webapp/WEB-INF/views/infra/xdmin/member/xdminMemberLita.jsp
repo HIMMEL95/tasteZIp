@@ -53,11 +53,22 @@
 	</div>
 		<!-- end --> 
 		<script>
-			// 페이지 네이션 만들기
+		
+		var goUrlForm = "/member/xdminMemberForm"; 
+		
+		var form = $("form[name=formList]");
+		
+		var ifmmSeq = $("input[name=ifmmSeq]");
+			
+			// ----- form으로 이동 -----
+			
+			$('#btnForm').on("click", function() {
+	 			goForm(0);                
+	 		});
 			
 			goForm = function(keyValue) {
 				/* if(key != 0) seq.val(btoa(key)); */
-				seq.val(keyValue);
+				ifmmSeq.val(keyValue);
 				form.attr("action", goUrlForm).submit();
 			}
 

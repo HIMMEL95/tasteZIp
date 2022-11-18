@@ -3,6 +3,7 @@ package com.tasteZip.infra.modules.member;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/member/")
@@ -29,8 +31,30 @@ public class MemberController {
     }
 	
 	@RequestMapping(value = "mypageMemberForm")
-	public String mypageMemberForm() throws Exception {
+	public String mypageMemberForm(MemberVo vo, Member dto, Model model, HttpSession httpSession) throws Exception {
+		
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		vo.setIfmmSeq(seq);
+		
+		Member item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		
 	    return "infra/main/member/mypageMemberForm"; 
+	}
+	
+	@RequestMapping(value = "mypageUpdt")
+	public String mypageUpdt(@ModelAttribute("vo") MemberVo vo, Member dto, RedirectAttributes redirectAttributes, HttpSession httpSession) throws Exception {
+		
+		String seq = (String) httpSession.getAttribute("sessSeq");
+		
+		dto.setIfmmSeq(seq);
+		
+		service.mypageUpdt(dto);
+		
+		vo.setIfmmSeq(dto.getIfmmSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+	    return "redirect:/member/mypageMemberForm"; 
 	}
 	
 	@RequestMapping(value = "memberInst")

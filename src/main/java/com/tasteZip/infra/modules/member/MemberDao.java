@@ -29,9 +29,14 @@ public class MemberDao {
     /* insert & update */
     public int memberInst(Member dto) { return sqlSession.insert(namespace + ".userInsert", dto); }
     public int memberUpdt(Member dto) { return sqlSession.update(namespace + ".userUpdate", dto); }
+    public int mypageUpdt(Member dto) { return sqlSession.update(namespace + ".mypageUpdt", dto); }
     
     /* code list */
     public List<Member> codeGender(Member dto) { return sqlSession.selectList(namespace + ".codeGender", dto); }
     public List<Member> codeRadio(Member dto) { return sqlSession.selectList(namespace + ".codeRadio", dto); }
 
+	/* selectOne */
+    public Member selectOne(MemberVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOne", vo);
+	}
 }

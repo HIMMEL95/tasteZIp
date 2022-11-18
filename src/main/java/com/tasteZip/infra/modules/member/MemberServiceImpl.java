@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.tasteZip.infra.common.util.UtilSecurity;
 
 @Service
@@ -51,6 +50,11 @@ public class MemberServiceImpl implements MemberService{
     public int memberUpdt(Member dto) throws Exception {
         return dao.memberUpdt(dto);
     }
+    
+    @Override
+    public int mypageUpdt(Member dto) throws Exception {
+        return dao.mypageUpdt(dto);
+    }
 
     /* code list */
     @Override
@@ -62,4 +66,12 @@ public class MemberServiceImpl implements MemberService{
     public List<Member> codeRadio(Member dto) throws Exception {
         return dao.codeRadio(dto);
     }
+    
+    // selectOne
+    @Override
+	public Member selectOne(MemberVo vo) throws Exception{
+		Member result = dao.selectOne(vo);
+		System.out.println("service result: " + result);
+		return result;
+	}
 }

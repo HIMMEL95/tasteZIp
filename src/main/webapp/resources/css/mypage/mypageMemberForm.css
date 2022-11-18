@@ -62,7 +62,7 @@ a :hover{
 	margin-right: auto;
 }
 
-#logout{
+#signOutBtn{
 	width: 200px;
 	display: table;
 	margin-left: auto;
@@ -123,21 +123,21 @@ a :hover{
 #Modification{
 	width: 300px;
 	height: 40px;
-	font-family: 'Happiness-Sans-Bold';
 	font-style: normal;
 	font-size: 18px;
 	margin-top: 3rem;
 	background-color: #FF5600;
 	color: white;
+	font-family: 'Pretendard-Regular';
 }
 
 #Cancel{
 	width: 300px;
 	height: 40px;
-	font-family: 'Happiness-Sans-Bold';
 	font-style: normal;
 	font-size: 18px;
 	margin-top: 3rem;
 	background-color: black;
 	color: white;
+	font-family: 'Pretendard-Regular';
 }

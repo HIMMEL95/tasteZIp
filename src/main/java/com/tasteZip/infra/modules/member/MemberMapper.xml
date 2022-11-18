@@ -44,6 +44,25 @@
 		<include refid="Base.selectListLowerForMysql2" />
 	</select>
 	
+	<select id="selectOne" resultMap="resultMapObj">
+			select 
+				m.ifmmName
+				,m.ifmmId
+				,m.ifmmDob
+				,m.ifmmGender
+				,m.ifmmEmail
+				,m.ifmmRadioOperator
+				,m.ifmmPhone
+				,m.ifmmZipCode
+				,m.ifmmAddress
+				,m.ifmmDetailAddress
+				,m.ifmmExtraAddress
+				,m.ifmmEmailCheck
+			FROM member m
+			WHERE 1=1
+			AND ifmmSeq = #{ifmmSeq}
+	</select>
+	
 	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
 		<include refid="selectCommon" />
@@ -168,6 +187,28 @@
 		where 1=1
 			and ifmmSeq = #{ifmmSeq}
 	</update>
+	<!-- user Update e -->
+	
+	<!-- user Update s -->
+	<update id="mypageUpdt">
+		UPDATE member
+		SET
+			ifmmName = #{ifmmName}
+			,ifmmId = #{ifmmId}
+			,ifmmDob = #{ifmmDob}
+			,ifmmGender = #{ifmmGender}
+			,ifmmEmail = #{ifmmEmail}
+			,ifmmRadioOperator = #{ifmmRadioOperator}
+			,ifmmPhone = #{ifmmPhone}
+			,ifmmZipCode = #{ifmmZipCode}
+			,ifmmAddress = #{ifmmAddress}
+			,ifmmDetailAddress = #{ifmmDetailAddress}
+			,ifmmExtraAddress = #{ifmmExtraAddress}
+			,modifiedAt = now()
+		where 1=1
+			and ifmmSeq = #{ifmmSeq}
+	</update>
+	
 	<!-- user Update e -->
 	
 	<select id="codeGender" resultMap="resultMapObj">

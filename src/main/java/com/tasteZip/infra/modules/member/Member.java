@@ -1,6 +1,10 @@
 package com.tasteZip.infra.modules.member;
 
-public class Member {
+import org.springframework.web.multipart.MultipartFile;
+
+import com.tasteZip.infra.common.base.Base;
+
+public class Member extends Base{
 
     private String ifmmSeq;
     private String ifmmId;
@@ -22,6 +26,38 @@ public class Member {
     private String ifmmCreatedAt;
     private String ifmmModifiedAt;
     private Integer ifmmDelNy;
+    
+    /* image upload s */
+    private MultipartFile[] profileImage;
+    private Integer[] process;
+    private String[] pathFile;
+    private String[] fileSeq;
+    
+    public MultipartFile[] getProfileImage() {
+        return profileImage;
+    }
+    public void setProfileImage(MultipartFile[] profileImage) {
+        this.profileImage = profileImage;
+    }
+    public Integer[] getProcess() {
+        return process;
+    }
+    public void setProcess(Integer[] process) {
+        this.process = process;
+    }
+    public String[] getPathFile() {
+        return pathFile;
+    }
+    public void setPathFile(String[] pathFile) {
+        this.pathFile = pathFile;
+    }
+    public String[] getFileSeq() {
+        return fileSeq;
+    }
+    public void setFileSeq(String[] fileSeq) {
+        this.fileSeq = fileSeq;
+    }
+    /* image upload e */
     
     public String getIfmmSeq() {
         return ifmmSeq;

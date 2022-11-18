@@ -406,8 +406,15 @@
 			});
 		});
 		
+		var content = $("#shValue").val();
+
+		window.addEventListener("load", function() {
+			if (content.length != 0) {
+				$(".label_search").text("");
+			}
+		})
+		
 		change_text = function() {
-			var content = $("#shValue").val();
 			
 			if (content != null || content != "") {
 				$(".label_search").text("");

@@ -2,6 +2,8 @@ package com.tasteZip.infra.modules.member;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public interface MemberService {
 
     public List<Member> selectList(MemberVo vo) throws Exception;
@@ -24,4 +26,11 @@ public interface MemberService {
     
     // selectone
     public Member selectOne(MemberVo vo) throws Exception;
+    
+    /* image upload s */
+    //  article img
+    public void uploadFiles(MultipartFile[] multipartFiles, Member dto, String tableName, int type) throws Exception;
+    public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Member dto, String tableName) throws Exception;
+    public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Member dto, String tableName) throws Exception;
+    /* image upload e */
 }

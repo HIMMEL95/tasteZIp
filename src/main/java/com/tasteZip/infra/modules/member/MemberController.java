@@ -46,6 +46,9 @@ public class MemberController {
 		Member item = service.selectOne(vo);
 		model.addAttribute("item", item);
 		
+		Member itemImg = service.selectImg(vo);
+		model.addAttribute("itemImg", itemImg);
+		
 	    return "infra/main/member/mypageMemberForm"; 
 	}
 	

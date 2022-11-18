@@ -15,7 +15,7 @@ public class Member extends Base{
     private String ifmmEmail;
     private String ifmmRadioOperator;
     private String ifmmPhone;
-    private Integer ifmmZipCode;
+    private String ifmmZipCode;
     private String ifmmAddress;
     private String ifmmDetailAddress;
     private String ifmmExtraAddress;
@@ -113,10 +113,10 @@ public class Member extends Base{
     public void setIfmmPhone(String ifmmPhone) {
         this.ifmmPhone = ifmmPhone;
     }
-    public Integer getIfmmZipCode() {
+    public String getIfmmZipCode() {
         return ifmmZipCode;
     }
-    public void setIfmmZipCode(Integer ifmmZipCode) {
+    public void setIfmmZipCode(String ifmmZipCode) {
         this.ifmmZipCode = ifmmZipCode;
     }
     public String getIfmmAddress() {

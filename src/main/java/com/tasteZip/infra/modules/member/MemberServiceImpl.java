@@ -82,9 +82,12 @@ public class MemberServiceImpl implements MemberService{
     // selectOne
     @Override
 	public Member selectOne(MemberVo vo) throws Exception{
-		Member result = dao.selectOne(vo);
-		System.out.println("service result: " + result);
-		return result;
+    	return dao.selectOne(vo);
+	}
+    
+    @Override
+	public Member selectImg(MemberVo vo) throws Exception{
+    	return dao.selectImg(vo);
 	}
     
     /* image upload s */

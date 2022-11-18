@@ -76,14 +76,20 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
-           	
+           		<form  id="form" name="form" method="post">
+				<input type="hidden" name="ifmmSeq" value="${sessSeq}"> 
            		<div class="cotainer">
            			<div class="row mt-5 mb-5 menuTitle"><h3><b>내 정보 수정</b></h3></div>
            			<div class="container text-center mb-5" style="margin-top: 2rem;">
 					<label class="form-label">프로필 사진</label>
 						<div class="row justify-content-center">
 							<div class="col-3 text-center">
-				    			<img id="preview-image" src="https://intermusicakorea.com/common/img/default_profile.png" class="profile">
+				    			<img id="preview-image" src="
+								<c:choose>
+									<c:when test = "${itemImg ne null}">${itemImg.path}${itemImg.uuidName}</c:when>
+									<c:otherwise>https://intermusicakorea.com/common/img/default_profile.png</c:otherwise>
+								</c:choose>
+								" class="profile">
 							</div>
 						</div>
 					</div>
@@ -91,8 +97,7 @@
 				
 				<!-- 항목 -->
 				
-				<form  id="form" name="form" method="post">
-				<input type="hidden" name="ifmmSeq" value="${sessSeq}"> 
+				
 				<div class="container font">
 					<div class="row gy-3" id="firstrow">
 						<div class="col-6">
@@ -160,9 +165,9 @@
 						<div class="col-6">
 							<label for="ifmmEmailCheck" class="form-label">이메일 정보 마케팅 사용 동의</label>
 				            <div class="form-check">
-				            	<input type="hidden" id="ifmmEmailCheck" name="ifmmEmailCheck" value="0">
-				                <input type="checkbox" id="emailCheck" name="ifmmEmailCheck" class="form-check-input" <c:if test="${item.ifmmEmailCheck eq 1 }">checked</c:if>>
-				                <label for="ifmmEmailConsentNy" class="form-check-label text-muted">
+				            	<input type="hidden" id="ifmmEmailCheck" name="ifmmEmailCheck" value="${item.ifmmEmailCheck }">
+				                <input type="checkbox" id="emailCheck" name="emailCheck" class="form-check-input" <c:if test="${item.ifmmEmailCheck eq 1 }">checked</c:if>>
+				                <label for="emailCheck" class="form-check-label text-muted">
 				                    동의합니다
 				                </label>
 				            </div>
@@ -176,8 +181,8 @@
 				<br>
 				<br>
 			</div>
-			</form>
           </div>
+          </form>
          </section>
         </div>
       </div>
@@ -195,9 +200,9 @@
     <script type="text/javascript">
 	
 		var goUrlList = "/mypage/mypageMain";
-		var goUrlUpdt = "/memeber/mypageUpdt";
+		var goUrlUpdt = "/member/mypageUpdt";
 		
-		var seq = $("input:hidden[name=seq]");			
+		var seq = $("input:hidden[name=ifmmSeq]");			
 		
 		var form = $("form[name=form]");
 		
@@ -205,9 +210,24 @@
 			form.attr("action", goUrlUpdt).submit();
 		});
 		
+		/* goForm = function (keyValue) {
+			seq.val(keyValue);
+			form.attr("action", goUrlUpdt).submit();
+		} */
+		
 		$("#Cancel").on("click", function(){
 			form.attr("action", goUrlList).submit();
 		});
+		
+		$("#emailCheck").on("change", function() {
+			if ($('#ifmmEmailCheck').val() == "1") {
+				$('#ifmmEmailCheck').val("0");
+			} else {
+				$('#ifmmEmailCheck').val("1");
+			}
+	    	alert($("#ifmmEmailCheck").val())
+		})
+		
 	</script>
 	<script>
 		$("#clear").on("click", function() {

@@ -39,6 +39,8 @@ public class MemberDao {
     public Member selectOne(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
+    /* image select */
+    public Member selectImg(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectImg", vo); }
     
     /* image upload s */
     public int insertUploaded(Member dto) { return sqlSession.insert("Base" + ".insertUploaded", dto); }

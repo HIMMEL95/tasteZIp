@@ -26,6 +26,7 @@ public interface MemberService {
     
     // selectone
     public Member selectOne(MemberVo vo) throws Exception;
+    public Member selectImg(MemberVo vo) throws Exception;
     
     /* image upload s */
     //  article img

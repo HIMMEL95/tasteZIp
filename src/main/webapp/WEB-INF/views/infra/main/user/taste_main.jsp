@@ -54,9 +54,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/chat">Crew Chat</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/comment">Comment</a>
-                        </li>
+                        <c:choose>
+                        	<c:when test="${empty sessSeq }">
+                        	</c:when>
+                        	<c:otherwise>
+		                        <li class="nav-item">
+		                            <a class="nav-link" href="/mypage/mypageMain">Mypage</a>
+		                        </li>
+                        	</c:otherwise>
+                        </c:choose>
                         <hr>
                         <c:choose>
                         	<c:when test="${empty sessSeq }">

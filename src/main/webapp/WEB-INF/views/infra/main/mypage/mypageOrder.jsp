@@ -12,7 +12,7 @@
     <title>맛Zip Mypage</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -22,7 +22,6 @@
 <body>
 	<!-- 상단 -->
 	<form id="myform" name="myform" method="post">
-		<%@include file="OrderVo.jsp"%>
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
@@ -67,7 +66,6 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
-       			<form method="post" name="formList" id="formList">
        			<input type="hidden" name="ifmmSeq" value="${sessSeq }">
            		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            		<div class="cotainer">
@@ -85,7 +83,7 @@
 								      	<input type="hidden" name="iforSeq" value="${list.iforSeq}">
 								        <h5 class="card-title"><b>${list.ifstName}</b></h5>
 								        <p class="card-text">주문날짜: ${list.iforCreatedAt}</p>
-								        <button type="button" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button>
+								      	<button type="button" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button>
 								      </div>
 								    </div>
 								</div>
@@ -93,7 +91,6 @@
           				</c:otherwise>
            			</c:choose>
            		</div>
-           		</form>
           </section>
         </div>
      </div>
@@ -110,20 +107,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
     
-  	  var goUrlList = "/order/mypageOrder";
-  	  var goUrlForm = "/order/mypageOrderView";
-  	  var seq = $("input[name=iforSeq]");
-  	  
-  	  var form = $("input[name=formList]");
-	   	
-	   	goForm = function(keyValue) {
+		var goUrlList = "/order/mypageOrder";
+		var goUrlForm = "/order/mypageOrderView";
+		var seq = $("input[name=iforSeq]");
+
+		var form = $("#myform");
+		
+		goForm = function (keyValue) {
 			seq.val(keyValue);
 			form.attr("action", goUrlForm).submit();
-		}
-	   	
-		$("#btnView").on("click", function() {
-			form.attr("action", goUrlForm).submit();
-		})
+		}	   	
 		
     </script>
     <script type="text/javascript">

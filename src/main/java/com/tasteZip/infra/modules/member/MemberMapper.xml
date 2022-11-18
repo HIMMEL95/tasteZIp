@@ -20,7 +20,7 @@
 	</sql>
 	
 	<select id="selectList" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql2" />
+		<include refid="Base.selectListUpperForMysql" />
 			select 
 				m.ifmmSeq
 				,m.ifmmName
@@ -41,7 +41,7 @@
 			<include refid="selectCommon"></include>
 			ORDER BY m.ifmmCreatedAt DESC
 			<include refid="Base.orderByLimitForMysql" />
-		<include refid="Base.selectListLowerForMysql2" />
+		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">
@@ -61,6 +61,14 @@
 			FROM member m
 			WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
+	</select>
+	
+	<select id="selectImg" resultMap="resultMapObj">
+		SELECT
+		 * 
+		 FROM memberUploaded
+		 WHERE
+		 pseq = #{ifmmSeq}
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">

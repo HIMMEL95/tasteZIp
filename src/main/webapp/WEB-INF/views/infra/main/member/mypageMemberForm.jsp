@@ -137,7 +137,7 @@
 							<div class="row"><label class="form-label">주소</label></div>
 							<div class="row input-group gy-3">
 								<div class="col-7">	
-					   				<input type="text" class="form-control" id="ifmmZipCode" name="ifmmZipCode" value="<c:out value="${item1.ifmmZipCode}"/>">
+					   				<input type="text" class="form-control" id="ifmmZipCode" name="ifmmZipCode" value="<c:out value="${item.ifmmZipCode}"/>">
 					   			</div>
 					   			<div class="col-5">
 					   				<button type="button" class="btn btn-outline-dark" id="searchBtn">주소검색</button>

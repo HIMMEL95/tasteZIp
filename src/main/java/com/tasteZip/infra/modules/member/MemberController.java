@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tasteZip.infra.common.util.UtilDateTime;
+
 @Controller
 @RequestMapping(value = "/member/")
 public class MemberController {
@@ -28,6 +30,11 @@ public class MemberController {
     
     public void setSearchAndPaging(MemberVo vo) throws Exception {
         vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+        vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
+		vo.setParamsPaging(service.selectOneCount(vo)); 
+		vo.setShOptionDate(vo.getShOptionDate() == null ? null : vo.getShOptionDate());
+		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
     }
 	
 	@RequestMapping(value = "mypageMemberForm")
@@ -212,8 +219,7 @@ public class MemberController {
 	@RequestMapping(value = "xdminMemberLita")
 	public String xdminMemberLita(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
-		vo.setParamsPaging(service.selectOneCount(vo));
-		
+		setSearchAndPaging(vo);
 		
 		  if (vo.getTotalRows() > 0) { 
 			  List<Member> list = service.selectList(vo);

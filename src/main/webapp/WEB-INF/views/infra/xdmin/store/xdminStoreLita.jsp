@@ -33,10 +33,10 @@
 					<c:otherwise>		
 						<c:forEach items="${list}" var="list" varStatus="status">
 							<tr onclick="goForm(${list.ifstSeq})" class="info" style="cursor: pointer;">
-								<th scope="row" class="td1" src="./memberMod.html">
+								<th scope="row" class="td1" src="/">
 									<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
 								</th>
-								<td><c:out value="${vo.totalRows2 - ((vo.thisPage2 - 1) * vo.rowNumToShow2 + status.index) }"/></td>
+								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
 								<td>${list.ifstSeq}</td>
 								<td>${list.ifstName }</td>
 								<td>${list.ifstPhone}</td>

@@ -42,32 +42,18 @@ public class StoreController {
 	}
 	
 	//관리자 스토어
-	@RequestMapping(value = "xdminStoreList")
-	public String xdminStoreList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
-	    setSearchAndPaging(vo);
-	    vo.setParamsPaging2(service.xdminSelectOneCount(vo));
-	    List<Store> list = service.xdminSelectList(vo);
-	    model.addAttribute("list", list);
-	    
-	    return "infra/xdmin/store/storeList";
-	}
+//	@RequestMapping(value = "xdminStoreList")
+//	public String xdminStoreList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+//	    setSearchAndPaging(vo);
+//	    vo.setParamsPaging2(service.xdminSelectOneCount(vo));
+//	    List<Store> list = service.xdminSelectList(vo);
+//	    model.addAttribute("list", list);
+//	    
+//	    return "infra/xdmin/store/storeList";
+//	}
 	
-	@RequestMapping(value = "xdminStoreForm")
+	@RequestMapping(value = "StoreForm")
 	public String storeForm(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
-	    
-	    Store item = service.xdminSelectOne(vo);
-	    model.addAttribute("item", item);
-	   
-	    List<Store> running = service.openingList(vo);
-	    model.addAttribute("running", running);
-	    
-	    System.out.println("day 실행중?");
-	    List<Store> day = service.day(dto);
-	    model.addAttribute("day", day);
-
-	    System.out.println("opening 실행중?");
-	    List<Store> opening = service.opening(dto);
-	    model.addAttribute("opening", opening);
 	    
 	    return "infra/xdmin/store/storeForm";
 	}
@@ -208,18 +194,21 @@ public class StoreController {
 
 // ------------------------ 관리자 ------------------------
 
-	@RequestMapping(value = "xdminStoreList1")
-	public String xdminStoreList1(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+	@RequestMapping(value = "xdminStoreList")
+	public String xdminStoreList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
-		return "infra/xdmin/store/xdminStoreList1";
+	    vo.setParamsPaging(service.xdminSelectOneCount(vo));
+	    List<Store> list = service.xdminSelectList(vo);
+	    model.addAttribute("list", list);
+		
+		return "infra/xdmin/store/xdminStoreList";
 	}
 	
 	@RequestMapping(value = "xdminStoreLita")
 	public String xdminStoreLita(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
 		
 		vo.setParamsPaging(service.selectOneCount(vo));
-		
 		
 		  if (vo.getTotalRows() > 0) { 
 			  List<Store> list = service.selectList(vo);
@@ -229,9 +218,24 @@ public class StoreController {
 		return "infra/xdmin/store/xdminStoreLita";
 	}
 	
-	@RequestMapping(value = "xdminStoreForm1") 
-	public String xdminStoreForm1() throws Exception {
-	    return "infra/xdmin/store/xdminStoreForm1";
+	@RequestMapping(value = "xdminStoreForm") 
+	public String xdminStoreForm(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
+		
+		Store item = service.xdminSelectOne(vo);
+	    model.addAttribute("item", item);
+	   
+	    List<Store> running = service.openingList(vo);
+	    model.addAttribute("running", running);
+	    
+	    System.out.println("day 실행중?");
+	    List<Store> day = service.day(dto);
+	    model.addAttribute("day", day);
+
+	    System.out.println("opening 실행중?");
+	    List<Store> opening = service.opening(dto);
+	    model.addAttribute("opening", opening);
+		
+	    return "infra/xdmin/store/xdminStoreForm";
 	}
 	
 	

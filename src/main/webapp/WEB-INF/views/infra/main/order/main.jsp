@@ -95,7 +95,7 @@
 										<button class="search_btn" type="button" id="search">검색</button>
 										<div class="input_box">
 											<label class="label_search">장소 검색</label>
-											<input type="text" id="shValue" name="shValue" autocomplete="none" autofocus class="input_search" oninput="change_text()">
+											<input type="text" id="shValue" name="shValue" value="${vo.shValue }" autocomplete="none" autofocus class="input_search" oninput="change_text()">
 										</div>
 									</div>
 								</div>
@@ -345,6 +345,12 @@
 		} */
 		
 		// 키워드로 장소를 검색합니다
+		
+		$("#shValue").on("keyup", function (key) {
+			if(key.keyCode == 13) {
+				$("#search").click();
+			}
+		});
 		
 		$("#search").on("click", function() {
 			ps.keywordSearch($("#shValue").val(), placesSearchCB); 

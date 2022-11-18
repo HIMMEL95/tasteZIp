@@ -1,6 +1,10 @@
 package com.tasteZip.infra.modules.store;
 
-public class Store {
+import org.springframework.web.multipart.MultipartFile;
+
+import com.tasteZip.infra.common.base.Base;
+
+public class Store extends Base {
 
     private String ifstSeq;
     private String ifstName;
@@ -16,6 +20,7 @@ public class Store {
     private String ifstCreatedAt;
     private String ifstModifiedAt;
     
+    //running time dto s
     private String ifrtSeq;
     private Integer ifrtDay;
     private String ifrtStartTime;
@@ -26,6 +31,39 @@ public class Store {
     private String[] ifrtStartTimeArray;
     private String[] ifrtEndTimeArray;
     private Integer[] ifrtOpeningArray;
+    //running time dto e
+    
+    /* image upload s */
+    private MultipartFile[] storeImage;
+    private Integer[] process;
+    private String[] pathFile;
+    private String[] fileSeq;
+    
+    public MultipartFile[] getStoreImage() {
+        return storeImage;
+    }
+    public void setStoreImage(MultipartFile[] storeImage) {
+        this.storeImage = storeImage;
+    }
+    public Integer[] getProcess() {
+        return process;
+    }
+    public void setProcess(Integer[] process) {
+        this.process = process;
+    }
+    public String[] getPathFile() {
+        return pathFile;
+    }
+    public void setPathFile(String[] pathFile) {
+        this.pathFile = pathFile;
+    }
+    public String[] getFileSeq() {
+        return fileSeq;
+    }
+    public void setFileSeq(String[] fileSeq) {
+        this.fileSeq = fileSeq;
+    }
+    /* image upload e */
 
     // store dto
     public String getIfstSeq() {

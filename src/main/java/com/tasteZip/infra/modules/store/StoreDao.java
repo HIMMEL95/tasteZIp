@@ -37,5 +37,10 @@ public class StoreDao {
     public int update(Store dto) { return sqlSession.update(namespace + ".update", dto); }
     public int runningInsert(Store dto) { return sqlSession.insert(namespace + ".runningInsert", dto); }
     public int runningUpdate(Store dto) { return sqlSession.update(namespace + ".runningUpdate", dto); }
-    
+
+    /* image upload s */
+    public int insertUploaded(Store dto) { return sqlSession.insert("Base" + ".insertUploaded", dto); }
+    public int ueleteUploaded(Store dto) { return sqlSession.insert("Base" + ".ueleteUploaded", dto); }
+    public int deleteUploaded(Store dto) { return sqlSession.insert("Base" + ".deleteUploaded", dto); }
+    /* image upload e */
 }

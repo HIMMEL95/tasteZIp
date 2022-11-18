@@ -2,6 +2,8 @@ package com.tasteZip.infra.modules.store;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public interface StoreService {
     
     // main
@@ -24,4 +26,10 @@ public interface StoreService {
     public int update(Store dto) throws Exception;
     public int runningInsert(Store dto) throws Exception;
     public int runningUpdate(Store dto) throws Exception;
+    
+    /* image upload s */
+    public void uploadFiles(MultipartFile[] multipartFiles, Store dto, String tableName, int type) throws Exception;
+    public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Store dto, String tableName) throws Exception;
+    public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Store dto, String tableName) throws Exception;
+    /* image upload e */
 }

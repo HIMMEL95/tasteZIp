@@ -70,13 +70,13 @@
 											<div class="col-md-3">
 												<select class="form-select" id="shOption" name="shOption">
 			                                        <option value="" selected>선택</option>
-			                                        <option value="1" >이름</option>
-			                                        <option value="2" >전화번호</option>
-			                                        <option value="3" >이메일</option>
+			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>이름</option>
+			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>전화번호</option>
+			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>이메일</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" name="shValue" id="shValue" value="" autocomplete="off">
+												<input type="text" class="form-control" name="shValue" id="shValue" value="${vo.shValue }" autocomplete="off">
 											</div>
 											<div class="col-md-2">
 												<button class="btn btn-light" type="submit" id="searching"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -180,7 +180,7 @@
 			
 			var ifmmSeq = $("input[name=ifmmSeq]");
 
-			$(function() {
+			/* $(function() {
 		  		$("#datepickerS").datepicker({
 		  			dateFormat: "yy-mm-dd"
 		  			,showMonthAfterYear: true
@@ -191,7 +191,7 @@
 	    			,showMonthAfterYear: true
 	    			,showOtherMonths: true
 	    		});
-		  	})
+		  	}) */
 			
 			$("#btnReset").on("click", function() {
 				$(location).attr("href", goUrlList);
@@ -199,7 +199,7 @@
 		 
 			// 페이지 네이션 만들기
 			goList = function(thisPage) {
-				$("input[name=thisPage2]").val(thisPage);
+				$("input[name=thisPage]").val(thisPage);
 				form.attr("action", goUrlList).submit();
 			}
 	 		

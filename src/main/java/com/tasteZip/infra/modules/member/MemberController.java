@@ -212,15 +212,14 @@ public class MemberController {
    @RequestMapping(value = "xdminMemberList")
 	public String xdminMember(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
-		setSearchAndPaging(vo);
+	   setSearch(vo);
 		return "infra/xdmin/member/xdminMemberList";
 	}
 	
 	@RequestMapping(value = "xdminMemberLita")
 	public String xdminMemberLita(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
 		
-		setSearchAndPaging(vo);
-		
+		vo.setParamsPaging(service.selectOneCount(vo));
 		  if (vo.getTotalRows() > 0) { 
 			  List<Member> list = service.selectList(vo);
 			  model.addAttribute("list", list); 
@@ -230,7 +229,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "xdminMemberForm")
-	public String xdminMemberForm() throws Exception {
+	public String xdminMemberForm(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {
+		
+		Member item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		
 	    return "infra/xdmin/member/xdminMemberForm";
 	}
    

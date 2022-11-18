@@ -67,12 +67,12 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
+       			<form method="post" name="formList" id="formList">
+       			<input type="hidden" name="ifmmSeq" value="${sessSeq }">
+           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            		<div class="cotainer">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
            			<div class="row pt-5 mb-3 font"><h4><b>Order List</b></h4></div>
-           			<form method="post" name="formList" id="formList">
-           			<input type="hidden" name="ifmmSeq" value="${sessSeq }">
-	           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            			<c:choose>
            				<c:when test="${fn:length(list) eq 0}">
           					<h4 class="text-center">주문 내역이 존재하지 않습니다.</t4>
@@ -92,8 +92,8 @@
           					</c:forEach>
           				</c:otherwise>
            			</c:choose>
-           			</form>
            		</div>
+           		</form>
           </section>
         </div>
      </div>
@@ -109,16 +109,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
+    
   	  var goUrlList = "/order/mypageOrder";
   	  var goUrlForm = "/order/mypageOrderView";
   	  var seq = $("input[name=iforSeq]");
   	  
-  	  var form = $("#formList");
+  	  var form = $("input[name=formList]");
 	   	
 	   	goForm = function(keyValue) {
 			seq.val(keyValue);
 			form.attr("action", goUrlForm).submit();
 		}
+	   	
+		$("#btnView").on("click", function() {
+			form.attr("action", goUrlForm).submit();
+		})
 		
     </script>
     <script type="text/javascript">

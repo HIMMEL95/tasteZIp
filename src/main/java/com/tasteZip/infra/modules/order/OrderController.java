@@ -89,12 +89,10 @@ public class OrderController {
     @RequestMapping(value = "mypageOrderView")
     public String mypageOrderView(@ModelAttribute("vo") OrderVo vo, Order dto, Model model, HttpSession httpSession) throws Exception {
     	
+    	vo.setIforSeq(dto.getIforSeq());
+
     	String seq = httpSession.getAttribute("sessSeq").toString();
 		vo.setIfmmSeq(seq);
-		
-		
-		vo.setIforSeq(dto.getIforSeq());
-		
 		
 		Order item = service.selectOne(vo);
 		model.addAttribute("item", item);

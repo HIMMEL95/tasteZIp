@@ -72,7 +72,7 @@
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
            		</div>
            		<div class="container">
-           		<form method="post" name="formList" id="formList">
+           		<form  id="form" name="form" method="post">
            		<%-- <input type="hidden" name="ifmmSeq" value="${sessSeq }"> --%>
            		<input type="hidden" name="iforSeq" value="${item.iforSeq}"/> 
            			<div class="row pt-5 mb-3 font"><h4><b>주문 상세 내역</b></h4></div>
@@ -156,7 +156,7 @@
     <script type="text/javascript">
     
     	var goUrlList = "/order/mypageOrderView";
-    	var form = $("#myform");
+    	var form = $("form[name=form]");
     	
     	var seq = $("input:hidden[name=iforSeq]");
     	

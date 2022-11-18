@@ -66,7 +66,6 @@
 			JOIN member m on m.ifmmSeq = b.ifmmSeq
 		WHERE 1=1
 		 	and b.iforSeq = #{iforSeq}  <!-- 일단 조건값을 넣어줌 -->
-		ORDER BY b.iforCreatedAt DESC
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">

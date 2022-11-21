@@ -76,9 +76,18 @@
 		                        </li>
                         	</c:otherwise>
                         </c:choose>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/signUp">SignUp</a>
-                        </li>
+                        <c:choose>
+                        	<c:when test="${empty sessSeq }">
+		                        <li class="nav-item">
+		                            <a class="nav-link" href="/signUp">SignUp</a>
+		                        </li>
+                        	</c:when>
+                        	<c:otherwise>
+                        		<li class="nav-item">
+		                            <a class="nav-link" href="/xdminMain">Admin</a>
+		                        </li>
+                        	</c:otherwise>
+                        </c:choose>
                     </ul>
                 </div>
             </div>

@@ -20,4 +20,9 @@ public interface ReservationService {
 	
 	//uele list
 	public int ueleteList(String ifrvSeq) throws Exception;
+	
+	// 주문
+	public int insertRV(Reservation dto) throws Exception;
+	// 주문 selectOne
+	public Reservation selectRV(ReservationVo vo) throws Exception;
 }

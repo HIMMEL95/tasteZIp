@@ -12,6 +12,7 @@ public class Reservation {
 	private String ifstSeq;
 	private String ifmnSeq;
 	private String ifmmSeq;
+	private String ifmnPrice;
 	
 	// store
 	private String ifstName;
@@ -137,6 +138,12 @@ public class Reservation {
 	}
 	public void setIfmnName(String ifmnName) {
 		this.ifmnName = ifmnName;
+	}
+	public String getIfmnPrice() {
+		return ifmnPrice;
+	}
+	public void setIfmnPrice(String ifmnPrice) {
+		this.ifmnPrice = ifmnPrice;
 	}
 	
 	

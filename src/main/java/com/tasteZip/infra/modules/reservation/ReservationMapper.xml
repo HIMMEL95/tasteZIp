@@ -96,4 +96,54 @@
 		WHERE
 			ifrvSeq = #{ifrvSeq}
 	</update>
+	
+	<!-- 예약 -->	
+	<insert id="insertRV">
+		INSERT INTO reservation(
+			ifrvDate
+			,ifrvTime
+			,ifrvCount
+			,ifrvPerson
+			,ifrvPrice
+			,ifstSeq
+			,ifmnSeq
+			,ifmmSeq
+		)
+		VALUES (
+			now()
+			,now()
+			,#{ifrvCount}
+			,#{ifrvPerson}
+			,#{ifrvPrice}
+			,#{ifstSeq}
+			,#{ifmnSeq}
+			,#{ifmmSeq}
+		)
+		<selectKey resultType="String" keyProperty="ifrvSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<!-- 예약 select -->
+	<select id="selectRV" resultMap="resultMapObj">
+		SELECT
+			 s.ifstName
+			 ,s.ifstAddress
+			 ,mm.ifmmName
+			 ,mm.ifmmPhone
+			 ,mm.ifmmEmail
+			 ,mn.ifmnName
+			 ,mn.ifmnPrice
+			 ,s.ifstSeq 
+			 ,mn.ifmnSeq
+			 ,mm.ifmmSeq
+			 ,r.ifrvSeq
+		 FROM reservation r
+		 Left join store s on s.ifstSeq = r.ifstSeq
+		 Left join member mm on mm.ifmmSeq = r.ifmmSeq
+		 Left join menu mn on mn.ifmnSeq = r.ifmnSeq
+			 WHERE 1=1
+			 AND r.ifrvSeq = #{ifrvSeq}
+			 AND mm.ifmmSeq = #{ifmmSeq}
+	</select>
 </mapper> 

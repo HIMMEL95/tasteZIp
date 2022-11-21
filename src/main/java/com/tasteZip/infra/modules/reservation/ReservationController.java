@@ -86,4 +86,36 @@ public class ReservationController {
     	
         return "infra/main/mypage/mypageReservationView";
     }
+    
+    // 주문
+    @RequestMapping(value = "RVInst")
+    public String RVInst(@ModelAttribute("vo")ReservationVo vo, Reservation dto, Model model, HttpSession httpSession) throws Exception {
+    	
+    	service.insertRV(dto);
+    	
+    	vo.setIfrvSeq(dto.getIfrvSeq());
+    	
+    	String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
+		
+    	Reservation itemRV = service.selectRV(vo);
+    	model.addAttribute("itemRV", itemRV);
+    	
+        return "infra/main/reservation/reservationView";
+    }
+    
+ // 주문
+    @RequestMapping(value = "RVForm")
+    public String RVForm(@ModelAttribute("vo")ReservationVo vo, Reservation dto, Model model, HttpSession httpSession) throws Exception {
+    	
+    	vo.setIfrvSeq(dto.getIfrvSeq());
+    	
+    	String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
+		
+    	Reservation itemRV = service.selectRV(vo);
+    	model.addAttribute("itemRV", itemRV);
+    	
+        return "infra/main/reservation/reservation";
+    }
 }

@@ -41,4 +41,17 @@ public class ReservationServiceImpl implements ReservationService{
 	public int ueleteList(String ifrvSeq) throws Exception {
 		return dao.ueleteList(ifrvSeq);
 	}
+	
+	// 주문
+	@Override
+	public int insertRV(Reservation dto) throws Exception {
+		return dao.insertRV(dto);
+	}
+	
+	// 주문selectOne
+	@Override
+	public Reservation selectRV(ReservationVo vo) throws Exception{
+		return dao.selectRV(vo);
+	}
+
 }

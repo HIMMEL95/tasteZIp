@@ -82,22 +82,83 @@
 				</div>
 				<div class="panel">
 					<div class="panel_top">
-						<!-- search s -->
-						<div class="search">
-							<div class="search_wrap">
-								<div class="search_box">
-									<button class="search_btn" type="button">검색</button>
-									<div class="input_box">
-										<label class="label_search">장소, 버스, 지하철, 도로 검색</label>
-										<input type="text" id="placeSearch" autocomplete="none" autofocus class="input_search">
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- search e -->
 						<div class="ng-star-inserted">
-							<div class="main -top_space">
+							<div class="main">
 								<!-- contents s -->
+								<form  id="form" name="form" method="post">
+								<input type="hidden" name="ifrvseq" value="${vo.ifrvSeq}"/>  
+								<input type="hidden" name="ifmmSeq" value="${sessSeq}"/>
+								<div class="container">
+				           			<div class="row pt-5 mb-3 font"><h4><b>예약 하기</b></h4></div>
+				           			
+				           			<!-- 주문자정보 -->
+				           			<hr class="hrstyle mt-2 mb-2">
+				           			<div class="wide">
+					           			<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
+					           			<div class="row mt-2 mb-4">
+											<div class="col-2">
+												<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg" style="width: 200px; height: 100px;">
+											</div>
+											<div class="col-10">
+												<div><h5><b><c:out value="${itemRV.ifstName}"/></b></h5></div>
+												<div><h5><b><c:out value="${itemRV.ifstAddress}"/></b></h5></div>
+											</div>
+										</div>
+									</div>
+				           			<hr class="hrstyle mt-2 mb-2">
+				           			<!-- 가게 정보 -->
+				           			<div class="wide">
+					           			<div class="row mt-4 mb-3"><h4><b>예약자 정보</b></h4></div>
+					           			<div class="row mb-2">
+											<div class="col-10"><span><b>성명</b></span></div>
+											<div class="col-2 text-end"><span><c:out value="${itemRV.ifmmName}"/></span></div>
+										</div>
+										<div class="row mb-2">
+											<div class="col-10"><span><b>전화번호</b></span></div>
+											<div class="col-2 text-end"><span><c:out value="${itemRV.ifmmPhone}"/></span></div>
+										</div>
+										<div class="row mb-2">
+											<div class="col-8"><span><b>이메일</b></span></div>
+											<div class="col-4 text-end"><span><c:out value="${itemRV.ifmmEmail}"/></span></div>
+										</div>
+				           			</div>
+				           			<hr class="hrstyle mt-4 mb-4">
+				           			<!-- 가게 정보 -->
+				           			<div class="wide">
+					           			<div class="row mt-3 mb-3"><h4><b>예약 정보</b></h4></div>
+					           			<div class="row">
+											<div class="col-5"><span><c:out value="${itemRV.ifmnName}"/></span></div>
+										</div>	
+					           			<div class="row" style="margin-top: 1rem;">
+											<div class="col-4"><span><b>수량</b></span></div>
+											<div class="col-7 text-end"><input type="text" class="form-control" name="ifrvCount" value="${itemRV.ifrvCount}"></div>
+											<div class="col-1 text-start"><span><b>개</b></span></div>
+										</div>
+										<div class="row" style="margin-top: 1rem;">
+											<div class="col-4"><span><b>인원</b></span></div>
+											<div class="col-7 text-end"><input type="text" class="form-control" name="ifrvPerson" value="${itemRV.ifrvPerson}"></div>
+											<div class="col-1 text-start"><span><b>명</b></span></div>
+										</div>
+					           			<hr class="mt-4 mb-4">
+					          			<!-- 가격 정보 -->
+										<div class="row justify-content-between mb-2">
+											<div class="col-4" id="finalPrice"><h5><b>예상 예약 금액</b></h5></div>
+											<c:set var="varfinalPrice" value="${(itemRV.ifrvCount)*(itemRV.ifrvPerson)*(itemRV.ifmnPrice)}" />
+											<fmt:parseNumber value="${varfinalPrice}" type="number" var="numfinalPrice" integerOnly="true"/>
+											<div class="col-7 text-end"><input type="text" class="form-control" style="color: red;" name="ifrvPrice" value="${numfinalPrice }"></div>
+											<div class="col-1 text-start"><span><b>원</b></span></div>
+											<input type="hidden" name="ifrvSeq" value="${vo.ifrvSeq}"/> 
+											<input type="hidden" name="ifmmSeq" value="${sessSeq}"/> 
+											<input type="hidden" name="ifstSeq" value=""/>
+											<input type="hidden" name="ifmnSeq" value=""/>  
+										</div>
+										<div class="row justify-content-center mt-5">
+											<div class="col-4 text-end"><button type="button" class="btn btn-danger" id="btnRV" style="width: 150px;"><b>예약하기</b></button></div>
+											<div class="col-4 text-start"><button type="button" class="btn btn-dark" id="btnCancle" style="width: 150px;"><b>취소하기</b></button></div>
+										</div>
+									</div>
+				           		</div>
+				           		</form>
 								<!-- contents e -->
 							</div>
 						</div>
@@ -117,6 +178,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script> -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec2655da82c3779d622f0aff959060e6&libraries=services"></script>
+	<script type="text/javascript">
+	
+		var goUrlInst = "/reservation/RVInst"; 			
+		var goUrlList= "/menu"; 			
+		
+		var form = $("form[name=form]");
+		
+		
+		$("#btnRV").on("click", function(){
+		   form.attr("action", goUrlInst).submit();
+		}); 
+		
+		$("#btnCancle").on("click", function(){
+			form.attr("action", goUrlList).submit();
+		});
+		
+	</script>
 	<script>
 	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다

@@ -30,6 +30,11 @@ public class ReservationDao {
 		Reservation result = sqlSession.selectOne(namespace + ".selectOneMyRV", vo);
 		return result;
 	}
+	
+	// 주문 select
+	public Reservation selectRV(ReservationVo vo) {
+		return sqlSession.selectOne(namespace + ".selectRV", vo);
+	}
 
 	//selectone Count
 	public int selectOneCount(ReservationVo vo) {
@@ -39,6 +44,11 @@ public class ReservationDao {
 	//list uele
 	public int ueleteList(String ifrvSeq) {
 		return sqlSession.update(namespace + ".ueleteList", ifrvSeq);
+	}
+	
+	// 주문
+	public int insertRV(Reservation dto) {
+		return sqlSession.insert(namespace + ".insertRV", dto);
 	}
 		
 }

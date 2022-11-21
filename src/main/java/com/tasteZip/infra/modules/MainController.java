@@ -1,16 +1,14 @@
 package com.tasteZip.infra.modules;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
 import com.tasteZip.infra.modules.menu.Menu;
@@ -86,9 +84,9 @@ public class MainController {
     }
 	
 	@RequestMapping(value = "findWay") 
-	public String findWay() throws Exception {
-		return "infra/main/findWay/findWay";
-	}
+    public String findWay(@ModelAttribute("vo") FindWayVo vo) throws Exception {
+        return "infra/main/findWay/findWay";
+    }
 	
 	@RequestMapping(value = "main") 
     public String main(@ModelAttribute("vo") MenuVo vo) throws Exception {

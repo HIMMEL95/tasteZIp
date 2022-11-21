@@ -99,7 +99,7 @@
     </header>
 	<main>
 		<!-- <form name="form" id="form" method="post" enctype="multipart/form-data"> -->
-		<form id="myform" name="myform" method="post" autocomplete="off">
+		<form id="myform" name="myform" method="post" autocomplete="off" enctype="multipart/form-data">
 			<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 			<div style="height: 100px"></div>
 			<div class="wrapper">

@@ -6,45 +6,8 @@
     
 <mapper namespace="com.tasteZip.infra.modules.comment.CommentMapper">
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.comment.Comment"></resultMap>
-
-	<select id="myReview" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql2"/>
-		SELECT
-			c.ifcmSeq
-			,c.ifcmComment
-			,c.ifcmCreatedAt
-			,c.ifcmModifiedAt
-			,c.ifcmDelNy
-			,c.ifmmSeq
-			,c.ifcmGrade
-			,s.ifstName
-			,s.ifstAddress
-		FROM review c
-			JOIN store s on s.ifstSeq = c.ifstSeq
-		WHERE 1=1
-		ORDER BY c.ifcmSeq DESC
-		<include refid="Base.orderByLimitForMysql" />
-		<include refid="Base.selectListLowerForMysql2" /> 
-	</select>
 	
-	<select id="selectOneCount" resultType="Integer">
-		SELECT COUNT(*)
-		FROM review c
-		WHERE 1=1
-	</select>
-	
-	 <!--          관리자 mapper s        -->	
-	
-	<select id="selectList2" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql2" />
-			SELECT
-			c.ifcmSeq
-			,c.ifcmComment
-			,c.ifcmCreatedAt
-			,c.ifcmGrade
-			,s.ifstName
-			,s.ifstAddress
-			,m.ifmmName
+	<sql id ="selectCommon">
 		FROM comment c
 			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
 			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
@@ -57,26 +20,59 @@
 			<when test="shOption == 3">AND ifmmName LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 4">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
+		<choose>
+			<when test="shOptionDate == 1">AND cc.ifcmCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			<when test="shOptionDate == 2">AND cc.ifcmModifiedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+		</choose>
+	</sql>
+
+	<select id="mycomment" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql2"/>
+		SELECT
+			c.ifcmSeq
+			,c.ifcmComment
+			,c.ifcmCreatedAt
+			,c.ifcmModifiedAt
+			,c.ifcmDelNy
+			,c.ifmmSeq
+			,c.ifcmGrade
+			,s.ifstName
+			,s.ifstAddress
+		FROM comment c
+			JOIN store s on s.ifstSeq = c.ifstSeq
+		WHERE 1=1
+		ORDER BY c.ifcmSeq DESC
+		<include refid="Base.orderByLimitForMysql" />
+		<include refid="Base.selectListLowerForMysql2" /> 
+	</select>
+	
+	<select id="selectOneCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM comment c
+		WHERE 1=1
+	</select>
+	
+	 <!--          관리자 mapper s        -->	
+	
+	<select id="selectList2" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			SELECT
+			c.ifcmSeq
+			,c.ifcmComment
+			,c.ifcmCreatedAt
+			,c.ifcmGrade
+			,s.ifstName
+			,s.ifstAddress
+			,m.ifmmName
+		<include refid="selectCommon" />
 		ORDER BY c.ifcmSeq DESC
 	   	<include refid="Base.orderByLimitForMysql" />
-   		<include refid="Base.selectListLowerForMysql2" />
+   		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
 	<select id="selectOneCount2" resultType="Integer">
 		SELECT COUNT(*)
-		from comment c
-			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
-			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
-		where 1=1
-		<if test="shDelNy != null and !shDelNy.equals('')">AND ifcmDelNy = #{shDelNy}</if>
-		<if test="shOptionDate == 1">AND ifcmCreatedAt between #{shDateStart} and #{shDateEnd}</if>
-		<choose>
-			<when test="shOption == 1">AND ifcmComment LIKE CONCAT('%',#{shValue},'%')</when>
-			<when test="shOption == 2">AND ifcmGrade = #{shValue}</when>
-			<when test="shOption == 3">AND ifmmName LIKE CONCAT('%',#{shValue},'%')</when>
-			<when test="shOption == 4">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
-		</choose>
-		ORDER BY c.ifcmSeq DESC
+		<include refid="selectCommon" />
 	</select>
 	
 	 <select id="selectOne" resultMap="resultMapObj">

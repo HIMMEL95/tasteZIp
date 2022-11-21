@@ -9,6 +9,7 @@ public class Reservation {
 	private Integer ifrvCount;
 	private Integer ifrvPerson;
 	private String ifrvPrice;
+	private Integer ifrvDelNy;
 	private String ifstSeq;
 	private String ifmnSeq;
 	private String ifmmSeq;
@@ -144,6 +145,12 @@ public class Reservation {
 	}
 	public void setIfmnPrice(String ifmnPrice) {
 		this.ifmnPrice = ifmnPrice;
+	}
+	public Integer getIfrvDelNy() {
+		return ifrvDelNy;
+	}
+	public void setIfrvDelNy(Integer ifrvDelNy) {
+		this.ifrvDelNy = ifrvDelNy;
 	}
 	
 	

@@ -25,6 +25,11 @@ public class MainController {
     @Autowired
     MemberServiceImpl mbService;
 
+    @RequestMapping(value = "/")
+    public String MatZipMain() throws Exception {
+    	return "infra/main/main/main";
+    }
+    
 	@RequestMapping(value = "tasteMain")
 	public String tasteMain() throws Exception {
 		return "infra/main/user/taste_main";
@@ -105,7 +110,7 @@ public class MainController {
 	// ---------------- 관리자 ---------------------
 	
 	@RequestMapping(value = "xdminMain")
-	public String homeMain() throws Exception {
+	public String xdminMain() throws Exception {
 		return "infra/xdmin/home/xdminMain";
 	}
 }

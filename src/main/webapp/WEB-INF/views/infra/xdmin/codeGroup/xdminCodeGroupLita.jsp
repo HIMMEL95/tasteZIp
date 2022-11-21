@@ -7,70 +7,94 @@
 
 		  <!-- content s -->
   	<%@include file="../includeV1/totalAndRowNum.jsp" %>
-	<div class=" ms-3 mt-3 bg-body rounded">
+	<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
 		<table class="table table-striped table-hover text-center" id="selecBox">
 			<thead>
 				<tr class="bg-dark">
-					<th scope="col">
-						<input type="checkbox" name="chk_all" id="chk_all" href="">
+					<th scope="col" >
+						<input class="check" type="checkbox" name="check" onclick="selectAll(this)">
 					</th>
 					<th class="text-white">#</th>
-					<th class="text-white">번호</th>
-					<th class="text-white" scope="col" style="width: 150px;">이름</th>
-					<th class="text-white" scope="col" style="width: 128px;">전화번호</th>
-					<th class="text-white" scope="col" style="width: 127px;">주소</th>
-					<th class="text-white" scope="col" style="width: 173px;">정보</th>
-					<th class="text-white" scope="col" style="width: 119px;">등록일</th>
+					<th class="text-white" scope="col">코드그룹 이름(한글)</th>
+					<th class="text-white" scope="col">코드그룹 이름(영문)</th>
+					<th class="text-white" scope="col">설명</th>
+					<th class="text-white" scope="col">사용 여부</th>
+					<th class="text-white" scope="col">삭제 여부</th>
+					<th class="text-white" scope="col">등록일</th>
+					<th class="text-white" scope="col">수정일</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:choose>
 					<c:when test="${fn:length(list) eq 0}">
 						<tr>
-							<td class="text-center" colspan="8">There is no data!</td>
+							<td class="text-center" colspan="9">There is no data!</td>
 						</tr>
 					</c:when>
 					<c:otherwise>		
 						<c:forEach items="${list}" var="list" varStatus="status">
-							<tr onclick="goForm(${list.ifstSeq})" class="info" style="cursor: pointer;">
-								<th scope="row" class="td1" src="/">
-									<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
-								</th>
-								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
-								<td>${list.ifstSeq}</td>
-								<td>${list.ifstName }</td>
-								<td>${list.ifstPhone}</td>
-								<td>${list.ifstAddress}</td>
-								<td id="text">${list.ifstInfo }</td>
-								<td>${list.ifstCreatedAt }</td>
+							<tr>
+								<td>
+									<input class="check" type="checkbox" name="check" vlaue="${list.ifcgSeq }">
+								</td>
+								<td><c:out value="${list.ifcgSeq }"/></td>
+								<td>
+									<a href="javascript:goForm(<c:out value="${list.ifcgSeq }"/>)"><c:out value="${list.ifcgName}"/></a>
+								</td>
+								<td><c:out value="${list.ifcgNameEng }"/></td>
+								<td><c:out value="${list.ifcgExplanation }"/></td>
+								<td>
+									<c:choose>
+										<c:when test="${list.ifcgUseNy eq 0}">N</c:when>
+										<c:otherwise>Y</c:otherwise>
+									</c:choose>
+								</td>
+								<td>
+									<c:choose>
+										<c:when test="${list.ifcgDelNy eq 0}">N</c:when>
+										<c:otherwise>Y</c:otherwise>
+									</c:choose>
+								</td>
+								<td><c:out value="${list.ifcgCreatedAt }"/></td>
+								<td><c:out value="${list.ifcgModifiedAt }"/></td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 			</tbody>
 		</table>
+		<div class="mb-4"></div>
 		<%@include file="../includeV1/pagination.jsp"%>
 	</div>
 		<!-- end --> 
 		<script>
-			// 페이지 네이션 만들기
+		
+		var goUrlForm = "/menu/xdminMenuForm"; 
+		
+		var form = $("form[name=formList]");
+		
+		var ifcgSeq = $("input[name=ifcgSeq]");
+			
+			// ----- form으로 이동 -----
+			
+			$('#btnForm').on("click", function() {
+	 			goForm(0);                
+	 		});
 			
 			goForm = function(keyValue) {
 				/* if(key != 0) seq.val(btoa(key)); */
-				seq.val(keyValue);
+				ifccSeq.val(keyValue);
 				form.attr("action", goUrlForm).submit();
 			}
 
-
 			goList = function(thisPage) {
 				$("input:hidden[name=thisPage]").val(thisPage);
-				setLita();
+				setCodeGroupLita();
 			}
-
 
 			$("#changeRowNum").on("change", function(){
 				$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
-				setLita();
+				setCodeGroupLita();
 			}); 
 				
 

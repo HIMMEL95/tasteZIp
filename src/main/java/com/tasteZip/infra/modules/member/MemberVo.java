@@ -7,10 +7,12 @@ public class MemberVo extends BaseVo{
     private Integer shOption;
     private String shValue;
     private Integer shDelNy;
-    private Integer shOptionDate;
+
+    private String ifmmSeq;
+    
     private String shDateStart;
     private String shDateEnd; 
-    private String ifmmSeq;
+    private Integer shOptionDate;
     
     public Integer getShOption() {
         return shOption;

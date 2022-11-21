@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tasteZip.infra.common.util.UtilDateTime;
-
 @Controller
 @RequestMapping(value = "/menu/")
 public class MenuController {
@@ -27,34 +25,34 @@ public class MenuController {
 	@Autowired
 	MenuServiceImpl service;
 	
-	private void setSearch(MenuVo vo) throws Exception {
-		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
-		vo.setShDelNy(vo.getShDelNy() == null ? 0: vo.getShDelNy());
-		vo.setParamsPaging2(service.selectOneCount2(vo)); 
-		vo.setShOptionDate(vo.getShOptionDate() == null ? null : vo.getShOptionDate());
-		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
-		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
-	  }
-	
 // --------------- 관리자 --------------
-	@RequestMapping(value = "menuList")
-	public String menuList(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+	@RequestMapping(value = "xdminMenuList")
+	public String xdminMenuList(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
 		
-		vo.setParamsPaging2(service.selectOneCount2(vo)); 
-
-		List<Menu> list = service.selectList2(vo);
-		model.addAttribute("list", list); 
-		
-		return "infra/xdmin/menu/menuList";
+		 setSearch(vo);
+		return "infra/xdmin/menu/xdminMenuList";
 	}
 	
-	@RequestMapping(value = "menuForm")
-	public String menuForm(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+	@RequestMapping(value = "xdminMenuLita")
+	public String xdminMenuLita(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.selectOneCount2(vo));
+		
+		  if (vo.getTotalRows() > 0) { 
+			  List<Menu> list = service.selectList2(vo);
+			  model.addAttribute("list", list); 
+		  }
+		
+		return "infra/xdmin/menu/xdminMenuLita";
+	}
+	
+	@RequestMapping(value = "xdminMenuForm")
+	public String xdminMenuForm(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
 		
 		Menu item = service.selectOne(vo);
 		 model.addAttribute("item", item);
 		 
-		return "infra/xdmin/menu/menuForm";
+		return "infra/xdmin/menu/xdminMenuForm";
 	}
 
 	@RequestMapping(value= "menuUpdt")
@@ -80,6 +78,11 @@ public class MenuController {
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/menu/menuList";
 	}
+	
+	private void setSearch(MenuVo vo) throws Exception {
+		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
+		vo.setShDelNy(vo.getShDelNy() == null ? 0: vo.getShDelNy());
+	  }
 	
 	@RequestMapping("/excelDownload")
     public void excelDownload(MenuVo vo, HttpServletResponse httpServletResponse) throws Exception {

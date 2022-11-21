@@ -19,17 +19,23 @@ public class OrderDao {
 		return sqlSession.selectList(namespace + ".myOrder", vo);
 	}
 	
-	// xdmin list
 	public List<Order> selectList(OrderVo vo){ 
 		return sqlSession.selectList(namespace + ".selectList", vo);
 	}
 	
+	// xdmin list
+	public List<Order> xdminSelectList(OrderVo vo){ 
+		return sqlSession.selectList(namespace + ".xdminSelectList", vo);
+	}
+	
+	public int xdminSelectOneCount(OrderVo vo) {
+		return sqlSession.selectOne(namespace + ".xdminSelectOneCount", vo);
+	}
 	
 	//selectone Count
 	public int selectOneCount(OrderVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
-	
 	
 	//selectone
 	public Order selectOne(OrderVo vo) {
@@ -40,4 +46,6 @@ public class OrderDao {
 	public int ueleteList(String iforSeq) {
 		return sqlSession.update(namespace + ".ueleteList", iforSeq);
 	}
+	
+	
 }

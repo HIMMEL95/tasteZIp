@@ -36,8 +36,8 @@
 		  <div class="page-content">
 		  	<form id="formList" name="formList" method="post">
 				<input type="hidden" name="thisPage" value="1">
-               	<input type="hidden" name="rowNumToShow" value="10">
-               	<input type="hidden" name="ifstSeq" value=''>
+               	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
+               	<input type="hidden" name="ifstSeq" value="${vo.ifstSeq}">
 				<div class="wrapper">
 					<div class="container" style="height: 100vh; width: 100vh;">
 						<div class="row">
@@ -70,13 +70,13 @@
 											<div class="col-md-3">
 												<select class="form-select" id="shOption" name="shOption">
 			                                        <option value="" selected>선택</option>
-			                                        <option value="1" >이름</option>
-			                                        <option value="2" >전화번호</option>
-			                                        <option value="3" >이메일</option>
+			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>가게 이름</option>
+			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>전화번호</option>
+			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>주소</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" name="shValue" id="shValue" value="" autocomplete="off">
+												<input type="text" class="form-control" name="shValue" id="shValue" value="${vo.shValue }" autocomplete="off">
 											</div>
 											<div class="col-md-2">
 												<button class="btn btn-light" type="submit" id="searching"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -172,7 +172,6 @@
 		<script>
 			
 			var goUrlList = "/store/xdminStoreList";
-			var goUrlLita = "/store/xdminStoreLita";	
 			var goUrlForm = "/store/xdminStoreForm";
 			var excelUri = "/store/excelDownload";
 			var goUrlUel = "/store/storeUele";
@@ -182,7 +181,7 @@
 			
 			var ifstSeq = $("input[name=ifstSeq]");
 			
-			$(function() {
+			/* $(function() {
 		  		$("#datepickerS").datepicker({
 		  			dateFormat: "yy-mm-dd"
 		  			,showMonthAfterYear: true
@@ -193,7 +192,7 @@
 	    			,showMonthAfterYear: true
 	    			,showOtherMonths: true
 	    		});
-		  	})
+		  	}) */
 			
 			$("#btnReset").on("click", function() {
 				$(location).attr("href", goUrlList);
@@ -248,6 +247,8 @@
 	 		
 	 	<script type="text/javascript">
 	 		
+			var goUrlLita = "/store/xdminStoreLita";	
+			
 	 	// ----- Lita ajax -----
 	 		$(document).ready(function(){
 	 			setStoreLita();

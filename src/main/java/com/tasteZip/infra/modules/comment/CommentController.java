@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.tasteZip.infra.common.util.UtilDateTime;
-
 @Controller
 @RequestMapping(value = "/comment/")
 public class CommentController {
@@ -29,12 +27,9 @@ public class CommentController {
 	CommentServiceImpl service;
 	
 	private void setSearch(CommentVo vo) throws Exception {
-		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
+		vo.setParamsPaging(service.selectOneCount(vo)); 
 		vo.setShDelNy(vo.getShDelNy() == null ? 0: vo.getShDelNy());
-		vo.setParamsPaging2(service.selectOneCount2(vo)); 
-		vo.setShOptionDate(vo.getShOptionDate() == null ? null : vo.getShOptionDate());
-		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
-		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
+		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
 	  }
 	
 	
@@ -52,16 +47,25 @@ public class CommentController {
     
  // --------------- 관리자 --------------
     
-    @RequestMapping(value = "commentList")
-    public String commentList(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
+    @RequestMapping(value = "xdminCommentList")
+    public String xdminCommentList(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
     	
-    	vo.setParamsPaging2(service.selectOneCount2(vo)); 
-
-		List<Comment> list = service.selectList2(vo);
-		model.addAttribute("list", list); 
-    	
-    	return "infra/xdmin/comment/commentList";
+		vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
+    	return "infra/xdmin/comment/xdminCommentList";
     }
+    
+    @RequestMapping(value = "xdminCommentLita")
+	public String xdminCommentLita(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.selectOneCount2(vo));
+		
+		  if (vo.getTotalRows() > 0) { 
+			  List<Comment> list = service.selectList2(vo);
+				model.addAttribute("list", list); 
+		  }
+		return "infra/xdmin/code/xdminCommentLita";
+	}
     
     @RequestMapping("/excelDownload")
     public void excelDownload(CommentVo vo, HttpServletResponse httpServletResponse) throws Exception {

@@ -37,7 +37,7 @@
 		            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
 		            <path d="M16 2v4M8 2v4m-5 4h18" />
 		          </svg>
-		          <a class="Order" href="/">
+		          <a class="Order" href="/order/xdminOrderList">
 		          	<span>Order</span>
 		          </a>
 		        </li>
@@ -49,7 +49,7 @@
 		            <line x1="4" y1="15" x2="20" y2="15" />
 		            <line x1="10" y1="3" x2="8" y2="21" />
 		            <line x1="16" y1="3" x2="14" y2="21" /></svg>
-		            <a class="Reservation" href="/">
+		            <a class="Reservation" href="/reservation/xdminReservationList">
 		          		<span>Reservation</span>
 		          	</a>
 		        </li>
@@ -71,7 +71,7 @@
 		            viewBox="0 0 24 24">
 		            <path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
 		          </svg>
-		           <a class="Menu" href="/">
+		           <a class="Menu" href="/menu/xdminMenuList">
 		          		<span>Menu</span>
 		          	</a>
 		        </li>
@@ -81,7 +81,7 @@
 		            viewBox="0 0 24 24">
 		            <path d="M3 6h18m-2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
 		          </svg>
-	         	 	<a class="Comment" href="/">
+	         	 	<a class="Comment" href="/comment/xdminCommentList">
 		          		<span>Comment</span>
 	          		</a>
 		        </li>
@@ -95,7 +95,7 @@
 		            <path
 		              d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
 		          </svg>
-		          <a class="Code b" href="/">
+		          <a class="Code b" href="/code/xdminCodeList">
 	          		<span>Code</span>
 		          </a>
 		        </li>
@@ -105,7 +105,7 @@
 		            class="feather feather-trending-up">
 		            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
 		            <polyline points="17 6 23 6 23 12" /></svg>
-		             <a class="CodeGroup b" href="/">
+		             <a class="CodeGroup b" href="/codeGroup/xdminCodeGroupList">
 		          		<span>CodeGroup</span>
 			          </a>
 		        </li>

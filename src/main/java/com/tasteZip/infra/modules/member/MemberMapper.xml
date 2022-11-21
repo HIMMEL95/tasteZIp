@@ -40,7 +40,7 @@
 				,m.ifmmModifiedAt
 			<include refid="selectCommon"></include>
 			ORDER BY m.ifmmCreatedAt DESC
-			<include refid="Base.orderByLimitForMysql" />
+		<include refid="Base.orderByLimitForMysql" />
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	

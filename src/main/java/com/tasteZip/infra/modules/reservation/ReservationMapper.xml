@@ -14,17 +14,14 @@
 			JOIN menu mn on mn.ifmnSeq = r.ifmnSeq
 		wHERE 1=1		
 		<if test="shDelNy !=null and !shDelNy.equals('')">AND r.ifrvDelNy = #{shDelNy}</if>
-		<if test="shValue != null"></if>
-		
 		<choose>
-			<when test="shOption == 1">AND s.ifstName = #{shValue}</when>
+			<when test="shOption == 1">AND s.ifstName LIKE CONCAT('%', #{shValue},'%')</when>
 			<when test="shOption == 2">AND mn.ifmnName LIKE CONCAT('%', #{shValue},'%')</when>
 			<when test="shOption == 3">AND m.ifmmName LIKE CONCAT('%', #{shValue},'%')</when>
 		</choose>
-		
-		<choose>
+		<!-- <choose>
 			<when test="shOptionDate == 1">AND r.ifrvCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-		</choose>
+		</choose> -->
 	</sql> 
 	
 	<select id="selectListMyRV" resultMap="resultMapObj"> 
@@ -47,24 +44,25 @@
 		<include refid="Base.selectListUpperForMysql" />
 		SELECT
 			 r.ifrvSeq
+			 ,r.ifrvCount
+			 ,r.ifrvPerson
+			 ,r.ifrvPrice
+			 ,r.ifrvDelNy
+			 ,r.ifrvDate
+			 ,r.ifrvTime
 			 ,s.ifstName
 			 ,mn.ifmnName
 			 ,m.ifmmName
 			 ,m.ifmmPhone
-			 ,r.ifrvCount
-			 ,r.ifrvPerson
-			 ,r.ifrvPrice
-			 ,r.ifrvDate
-			 ,r.ifrvTime
 		<include refid="selectCommon" /> 
 		Order by r.ifrvSeq DESC
+		<include refid="Base.orderByLimitForMysql" />
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
-		FROM reservation r
-		WHERE 1=1
+		<include refid="selectCommon" />
 	</select>
 	
 	<select id="selectOneMyRV" resultMap="resultMapObj">

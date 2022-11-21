@@ -19,31 +19,40 @@ public class CodeGroupController {
 	// search and paging
 	public void setSearchAndPaging(CodeGroupVo vo) throws Exception{
 		vo.setParamsPaging(service.selectOneCount(vo));
+		vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
 	}
 	
 	// list
-	@RequestMapping(value = "codeGroupList")
-	public String codeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
+	@RequestMapping(value = "xdminCodeGroupList")
+	public String xdminCodeGroupList(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
+		return "infra/xdmin/codeGroup/xdminCodeGroupList";
+	}
+	
+	@RequestMapping(value = "xdminCodeGroupLita")
+	public String xdminCodeGroupLita(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
 		
-		if (vo.getTotalRows() > 0) {
-			List<CodeGroup> list = service.selectList(vo);
-			model.addAttribute("list", list);
-		}
+		vo.setParamsPaging(service.selectOneCount(vo));
 		
-		return "infra/xdmin/codeGroup/codeGroupList";
+		  if (vo.getTotalRows() > 0) { 
+			  List<CodeGroup> list = service.selectList(vo);
+			  model.addAttribute("list", list); 
+		  }
+		
+		return "infra/xdmin/codeGroup/xdminCodeGroupLita";
 	}
 
 	// form
-	@RequestMapping(value = "codeGroupForm")
-	public String codeGroupForm(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
+	@RequestMapping(value = "xdminCodeGroupForm")
+	public String xdminCodeGroupForm(@ModelAttribute("vo") CodeGroupVo vo, Model model) throws Exception {
 		
 		System.out.println("vo.getifcgSeq: " + vo.getIfcgSeq());
 		CodeGroup result = service.selectOne(vo);
 		model.addAttribute("item", result);
 		
-		return "infra/xdmin/codeGroup/codeGroupForm";
+		return "infra/xdmin/codeGroup/xdminCodeGroupForm";
 	}
 
 	

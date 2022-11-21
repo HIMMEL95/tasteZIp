@@ -8,6 +8,18 @@
 
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.store.Store"></resultMap>
 	
+	 <sql id ="selectCommon">
+		FROM store s
+		WHERE 1=1
+		<if test="shDelNy != null and !shDelNy.equals('')">AND ifstDelNy = #{shDelNy}</if>
+		<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
+		<choose>
+			<when test="shOption == 1">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 2">AND ifstPhone LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 3">AND ifstAddress LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+	</sql>
+	
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
@@ -55,35 +67,15 @@
 				,s.ifstOrderNy
 				,s.ifstDelNy
 				,s.ifstCreatedAt
-		    from store s
-			where 1=1
-				and ifstDelNy = 0
-				<if test="shDelNy != null and !shDelNy.equals('')">AND ifstDelNy = #{shDelNy}</if>
-				<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
-				<choose>
-					<when test="shOption == 1">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
-					<when test="shOption == 2">AND ifstPhone LIKE CONCAT('%',#{shValue},'%')</when>
-					<when test="shOption == 3">AND ifstAddress LIKE CONCAT('%',#{shValue},'%')</when>
-				</choose>
-		    ORDER BY 
-		    	s.ifstCreatedAt DESC
+		   <include refid="selectCommon"></include>
+		    ORDER BY s.ifstCreatedAt DESC
 		   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql2" />
 	</select> 
 	
 	<select id="xdminSelectOneCount" resultType="Integer">
 		SELECT COUNT(*)
-		from store s
-			where 1=1
-				<if test="shDelNy != null and !shDelNy.equals('')">AND ifstDelNy = #{shDelNy}</if>
-				<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
-				<choose>
-					<when test="shOption == 1">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
-					<when test="shOption == 2">AND ifstPhone LIKE CONCAT('%',#{shValue},'%')</when>
-					<when test="shOption == 3">AND ifstAddress LIKE CONCAT('%',#{shValue},'%')</when>
-				</choose>
-		    ORDER BY 
-		    	s.ifstCreatedAt DESC
+		 <include refid="selectCommon"></include>
 	</select>
 	
 	<select id="xdminSelectOne" resultMap="resultMapObj">

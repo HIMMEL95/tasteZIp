@@ -8,6 +8,18 @@
 
 	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.menu.Menu"></resultMap>
 	
+	 <sql id ="selectCommon">
+		FROM menu m
+		WHERE 1=1
+		<if test="shDelNy != null and !shDelNy.equals('')">AND ifmnDelNy = #{shDelNy}</if>
+		<if test="shOptionDate == 1">AND ifmnCreatedAt between #{shDateStart} and #{shDateEnd}</if>
+		<choose>
+			<when test="shOption == 1">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</when>
+			<when test="shOption == 2">AND ifmnPrice = #{shValue}</when>
+			<when test="shOption == 3">AND ifmnInfo LIKE CONCAT('%',#{shValue},'%')</when>
+		</choose>
+	</sql>
+	
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
@@ -16,6 +28,7 @@
 				,m.ifmnPrice
 				,m.ifmnInfo
 				,m.ifmnSet_div
+				,m.ifmnCreatedAt
 		    from menu m
 			where 1=1
 		<if test="shValue != null and !shValue.equals('')">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</if>
@@ -27,13 +40,13 @@
 		SELECT COUNT(*)
 		from menu m
 		where 1=1
-			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
+			<if test="shValue != null and !shValue.equals('')">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</if>
 	</select>
 	
 	<!--              관리자 mapper s               -->	
  
 	<select id="selectList2" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql2" />
+		<include refid="Base.selectListUpperForMysql" />
 			select 
 				m.ifmnSeq
 				,m.ifmnName
@@ -41,34 +54,15 @@
 				,m.ifmnInfo
 				,m.ifmnSet_div
 				,m.ifmnCreatedAt
-			FROM menu m
-			WHERE 1=1
-			<if test="shDelNy != null and !shDelNy.equals('')">AND ifmnDelNy = #{shDelNy}</if>
-			<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
-			<choose>
-				<when test="shOption == 1">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</when>
-				<when test="shOption == 2">AND ifmnPrice = #{shValue}</when>
-				<when test="shOption == 3">AND ifmnInfo LIKE CONCAT('%',#{shValue},'%')</when>
-				<when test="shOption == 4">AND ifmnSet_div LIKE CONCAT('%',#{shValue},'%')</when>
-			</choose>
+			<include refid="selectCommon"></include>
 			ORDER BY m.ifmnSeq DESC
 		   	<include refid="Base.orderByLimitForMysql" />
-	   	<include refid="Base.selectListLowerForMysql2" />
+	   	<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
 	<select id="selectOneCount2" resultType="Integer">
 		SELECT COUNT(*)
-		from menu m
-		where 1=1
-		<if test="shDelNy != null and !shDelNy.equals('')">AND ifmnDelNy = #{shDelNy}</if>
-		<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
-		<choose>
-			<when test="shOption == 1">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</when>
-			<when test="shOption == 2">AND ifmnPrice = #{shValue}</when>
-			<when test="shOption == 3">AND ifmnInfo LIKE CONCAT('%',#{shValue},'%')</when>
-			<when test="shOption == 4">AND ifmnSet_div LIKE CONCAT('%',#{shValue},'%')</when>
-		</choose>
-		ORDER BY m.ifmnSeq DESC
+		<include refid="selectCommon"></include>
 	</select>
 	
 	<select id="selectOne" resultMap="resultMapObj">

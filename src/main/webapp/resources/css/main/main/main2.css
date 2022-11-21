@@ -1,0 +1,27 @@
+.card_animation { 
+	display: flex;
+}
+.card_animation li { 
+	flex: 1; 
+	height: 60vh; 
+	text-align: center; 
+	line-height: 100vh; 
+	font-size: 50px;
+	transition:all .5s;
+	background: no-repeat center / cover;
+}
+.card_animation li:hover {
+	flex: 2; 
+	font-size: 70px;
+	color: #fff;
+	text-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+.card_animation li:not(:hover) {
+	flex: 0.7;
+}
+.card_animation li:nth-child(1) {
+	background-image: url(https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80);
+}
+.card_animation li:nth-child(2) {
+	background-image: url(https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+}

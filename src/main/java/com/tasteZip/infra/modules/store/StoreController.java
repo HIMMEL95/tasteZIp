@@ -197,21 +197,17 @@ public class StoreController {
 	@RequestMapping(value = "xdminStoreList")
 	public String xdminStoreList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
 		
-		setSearchAndPaging(vo);
-	    vo.setParamsPaging(service.xdminSelectOneCount(vo));
-	    List<Store> list = service.xdminSelectList(vo);
-	    model.addAttribute("list", list);
-		
+		 setSearch(vo);
 		return "infra/xdmin/store/xdminStoreList";
 	}
 	
 	@RequestMapping(value = "xdminStoreLita")
 	public String xdminStoreLita(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
 		
-		vo.setParamsPaging(service.selectOneCount(vo));
+		vo.setParamsPaging(service.xdminSelectOneCount(vo));
 		
 		  if (vo.getTotalRows() > 0) { 
-			  List<Store> list = service.selectList(vo);
+			  List<Store> list = service.xdminSelectList(vo);
 			  model.addAttribute("list", list); 
 		  }
 		

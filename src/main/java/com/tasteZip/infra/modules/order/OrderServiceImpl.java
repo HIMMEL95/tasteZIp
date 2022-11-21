@@ -18,6 +18,17 @@ public class OrderServiceImpl implements OrderService{
 	
 	// xdmin selectList
 	@Override
+	public List<Order> xdminSelectList(OrderVo vo) throws Exception {
+		List<Order> list = dao.xdminSelectList(vo);
+		return list;
+	}
+	
+	@Override
+	public int xdminSelectOneCount(OrderVo vo) throws Exception {
+		return dao.xdminSelectOneCount(vo);
+	}
+	
+	@Override
 	public List<Order> selectList(OrderVo vo) throws Exception {
 		List<Order> list = dao.selectList(vo);
 		return list;

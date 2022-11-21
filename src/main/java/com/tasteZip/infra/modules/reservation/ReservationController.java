@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 @RequestMapping(value = "/reservation/") 
 public class ReservationController {
@@ -20,19 +21,47 @@ public class ReservationController {
 	// search and paging
 	public void setSearchAndPaging(ReservationVo vo) throws Exception{
 		vo.setParamsPaging(service.selectOneCount(vo));
+		vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
 	}
 	
-	@RequestMapping(value = "reservationList")
-	public String reservationList(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+//	@RequestMapping(value = "reservationList")
+//	public String reservationList(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+//		
+//		setSearchAndPaging(vo);
+//		
+//		if (vo.getTotalRows() > 0) {
+//			List<Reservation> list = service.selectList(vo);
+//			model.addAttribute("list", list);
+//		}
+//		
+//	    return "infra/xdmin/reservation/reservationList";
+//	}
+	
+	// ------------- 관리자 ---------------
+	
+	 public void setSearch(ReservationVo vo) throws Exception {
+	        vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+	        vo.setShOption(vo.getShOption() == null ? 0 : vo.getShOption());
+		 }
+	
+	@RequestMapping(value = "xdminReservationList")
+	public String xdminReservationList(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
+		return "infra/xdmin/reservation/xdminReservationList";
+	}
+	
+	@RequestMapping(value = "xdminReservationLita")
+	public String xdminReservationLita(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
 		
 		if (vo.getTotalRows() > 0) {
 			List<Reservation> list = service.selectList(vo);
 			model.addAttribute("list", list);
 		}
-		
-	    return "infra/xdmin/reservation/reservationList";
+		return "infra/xdmin/reservation/xdminReservationLita";
 	}
 	
 	

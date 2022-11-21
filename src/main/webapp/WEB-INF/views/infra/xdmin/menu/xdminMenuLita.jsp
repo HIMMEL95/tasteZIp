@@ -15,12 +15,12 @@
 						<input type="checkbox" name="chk_all" id="chk_all" href="">
 					</th>
 					<th class="text-white">#</th>
-					<th class="text-white">번호</th>
-					<th class="text-white" scope="col" style="width: 150px;">이름</th>
-					<th class="text-white" scope="col" style="width: 128px;">전화번호</th>
-					<th class="text-white" scope="col" style="width: 127px;">주소</th>
-					<th class="text-white" scope="col" style="width: 173px;">정보</th>
-					<th class="text-white" scope="col" style="width: 119px;">등록일</th>
+					<th class="text-white" scope="col">Seq</th>
+					<th class="text-white" scope="col" style="width: 160px;">Name</th>
+					<th class="text-white" scope="col" style="width: 120px;">Price</th>
+					<th class="text-white" scope="col" style="width: 190px;">Info</th>
+					<th class="text-white" scope="col">Set_Menu</th>
+					<th class="text-white" scope="col" style="width: 140px;">Created At</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -30,47 +30,60 @@
 							<td class="text-center" colspan="8">There is no data!</td>
 						</tr>
 					</c:when>
-					<c:otherwise>		
+					<c:otherwise>
 						<c:forEach items="${list}" var="list" varStatus="status">
-							<tr onclick="goForm(${list.ifstSeq})" class="info" style="cursor: pointer;">
-								<th scope="row" class="td1" src="/">
-									<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
-								</th>
-								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
-								<td>${list.ifstSeq}</td>
-								<td>${list.ifstName }</td>
-								<td>${list.ifstPhone}</td>
-								<td>${list.ifstAddress}</td>
-								<td id="text">${list.ifstInfo }</td>
-								<td>${list.ifstCreatedAt }</td>
-							</tr>
+								<tr onclick="goForm(${list.ifmnSeq})" class="info">
+									<td scope="row" src="#">
+										<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
+									</td>
+									<td>
+										<c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/>
+									</td>
+									<td>${list.ifmnSeq}</td>
+									<td>${list.ifmnName }</td>
+									<td>
+										<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>
+									</td>
+									<td>${list.ifmnInfo}</td>
+									<td>${list.ifmnSet_div}</td>
+									<td>${list.ifmnCreatedAt}</td>
+								</tr>
 						</c:forEach>
 					</c:otherwise>
 				</c:choose>
 			</tbody>
 		</table>
-		<%@include file="../includeV1/pagination.jsp"%>
+		<%@include file="../../xdmin/includeV1/pagination.jsp"%>
 	</div>
 		<!-- end --> 
 		<script>
-			// 페이지 네이션 만들기
+		
+		var goUrlForm = "/menu/xdminMenuForm"; 
+		
+		var form = $("form[name=formList]");
+		
+		var ifmnSeq = $("input[name=ifmnSeq]");
+			
+			// ----- form으로 이동 -----
+			
+			$('#btnForm').on("click", function() {
+	 			goForm(0);                
+	 		});
 			
 			goForm = function(keyValue) {
 				/* if(key != 0) seq.val(btoa(key)); */
-				seq.val(keyValue);
+				ifmnSeq.val(keyValue);
 				form.attr("action", goUrlForm).submit();
 			}
 
-
 			goList = function(thisPage) {
 				$("input:hidden[name=thisPage]").val(thisPage);
-				setLita();
+				setMenuLita();
 			}
-
 
 			$("#changeRowNum").on("change", function(){
 				$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
-				setLita();
+				setMenuLita();
 			}); 
 				
 

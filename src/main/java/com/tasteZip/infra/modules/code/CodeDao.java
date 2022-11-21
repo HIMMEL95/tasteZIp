@@ -21,7 +21,9 @@ public class CodeDao {
 
     
     // list
-    public List<Code> selectList(CodeVo vo){ return sqlSession.selectList(namespace + ".selectList", vo); }
+    public List<Code> selectList(CodeVo vo){ 
+    	return sqlSession.selectList(namespace + ".selectList", vo); 
+    	}
     
     
     //selectone

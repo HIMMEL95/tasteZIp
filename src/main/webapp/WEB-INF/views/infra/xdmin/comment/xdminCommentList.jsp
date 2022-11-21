@@ -8,7 +8,7 @@
 	<!DOCTYPE html>
 	<html lang="ko" >
 	<head>
-		<title>xdmin Order List</title>
+		<title>xdmin Comment List</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,44 +19,44 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<!-- datepicker e -->
-		<link rel="stylesheet" href="/resources/css/xdmin/store/xdminStoreList.css">
+		<link rel="stylesheet" href="/resources/css/xdmin/member/xdminList.css">
 	</head>
 <body>
-<div class="hero">
- 	<!-- snow -->
-	<%@include file="/resources/js/snow/snow.jsp"%>
-	<div class="hero__content">
+	<div class="hero">
+	 <!-- snow -->
+		<%@include file="/resources/js/snow/snow.jsp"%>
+		<div class="hero__content">
 		<!-- <h1>SVG Snow</h1> -->
 		<!-- partial:index.partial.html -->
 		<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap" rel="stylesheet">
 		<div class="task-manager">
-		<!-- sidebar -->
+		  <!-- sidebar -->
 		 <%@include file="/resources/js/sideBar/sideBar.jsp"%>
 		  <!-- content s -->
 		  <div class="page-content">
 		  	<form id="formList" name="formList" method="post">
 				<input type="hidden" name="thisPage" value="1">
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
-               	<input type="hidden" name="iforSeq" value="${vo.iforSeq}">
+               	<input type="hidden" name="ifcmSeq" value="${vo.ifcmSeq}">
 				<div class="wrapper">
 					<div class="container" style="height: 100vh; width: 100vh;">
 						<div class="row">
 							<div class="col">
 								<div class="content">
-									<h2 class="row needs-validation ms-3">Order List</h2>
+									<h2 class="row needs-validation ms-3">Comment List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
 												<select class="form-select" id="shDelNy" name="shDelNy">
-			                                       	<option value="" >선택</option>
-			                                        <option value="0" selected>N</option>
-			                                        <option value="1" >Y</option>
+			                                       	<option value="" <c:if test="${empty vo.shDelNy }">selected</c:if>>선택</option>
+			                                        <option value="0" <c:if test="${vo.shDelNy eq 0 }">selected</c:if>>N</option>
+			                                        <option value="1" <c:if test="${vo.shDelNy eq 1 }">selected</c:if>>Y</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
 												<select class="form-select" id="shOptionDate" name="shOptionDate">
-													<option value="" selected>선택</option>
-													<option value="1" >등록일</option>
+													<option value="" <c:if test="${empty vo.shOptionDate }">selected</c:if>>선택</option>
+													<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>등록일</option>
 												</select>
 											</div>
 											<div class="col-md-3">
@@ -68,12 +68,13 @@
 										</div>
 										<div class="row">
 											<div class="col-md-3">
-												<select class="form-select" id="shOption" name="shOption">
-													<option value="" selected>선택</option>
-			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>가게이름</option>
-			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>메뉴이름</option>
-			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>주문자</option>
-			                                    </select>
+												 <select class="form-select" id="shOption" name="shOption">
+			                                        <option value="" <c:if test="${empty vo.shOption }">selected</c:if>>선택</option>
+			                                        <option value="1" <c:if test="${vo.shOption eq 1 }">selected</c:if>>댓글</option>
+			                                        <option value="2" <c:if test="${vo.shOption eq 2 }">selected</c:if>>평점</option>
+			                                        <option value="3" <c:if test="${vo.shOption eq 3 }">selected</c:if>>사용자이름</option>
+			                                        <option value="4" <c:if test="${vo.shOption eq 4 }">selected</c:if>>스토어이름</option>
+			                                    </select>                                   </select>                                    </select>
 											</div>
 											<div class="col-md-3">
 												<input type="text" class="form-control" name="shValue" id="shValue" value="${vo.shValue }" autocomplete="off">
@@ -84,9 +85,8 @@
 											</div>
 										</div>
 									</div>
-									<!-- orderLita s -->
-									<div id="orderLita"></div>
-									<!-- orderLita e -->
+									<!-- lita s -->
+									<div id="commentLita"></div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
 			                                <button id="btnDel" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
@@ -170,19 +170,19 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script>
+		<script type="text/javascript">
 			
-			var goUrlList = "/order/xdminOrderList";
-			/* var goUrlForm = "/order/xdminOrderForm"; */
-			var excelUri = "/order/excelDownload";
-			var goUrlUel = "/order/OrderUele";
-	        var goUrlDel = "/order/OrderDele";		
-			
-			var form = $("form[name=formList]");
-			
-			var iforSeq = $("input[name=iforSeq]");
-			
-			$(function() {
+		var goUrlList = "/comment/xdminCommentList"; 
+		var goUrlForm = "/comment/xdminCommentForm"; 
+		var goUrlExcel = "/comment/excelDownload";
+		var goUrlUele = "/comment/CommentUele";	
+		var goUrlDele = "/comment/CommentDele";
+		
+		var form = $("form[name=formList]");
+		
+		var ifcmSeq = $("input[name=ifcmSeq]");
+
+			/* $(function() {
 		  		$("#datepickerS").datepicker({
 		  			dateFormat: "yy-mm-dd"
 		  			,showMonthAfterYear: true
@@ -193,7 +193,7 @@
 	    			,showMonthAfterYear: true
 	    			,showOtherMonths: true
 	    		});
-		  	})
+		  	}) */
 			
 			$("#btnReset").on("click", function() {
 				$(location).attr("href", goUrlList);
@@ -221,41 +221,24 @@
 				alert("del")
 			})
 			
-			 $("#btnForm").on("click", function(){
-				 $(location).attr("href", goUrlForm);
-			 });
-
-	 		
 			DelValidation = function(confirm, url, msg) {
 				$(".modal-body").html(msg);
 				$(confirm).on("click", function() {
 					form.attr("action", url).submit();
 				})
 			}
-	 		
-	 	// ----- form으로 이동 -----
-	 		
-	 	
-	 		 /* $('#btnForm').on("click", function() {
-	 			goForm(0);                
-	 		});
-	 		
-	 		 goForm = function(keyValue) {
-	 			ifmmSeq.val(keyValue);
-	 			form.attr("action", goUrlForm).submit();
-	 		}  */
-	 		</script>
-	 		
+	 		 
+ 		</script>
 	 	<script type="text/javascript">
+	 	
+	 		var goUrlLita = "/comment/xdminCommentLita";		
 	 		
-			var goUrlLita = "/order/xdminOrderLita";	
-			
 	 	// ----- Lita ajax -----
 	 		$(document).ready(function(){
-	 			setOrderLita();
+	 			setCommentLita();
 	 		}); 
 	 		
-	 		function setOrderLita() {
+	 		function setCommentLita() {
 	 			$.ajax({
 	 				async: true 
 	 				,cache: false
@@ -265,8 +248,8 @@
 	 				,data : $("#formList").serialize()
 	 				/* ,data : {  } */
 	 				,success: function(response) {
-	 					$("#orderLita").empty();
-	 					$("#orderLita").append(response);
+	 					$("#commentLita").empty();
+	 					$("#commentLita").append(response);
 	 					/* window.location.hash = '#page' + page;
 	 					page++; */
 
@@ -279,7 +262,7 @@
 	 		
 	 		$("#btnSearch").on("click", function(){
 	 			if (validationList() == false) return false;
-	 			setOrderLita();
+	 			setCommentLita();
 	 		});
 	 		
 
@@ -287,9 +270,5 @@
 	 			/* if(!checkNull($.trim($("input[name=searchValue]").val()), "searchValue")) return false; */
 	 		}
 		</script>
-		
-		<script type="text/javascript">
-		 <!-- 마우스 효과 -->
-	</script>
 </body>
 </html>

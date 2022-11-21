@@ -17,35 +17,38 @@ public class CodeController {
 	CodeServiceImpl service;
 	
 	public void setSearchAndPaging(CodeVo vo) throws Exception{
-		
 		vo.setParamsPaging(service.selectOneCount(vo));
 		vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
-		
+		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
 	}
 	
-	
-	
-	@RequestMapping(value = "codeList")
-	public String codeList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
+	@RequestMapping(value = "xdminCodeList")
+	public String xdminCodeList(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
-
-		if (vo.getTotalRows() > 0) {
-			List<Code> list = service.selectList(vo);
-			model.addAttribute("list", list);
-		}
-		
-		return "infra/xdmin/code/codeList";
+		return "infra/xdmin/code/xdminCodeList";
 	}
 	
-	@RequestMapping(value = "codeForm")
-	public String codeForm(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
+	@RequestMapping(value = "xdminCodeLita")
+	public String xdminCodeLita(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
+		  if (vo.getTotalRows() > 0) { 
+			  List<Code> list = service.selectList(vo);
+			  model.addAttribute("list", list); 
+		  }
+		return "infra/xdmin/code/xdminCodeLita";
+	}
+	
+	@RequestMapping(value = "xdminCodeForm")
+	public String xdminCodeForm(@ModelAttribute("vo") CodeVo vo, Model model) throws Exception {
 		
 		System.out.println("vo.getifccSeq: " + vo.getIfccSeq()); 
 		Code item = service.selectOne(vo);
 		model.addAttribute("item", item);
 		
-		return "infra/xdmin/code/codeForm";
+		return "infra/xdmin/code/xdminCodeForm";
 	}
 
 	

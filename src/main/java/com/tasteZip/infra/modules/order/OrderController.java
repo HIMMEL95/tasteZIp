@@ -24,7 +24,7 @@ public class OrderController {
 	}
 	
 	// xdmin list
-	@RequestMapping(value = "xdminOrderList")
+	@RequestMapping(value = "orderList")
 	public String orderList(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
@@ -34,7 +34,7 @@ public class OrderController {
 			model.addAttribute("list", list);
 		}
 		
-	    return "infra/xdmin/order/xdminOrderList";
+	    return "infra/xdmin/order/orderList";
 	}
 	
 	// list uelete
@@ -99,5 +99,31 @@ public class OrderController {
     	
         return "infra/main/mypage/mypageOrderView";
     }
+    
+    public void setSearch(OrderVo vo) throws Exception {
+        vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+        vo.setShOption(vo.getShOption() == null ? 0 : vo.getShOption());
+     }
 	
+ // ------------------------ 관리자 ------------------------
+
+ 	@RequestMapping(value = "xdminOrderList")
+ 	public String xdminOrderList(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
+ 		
+ 		setSearch(vo);
+ 		return "infra/xdmin/order/xdminOrderList";
+ 	}
+ 	
+ 	@RequestMapping(value = "xdminOrderLita")
+ 	public String xdminOrderLita(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
+ 		
+ 		vo.setParamsPaging(service.xdminSelectOneCount(vo));
+ 		  if (vo.getTotalRows() > 0) { 
+ 			  List<Order> list = service.xdminSelectList(vo);
+ 			  model.addAttribute("list", list); 
+ 		  }
+ 		
+ 		return "infra/xdmin/order/xdminOrderLita";
+ 	}
+    
 }

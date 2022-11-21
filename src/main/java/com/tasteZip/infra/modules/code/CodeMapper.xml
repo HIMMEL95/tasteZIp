@@ -15,14 +15,11 @@
 				
 		<if test="shDelNy !=null and !shDelNy.equals('')">AND cc.ifccDelNy = #{shDelNy}</if>
 		<if test="shValue != null"></if>
-		
-		
 		<choose>
 			<when test="shOption == 1">AND cc.ifccSeq = #{shValue}</when>
 			<when test="shOption == 2">AND cc.ifccName LIKE CONCAT('%', #{shValue},'%')</when>
 			<when test="shOption == 3">AND cc.ifccNameEng LIKE CONCAT('%', #{shValue},'%')</when>
 		</choose>
-		
 		<choose>
 			<when test="shOptionDate == 1">AND cc.ifccCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			<when test="shOptionDate == 2">AND cc.ifccModifiedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>

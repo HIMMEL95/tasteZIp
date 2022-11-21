@@ -7,8 +7,11 @@ public interface OrderService {
 	// myorder list
 	public List<Order> myOrder(OrderVo vo) throws Exception;
 	
-	// xdmin list
 	public List<Order> selectList(OrderVo vo) throws Exception;
+	
+	// xdmin list
+	public List<Order> xdminSelectList(OrderVo vo) throws Exception;
+	public int xdminSelectOneCount(OrderVo vo) throws Exception;
 	
 	// selectone Count
 	public int selectOneCount(OrderVo vo) throws Exception;

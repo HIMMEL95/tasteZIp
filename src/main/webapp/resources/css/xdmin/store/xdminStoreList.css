@@ -697,3 +697,29 @@ a{
 	 color: #8891a4;
 }
 
+.wrapper { 
+	width: 200px; 
+	margin:0 auto;
+	display: blo
+}
+
+table { 
+	border-collapse: collapse; 
+	border-spacing: 0;		
+	width: 100%; 
+	table-layout: fixed;
+}
+
+td { 
+	vertical-align: middle; 
+	padding:5px;
+	overflow:hidden;
+	white-space : nowrap;
+	text-overflow: ellipsis;
+}
+s
+td.textOverDefault {
+	white-space : normal; /*기본값*/
+	text-overflow: clip; /*기본값*/
+}
+

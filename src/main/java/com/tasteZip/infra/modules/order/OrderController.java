@@ -24,7 +24,7 @@ public class OrderController {
 	}
 	
 	// xdmin list
-	@RequestMapping(value = "orderList")
+	@RequestMapping(value = "xdminOrderList")
 	public String orderList(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
 		
 		setSearchAndPaging(vo);
@@ -34,7 +34,7 @@ public class OrderController {
 			model.addAttribute("list", list);
 		}
 		
-	    return "infra/xdmin/order/orderList";
+	    return "infra/xdmin/order/xdminOrderList";
 	}
 	
 	// list uelete

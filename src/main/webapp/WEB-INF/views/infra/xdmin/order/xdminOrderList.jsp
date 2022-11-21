@@ -8,7 +8,7 @@
 	<!DOCTYPE html>
 	<html lang="ko" >
 	<head>
-		<title>xdmin Store List</title>
+		<title>xdmin Order List</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +43,7 @@
 						<div class="row">
 							<div class="col">
 								<div class="content">
-									<h2 class="row needs-validation ms-3">Store List</h2>
+									<h2 class="row needs-validation ms-3">Order List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
@@ -84,8 +84,8 @@
 											</div>
 										</div>
 									</div>
-									<!-- storeLita 시작 -->
-									<div id="storeLita"></div>
+									<!-- orderLita 시작 -->
+									<div id="orderLita"></div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
 			                                <button id="btnDel" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
@@ -250,10 +250,10 @@
 	 		
 	 	// ----- Lita ajax -----
 	 		$(document).ready(function(){
-	 			setStoreLita();
+	 			setOrderLita();
 	 		}); 
 	 		
-	 		function setStoreLita() {
+	 		function setOrderLita() {
 	 			$.ajax({
 	 				async: true 
 	 				,cache: false
@@ -263,8 +263,8 @@
 	 				,data : $("#formList").serialize()
 	 				/* ,data : {  } */
 	 				,success: function(response) {
-	 					$("#storeLita").empty();
-	 					$("#storeLita").append(response);
+	 					$("#orderLita").empty();
+	 					$("#orderLita").append(response);
 	 					/* window.location.hash = '#page' + page;
 	 					page++; */
 

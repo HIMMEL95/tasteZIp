@@ -16,14 +16,14 @@
 					</th>
 					<th class="text-white">#</th>
 					<th class="text-white">번호</th>
-					<th class="text-white" scope="col">이름</th>
-					<th class="text-white" scope="col">전화번호</th>
-					<th class="text-white" scope="col">주소</th>
-					<th class="text-white" scope="col">정보</th>
-					<th class="text-white" scope="col">등록일</th>
+					<th class="text-white" scope="col" style="width: 150px;">이름</th>
+					<th class="text-white" scope="col" style="width: 128px;">전화번호</th>
+					<th class="text-white" scope="col" style="width: 127px;">주소</th>
+					<th class="text-white" scope="col" style="width: 173px;">정보</th>
+					<th class="text-white" scope="col" style="width: 119px;">등록일</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="wrapper">
 				<c:choose>
 					<c:when test="${fn:length(list) eq 0}">
 						<tr>
@@ -41,7 +41,7 @@
 								<td>${list.ifstName }</td>
 								<td>${list.ifstPhone}</td>
 								<td>${list.ifstAddress}</td>
-								<td class="text-truncate">${list.ifstInfo }</td>
+								<td id="text">${list.ifstInfo }</td>
 								<td>${list.ifstCreatedAt }</td>
 							</tr>
 						</c:forEach>

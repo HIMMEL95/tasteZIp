@@ -242,60 +242,6 @@
 										</div>
 									</div>
 									<span class="ms-3 mt-5" id="Total">Total: <c:out value="${vo.totalRows - ((vo.thisPage -1) * vo.rowNumToShow + status.index) }"/></span>
-									<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
-										<table class="table table-striped table-hover text-center" id="selecBox">
-											<thead>
-												<tr class="bg-dark">
-													<th scope="col" >
-														<input class="check" type="checkbox" name="check" onclick="selectAll(this)">
-													</th>
-													<th class="text-white">#</th>
-													<th class="text-white" scope="col">가게 이름</th>
-													<th class="text-white" scope="col">메뉴 이름</th>
-													<th class="text-white" scope="col">주문자</th>
-													<th class="text-white" scope="col">전화번호</th>
-													<th class="text-white" scope="col">주문 수량</th>
-													<th class="text-white" scope="col">주문 금액</th>
-													<th class="text-white" scope="col">결제 수단</th>
-													<th class="text-white" scope="col">주문 날짜</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:choose>
-													<c:when test="${fn:length(list) eq 0}">
-														<tr>
-															<td class="text-center" colspan="10">There is no data!</td>
-														</tr>
-													</c:when>
-													<c:otherwise>		
-														<c:forEach items="${list}" var="list" varStatus="status">
-															<tr>
-																<td>
-																	<input class="check" type="checkbox" name="check" vlaue="${list.iforSeq }">
-																</td>
-																<td><c:out value="${list.iforSeq }"/></td>
-																<td><c:out value="${list.ifstName}"/></td>
-																<td><c:out value="${list.ifmnName }"/></td>
-																<td><c:out value="${list.ifmmName }"/></td>
-																<td><c:out value="${list.ifmmPhone }"/></td>
-																<td><c:out value="${list.iforCount }"/></td>
-																<td><c:out value="${list.iforPrice }"/></td>
-																<td>
-																	<c:choose>
-																		<c:when test="${list.iforPay eq 6}">무통장입금</c:when>
-																		<c:otherwise>카카오페이</c:otherwise>
-																	</c:choose>
-																</td>
-																<td><c:out value="${list.iforCreatedAt }"/></td>
-															</tr>
-														</c:forEach>
-													</c:otherwise>
-												</c:choose>
-											</tbody>
-										</table>
-										<div class="mb-4"></div>
-										<%@include file="../includeV1/pagination.jsp"%>
-									</div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
 			                                 <button class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"

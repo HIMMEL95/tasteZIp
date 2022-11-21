@@ -26,21 +26,22 @@
 		</choose>
 	</sql>
 
-	<select id="mycomment" resultMap="resultMapObj">
+	<select id="myReview" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql2"/>
 		SELECT
 			c.ifcmSeq
 			,c.ifcmComment
 			,c.ifcmCreatedAt
-			,c.ifcmModifiedAt
 			,c.ifcmDelNy
 			,c.ifmmSeq
 			,c.ifcmGrade
 			,s.ifstName
 			,s.ifstAddress
-		FROM comment c
-			JOIN store s on s.ifstSeq = c.ifstSeq
+		FROM comment c 
+			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
 		WHERE 1=1
+		AND c.ifmmSeq = #{ifmmSeq}
+		AND c.ifcmDelNy = 0
 		ORDER BY c.ifcmSeq DESC
 		<include refid="Base.orderByLimitForMysql" />
 		<include refid="Base.selectListLowerForMysql2" /> 

@@ -5,6 +5,7 @@ import com.tasteZip.infra.common.base.BaseVo;
 public class CommentVo extends BaseVo{
 
 	private String ifcmSeq;
+	private String ifmmSeq;
 	private Integer shOption;
     private String shValue;
     private Integer shDelNy;
@@ -19,6 +20,12 @@ public class CommentVo extends BaseVo{
 	}
 	public void setIfcmSeq(String ifcmSeq) {
 		this.ifcmSeq = ifcmSeq;
+	}
+	public String getIfmmSeq() {
+		return ifmmSeq;
+	}
+	public void setIfmmSeq(String ifmmSeq) {
+		this.ifmmSeq = ifmmSeq;
 	}
 	public Integer getShOption() {
 		return shOption;

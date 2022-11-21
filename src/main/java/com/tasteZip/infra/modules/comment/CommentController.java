@@ -3,6 +3,7 @@ package com.tasteZip.infra.modules.comment;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -35,7 +36,10 @@ public class CommentController {
 	
 	// 리뷰
     @RequestMapping(value = "mypageReview")
-    public String mypageReview(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
+    public String mypageReview(@ModelAttribute("vo") CommentVo vo, Model model, HttpSession httpSession) throws Exception {
+    	
+    	String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
     	
     	vo.setParamsPaging2(service.selectOneCount(vo));
     	

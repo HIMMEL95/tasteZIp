@@ -22,7 +22,6 @@
 <body>
 	<!-- 상단 -->
 	<form id="myform" name="myform" method="post">
-		<%@include file="CommentVo.jsp"%>
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
@@ -48,18 +47,18 @@
                   	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner">
                   </div>
                   <div class="ps-md-3">
-                    <h3 class="fs-base mb-0">아이디</h3><span class="text-accent fs-sm font">이메일@example.com</span>
+                    <h3 class="fs-base mb-0"><c:out value="${sessId}"/></h3><span class="text-accent fs-sm font"><c:out value="${sessEmail}"/></span>
                   </div>
-                </div><a class="btn btn-primary d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
+                </div><a class="btn btn-dark d-lg-none mb-2 mt-3 mt-md-0" href="#account-menu" data-bs-toggle="collapse" aria-expanded="false"><i class="ci-menu me-2"></i>Account menu</a>
               </div>
               <div class="d-lg-block collapse" id="account-menu">
                 <ul class="list-unstyled mb-0">
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/member/mypageMemberForm"><b>My Information</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/order/mypageOrder"><b>My Order</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/reservation/mypageReservation"><b>My Reservation</b></a></li>
-                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/comment/mypageReview"><b>My Review</b></a></li>
+                  <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="comment/mypageReview"><b>My Review</b></a></li>
                   <li class="border-bottom mb-0 px-4"><a class="nav-link-style d-flex align-items-center px-4 py-3" href="/mypage/mypageBucket"><b>My Bucket</b></a></li>
-                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="logout"><b>Log out</b></buttton></li>
+                  <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="signOutBtn"><b>Log out</b></buttton></li>
                 </ul>
               </div>
             </div>
@@ -67,12 +66,13 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
-           	
+           		<input type="hidden" name="ifmmSeq" value="${sessSeq }">
+           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            		<div class="container">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Review</b></h3></div>
            		</div>
            		<div class="container">
-           			<div class="row justify-content-between mt-5">
+           			<!-- <div class="row justify-content-between mt-5">
            				<div class="col-1 text-start"><a href="#"><i class="fa-solid fa-bars"></i>&nbsp;전체</a></div>
            				<div class="col-9 text-start"><a href="#"><i class="fa-regular fa-images"></i>&nbsp;사진</a></div>
            				<div class="col-2 text-end">
@@ -82,40 +82,53 @@
 							  <option value="오래된순">오래된순</option>
 							</select>
            				</div>
-           			</div>
+           			</div> -->
            			
            			<!-- review List -->
-          			<c:choose>
-          				<c:when test="${fn:length(list) eq 0}">
-          					<h4 class="text-center">There is no data!</t4>
-          				</c:when>
-          				<c:otherwise>
-          					<c:forEach items="${list}" var="list" varStatus="status">
-			           			<div class="row mt-5">
-			           				<div class="card shadow bg-body rounded cardBorder">
-									  <div class="card-body">
-									    <div class="row justify-content-between">
-									    	<h4><b>${list.ifstName}</b></h4>
-									    	<div class="col-3 text-start"><span>${list.ifstAddress}</span></div>
-									    	<div class="col-9 text-start" id="starValue">
-										    	<i class="fa-solid fa-star"></i>
-										    	<i class="fa-solid fa-star"></i>
-										    	<i class="fa-solid fa-star"></i>
-										    	<i class="fa-solid fa-star"></i>
-										    	<i class="fa-solid fa-star"></i>
-										    	&nbsp;<span><b>${list.ifcmGrade}</b></span>
-									    	</div>
-									    </div>
-									    <p class="card-text mt-4">${list.ifcmComment}</p>
-									  </div>
-									</div>
-			           			</div>
-          					</c:forEach>
-          				</c:otherwise>
-          			</c:choose>
-          			<div class="mt-5">		
-						<%@include file="../../xdmin/includeV1/pagination2.jsp"%>
-					</div>
+          			
+          			<div class="mt-4"><h3><b>내가 작성한 후기</b></h3></div>
+						<c:choose>
+							<c:when test="${fn:length(list) eq 0}">
+	          					<h5 class="text-center">작성한 리뷰가 없습니다.</h5>
+	          				</c:when>
+				           <c:otherwise>
+								<c:forEach items="${list}" var="list" varStatus="status">
+									<div class="row mt-3">
+				           				<div class="card shadow bg-body rounded cardBorder">
+										  <div class="card-body">
+										    <div class="row justify-content-between">
+										    	<h4><b>${list.ifstName}</b></h4>
+										    	<div class="col-3 text-start"><span>${list.ifstAddress}</span></div>
+										    	<div class="col-9 text-start" id="starValue">
+											    	<i class="fa-solid fa-star"></i>
+											    	<i class="fa-solid fa-star"></i>
+											    	<i class="fa-solid fa-star"></i>
+											    	<i class="fa-solid fa-star"></i>
+											    	<i class="fa-solid fa-star"></i>
+											    	&nbsp;<span><b>${list.ifcmGrade}</b></span>
+										    	</div>
+										    </div>
+										    <p class="card-text mt-2"><b>작성 내용:</b> ${list.ifcmComment}</p>
+										    <div class="row justify-content-between">
+											    <div class="col text-start">
+											    	<p><b>(작성 날짜:</b> ${list.ifcmCreatedAt})</p>
+											    </div>
+											    <div class="col text-end">
+											    	<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="goUele(${list.ifcmSeq})">
+											    		<i class="fa-solid fa-trash-can"></i> 
+											    		삭제하기
+											    	</button>
+											    </div>
+											</div>
+										  </div>
+										</div>
+				           			</div>
+			           			</c:forEach>
+		           			</c:otherwise>
+	           			</c:choose>
+          			
+          			
+          			
            		</div>
           </section>
         </div>
@@ -133,14 +146,42 @@
     <script type="text/javascript">
     
     	var goUrlList = "/comment/mypageReview";
+    	var goUrlUele="/comment/commentUele";
     	var form = $("#myform");
     	
-    	var ifcmSeq = $("input:hidden[name=ifcmSeq]");
+    	
+    	var seq = $("input:hidden[name=ifcmSeq]");
+		var ifmmSeq = $("input[name=ifmmSeq]").val();
+    	
     	
     	goList = function(thisPage) {
 			$("input:hidden[name=thisPage2]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		};
+		
+		goUele = function(keyValue) {
+			seq.val(keyValue);
+			
+			$.ajax({
+   				async: true 
+   				,cache: false
+   				,type: "post"
+   				/* ,dataType:"json" */
+   				,url: "/comment/commentUele"
+   				/* ,data : $("#formLogin").serialize() */
+   				,data : {"seq" : $("input[name=ifcmSeq]").val(s), "ifmmSeq" : $("input[name=ifmmSeq]").val()}
+   				,success: function(response) {
+   					if (response.rt == "success") {
+   						location.href = "/comment/mypageReview?ifmmSeq="+ $("input[name=ifmmSeq]").val();
+   					} else {
+   						alert(" ");
+   					}
+   				}
+   				,error : function(jqXHR, textStatus, errorThrown){
+   					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+   				}
+   			});
+		}
     </script>
 </body>
 </html>

@@ -151,7 +151,7 @@
 				                    <div class="col-2">
 				                        <div class="row">
 				                            <div class="col">
-				                                <button type="button" class="btn fw-bold text-white certification"
+				                                <button type="button" class="btn text-white certification"
 				                                    style="background-color: #FF5733;">중복확인</button>
 				                            </div>
 				                        </div>
@@ -170,9 +170,8 @@
 				                        <div class="row">
 				                            <div class="col">
 				                            	<div style="height: 28px;"></div>
-				                                <button type="button" id="searchBtn" class="btn fw-bold text-dark certification"
-				                                    style="background-color: #0d6efd;">주소검색</button>
-				                                <button id="refresh" class="btn btn-danger fw-bold btn-sm shadow" type="button">
+				                                <button type="button" id="searchBtn" class="btn btn-secondary certification text-white">주소검색</button>
+				                                <button id="refresh" class="btn btn-sm shadow text-white" type="button" style="background-color: #FF5733;">
 				                                        <i class="fa-solid fa-arrow-rotate-right"></i>
 				                                </button>
 				                            </div>

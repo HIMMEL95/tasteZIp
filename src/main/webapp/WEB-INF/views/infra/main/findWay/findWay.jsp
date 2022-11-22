@@ -216,11 +216,17 @@
 					if ($(".title"+value).text().indexOf(sText) != -1) {
 						start.val(text);
 						$("#start").text(text);
+						sLat = $(".lat"+value).val();
+						sLon = $(".lon"+value).val();
+						alert(sLat + " " + sLon);
 					} 
 				} else if  ((end.val() != null || end.val() != "") && document.hasFocus()) {
 					if ($(".title"+value).text().indexOf(eText) != -1){
 						end.val(text);
 						$("#end").text(text);
+						eLat = $(".lat"+value).val();
+						eLon = $(".lon"+value).val();
+						alert(eLat + " " + eLon);
 					}
 				}
 			})

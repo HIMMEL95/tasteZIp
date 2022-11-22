@@ -302,7 +302,6 @@ function initTmap(){
 				   var noorLat = Number(resultpoisData[k].noorLat);
 				   var noorLon = Number(resultpoisData[k].noorLon);
 				   var name = resultpoisData[k].name;
-				   alert(noorLat + ", " + noorLon + " : " + name)
 				   
 				   var pointCng = new Tmapv2.Point(noorLon, noorLat);
 				   var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
@@ -321,7 +320,7 @@ function initTmap(){
 					   map:map
 					});
 				   
-				   innerHtml += "<li><img src='http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/><span class='align-middle title"+k+"' onclick='changePlace("+k+")'>"+name+"</span></li>";
+				   innerHtml += "<li><img src='http://tmapapi.sktelecom.com/upload/tmap/marker/pin_b_m_" + k + ".png' style='vertical-align:middle;'/><input type='hidden' class='lat"+k+"' value='"+lat+"'><input type='hidden' class='lon"+k+"' value='"+lon+"'><span class='align-middle title"+k+"' onclick='changePlace("+k+")'>"+name+"</span></li>";
 				   
 				   markerArr.push(marker);
 				   positionBounds.extend(markerPosition);	// LatLngBounds의 객체 확장
@@ -367,19 +366,8 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
  var sLat, sLon, eLat, eLon;
  
  $("#findWay").on("click", function() {
-	alert(resultpoisData)
-	for (var k=0; k<resultpoisData.length; k++) {
-		if ($("#start").val() == resultpoisData[k].name) {
-			sLat = resultpoisData[k].noorLat;
-			sLon = resultpoisData[k].noorLon;
-		} else if ($("#end").val() == resultpoisData[k].name) {
-			eLat = resultpoisData[k].noorLat;
-			eLon = resultpoisData[k].noorLon;
-		}
-	}
-
-	alert(sLat + " " + sLat)
-	alert(eLat + " " + eLat)
+	
+	
 	marker_s = new Tmapv2.Marker(
 	{
 		position : new Tmapv2.LatLng(sLat,sLon),
@@ -396,7 +384,7 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 		iconSize : new Tmapv2.Size(24, 38),
 		map : map
 	});
-
+	
 	// 3. 경로탐색 API 사용요청
 	$.ajax({
 		method : "POST",
@@ -404,10 +392,10 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 		async : false,
 		data : {
 			"appKey" : "l7xx7374d191e9e54abca56a605a9dcc9c85",
-			"startX" : "126.983937",
-			"startY" : "37.564991",
-			"endX" : "126.988940",
-			"endY" : "37.566158",
+			"startX" : sLon,
+			"startY" : sLat,
+			"endX" : eLon,
+			"endY" : eLat,
 			"reqCoordType" : "WGS84GEO",
 			"resCoordType" : "EPSG3857",
 			"startName" : "출발지",
@@ -427,6 +415,7 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 			$("#result").text(tDistance + tTime);
 			
 			//기존 그려진 라인 & 마커가 있다면 초기화
+			alert("여깅?"+resultdrawArr.length)
 			if (resultdrawArr.length > 0) {
 				for ( var i in resultdrawArr) {
 					resultdrawArr[i]
@@ -496,14 +485,14 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 
 					// Marker 추가
 					marker_p = new Tmapv2.Marker(
-							{
-								position : new Tmapv2.LatLng(
-										routeInfoObj.lat,
-										routeInfoObj.lng),
-								icon : routeInfoObj.markerImage,
-								iconSize : size,
-								map : map
-							});
+					{
+						position : new Tmapv2.LatLng(
+								routeInfoObj.lat,
+								routeInfoObj.lng),
+						icon : routeInfoObj.markerImage,
+						iconSize : size,
+						map : map
+					});
 				}
 			}//for문 [E]
 			drawLine(drawInfoArr);

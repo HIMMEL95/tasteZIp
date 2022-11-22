@@ -86,6 +86,11 @@ public class OrderController {
     	return "infra/main/order/menuOrder";
     }
     
+    @RequestMapping(value = "cartOrder")
+    public String cartOrder() throws Exception {
+    	return "infra/main/order/cartOrder";
+    }
+    
     @RequestMapping(value = "mypageOrderView")
     public String mypageOrderView(@ModelAttribute("vo") OrderVo vo, Order dto, Model model, HttpSession httpSession) throws Exception {
     	

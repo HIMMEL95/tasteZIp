@@ -48,7 +48,7 @@ public class ReservationController {
 	@RequestMapping(value = "xdminReservationList")
 	public String xdminReservationList(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
 		
-		setSearchAndPaging(vo);
+		setSearch(vo);
 		return "infra/xdmin/reservation/xdminReservationList";
 	}
 	

@@ -46,74 +46,59 @@
 						<div class="start" style="margin-left: auto; margin-right: auto; width: 690px; display: grid;">
 							<div class="row">
 								<div class="col-6">
-									<label class="form-label">코드</label> <input type="text" class="form-control"  placeholder="자동완성">
+									<label class="form-label">Seq</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifmmSeq}"/>" placeholder="Seq">
 								</div>
 								<div class="col-6">
-									<label class="form-label">아이디</label> <input type="text" class="form-control" placeholder="영문(대소문자),숫자" value="">
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
 									<label class="form-label">이름</label> 
-									<input class="form-control" placeholder="한글">
-								</div>
-								<div class="col">
-									<label class="form-label">비밀번호</label> <input type="text" class="form-control" placeholder="영문(대소문자),숫자">
+									<input type="text" class="form-control" value="">
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">생일</label> <input type="date" class="form-control" placeholder="생년월일">
+									<label class="form-label">아이디</label> 
+									<input class="form-control" placeholder="영대소문자, 특수기호, 숫자">
 								</div>
 								<div class="col">
-									<label class="form-label">성별</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>남</option>
-										<option>여</option>
-									</select>
+									<label class="form-label">생년월일</label> 
+									<input type="text" class="form-control" placeholder="8자리 숫자">
 								</div>
+							</div>
+							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">통신사</label> <select class="form-select">
+									<label class="form-label">이메일</label> 
+									<input type="text" class="form-control">
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<label class="form-label">통신사</label> 
+									<select class="form-select">
 										<option selected disabled value="">선택</option>
 										<option>SKT</option>
 										<option>KT</option>
 										<option>LGT</option>
 									</select>
 								</div>
-							</div>
-							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">이메일</label> <input type="text" class="form-control" placeholder="영문(대소문자),숫자, @이후 전체 이메일 주소 포함 ">
-								</div>
-								<div class="col">
-									<label class="form-label">전화번호</label> <input type="text" class="form-control" placeholder="- 를 제외한 숫자만">
+									<label class="form-label">전화번호</label> 
+									<input type="text" class="form-control" placeholder="- 를 제외한 숫자만">
 								</div>
 							</div>
 							<div class="row mt-3" style="margin-top: 3rem;">
 								<label class="form-label">우편번호</label> 
-								<div class="col-8">	
+								<div class="col">	
 					   				<input type="text" class="form-control">
 					   			</div>
-					   			<div class="col-4">
-					   				<button type="button" class="btn btn-outline-dark" onclick=""> 우편번호 검색 </button>
-					   				<button class="btn btn-outline-dark" type="button" id="" style="height: 2.4rem;"><i class="fa-solid fa-rotate-left"></i></button>
-				   				</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<div class="col-12">	
-									<label class="form-label">주소</label> 
-					   				<input type="text" class="form-control" id="" name="" value="">
+								<div class="col">	
+					   				<input type="text" class="form-control">
 					   			</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<div class="col-6">	
-									<label class="form-label">상세주소</label> 
-					   				<input type="text" class="form-control" id="" name="" value="">
+								<div class="col">	
+					   				<input type="text" class="form-control">
 					   			</div>
-					   			<div class="col-6">
-					   				<label class="form-label">참고 항목</label>
-					   				<input type="text" class="form-control" id="" name="" value=""> 
-				   				</div>
+								<div class="col">	
+					   				<input type="text" class="form-control">
+					   			</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">

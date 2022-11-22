@@ -98,6 +98,7 @@ public class MainController {
     public String main(@ModelAttribute("vo") MenuVo vo) throws Exception {
         return "infra/main/order/main";
     }
+<<<<<<< HEAD
     
     @RequestMapping(value = "menu")
     public String menu(MenuVo vo, Model model) throws Exception {
@@ -129,4 +130,37 @@ public class MainController {
         
         return "infra/xdmin/home/xdminMain";
     }
+=======
+	
+	@RequestMapping(value = "menu")
+	public String menu(MenuVo vo, Model model) throws Exception {
+	    
+	    List<Menu> list = mService.selectList(vo);
+	    model.addAttribute("list", list);
+	    
+	    List<Menu> setDiv = mService.setDiv(vo);
+	    model.addAttribute("setDiv", setDiv);
+	    
+	    return "infra/main/order/menu";
+	}
+	
+	// ---------------- 관리자 ---------------------
+	
+	@RequestMapping(value = "xdminMain")
+	public String xdminMain(MemberVo vo, Model model, StoreVo svo) throws Exception {
+		
+		vo.setParamsPaging(mbService.selectOneCount(vo));
+		
+		List<Member> list = mbService.selectList(vo);
+		model.addAttribute("list", list);
+		
+		
+		svo.setParamsPaging(sService.selectOneCount(svo));
+		
+		List<Store> sList = sService.selectList(svo);
+		model.addAttribute("sList", sList);
+		
+		return "infra/xdmin/home/xdminMain";
+	}
+>>>>>>> branch 'main' of https://github.com/HIMMEL95/tasteZip.git
 }

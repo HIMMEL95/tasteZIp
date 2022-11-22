@@ -169,7 +169,7 @@
    				/* ,dataType:"json" */
    				,url: "/comment/commentUele"
    				/* ,data : $("#formLogin").serialize() */
-   				,data : {"seq" : $("input[name=ifcmSeq]").val(s), "ifmmSeq" : $("input[name=ifmmSeq]").val()}
+   				,data : {"seq" : $("input[name=ifcmSeq]").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val()}
    				,success: function(response) {
    					if (response.rt == "success") {
    						location.href = "/comment/mypageReview?ifmmSeq="+ $("input[name=ifmmSeq]").val();

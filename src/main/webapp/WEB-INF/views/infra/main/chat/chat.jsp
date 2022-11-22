@@ -5,279 +5,525 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
-<%-- <jsp:useBean id="CodeServiceImpl" class="com.spopia.infra.modules.code.CodeServiceImpl"/> --%>
-
-<!doctype html> 
+<!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>Chat</title>
-    <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
-	<link rel="stylesheet" href="/resources/css/chat/chat.css">
-	<link rel="stylesheet" href="/resources/css/story/story.css">
-	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
-</head>
 
-<body>
-    <!-- start -->
-    
-    <main class="clearfix">
-		<div id="sidebar" class="sidebar">
-			<div class="d-flex flex-column flex-shrink-0 bg-dark align-center" style="width: 4.5rem; height: 100vh;">
-				<a href="/tasteMain" class="d-block p-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-					<img alt="" src="/resources/images/main/logo2.png" width="40" height="30">
-					<span class="visually-hidden">Icon-only</span>
-				</a>
-				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-					<li class="nav-item">
-						<a href="/order" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/favorite" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-heart text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/chat" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-				<!-- 	<li>
-						<a href="/story" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/comment" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
-						</a>
-					</li> -->
-					<li>
-						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-				</ul>
-				<div class="dropdown">
-					<a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="https://github.com/mdo.png" alt="mdo" width="30" height="30" class="rounded-circle">
-					</a>
-					<ul class="dropdown-menu text-small shadow" style="">
-						<li><a class="dropdown-item" href="#">New project...</a></li>
-						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="/mypage/mypageMain">My Page</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><button type="button" id="signOutBtn" class="dropdown-item">Sign out</button></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="map_container" id="container">
-			<div class="sideInfo">
-				<div class="handle">
-					<input type="hidden" name="handle_value" id="handle_value" value="1">
-					<button type="button" id="handle" class="btn_fold expand">접기</button>
-				</div>
-				<div class="panel">
-					<div class="panel_top">
-						<div class="ng-star-inserted">
-							
-								<!-- contents s -->
-								<div class="contents">
-									<div class="inbox_people">
-							          <div class="headind_srch">
-							            <div class="recent_heading">
-							              <h4 style="text-shadow: 2px 5px lightgrey;">My Chatting List</h4>
-							            </div>
-							           <div class="container" style="margin-top: 2rem;">
-										<div class="row justify-content-center">
-											<div class="SearchBox">
-												<input type="text" class="SearchBox-input" placeholder="Search">
-												<button class="SearchBox-button">
-													<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
-												</button>
-											</div>
-										</div>
-									   </div>
-							          </div>
-							          <div class="inbox_chat">
-							            <a href="/chatRoom">
-								            <div class="chat_list active_chat">
-								              <div class="chat_people">
-								                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
-								                <div class="chat_ib">
-								                  <h5>가나다 <span class="chat_date">Dec 25</span></h5>
-								                  <p>Test, which is a new approach to have all solutions 
-								                    astrology under one roof.</p>
-								                </div>
-								              </div>
-								            </div>
-							            </a>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput2 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput3 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput4 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput5 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput6 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput7 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput8 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput9 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>하하하10 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>하하하11 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>하하하12 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							          </div>
-							        </div>	 
-								</div>
-								<!-- contents e -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="map" style="width:100%;height:100%;"></div>
-		</div>
-    </main>
-
-    <!-- end -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
-	<script>
+	<title>Chat Tutorial</title>
 	
-		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+	
+
+	<style>
+		div	{
+			/* border: solid 1px orange; */
+		}
+	    .card {
+            height: 700px;
+            border-radius: 15px !important;
+            background-color: rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .contacts_body {
+            padding: 0.75rem 0 !important;
+            overflow-y: auto;
+            white-space: nowrap;
+            background: #1F2122;
+        }
+
+        .msg_card_body {
+            overflow-y: auto;
+            background: #1F2122;
+        }
+
+        .card-header {
+            border-radius: 15px 15px 0 0 !important;
+            border-bottom: 0 !important;
+            background: #1F2122;
+        }
+
+        .card-footer {
+            border-radius: 0 0 15px 15px !important;
+            border-top: 0 !important;
+            background: #1F2122;
+        }
+
+        .container {
+            align-content: center;
+        }
+
+        .search {
+            border-radius: 15px 0 0 15px !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+        }
+
+        .search:focus {
+            box-shadow: none !important;
+            outline: 0px !important;
+        }
+
+        .type_msg {
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            height: 60px !important;
+            overflow-y: auto;
+        }
+
+        .type_msg:focus {
+            box-shadow: none !important;
+            outline: 0px !important;
+        }
+
+        .attach_btn {
+            border-radius: 15px 0 0 15px !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            cursor: pointer;
+        }
+
+        .send_btn {
+            border-radius: 0 15px 15px 0 !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            cursor: pointer;
+        }
+
+        .search_btn {
+            border-radius: 0 15px 15px 0 !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            cursor: pointer;
+        }
+
+        .contacts {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contacts li {
+            width: 100% !important;
+            padding: 5px 10px;
+            margin-bottom: 15px !important;
+        }
+
+        .active {
+            background-color: #27292A;
+        }
+
+        .user_img {
+            height: 60px;
+            width: 60px;
+            border: 1.5px solid #f5f6fa;
+        }
+
+        .img_cont {
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: 70px;
+            width: 70px;
+        }
+
+        .chat_product_img {
+            border-radius: 5px;
+            align-items: center;
+            position: relative;
+            height: 50px;
+            width: 50px;
+        } 
+
+        .chat_product_info {
+            margin-top: 10px;
+            margin-bottom: auto;
+            margin-left: 0px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .chat_product_info .title {
+            font-size: 12px;
+            color: white;
+        }
+
+        .chat_product_info .status {
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .chat_product_info p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .msg_cotainer {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 10px;
+            border-radius: 25px;
+            background-color: #27292A;
+            color: white;
+            padding: 10px;
+            position: relative;
+        }
+
+        .msg_cotainer_send {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: 10px;
+            border-radius: 25px;
+            background-color: #E75E8D;
+            color: white;
+            padding: 10px;
+            position: relative;
+        }
+
+        .msg_time {
+            position: absolute;
+            left: 0;
+            margin-left: 10px;
+            min-width: 100px;
+            bottom: -15px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+        }
+
+        .msg_time_send {
+            position: absolute;
+            right: 0;
+            margin-right: 10px;
+            min-width: 100px;
+            bottom: -15px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+            text-align:end; 
+        }
+
+        .msg_head {
+            position: relative;
+            background: #1F2122;
+        }
+
+        /* width */
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+
+        /* Track */
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+
+        /* Handle */
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+
+        /* Handle on hover */
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        @media(max-width: 576px) {
+            .contacts_card {
+                margin-bottom: 15px !important;
+            }
+        }
+	</style>
+</head>
+<body> 
+	<div class="container">
+        <div class="page-content">
+        	<form id="mainForm" method="POST">
+        		<input type="hidden" id="selectedRoom">
+	        	<div class="row justify-content-center h-100">
+	                <div class="col-md-4 col-xl-3 chat">
+	                    <div class="card mb-sm-3 mb-md-0 contacts_card">
+	                        <div class="card-header">
+	                            <div class="input-group">
+																	<input type="text" placeholder="add ChatUser Seq..." id="cuMember" name="cuMember" class="form-control search">
+	                                <span class="input-group-text search_btn" onclick="addChat()"><i class="fa-solid fa-plus"></i></span>
+	                            </div>
+	                        </div>
+	                        <div class="card-body contacts_body">
+	                            <ui class="contacts" id="chatList">
+	                            
+	                            	<c:forEach items="${list }" var="list" varStatus="status">
+	                            		
+																		<li class="room" id="${list.chatSeq}" onclick="selectChatRoom(${list.chatSeq})">
+		                                    <div class="d-flex bd-highlight">
+		                                        <div class="img_cont">
+																								<!-- 아래 path 와 uuidname 도 본인의 dto field에 맞게 수정 -->
+		                                            <img src="
+																										<c:if test = "${list.path ne null}">
+																											${list.path}${list.uuidName}
+																										</c:if>
+		                                                " class="rounded-circle user_img">
+		                                        </div>
+		                                        <div class="chat_product_info">
+																								<!-- 아래 mmNickName  도 본인의 dto field에 맞게 수정 -->
+		                                            <span class="status"><c:out value="${list.ifmmId }"/></span>
+					                                 			<p>TEST TEXT FIELD</p>
+		                                        </div>
+		                                    </div>
+		                                </li>
+	                            			
+	                            	</c:forEach>
+	                             
+	                            </ui>
+	                        </div>
+	                        <div class="card-footer"></div>
+	                    </div>
+	                </div>
+	                <div class="col-md-8 col-xl-6 chat">
+	                    <div class="card">	                       
+	                        <div id="chatBox" class="card-body msg_card_body">
+	
+													<!-- 채팅 메세지 박스 -->
+	
+	                        </div>
+	                        <div class="card-footer">
+	                            <div class="input-group">
+	                                <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+	                                <textarea id="chatMessage" class="form-control type_msg"
+	                                    placeholder="Type your message..."></textarea>
+	                                <span class="input-group-text send_btn" id="sendBtn"><i class="fas fa-location-arrow"></i></span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	          
+	
+	            
+            </form>
+        </div>
+	</div>
+	<script src="https://kit.fontawesome.com/63aa3074b3.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+	<script type="module">
+
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+	
+  //Firebase 프로젝트에서 추출한 정보 입력
+	const firebaseConfig = {
+    apiKey: "AIzaSyBJt23BGLDNdnTcoj7Ut0EmEzKEI_z-bhQ",
+    authDomain: "tastezip-8b9e4.firebaseapp.com",
+    databaseURL: "https://tastezip-8b9e4-default-rtdb.firebaseio.com",
+    projectId: "tastezip-8b9e4",
+    storageBucket: "tastezip-8b9e4.appspot.com",
+    messagingSenderId: "734649130564",
+    appId: "1:734649130564:web:9c60fa95c8b7500dd4e611"
+  };	
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+
+	import { getDatabase, ref, set, onValue }	from "https://www.gstatic.com/firebasejs/9.12.1/firebase-database.js";
+	
+	const db = getDatabase();
+
+	var insMsg = document.getElementById("chatMessage");
+	insMsg.addEventListener('keyup',enterKey);
+
+	var sendBtn = document.getElementById("sendBtn");
+	sendBtn.addEventListener('click',sendMessage);
+
+
+	function enterKey() {
 		
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center: new kakao.maps.LatLng(37.5021008334827, 127.024465815419), //지도의 중심좌표.
-			level: 3 //지도의 레벨(확대, 축소 정도)
+		var keycode = event.keyCode;
+		
+		if(keycode == 13) //Enter
+			sendMessage();
+	};
+		
+	function sendMessage(){
+
+		var room = $("#selectedRoom").val();
+	
+		if(room == "") {
+			//채팅방을 선택하지 않고 메세지 보내면 동작하지 않도록
+			$("#chatMessage").val("");
+			return;
+		}
+
+		var message = $("#chatMessage").val();
+
+		//메시지 입력창 초기화
+		$("#chatMessage").val("");
+		
+		//새 메세지 추가하면 채팅방에 이전 기록도 다시 다 불러와서 한번 비워줌
+		$("#chatBox").html(""); 	
+	
+		//새 메세지를 Firebase / realtime database / chat / 채팅방seq / 시간대 / 작성자 / 메세지에 입력합니다.
+		set(ref(db,'chat/'+room+'/'+getnow()+'/'+${sessSeq} ),{
+			Masseage: message
+		})
+
+		//스크롤을 제일 아래로 유지
+		$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+	};
+	
+	function readMessage(e){
+
+		const room = e.id; 
+		$("#selectedRoom").val(room);
+		
+		const dbRef = ref(db, 'chat/'+room);
+		const txt = "";
+        onValue(dbRef,(snapshot) => {
+            if(snapshot.key == $("#selectedRoom").val()){
+				//채팅을 누르면 기존 채팅은 지우고 새로 불러오게
+				$("#chatBox").html("");
+                snapshot.forEach((childSnapshot) => {
+                    const timetable = childSnapshot.key;
+                    console.log(timetable); 
+                    onValue(ref(db,'chat/'+room+'/'+timetable),(snapshot2) => {
+                        snapshot2.forEach((childSnapshot2) => {
+                            const writer = childSnapshot2.key
+                            console.log(writer);
+                        
+                            onValue(ref(db,'chat/'+room+'/'+timetable+'/'+writer),(snapshot3) => {
+                                snapshot3.forEach((childSnapshot3) => {
+                                        const message = childSnapshot3.val()
+                                        console.log(message);
+                                            
+                                        var txt = '';
+                                        txt += '<div class="d-flex mb-4 justify-content-';
+                                        txt += writer == ${sessSeq} ? 'end' : 'start';
+                                        txt += '">';
+                                        txt += '<div class="msg_cotainer';
+                                        txt += writer == ${sessSeq} ? '_send' : '';
+                                        txt += '">';
+                                        txt += message;
+                                        txt += '<span class="msg_time';
+                                        txt += writer == ${sessSeq} ? '_send' : '';
+                                        txt += '">';
+                                        txt += getTimeFormat(timetable);
+                                        txt += '</span>';
+                                        txt += '</div>';
+                                        txt += '</div>';
+
+                                        $("#chatBox").append(txt);
+                                        $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+                                    });
+                                }); 
+                            }); 
+                        });
+                    });
+                 }		
+            });	
+	}
+
+	$(".room").click(function(){
+		readMessage(event.currentTarget);
+				
+	}); 
+	function getTimeFormat(timetable){
+		//221105080634 
+		return timetable.substring(0,2)+"-"+timetable.substring(2,4)+"-"+timetable.substring(4,6)+" "+timetable.substring(6,8)+":"+timetable.substring(8,10)+":"+timetable.substring(10,12);	
+	}
+
+	</script>
+	
+	<script>
+				
+		getnow = function() {
+				
+			var timestamp = new Date().getTime();
+			
+			var date = new Date(timestamp); //타임스탬프를 인자로 받아 Date 객체 생성
+			
+			var year = date.getFullYear().toString().slice(-2); //년도 뒤에 두자리
+			var month = ("0" + (date.getMonth() + 1)).slice(-2); //월 2자리 (01, 02 ... 12)
+			var day = ("0" + date.getDate()).slice(-2); //일 2자리 (01, 02 ... 31)
+			var hour = ("0" + date.getHours()).slice(-2); //시 2자리 (00, 01 ... 23)
+			var minute = ("0" + date.getMinutes()).slice(-2); //분 2자리 (00, 01 ... 59)
+			var second = ("0" + date.getSeconds()).slice(-2); //초 2자리 (00, 01 ... 59)
+			
+			return year+month+day+hour+minute+second;
 		};
 	
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-	
-		var mapTypeControl = new kakao.maps.MapTypeControl();
-	
-		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
-		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
-		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-	
-		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-		var zoomControl = new kakao.maps.ZoomControl();
-		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-	
-		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
-		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
-		
-	</script>
-</body>
+		selectChatRoom = function (roomNo) {
+            
+            var roomArray = $("li[name=room]");
+            roomArray.each(function (index, item) {
+                if (index != roomNo - 1)
+                    item.classList.remove("active");
+                else
+                    item.classList.add("active");
+            });
 
+
+        };
+
+		addChat = function(){
+			
+					$.ajax({
+						url: '/chat/insChat'
+						,type: 'POST'
+						,datatype:'json'
+						,data:{
+							cuMember : $("#cuMember").val()
+						}
+						,success:function(result){
+							if(result.rt=="success"){
+								
+								$("#cuMember").val("");
+								var txt="";
+								txt+='<li class="room" id="';
+								txt+=result.newChat.chatSeq;
+								txt+='" onclick="selectChatRoom(';
+								txt+=result.newChat.chatSeq;
+								txt+=')">';
+								txt+='<div class="d-flex bd-highlight">';
+								txt+='<div class="img_cont">';
+								//아래 path 와 uuidname 도 본인의 dto field에 맞게 수정
+								txt+='<img src="';
+								if(result.newChat.path != null)
+								{
+									txt+=result.newChat.path + result.newChat.uuidName;
+								}
+								txt+='" class="rounded-circle user_img">';
+								txt+='</div>';
+								txt+='<div class="chat_product_info">';
+								txt+='<span class="status">';
+								txt+=result.newChat.id;
+								txt+='</span>';
+								txt+='<p>TEST TEXT FIELD</p>';
+								txt+='</div>';
+								txt+='</div>';
+								txt+='</li>';
+								$("#chatList").prepend(txt);
+							}else{
+								alert("fail..!");
+							}
+						}
+						,error:function(){
+							alert("ajax error..!");
+						}
+					});
+			
+				}
+    </script>
+</body>
 </html>

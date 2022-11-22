@@ -7,7 +7,7 @@
 
 		  <!-- content s -->
   	<%@include file="../includeV1/totalAndRowNum.jsp" %>
-	<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
+	<div class=" ms-3 mt-3 bg-body rounded">
 		<table class="table table-striped table-hover text-center" id="selecBox">
 			<thead>
 				<tr class="bg-dark">
@@ -34,17 +34,15 @@
 					</c:when>
 					<c:otherwise>		
 						<c:forEach items="${list}" var="list" varStatus="status">
-							<tr>
-								<td>
-									<input class="check" type="checkbox" name="check" vlaue="${list.ifccSeq }">
-								</td>
-								<td><c:out value="${list.ifccSeq }"/></td>
-								<td>
-									<a href="javascript:goForm(<c:out value="${list.ifccSeq }"/>)"><c:out value="${list.ifccName}"/></a>
-								</td>
-								<td><c:out value="${list.ifccNameEng }"/></td>
-								<td><c:out value="${list.ifccOrder }"/></td>
-								<td><c:out value="${list.ifccExplanation }"/></td>
+							<tr onclick="goForm(${list.ifccSeq})" class="info" style="cursor: pointer;">
+								<th scope="row" class="td1" src="#">
+									<input class="check" type="checkbox" name="check" onclick="checkSelectAll(this)">
+								</th>
+								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
+								<td>${list.ifccName}</td>
+								<td>${list.ifccNameEng }</td>
+								<td>${list.ifccOrder }</td>
+								<td>${list.ifccExplanation }</td>
 								<td>
 									<c:choose>
 										<c:when test="${list.ifccUseNy eq 0}">N</c:when>
@@ -71,7 +69,7 @@
 		<!-- end --> 
 		<script>
 		
-		var goUrlForm = "/menu/xdminMenuForm"; 
+		var goUrlForm = "/code/xdminCodeForm"; 
 		
 		var form = $("form[name=formList]");
 		

@@ -51,11 +51,15 @@ public class CommentController {
     
  // --------------- 관리자 --------------
     
+    public void setSearchAndPaging(CommentVo vo) throws Exception{
+		vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
+		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
+	}
+    
     @RequestMapping(value = "xdminCommentList")
     public String xdminCommentList(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
     	
-		vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
-		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
+    	setSearchAndPaging(vo);
     	return "infra/xdmin/comment/xdminCommentList";
     }
     
@@ -63,12 +67,11 @@ public class CommentController {
 	public String xdminCommentLita(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
 		
 		vo.setParamsPaging(service.selectOneCount2(vo));
-		
 		  if (vo.getTotalRows() > 0) { 
 			  List<Comment> list = service.selectList2(vo);
 				model.addAttribute("list", list); 
 		  }
-		return "infra/xdmin/code/xdminCommentLita";
+		return "infra/xdmin/comment/xdminCommentLita";
 	}
     
     @RequestMapping("/excelDownload")

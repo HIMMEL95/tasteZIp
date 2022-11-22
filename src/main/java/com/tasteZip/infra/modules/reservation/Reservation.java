@@ -1,6 +1,8 @@
 package com.tasteZip.infra.modules.reservation;
 
-public class Reservation {
+import com.tasteZip.infra.common.base.Base;
+
+public class Reservation extends Base{
 	
 	// reservation
 	private String ifrvSeq;

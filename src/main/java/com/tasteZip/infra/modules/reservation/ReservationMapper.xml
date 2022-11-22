@@ -9,9 +9,9 @@
  
  	<sql id ="selectCommon">
 	 	FROM reservation r
-			JOIN store s on s.ifstSeq = r.ifstSeq
-			JOIN member m on m.ifmmSeq = r.ifmmSeq
-			JOIN menu mn on mn.ifmnSeq = r.ifmnSeq
+			LEFT JOIN store s on s.ifstSeq = r.ifstSeq
+			LEFT JOIN member m on m.ifmmSeq = r.ifmmSeq
+			LEFT JOIN menu mn on mn.ifmnSeq = r.ifmnSeq
 		wHERE 1=1		
 		<if test="shDelNy !=null and !shDelNy.equals('')">AND r.ifrvDelNy = #{shDelNy}</if>
 		<choose>

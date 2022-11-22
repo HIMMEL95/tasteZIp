@@ -15,7 +15,7 @@
 		            <path
 		              d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
 		          </svg>
-		          <a class="Home" href="/">
+		          <a class="Home" href="/xdminMain">
 		          	<span>Home</span>
 		          </a>
 		        </li>
@@ -109,6 +109,12 @@
 		          		<span>CodeGroup</span>
 			          </a>
 		        </li>
+		        <!-- <li class="item pt-2">
+		        	<i class="fa-solid fa-arrow-right-from-bracket"></i>
+		             <a class="CodeGroup b" href="/codeGroup/xdminCodeGroupList">
+	         			<span>LogOut</span>
+			          </a>
+		        </li> -->
 		      </ul>
 		    </div>
 		  </div>

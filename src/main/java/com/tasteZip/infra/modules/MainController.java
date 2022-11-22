@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
+import com.tasteZip.infra.modules.member.MemberVo;
 import com.tasteZip.infra.modules.menu.Menu;
 import com.tasteZip.infra.modules.menu.MenuServiceImpl;
 import com.tasteZip.infra.modules.menu.MenuVo;
+import com.tasteZip.infra.modules.store.Store;
+import com.tasteZip.infra.modules.store.StoreServiceImpl;
+import com.tasteZip.infra.modules.store.StoreVo;
 
 @Controller
 public class MainController {
@@ -22,6 +26,8 @@ public class MainController {
     MenuServiceImpl mService;
     @Autowired
     MemberServiceImpl mbService;
+    @Autowired
+    StoreServiceImpl sService;
 
     @RequestMapping(value = "/")
     public String MatZipMain() throws Exception {
@@ -108,7 +114,19 @@ public class MainController {
 	// ---------------- 관리자 ---------------------
 	
 	@RequestMapping(value = "xdminMain")
-	public String xdminMain() throws Exception {
+	public String xdminMain(MemberVo vo, Model model, StoreVo svo) throws Exception {
+		
+		vo.setParamsPaging(mbService.selectOneCount(vo));
+		
+		List<Member> list = mbService.selectList(vo);
+		model.addAttribute("list", list);
+		
+		
+		svo.setParamsPaging(sService.selectOneCount(svo));
+		
+		List<Store> sList = sService.selectList(svo);
+		model.addAttribute("sList", sList);
+		
 		return "infra/xdmin/home/xdminMain";
 	}
 }

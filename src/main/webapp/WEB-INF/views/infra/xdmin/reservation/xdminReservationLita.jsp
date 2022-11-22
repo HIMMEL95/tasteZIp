@@ -7,7 +7,7 @@
 
 		  <!-- content s -->
   	<%@include file="../includeV1/totalAndRowNum.jsp" %>
-	<div class=" ms-3 me-3 mt-3 mb-4 shadow-lg bg-body rounded">
+	<div class=" ms-3 mt-3 bg-body rounded">
 		<table class="table table-striped table-hover text-center" id="selecBox">
 			<thead>
 				<tr class="bg-dark">
@@ -35,11 +35,11 @@
 					</c:when>
 					<c:otherwise>		
 						<c:forEach items="${list}" var="list" varStatus="status">
-							<tr>
+							<tr onclick="goForm(${list.ifstSeq})" class="info" style="cursor: pointer;">
 								<td>
-									<input class="check" type="checkbox" name="check" vlaue="${list.ifrvSeq }">
+									<input class="check" type="checkbox" name="check" onclick="checkSelectAll(this)">
 								</td>
-								<td><c:out value="${list.ifrvSeq }"/></td>
+								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
 								<td><c:out value="${list.ifstName}"/></td>
 								<td><c:out value="${list.ifmnName }"/></td>
 								<td><c:out value="${list.ifmmName }"/></td>

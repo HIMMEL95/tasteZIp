@@ -77,4 +77,8 @@ input {
 	border: 2px solid #FF7F00;
 }
 
-
+.result {
+	margin: 20px 20px;
+    font-size: 20px;
+    font-weight: 800;
+}

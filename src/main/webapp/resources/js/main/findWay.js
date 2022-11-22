@@ -367,7 +367,6 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
  
  $("#findWay").on("click", function() {
 	
-	
 	marker_s = new Tmapv2.Marker(
 	{
 		position : new Tmapv2.LatLng(sLat,sLon),
@@ -403,34 +402,30 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 		},
 		success : function(response) {
 			var resultData = response.features;
+			
+			// 기존 마커, 팝업 제거
+			   if(markerArr.length > 0){
+				   for(var i in markerArr){
+					   markerArr[i].setMap(null);
+				   }
+			   }
 
 			//결과 출력
 			var tDistance = "총 거리 : "
 					+ ((resultData[0].properties.totalDistance) / 1000)
-							.toFixed(1) + "km,";
+							.toFixed(1) + " km";
 			var tTime = " 총 시간 : "
 					+ ((resultData[0].properties.totalTime) / 60)
-							.toFixed(0) + "분";
+							.toFixed(0) + " 분";
 
-			$("#result").text(tDistance + tTime);
+			var innerHtml ="";
+			innerHtml += "<div class='result'><span>"+ tDistance +"</span><br><span>"+tTime+"</span></div>";
+			$("#placesList").html(innerHtml);
 			
-			//기존 그려진 라인 & 마커가 있다면 초기화
-			alert("여깅?"+resultdrawArr.length)
-			if (resultdrawArr.length > 0) {
-				for ( var i in resultdrawArr) {
-					resultdrawArr[i]
-							.setMap(null);
-				}
-				resultdrawArr = [];
-			}
-			
-			drawInfoArr = [];
-
 			for ( var i in resultData) { //for문 [S]
 				var geometry = resultData[i].geometry;
 				var properties = resultData[i].properties;
 				var polyline_;
-
 
 				if (geometry.type == "LineString") {
 					for ( var j in geometry.coordinates) {

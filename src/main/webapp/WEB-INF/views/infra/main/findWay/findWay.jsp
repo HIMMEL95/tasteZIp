@@ -21,6 +21,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
 	<link rel="stylesheet" href="/resources/css/findWay/findWay.css">
+	<script defer type="text/javascript" src="/resources/js/main/carWay.js"></script>
 	<script defer type="text/javascript" src="/resources/js/main/findWay.js"></script>
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 	<!-- tmap api s -->
@@ -99,7 +100,7 @@
 						  			<i class="fa-solid fa-bus-simple"></i>
 						  			대중교통
 				  				</button>
-							  	<button type="button" class="btn btn-outline-secondary">
+							  	<button type="button" class="btn btn-outline-secondary car">
 									<i class="fa-solid fa-car"></i>
 							  		자동차
 						  		</button>
@@ -157,7 +158,6 @@
 									<!-- contents e -->
 									<div id="menu_wrap">
 										<ul id="placesList"></ul>
-										<div id="pagination"></div>
 									</div>
 								</div>
 							</div>
@@ -214,19 +214,41 @@
 				text = $(".title"+value).text();
 				if ((start.val() != null || start.val() != "") && (end.val() == null || end.val() == "")) {
 					if ($(".title"+value).text().indexOf(sText) != -1) {
+						if(markerArr.length > 0){
+						   for(var i in markerArr){
+							   markerArr[i].setMap(null);
+						   }
+					   }
 						start.val(text);
 						$("#start").text(text);
 						sLat = $(".lat"+value).val();
 						sLon = $(".lon"+value).val();
-						alert(sLat + " " + sLon);
+						marker_s = new Tmapv2.Marker(
+						{
+							position : new Tmapv2.LatLng(sLat,sLon),
+							icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+							iconSize : new Tmapv2.Size(24, 38),
+							map : map
+						});
 					} 
 				} else if  ((end.val() != null || end.val() != "") && document.hasFocus()) {
 					if ($(".title"+value).text().indexOf(eText) != -1){
+						if(markerArr.length > 0){
+						   for(var i in markerArr){
+							   markerArr[i].setMap(null);
+						   }
+					   }
 						end.val(text);
 						$("#end").text(text);
 						eLat = $(".lat"+value).val();
 						eLon = $(".lon"+value).val();
-						alert(eLat + " " + eLon);
+						marker_e = new Tmapv2.Marker(
+						{
+							position : new Tmapv2.LatLng(eLat,eLon),
+							icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+							iconSize : new Tmapv2.Size(24, 38),
+							map : map
+						});
 					}
 				}
 			})

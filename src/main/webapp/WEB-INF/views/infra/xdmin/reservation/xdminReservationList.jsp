@@ -35,7 +35,6 @@
 		  <!-- content s -->
 		  <div class="page-content">
 		  	<form id="formList" name="formList" method="post">
-		  	<%-- <%@include file="memberVo.jsp"%> --%>
 				<input type="hidden" name="thisPage" value="1">
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
                	<input type="hidden" name="ifrvSeq" value="${vo.ifrvSeq}">
@@ -177,8 +176,6 @@
 		var goUrlExcel = "/reservation/excelDownload";
 		var goUrlUele = "/reservation/reservationUele";	
 		var goUrlDele = "/reservation/reservationDele";
-		
-		var form = $("form[name=formList]");
 		
 		var ifrvSeq = $("input[name=ifrvSeq]");
 

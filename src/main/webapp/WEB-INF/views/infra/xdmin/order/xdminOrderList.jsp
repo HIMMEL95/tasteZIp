@@ -121,9 +121,6 @@
 			                                <button class="border-0 btn bg-success shadow" id="excelBtn" type="button">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>
-			                                <button class="border-0 btn shadow bg-dark" type="button" id="btnForm">
-			                                    <i class="fa-regular fa-plus fa-1x" style="color: white;"></i>
-			                                </button>
 			                            </div>
 			                        </div>
 								</div>
@@ -173,16 +170,13 @@
 		<script>
 			
 			var goUrlList = "/order/xdminOrderList";
-			/* var goUrlForm = "/order/xdminOrderForm"; */
 			var excelUri = "/order/excelDownload";
 			var goUrlUel = "/order/OrderUele";
 	        var goUrlDel = "/order/OrderDele";		
 			
-			var form = $("form[name=formList]");
-			
 			var iforSeq = $("input[name=iforSeq]");
 			
-			$(function() {
+			/* $(function() {
 		  		$("#datepickerS").datepicker({
 		  			dateFormat: "yy-mm-dd"
 		  			,showMonthAfterYear: true
@@ -193,7 +187,7 @@
 	    			,showMonthAfterYear: true
 	    			,showOtherMonths: true
 	    		});
-		  	})
+		  	}) */
 			
 			$("#btnReset").on("click", function() {
 				$(location).attr("href", goUrlList);
@@ -221,10 +215,6 @@
 				alert("del")
 			})
 			
-			 $("#btnForm").on("click", function(){
-				 $(location).attr("href", goUrlForm);
-			 });
-
 	 		
 			DelValidation = function(confirm, url, msg) {
 				$(".modal-body").html(msg);
@@ -232,25 +222,13 @@
 					form.attr("action", url).submit();
 				})
 			}
-	 		
-	 	// ----- form으로 이동 -----
-	 		
-	 	
-	 		 /* $('#btnForm').on("click", function() {
-	 			goForm(0);                
-	 		});
-	 		
-	 		 goForm = function(keyValue) {
-	 			ifmmSeq.val(keyValue);
-	 			form.attr("action", goUrlForm).submit();
-	 		}  */
-	 		</script>
+ 		</script>
 	 		
 	 	<script type="text/javascript">
 	 		
 			var goUrlLita = "/order/xdminOrderLita";	
+	 		// ----- Lita ajax -----
 			
-	 	// ----- Lita ajax -----
 	 		$(document).ready(function(){
 	 			setOrderLita();
 	 		}); 

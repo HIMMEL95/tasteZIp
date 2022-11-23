@@ -68,12 +68,14 @@
 			<!-- orderList -->
 			<exclude-mapping path="/order/xdminOrderLita" />
 			<exclude-mapping path="/order/xdminOrderList" />
+			<exclude-mapping path="/order/xdminOrderForm" />
 			<!-- commentList -->
 			<exclude-mapping path="/comment/xdminCommentLita" />
 			<exclude-mapping path="/comment/xdminCommentList" />
 			<!-- reservationList -->
 			<exclude-mapping path="/reservation/xdminReservationLita" />
 			<exclude-mapping path="/reservation/xdminReservationList" />
+			<exclude-mapping path="/reservation/xdminReservationForm" />
 			<!-- menuForm/List -->
 			<exclude-mapping path="/menu/xdminMenuLita" />
 			<exclude-mapping path="/menu/xdminMenuList" />

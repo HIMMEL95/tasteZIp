@@ -225,12 +225,12 @@
  		</script>
 	 	<script type="text/javascript">
 	 		
-	 	// ----- Lita ajax -----
+	 		var goUrlLita = "/member/xdminMemberLita";		
+	 		// ----- Lita ajax -----
+	 		
 	 		$(document).ready(function(){
 	 			setLita();
 	 		}); 
-	 		
-	 		var goUrlLita = "/member/xdminMemberLita";		
 	 		
 	 		function setLita() {
 	 			$.ajax({

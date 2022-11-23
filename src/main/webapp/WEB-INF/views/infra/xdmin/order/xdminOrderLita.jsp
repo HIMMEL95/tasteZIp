@@ -12,7 +12,7 @@
 				<thead>
 					<tr class="bg-dark">
 						<th scope="col" >
-							<input class="check" type="checkbox" name="check" onclick="selectAll(this)">
+							<input type="checkbox" name="chk_all" id="chk_all" onclick="selectAll(this)">
 						</th>
 						<th class="text-white">#</th>
 						<th class="text-white" scope="col">가게 이름</th>
@@ -63,24 +63,32 @@
 		</div>
 		<!-- end --> 
 		<script>
-			// 페이지 네이션 만들기
-			
+		
+		var goUrlForm = "/order/xdminOrderForm";
+		
+		var form = $("form[name=formList]");
+		
+		var iforSeq = $("input[name=iforSeq]");
+		
+		// ----- form으로 이동 -----
+			 $("#btnForm").on("click", function(){
+				 $(location).attr("href", goUrlForm);
+			 });
+		
 			goForm = function(keyValue) {
 				/* if(key != 0) seq.val(btoa(key)); */
-				seq.val(keyValue);
+				iforSeq.val(keyValue);
 				form.attr("action", goUrlForm).submit();
 			}
 
-
 			goList = function(thisPage) {
 				$("input:hidden[name=thisPage]").val(thisPage);
-				setLita();
+				setOrderLita();
 			}
-
 
 			$("#changeRowNum").on("change", function(){
 				$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
-				setLita();
+				setOrderLita();
 			}); 
 				
 
@@ -98,8 +106,6 @@
 				else $("#checkboxAll").prop("checked", true); 
 			});
 	 		</script>
-	 		
-	 		
 	 		
 </body>
 </html>

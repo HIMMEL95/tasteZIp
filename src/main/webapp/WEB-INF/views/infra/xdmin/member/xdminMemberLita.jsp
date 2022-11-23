@@ -12,7 +12,7 @@
 			<thead>
 				<tr class="bg-dark">
 					<th scope="col">
-						<input type="checkbox" name="chk_all" id="chk_all" href="">
+						<input type="checkbox" name="chk_all" id="chk_all" onclick="selectAll(this)">
 					</th>
 					<th class="text-white">#</th>
 					<th class="text-white" scope="col">이름</th>
@@ -97,8 +97,5 @@
 				else $("#checkboxAll").prop("checked", true); 
 			});
 	 		</script>
-	 		
-	 		
-	 		
 </body>
 </html>

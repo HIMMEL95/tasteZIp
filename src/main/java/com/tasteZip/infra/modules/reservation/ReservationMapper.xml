@@ -60,6 +60,27 @@
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
+	<select id="selectOne" resultMap="resultMapObj"> 
+		SELECT
+			 r.ifrvSeq
+			 ,r.ifrvCount
+			 ,r.ifrvPerson
+			 ,r.ifrvPrice
+			 ,r.ifrvDelNy
+			 ,r.ifrvDate
+			 ,r.ifrvTime
+			 ,s.ifstName
+			 ,mn.ifmnName
+			 ,m.ifmmName
+			 ,m.ifmmPhone
+		 FROM reservation r
+			JOIN store s on s.ifstSeq = r.ifstSeq
+			JOIN member m on m.ifmmSeq = r.ifmmSeq
+			JOIN menu mn on mn.ifmnSeq = r.ifmnSeq
+		wHERE 1=1	
+			and  r.ifrvSeq = #{ifrvSeq}
+	</select>
+	
 	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
 		<include refid="selectCommon" />

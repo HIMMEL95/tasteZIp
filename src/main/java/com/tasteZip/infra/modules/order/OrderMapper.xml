@@ -59,9 +59,11 @@
 			,m.ifmmName
 			,m.ifmmPhone
 			,m.ifmmEmail
+			,mn.ifmnName
 		FROM buy b
 			JOIN store s on s.ifstSeq = b.ifstSeq
 			JOIN member m on m.ifmmSeq = b.ifmmSeq
+			JOIN menu mn on mn.ifmnSeq = b.ifmnSeq
 		WHERE 1=1
 		 	and b.iforSeq = #{iforSeq}  <!-- 일단 조건값을 넣어줌 -->
 	</select>

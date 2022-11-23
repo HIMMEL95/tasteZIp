@@ -11,9 +11,10 @@ public interface ReservationService {
 	// xdmin list
 	public List<Reservation> selectList(ReservationVo vo) throws Exception;
 
-	
 	// selectOne
 	public Reservation selectOneMyRV(ReservationVo vo) throws Exception;
+
+	public Reservation selectOne(ReservationVo vo) throws Exception;
 	
 	// selectone Count
 	public int selectOneCount(ReservationVo vo) throws Exception;

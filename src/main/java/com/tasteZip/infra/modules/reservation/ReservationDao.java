@@ -31,6 +31,10 @@ public class ReservationDao {
 		return result;
 	}
 	
+	public Reservation selectOne(ReservationVo vo) {
+		return sqlSession.selectOne(namespace + ".selectOne", vo);
+	}
+	
 	// 주문 select
 	public Reservation selectRV(ReservationVo vo) {
 		return sqlSession.selectOne(namespace + ".selectRV", vo);

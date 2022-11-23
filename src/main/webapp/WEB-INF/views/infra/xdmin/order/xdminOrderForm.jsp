@@ -42,109 +42,61 @@
 			<%-- <%@include file="codeVo.jsp"%> --%>
 			<!-- *Vo.jsp e -->
 				<div class="row" style="width: 1022px; height: 100%">
-					<h2 class="needs-validation mt-5 ms-5">Member Form</h2>
+					<h2 class="needs-validation mt-5 ms-5">Order Form</h2>
 					<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
 						<div class="start" style="margin-left: auto; margin-right: auto; width: 690px; display: grid;">
 							<div class="row">
-								<div class="col-6">
+								<%-- <div class="col-6">
 									<label class="form-label">Seq</label> 
-									<input type="text" class="form-control" value="<c:out value="${item.ifmmSeq}"/>" readonly>
-								</div>
+									<input type="text" class="form-control" value="<c:out value="${item.iforSeq}"/>" readonly>
+								</div> --%>
 								<div class="col-6">
-									<label class="form-label">이름</label> 
-									<input type="text" class="form-control" value="<c:out value="${item.ifmmName}"/>" readonly>
+									<label class="form-label">가게이름</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifstName}"/>" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">아이디</label> 
-									<input class="form-control" value="<c:out value="${item.ifmmId}"/>" placeholder="영대소문자, 특수기호, 숫자" readonly>
+									<label class="form-label">메뉴이름</label> 
+									<input class="form-control" value="<c:out value="${item.ifmnName}"/>" placeholder="영대소문자, 특수기호, 숫자" readonly>
 								</div>
 								<div class="col">
-									<label class="form-label">생년월일</label> 
-									<input type="text" class="form-control" value="<c:out value="${item.ifmmDob}"/>" placeholder="8자리 숫자" readonly>
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label class="form-label">이메일</label> 
-									<input type="text" value="<c:out value="${item.ifmmEmail}"/>" class="form-control" readonly>
+									<label class="form-label">수량</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.iforCount}"/>" placeholder="8자리 숫자" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">통신사</label>
-									<select class="form-select" id="ifmmRadioOperator" name="ifmmRadioOperator" disabled>
-										<option value="" <c:if test="${empty item.ifmmRadioOperator}">selected</c:if>>통신사</option>
-										<c:set var="listCodePhone" value="${CodeServiceImpl.selectListCachedCode('1') }" />
-											<c:forEach items="${listCodePhone}" var="listPhone" varStatus="statusPhone">
-											<option value="${item.ifmmRadioOperator }" <c:if test="${item.ifmmRadioOperator eq listPhone.ifccSeq}">selected</c:if>>
-												<c:out value="${listPhone.ifccName }"/>
-											</option>
-										</c:forEach>
-									</select> 
+									<label class="form-label">주문자</label> 
+									<input type="text" value="<c:out value="${item.ifmmName}"/>" class="form-control" readonly>
 								</div>
 								<div class="col">
 									<label class="form-label">전화번호</label> 
-									<input type="text" class="form-control" value="<c:out value="${item.ifmmPhone}"/>" oninput="autoHyphen1(this)" maxlength="13" readonly>
-								</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<label class="form-label">우편번호</label> 
-								<div class="col-2">	
-					   				<input type="text" value="<c:out value="${item.ifmmZipCode}"/>" class="form-control" readonly>
-					   			</div>
-								<div class="col">	
-					   				<input type="text" value="<c:out value="${item.ifmmAddress}"/>" class="form-control" readonly>
-					   			</div>
-								<div class="col-2">	
-					   				<input type="text" value="<c:out value="${item.ifmmDetailAddress}"/>" class="form-control" readonly>
-					   			</div>
-								<div class="col">	
-					   				<input type="text" value="<c:out value="${item.ifmmExtraAddress}"/>" class="form-control" readonly>
-					   			</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label class="form-label">사용자 구분</label> 
-									<select class="form-select" id="ifmmUserDiv" name="ifmmUserDiv" disabled>
-										<option value="" <c:if test="${empty item.ifmmUserDiv}">selected</c:if>>통신사</option>
-										<c:set var="listCodeUser" value="${CodeServiceImpl.selectListCachedCode('5') }" />
-											<c:forEach items="${listCodeUser}" var="listUser" varStatus="statusPhone">
-											<option value="${item.ifmmUserDiv }" <c:if test="${item.ifmmUserDiv eq listUser.ifccSeq}">selected</c:if>>
-												<c:out value="${listUser.ifccName }"/>
-											</option>
-										</c:forEach>
-									</select> 
+									<input type="text" value="<c:out value="${item.ifmmPhone}"/>" class="form-control" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">SNS</label>
-									<select class="form-select" id="ifmmSnsDiv" name="ifmmSnsDiv" disabled>
-										<option value="" <c:if test="${empty item.ifmmSnsDiv}">selected</c:if>>선택</option>
-										<c:set var="listCodeSns" value="${CodeServiceImpl.selectListCachedCode('4') }" />
-											<c:forEach items="${listCodeSns}" var="listSns" varStatus="statusPhone">
-											<option value="${item.ifmmSnsDiv }" <c:if test="${item.ifmmSnsDiv eq listSns.ifccSeq}">selected</c:if>>
-												<c:out value="${listSns.ifccName }"/>
+									<label class="form-label">주문금액</label> 
+									<input type="text" value="<c:out value="${item.iforPrice}"/>" class="form-control" readonly>
+								</div>
+								<div class="col">
+									<label class="form-label">결제수단</label> 
+									<select class="form-select" id="iforPay" name="iforPay" disabled>
+										<option value="" <c:if test="${empty item.iforPay}">selected</c:if>>결제수단</option>
+										<c:set var="listCodePay" value="${CodeServiceImpl.selectListCachedCode('3') }" />
+											<c:forEach items="${listCodePay}" var="listPay" varStatus="statusPhone">
+											<option value="${item.iforPay }" <c:if test="${item.iforPay eq listPay.ifccSeq}">selected</c:if>>
+												<c:out value="${listPay.ifccName }"/>
 											</option>
 										</c:forEach>
 									</select>
 								</div>
+							</div>
+							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">이메일여부</label> 
-									<select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>N</option>
-										<option>Y</option>
-									</select>
-								</div>
-								<div class="col">
-									<label class="form-label">삭제여부</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>N</option>
-										<option>Y</option>
-									</select>
+									<label class="form-label">주문시간</label> 
+									<input type="text" value="<c:out value="${item.iforCreatedAt}"/>" class="form-control" readonly>
 								</div>
 							</div>
 						</div>
@@ -231,12 +183,12 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			
-			var goUrlList = "/member/xdminMemberList"; 
-			var goUrlForm = "/member/xdminMemberForm"; 
-			var goUrlInst = "/member/memberInst"; /* #-> */
-			var goUrlUpdt = "/member/memberUpdt"; /* #-> */
-			var goUrlUele = "/member/memberUele"; /* #-> */
-			var goUrlDele = "/member/memberDele"; /* #-> */
+			var goUrlList = "/order/xdminOrderList"; 
+			var goUrlForm = "/order/xdminOrderForm"; 
+			var goUrlInst = "/order/orderInst"; /* #-> */
+			var goUrlUpdt = "/order/orderUpdt"; /* #-> */
+			var goUrlUele = "/order/orderUele"; /* #-> */
+			var goUrlDele = "/order/orderDele"; /* #-> */
 			
 			var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
 			

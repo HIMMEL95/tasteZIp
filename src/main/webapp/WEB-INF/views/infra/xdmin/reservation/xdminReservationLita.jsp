@@ -59,15 +59,15 @@
 		<%@include file="../includeV1/pagination.jsp"%>
 	</div>
 
-		<!-- end --> 
-		<script>
-		
+	<!-- end --> 
+	<script>
+	
 		var goUrlForm = "/reservation/xdminReservationForm"; 
 		
 		var form = $("form[name=formList]");
 		
 		var ifrvSeq = $("input[name=ifrvSeq]");
-			
+		
 			// ----- form으로 이동 -----
 			
 			$('#btnForm').on("click", function() {
@@ -76,7 +76,7 @@
 			
 			goForm = function(keyValue) {
 				/* if(key != 0) seq.val(btoa(key)); */
-				ifccSeq.val(keyValue);
+				ifrvSeq.val(keyValue);
 				form.attr("action", goUrlForm).submit();
 			}
 
@@ -104,9 +104,7 @@
 				if(total != checked) $("#checkboxAll").prop("checked", false);
 				else $("#checkboxAll").prop("checked", true); 
 			});
-	 		</script>
-	 		
-	 		
+ 		</script>
 	 		
 </body>
 </html>

@@ -30,6 +30,12 @@ public class ReservationServiceImpl implements ReservationService{
 		return dao.selectOneMyRV(vo);
 	}
 	
+	
+	@Override
+	public Reservation selectOne(ReservationVo vo) throws Exception {
+		return dao.selectOne(vo);
+	}
+
 	//selectOne count
 	@Override
 	public int selectOneCount(ReservationVo vo) throws Exception {

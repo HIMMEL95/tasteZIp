@@ -130,5 +130,15 @@ public class OrderController {
  		
  		return "infra/xdmin/order/xdminOrderLita";
  	}
+ 	
+ 	@RequestMapping(value = "xdminOrderForm")
+ 	public String xdminOrderForm(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
+ 		
+ 		Order item = service.selectOne(vo);
+ 		model.addAttribute("item", item);
+ 		
+		return "infra/xdmin/order/xdminOrderForm";
+ 		
+ 	}
     
 }

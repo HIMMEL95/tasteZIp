@@ -64,6 +64,16 @@ public class ReservationController {
 		return "infra/xdmin/reservation/xdminReservationLita";
 	}
 	
+	@RequestMapping(value = "xdminReservationForm")
+ 	public String xdminReservationForm(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {
+ 		
+		Reservation item = service.selectOne(vo);
+ 		model.addAttribute("item", item);
+ 		
+		return "infra/xdmin/reservation/xdminReservationForm";
+ 		
+ 	}
+	
 	
 	@RequestMapping(value = "ReservationUele")
 	public String ReservationUele(@ModelAttribute("vo") ReservationVo vo, Model model) throws Exception {

@@ -24,7 +24,6 @@ public class ChatController {
 	public String chat(HttpSession httpSession,Model model) throws Exception {
 		
 		List<Chat> list = service.selectChatListFromOne(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()));
-		
 		model.addAttribute("list", list);
 		
 		return "infra/main/chat/chat";
@@ -38,7 +37,6 @@ public class ChatController {
 		Map<String,Object> result = new HashMap<String,Object>();
 		
 		Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
-		
 		if(newChat != null) {
 			result.put("rt", "success");
 			result.put("newChat", newChat);

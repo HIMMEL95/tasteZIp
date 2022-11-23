@@ -251,12 +251,11 @@
 // ------------------------------------
 
 var map, marker;
-var marker_s, marker_e, marker_p1, marker_p2;
+var marker_s, marker_e, marker_p1, marker_p2, marker_p;
 var totalMarkerArr = [];
 var drawInfoArr = [];
 var resultdrawArr = [];
 var markerArr = [];
-var lat, lon;
 var resultpoisData;
 
 function initTmap(){
@@ -271,6 +270,20 @@ function initTmap(){
 	   
    });
    
+   navigator.geolocation.getCurrentPosition(function(pos) {
+	    console.log(pos);
+	    var latitude = pos.coords.latitude;
+	    var longitude = pos.coords.longitude;
+	    
+	    //현재 위치 마커 만들기
+		marker_s = new Tmapv2.Marker(
+		{
+			position : new Tmapv2.LatLng(latitude,longitude),
+			iconSize : new Tmapv2.Size(24, 38),
+			map : map
+		});
+	});
+	
    // 2. POI 통합 검색 API 요청
 	keywordSearch = function(value) {
 	   
@@ -306,8 +319,8 @@ function initTmap(){
 				   var pointCng = new Tmapv2.Point(noorLon, noorLat);
 				   var projectionCng = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(pointCng);
 				   
-				   lat = projectionCng._lat;
-				   lon = projectionCng._lng;
+				   var lat = projectionCng._lat;
+				   var lon = projectionCng._lng;
 				   
 				   var markerPosition = new Tmapv2.LatLng(lat, lon);
 				   
@@ -363,9 +376,11 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
      }
  }
  
- var sLat, sLon, eLat, eLon;
+var sLat, sLon, eLat, eLon;
  
- $("#findWay").on("click", function() {
+walkWay = function() {
+
+	resettingMap();
 	
 	marker_s = new Tmapv2.Marker(
 	{
@@ -491,6 +506,7 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 				}
 			}//for문 [E]
 			drawLine(drawInfoArr);
+			
 		},
 		error : function(request, status, error) {
 			console.log("code:" + request.status + "\n"
@@ -498,7 +514,7 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 					+ "error:" + error);
 		}
 	});
-})
+}
 function addComma(num) {
 	var regexp = /\B(?=(\d{3})+(?!\d))/g;
 	return num.toString().replace(regexp, ',');

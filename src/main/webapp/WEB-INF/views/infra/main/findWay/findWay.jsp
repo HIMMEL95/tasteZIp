@@ -96,7 +96,8 @@
 					<div class="panel">
 						<div class="panel_top">
 							<div class="btn-group m-3" role="group" aria-label="Basic outlined example">
-						  		<button type="button" class="btn btn-outline-secondary">
+								<input type="hidden" name="wayType">
+						  		<button type="button" class="btn btn-outline-secondary public">
 						  			<i class="fa-solid fa-bus-simple"></i>
 						  			대중교통
 				  				</button>
@@ -104,11 +105,11 @@
 									<i class="fa-solid fa-car"></i>
 							  		자동차
 						  		</button>
-							  	<button type="button" class="btn btn-outline-secondary">
+							  	<button type="button" class="btn btn-outline-secondary walk">
 							  		<i class="fa-solid fa-person-walking"></i>
 							  		도보
 						  		</button>
-							  	<button type="button" class="btn btn-outline-secondary">
+							  	<button type="button" class="btn btn-outline-secondary bike">
 							  		<i class="fa-solid fa-person-biking"></i>
 							  		자전거
 						  		</button>
@@ -253,6 +254,31 @@
 				}
 			})
 		}
+		
+		$(".public").on("click", function() {
+			$("input[name=wayType]").val("1");
+			$(".ft_select").css("display", "none");
+		})
+		$(".car").on("click", function() {
+			$("input[name=wayType]").val("2");
+		})
+		$(".walk").on("click", function() {
+			$("input[name=wayType]").val("3");
+			$(".ft_select").css("display", "none");
+		})
+		$(".bike").on("click", function() {
+			$("input[name=wayType]").val("4");
+			$(".ft_select").css("display", "none");
+		})
+		
+		$("#findWay").on("click", function() {
+			if ($("input[name=wayType]").val() == "3") {
+				walkWay();
+			} else if ($("input[name=wayType]").val() == "2") {
+				carWay();
+			}
+		})
+		
 	</script>
 </body>
 

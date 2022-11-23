@@ -1,6 +1,9 @@
 package com.tasteZip.infra.modules.menu;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -183,5 +187,15 @@ public class MenuController {
 	}
 	
 	
-
+    /* 장바구니 구현 용 s */
+	@ResponseBody
+	@RequestMapping(value = "cart")
+	public Map<String, Object> cart(Menu dto, MenuVo vo) throws Exception {
+	    Map<String, Object> returnMap = new HashMap<String, Object>();
+	    System.out.println("name : " + dto.getIfmnName());
+	    System.out.println("price : " + dto.getIfmnPrice());
+	    returnMap.put("rt", "success");
+	    return returnMap;
+	}
+	/* 장바구니 구현 용 e */
 }

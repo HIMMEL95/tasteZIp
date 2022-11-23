@@ -45,6 +45,7 @@
 			<exclude-mapping path="/findWay" />
 			<exclude-mapping path="/reservation" />
 			<exclude-mapping path="/menu" />
+			<exclude-mapping path="/menu/cart" />
 			<exclude-mapping path="/store" />
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/signUp" />

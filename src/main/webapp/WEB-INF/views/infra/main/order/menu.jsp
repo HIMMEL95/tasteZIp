@@ -292,25 +292,20 @@
 																																</span>
 																															</div>
 																															<div class="info_detail">
-																																<div class="tit">
-																																	${list.ifmnName }
-																																	<span class="ico_group"></span>
-																																</div>
+																																<div class="tit${status2.index }">${list.ifmnName }<span class="ico_group"></span></div>
 																																<div class="detail">
 																																	<span class="detail_txt">${list.ifmnInfo }</span>
 																																</div>
-																																<div class="price">
-																																	<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원
-																																</div>
+																																<div class="price${status2.index }"><fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원</div>
 																															</div>
 																														</a>
-																														<a href="#" class="btn_shop" role="button">
+																														<button class="btn_shop" role="button" onclick="goCart(${status2.index})">
 																															<div class="btn_box">
 																																<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
 																																	<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
 																																</svg>
 																															</div>
-																														</a>
+																														</button>
 																													</div>
 																												</li>
 																											</ul>
@@ -389,7 +384,7 @@
 		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
 		
 		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
+		var map = new kakao.maps.Map(container, options); 
 		
 	</script>
 	<script type="text/javascript">
@@ -417,6 +412,24 @@
 				$("#popoverBtn"+keyValue).removeClass("fa-angle-up");
 				$(".order_list_area"+keyValue).css("display", "none");
 			}
+		}
+		
+		goCart = function (value) {
+			alert("asad")
+			alert($(".tit"+value).text())
+			alert($(".price"+value).html())
+			$.ajax({
+				type: "POST"
+				,url: "/menu/cart"
+				,data: {
+					ifmnName : $(".tit"+value).text()
+					,ifmnPrice : $(".price"+value).text()}
+				,success : function(response) {
+					if (response.rt == "success") {
+						alert("일단 성공")
+					} 
+				}
+			});
 		}
 	</script>
 </body>

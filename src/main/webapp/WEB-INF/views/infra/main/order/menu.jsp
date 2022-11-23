@@ -423,7 +423,8 @@
 				,url: "/menu/cart"
 				,data: {
 					ifmnName : $(".tit"+value).text()
-					,ifmnPrice : $(".price"+value).text()}
+					,ifmnPrice : $(".price"+value).text()
+					,count : ""}
 				,success : function(response) {
 					if (response.rt == "success") {
 						alert("일단 성공")

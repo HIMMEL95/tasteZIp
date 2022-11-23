@@ -86,7 +86,7 @@
 								<div class="row">
 									<div class="col">
 										<label class="form-label" for="ifmmDob"> Birth <span class="text-danger">*</span></label>
-										<input class="form-control" name="ifmmDob" id="ifmmDob" placeholder="Password" type="text" data-msg="Please enter your password">
+										<input class="form-control" name="ifmmDob" id="ifmmDob" type="text" data-msg="Please enter your password" oninput="autoHyphen2(this)" maxlength="10">
 									</div>
 									<div class="col">
 										<label class="form-label" for="ifmmGender"> Gender <span class="text-danger">*</span></label>
@@ -425,6 +425,12 @@
 			target.value = target.value
 			.replace(/[^0-9]/g, '')
 			.replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+ 		}
+
+		const autoHyphen2 = (target) => {
+			target.value = target.value
+			.replace(/[^0-9]/g, '')
+			.replace(/^(\d{0,4})(\d{0,2})(\d{0,2})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
  		}
 	</script>
 </body>

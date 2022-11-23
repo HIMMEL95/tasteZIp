@@ -46,7 +46,8 @@
 	
 	<select id="selectOne" resultMap="resultMapObj">
 			select 
-				m.ifmmName
+				m.ifmmSeq
+				,m.ifmmName
 				,m.ifmmId
 				,m.ifmmDob
 				,m.ifmmGender
@@ -57,7 +58,10 @@
 				,m.ifmmAddress
 				,m.ifmmDetailAddress
 				,m.ifmmExtraAddress
+				,m.ifmmUserDiv
+				,m.ifmmSnsDiv
 				,m.ifmmEmailCheck
+				,m.ifmmDelNy
 			FROM member m
 			WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}

@@ -10,7 +10,7 @@
 <html lang="ko" >
 <head>
   <meta charset="UTF-8">
-  <title>xdmin New Member</title>
+  <title>xdmin New Store</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="/resources/css/home/style.css">	
@@ -32,11 +32,11 @@
 					<div class="page-content">
 						<div class="content-categories">
 							<div class="label-wrapper">
-								<input class="nav-item" name="nav" type="radio" id="opt-1" onclick="location.href='/xdminMain';" href="#" checked>
+								<input class="nav-item" name="nav" type="radio" id="opt-1" onclick="location.href='/xdminMain';" href="#">
 								<label class="category" for="opt-1">New Member</label>
 							</div>
 							<div class="label-wrapper">
-								<input class="nav-item" name="nav" type="radio" id="opt-2" onclick="location.href='/xdminMainNewStore';" href="#">
+								<input class="nav-item" name="nav" type="radio" id="opt-2" onclick="location.href='/xdminMainNewStore';" href="#" checked>
 								<label class="category" for="opt-2">New Store</label>
 							</div>
 							<div class="label-wrapper">
@@ -45,37 +45,33 @@
 							</div>
 						</div>
 						<div class="container">
-							<div class="header upcoming">New Member
-								<a class="forMore" onclick="location.href='member/xdminMemberList';" href="#">
+							<div class="header upcoming">New Store
+								<a class="forMore" onclick="location.href='store/xdminStoreList';" href="#">
 									더보기
 									<i class="fa-solid fa-caret-right"></i>
 								</a>
 							</div>
 							<div class="tasks-wrapper">
 								<div class="task">
-									<i class="fa-solid fa-user-plus"></i>
-									<!-- <input class="task-item" name="task" type="checkbox" id="item-1" checked> -->
+									<i class="fa-solid fa-store"></i>
+									<!-- <input class="task-item" name="task" type="checkbox" id="item-3"> -->
 									<label>
-										<span class="text ms-2">이름 : <strong>value="${vo.ifmmName}"</strong></span>
+										<span>이름 : <strong>참이맛감자탕 강남점</strong></span>
 										&nbsp; &nbsp; 
-										<span class="text">닉네임 : <strong>lalala</strong></span>
+										<span>전화번호 : <strong>02-3481-3399</strong></span>
 										&nbsp; &nbsp; 
-										<span class="text">이메일 : <strong>lala@naver.com</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">가입일 : <strong>2022-11-22</strong></span>
+										<span>주소 : <strong>서울 서초구 사평대로56길 10</strong></span>
 									</label>
 								</div>
 								<div class="task">
-									<i class="fa-solid fa-user-plus"></i>
-									<!-- <input class="task-item" name="task" type="checkbox" id="item-3"> -->
+									<i class="fa-solid fa-store"></i>
+								<!-- <input class="task-item" name="task" type="checkbox" id="item-3"> -->
 									<label>
-										<span class="text ms-2">이름 : <strong>고*지</strong></span>
+										<span>이름 : <strong>봉구스밥버거 아현점</strong></span>
 										&nbsp; &nbsp; 
-										<span class="text">닉네임 : <strong>nct127</strong></span>
+										<span>전화번호 : <strong>010-2737-7551</strong></span>
 										&nbsp; &nbsp; 
-										<span class="text">이메일 : <strong>jaehyun@naver.com</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">가입일 : <strong>2022-11-22</strong></span>
+										<span>주소 : <strong>서울 마포구 마포대로 196</strong></span>
 									</label>
 								</div>
 							</div>
@@ -108,7 +104,7 @@
                     ],
                     datasets: [
                         { //데이터
-                            label: '주간 신규 가입자 차트', //차트 제목
+                            label: '주간 신규 스토어 차트', //차트 제목
                             fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
                             data: [
                                 21,19,25,20,23,26,25 //x축 label에 대응되는 데이터 값

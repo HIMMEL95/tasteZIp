@@ -121,12 +121,16 @@ public class MainController {
         List<Member> list = mbService.selectList(vo);
         model.addAttribute("list", list);
         
-        
-        svo.setParamsPaging(sService.selectOneCount(svo));
-        
-        List<Store> sList = sService.selectList(svo);
-        model.addAttribute("sList", sList);
-        
         return "infra/xdmin/home/xdminMain";
+    }
+  
+    @RequestMapping(value = "xdminMainNewStore")
+    public String xdminMainNewStore(Model model, StoreVo svo) throws Exception {
+    	svo.setParamsPaging(sService.selectOneCount(svo));
+    	
+    	List<Store> sList = sService.selectList(svo);
+    	model.addAttribute("sList", sList);
+    	
+    	return "infra/xdmin/home/xdminMainNewStore";
     }
 }

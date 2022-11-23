@@ -55,6 +55,7 @@
 			<!-- 관리자 영역 -->
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/xdminMain" />
+			<exclude-mapping path="/xdminMainNewStore" />
 			<!-- memberForm/List -->
 			<exclude-mapping path="/member/xdminMemberLita" />
 			<exclude-mapping path="/member/xdminMemberList" />

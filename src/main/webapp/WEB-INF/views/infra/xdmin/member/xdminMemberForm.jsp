@@ -5,8 +5,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
 
+<jsp:useBean id="CodeServiceImpl" class="com.tasteZip.infra.modules.code.CodeServiceImpl" />
 
-	<!DOCTYPE html>
+<!DOCTYPE html>
 	<html lang="ko" >
 	<head>
 		<meta charset="UTF-8">
@@ -47,92 +48,111 @@
 							<div class="row">
 								<div class="col-6">
 									<label class="form-label">Seq</label> 
-									<input type="text" class="form-control" value="<c:out value="${item.ifmmSeq}"/>" placeholder="Seq">
+									<input type="text" class="form-control" value="<c:out value="${item.ifmmSeq}"/>" readonly>
 								</div>
 								<div class="col-6">
 									<label class="form-label">이름</label> 
-									<input type="text" class="form-control" value="">
+									<input type="text" class="form-control" value="<c:out value="${item.ifmmName}"/>" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
 									<label class="form-label">아이디</label> 
-									<input class="form-control" placeholder="영대소문자, 특수기호, 숫자">
+									<input class="form-control" value="<c:out value="${item.ifmmId}"/>" placeholder="영대소문자, 특수기호, 숫자" readonly>
 								</div>
 								<div class="col">
 									<label class="form-label">생년월일</label> 
-									<input type="text" class="form-control" placeholder="8자리 숫자">
+									<input type="text" class="form-control" value="<c:out value="${item.ifmmDob}"/>" placeholder="8자리 숫자" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
 									<label class="form-label">이메일</label> 
-									<input type="text" class="form-control">
+									<input type="text" value="<c:out value="${item.ifmmEmail}"/>" class="form-control" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">통신사</label> 
-									<select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>SKT</option>
-										<option>KT</option>
-										<option>LGT</option>
-									</select>
+									<label class="form-label">통신사</label>
+									<select class="form-select" id="ifmmRadioOperator" name="ifmmRadioOperator" disabled>
+										<option value="" <c:if test="${empty item.ifmmRadioOperator}">selected</c:if>>통신사</option>
+										<c:set var="listCodePhone" value="${CodeServiceImpl.selectListCachedCode('1') }" />
+											<c:forEach items="${listCodePhone}" var="listPhone" varStatus="statusPhone">
+											<option value="${item.ifmmRadioOperator }" <c:if test="${item.ifmmRadioOperator eq listPhone.ifccSeq}">selected</c:if>>
+												<c:out value="${listPhone.ifccName }"/>
+											</option>
+										</c:forEach>
+									</select> 
 								</div>
 								<div class="col">
 									<label class="form-label">전화번호</label> 
-									<input type="text" class="form-control" placeholder="- 를 제외한 숫자만">
+									<input type="text" class="form-control" value="<c:out value="${item.ifmmPhone}"/>" oninput="autoHyphen1(this)" maxlength="13" readonly>
 								</div>
 							</div>
 							<div class="row mt-3" style="margin-top: 3rem;">
 								<label class="form-label">우편번호</label> 
-								<div class="col">	
-					   				<input type="text" class="form-control">
+								<div class="col-2">	
+					   				<input type="text" value="<c:out value="${item.ifmmZipCode}"/>" class="form-control" readonly>
 					   			</div>
 								<div class="col">	
-					   				<input type="text" class="form-control">
+					   				<input type="text" value="<c:out value="${item.ifmmAddress}"/>" class="form-control" readonly>
+					   			</div>
+								<div class="col-2">	
+					   				<input type="text" value="<c:out value="${item.ifmmDetailAddress}"/>" class="form-control" readonly>
 					   			</div>
 								<div class="col">	
-					   				<input type="text" class="form-control">
-					   			</div>
-								<div class="col">	
-					   				<input type="text" class="form-control">
+					   				<input type="text" value="<c:out value="${item.ifmmExtraAddress}"/>" class="form-control" readonly>
 					   			</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">사용자 구분</label> <select class="form-select" >
-										<option selected disabled value="">선택</option>
-										<option>고객</option>
-										<option>사장님</option>
-										<option>관리자</option>
-									</select>
+									<label class="form-label">사용자 구분</label> 
+									<select class="form-select" id="ifmmUserDiv" name="ifmmUserDiv" disabled>
+										<option value="" <c:if test="${empty item.ifmmUserDiv}">selected</c:if>>통신사</option>
+										<c:set var="listCodeUser" value="${CodeServiceImpl.selectListCachedCode('5') }" />
+											<c:forEach items="${listCodeUser}" var="listUser" varStatus="statusPhone">
+											<option value="${item.ifmmUserDiv }" <c:if test="${item.ifmmUserDiv eq listUser.ifccSeq}">selected</c:if>>
+												<c:out value="${listUser.ifccName }"/>
+											</option>
+										</c:forEach>
+									</select> 
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">SNS</label> <select class="form-select" >
-										<option selected disabled value="">선택</option>
-										<option>일반</option>
-										<option>네이버</option>
-										<option>구글</option>
-										<option>페이스북</option>
-										<option>카카오</option>
+									<label class="form-label">SNS</label>
+									<select class="form-select" id="ifmmSnsDiv" name="ifmmSnsDiv" disabled>
+										<option value="" <c:if test="${empty item.ifmmSnsDiv}">selected</c:if>>선택</option>
+										<c:set var="listCodeSns" value="${CodeServiceImpl.selectListCachedCode('4') }" />
+											<c:forEach items="${listCodeSns}" var="listSns" varStatus="statusPhone">
+											<option value="${item.ifmmSnsDiv }" <c:if test="${item.ifmmSnsDiv eq listSns.ifccSeq}">selected</c:if>>
+												<c:out value="${listSns.ifccName }"/>
+											</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="col">
-									<label class="form-label">이메일여부</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>N</option>
-										<option>Y</option>
+									<label class="form-label">이메일여부</label> 
+									<select class="form-select" id="ifmmEmailCheck" name="ifmmEmailCheck" disabled>
+										<option value="" <c:if test="${empty item.ifmmEmailCheck}">selected</c:if>>선택</option>
+										<%-- <c:set var="listCodeEmail" value="${CodeServiceImpl.selectListCachedCode('4') }" /> --%>
+											<c:forEach items="${listCodeEmail}" var="listEmail" varStatus="statusPhone">
+											<option value="${item.ifmmEmailCheck }" <c:if test="${item.ifmmEmailCheck eq listEmail.ifccSeq}">selected</c:if>>
+												<c:out value="${listEmail.ifccName }"/>
+											</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="col">
-									<label class="form-label">삭제여부</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>N</option>
-										<option>Y</option>
+									<label class="form-label">삭제여부</label> 
+									<select class="form-select" id="ifmmDelNy" name="ifmmDelNy" disabled>
+										<option value="" <c:if test="${empty item.ifmmDelNy}">selected</c:if>>선택</option>
+										<c:set var="listCodeEmail" value="${CodeServiceImpl.selectListCachedCode('4') }" />
+											<c:forEach items="${listCodeEmail}" var="listEmail" varStatus="statusPhone">
+											<option value="${item.ifmmDelNy }" <c:if test="${item.ifmmEmailCheck eq listEmail.ifccSeq}">selected</c:if>>
+												<c:out value="${listEmail.ifccName }"/>
+											</option>
+										</c:forEach>
 									</select>
 								</div>
 							</div>
@@ -287,6 +307,13 @@
 		    }
 
 
+	</script>
+	<script type="text/javascript">
+		const autoHyphen1 = (target) => {
+	 		 target.value = target.value
+	 		   .replace(/[^0-9]/g, '')
+	 		  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+	 		}
 	</script>
 </body>
 

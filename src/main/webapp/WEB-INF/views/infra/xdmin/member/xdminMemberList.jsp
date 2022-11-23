@@ -121,9 +121,6 @@
 			                                <button class="border-0 btn bg-success shadow" id="excelBtn" type="button">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>
-			                                <button class="border-0 btn shadow bg-dark" type="button" id="btnForm">
-			                                    <i class="fa-regular fa-plus fa-1x" style="color: white;"></i>
-			                                </button>
 			                            </div>
 			                        </div>
 								</div>

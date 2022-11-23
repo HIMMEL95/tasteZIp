@@ -49,7 +49,7 @@ public class MainController {
         return "infra/main/user/signUp";
     }
     
-    @RequestMapping(value = "order")
+    @RequestMapping(value = "store")
     public String order() throws Exception {
         return "infra/main/order/order";
     }

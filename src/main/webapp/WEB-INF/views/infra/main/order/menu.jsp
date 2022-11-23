@@ -35,7 +35,7 @@
 				</a>
 				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 					<li class="nav-item">
-						<a href="/order" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/store" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
@@ -222,13 +222,13 @@
 																	<div class="ngGKH">
 																		<div class="flicking-viewport" style="user-select: none; -webkit-user-drag: none; touch-action: pan-y;">
 																			<div class="flicking-camera" style="transform: translate(0px);">
-																				<a href="/restaurant/1470422298/home?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/store" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">홈</span>
 																				</a>
-																				<a href="/restaurant/1470422298/menu?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
+																				<a href="/menu" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">메뉴</span>
 																				</a>
-																				<a href="/restaurant/1470422298/review?from=map&amp;fromPanelNum=2&amp;ts=1666591774818" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/comment" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">리뷰</span>
 																				</a>
 																			</div>
@@ -275,14 +275,14 @@
 																										</c:forEach>
 																									</span>
 																									<button type="button" class="btn_fold2" onclick="popover(${status.index})">
-																										<input type="hidden" value="0" name="popValue${status.index }">
+																										<input type="hidden" value="1" name="popValue${status.index }">
 																										<i id="popoverBtn${status.index }" class="fa-solid fa-angle-down"></i>
 																									</button>
 																								</div>
 																								<c:forEach items="${list }" var="list" varStatus="status2">
 																									<c:choose>
 																										<c:when test="${setDiv.ifmnSet_div eq list.ifmnSet_div }">
-																											<ul class="order_list_area${status.index }" style="display: none;">
+																											<ul class="order_list_area${status.index }">
 																												<li class="order_list_item">
 																													<div class="item_info">
 																														<a href="#" class="info_link">

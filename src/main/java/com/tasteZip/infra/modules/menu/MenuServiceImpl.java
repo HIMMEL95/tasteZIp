@@ -1,6 +1,7 @@
 package com.tasteZip.infra.modules.menu;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,14 +11,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.common.util.UtilDateTime;
-import com.tasteZip.infra.common.util.UtilSecurity;
 
 @Service
 public class MenuServiceImpl implements MenuService {
     
     @Autowired
     MenuDao dao;
-
+    
+    private List<String> ifmnSeqArray = new ArrayList<String>();
+    
     @Override
     public List<Menu> selectList(MenuVo vo) throws Exception {
         return dao.selectList(vo);
@@ -127,7 +129,8 @@ public class MenuServiceImpl implements MenuService {
                 dto.setDefaultNy(j == 0 ? 1 : 0);
                 dto.setSort(j + 1);
                 dto.setPseq(dto.getIfmnSeq());
-
+                
+                System.out.println("tsets");
                 dao.insertUploaded(dto);
                 j++;
             }

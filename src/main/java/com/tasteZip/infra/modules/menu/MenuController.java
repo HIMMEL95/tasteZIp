@@ -94,6 +94,17 @@ public class MenuController {
 		
 		return "infra/xdmin/menu/ownerMenuForm";
 	}
+	
+	@RequestMapping(value= "menuInst")
+	public String menuInst(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		
+		service.insert(dto);
+		
+		vo.setIfmnSeq(dto.getIfmnSeq());
+		redirectAttributes.addFlashAttribute("vo", vo);
+		
+		return "redirect:/menu/ownerMenuForm";
+	}
 
 	@RequestMapping(value= "menuUpdt")
 	public String MenuUpdt(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {

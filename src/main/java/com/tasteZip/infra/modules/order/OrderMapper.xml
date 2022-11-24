@@ -120,4 +120,17 @@
 		WHERE
 			iforSeq = #{iforSeq}
 	</update>
+	
+	<!-- 장바구니용 s -->
+	<select id="selectCart" resultMap="resultMapObj">
+		SELECT
+			m.ifmnSeq
+			,m.ifmnName
+			,m.ifmnPrice
+			,mu.path
+			,mu.uuidName
+		from menu m
+			inner join menuUploaded mu on mu.pseq = m.ifmnSeq
+	</select>
+	<!-- 장바구니용 e -->
 </mapper>

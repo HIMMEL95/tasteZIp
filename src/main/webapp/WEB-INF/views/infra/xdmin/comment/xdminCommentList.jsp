@@ -39,7 +39,7 @@
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
                	<input type="hidden" name="ifcmSeq" value="${vo.ifcmSeq}">
 				<div class="wrapper">
-					<div class="container" style="height: 100vh; width: 100vh;">
+					<div class="container" style="height: 100vh; width: 93vh;">
 						<div class="row">
 							<div class="col">
 								<div class="content">
@@ -121,9 +121,6 @@
 			                                <button class="border-0 btn bg-success shadow" id="excelBtn" type="button">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>
-			                                <button class="border-0 btn shadow bg-dark" type="button" id="btnForm">
-			                                    <i class="fa-regular fa-plus fa-1x" style="color: white;"></i>
-			                                </button>
 			                            </div>
 			                        </div>
 								</div>
@@ -177,8 +174,6 @@
 		var goUrlExcel = "/comment/excelDownload";
 		var goUrlUele = "/comment/CommentUele";	
 		var goUrlDele = "/comment/CommentDele";
-		
-		var form = $("form[name=formList]");
 		
 		var ifcmSeq = $("input[name=ifcmSeq]");
 

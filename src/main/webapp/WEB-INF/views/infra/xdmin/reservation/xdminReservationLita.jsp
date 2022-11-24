@@ -35,7 +35,7 @@
 					</c:when>
 					<c:otherwise>		
 						<c:forEach items="${list}" var="list" varStatus="status">
-							<tr onclick="goForm(${list.ifstSeq})" class="info" style="cursor: pointer;">
+							<tr onclick="goForm(${list.ifrvSeq})" class="info" style="cursor: pointer;">
 								<td>
 									<input class="check" type="checkbox" name="check" onclick="checkSelectAll(this)">
 								</td>

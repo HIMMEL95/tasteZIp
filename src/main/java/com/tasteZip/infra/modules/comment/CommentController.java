@@ -74,6 +74,15 @@ public class CommentController {
 		return "infra/xdmin/comment/xdminCommentLita";
 	}
     
+    @RequestMapping(value = "xdminCommentForm")
+	public String xdminCommentForm(@ModelAttribute("vo") CommentVo vo, Model model) throws Exception {
+		
+    	Comment item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		
+	    return "infra/xdmin/comment/xdminCommentForm";
+	}
+    
     @RequestMapping("/excelDownload")
     public void excelDownload(CommentVo vo, HttpServletResponse httpServletResponse) throws Exception {
 		

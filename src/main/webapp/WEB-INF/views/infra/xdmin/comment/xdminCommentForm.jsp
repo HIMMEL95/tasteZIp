@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>xdmin Store Form</title>
+		<title>xdmin Comment Form</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
 		<!-- datepicker s -->
@@ -42,158 +42,46 @@
 			<%-- <%@include file="codeVo.jsp"%> --%>
 			<!-- *Vo.jsp e -->
 				<div class="row" style="width: 1022px; height: 100%">
-					<h2 class="needs-validation mt-5 ms-5">Store Form</h2>
+					<h2 class="needs-validation mt-5 ms-5">Comment Form</h2>
 					<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
 						<div class="start" style="margin-left: auto; margin-right: auto; width: 690px; display: grid;">
 							<div class="row">
-								<div class="card col">
-									<p class="fw-bold" style="margin: 20px 15px; font-size: 15px;">
-										<i class="fa-solid fa-star-of-life"></i> 
-										휴무 날도 영엽일과 동일하게 영업 시간을 작성해주세요!
-									</p>
-								</div>
-							</div>
-							<div class="row mt-3"">
-								<div class="col">
-									<div class="accordion" id="accordionExample">
-										<div class="accordion-item">
-											<h2 class="accordion-header" id="headingOne">
-												<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-													 오픈 시간
-												</button>
-											</h2>
-											<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-												<div class="accordion-body">
-													<c:choose>
-														<c:when test="${item.ifstSeq eq 0 or empty item.ifstSeq }">
-														<input type="hidden" id="test" value="${item.ifstSeq }">
-															<c:forEach items="${day }" var="list2" varStatus="status">
-																<div class="row">
-																	<div class="col-2">
-																		<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
-																		<select class="form-select" id="ifrtDayArray" name="ifrtDayArray">
-																			<option value="">선택</option>
-																			<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
-																				<option value="${listDay.ifccSeq }" <c:if test="${list2.ifrtDay eq listDay.ifccSeq}">selected</c:if>><c:out value="${listDay.ifccName }"/></option>
-																			</c:forEach>
-																		</select>
-																	</div>
-																	<div class="col-2">
-																		<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																		<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})">
-																			<option value="">선택</option>
-																			<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
-																				<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
-																			</c:forEach>
-																		</select>
-																	</div>
-																	<div class="col">
-																		<input type="time" class="form-control" id="ifrtStartTimeArray${status.index }" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
-																	</div>
-																	~
-																	<div class="col">
-																		<input type="time" class="form-control" id="ifrtEndTimeArray${status.index }" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
-																	</div>
-																</div>
-															</c:forEach>
-														</c:when>	
-														<c:otherwise>
-															<c:forEach items="${running }" var="list" varStatus="status">
-																<div class="row">
-																	<div class="col-2">
-																		<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
-																		<select class="form-select" id="ifrtDayArray" name="ifrtDayArray" readonly>
-																			<option value="">선택</option>
-																			<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
-																				<option value="${listDay.ifccSeq }" <c:if test="${list.ifrtDay eq listDay.ifccSeq}">selected</c:if>><c:out value="${listDay.ifccName }"/></option>
-																			</c:forEach>
-																		</select>
-																	</div>
-																	<div class="col-2">
-																		<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																		<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})">
-																			<option value="">선택</option>
-																			<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
-																				<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
-																			</c:forEach>
-																		</select>
-																	</div>
-																	<div class="col">
-																		<input type="time" class="form-control" id="ifrtStartTimeArray${status.index }" name="ifrtStartTimeArray" value="${list.ifrtStartTime }">
-																	</div>
-																	~
-																	<div class="col">
-																		<input type="time" class="form-control" id="ifrtEndTimeArray${status.index }" name="ifrtEndTimeArray" value="${list.ifrtEndTime }">
-																	</div>
-																</div>
-															</c:forEach>
-														</c:otherwise>
-													</c:choose>
-												</div>
-											</div>
-										</div>
-									</div>
+								<div class="col-6">
+									<label class="form-label">Seq</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifcmSeq}"/>" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">이름</label> 
-									<input type="text" class="form-control" id="ifstName" name="ifstName" value="${item.ifstName }">
-								</div>
-								<div class="col">
-									<label class="form-label">전화번호</label> 
-									<input type="text" class="form-control" id="ifstPhone" name="ifstPhone" placeholder="01000000000" value="${item.ifstPhone }">
+									<label class="form-label">댓글</label> 
+									<textarea class="form-control" id="ifstInfo" name="ifstInfo" aria-label="With textarea" rows="5" readonly>${item.ifcmComment }</textarea>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">주문제공여부</label> 
-									<select class="form-select" id="ifstOrderNy" name="ifstOrderNy">
-										<option value="">선택</option>
-										<option value="0" <c:if test="${item.ifstOrderNy eq 0 }">selected</c:if>>X</option>
-										<option value="1" <c:if test="${item.ifstOrderNy eq 1 }">selected</c:if>>O</option>
-									</select>
+									<label class="form-label">평점</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifcmGrade}"/>" placeholder="8자리 숫자" readonly>
+								</div>
+								<div class="col">
+									<label class="form-label">사용자이름</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifmmName}"/>" placeholder="8자리 숫자" readonly>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col-6">
+									<label class="form-label">가게이름</label> 
+									<input type="text" value="<c:out value="${item.ifstName}"/>" class="form-control" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">우편번호</label> 
-									<input type="text" class="form-control" id="ifstZipCode" name="ifstZipCode" value="${item.ifstZipCode }">
+									<label class="form-label">작성일</label> 
+									<input type="text" value="<c:out value="${item.ifcmCreatedAt}"/>" class="form-control" readonly>
 								</div>
 								<div class="col">
-									<button type="button" class="btn btn-outline-dark" id="searchBtn"> 우편번호 검색 </button>
-					   				<button class="btn btn-outline-dark" type="button" id="" style="height: 2.4rem;">
-					   					<i class="fa-solid fa-rotate-left"></i>
-				   					</button>
+									<label class="form-label">수정일</label> 
+									<input type="text" value="<c:out value="${item.ifcmModifiedAt}"/>" class="form-control" readonly>
 								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label class="form-label">주소</label> 
-									<input type="text" class="form-control" id="ifstAddress" name="ifstAddress" value="${item.ifstAddress }">
-								</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<div class="col-6">	
-									<label class="form-label">상세주소</label> 
-					   				<input type="text" class="form-control" id="ifstAddressDetail" name="ifstAddressDetail" value="${item.ifstAddressDetail }">
-					   			</div>
-					   			<div class="col">
-					   				<label for="ifstAddressExtra" class="form-label">참고 항목</label>
-						   				<input type="text" class="form-control" id="ifstAddressExtra" name="ifstAddressExtra" value="${item.ifstAddressExtra }"> 
-				   				</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<div class="col">	
-									<label class="form-label">간편길안내</label> 
-					   				<input type="text" class="form-control" id="ifstDirections" name="ifstDirections" placeholder="" value="${item.ifstDirections }">
-					   			</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<div class="col">	
-									<label class="form-label">가게 소개글</label> 
-					   				<textarea class="form-control" id="ifstInfo" name="ifstInfo" aria-label="With textarea" rows="5">${item.ifstInfo }</textarea>
-					   			</div>
 							</div>
 						</div>
 					</div>
@@ -279,19 +167,19 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			
-			var goUrlList = "/store/xdminStoreList";
-			var goUrlForm = "/store/xdminStoreForm";
-			var goUrlInst = "/store/storeInst"; /* #-> */
-			var goUrlUpdt = "/store/storerUpdt"; /* #-> */
-			var goUrlUel = "/store/storeUele";
-	        var goUrlDel = "/store/storeDele";	
+			var goUrlList = "/comment/xdminCommentList";
+			var goUrlForm = "/comment/xdminCommentForm";
+			var goUrlInst = "/comment/commentInst"; /* #-> */
+			var goUrlUpdt = "/comment/commentUpdt"; /* #-> */
+			var goUrlUel = "/comment/commentUele";
+	        var goUrlDel = "/comment/commentDele";	
 			
 			var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
 
 			var form = $("form[name=formList]");
 			var formVo = $("form[name=formVo]");
 			
-			var ifstSeq = $("input[name=ifstSeq]");
+			var ifcmSeq = $("input[name=ifcmSeq]");
 	        
 			$("#btnList").on("click", function() {
 				formVo.attr("action", goUrlList).submit();

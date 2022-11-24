@@ -81,6 +81,8 @@
 			c.ifcmSeq
 			,c.ifcmComment
 			,c.ifcmGrade
+			,c.ifcmCreatedAt
+			,c.ifcmModifiedAt
 			,s.ifstName
 			,s.ifstAddress
 			,m.ifmmName

@@ -52,44 +52,49 @@
 		<%@include file="../includeV1/pagination.jsp"%>
 	</div>
 		<!-- end --> 
-		<script>
-			// 페이지 네이션 만들기
+	<script>
+		
+		var goUrlForm = "/store/xdminStoreForm"; 
+		
+		var form = $("form[name=formList]");
+		
+		var ifstSeq = $("input[name=ifstSeq]");
+		
+		// ----- form으로 이동 -----
+		
+		 $('#btnForm').on("click", function() {
+ 			goForm(0);                
+ 		});
+ 		
+		goForm = function(keyValue) {
+			/* if(key != 0) seq.val(btoa(key)); */
+			ifstSeq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		}
+	
+		goList = function(thisPage) {
+			$("input:hidden[name=thisPage]").val(thisPage);
+			setStoreLita();
+		}
+
+		$("#changeRowNum").on("change", function(){
+			$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
+			setStoreLita();
+		}); 
 			
-			goForm = function(keyValue) {
-				/* if(key != 0) seq.val(btoa(key)); */
-				seq.val(keyValue);
-				form.attr("action", goUrlForm).submit();
-			}
+		$("#checkboxAll").click(function() {
+			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+			else $("input[name=checkboxSeq]").prop("checked", false);
+		});
 
-
-			goList = function(thisPage) {
-				$("input:hidden[name=thisPage]").val(thisPage);
-				setLita();
-			}
-
-
-			$("#changeRowNum").on("change", function(){
-				$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
-				setLita();
-			}); 
-				
-
-			$("#checkboxAll").click(function() {
-				if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
-				else $("input[name=checkboxSeq]").prop("checked", false);
-			});
-
-
-			$("input[name=checkboxSeq]").click(function() {
-				var total = $("input[name=checkboxSeq]").length;
-				var checked = $("input[name=checkboxSeq]:checked").length;
-				
-				if(total != checked) $("#checkboxAll").prop("checked", false);
-				else $("#checkboxAll").prop("checked", true); 
-			});
-	 		</script>
-	 		
-	 		
+		$("input[name=checkboxSeq]").click(function() {
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+			
+			if(total != checked) $("#checkboxAll").prop("checked", false);
+			else $("#checkboxAll").prop("checked", true); 
+		});
+	</script>
 	 		
 </body>
 </html>

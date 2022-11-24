@@ -59,7 +59,6 @@ button {
   display: -webkit-box;
   justify-content: space-between;
   width: 100%;
-  max-width: 1200px;
   max-height: 890px;
   background: #fff;
   border-radius: 4px;

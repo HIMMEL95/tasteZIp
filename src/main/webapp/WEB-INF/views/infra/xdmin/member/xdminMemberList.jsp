@@ -40,7 +40,7 @@
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
                	<input type="hidden" name="ifmmSeq" value="${vo.ifmmSeq}">
 				<div class="wrapper">
-					<div class="container" style="height: 100vh; width: 100vh;">
+					<div class="container" style="height: 100vh; width: 93vh;">
 						<div class="row">
 							<div class="col">
 								<div class="content">

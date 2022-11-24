@@ -39,7 +39,7 @@
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
                	<input type="hidden" name="ifstSeq" value="${vo.ifstSeq}">
 				<div class="wrapper">
-					<div class="container" style="height: 100vh; width: 100vh;">
+					<div class="container" style="height: 100vh; width: 93vh;">
 						<div class="row">
 							<div class="col">
 								<div class="content">
@@ -177,8 +177,6 @@
 			var goUrlUel = "/store/storeUele";
 	        var goUrlDel = "/store/storeDele";		
 			
-			var form = $("form[name=formList]");
-			
 			var ifstSeq = $("input[name=ifstSeq]");
 			
 			/* $(function() {
@@ -232,18 +230,7 @@
 				})
 			}
 	 		
-	 	// ----- form으로 이동 -----
-	 		
-	 	
-	 		 /* $('#btnForm').on("click", function() {
-	 			goForm(0);                
-	 		});
-	 		
-	 		 goForm = function(keyValue) {
-	 			ifmmSeq.val(keyValue);
-	 			form.attr("action", goUrlForm).submit();
-	 		}  */
-	 		</script>
+ 		</script>
 	 		
 	 	<script type="text/javascript">
 	 		
@@ -286,9 +273,5 @@
 	 			/* if(!checkNull($.trim($("input[name=searchValue]").val()), "searchValue")) return false; */
 	 		}
 		</script>
-		
-		<script type="text/javascript">
-		 <!-- 마우스 효과 -->
-	</script>
 </body>
 </html>

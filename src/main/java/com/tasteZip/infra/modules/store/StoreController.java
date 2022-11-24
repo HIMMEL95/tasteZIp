@@ -223,11 +223,9 @@ public class StoreController {
 	    List<Store> running = service.openingList(vo);
 	    model.addAttribute("running", running);
 	    
-	    System.out.println("day 실행중?");
 	    List<Store> day = service.day(dto);
 	    model.addAttribute("day", day);
 
-	    System.out.println("opening 실행중?");
 	    List<Store> opening = service.opening(dto);
 	    model.addAttribute("opening", opening);
 		

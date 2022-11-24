@@ -72,6 +72,7 @@
 			<!-- commentList -->
 			<exclude-mapping path="/comment/xdminCommentLita" />
 			<exclude-mapping path="/comment/xdminCommentList" />
+			<exclude-mapping path="/comment/xdminCommentForm" />
 			<!-- reservationList -->
 			<exclude-mapping path="/reservation/xdminReservationLita" />
 			<exclude-mapping path="/reservation/xdminReservationList" />

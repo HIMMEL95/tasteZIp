@@ -133,7 +133,7 @@
 								</div>
 								<div class="col">
 									<label class="form-label">이메일여부</label> 
-									<select class="form-select">
+									<select class="form-select">ㅋ
 										<option selected disabled value="">선택</option>
 										<option>N</option>
 										<option>Y</option>

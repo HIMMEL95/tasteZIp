@@ -53,6 +53,26 @@ public class MenuController {
 		return "infra/xdmin/menu/xdminMenuLita";
 	}
 	
+	@RequestMapping(value = "ownerMenuList")
+	public String ownerMenuList(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+		
+		 setSearch(vo);
+		return "infra/xdmin/menu/ownerMenuList";
+	}
+	
+	@RequestMapping(value = "ownerMenuLita")
+	public String ownerMenuLita(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.selectOneCount2(vo));
+		
+		  if (vo.getTotalRows() > 0) { 
+			  List<Menu> list = service.selectList2(vo);
+			  model.addAttribute("list", list); 
+		  }
+		
+		return "infra/xdmin/menu/ownerMenuLita";
+	}
+	
 	@RequestMapping(value = "xdminMenuForm")
 	public String xdminMenuForm(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
 		
@@ -61,21 +81,30 @@ public class MenuController {
 		 
 		return "infra/xdmin/menu/xdminMenuForm";
 	}
+	
+	@RequestMapping(value = "ownerMenuForm")
+	public String ownerMenuForm(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+		
+		Menu item = service.selectMenu(vo);
+		model.addAttribute("item", item);
+		 
+		return "infra/xdmin/menu/ownerMenuForm";
+	}
 
 	@RequestMapping(value= "menuUpdt")
 	public String MenuUpdt(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		
 		service.update(dto);
-		
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/menu/menuList";
 		
+		return "redirect:/menu/ownerMenuForm";
 	}
 	
 	@RequestMapping(value= "menuUele")
 	public String MenuUele(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
 		service.uelete(dto);
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/menu/menuList";
+		return "redirect:/menu/ownerMenuList";
 	}
 	
 
@@ -83,7 +112,7 @@ public class MenuController {
 	public String MenuDele(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
 		service.delete(vo);
 		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/menu/menuList";
+		return "redirect:/menu/ownerMenuList";
 	}
 	
 	private void setSearch(MenuVo vo) throws Exception {

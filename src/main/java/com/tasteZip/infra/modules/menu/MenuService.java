@@ -11,6 +11,7 @@ public interface MenuService {
     public List<Menu> selectList2(MenuVo vo) throws Exception;
     public int selectOneCount2(MenuVo vo) throws Exception;
     public Menu selectOne(MenuVo vo) throws Exception;
+    public Menu selectMenu(MenuVo vo) throws Exception;
     
     public List<Menu> setDiv(MenuVo vo) throws Exception;
     

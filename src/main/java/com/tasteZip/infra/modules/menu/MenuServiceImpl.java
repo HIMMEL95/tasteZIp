@@ -37,6 +37,11 @@ public class MenuServiceImpl implements MenuService {
 	public Menu selectOne(MenuVo vo) throws Exception {
     	return dao.selectOne(vo);
 	}
+    
+    @Override
+	public Menu selectMenu(MenuVo vo) throws Exception {
+    	return dao.selectMenu(vo);
+	}
 
 	@Override
     public List<Menu> setDiv(MenuVo vo) throws Exception {

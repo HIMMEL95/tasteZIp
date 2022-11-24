@@ -75,6 +75,14 @@
 	 		AND m.ifmnSeq = #{ifmnSeq}
 	</select>
 	
+	<select id="selectMenu" resultMap="resultMapObj">
+		SELECT
+			m.*
+	    from menu m
+		where 1=1
+	 	AND m.ifmnSeq = #{ifmnSeq}
+	</select>
+	
 	<select id="setDiv" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
@@ -92,21 +100,21 @@
 	
 	<insert id="insert">
 		INSERT INTO menu (
-			m.ifmnSeq
-			,m.ifmnName
-			,m.ifmnPrice
-			,m.ifmnInfo
-			,m.ifmnDiscount
-			,m.ifmnSet_div
-			,m.ifmnDelNy
+			ifmnName
+			,ifstSeq
+			,ifmnPrice
+			,ifmnInfo
+			,ifmnSet_div
+			,ifmnDiscount
+			,ifmnDelNy
 		)
 		VALUES (
-			#{ifmnSeq}
-			,#{ifmnName}
+			#{ifmnName}
+			,#{ifstSeq}
 			,#{ifmnPrice}
 			,#{ifmnInfo}
-			,#{ifmnDiscount}
 			,#{ifmnSet_div}
+			,#{ifmnDiscount}
 			,#{ifmnDelNy}
 		)
 		

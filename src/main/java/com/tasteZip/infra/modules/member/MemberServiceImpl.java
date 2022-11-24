@@ -4,12 +4,17 @@ import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.common.util.UtilDateTime;
+import com.tasteZip.infra.common.util.UtilRegMod;
 import com.tasteZip.infra.common.util.UtilSecurity;
 
 @Service
@@ -17,6 +22,21 @@ public class MemberServiceImpl implements MemberService{
 
     @Autowired
     MemberDao dao;
+    
+    @Override
+	public void setRegMod(Member dto) throws Exception {
+		HttpServletRequest httpServletRequest = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
+		
+		dto.setRegIp(UtilRegMod.getClientIp(httpServletRequest));
+		dto.setRegSeq(UtilRegMod.getSessionSeq(httpServletRequest));
+		dto.setRegDeviceCd(UtilRegMod.getDevice());
+		dto.setRegDateTime(UtilDateTime.nowDate());
+		
+		dto.setModIp(UtilRegMod.getClientIp(httpServletRequest));
+		dto.setModSeq(UtilRegMod.getSessionSeq(httpServletRequest));
+		dto.setModDeviceCd(UtilRegMod.getDevice());
+		dto.setModDateTime(UtilDateTime.nowDate());
+	}
     
     @Override
     public List<Member> selectList(MemberVo vo) throws Exception {
@@ -27,6 +47,17 @@ public class MemberServiceImpl implements MemberService{
     public int selectOneCount(MemberVo vo) throws Exception {
         return dao.selectOneCount(vo);
     }
+    
+    @Override
+	public int uelete(Member dto) throws Exception {
+		setRegMod(dto);
+		return dao.uelete(dto);
+	}
+	
+	@Override
+	public int delete(MemberVo vo) throws Exception {
+		return dao.delete(vo);
+	}
 
     /* login s */
     @Override

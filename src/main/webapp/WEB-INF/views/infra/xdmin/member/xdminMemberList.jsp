@@ -38,6 +38,7 @@
 		  	<%-- <%@include file="memberVo.jsp"%> --%>
 				<input type="hidden" name="thisPage" value="1">
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
+               	<input type="hidden" name="checkboxSeqArray" >
                	<input type="hidden" name="ifmmSeq" value="${vo.ifmmSeq}">
 				<div class="wrapper">
 					<div class="container">
@@ -89,11 +90,14 @@
 									<div id="lita"></div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
-			                                <button id="btnDel" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
+			                                <button id="btnDelete" class="btn border-0 btn shadow" type="button">
+			                                    <i class="fa-solid fa-trash fa-lg"></i>
+			                                </button>
+			                                <!--   <button id="btnDelete" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-trash fa-lg"></i>
 			                                </button>
-			                                <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
+			                              <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
 				                                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 				                                <div class="modal-dialog">
 				                                    <div class="modal-content">
@@ -111,8 +115,8 @@
 				                                        </div>
 				                                    </div>
 				                                </div>
-				                            </div>
-			                                <button id="btnUel" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
+				                            </div> -->
+			                                <button id="btnUelete" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-xmark text-white"></i>
 			                                </button>
@@ -171,8 +175,6 @@
 			
 			var goUrlList = "/member/xdminMemberList"; 
 			var goUrlExcel = "/member/excelDownload";
-			var goUrlUele = "/member/memberUele";	
-			var goUrlDele = "/member/memberDele";
 			
 			var ifmmSeq = $("input[name=ifmmSeq]");
 
@@ -205,23 +207,6 @@
 				form.attr("action", goUrlExcel).submit();
 			})
 			
-			$("#btnUel").on("click", function() {
-				DelValidation("#delBtn", goUrlUele, "선택하신 게시물을 삭제하시겠습니까?");
-				alert("uel")
-			})
-			
-			$("#btnDel").on("click", function() {
-				DelValidation("#delBtn", goUrlDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
-				alert("del")
-			})
-			
-			DelValidation = function(confirm, url, msg) {
-				$(".modal-body").html(msg);
-				$(confirm).on("click", function() {
-					form.attr("action", url).submit();
-				})
-			}
-	 		 
  		</script>
 	 	<script type="text/javascript">
 	 		
@@ -266,7 +251,83 @@
 		</script>
 		
 		<script type="text/javascript">
-		 <!-- 마우스 효과 -->
-	</script>
+		
+		/* 체크박스 리스트 삭제 */
+		
+		var goUrlMultiUele = "/member/memberMultiUele";	
+		var goUrlMultiDele = "/member/memberMultiDele";
+		
+		var checkboxSeqArray = [];
+		
+		/* DelValidation = function(confirm, url, msg) {
+			$(".modal-body").html(msg);
+			$(confirm).on("click", function() {
+				form.attr("action", url).submit();
+			})
+		} */
+		
+		 /* $("#btnDelete").on("click", function() {
+			DelValidation("#delBtn", goUrlMultiDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
+		}) */ 
+		 
+		 $("#btnDelete").on("click", function(){
+			if($("input[name=checkboxSeq]:checked").length > 0 ) {
+				$("input:hidden[name=exDeleteType]").val(2);
+				$(".modal-title").text("확 인");
+				$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
+				$("#btnModalUelete").hide();
+				$("#btnModalDelete").show();
+				$("#modalConfirm").modal("show");
+			} else {
+				$(".modal-title").text("확 인");
+				$(".modal-body").text("데이터를 선택해 주세요!");
+				$("#modalAlert").modal("show");
+			}
+		});
+		
+		$("#btnModalDelete").on("click", function(){
+			$("input[name=checkboxSeq]:checked").each(function() { 
+				checkboxSeqArray.push($(this).val());
+			});
+			
+			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			
+			$("#modalConfirm").modal("hide");
+								
+			form.attr("action", goUrlMultiDele).submit();
+		}); 
+		
+	  	 /* $("#btnUelete").on("click", function() {
+			DelValidation("#delBtn", goUrlMultiUele, "선택하신 게시물을 삭제하시겠습니까?");
+		})  */ 
+		
+		  $("#btnUelete").on("click", function(){
+			if($("input[name=checkboxSeq]:checked").length > 0 ) {
+				$("input:hidden[name=exDeleteType]").val(1);
+				$(".modal-title").text("확 인");
+				$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
+				$("#btnModalUelete").show();
+				$("#btnModalDelete").hide();
+				$("#modalConfirm").modal("show");
+			} else {
+				$(".modal-title").text("확 인");
+				$(".modal-body").text("데이터를 선택해 주세요!");
+				$("#modalAlert").modal("show");
+			}
+		});
+		
+		$("#btnModalUelete").on("click", function(){
+			$("input[name=checkboxSeq]:checked").each(function() { 
+				checkboxSeqArray.push($(this).val());
+			});
+			
+			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+			
+			$("#modalConfirm").modal("hide");
+			
+			form.attr("action", goUrlMultiUele).submit();
+		});  */
+		
+		</script>
 </body>
 </html>

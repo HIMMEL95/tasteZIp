@@ -17,7 +17,7 @@ public class BaseVo {
 	private int startRnumForMysql = 0;
 
 	
-// -------------------------
+// paging2 -------------------------
 	private int thisPage2 = 1;
 	private int rowNumToShow2 = Constants.ROW_NUM_TO_SHOW2;
 	private int pageNumToShow2 = Constants.PAGE_NUM_TO_SHOW2;
@@ -28,6 +28,9 @@ public class BaseVo {
 	private int endPage2;
 	
 	private int startRnumForMysql2 = 0;
+	
+//	list
+	private String[] checkboxSeqArray;
 
 	
 	public void setParamsPaging(int totalRows) {
@@ -93,8 +96,6 @@ public class BaseVo {
 			setStartRnumForMysql2((getRowNumToShow2() * (getThisPage2()-1)));
 		}
 	}
-	
-	
 	
 	public int getStartRnumForMysql2() {
 		return startRnumForMysql2;
@@ -201,4 +202,15 @@ public class BaseVo {
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
 	}
+	
+	// -------------------
+	
+	public String[] getCheckboxSeqArray() {
+		return checkboxSeqArray;
+	}
+	
+	public void setCheckboxSeqArray(String[] checkboxSeqArray) {
+		this.checkboxSeqArray = checkboxSeqArray;
+	}
+	
 }

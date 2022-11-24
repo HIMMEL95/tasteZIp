@@ -5,9 +5,14 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface MemberService {
+	
+	public void setRegMod(Member dto) throws Exception;
 
+//	infrMember
     public List<Member> selectList(MemberVo vo) throws Exception;
     public int selectOneCount(MemberVo vo) throws Exception;
+    int uelete(Member dto) throws Exception; 
+	int delete(MemberVo vo) throws Exception;
     
     // login s
     public Member loginCheck(Member dto) throws Exception;

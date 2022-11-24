@@ -242,4 +242,20 @@
 			and c.ifcgSeq = '1'
 	</select>
 	
+	<!-- user delete -->
+	
+	<update id="uelete">
+		UPDATE member
+		SET
+			ifmmDelNy = 1
+		WHERE 1=1
+			AND ifmmSeq = #{ifmmSeq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM member
+		WHERE 1=1
+			AND ifmmSeq = #{ifmmSeq}
+	</delete>
+	
 </mapper>

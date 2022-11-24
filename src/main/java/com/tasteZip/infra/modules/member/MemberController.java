@@ -239,6 +239,31 @@ public class MemberController {
 		
 	    return "infra/xdmin/member/xdminMemberForm";
 	}
+	
+	@RequestMapping(value = "memberMultiUele")
+	public String memberMultiUele(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
+
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			dto.setIfmmSeq(checkboxSeq);
+			service.uelete(dto);
+		}
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/xdminMemberList";
+	}
+	
+
+	@RequestMapping(value = "memberMultiDele")
+	public String memberMultiDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			vo.setIfmmSeq(checkboxSeq);
+//			service.delete(vo);
+		}
+
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/xdminMemberList";
+	}
    
  
 }

@@ -20,8 +20,10 @@ public class MemberDao {
     //ifmmMember
     public List<Member> selecList(MemberVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
     public int selectOneCount(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
-
-    // login
+    public int uelete(Member dto) { return sqlSession.update(namespace + ".uelete", dto); }
+	public int delete(MemberVo vo) { return sqlSession.delete(namespace + ".delete", vo); }
+    
+	// login
     public Member loginCheck(Member dto) { return sqlSession.selectOne(namespace + ".loginCheck", dto); }
     public Member snsLoginCheck(Member dto) { return sqlSession.selectOne(namespace + ".snsLoginCheck", dto); }
     public Member xdminLoginCheck(Member dto) { return sqlSession.selectOne(namespace + "xdminLoginCheck", dto); }
@@ -47,4 +49,6 @@ public class MemberDao {
     public int ueleteUploaded(Member dto) { return sqlSession.insert("Base" + ".ueleteUploaded", dto); }
     public int deleteUploaded(Member dto) { return sqlSession.insert("Base" + ".deleteUploaded", dto); }
     /* image upload e */
+    
+    
 }

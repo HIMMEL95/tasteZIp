@@ -12,7 +12,7 @@
 			<thead>
 				<tr class="bg-dark">
 					<th scope="col">
-						<input type="checkbox" name="chk_all" id="chk_all" onclick="selectAll(this)">
+						<input type="checkbox" name="checkboxAll" id="checkboxAll">
 					</th>
 					<th class="text-white">#</th>
 					<th class="text-white" scope="col">이름</th>
@@ -34,7 +34,7 @@
 						<c:forEach items="${list}" var="list" varStatus="status">
 							<tr onclick="goForm(${list.ifmmSeq})" class="info" style="cursor: pointer;">
 								<th scope="row" class="td1" src="#">
-									<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
+									<input type="checkbox" name="checkboxSeq" id="checkboxSeq">
 								</th>
 								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
 								<td>${list.ifmmName }</td>
@@ -90,6 +90,7 @@
 
 
 			$("input[name=checkboxSeq]").click(function() {
+				event.stopPropagation()
 				var total = $("input[name=checkboxSeq]").length;
 				var checked = $("input[name=checkboxSeq]:checked").length;
 				

@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
 @RequestMapping(value = "/order/")
 public class OrderController {
@@ -79,8 +78,6 @@ public class OrderController {
         return "infra/main/mypage/mypageOrder";
     }
 
-    
-    
     @RequestMapping(value = "menuOrder")
     public String menuOrder() throws Exception {
     	return "infra/main/order/menuOrder";

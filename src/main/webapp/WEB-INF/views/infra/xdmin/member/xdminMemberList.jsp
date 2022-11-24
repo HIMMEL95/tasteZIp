@@ -170,9 +170,9 @@
 		<script type="text/javascript">
 			
 			var goUrlList = "/member/xdminMemberList"; 
+			var goUrlExcel = "/member/excelDownload";
 			var goUrlUele = "/member/memberUele";	
 			var goUrlDele = "/member/memberDele";
-			var goUrlExcel = "/member/excelDownload";
 			
 			var ifmmSeq = $("input[name=ifmmSeq]");
 

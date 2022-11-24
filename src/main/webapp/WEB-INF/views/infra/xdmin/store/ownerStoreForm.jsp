@@ -21,9 +21,6 @@
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<!-- datepicker e -->
 		<link rel="stylesheet" href="/resources/css/xdmin/member/xdminForm.css">
-		<!-- <link rel="stylesheet" href="/resources/css/xdmin/member/memberList.css"> -->
-		<style>
-		</style>
 	</head>
 <body>
 <div class="hero">
@@ -38,9 +35,7 @@
 		 <%@include file="/resources/js/sideBar/sideBar.jsp"%>
 		  <!-- content s -->
 		  <form id="formList" name="formList" method="post" autocomplete="off">
-			<!-- *Vo.jsp s -->
-			<%-- <%@include file="codeVo.jsp"%> --%>
-			<!-- *Vo.jsp e -->
+		  	<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 				<div class="row" style="width: 1022px; height: 100%">
 					<h2 class="needs-validation mt-5 ms-5">Store Form</h2>
 					<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
@@ -71,7 +66,7 @@
 																<div class="row">
 																	<div class="col-2">
 																		<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
-																		<select class="form-select" id="ifrtDayArray" name="ifrtDayArray" disabled>
+																		<select class="form-select" id="ifrtDayArray" name="ifrtDayArray">
 																			<option value="">선택</option>
 																			<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
 																				<option value="${listDay.ifccSeq }" <c:if test="${list2.ifrtDay eq listDay.ifccSeq}">selected</c:if>><c:out value="${listDay.ifccName }"/></option>
@@ -80,7 +75,7 @@
 																	</div>
 																	<div class="col-2">
 																		<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																		<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})" disabled>
+																		<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})">
 																			<option value="">선택</option>
 																			<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
 																				<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
@@ -102,7 +97,7 @@
 																<div class="row">
 																	<div class="col-2">
 																		<c:set var="listCodeDay" value="${CodeServiceImpl.selectListCachedCode('6') }" />
-																		<select class="form-select" id="ifrtDayArray" name="ifrtDayArray" disabled>
+																		<select class="form-select" id="ifrtDayArray" name="ifrtDayArray" readonly>
 																			<option value="">선택</option>
 																			<c:forEach items="${listCodeDay}" var="listDay" varStatus="statusDay">
 																				<option value="${listDay.ifccSeq }" <c:if test="${list.ifrtDay eq listDay.ifccSeq}">selected</c:if>><c:out value="${listDay.ifccName }"/></option>
@@ -111,7 +106,7 @@
 																	</div>
 																	<div class="col-2">
 																		<c:set var="listCodeClose" value="${CodeServiceImpl.selectListCachedCode('8') }" />
-																		<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})" disabled>
+																		<select class="form-select" id="ifrtOpeningArray" name="ifrtOpeningArray" onchange="refreshTime(${status.index})">
 																			<option value="">선택</option>
 																			<c:forEach items="${listCodeClose}" var="listClose" varStatus="statusClose">
 																				<option value="${listClose.ifccSeq }" <c:if test="${list.ifrtOpening eq listClose.ifccSeq}">selected</c:if>><c:out value="${listClose.ifccName }"/></option>
@@ -138,17 +133,17 @@
 							<div class="row mt-3">
 								<div class="col">
 									<label class="form-label">이름</label> 
-									<input type="text" class="form-control" id="ifstName" name="ifstName" value="${item.ifstName }" readonly>
+									<input type="text" class="form-control" id="ifstName" name="ifstName" value="${item.ifstName }">
 								</div>
 								<div class="col">
-									<label class="form-label">전화번호</label> 
-									<input type="text" class="form-control" id="ifstPhone" name="ifstPhone" placeholder="01000000000" value="${item.ifstPhone }" readonly>
+									<label class="form-label">가게 전화번호</label> 
+									<input type="text" class="form-control" id="ifstPhone" name="ifstPhone" placeholder="01000000000" oninput="autoHyphen1(this)" maxlength="11" value="${item.ifstPhone }">
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
 									<label class="form-label">주문제공여부</label> 
-									<select class="form-select" id="ifstOrderNy" name="ifstOrderNy" disabled>
+									<select class="form-select" id="ifstOrderNy" name="ifstOrderNy">
 										<option value="">선택</option>
 										<option value="0" <c:if test="${item.ifstOrderNy eq 0 }">selected</c:if>>X</option>
 										<option value="1" <c:if test="${item.ifstOrderNy eq 1 }">selected</c:if>>O</option>
@@ -156,37 +151,48 @@
 								</div>
 							</div>
 							<div class="row mt-3">
-								<div class="col-6">
-									<label class="form-label">우편번호</label> 
-									<input type="text" class="form-control" id="ifstZipCode" name="ifstZipCode" value="${item.ifstZipCode }" readonly>
-								</div>
+								<label for="ifstZipCode" class="form-label">우편번호</label> 
+								<div class="col-6">	
+					   				<input type="text" class="form-control" id="ifstZipCode" name="ifstZipCode" value="${item.ifstZipCode }">
+					   			</div>
+					   			<div class="col">
+					   				<button type="button" class="btn btn-outline-dark" id="searchBtn"> 우편번호 검색 </button>
+					   				<button class="btn btn-outline-dark" type="button" id="" style="height: 2.4rem;"><i class="fa-solid fa-rotate-left"></i></button>
+				   				</div>
+							</div>
+							<div class="row mt-3" style="margin-top: 3rem;">
+								<div class="col-6">	
+									<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+										<img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1;width: 20px;" onclick="foldDaumPostcode()" alt="접기 버튼">
+									</div>
+					   			</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">주소</label> 
-									<input type="text" class="form-control" id="ifstAddress" name="ifstAddress" value="${item.ifstAddress }" readonly>
+									<label for="ifstAddress" class="form-label">주소</label> 
+									<input type="text" class="form-control" id="ifstAddress" name="ifstAddress" value="${item.ifstAddress }">
 								</div>
 							</div>
 							<div class="row mt-3" style="margin-top: 3rem;">
 								<div class="col-6">	
-									<label class="form-label">상세주소</label> 
-					   				<input type="text" class="form-control" id="ifstAddressDetail" name="ifstAddressDetail" value="${item.ifstAddressDetail }" readonly>
+									<label for="ifstAddressDetail" class="form-label">상세주소</label> 
+					   				<input type="text" class="form-control" id="ifstAddressDetail" name="ifstAddressDetail" value="${item.ifstAddressDetail }">
 					   			</div>
 					   			<div class="col">
 					   				<label for="ifstAddressExtra" class="form-label">참고 항목</label>
-						   				<input type="text" class="form-control" id="ifstAddressExtra" name="ifstAddressExtra" value="${item.ifstAddressExtra }" readonly> 
+					   				<input type="text" class="form-control" id="ifstAddressExtra" name="ifstAddressExtra" value="${item.ifstAddressExtra }"> 
 				   				</div>
 							</div>
 							<div class="row mt-3" style="margin-top: 3rem;">
 								<div class="col">	
 									<label class="form-label">간편길안내</label> 
-					   				<input type="text" class="form-control" id="ifstDirections" name="ifstDirections" placeholder="" value="${item.ifstDirections }" readonly>
+					   				<input type="text" class="form-control" id="ifstDirections" name="ifstDirections" placeholder="" value="${item.ifstDirections }">
 					   			</div>
 							</div>
 							<div class="row mt-3" style="margin-top: 3rem;">
 								<div class="col">	
 									<label class="form-label">가게 소개글</label> 
-					   				<textarea class="form-control" id="ifstInfo" name="ifstInfo" aria-label="With textarea" rows="5" readonly>${item.ifstInfo }</textarea>
+					   				<textarea class="form-control" id="ifstInfo" name="ifstInfo" aria-label="With textarea" rows="5">${item.ifstInfo }</textarea>
 					   			</div>
 							</div>
 						</div>
@@ -270,13 +276,17 @@
 		<!-- end --> 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 		<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bd29bc43140391b0206f367d2b8c01eb&libraries=services"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			
-			var goUrlList = "/store/xdminStoreList";
-			var goUrlForm = "/store/xdminStoreForm";
+			var goUrlList = "/store/ownerStoreList";
+			var goUrlForm = "/store/ownerStoreForm";
 			var goUrlInst = "/store/storeInst"; /* #-> */
-			var goUrlUpdt = "/store/storerUpdt"; /* #-> */
+			var goUrlUpdt = "/store/storeUpdt"; /* #-> */
 			var goUrlUel = "/store/storeUele";
 	        var goUrlDel = "/store/storeDele";	
 			
@@ -289,56 +299,137 @@
 				formVo.attr("action", goUrlList).submit();
 			});
 			
-		  function sample6_execDaumPostcode() {
-		        new daum.Postcode({
-		            oncomplete: function(data) {
-		                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+			$("#btnUel").on("click", function() {
+				DelValidation("#delBtn", goUrlUel, "선택하신 게시물을 삭제하시겠습니까?");
+			})
+			
+			$("#btnDel").on("click", function() {
+				DelValidation("#delBtn", goUrlDel, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
+			})
+			
+			DelValidation = function(confirm, url, msg) {
+				$(".modal-body").html(msg);
+				$(confirm).on("click", function() {
+					form.attr("action", url).submit();
+				})
+			}
+			
+			$("#btnSave").on("click", function() {
+				if (ifstSeq.val() == "0" || ifstSeq.val() == "") {
+					form.attr("action", goUrlInst).submit();
+				} else {
+					form.attr("action", goUrlUpdt).submit();
+				}
+			})
+			
+		</script>
+		<script type="text/javascript">
 		
-		                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
-		                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-		                var addr = ''; // 주소 변수
-		                var extraAddr = ''; // 참고항목 변수
-		
-		                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-		                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-		                    addr = data.roadAddress;
-		                } else { // 사용자가 지번 주소를 선택했을 경우(J)
-		                    addr = data.jibunAddress;
-		                }
-		
-		                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
-		                if(data.userSelectedType === 'R'){
-		                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-		                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-		                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-		                        extraAddr += data.bname;
-		                    }
-		                    // 건물명이 있고, 공동주택일 경우 추가한다.
-		                    if(data.buildingName !== '' && data.apartment === 'Y'){
-		                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-		                    }
-		                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-		                    if(extraAddr !== ''){
-		                        extraAddr = ' (' + extraAddr + ')';
-		                    }
-		                    // 조합된 참고항목을 해당 필드에 넣는다.
-		                    document.getElementById("sample6_extraAddress").value = extraAddr;
-		                
-		                } else {
-		                    document.getElementById("sample6_extraAddress").value = '';
-		                }
-		
-		                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-		                document.getElementById('sample6_postcode').value = data.zonecode;
-		                document.getElementById("sample6_address").value = addr;
-		                // 커서를 상세주소 필드로 이동한다.
-		                document.getElementById("sample6_detailAddress").focus();
-		            }
-		        }).open();
-		    }
-
-
+		/* 우편번호 api */
+		var element_wrap = document.getElementById('wrap');
+	    
+	    function foldDaumPostcode() {
+	        // iframe을 넣은 element를 안보이게 한다.
+	        element_wrap.style.display = 'none';
+	    }
+	    
+	    function daumPostCode() {
+	    	var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+	        new daum.Postcode({
+	            oncomplete: function(data) {
+	                // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+	
+	                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+	                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+	                var addr = ''; // 주소 변수
+	                var extraAddr = ''; // 참고항목 변수
+	
+	                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+	                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+	                    addr = data.roadAddress;
+	                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+	                    addr = data.jibunAddress;
+	                }
+	
+	                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+	                if(data.userSelectedType === 'R'){
+	                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+	                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+	                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+	                        extraAddr += data.bname;
+	                    }
+	                    // 건물명이 있고, 공동주택일 경우 추가한다.
+	                    if(data.buildingName !== '' && data.apartment === 'Y'){
+	                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+	                    }
+	                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+	                    if(extraAddr !== ''){
+	                        extraAddr = ' (' + extraAddr + ')';
+	                    }
+	                    // 조합된 참고항목을 해당 필드에 넣는다.
+	                    document.getElementById("ifstAddressExtra").value = extraAddr;
+	                
+	                } else {
+	                    document.getElementById("ifstAddressExtra").value = '';
+	                }
+	
+	            	// 우편번호와 주소 정보를 해당 필드에 넣는다.
+	                document.getElementById('ifstZipCode').value = data.zonecode;
+	                document.getElementById("ifstAddress").value = addr;
+	                // 커서를 상세주소 필드로 이동한다.
+	                document.getElementById("ifstAddressDetail").focus();
+	                
+	    			/* var geocoder = new daum.maps.services.Geocoder();
+	    			
+	    			geocoder.addressSearch(addr, function(result, status) {
+	    				if(status === daum.maps.services.Status.OK) {
+	    					$("#lat").val(result[0].y);
+	    					$("#long").val(result[0].x);
+	    				}
+	    			}); */
+	
+	                // iframe을 넣은 element를 안보이게 한다.
+	                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+	                element_wrap.style.display = 'none';
+	
+	                // 우편번호 찾기 화면이 보이기 이전으로 scroll 위치를 되돌린다.
+	                document.body.scrollTop = currentScroll;
+	            },
+	            // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
+	            onresize : function(size) {
+	                element_wrap.style.height = size.height+'px';
+	            },
+	            width : '100%',
+	            height : '100%'
+	        }).embed(element_wrap);
+	
+	        // iframe을 넣은 element를 보이게 한다.
+	        element_wrap.style.display = 'block';
+	    	
+	    };
+	    
+	    $("#refresh").on("click", function() {
+			$("#ifstZipCode").val('');
+			$("#ifstAddress").val('');
+			$("#ifstAddressDetail").val('');
+			$("#ifstAddressExtra").val('');
+		});
+	    
+	    $("#searchBtn").on("click", function() {
+        	daumPostCode();
+		});
+	    
+		refreshTime = function(keyValue) {
+	    	$("#ifrtStartTimeArray"+keyValue).val("");
+			$("#ifrtEndTimeArray"+keyValue).val("");
+	    }
+	</script>
+	<script type="text/javascript">
+		const autoHyphen1 = (target) => {
+	 		 target.value = target.value
+	 		   .replace(/[^0-9]/g, '')
+	 		  .replace(/^(\d{0,2})(\d{0,3})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+	 		}
 	</script>
 </body>
-
 </html>

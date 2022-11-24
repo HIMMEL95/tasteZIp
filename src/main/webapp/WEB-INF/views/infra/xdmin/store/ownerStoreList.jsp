@@ -8,7 +8,7 @@
 	<!DOCTYPE html>
 	<html lang="ko" >
 	<head>
-		<title>xdmin Store List</title>
+		<title>Owner Store List</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -120,6 +120,9 @@
 			                                <button class="border-0 btn bg-success shadow" id="excelBtn" type="button">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>
+			                                <button class="border-0 btn shadow bg-dark" type="button" id="btnForm">
+			                                    <i class="fa-regular fa-plus fa-1x" style="color: white;"></i>
+			                                </button>
 			                            </div>
 			                        </div>
 								</div>
@@ -168,15 +171,13 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			
-			var goUrlList = "/store/xdminStoreList";
-			var goUrlForm = "/store/xdminStoreForm";
+			var goUrlList = "/store/ownerStoreList";
+			var goUrlForm = "/store/ownerStoreForm";
 			var excelUri = "/store/excelDownload";
 			var goUrlUel = "/store/storeUele";
 	        var goUrlDel = "/store/storeDele";		
 			
 			var ifstSeq = $("input[name=ifstSeq]");
-			
-			var form = $("form[name=formList]");
 			
 			/* $(function() {
 		  		$("#datepickerS").datepicker({
@@ -233,7 +234,7 @@
 	 		
 	 	<script type="text/javascript">
 	 		
-			var goUrlLita = "/store/xdminStoreLita";	
+			var goUrlLita = "/store/ownerStoreLita";	
 			
 	 	// ----- Lita ajax -----
 	 		$(document).ready(function(){

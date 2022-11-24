@@ -315,7 +315,7 @@
 								</div>
 								<div class="row mt-3" style="margin-top: 3rem;">
 									<div class="col-6">	
-										<label for="v" class="form-label">상세주소</label> 
+										<label for="ifstAddressDetail" class="form-label">상세주소</label> 
 						   				<input type="text" class="form-control" id="ifstAddressDetail" name="ifstAddressDetail" value="${item.ifstAddressDetail }">
 						   			</div>
 						   			<div class="col-6">

@@ -41,17 +41,6 @@ public class StoreController {
 	    return "infra/main/store/store";
 	}
 	
-	//관리자 스토어
-//	@RequestMapping(value = "xdminStoreList")
-//	public String xdminStoreList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
-//	    setSearchAndPaging(vo);
-//	    vo.setParamsPaging2(service.xdminSelectOneCount(vo));
-//	    List<Store> list = service.xdminSelectList(vo);
-//	    model.addAttribute("list", list);
-//	    
-//	    return "infra/xdmin/store/storeList";
-//	}
-	
 	@RequestMapping(value = "StoreForm")
 	public String storeForm(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
 	    
@@ -60,22 +49,22 @@ public class StoreController {
 	
 	@RequestMapping(value = "storeInst")
 	public String storeInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
-	    service.inst(dto);
+	    service.insert(dto);
 	    
 	    vo.setIfstSeq(dto.getIfstSeq());
 	    redirectAttributes.addFlashAttribute("vo", vo);
-	    return "redirect:/store/xdminStoreForm";
+	    return "redirect:/store/ownerStoreForm";
 	}
 
 	@RequestMapping(value = "storeUpdt")
 	public String storeUpdt(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
-	    service.updt(dto);
+	    service.update(dto);
 	    
 	    vo.setIfstSeq(dto.getIfstSeq());
 	    System.out.println("seq : " +  vo.getIfstSeq());
 	    System.out.println("seq : " +  dto.getIfstSeq());
 	    redirectAttributes.addFlashAttribute("vo", vo);
-	    return "redirect:/store/xdminStoreForm";
+	    return "redirect:/store/ownerStoreForm";
 	}
 	
 	@RequestMapping(value = "storeDele")
@@ -232,8 +221,44 @@ public class StoreController {
 	    return "infra/xdmin/store/xdminStoreForm";
 	}
 	
+// ------------------------ 사장님 ------------------------
+
+	@RequestMapping(value = "ownerStoreList")
+	public String ownerStoreList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+		
+		 setSearch(vo);
+		return "infra/xdmin/store/ownerStoreList";
+	}
+
+	@RequestMapping(value = "ownerStoreLita")
+	public String ownerStoreLita(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+		
+		vo.setParamsPaging(service.xdminSelectOneCount(vo));
+		
+		if (vo.getTotalRows() > 0) { 
+			List<Store> list = service.xdminSelectList(vo);
+			model.addAttribute("list", list); 
+		}
+		
+		return "infra/xdmin/store/ownerStoreLita";
+	}
 	
-
-
+	@RequestMapping(value = "ownerStoreForm") 
+	public String ownerStoreForm(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
+		
+		Store item = service.xdminSelectOne(vo);
+		model.addAttribute("item", item);
+		
+		List<Store> running = service.openingList(vo);
+		model.addAttribute("running", running);
+		
+		List<Store> day = service.day(dto);
+		model.addAttribute("day", day);
+		
+		List<Store> opening = service.opening(dto);
+		model.addAttribute("opening", opening);
+		
+		return "infra/xdmin/store/ownerStoreForm";
+	}
 }
 

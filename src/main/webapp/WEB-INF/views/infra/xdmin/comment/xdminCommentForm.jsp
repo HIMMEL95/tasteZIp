@@ -50,6 +50,10 @@
 									<label class="form-label">Seq</label> 
 									<input type="text" class="form-control" value="<c:out value="${item.ifcmSeq}"/>" readonly>
 								</div>
+								<div class="col-6">
+									<label class="form-label">가게이름</label> 
+									<input type="text" value="<c:out value="${item.ifstName}"/>" class="form-control" readonly>
+								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
@@ -65,12 +69,6 @@
 								<div class="col">
 									<label class="form-label">사용자이름</label> 
 									<input type="text" class="form-control" value="<c:out value="${item.ifmmName}"/>" placeholder="8자리 숫자" readonly>
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col-6">
-									<label class="form-label">가게이름</label> 
-									<input type="text" value="<c:out value="${item.ifstName}"/>" class="form-control" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">

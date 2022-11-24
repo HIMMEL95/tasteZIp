@@ -33,7 +33,7 @@
 					</c:when>
 					<c:otherwise>		
 						<c:forEach items="${list}" var="list" varStatus="status">
-							<tr onclick="goForm(${list.ifccSeq})" class="info" style="cursor: pointer;">
+							<tr onclick="goForm(${list.ifcgSeq})" class="info" style="cursor: pointer;">
 								<th scope="row" class="td1" src="#">
 									<input class="check" type="checkbox" name="check" onclick="checkSelectAll(this)">
 								</th>
@@ -67,7 +67,7 @@
 		<!-- end --> 
 		<script>
 		
-		var goUrlForm = "/menu/xdminMenuForm"; 
+		var goUrlForm = "/codeGroup/xdminCodeGroupForm"; 
 		
 		var form = $("form[name=formList]");
 		
@@ -81,7 +81,7 @@
 			
 			goForm = function(keyValue) {
 				/* if(key != 0) seq.val(btoa(key)); */
-				ifccSeq.val(keyValue);
+				ifcgSeq.val(keyValue);
 				form.attr("action", goUrlForm).submit();
 			}
 
@@ -110,8 +110,6 @@
 				else $("#checkboxAll").prop("checked", true); 
 			});
 	 		</script>
-	 		
-	 		
 	 		
 </body>
 </html>

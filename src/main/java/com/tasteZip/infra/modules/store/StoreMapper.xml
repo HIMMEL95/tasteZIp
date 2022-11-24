@@ -53,7 +53,7 @@
 	
 	<!-- xdmin s -->
 	<select id="xdminSelectList" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql2" />
+		<include refid="Base.selectListUpperForMysql" />
 			select 
 				s.ifstSeq
 				,s.ifstName
@@ -67,15 +67,15 @@
 				,s.ifstOrderNy
 				,s.ifstDelNy
 				,s.ifstCreatedAt
-		   <include refid="selectCommon"></include>
-		    ORDER BY s.ifstCreatedAt DESC
-		   	<include refid="Base.orderByLimitForMysql" />
-	   	<include refid="Base.selectListLowerForMysql2" />
+	   <include refid="selectCommon"></include>
+	    	ORDER BY s.ifstSeq DESC
+	   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql" />
 	</select> 
 	
 	<select id="xdminSelectOneCount" resultType="Integer">
 		SELECT COUNT(*)
-		 <include refid="selectCommon"></include>
+   		<include refid="selectCommon"></include>
 	</select>
 	
 	<select id="xdminSelectOne" resultMap="resultMapObj">

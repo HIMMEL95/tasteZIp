@@ -51,7 +51,7 @@ public class MainController {
     
     @RequestMapping(value = "store")
     public String order() throws Exception {
-        return "infra/main/order/order";
+        return "infra/main/store/storeMain";
     }
     
     @RequestMapping(value = "chat")

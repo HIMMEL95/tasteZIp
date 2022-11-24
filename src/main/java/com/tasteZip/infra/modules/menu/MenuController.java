@@ -208,33 +208,5 @@ public class MenuController {
     }
 	
 // -------------- 가게 주인 ------------	
-	@RequestMapping(value = "ownerMenuList")
-	public String ownerMenuList() throws Exception {
-	    return "infra/xdmin/menu/ownerMenuList";
-	}
-	
-	@RequestMapping(value = "ownerMenuForm")
-	public String ownerMenuForm() throws Exception {
-	    return "infra/xdmin/menu/ownerMenuForm";
-	}
-	
-    /* 장바구니 구현 용 s */
-	@ResponseBody
-	@RequestMapping(value = "cart")
-	public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response) throws Exception {
-	    Map<String, Object> returnMap = new HashMap<String, Object>();
-	    System.out.println("name : " + dto.getIfmnName());
-	    System.out.println("price : " + dto.getIfmnPrice());
-	    
-	    Map<String, String> cart = new HashMap<String, String>();
-	    
-	    cart.put(dto.getIfmnName(), dto.getIfmnPrice());
-	    
-	    Cookie cartCookie = new Cookie("cart", "test") ;
-	    cartCookie.setMaxAge(24 * 30 * 60 * 60 * 1000);  // 30일동안 유효
-	    response.addCookie(cartCookie);
-	    returnMap.put("rt", "success");
-	    return returnMap;
-	}
-	/* 장바구니 구현 용 e */
+    
 }

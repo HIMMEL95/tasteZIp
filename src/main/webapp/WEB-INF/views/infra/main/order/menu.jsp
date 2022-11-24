@@ -282,6 +282,7 @@
 																								<c:forEach items="${list }" var="list" varStatus="status2">
 																									<c:choose>
 																										<c:when test="${setDiv.ifmnSet_div eq list.ifmnSet_div }">
+																											<input type="hidden" name="menuSeq${status2.index}" value="${list.ifmnSeq }">
 																											<ul class="order_list_area${status.index }">
 																												<li class="order_list_item">
 																													<div class="item_info">
@@ -414,21 +415,21 @@
 			}
 		}
 		
+		
 		goCart = function (value) {
-			alert("asad")
-			alert($(".tit"+value).text())
-			alert($(".price"+value).html())
+			alert($("input[name=menuSeq"+value+"]").val())
 			$.ajax({
 				type: "POST"
 				,url: "/menu/cart"
 				,data: {
-					ifmnName : $(".tit"+value).text()
-					,ifmnPrice : $(".price"+value).text()
-					,count : ""}
+					ifmnSeq : $("input[name=menuSeq"+value+"]").val()
+				}
 				,success : function(response) {
 					if (response.rt == "success") {
 						alert("일단 성공")
-					} 
+					} else if (response.rt == "duplicate") {
+						alert("중복된 상품을 선택 하셨습니다.!!!")
+					}
 				}
 			});
 		}

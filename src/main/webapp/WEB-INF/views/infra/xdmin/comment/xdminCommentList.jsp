@@ -39,7 +39,7 @@
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
                	<input type="hidden" name="ifcmSeq" value="${vo.ifcmSeq}">
 				<div class="wrapper">
-					<div class="container" style="height: 100vh; width: 93vh;">
+					<div class="container">
 						<div class="row">
 							<div class="col">
 								<div class="content">

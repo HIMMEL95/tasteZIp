@@ -26,81 +26,67 @@
 		</style>
 	</head>
 <body>
-<div class="hero">
+	<div class="hero">
 	 <!-- snow -->
-	<%@include file="/resources/js/snow/snow.jsp"%>
-	<div class="hero__content">
+		<%@include file="/resources/js/snow/snow.jsp"%>
+		<div class="hero__content">
 		<!-- <h1>SVG Snow</h1> -->
 		<!-- partial:index.partial.html -->
-		<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap" rel="stylesheet">
-		<div class="task-manager">
-		<!-- sidebar -->
-			 <%@include file="/resources/js/sideBar/sideBar.jsp"%>		  <!-- content s -->
-		  <form id="formList" name="formList" method="post" autocomplete="off">
-			<!-- *Vo.jsp s -->
-			<%-- <%@include file="codeVo.jsp"%> --%>
-			<!-- *Vo.jsp e -->
-				<div class="row" style="width: 1022px; height: 100%">
-					<h2 class="needs-validation mt-5 ms-5">Member Form</h2>
-					<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
-						<div class="start" style="margin-left: auto; margin-right: auto; width: 690px; display: grid;">
-							<div class="row">
-								<div class="col">
-									<label for="ccgSeq" class="form-label">코드그룹 코드</label>
-									<input type="text" class="form-control" name="ifcgSeq" value="<c:out value="${item.ifcgSeq}"/>" placeholder="영문(대소문자),숫자">
-								</div>
-								<div class="col">
-									<label for="codeGroup_another" class="form-label">코드그룹 코드(Another)</label> 
-									<input type="text" class="form-control" id="codeGroup_another" placeholder="영문(대소문자),숫자">
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label for="name" class="form-label">코드그룹 이름(한글)</label> 
-									<input type="text" class="form-control" id="name" name="ifcgName" value="<c:out value="${item.ifcgName}"/>" placeholder="한글,숫자">
-								</div>
-								<div class="col">
-									<label for="name_eng" class="form-label">코드그룹 이름(영문)</label> 
-									<input type="text" class="form-control" id="name_eng" name="ifcgNameEng" value="<c:out value="${item.ifcgNameEng}"/>" placeholder="영문(대소문자),숫자">
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label for="codeGroup_use" class="form-label">사용여부</label>
-									<select class="form-select" aria-label="Default select example" name="ifcgUseNy" id="ifcgUseNy">
-									  <option value="1" <c:if test="${item.ifcgUseNy eq 1 }"> selected</c:if>>Y</option>
-									  <option value="0" <c:if test="${item.ifcgUseNy eq 0 }"> selected</c:if>>N</option>
-								  	</select>
-								</div>
-								<div class="col">
-									<label for="codeGroup_or" class="form-label">순서</label> 
-									<input type="text" class="form-control" id="codeGroup_or" name="ifcgOrder" value="<c:out value="${item.ifcgOrder}"/>" placeholder="숫자">
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label for="codeGroup_con" class="form-label">설명</label>
-									<input class="form-control" name="ifcgExplanation" value="<c:out value="${item.ifcgExplanation}"/>"placeholder="코드그룹 설명">
-								</div>
-								<div class="col">
-									<label for="ifcgDelNy" class="form-label">삭제여부</label>
-									<select class="form-select" name="ifcgDelNy" aria-label="Default select example">
-									  <option value="1" <c:if test="${item.ifcgDelNy eq 1 }"> selected</c:if>>Y</option>
-									  <option value="0" <c:if test="${item.ifcgDelNy eq 0 }"> selected</c:if>>N</option>
-								  	</select>
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label for="codeGroup_V1" class="form-label">예비1(Varchar type)</label> 
-									<input type="text" class="form-control" id="ifcgReferenceV1" placeholder="영문(대소문자),숫자">
-								</div>
-								<div class="col">
-									<label for="codeGroup_V2" class="form-label">예비2(Varchar type)</label> 
-									<input type="text" class="form-control" id="ifcgReferenceV2" placeholder="영문(대소문자),숫자">
-								</div>
+			<link href="https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap" rel="stylesheet">
+			<div class="task-manager">
+			<!-- sidebar -->
+				<%@include file="/resources/js/sideBar/sideBar.jsp"%>		  <!-- content s -->
+				<form id="formList" name="formList" method="post" autocomplete="off">
+				<!-- *Vo.jsp s -->
+				<%-- <%@include file="codeVo.jsp"%> --%>
+				<!-- *Vo.jsp e -->
+					<div class="row" style="width: 1022px; height: 100%">
+						<h2 class="needs-validation mt-5 ms-5">CodeGroup Form</h2>
+						<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
+							<div class="start" style="margin-left: auto; margin-right: auto; width: 690px; display: grid;">
+								<div class="row">
+									<div class="col">
+										<label for="name" class="form-label">코드그룹 이름(한글)</label> 
+										<input type="text" class="form-control" id="name" name="ifcgName" value="<c:out value="${item.ifcgName}"/>" placeholder="한글,숫자">
+									</div>
+									<div class="col">
+										<label for="name_eng" class="form-label">코드그룹 이름(영문)</label> 
+										<input type="text" class="form-control" id="name_eng" name="ifcgNameEng" value="<c:out value="${item.ifcgNameEng}"/>" placeholder="영문(대소문자),숫자">
+									</div>
 								</div>
 								<div class="row mt-3">
+									<div class="col">
+										<label for="codeGroup_con" class="form-label">설명</label>
+										<input class="form-control" name="ifcgExplanation" value="<c:out value="${item.ifcgExplanation}"/>" placeholder="코드그룹 설명">
+									</div>
+									<div class="col">
+										<label for="codeGroup_use" class="form-label">사용여부</label>
+										<select class="form-select" aria-label="Default select example" name="ifcgUseNy" id="ifcgUseNy">
+										<option value="1" <c:if test="${item.ifcgUseNy eq 1 }"> selected</c:if>>Y</option>
+										<option value="0" <c:if test="${item.ifcgUseNy eq 0 }"> selected</c:if>>N</option>
+										</select>
+									</div>
+								</div>
+								<div class="row mt-3">
+									<div class="col-6">
+										<label for="ifcgDelNy" class="form-label">삭제여부</label>
+										<select class="form-select" name="ifcgDelNy" aria-label="Default select example">
+										<option value="1" <c:if test="${item.ifcgDelNy eq 1 }"> selected</c:if>>Y</option>
+										<option value="0" <c:if test="${item.ifcgDelNy eq 0 }"> selected</c:if>>N</option>
+										</select>
+									</div>
+								</div>
+								<div class="row mt-3">
+									<div class="col">
+										<label for="ifcgCreatedAt" class="form-label">등록일</label> 
+										<input type="text" class="form-control" id="ifcgCreatedAt" value="<c:out value="${item.ifcgCreatedAt}"/>" placeholder="영문(대소문자),숫자">
+									</div>
+									<div class="col">
+										<label for="ifcgModifiedAt" class="form-label">수정일</label> 
+										<input type="text" class="form-control" id="ifcgModifiedAt" value="<c:out value="${item.ifcgModifiedAt}"/>" placeholder="영문(대소문자),숫자">
+									</div>
+								</div>
+								<!-- <div class="row mt-3">
 									<div class="col-6">
 										<label for="codeGroup_V3" class="form-label">예비3(Varchar type)</label>
 										<input type="text" class="form-control" id="ifcgReferenceV3"  placeholder="영문(대소문자),숫자">
@@ -121,51 +107,53 @@
 										<label for="codeGroup_V3" class="form-label">예비3 (Int type)</label>
 										<input type="text" class="form-control" id="ifcgReferenceI3"  placeholder="영문(대소문자),숫자">
 									</div>
+								</div> -->
+							</div>
+						</div>
+						<div class="row align-items-center mt-5">
+							<div class="col-2" style="margin-left: 85px;">
+								<button class="border-0 btn bg-secondary shadow" type="button" id="btnList">
+									<i class="fa-solid fa-bars" style="color: white;"></i>
+								</button>
+								<button id="btnUel" value="Uel" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
+									data-bs-target="#deleteModal">
+									<i class="fa-solid fa-xmark" style="color: white;"></i>
+								</button>
+							</div>
+							<div class="col-3 offset-5" align="right">
+								<div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
+									tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal"
+													aria-label="Close"></button>
+											</div>
+											<div class="modal-body fs-6">
+													선택하신 게시물을 정말로 삭제하시겠습니까?
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+												<button id="delBtn" type="button" class="btn btn-primary">삭제</button>
+											</div>
+										</div>
+									</div>
 								</div>
+								<button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
+									data-bs-target="#deleteModal">
+									<i class="fa-solid fa-trash-can" style="color: white;"></i>
+								</button>
+								<button id="btnSave" class="border-0 btn bg-success shadow" type="button">
+									<i class="fa-regular fa-bookmark" style="color: white;"></i>
+								</button>
 							</div>
 						</div>
 					</div>
-					<div class="row align-items-center mt-5">
-                           <div class="col-2" style="margin-left: 85px;">
-                               <button class="border-0 btn bg-secondary shadow" type="button" id="btnList">
-                                   <i class="fa-solid fa-bars" style="color: white;"></i>
-                               </button>
-                               <button id="btnUel" value="Uel" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
-                                   data-bs-target="#deleteModal">
-                                   <i class="fa-solid fa-xmark" style="color: white;"></i>
-                               </button>
-                           </div>
-                           <div class="col-3 offset-5" align="right">
-                               <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false"
-                                   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                   <div class="modal-dialog">
-                                       <div class="modal-content">
-                                           <div class="modal-header">
-                                               <h5 class="modal-title fw-bold" id="staticBackdropLabel">게시물 삭제</h5>
-                                               <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                   aria-label="Close"></button>
-                                           </div>
-                                           <div class="modal-body fs-6">
-                                          		선택하신 게시물을 정말로 삭제하시겠습니까?
-                                           </div>
-                                           <div class="modal-footer">
-                                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-                                               <button id="delBtn" type="button" class="btn btn-primary">삭제</button>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                               <button id="btnDel" value="Del" class="border-0 btn bg-danger shadow" type="button" data-bs-toggle="modal"
-                                   data-bs-target="#deleteModal">
-                                   <i class="fa-solid fa-trash-can" style="color: white;"></i>
-                               </button>
-                               <button id="btnSave" class="border-0 btn bg-success shadow" type="button">
-                                   <i class="fa-regular fa-bookmark" style="color: white;"></i>
-                               </button>
-                           </div>
-                         </div>
-					</div>
-				</form>				
+				</form>
+			</div>
+		</div>
+	</div>
 		<!-- <footer class="bg-dark">
 	        <div class="footer">
 	            <div class="footer_inner">

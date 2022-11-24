@@ -497,6 +497,12 @@ h2{
 }
 .content {
     margin-top: 20px;
+     -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 

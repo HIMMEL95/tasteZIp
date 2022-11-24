@@ -716,9 +716,14 @@ td {
 	white-space : nowrap;
 	text-overflow: ellipsis;
 }
-s
+
 td.textOverDefault {
 	white-space : normal; /*기본값*/
 	text-overflow: clip; /*기본값*/
+}
+
+.container {
+	height: 100vh; 
+	width: 83vh;
 }
 

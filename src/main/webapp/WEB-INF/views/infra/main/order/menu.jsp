@@ -129,49 +129,12 @@
 																		</div>
 																	</div>
 																	<div class="CEX4u">
-																		<div class="hEm4D" style="height: 150px;">
-																			<div class="CEX4u">
-																				<div class="fNygA">
-																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
-																							<span class="place_blind">업체</span>
-																						</div>
-																					</a>
+																		<div class="fNygA">
+																			<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
+																				<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
+																					<span class="place_blind">업체</span>
 																				</div>
-																			</div>
-																			<div class="CEX4u">
-																				<div class="fNygA">
-																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210617_121%2F1623912521068keJva_JPEG%2FZiLevh5CYoctWhXDNk2X8VQa.jpg);background-position:50% 0" id="ibu_1">
-																							<span class="place_blind">업체</span>
-																						</div>
-																					</a>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="hEm4D" style="height: 150px;">
-																			<div class="CEX4u">
-																				<div class="fNygA">
-																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210617_121%2F1623912521068keJva_JPEG%2FZiLevh5CYoctWhXDNk2X8VQa.jpg);background-position:50% 0" id="ibu_1">
-																							<span class="place_blind">업체</span>
-																						</div>
-																					</a>
-																				</div>
-																			</div>
-																			<div class="CEX4u">
-																				<div class="fNygA">
-																					<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																						<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(https://search.pstatic.net/common/?autoRotate=true&type=w278_sharpen&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210617_295%2F1623897525124lEBxL_JPEG%2F3ZYLhGCEVube9SJ0RpIbniJK.jpg);background-position:50% 0" id="ibu_1">
-																							<span class="place_blind">업체</span>
-																						</div>
-																						<span class="xez5V">
-																							<i class="fas fa-light fa-camera fa-2x mb-2"></i>
-																							645개 더보기
-																						</span>
-																					</a>
-																				</div>
-																			</div>																			
+																			</a>
 																		</div>
 																	</div>
 																</div>
@@ -180,7 +143,6 @@
 																<div class="zD5Nm f7aZ0">
 																	<div class="YouOG">
 																		<span class="Fc1rA">힘난다버거 신논현역점</span>
-																		<span class="DJJvD">햄버거</span>
 																	</div>
 																	<div class="dAsGb">
 																		<span class="PXMot LXIwF">
@@ -191,7 +153,7 @@
 																			<em>4.35</em>
 																			/5
 																		</span>
-																		<span class="PXMot">
+																		<!-- <span class="PXMot">
 																			<a href="/restaurant/1470422298/review/visitor" role="button" class="place_bluelink">
 																				방문자리뷰
 																				<em>414</em>
@@ -199,10 +161,10 @@
 																		</span>
 																		<span class="PXMot">
 																			<a href="/restaurant/1470422298/review/ugc" role="button" class="place_bluelink">
-																				블로그리뷰<!-- --> 
+																				블로그리뷰 
 																				<em>85</em>
 																			</a>
-																		</span>
+																		</span> -->
 																	</div>
 																</div>
 																<div class="X0C1I">
@@ -288,9 +250,18 @@
 																													<div class="item_info">
 																														<a href="#" class="info_link">
 																															<div class="info_img">
-																																<span class="img_box">
-																																	<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
-																																</span>
+																																<c:choose>
+																																	<c:when test="${empty list.path }">
+																																		<span class="img_box">
+																																			<img class="img" src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen" width="100%" height="100%" alt="섬네일">
+																																		</span>
+																																	</c:when>
+																																	<c:otherwise>
+																																		<span class="img_box">
+																																			<img class="img" src="${list.path }${list.uuidName}" width="100%" height="100%" alt="섬네일">
+																																		</span>
+																																	</c:otherwise>
+																																</c:choose>
 																															</div>
 																															<div class="info_detail">
 																																<div class="tit${status2.index }">${list.ifmnName }<span class="ico_group"></span></div>

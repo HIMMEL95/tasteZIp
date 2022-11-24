@@ -244,7 +244,8 @@
 																								<c:forEach items="${list }" var="list" varStatus="status2">
 																									<c:choose>
 																										<c:when test="${setDiv.ifmnSet_div eq list.ifmnSet_div }">
-																											<input type="hidden" name="menuSeq${status2.index}" value="${list.ifmnSeq }">
+																											<input type="hidden" name="menuSeq${list.ifmnSeq}" value="${list.ifmnSeq }">
+																											<div class="menuSeq${list.ifmnSeq}"></div>
 																											<ul class="order_list_area${status.index }">
 																												<li class="order_list_item">
 																													<div class="item_info">
@@ -271,7 +272,7 @@
 																																<div class="price${status2.index }"><fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원</div>
 																															</div>
 																														</a>
-																														<button class="btn_shop" role="button" onclick="goCart(${status2.index})">
+																														<button class="btn_shop" role="button" onclick="goCart(${list.ifmnSeq})">
 																															<div class="btn_box">
 																																<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
 																																	<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
@@ -305,7 +306,7 @@
 										<span class="ps-5">자몽에이드</span>
 									</div>
 									<span class="ps-5" style="font-weight: bold; color: red;">3,600원</span>
-									<button type="button" class="btn btnOrder position-relative" style="margin-left: 200px; float: right; margin-bottom: 0px; bottom: 20px; right: 40px;">
+									<button type="button" id="buyBtn" class="btn btnOrder position-relative" style="margin-left: 200px; float: right; margin-bottom: 0px; bottom: 20px; right: 40px;">
 										주문하기
 										<i class="fa-solid fa-cart-plus"></i>
 										<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
@@ -386,6 +387,7 @@
 			}
 		}
 		
+		var cart = [];
 		
 		goCart = function (value) {
 			alert($("input[name=menuSeq"+value+"]").val())
@@ -403,7 +405,39 @@
 					}
 				}
 			});
+			
+			if (cart.includes($("input[name=menuSeq"+value+"]").val()) == true) {
+				alert("중복된 상품을 선택 하셨습니다.");
+			} else {
+				cart.push($("input[name=menuSeq"+value+"]").val());
+				localStorage.setItem("cart", JSON.stringify(cart));
+				$.ajax({
+					type: "POST"
+					,url: "/menu/cart"
+					,data: {
+						ifmnSeq : $("input[name=menuSeq"+value+"]").val()
+					}
+					,success : function(response) {
+						if (response.rt == "success") {
+							var innerHtml ="";
+							innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
+							$(".menuSeq"+value).html(innerHtml);
+						} else if (response.rt == "duplicate") {
+							alert("중복된 상품을 선택 하셨습니다.!!!")
+						}
+					}
+				});
+			}
+			
 		}
+		
+		var goUrlCart = "/order/cartOrder";
+		var form = $("#myForm");
+		
+		$("#buyBtn").on("click", function() {
+			form.attr("action", goUrlCart).submit();
+		})
+		
 	</script>
 </body>
 

@@ -23,6 +23,15 @@ public class Menu extends Base {
     private String[] pathFile;
     private String[] fileSeq;
     
+    private String[] ifmnSeqArr;
+    
+    public String[] getIfmnSeqArr() {
+        return ifmnSeqArr;
+    }
+    public void setIfmnSeqArr(String[] ifmnSeqArr) {
+        this.ifmnSeqArr = ifmnSeqArr;
+    }
+    
     public String getIfmnSeq() {
         return ifmnSeq;
     }

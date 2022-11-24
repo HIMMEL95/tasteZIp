@@ -39,4 +39,8 @@ public class MenuDao {
     
     /* image select */
     public Menu selectImg(MenuVo vo) { return sqlSession.selectOne(namespace + ".selectImg", vo); }
+    
+    /* 장바구니 용 s */
+    public List<Menu> selectCart(MenuVo vo) { return sqlSession.selectList(namespace + ".selectCart", vo); }
+    /* 장바구니 용 e */
 }

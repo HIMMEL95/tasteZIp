@@ -136,3 +136,9 @@ background-color: #ff8000;
     background-color: #FF5600;
     border-color: #FF5600;
 }
+
+body {
+	overflow-y: auto; 
+}
+
+body::-webkit-scrollbar {display: none;}

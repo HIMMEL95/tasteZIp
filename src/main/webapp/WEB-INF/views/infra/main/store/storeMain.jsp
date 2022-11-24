@@ -213,7 +213,7 @@
 																					</strong>
 																					<div class="x8JmK">
 																						<a href="#" target="_self" role="button" class="pAe5G" aria-haspopup="true" aria-expanded="false">
-																							<span class="IH7VW">${item.ifstAddress}${item.ifstAddressDetail}</span>
+																							<span class="IH7VW">${item.ifstAddress}${item.ifstAddressDetail}${item.ifstAddressExtra }</span>
 																							<span class="KP_NF">
 																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="nHf7b" aria-hidden="true">
 																									<path d="M11.47.52a.74.74 0 00-1.04 0l-4.4 4.45v.01L1.57.52A.74.74 0 10.53 1.57l5.12 5.08a.5.5 0 00.7 0l5.12-5.08a.74.74 0 000-1.05z"></path>
@@ -231,21 +231,32 @@
 																						</div> -->
 																					</div>
 																				</li>
-																				<li class="SF_Mq">
-																					<strong class="RmIE4">
-																						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18" class="nHf7b" aria-hidden="true">
-																							<path d="M10.24 1.08l4.35 4.35-.78.78-3.02-3.02V9.9l-7.69.03v7.14H2V8.84l7.69-.02V3.19L6.67 6.2l-.78-.78 4.35-4.35z"></path>
-																						</svg>
-																						<span class="place_blind">찾아가는길</span>
-																					</strong>
-																					<div class="x8JmK">
-																						<div>
-																							<div class="xHaT3" style="display: block;">
-																								<span class="zPfVt">신논현역점 7번출구 GS칼텍스에서 좌회전 (한일유앤아이 지하1층116,117호)</span>
+																				<c:choose>
+																					<c:when test="${empty item.ifstDirections }"></c:when>
+																					<c:otherwise>
+																						<li class="SF_Mq">
+																							<strong class="RmIE4">
+																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18" class="nHf7b" aria-hidden="true">
+																									<path d="M10.24 1.08l4.35 4.35-.78.78-3.02-3.02V9.9l-7.69.03v7.14H2V8.84l7.69-.02V3.19L6.67 6.2l-.78-.78 4.35-4.35z"></path>
+																								</svg>
+																								<span class="place_blind"><b>찾아가는길</b></span>
+																							</strong>
+																							<div class="x8JmK">
+																								<div>
+																									<div class="xHaT3" style="display: block;">
+																										<span class="zPfVt">${item.ifstDirections }</span>
+																										<!-- <span class="KP_NF">
+																											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="nHf7b" aria-hidden="true">
+																												<path d="M11.47.52a.74.74 0 00-1.04 0l-4.4 4.45v.01L1.57.52A.74.74 0 10.53 1.57l5.12 5.08a.5.5 0 00.7 0l5.12-5.08a.74.74 0 000-1.05z"></path>
+																											</svg>
+																											<span class="place_blind">펼쳐보기</span>
+																										</span> -->
+																									</div>
+																								</div>
 																							</div>
-																						</div>
-																					</div>
-																				</li>
+																						</li>
+																					</c:otherwise>
+																				</c:choose>
 																				<li class="SF_Mq Sg7qM">
 																					<strong class="RmIE4">
 																						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 18" class="nHf7b" aria-hidden="true">
@@ -282,7 +293,7 @@
 																						</svg>
 																					</strong>
 																					<div class="x8JmK">
-																						<span class="dry01">02-595-6768</span>
+																						<span class="dry01">${item.ifstPhone }</span>
 																						<span class="mnnPt">
 																							<a href="#" target="_self" role="button" class="_vIMk" title="복사">
 																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" class="pHtH_" aria-hidden="true">
@@ -329,7 +340,7 @@
 																					</strong>
 																					<div class="x8JmK">
 																						<a href="#" target="_self" role="button" aria-expanded="false" class="xHaT3" style="display: block;">
-																							<span class="zPfVt">우리동네 대표 프리미엄 버거&amp;샐러드 힘난다버거 강남역에서 맛으로 소문난 그 버거 '힘난다버거' 입니다 단순한 버거가 아닌 주문과 동...</span>
+																							<span class="zPfVt text-truncate" style="max-width: 480px;">${item.ifstInfo}</span>
 																							<span class="rvCSr">
 																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="Ky28p" aria-hidden="true">
 																									<path d="M11.47.52a.74.74 0 00-1.04 0l-4.4 4.45v.01L1.57.52A.74.74 0 10.53 1.57l5.12 5.08a.5.5 0 00.7 0l5.12-5.08a.74.74 0 000-1.05z"></path>
@@ -358,7 +369,6 @@
 																			</ul>
 																		</div>
 																	</div>
-																	</form>
 																	<div class="place_section" data-nclicks-area-code="qmn">
 																		<h2 class="place_section_header">
 																			메뉴
@@ -472,6 +482,7 @@
 										</div>
 									</div>
 								</div>
+								</form>
 								<div class="entry-close-button">
 									
 								</div>

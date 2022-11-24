@@ -1,11 +1,11 @@
 package com.tasteZip.infra.modules.menu;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.sf.json.JSON;
 
 @Controller
 @RequestMapping(value = "/menu/")
@@ -31,6 +30,8 @@ public class MenuController {
 	
 	@Autowired
 	MenuServiceImpl service;
+	
+	private List<String> ifmnSeqArray = new ArrayList<String>();
 	
 // --------------- 관리자 --------------
 	@RequestMapping(value = "xdminMenuList")
@@ -87,7 +88,10 @@ public class MenuController {
 		
 		Menu item = service.selectMenu(vo);
 		model.addAttribute("item", item);
-		 
+
+		Menu img = service.selectImg(vo);
+		model.addAttribute("img", img);
+		
 		return "infra/xdmin/menu/ownerMenuForm";
 	}
 
@@ -207,6 +211,32 @@ public class MenuController {
 		}
     }
 	
-// -------------- 가게 주인 ------------	
-    
+// -------------- cart ------------	
+	
+	/* 장바구니 구현 용 s */
+    @ResponseBody
+    @RequestMapping(value = "cart")
+    public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response) throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>();
+        System.out.println("seq : " + dto.getIfmnSeq());
+        
+        Cookie cartCookie = new Cookie("cart", "test");
+        cartCookie.setMaxAge(24 * 30 * 60 * 60 * 1000);  // 30일동안 유효
+        response.addCookie(cartCookie);
+
+        if (ifmnSeqArray.contains(dto.getIfmnSeq())) {
+            returnMap.put("rt", "duplicate");
+        } else {
+            ifmnSeqArray.add(dto.getIfmnSeq());
+            
+            returnMap.put("rt", "success");
+        }
+        
+        for (int i=0; i<ifmnSeqArray.size(); i++) {
+            System.out.println(ifmnSeqArray.get(i));
+        }
+        
+        return returnMap;
+    }
+    /* 장바구니 구현 용 e */	
 }

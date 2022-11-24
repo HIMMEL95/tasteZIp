@@ -83,6 +83,14 @@
 	 	AND m.ifmnSeq = #{ifmnSeq}
 	</select>
 	
+	<select id="selectImg" resultMap="resultMapObj">
+		SELECT
+		 * 
+		 FROM menuUploaded
+		 WHERE
+		 pseq = #{ifmnSeq}
+	</select>
+	
 	<select id="setDiv" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
@@ -107,6 +115,7 @@
 			,ifmnSet_div
 			,ifmnDiscount
 			,ifmnDelNy
+			,ifmnCreatedAt
 		)
 		VALUES (
 			#{ifmnName}
@@ -116,6 +125,7 @@
 			,#{ifmnSet_div}
 			,#{ifmnDiscount}
 			,#{ifmnDelNy}
+			,now()
 		)
 		
 		<selectKey resultType="String" keyProperty="ifmnSeq" order="AFTER">
@@ -126,13 +136,17 @@
 	<update id="update">
 	 	UPDATE menu
 	 	SET
-			m.ifmnName = #{ifmnName}
-			,m.ifmnPrice = #{ifmnPrice}
-			,m.ifmnInfo = #{ifmnInfo}
-			,m.ifmnSet_div = #{ifmnSet_div}
+			ifmnName = #{ifmnName}
+			,ifstSeq = #{ifstSeq}
+			,ifmnPrice = #{ifmnPrice}
+			,ifmnInfo = #{ifmnInfo}
+			,ifmnSet_div = #{ifmnSet_div}
+			,ifmnDiscount = #{ifmnDiscount}
+			,ifmnDelNy = #{ifmnDelNy}
+			,ifmnModifiedAt = now()
  			
-		WHERE
-			m.ifmnSeq = #{m.ifmnSeq}
+		WHERE 1=1
+			and ifmnSeq = #{ifmnSeq}
  	</update>
  	
  	<update id="uelete">
@@ -140,14 +154,14 @@
 	 	SET
 	 		ifmnDelNy = 1
 		WHERE 1=1
-			and m.ifmnDelNy = #{m.ifmnDelNy}
+			and ifmnDelNy = #{ifmnDelNy}
  	</update>
  	
  	<delete id="delete">
  		DELETE FROM 
  			menu 
 		WHERE 
-			m.ifmnSeq = #{m.ifmnSeq}
+			ifmnSeq = #{ifmnSeq}
  	</delete>
 	
 </mapper>

@@ -1,5 +1,7 @@
 package com.tasteZip.infra.modules.menu;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.tasteZip.infra.common.base.Base;
 
 public class Menu extends Base {
@@ -14,6 +16,12 @@ public class Menu extends Base {
     private String ifmnCreatedAt;
     private String ifmnModifiedAt;
     private String ifstSeq;
+    
+    /* image upload s */
+    private MultipartFile[] menuImage;
+    private Integer[] process;
+    private String[] pathFile;
+    private String[] fileSeq;
     
     public String getIfmnSeq() {
         return ifmnSeq;
@@ -75,4 +83,29 @@ public class Menu extends Base {
     public void setIfstSeq(String ifstSeq) {
         this.ifstSeq = ifstSeq;
     }
+	public MultipartFile[] getMenuImage() {
+		return menuImage;
+	}
+	public void setMenuImage(MultipartFile[] menuImage) {
+		this.menuImage = menuImage;
+	}
+	public Integer[] getProcess() {
+		return process;
+	}
+	public void setProcess(Integer[] process) {
+		this.process = process;
+	}
+	public String[] getPathFile() {
+		return pathFile;
+	}
+	public void setPathFile(String[] pathFile) {
+		this.pathFile = pathFile;
+	}
+	public String[] getFileSeq() {
+		return fileSeq;
+	}
+	public void setFileSeq(String[] fileSeq) {
+		this.fileSeq = fileSeq;
+	}
+    
 }

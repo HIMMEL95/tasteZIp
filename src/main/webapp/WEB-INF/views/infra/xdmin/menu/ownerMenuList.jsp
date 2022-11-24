@@ -8,7 +8,7 @@
 	<!DOCTYPE html>
 	<html lang="ko" >
 	<head>
-		<title>xdmin Menu List</title>
+		<title>owner Menu List</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -172,8 +172,8 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			
-		var goUrlList = "/menu/xdminMenuList"; 
-		var goUrlForm = "/menu/xdminMenuForm"; 
+		var goUrlList = "/menu/ownerMenuList"; 
+		var goUrlForm = "/menu/ownerMenuForm"; 
 		var goUrlExcel = "/menu/excelDownload";
 		var goUrlUele = "/menu/MenuUele";	
 		var goUrlDele = "/menu/MenuDele";
@@ -231,7 +231,7 @@
  		</script>
 	 	<script type="text/javascript">
 	 	
-	 		var goUrlLita = "/menu/xdminMenuLita";		
+	 		var goUrlLita = "/menu/ownerMenuLita";		
 	 		
 	 	// ----- Lita ajax -----
 	 		$(document).ready(function(){

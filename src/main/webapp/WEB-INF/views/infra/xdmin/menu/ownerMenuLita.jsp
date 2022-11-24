@@ -58,7 +58,7 @@
 		<!-- end --> 
 		<script>
 		
-		var goUrlForm = "/menu/xdminMenuForm"; 
+		var goUrlForm = "/menu/ownerMenuForm"; 
 		
 		var form = $("form[name=formList]");
 		

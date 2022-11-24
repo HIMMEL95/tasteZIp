@@ -30,4 +30,13 @@ public class MenuDao {
 	public int update(Menu dto) {return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Menu dto) {return sqlSession.update(namespace + ".uelete", dto); }
 	public int delete(MenuVo vo) {return sqlSession.delete(namespace + ".delete", vo); }
+	
+	/* image upload s */
+    public int insertUploaded(Menu dto) { return sqlSession.insert("Base" + ".insertUploaded", dto); }
+    public int ueleteUploaded(Menu dto) { return sqlSession.insert("Base" + ".ueleteUploaded", dto); }
+    public int deleteUploaded(Menu dto) { return sqlSession.insert("Base" + ".deleteUploaded", dto); }
+    /* image upload e */
+    
+    /* image select */
+    public Menu selectImg(MenuVo vo) { return sqlSession.selectOne(namespace + ".selectImg", vo); }
 }

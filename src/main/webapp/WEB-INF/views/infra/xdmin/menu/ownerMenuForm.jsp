@@ -22,6 +22,7 @@
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<!-- datepicker e -->
 		<link rel="stylesheet" href="/resources/css/xdmin/member/xdminForm.css">
+		<script src="/resources/js/main/imageUpload.js"></script>
 		<!-- <link rel="stylesheet" href="/resources/css/xdmin/member/memberList.css"> -->
 		<style>
 		</style>
@@ -37,7 +38,8 @@
 		<div class="task-manager">
 		<!-- sidebar -->
 			 <%@include file="/resources/js/sideBar/sideBar.jsp"%>		  <!-- content s -->
-		  <form id="formList" name="formList" method="post" autocomplete="off" >
+		  <form id="formList" name="formList" method="post" enctype="multipart/form-data">
+		  <input type="hidden" name="ifmnSeq" value="<c:out value="${vo.ifmnSeq}"/>"/>
 				<div class="row" style="width: 1022px; height: 100%">
 					<h2 class="needs-validation mt-5 ms-5">Menu Form</h2>
 					<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
@@ -68,7 +70,7 @@
 							<div class="row mt-3">
 								<div class="col">
 									<label class="form-label">메뉴정보</label> 
-									<input type="text" value="<c:out value="${item.ifmnInfo}"/>" class="form-control" name="ifmnInfo">
+									<textarea class="form-control" id="ifmnInfo" row="30" name="ifmnInfo" wrap="hard"><c:out value="${item.ifmnInfo}"/></textarea>
 								</div>
 							</div>
 							<div class="row mt-3">
@@ -85,6 +87,19 @@
 										  <option value="1" <c:if test="${item.ifmnDelNy eq 1 }"> selected</c:if>>Y</option>
 										  <option value="0" <c:if test="${item.ifmnDelNy eq 0 }"> selected</c:if>>N</option>
 									</select>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+					            	<label class="form-label">메뉴 사진</label>
+									<div class="row">
+										<div class="col-3">
+							    			<img id="preview-image" class="profile" src="${img.path}${img.uuidName}" style="width: 400px; height: 200px;">
+							    			<div>
+												<input type="file" id="menuImage" name="menuImage" multiple="multiple" onChange="upload('menuImage', 1, 0, 1, 0, 0, 1);">
+							    			</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -181,6 +196,27 @@
 	 		   .replace(/[^0-9]/g, '')
 	 		  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
 	 		}
+		
+		function readImage(input) {
+		    // 인풋 태그에 파일이 있는 경우
+		    if(input.files && input.files[0]) {
+		        // 이미지 파일인지 검사 (생략)
+		        // FileReader 인스턴스 생성
+		        const reader = new FileReader()
+		        // 이미지가 로드가 된 경우
+		        reader.onload = e => {
+		            const previewImage = document.getElementById("preview-image")
+		            previewImage.src = e.target.result
+		        }
+		        // reader가 이미지 읽도록 하기
+		        reader.readAsDataURL(input.files[0])
+		    }
+		}
+		// input file에 change 이벤트 부여
+		const inputImage = document.getElementById("menuImage")
+		inputImage.addEventListener("change", e => {
+		    readImage(e.target)
+		})
 	</script>
 </body>
 

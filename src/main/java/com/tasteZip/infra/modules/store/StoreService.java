@@ -8,6 +8,8 @@ public interface StoreService {
     
     // main
     public List<Store> selectList(StoreVo vo) throws Exception;
+    public List<Store> storeList(StoreVo vo) throws Exception;
+    public Store storeMain(StoreVo vo) throws Exception;
     public int selectOneCount(StoreVo vo) throws Exception;
     
     //xdmin

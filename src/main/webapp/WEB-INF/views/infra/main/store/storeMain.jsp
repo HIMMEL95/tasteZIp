@@ -103,6 +103,8 @@
 							<!-- search e -->
 							<div class="ng-star-inserted entry-layout">
 								<!-- content s -->
+								<form id="form" name="form" method="post" enctype="multipart/form-data">
+		  						<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 								<div class="entry-place-bridge">
 									<div class="entry_wrap loaded ng-star-inserted">
 										<div class="place_on_pcmap">
@@ -113,7 +115,7 @@
 															<a href="#" role="button" class="DDfpb">
 																<img class="back" alt="" src="https://cdn-icons-png.flaticon.com/512/54/54321.png"> 
 															</a>
-															<h1 class="bh9OH">힘난다버거 신논현역점</h1>
+															<h1 class="bh9OH">${item.ifstName}</h1>
 														</div>
 														<div role="main" style="width:100%; height: 300px;">
 															<div class="place_img">
@@ -141,7 +143,7 @@
 															<div class="place_section">
 																<div class="zD5Nm f7aZ0">
 																	<div class="YouOG">
-																		<span class="Fc1rA">힘난다버거 신논현역점</span>
+																		<span class="Fc1rA">${item.ifstName }</span>
 																	</div>
 																	<div class="dAsGb">
 																		<span class="PXMot LXIwF">
@@ -211,14 +213,14 @@
 																					</strong>
 																					<div class="x8JmK">
 																						<a href="#" target="_self" role="button" class="pAe5G" aria-haspopup="true" aria-expanded="false">
-																							<span class="IH7VW">서울 서초구 사평대로56길 7 한일유앤아이 1층</span>
+																							<span class="IH7VW">${item.ifstAddress}${item.ifstAddressDetail}</span>
 																							<span class="KP_NF">
 																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="nHf7b" aria-hidden="true">
 																									<path d="M11.47.52a.74.74 0 00-1.04 0l-4.4 4.45v.01L1.57.52A.74.74 0 10.53 1.57l5.12 5.08a.5.5 0 00.7 0l5.12-5.08a.74.74 0 000-1.05z"></path>
 																								</svg>
 																							</span>
 																						</a>
-																						<div class="jyfLw">
+																						<!-- <div class="jyfLw">
 																							<span class="fv9Gn">
 																								<span class="nHf7b" style="background: rgb(209, 166, 44); height: 25px; width: 25px;">9</span>
 																							</span>
@@ -226,7 +228,7 @@
 																								<span class="nHf7b" style="background: rgb(167, 30, 49);">신분당</span>
 																							</span>
 																							<strong>신논현역</strong> 9번 출구에서<em>106m</em>
-																						</div>
+																						</div> -->
 																					</div>
 																				</li>
 																				<li class="SF_Mq">
@@ -356,6 +358,7 @@
 																			</ul>
 																		</div>
 																	</div>
+																	</form>
 																	<div class="place_section" data-nclicks-area-code="qmn">
 																		<h2 class="place_section_header">
 																			메뉴

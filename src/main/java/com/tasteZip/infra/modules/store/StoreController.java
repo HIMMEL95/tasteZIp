@@ -41,6 +41,16 @@ public class StoreController {
 	    return "infra/main/store/store";
 	}
 	
+	
+	@RequestMapping(value = "storeMain")
+	public String storeMain(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
+		
+		Store item = service.xdminSelectOne(vo);
+	    model.addAttribute("item", item);
+	    
+	    return "infra/main/store/storeMain";
+	}
+	
 	@RequestMapping(value = "StoreForm")
 	public String storeForm(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
 	    

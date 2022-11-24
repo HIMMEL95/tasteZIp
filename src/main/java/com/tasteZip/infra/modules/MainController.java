@@ -49,10 +49,10 @@ public class MainController {
         return "infra/main/user/signUp";
     }
     
-    @RequestMapping(value = "store")
-    public String order() throws Exception {
-        return "infra/main/store/storeMain";
-    }
+//    @RequestMapping(value = "storeMain")
+//    public String storeMain() throws Exception {
+//        return "infra/main/store/storeMain";
+//    }
     
     @RequestMapping(value = "chat")
     public String chat() throws Exception {
@@ -97,6 +97,17 @@ public class MainController {
     @RequestMapping(value = "main") 
     public String main(@ModelAttribute("vo") MenuVo vo) throws Exception {
         return "infra/main/order/main";
+    }
+    
+    @RequestMapping(value = "storeList") 
+    public String storeList(@ModelAttribute("svo") StoreVo svo, Model model) throws Exception {
+    	
+    	svo.setParamsPaging(sService.selectOneCount(svo));
+    	
+    	List<Store> store = sService.storeList(svo);
+    	model.addAttribute("store", store);
+    	
+        return "infra/main/store/storeList";
     }
     
     @RequestMapping(value = "menu")

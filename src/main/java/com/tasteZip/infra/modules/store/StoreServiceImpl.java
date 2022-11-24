@@ -21,10 +21,20 @@ public class StoreServiceImpl implements StoreService {
     public List<Store> selectList(StoreVo vo) throws Exception {
         return dao.selectList(vo);
     }
+    
+    @Override
+    public List<Store> storeList(StoreVo vo) throws Exception {
+        return dao.storeList(vo);
+    }
 
     @Override
     public int selectOneCount(StoreVo vo) throws Exception {
         return dao.selectOneCount(vo);
+    }
+    
+    @Override
+    public Store storeMain(StoreVo vo) throws Exception {
+        return dao.storeMain(vo);
     }
 
     // xdmin

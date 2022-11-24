@@ -20,6 +20,22 @@
 		</choose>
 	</sql>
 	
+	<select id="storeList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			select 
+				s.ifstSeq
+				,s.ifstName
+				,s.ifstAddress
+		    from store s
+			where 1=1
+				AND s.ifstDelNy = 0
+				<if test="shValue != null and !shValue.equals('')"> AND s.ifstName LIKE CONCAT('%',#{shValue},'%')</if>
+		    ORDER BY 
+		    	s.ifstCreatedAt DESC
+		   	<include refid="Base.orderByLimitForMysql" />
+	   		<include refid="Base.selectListLowerForMysql" />
+	</select>
+	
 	<select id="selectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 			select 
@@ -90,6 +106,14 @@
 			,s.ifstInfo
 			,s.ifstDirections
 			,s.ifstOrderNy
+	    from store s
+		where 1=1
+			and s.ifstSeq = #{ifstSeq}
+	</select>
+	
+	<select id="storeMain" resultMap="resultMapObj">
+		select 
+			s.*
 	    from store s
 		where 1=1
 			and s.ifstSeq = #{ifstSeq}

@@ -18,12 +18,14 @@ public class StoreDao {
     private static String namespace = "com.tasteZip.infra.modules.store.StoreMapper";
     
     public List<Store> selectList(StoreVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
+    public List<Store> storeList(StoreVo vo) { return sqlSession.selectList(namespace + ".storeList", vo); }
     public int selectOneCount(StoreVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
     
     //xdmin 
     public List<Store> xdminSelectList(StoreVo vo) { return sqlSession.selectList(namespace + ".xdminSelectList", vo); }
     public int xdminSelectOneCount(StoreVo vo) { return sqlSession.selectOne(namespace + ".xdminSelectOneCount", vo); }
     public Store xdminSelectOne(StoreVo vo) { return sqlSession.selectOne(namespace + ".xdminSelectOne", vo); }
+    public Store storeMain(StoreVo vo) { return sqlSession.selectOne(namespace + ".storeMain", vo); }
     public List<Store> openingList(StoreVo vo) { return sqlSession.selectList(namespace + ".openingList", vo); }
     public List<Store> day(Store dto) { return sqlSession.selectList(namespace + ".day", dto); }
     public List<Store> opening(Store dto) { return sqlSession.selectList(namespace + ".opening", dto); }

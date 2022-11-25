@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tasteZip.infra.modules.chart.ChartMapper">
+
+	<resultMap id="resultMapObj" type="com.tasteZip.infra.modules.chart.Chart"></resultMap>
+	
+	<!-- <select id="countNewUser" resultType="Integer">
+		SELECT COUNT(*)
+		from chart c
+		 left join member on m.ifmmSeq = c.ifmmSeq
+		where 1=1
+	</select> -->
+	
+	<select id="countNewUser" resultMap="resultMapObj">
+		select 
+			c.chartSeq
+			c.ifmmSeq
+		from chart c
+	 		left join member on m.ifmmSeq = c.ifmmSeq
+		where 1=1
+			and c.chartSeq = #{chartSeq}
+	</select> 
+	
+</mapper>

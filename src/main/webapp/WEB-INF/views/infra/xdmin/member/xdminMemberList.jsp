@@ -326,7 +326,7 @@
 			$("#modalConfirm").modal("hide");
 			
 			form.attr("action", goUrlMultiUele).submit();
-		});  */
+		}); 
 		
 		</script>
 </body>

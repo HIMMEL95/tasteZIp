@@ -53,26 +53,16 @@
 							</div>
 							<div class="tasks-wrapper">
 								<div class="task">
-									<i class="fa-solid fa-store"></i>
-									<!-- <input class="task-item" name="task" type="checkbox" id="item-3"> -->
-									<label>
-										<span>이름 : <strong>참이맛감자탕 강남점</strong></span>
-										&nbsp; &nbsp; 
-										<span>전화번호 : <strong>02-3481-3399</strong></span>
-										&nbsp; &nbsp; 
-										<span>주소 : <strong>서울 서초구 사평대로56길 10</strong></span>
-									</label>
-								</div>
-								<div class="task">
-									<i class="fa-solid fa-store"></i>
-								<!-- <input class="task-item" name="task" type="checkbox" id="item-3"> -->
-									<label>
-										<span>이름 : <strong>봉구스밥버거 아현점</strong></span>
-										&nbsp; &nbsp; 
-										<span>전화번호 : <strong>010-2737-7551</strong></span>
-										&nbsp; &nbsp; 
-										<span>주소 : <strong>서울 마포구 마포대로 196</strong></span>
-									</label>
+									<%-- <c:forEach items="${list}" var="list" varStatus="status"> --%>
+										<label class="text row" style="display: block; margin-bottom: 5px;">
+											<span class="ms-2 col-3"><i class="fa-solid fa-user-plus"></i>
+												이름 : <strong>${}</strong>
+											</span>
+											<span class="col-3">아이디 : <strong>${}</strong></span>
+											<span class="col-3">이메일 : <strong>${}</strong></span>
+											<span class="col-3">가입일 : <strong>${}</strong></span>
+										</label>
+									<%-- </c:forEach> --%>
 								</div>
 							</div>
 							<div style="width: 900px; height: 600px;">

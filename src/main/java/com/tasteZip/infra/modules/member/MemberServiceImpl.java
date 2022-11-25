@@ -12,13 +12,14 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.tasteZip.infra.common.base.BaseServiceImpl;
 import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.common.util.UtilDateTime;
 import com.tasteZip.infra.common.util.UtilRegMod;
 import com.tasteZip.infra.common.util.UtilSecurity;
 
 @Service
-public class MemberServiceImpl implements MemberService{
+public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
 
     @Autowired
     MemberDao dao;

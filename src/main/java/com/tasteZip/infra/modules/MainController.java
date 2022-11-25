@@ -134,9 +134,12 @@ public class MainController {
     public String xdminMain(MemberVo vo, Model model, StoreVo svo) throws Exception {
         
         vo.setParamsPaging(mbService.selectOneCount(vo));
-
+        
         List<Member> list = mbService.selectListLimit5(vo);
         model.addAttribute("list", list);
+        
+//        Member item = mbService.selectListLimit5(vo);
+//        model.addAttribute("item", item);
         
         return "infra/xdmin/home/xdminMain";
     }
@@ -146,8 +149,8 @@ public class MainController {
     	
     	svo.setParamsPaging(sService.selectOneCount(svo));
     	
-    	List<Store> sList = sService.selectList(svo);
-    	model.addAttribute("sList", sList);
+//    	List<Store> sList = sService.selectList(svo);
+//    	model.addAttribute("sList", sList);
     	
     	return "infra/xdmin/home/xdminMainNewStore";
     }

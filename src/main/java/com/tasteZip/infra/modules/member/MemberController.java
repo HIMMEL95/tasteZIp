@@ -240,6 +240,15 @@ public class MemberController {
 	    return "infra/xdmin/member/xdminMemberForm";
 	}
 	
+	@RequestMapping(value = "memberUele")
+	public String memberUele(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
+
+		service.uelete(dto);
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/member/memberList";
+	}
+	
 	@RequestMapping(value = "memberMultiUele")
 	public String memberMultiUele(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
 
@@ -250,6 +259,15 @@ public class MemberController {
 
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/member/xdminMemberList";
+	}
+	
+	@RequestMapping(value = "memberDele")
+	public String memberDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
+
+		service.delete(vo);
+		redirectAttributes.addFlashAttribute("vo", vo);
+
+		return "redirect:/member/memberList";
 	}
 	
 

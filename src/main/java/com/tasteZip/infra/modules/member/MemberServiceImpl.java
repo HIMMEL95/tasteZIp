@@ -44,6 +44,11 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
+    public List<Member> selectListLimit5(MemberVo vo) throws Exception {
+    	return dao.selectListLimit5(vo);
+    }
+
+    @Override
     public int selectOneCount(MemberVo vo) throws Exception {
         return dao.selectOneCount(vo);
     }

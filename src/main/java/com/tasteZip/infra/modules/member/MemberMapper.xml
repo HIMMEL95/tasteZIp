@@ -44,6 +44,20 @@
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
 	
+	<select id="selectListLimit5" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			select 
+				m.ifmmSeq
+				,m.ifmmName
+				,m.ifmmId
+				,m.ifmmEmail
+				,m.ifmmCreatedAt
+			<include refid="selectCommon"></include>
+			ORDER BY m.ifmmCreatedAt DESC
+		<include refid="Base.orderByLimitForMysql" />
+		<include refid="Base.selectListLowerForMysql3" />
+	</select>
+	
 	<select id="selectOne" resultMap="resultMapObj">
 			select 
 				m.ifmmSeq

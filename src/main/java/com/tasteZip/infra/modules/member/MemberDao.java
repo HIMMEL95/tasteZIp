@@ -19,6 +19,7 @@ public class MemberDao {
     
     //ifmmMember
     public List<Member> selecList(MemberVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
+    public List<Member> selectListLimit5(MemberVo vo) { return sqlSession.selectList(namespace + ".selectListLimit5", vo); }
     public int selectOneCount(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
     public int uelete(Member dto) { return sqlSession.update(namespace + ".uelete", dto); }
 	public int delete(MemberVo vo) { return sqlSession.delete(namespace + ".delete", vo); }

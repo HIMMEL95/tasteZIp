@@ -10,6 +10,7 @@ public interface MemberService {
 
 //	infrMember
     public List<Member> selectList(MemberVo vo) throws Exception;
+    public List<Member> selectListLimit5(MemberVo vo) throws Exception;
     public int selectOneCount(MemberVo vo) throws Exception;
     int uelete(Member dto) throws Exception; 
 	int delete(MemberVo vo) throws Exception;

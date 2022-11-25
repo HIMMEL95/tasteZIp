@@ -24,6 +24,7 @@ public class Member extends Base{
     private Integer ifmmEmailCheck;
     private String ifmmSnsImg;
     private String ifmmCreatedAt;
+    private String ifmmCreateDay;
     private String ifmmModifiedAt;
     private Integer ifmmDelNy;
     
@@ -179,4 +180,11 @@ public class Member extends Base{
     public void setIfmmDelNy(Integer ifmmDelNy) {
         this.ifmmDelNy = ifmmDelNy;
     }
+	public String getIfmmCreateDay() {
+		return ifmmCreateDay;
+	}
+	public void setIfmmCreateDay(String ifmmCreateDay) {
+		this.ifmmCreateDay = ifmmCreateDay;
+	}
+    
 }

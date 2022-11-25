@@ -137,6 +137,7 @@ public class MainController {
   
     @RequestMapping(value = "xdminMainNewStore")
     public String xdminMainNewStore(Model model, StoreVo svo) throws Exception {
+    	
     	svo.setParamsPaging(sService.selectOneCount(svo));
     	
     	List<Store> sList = sService.selectList(svo);

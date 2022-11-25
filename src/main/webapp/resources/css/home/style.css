@@ -233,7 +233,7 @@ button {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 40px 20px 0 43px;
+  padding: 20px 39px 0 45px;
 }
 .page-content .header {
   font-size: 26px;

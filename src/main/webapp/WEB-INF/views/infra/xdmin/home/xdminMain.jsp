@@ -28,7 +28,7 @@
 				<form action="formList" name="formList" method="post">
 					<input type="hidden" name="thisPage" value="1">
 					<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
-					<!-- <input type="hidden" name="ifmmSeq" value="${vo.ifmmSeq}"> -->
+				 	<input type="hidden" name="ifmmSeq" value="${vo.ifmmSeq}">
 					<div class="page-content">
 						<div class="content-categories">
 							<div class="label-wrapper">
@@ -53,30 +53,17 @@
 							</div>
 							<div class="tasks-wrapper">
 								<div class="task">
-									<i class="fa-solid fa-user-plus"></i>
 									<!-- <input class="task-item" name="task" type="checkbox" id="item-1" checked> -->
-									<label>
-										<span class="text ms-2">이름 : <strong>value="${vo.ifmmName}"</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">닉네임 : <strong>lalala</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">이메일 : <strong>lala@naver.com</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">가입일 : <strong>2022-11-22</strong></span>
-									</label>
-								</div>
-								<div class="task">
-									<i class="fa-solid fa-user-plus"></i>
-									<!-- <input class="task-item" name="task" type="checkbox" id="item-3"> -->
-									<label>
-										<span class="text ms-2">이름 : <strong>고*지</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">닉네임 : <strong>nct127</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">이메일 : <strong>jaehyun@naver.com</strong></span>
-										&nbsp; &nbsp; 
-										<span class="text">가입일 : <strong>2022-11-22</strong></span>
-									</label>
+									<c:forEach items="${list}" var="list" varStatus="status">
+										<label class="text row" style="display: block; margin-bottom: 5px;">
+											<span class="ms-2 col-3"><i class="fa-solid fa-user-plus"></i>
+												이름 : <strong>${list.ifmmName}</strong>
+											</span>
+											<span class="col-3">아이디 : <strong>${list.ifmmId}</strong></span>
+											<span class="col-3">이메일 : <strong>${list.ifmmEmail}</strong></span>
+											<span class="col-3">가입일 : <strong>${list.ifmmCreatedAt}</strong></span>
+										</label>
+									</c:forEach>
 								</div>
 							</div>
 							<div style="width: 900px; height: 600px;">

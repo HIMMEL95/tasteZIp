@@ -28,6 +28,11 @@
 		limit #{rowNumToShow2} offset #{startRnumForMysql2}
 	</sql>
 	
+	<sql id="selectListLowerForMysql3">	
+		) aa
+		limit 5 offset #{startRnumForMysql}
+	</sql>
+	
 	<sql id="insertRegModColumn">	
 		,regIp
 		,regSeq

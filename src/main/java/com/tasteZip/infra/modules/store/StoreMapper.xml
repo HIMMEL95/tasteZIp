@@ -28,10 +28,13 @@
 				,s.ifstAddress
 				,up.path
        			,up.uuidName
+       			,up.sort
+       			,up.seq
 		    from store s
 		    left join storeUploaded up on up.pseq = s.ifstSeq
 			where 1=1
 				AND s.ifstDelNy = 0
+				AND up.sort = 1
 				<if test="shValue != null and !shValue.equals('')"> AND s.ifstName LIKE CONCAT('%',#{shValue},'%')</if>
 		    ORDER BY 
 		    	s.ifstCreatedAt DESC
@@ -59,6 +62,17 @@
 				<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
 		    ORDER BY 
 		    	s.ifstCreatedAt DESC
+		   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql" />
+	</select>
+	
+	<select id="imgList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			select 
+				up.*
+		    from storeUploaded up
+			where 1=1
+				and pseq = #{pseq}
 		   	<include refid="Base.orderByLimitForMysql" />
 	   	<include refid="Base.selectListLowerForMysql" />
 	</select>
@@ -280,8 +294,39 @@
 		SELECT
 		 * 
 		 FROM storeUploaded
-		 WHERE
-		 pseq = #{ifstSeq}
+		 WHERE 1=1
+		 	and pseq = #{ifstSeq}
 	</select>
+	
+	<!-- product img uploaded -->
+	<insert id="insertUploaded">
+		INSERT INTO storeUploaded (
+		    type
+		    ,defaultNy
+		    ,sort
+		    ,originalName
+		    ,uuidName
+		    ,ext
+		    ,size
+		    ,delNy
+		    ,pseq
+		    ,path
+		   )
+		   VALUES (
+			#{type}
+			,#{defaultNy}
+			,#{sort}
+			,#{originalName}
+			,#{uuidName}
+			,#{ext}
+			,#{size}
+			,0
+			,#{ifstSeq} 
+			,#{path}
+			)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
 	
 </mapper>

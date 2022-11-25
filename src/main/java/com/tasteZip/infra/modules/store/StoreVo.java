@@ -12,8 +12,16 @@ public class StoreVo extends BaseVo {
     private String shDateEnd;
     private String ifstSeq;
     private String ifmnSeq;
+    private String seq;
     
-    public Integer getShOption() {
+   
+	public String getSeq() {
+		return seq;
+	}
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+	public Integer getShOption() {
         return shOption;
     }
     public void setShOption(Integer shOption) {

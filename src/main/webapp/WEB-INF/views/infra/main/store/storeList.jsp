@@ -165,6 +165,7 @@
 													<!-- 주변 카드 뷰 -->
 													<div>
 							          					<c:forEach items="${store}" var="store" varStatus="status">
+							          					<input type="hidden" name="seq" value="${store.seq }">
 														<a href="javascript:goForm(${store.ifstSeq})">
 															<div class="card_wrap" style="width: 95%;">
 											           			<div class="row pt-3">
@@ -172,34 +173,18 @@
 																	    <div class="card-body cardcc">
 																	    	<div class="row">
 																				<div class="col-4">
-																					<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="width: 150px;">
-																					  <div class="carousel-inner">
-																					    <c:choose>
-																							<c:when test="${empty store.path }">
-																								<div class="carousel-item active">
-																									<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 140px; height: 140px;">
-																								</div>
-																								<div class="carousel-item">
-																									<img class="d-block w-100"src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 140px; height: 140px;">
-																								</div>
-																							</c:when>
-																							<c:otherwise>
-																								<c:choose>
-																									<c:when test="${store.sort eq 1}">
-																										<div class="carousel-item active">
-																											<img class="d-block w-100" src="${store.path}${store.uuidName}" alt="First slide" style="width: 140px; height: 140px;">
-																										</div>
-																									</c:when>
-																									<c:otherwise>
-																										<div class="carousel-item">
-																											<img class="d-block w-100"src="${store.path}${store.uuidName}" style="width: 140px; height: 140px;" alt="Second slide">
-																										</div>
-																									</c:otherwise>
-																								</c:choose>
-																							</c:otherwise>
-																						</c:choose>
-																					   </div>
-																					 </div>
+																				    <c:choose>
+																						<c:when test="${empty store.path }">
+																							<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 140px; height: 140px;">
+																						</c:when>
+																						<c:otherwise>
+																							<c:choose>
+																								<c:when test="${store.sort eq 1 }">
+																									<img class="d-block w-100" src="${store.path}${store.uuidName}" alt="First slide" style="width: 140px; height: 140px;">
+																								</c:when>
+																							</c:choose>
+																						</c:otherwise>
+																					</c:choose>
 																				</div>
 																				<div class="col-8">
 																					<%-- <input type="hidden" name="ifstSeq" value="${store.ifstSeq}"> --%>

@@ -204,7 +204,7 @@
 							    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
 							    				<br>
 							    				<span id="imageCounter" style="font-size:16pt; font-weight:bold; position:absolute; top:60%; right:38%;">0/10</span>
-							    				<input type="file" multiple="multiple"  id="multipartFile" name="multipartFile" onChange="upload('multipartFile');" style="position:absolute; opacity:0%; width:100px; height:100px; top:10%; right:20%; cursor:pointer;">    
+							    				<input type="file" multiple="multiple"  id="storeImage" name="storeImage" onChange="upload('storeImage');" style="position:absolute; opacity:0%; width:100px; height:100px; top:10%; right:20%; cursor:pointer;">    
 							    			</div>
 							    			<!-- <div style="background:red; width:200px; height:200px;"></div> -->			 
 							    		</div> 

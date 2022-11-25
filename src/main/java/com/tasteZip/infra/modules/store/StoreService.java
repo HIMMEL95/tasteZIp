@@ -26,15 +26,10 @@ public interface StoreService {
     public int uelete(Store dto) throws Exception;
     
     public int insert(Store dto) throws Exception;
+    public int insertUploaded(Store dto) throws Exception;
     public int update(Store dto) throws Exception;
     public int runningInsert(Store dto) throws Exception;
     public int runningUpdate(Store dto) throws Exception;
     
-    /* image upload s */
-    public void uploadFiles(MultipartFile[] multipartFiles, Store dto, String tableName, int type) throws Exception;
-    public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Store dto, String tableName) throws Exception;
-    public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Store dto, String tableName) throws Exception;
-    /* image upload e */
-    
-    public Store selectImg(StoreVo vo) throws Exception;
+    public List<Store> selectImg(StoreVo vo) throws Exception;
 }

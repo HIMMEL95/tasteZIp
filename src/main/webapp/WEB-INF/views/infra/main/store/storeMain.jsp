@@ -103,7 +103,6 @@
 							<!-- search e -->
 							<div class="ng-star-inserted entry-layout">
 								<!-- content s -->
-								<form id="form" name="form" method="post" enctype="multipart/form-data">
 		  						<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 								<div class="entry-place-bridge">
 									<div class="entry_wrap loaded ng-star-inserted">
@@ -120,24 +119,15 @@
 														<div role="main" style="width:100%; height: 300px;">
 															<div class="place_img">
 																<div class="uDR4i fnRPu" style="height: 300px;">
-																	<div class="CEX4u">
+																	<c:forEach items="${img}" var="img" varStatus="status">
 																		<div class="fNygA">
 																			<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																				<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
-																					<span class="place_blind">업체</span>
+																				<div class="K0PDV _div" style="width:100%;height:100%;" id="ibu_1">
+																					<img src="${img.path }${img.uuidName}" alt="" style="width: 295.1px; height: 300px">
 																				</div>
 																			</a>
 																		</div>
-																	</div>
-																	<div class="CEX4u">
-																		<div class="fNygA">
-																			<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																				<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
-																					<span class="place_blind">업체</span>
-																				</div>
-																			</a>
-																		</div>
-																	</div>
+																	</c:forEach>
 																</div>
 															</div>
 															<div class="place_section">
@@ -438,7 +428,6 @@
 										</div>
 									</div>
 								</div>
-								</form>
 								<div class="entry-close-button">
 									
 								</div>

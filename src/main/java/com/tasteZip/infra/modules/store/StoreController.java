@@ -51,6 +51,9 @@ public class StoreController {
 	    List<Store> menu = service.menuList(vo);
 	    model.addAttribute("menu", menu);
 	    
+	    List<Store> img = service.selectImg(vo);
+	    model.addAttribute("img", img);
+	    
 	    return "infra/main/store/storeMain";
 	}
 	
@@ -64,6 +67,7 @@ public class StoreController {
 	public String storeInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
 	    
 		service.insert(dto);
+		service.insertUploaded(dto);
 	    
 	    vo.setIfstSeq(dto.getIfstSeq());
 	    redirectAttributes.addFlashAttribute("vo", vo);

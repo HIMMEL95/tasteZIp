@@ -42,12 +42,10 @@ public class StoreDao {
     public int runningUpdate(Store dto) { return sqlSession.update(namespace + ".runningUpdate", dto); }
 
     /* image upload s */
-    public int insertUploaded(Store dto) { return sqlSession.insert("Base" + ".insertUploaded", dto); }
-    public int ueleteUploaded(Store dto) { return sqlSession.insert("Base" + ".ueleteUploaded", dto); }
-    public int deleteUploaded(Store dto) { return sqlSession.insert("Base" + ".deleteUploaded", dto); }
+    public int insertUploaded(Store dto) { return sqlSession.insert(namespace + ".insertUploaded", dto); }
     /* image upload e */
     
     /* image select */
-    public Store selectImg(StoreVo vo) { return sqlSession.selectOne(namespace + ".selectImg", vo); }
+    public List<Store> selectImg(StoreVo vo) { return sqlSession.selectList(namespace + ".selectImg", vo); }
     
 }

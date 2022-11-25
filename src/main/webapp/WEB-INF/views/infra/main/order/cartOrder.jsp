@@ -25,7 +25,6 @@
 
 <body>
     <!-- start -->
-    
     <form id="myForm" name="myForm">
     	<input type="hidden" name="ifmmId" value="${sessId }">
     	<input type="hidden" name="ifmmName" value="${sessName }">
@@ -40,7 +39,6 @@
 								<div class="row">
 									<div class="col-lg-6 px-5 py-4">
 										<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your Menu</h3>
-										
 										<c:forEach items="${list }" var="list" varStatus="status">
 											<input type="hidden" name="menuSeq${list.ifmnSeq }" id="menuSeq${list.ifmnSeq }">
 											<div class="d-flex align-items-center mb-5">
@@ -69,23 +67,16 @@
 												</div>
 											</div>
 										</c:forEach>
-						
 										<hr class="mb-4" style="height: 2px; background-color: black; opacity: 1;">
-						
 										<div class="d-flex justify-content-between p-2 mb-2" style="background-color: #E6E6E6;">
 											<h5 class="fw-bold mb-0">Total:</h5>
 											<h5 class="fw-bold mb-0">2261$</h5>
 										</div>
-						
 									</div>
 									<div class="col-lg-6 px-5 py-4">
-						
 										<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">ORDER</h3>
-						
 										<div class="mb-5">
-						
 											<div class="container">
-												
 												<!-- 주문자정보 -->
 												<hr class="hrstyle mt-2 mb-2">
 												<div class="wide">
@@ -142,12 +133,9 @@
 													<div class="col-4 text-start"><button type="button" class="btn btn-dark" id="btnCancle" style="width: 150px;"><b>취소하기</b></button></div>
 												</div>
 											</div>
-						
 										</div>
-						
 									</div>
 								</div>
-					
 							</div>
 						</div>
 					</div>

@@ -380,7 +380,7 @@
 			}
 		}
 		
-		goCart = function (value) {
+		/* goCart = function (value) {
 			alert($("input[name=menuSeq"+value+"]").val())
 			$.ajax({
 				type: "POST"
@@ -398,17 +398,38 @@
 					}
 				}
 			});
-		}
+		} */
 		
-		/* goCart = function(value) {
-			if ($("ifmnseqArr"+value).val() == null) {
+		var cart = new Set()
+		goCart = function (value) {
+			console.log(cart);
+			
+			if (cart.has(value)) {
+				alert("중복된 상품을 선택하셨습니다.");
+			} else {
+				cart.add(value)
 				var innerHtml ="";
 				innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
 				$(".menuSeq"+value).html(innerHtml);
-			} else {
-				alert("중복된 상품을 선택하셨습니다.");
+				/* document.cookie = "cart=" + cart +"; path=/;" */
+				$.ajax({
+					type: "POST"
+					,url: "/menu/cart"
+					,data: {
+						ifmnSeqArr : cart
+					}
+					,success : function(response) {
+						if (response.rt == "success") {
+							var innerHtml ="";
+							innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
+							$(".menuSeq"+value).html(innerHtml);
+						} else if (response.rt == "duplicate") {
+							alert("중복된 상품을 선택 하셨습니다.!!!")
+						}
+					}
+				});
 			}
-		} */
+		}
 		
 		var goUrlCart = "/order/cartOrder";
 		var form = $("#myForm");

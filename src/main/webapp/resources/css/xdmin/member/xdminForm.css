@@ -696,4 +696,12 @@ a{
 	 transform: scale(1.4);
 	 color: #8891a4;
 }
-
+input[type="checkbox"] {
+    cursor: pointer;
+    border-radius:5px; 
+    width:20px; 
+    height: 20px; 
+    position:absolute; 
+    top:33%;    
+    right:13%;
+} 

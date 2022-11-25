@@ -35,4 +35,6 @@ public interface StoreService {
     public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Store dto, String tableName) throws Exception;
     public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Store dto, String tableName) throws Exception;
     /* image upload e */
+    
+    public Store selectImg(StoreVo vo) throws Exception;
 }

@@ -172,7 +172,34 @@
 																	    <div class="card-body cardcc">
 																	    	<div class="row">
 																				<div class="col-4">
-																					<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fditto-phinf.pstatic.net%2F20221026_159%2F1666744173946jgFqk_PNG%2F0c0eca72fa0c696d5abed59a00422916.png&type=o&size=228x152&ttype=input" style="width: 140px; height: 140px;">
+																					<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="width: 150px;">
+																					  <div class="carousel-inner">
+																					    <c:choose>
+																							<c:when test="${empty store.path }">
+																								<div class="carousel-item active">
+																									<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 140px; height: 140px;">
+																								</div>
+																								<div class="carousel-item">
+																									<img class="d-block w-100"src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 140px; height: 140px;">
+																								</div>
+																							</c:when>
+																							<c:otherwise>
+																								<c:choose>
+																									<c:when test="${store.sort eq 1}">
+																										<div class="carousel-item active">
+																											<img class="d-block w-100" src="${store.path}${store.uuidName}" alt="First slide" style="width: 140px; height: 140px;">
+																										</div>
+																									</c:when>
+																									<c:otherwise>
+																										<div class="carousel-item">
+																											<img class="d-block w-100"src="${store.path}${store.uuidName}" style="width: 140px; height: 140px;" alt="Second slide">
+																										</div>
+																									</c:otherwise>
+																								</c:choose>
+																							</c:otherwise>
+																						</c:choose>
+																					   </div>
+																					 </div>
 																				</div>
 																				<div class="col-8">
 																					<%-- <input type="hidden" name="ifstSeq" value="${store.ifstSeq}"> --%>

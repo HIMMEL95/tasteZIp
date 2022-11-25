@@ -34,7 +34,7 @@
 		<!-- sidebar -->
 		 <%@include file="/resources/js/sideBar/sideBar.jsp"%>
 		  <!-- content s -->
-		  <form id="formList" name="formList" method="post" autocomplete="off">
+		  <form id="formList" name="formList" method="post" enctype="multipart/form-data">
 		  	<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 				<div class="row" style="width: 1022px; height: 100%">
 					<h2 class="needs-validation mt-5 ms-5">Store Form</h2>
@@ -193,6 +193,25 @@
 								<div class="col">	
 									<label class="form-label">가게 소개글</label> 
 					   				<textarea class="form-control" id="ifstInfo" name="ifstInfo" aria-label="With textarea" rows="5">${item.ifstInfo }</textarea>
+					   			</div>
+							</div>
+							<div class="row mt-3" style="margin-top: 3rem;">
+								<div class="col">	
+									<label class="form-label">가게 이미지(2개 첨부)</label> 
+					   				<div class="d-flex flex-row">  
+							    		<div style="margin-right:40px;"> 
+							    			<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">
+							    				<i class="fa-solid fa-camera" style="font-size:40pt; position:absolute; top:30%; right:36%;"></i> 
+							    				<br>
+							    				<span id="imageCounter" style="font-size:16pt; font-weight:bold; position:absolute; top:60%; right:38%;">0/10</span>
+							    				<input type="file" multiple="multiple"  id="multipartFile" name="multipartFile" onChange="upload('multipartFile');" style="position:absolute; opacity:0%; width:100px; height:100px; top:10%; right:20%; cursor:pointer;">    
+							    			</div>
+							    			<!-- <div style="background:red; width:200px; height:200px;"></div> -->			 
+							    		</div> 
+							    		<div class="d-flex flex-row slimscroll" style="overflow:auto;" id="imgContainer">			     		
+								    		<!-- 첨부 이미지들 들어오는 곳 -->
+							    		</div>  
+							    	</div>
 					   			</div>
 							</div>
 						</div>
@@ -430,6 +449,54 @@
 	 		   .replace(/[^0-9]/g, '')
 	 		  .replace(/^(\d{0,2})(\d{0,3})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
 	 		}
+	</script>
+	<script type="text/javascript">
+		upload = function(objName) {
+			
+			var files = $("#" + objName +"")[0].files;
+			console.log(files);
+			
+			for(var i = 0; i<files.length; i++){
+				
+				var file = files[i];
+				var picReader = new FileReader();
+				
+			    picReader.addEventListener("load", addEventListenerCustom (i, file));
+			    picReader.readAsDataURL(file);
+			}
+			
+			$("#imageCounter").html(files.length+"/10"); 
+		};
+		
+		delImg = function(seq){
+			
+			$("#img"+seq).remove();
+			
+			return;
+			var imgs = $("div[name=img]");
+			for(var i = 0 ; i < imgs.length; i ++){
+				imgs[i].children[1].onclick="delImg("+i+")";
+				imgs[i].id="img"+i;
+			}
+			
+		};
+		
+		addEventListenerCustom = function (i, file) { 
+			return function(event) {
+				var imageFile = event.target;
+				var sort = i;
+				var txt = "";
+				
+				txt += '<div style="margin-right:10px; position:relative;" name="img" id="img'+i+'">';
+				txt += '<div class="justify-content-center text-center" style="border-radius:10px; width:200px; height:200px; background:#1F2122; position:relative; ">';
+				txt += '<img alt="" src="'; 
+				txt += imageFile.result;
+				txt += '" style="width:100%; height:100%; border-radius:10px;"></div>';
+				txt += '<i style="font-size: 16pt; color:red; position:absolute; top:3%; right:5%; cursor:pointer;" class="fa-regular fa-circle-xmark" onclick="delImg('+i+')"></i></div>';
+				
+				$("#imgContainer").append(txt);
+		    };
+		};
 	</script>
 </body>
 </html>

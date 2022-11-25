@@ -26,7 +26,10 @@
 				s.ifstSeq
 				,s.ifstName
 				,s.ifstAddress
+				,up.path
+       			,up.uuidName
 		    from store s
+		    left join storeUploaded up on up.pseq = s.ifstSeq
 			where 1=1
 				AND s.ifstDelNy = 0
 				<if test="shValue != null and !shValue.equals('')"> AND s.ifstName LIKE CONCAT('%',#{shValue},'%')</if>
@@ -271,5 +274,14 @@
 	</delete>
 	
 	<!-- xdmin e --> 
+	
+	<!-- 이미지 -->
+	<select id="selectImg" resultMap="resultMapObj">
+		SELECT
+		 * 
+		 FROM storeUploaded
+		 WHERE
+		 pseq = #{ifstSeq}
+	</select>
 	
 </mapper>

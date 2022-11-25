@@ -62,7 +62,8 @@ public class StoreController {
 	
 	@RequestMapping(value = "storeInst")
 	public String storeInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
-	    service.insert(dto);
+	    
+		service.insert(dto);
 	    
 	    vo.setIfstSeq(dto.getIfstSeq());
 	    redirectAttributes.addFlashAttribute("vo", vo);

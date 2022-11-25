@@ -88,15 +88,16 @@ public class StoreServiceImpl implements StoreService {
         return dao.uelete(dto);
     }
 
-	/*
-	 * @Override public int insert(Store dto) throws Exception { try {
-	 * dao.insert(dto); uploadFiles(dto.getStoreImage(), dto, "storeUploaded", 0);
-	 * return 1; } catch (Exception e) { throw new Exception(); } }
-	 */
     
     @Override
 	public int insert(Store dto) throws Exception {
-		return dao.insert(dto);
+    	try {
+            dao.insert(dto);
+            uploadFiles(dto.getStoreImage(), dto, "storeUploaded", 0);
+            return 1;
+        } catch (Exception e) {
+            throw new Exception();
+        }
 	}
 
     @Override
@@ -237,4 +238,10 @@ public class StoreServiceImpl implements StoreService {
         }
     }
     /* image upload e */
+    
+    @Override
+   	public Store selectImg(StoreVo vo) throws Exception{
+       	return dao.selectImg(vo);
+   	}
+    
 }

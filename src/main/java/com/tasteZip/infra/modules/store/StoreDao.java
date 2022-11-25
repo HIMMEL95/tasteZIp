@@ -46,4 +46,8 @@ public class StoreDao {
     public int ueleteUploaded(Store dto) { return sqlSession.insert("Base" + ".ueleteUploaded", dto); }
     public int deleteUploaded(Store dto) { return sqlSession.insert("Base" + ".deleteUploaded", dto); }
     /* image upload e */
+    
+    /* image select */
+    public Store selectImg(StoreVo vo) { return sqlSession.selectOne(namespace + ".selectImg", vo); }
+    
 }

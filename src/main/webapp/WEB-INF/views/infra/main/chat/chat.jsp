@@ -277,7 +277,7 @@
 		                                        </div>
 		                                        <div class="chat_product_info">
 																								<!-- 아래 mmNickName  도 본인의 dto field에 맞게 수정 -->
-		                                            <span class="status"><c:out value="${list.ifmmId }"/>${list.ifmmId }</span>
+		                                            <span class="status"><c:out value="${list.ifmmId }"/></span>
 					                                 			<p>TEST TEXT FIELD</p>
 		                                        </div>
 		                                    </div>
@@ -507,13 +507,14 @@
 								txt+='</div>';
 								txt+='<div class="chat_product_info">';
 								txt+='<span class="status">';
-								txt+=result.newChat.id;
+								txt+=result.newChat.ifmmId;
 								txt+='</span>';
 								txt+='<p>TEST TEXT FIELD</p>';
 								txt+='</div>';
 								txt+='</div>';
 								txt+='</li>';
 								$("#chatList").prepend(txt);
+								location.reload();
 							}else{
 								alert("fail..!");
 							}

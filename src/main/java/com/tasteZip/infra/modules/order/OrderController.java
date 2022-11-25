@@ -10,12 +10,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tasteZip.infra.modules.menu.Menu;
+import com.tasteZip.infra.modules.menu.MenuServiceImpl;
+import com.tasteZip.infra.modules.menu.MenuVo;
+
 @Controller
 @RequestMapping(value = "/order/")
 public class OrderController {
 	
 	@Autowired
 	OrderServiceImpl service;
+	@Autowired
+	MenuServiceImpl mService;
 	
 	// search and paging
 	public void setSearchAndPaging(OrderVo vo) throws Exception{
@@ -84,7 +90,11 @@ public class OrderController {
     }
     
     @RequestMapping(value = "cartOrder")
-    public String cartOrder() throws Exception {
+    public String cartOrder(MenuVo vo, Menu dto, Model model) throws Exception {
+        
+        List<Menu> list = mService.selectCart(vo, dto);
+        model.addAttribute("list", list);
+        
     	return "infra/main/order/cartOrder";
     }
     

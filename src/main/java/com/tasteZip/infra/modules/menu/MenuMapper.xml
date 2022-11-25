@@ -167,4 +167,18 @@
 			ifmnSeq = #{ifmnSeq}
  	</delete>
 	
+	<!-- 장바구니용 s -->
+	<select id="selectCart" resultMap="resultMapObj">
+		SELECT
+			m.ifmnSeq
+			,m.ifmnName
+			,m.ifmnPrice
+			,mu.path
+			,mu.uuidName
+		from menu m
+			LEFT join menuUploaded mu on mu.pseq = m.ifmnSeq
+		WHERE 1=1
+			and m.ifmnSeq = #{ifmnSeq}
+	</select>
+	<!-- 장바구니용 e -->
 </mapper>

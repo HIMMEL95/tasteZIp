@@ -1,7 +1,6 @@
 package com.tasteZip.infra.modules.menu;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,8 +16,6 @@ public class MenuServiceImpl implements MenuService {
     
     @Autowired
     MenuDao dao;
-    
-    private List<String> ifmnSeqArray = new ArrayList<String>();
     
     @Override
     public List<Menu> selectList(MenuVo vo) throws Exception {
@@ -172,7 +169,16 @@ public class MenuServiceImpl implements MenuService {
 	public Menu selectImg(MenuVo vo) throws Exception{
     	return dao.selectImg(vo);
 	}
-    
-    
+
+    @Override
+    public List<Menu> selectCart(MenuVo vo, Menu dto) throws Exception {
+        
+        System.out.println(dto.getIfmnSeqArr().length);
+        
+        for (int i=0;i<dto.getIfmnSeqArr().length; i++) {
+            System.out.println(dto.getIfmnSeqArr()[i]);
+        }
+        return dao.selectCart(vo);
+    }
 
 }

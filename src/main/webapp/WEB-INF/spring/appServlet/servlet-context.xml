@@ -47,6 +47,8 @@
 			<exclude-mapping path="/menu" />
 			<exclude-mapping path="/menu/cart" />
 			<exclude-mapping path="/store" />
+			<exclude-mapping path="/store/storeMain" />
+			<exclude-mapping path="/storeList" />
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/signUp" />
 			<exclude-mapping path="/findId" />

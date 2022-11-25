@@ -48,6 +48,9 @@ public class StoreController {
 		Store item = service.xdminSelectOne(vo);
 	    model.addAttribute("item", item);
 	    
+	    List<Store> menu = service.menuList(vo);
+	    model.addAttribute("menu", menu);
+	    
 	    return "infra/main/store/storeMain";
 	}
 	

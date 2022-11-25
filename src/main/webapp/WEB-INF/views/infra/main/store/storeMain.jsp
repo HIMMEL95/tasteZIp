@@ -245,12 +245,6 @@
 																								<div>
 																									<div class="xHaT3" style="display: block;">
 																										<span class="zPfVt">${item.ifstDirections }</span>
-																										<!-- <span class="KP_NF">
-																											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="nHf7b" aria-hidden="true">
-																												<path d="M11.47.52a.74.74 0 00-1.04 0l-4.4 4.45v.01L1.57.52A.74.74 0 10.53 1.57l5.12 5.08a.5.5 0 00.7 0l5.12-5.08a.74.74 0 000-1.05z"></path>
-																											</svg>
-																											<span class="place_blind">펼쳐보기</span>
-																										</span> -->
 																									</div>
 																								</div>
 																							</div>
@@ -381,86 +375,48 @@
 																		</h2>
 																		<div class="place_section_content">
 																			<ul class="mpoxR">
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_0" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_225%2F1659601447159oiLVI_JPEG%2F%25C4%25A1%25C1%25EE%25B9%25F6%25B0%25C5%25BC%25BC%25C6%25AE_%25B4%25EB%25C1%25F6_1.jpg" alt="힘난다치즈버거 샐러드 set" width="100%" height="auto">
-																								</div>
+																				<c:choose>
+																					<c:when test="${fn:length(menu) eq 0}">
+																						<div class="justify-content-center">
+																							<div class="col text-center">
+																								<img src="https://yesexpo.co.kr/wp-content/uploads/2021/01/%EC%A4%80%EB%B9%84%EC%A4%91-1200x375.jpg" width="100%" height="auto">
 																							</div>
+																							<div class="col text-center mt-3 mb-2"><h5><b>메뉴 준비중 입니다</b></h5></div>
 																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">힘난다치즈버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">10,800원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_1" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_236%2F1659601498314GPi3d_JPEG%2F%25B8%25D3%25BD%25AC%25B7%25EB%25C4%25A1%25C1%25EE%25B9%25F6%25B0%25C5_%25B4%25EB%25C1%25F6_1.jpg" alt="머쉬룸치즈버거 샐러드 set" width="100%" height="auto">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">머쉬룸치즈버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">10,900원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_2" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_229%2F1659601555613jjbEA_JPEG%2F%25BA%25A3%25C0%25CC%25C4%25C1%25C4%25A1%25C1%25EE%25B9%25F6%25B0%25C5%25BC%25BC%25C6%25AE_%25B4%25EB%25C1%25F6_1.jpg" alt="베이컨치즈버거 샐러드 set" width="100%" height="auto">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">베이컨치즈버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">11,900원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
-																				<li class="yhGu6">
-																					<a href="/restaurant/1470422298/menu/1470422298_3" role="button" class="Ozh8q">
-																						<div class="ZHqBk">
-																							<div class="place_thumb">
-																								<div class="lazyload-wrapper ">
-																									<img src="https://search.pstatic.net/common/?autoRotate=true&amp;quality=95&amp;type=f400_300&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220804_90%2F16596017292880evFB_JPEG%2F%25BA%25D2%25BD%25BA%25B9%25F6%25B0%25C5%25BC%25BC%25C6%25AE_%25B4%25EB%25C1%25F6_1.jpg" alt="힘난다불스버거 샐러드 set" width="100%" height="auto">
-																								</div>
-																							</div>
-																						</div>
-																						<div class="MN48z">
-																							<div class="erVoL">
-																								<div class="MENyI">힘난다불스버거 샐러드 set</div>
-																							</div>
-																							<div class="Yrsei">
-																								<div class="gl2cc">12,400원</div>
-																							</div>
-																							<div class="Qh_eq"></div>
-																						</div>
-																					</a>
-																				</li>
+																					</c:when>
+																					<c:otherwise>
+																						<c:forEach items="${menu}" var="menu" varStatus="status">
+																							<li class="yhGu6">
+																								<a href="#" role="button" class="Ozh8q">
+																								<%-- <a href="javascript:goForm('${menu.ifmnseq }')" role="button" class="Ozh8q"> --%>
+																									<div class="ZHqBk">
+																										<div class="place_thumb">
+																											<div class="lazyload-wrapper ">
+																												<c:choose>
+																													<c:when test="${empty menu.pseq }">
+																														<img src="https://www.tobedone.co.kr/uploads/8d0771dbf95f31d6cba1a63d14666d1c.jpg" alt="" width="100%" height="auto">
+																													</c:when>
+																													<c:otherwise>
+																														<img src="${menu.path}${menu.uuidName}" alt="" width="100%" height="auto">
+																													</c:otherwise>
+																												</c:choose>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="MN48z">
+																										<div class="erVoL">
+																											<div class="MENyI">${menu.ifmnName}</div>
+																										</div>
+																										<div class="Yrsei">
+																											<div class="gl2cc">${menu.ifmnPrice}</div>
+																										</div>
+																										<div class="Qh_eq"></div>
+																									</div>
+																								</a>
+																							</li>
+																						</c:forEach>
+																					</c:otherwise>
+																				</c:choose>
 																			</ul>
 																		</div>
 																		<div class="lfH3O">

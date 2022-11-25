@@ -39,6 +39,13 @@ public class Store extends Base {
     private String[] pathFile;
     private String[] fileSeq;
     
+    // menu
+    private String ifmnSeq;
+    private String ifmnPrice;
+    private String ifmnName;
+    private String ifmnInfo;
+    
+    
     public MultipartFile[] getStoreImage() {
         return storeImage;
     }
@@ -200,4 +207,29 @@ public class Store extends Base {
     public void setIfrtOpeningArray(Integer[] ifrtOpeningArray) {
         this.ifrtOpeningArray = ifrtOpeningArray;
     }
+	public String getIfmnSeq() {
+		return ifmnSeq;
+	}
+	public void setIfmnSeq(String ifmnSeq) {
+		this.ifmnSeq = ifmnSeq;
+	}
+	public String getIfmnPrice() {
+		return ifmnPrice;
+	}
+	public void setIfmnPrice(String ifmnPrice) {
+		this.ifmnPrice = ifmnPrice;
+	}
+	public String getIfmnName() {
+		return ifmnName;
+	}
+	public void setIfmnName(String ifmnName) {
+		this.ifmnName = ifmnName;
+	}
+	public String getIfmnInfo() {
+		return ifmnInfo;
+	}
+	public void setIfmnInfo(String ifmnInfo) {
+		this.ifmnInfo = ifmnInfo;
+	}
+    
 }

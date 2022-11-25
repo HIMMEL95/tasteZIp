@@ -117,6 +117,25 @@
 	    from store s
 		where 1=1
 			and s.ifstSeq = #{ifstSeq}
+	</select>
+	
+	<select id="menuList" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+		select
+			m.ifmnName
+			,m.ifmnSeq
+			,m.ifmnPrice
+			,up.path
+			,up.uuidName
+			,up.pseq
+	    from menu m
+	    left join menuUploaded up on up.pseq = m.ifmnSeq
+	    left join store s on s.ifstSeq = m.ifstSeq
+		where 1=1
+			and m.ifstSeq = #{ifstSeq}
+		<include refid="Base.orderByLimitForMysql" />
+	   	) aa
+		limit 4 offset 0
 	</select> 
 
 	<select id="openingList" resultMap="resultMapObj">

@@ -230,7 +230,17 @@ public class MenuController {
     public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         
-        returnMap.put("rt", "success");
+        System.out.println("seq : " + dto.getIfmnSeq());
+        
+        if (ifmnSeqArray.contains(dto.getIfmnSeq())) {
+            returnMap.put("rt", "duplicate");
+        } else {
+            ifmnSeqArray.add(dto.getIfmnSeq());
+            Cookie cartCookie = new Cookie("cart", dto.getIfmnSeq());
+            cartCookie.setMaxAge(24 * 30 * 60 * 60 * 1000);
+            response.addCookie(cartCookie);
+            returnMap.put("rt", "success");
+        }
         
         return returnMap;
     }

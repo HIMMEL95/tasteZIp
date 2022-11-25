@@ -35,7 +35,7 @@
 				</a>
 				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 					<li class="nav-item">
-						<a href="/store" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/storeList" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
@@ -175,10 +175,10 @@
 																	<div class="ngGKH">
 																		<div class="flicking-viewport" style="user-select: none; -webkit-user-drag: none; touch-action: pan-y;">
 																			<div class="flicking-camera" style="transform: translate(0px);">
-																				<a href="/order" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
+																				<a href="/storeMain" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">홈</span>
 																				</a>
-																				<a href="/menu" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="javascript:goForm(${item.ifstSeq})" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">메뉴</span>
 																				</a>
 																				<a href="/comment" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
@@ -492,6 +492,15 @@
 				}
 			});
 		});
+	 	
+	 	var goUrlForm = "/menu";
+		var seq = $("input[name=ifstSeq]");
+		var form = $("#myForm");
+		
+		goForm = function(keyValue) {
+			seq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		}
 	</script>
 </body>
 

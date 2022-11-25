@@ -25,6 +25,22 @@ public class Menu extends Base {
     
     private String[] ifmnSeqArr;
     
+    private Integer totalPrice;
+    private Integer count;
+    
+    public Integer getTotalPrice() {
+        return totalPrice;
+    }
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+    public Integer getCount() {
+        return count;
+    }
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+    
     public String[] getIfmnSeqArr() {
         return ifmnSeqArr;
     }

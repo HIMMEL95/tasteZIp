@@ -111,13 +111,19 @@ public class MainController {
     }
     
     @RequestMapping(value = "menu")
-    public String menu(MenuVo vo, Model model) throws Exception {
+    public String menu(MenuVo vo, Model model, StoreVo sVo) throws Exception {
         
         List<Menu> list = mService.selectList(vo);
         model.addAttribute("list", list);
         
         List<Menu> setDiv = mService.setDiv(vo);
         model.addAttribute("setDiv", setDiv);
+        
+        Store item = sService.xdminSelectOne(sVo);
+        model.addAttribute("item", item);
+        
+        List<Store> img = sService.selectImg(sVo);
+        model.addAttribute("img", img);
         
         return "infra/main/order/menu";
     }

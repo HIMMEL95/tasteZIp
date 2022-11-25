@@ -175,9 +175,6 @@ public class MenuServiceImpl implements MenuService {
         
         System.out.println(dto.getIfmnSeqArr().length);
         
-        for (int i=0;i<dto.getIfmnSeqArr().length; i++) {
-            System.out.println(dto.getIfmnSeqArr()[i]);
-        }
         return dao.selectCart(vo);
     }
 

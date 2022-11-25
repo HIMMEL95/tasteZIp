@@ -13,6 +13,16 @@ public class MenuVo extends BaseVo {
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOptionDate;
+	
+	private String ifstSeq;
+	
+    
+    public String getIfstSeq() {
+        return ifstSeq;
+    }
+    public void setIfstSeq(String ifstSeq) {
+        this.ifstSeq = ifstSeq;
+    }
     
     public String getIfmnSeq() {
         return ifmnSeq;

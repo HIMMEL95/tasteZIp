@@ -35,7 +35,7 @@
 				</a>
 				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 					<li class="nav-item">
-						<a href="/store" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/storeList" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>
@@ -81,7 +81,7 @@
 		</div>
 		<div class="map_container" id="container">
 			<form id="myForm" name="myForm">
-				<input type="hidden" name="seq" value='<c:out value="${vo.seq }"></c:out>'>
+				<input type="hidden" name="ifstSeq" value="<c:out value="${item.ifstSeq}"/>"/>
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
@@ -114,35 +114,28 @@
 															<a href="#" role="button" class="DDfpb">
 																<img class="back" alt="" src="https://cdn-icons-png.flaticon.com/512/54/54321.png"> 
 															</a>
-															<h1 class="bh9OH">힘난다버거 신논현역점</h1>
+															<h1 class="bh9OH">${item.ifstName }</h1>
 														</div>
 														<div role="main" style="width:100%; height: 300px;">
 															<div class="place_img">
 																<div class="uDR4i fnRPu" style="height: 300px;">
-																	<div class="CEX4u">
-																		<div class="fNygA">
-																			<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																				<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
-																					<span class="place_blind">업체</span>
-																				</div>
-																			</a>
+																	<c:forEach items="${img}" var="img" varStatus="status">
+																		<div class="CEX4u">
+																			<div class="fNygA">
+																				<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
+																					<div class="K0PDV _div" style="width:100%;height:100%;" id="ibu_1">
+																						<img src="${img.path }${img.uuidName}" alt="" style="width: 295.1px; height: 300px">
+																					</div>
+																				</a>
+																			</div>
 																		</div>
-																	</div>
-																	<div class="CEX4u">
-																		<div class="fNygA">
-																			<a href="#" target="_self" role="button" class="place_thumb QX0J7" id="_autoPlayable">
-																				<div class="K0PDV _div" style="width:100%;height:100%;background-image:url(&quot;https://search.pstatic.net/common/?autoRotate=true&amp;type=w560_sharpen&amp;src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20220822_198%2F1661157302914UrbDF_PNG%2FHIMNANDA_BURGER_LOGO_%2528%25B3%25D7%25C0%25CC%25B9%25F6%2529.png&quot;);background-position:50% 0" id="ibu_1">
-																					<span class="place_blind">업체</span>
-																				</div>
-																			</a>
-																		</div>
-																	</div>
+																	</c:forEach>
 																</div>
 															</div>
 															<div class="place_section">
 																<div class="zD5Nm f7aZ0">
 																	<div class="YouOG">
-																		<span class="Fc1rA">힘난다버거 신논현역점</span>
+																		<span class="Fc1rA">${item.ifstName }</span>
 																	</div>
 																	<div class="dAsGb">
 																		<span class="PXMot LXIwF">
@@ -184,7 +177,7 @@
 																	<div class="ngGKH">
 																		<div class="flicking-viewport" style="user-select: none; -webkit-user-drag: none; touch-action: pan-y;">
 																			<div class="flicking-camera" style="transform: translate(0px);">
-																				<a href="/store" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/storeMain" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">홈</span>
 																				</a>
 																				<a href="/menu" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
@@ -265,14 +258,14 @@
 																																</c:choose>
 																															</div>
 																															<div class="info_detail">
-																																<div class="tit${status2.index }">${list.ifmnName }<span class="ico_group"></span></div>
+																																<div class="tit${list.ifmnSeq }">${list.ifmnName }<span class="ico_group"></span></div>
 																																<div class="detail">
 																																	<span class="detail_txt">${list.ifmnInfo }</span>
 																																</div>
-																																<div class="price${status2.index }"><fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원</div>
+																																<div class="price${list.ifmnSeq }"><fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원</div>
 																															</div>
 																														</a>
-																														<button class="btn_shop" role="button" onclick="goCart(${list.ifmnSeq})">
+																														<button class="btn_shop" type="button" onclick="goCart(${list.ifmnSeq})">
 																															<div class="btn_box">
 																																<svg viewBox="0 0 16 16" class="ico_cart" aria-label="주문하기">
 																																	<path fill-rule="evenodd" d="M6.14 12.519A1.74 1.74 0 116.139 16a1.74 1.74 0 01.001-3.481zm4.8 0A1.74 1.74 0 1110.939 16a1.74 1.74 0 01.001-3.481zm-4.8 1.052a.688.688 0 100 1.376.688.688 0 000-1.376zm4.8 0a.688.688 0 100 1.376.688.688 0 000-1.376zM2.506 2.4c.24 0 .449.173.5.415l.376 1.784h11.306c.342 0 .588.34.49.677l-1.829 6.3a.512.512 0 01-.49.376h-8.56a.515.515 0 01-.501-.414L2.093 3.452H.512A.519.519 0 010 2.926c0-.29.23-.526.512-.526zM14 5.651H3.604L4.711 10.9h7.766l1.524-5.249z"></path>
@@ -387,8 +380,6 @@
 			}
 		}
 		
-		var cart = [];
-		
 		goCart = function (value) {
 			alert($("input[name=menuSeq"+value+"]").val())
 			$.ajax({
@@ -399,37 +390,25 @@
 				}
 				,success : function(response) {
 					if (response.rt == "success") {
-						alert("일단 성공")
+						var innerHtml ="";
+						innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
+						$(".menuSeq"+value).html(innerHtml);
 					} else if (response.rt == "duplicate") {
 						alert("중복된 상품을 선택 하셨습니다.!!!")
 					}
 				}
 			});
-			
-			if (cart.includes($("input[name=menuSeq"+value+"]").val()) == true) {
-				alert("중복된 상품을 선택 하셨습니다.");
-			} else {
-				cart.push($("input[name=menuSeq"+value+"]").val());
-				localStorage.setItem("cart", JSON.stringify(cart));
-				$.ajax({
-					type: "POST"
-					,url: "/menu/cart"
-					,data: {
-						ifmnSeq : $("input[name=menuSeq"+value+"]").val()
-					}
-					,success : function(response) {
-						if (response.rt == "success") {
-							var innerHtml ="";
-							innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
-							$(".menuSeq"+value).html(innerHtml);
-						} else if (response.rt == "duplicate") {
-							alert("중복된 상품을 선택 하셨습니다.!!!")
-						}
-					}
-				});
-			}
-			
 		}
+		
+		/* goCart = function(value) {
+			if ($("ifmnseqArr"+value).val() == null) {
+				var innerHtml ="";
+				innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
+				$(".menuSeq"+value).html(innerHtml);
+			} else {
+				alert("중복된 상품을 선택하셨습니다.");
+			}
+		} */
 		
 		var goUrlCart = "/order/cartOrder";
 		var form = $("#myForm");

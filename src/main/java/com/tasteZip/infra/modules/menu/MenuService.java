@@ -34,5 +34,5 @@ public interface MenuService {
     /* 장바구니 용 s */
     public List<Menu> selectCart(MenuVo vo, Menu dto) throws Exception;
     /* 장바구니 용 e */
-    
+
 }

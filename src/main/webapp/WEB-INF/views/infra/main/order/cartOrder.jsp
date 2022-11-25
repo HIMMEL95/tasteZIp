@@ -27,7 +27,10 @@
     <!-- start -->
     
     <form id="myForm" name="myForm">
-    	<input type="hidden" name="ifmnSeqArr">
+    	<input type="hidden" name="ifmmId" value="${sessId }">
+    	<input type="hidden" name="ifmmName" value="${sessName }">
+    	<input type="hidden" name="ifstSeq" value="${item.ifstSeq }">
+    	<input type="hidden" name="ifstName" value="${item.ifstName }">
 	    <section class="h-100 h-custom" style="background-color: #eee;">
 			<div class="container h-100 py-5">
 				<div class="row d-flex justify-content-center align-items-center h-100">
@@ -92,8 +95,8 @@
 															<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg" style="width: 150px; height: 100px;">
 														</div>
 														<div class="col-8">
-															<div><h5><b>힘난다버거</b></h5></div>
-															<div><p>서울시 강남구 논현동</p></div>
+															<div><h5><b>${item.ifstName }</b></h5></div>
+															<div><p>${item.ifstAddress }</p></div>
 														</div>
 													</div>
 												</div>
@@ -103,15 +106,15 @@
 													<div class="row mt-4 mb-3"><h4><b>예약자 정보</b></h4></div>
 													<div class="row mb-2">
 														<div class="col-7"><span><b>성명</b></span></div>
-														<div class="col-5 text-end"><span>김진경</span></div>
+														<div class="col-5 text-end"><span>${sessName }</span></div>
 													</div>
 													<div class="row mb-2">
 														<div class="col-7"><span><b>전화번호</b></span></div>
-														<div class="col-5 text-end"><span>010-1234-1234</span></div>
+														<div class="col-5 text-end"><span>${sessPhone }</span></div>
 													</div>
 													<div class="row mb-2">
 														<div class="col-7"><span><b>이메일</b></span></div>
-														<div class="col-5 text-end">ac@naver.com</span></div>
+														<div class="col-5 text-end">${sessEmail }</span></div>
 													</div>
 												</div>
 												<hr class="hrstyle mt-4 mb-4">
@@ -160,8 +163,23 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script> -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec2655da82c3779d622f0aff959060e6&libraries=services"></script>
+	<script type="text/javascript">
+		$("#btnRV").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/order/kakaoPay"
+				,data: {
+					ifmmId : $("input[name=ifmmId]").val()
+					,ifmmName : $("input[name=ifmmName]").val()
+					,ifstName : $("input[name=ifstName]").val()
+					,totalPrice : 10000
+				}
+				,success : function(response) {
+					console.log(response)
+				}
+			});
+		})
+	</script>
 </body>
 
 </html>

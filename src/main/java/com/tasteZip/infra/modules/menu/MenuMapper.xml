@@ -33,6 +33,7 @@
 	    from menu m
 	    	left join menuUploaded mu on mu.pseq = m.ifmnSeq
 		where 1=1
+			and m.ifstSeq = #{ifstSeq}
 		<if test="shValue != null and !shValue.equals('')">AND ifmnName LIKE CONCAT('%',#{shValue},'%')</if>
 	   	<include refid="Base.orderByLimitForMysql" />
 	</select>

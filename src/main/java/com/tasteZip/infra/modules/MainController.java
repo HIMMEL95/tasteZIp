@@ -128,8 +128,8 @@ public class MainController {
     public String xdminMain(MemberVo vo, Model model, StoreVo svo) throws Exception {
         
         vo.setParamsPaging(mbService.selectOneCount(vo));
-        
-        List<Member> list = mbService.selectList(vo);
+
+        List<Member> list = mbService.selectListLimit5(vo);
         model.addAttribute("list", list);
         
         return "infra/xdmin/home/xdminMain";

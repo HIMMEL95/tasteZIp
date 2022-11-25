@@ -13,7 +13,14 @@
   <title>xdmin New Member</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
-	<link rel="stylesheet" href="/resources/css/home/style.css">	
+	<link rel="stylesheet" href="/resources/css/home/style.css">
+	<style>
+	  canvas {
+	    -moz-user-select: none;
+	    -webkit-user-select: none;
+	    -ms-user-select: none;
+	  }
+	</style>	
 </head>
 <body>
 	<div class="hero">
@@ -68,7 +75,7 @@
 							</div>
 							<div style="width: 900px; height: 600px;">
 								<!--차트가 그려질 부분-->
-								<canvas id="myChart"></canvas>
+								 <canvas id="canvas"></canvas>
 							</div>
 						</div>
 					</div>
@@ -81,69 +88,94 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/a33686bef4.js" crossorigin="anonymous"></script>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="../../dist/Chart.bundle.js"></script>
+	<script src="../utils.js"></script>
 	<script type="text/javascript">
-            var context = document
-                .getElementById('myChart')
-                .getContext('2d');
-            var myChart = new Chart(context, {
-                type: 'line', // 차트의 형태
-                data: { // 차트에 들어갈 데이터
-                    labels: [
-                        //x 축
-                        '월','화','수','목','금','토','일'
-                    ],
-                    datasets: [
-                        { //데이터
-                            label: '주간 신규 가입자 차트', //차트 제목
-                            fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-                            data: [
-                                21,19,25,20,23,26,25 //x축 label에 대응되는 데이터 값
-                            ],
-                            backgroundColor: [
-                                //색상
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
-                            ],
-                            borderColor: [
-                                //경계선 색상
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
-                            ],
-                            borderWidth: 1 //경계선 굵기
-                        }/* ,
-                        {
-                            label: 'test2',
-                            fill: false,
-                            data: [
-                                8, 34, 12, 24
-                            ],
-                            backgroundColor: 'rgb(157, 109, 12)',
-                            borderColor: 'rgb(157, 109, 12)'
-                        } */
-                    ]
-                },
-                options: {
-                    scales: {
-                        yAxes: [
-                            {
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }
-                        ]
-                    }
-                }
-            });
-        </script>
-  
+	
+		const data = [];
+		const data2 = [];
+		let prev = 100;
+		let prev2 = 80;
+		for (let i = 0; i < 1000; i++) {
+		  prev += 5 - Math.random() * 10;
+		  data.push({x: i, y: prev});
+		  prev2 += 5 - Math.random() * 10;
+		  data2.push({x: i, y: prev2});
+		}
+		// </block:data>
+	
+		// <block:animation:1>
+		const totalDuration = 10000;
+		const delayBetweenPoints = totalDuration / data.length;
+		const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
+		const animation = {
+		  x: {
+		    type: 'number',
+		    easing: 'linear',
+		    duration: delayBetweenPoints,
+		    from: NaN, // the point is initially skipped
+		    delay(ctx) {
+		      if (ctx.type !== 'data' || ctx.xStarted) {
+		        return 0;
+		      }
+		      ctx.xStarted = true;
+		      return ctx.index * delayBetweenPoints;
+		    }
+		  },
+		  y: {
+		    type: 'number',
+		    easing: 'linear',
+		    duration: delayBetweenPoints,
+		    from: previousY,
+		    delay(ctx) {
+		      if (ctx.type !== 'data' || ctx.yStarted) {
+		        return 0;
+		      }
+		      ctx.yStarted = true;
+		      return ctx.index * delayBetweenPoints;
+		    }
+		  }
+		};
+		// </block:animation>
+	
+		// <block:config:0>
+		const config = {
+		  type: 'line',
+		  data: {
+		    datasets: [{
+		      borderColor: Utils.CHART_COLORS.red,
+		      borderWidth: 1,
+		      radius: 0,
+		      data: data,
+		    },
+		    {
+		      borderColor: Utils.CHART_COLORS.blue,
+		      borderWidth: 1,
+		      radius: 0,
+		      data: data2,
+		    }]
+		  },
+		  options: {
+		    animation,
+		    interaction: {
+		      intersect: false
+		    },
+		    plugins: {
+		      legend: false
+		    },
+		    scales: {
+		      x: {
+		        type: 'linear'
+		      }
+		    }
+		  }
+		};
+		// </block:config>
+	
+		module.exports = {
+		  config
+		};
+	</script>
 </body>
 </html>

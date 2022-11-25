@@ -166,7 +166,8 @@
 	<script type="text/javascript">
 		$("#btnRV").on("click", function() {
 			$.ajax({
-				type: "POST"
+				dataType:"json"
+				,type: "POST"
 				,url: "/order/kakaoPay"
 				,data: {
 					ifmmId : $("input[name=ifmmId]").val()
@@ -175,7 +176,8 @@
 					,totalPrice : 10000
 				}
 				,success : function(response) {
-					console.log(response)
+					alert("asdad")
+					alert(response)
 				}
 			});
 		})

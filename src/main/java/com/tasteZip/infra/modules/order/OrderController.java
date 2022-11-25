@@ -217,9 +217,8 @@ public class OrderController {
            changer = new BufferedReader((new InputStreamReader(conn.getErrorStream())));
        }
        
-       System.out.println(changer.readLine().);
+       System.out.println(changer.readLine());
       
-       
        return changer.readLine();
  	}
  	/* kakao pay e */

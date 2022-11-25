@@ -426,15 +426,19 @@ walkWay = function() {
 			   }
 
 			//결과 출력
-			var tDistance = "총 거리 : "
-					+ ((resultData[0].properties.totalDistance) / 1000)
+			var tDistance =
+					((resultData[0].properties.totalDistance) / 1000)
 							.toFixed(1) + " km";
-			var tTime = " 총 시간 : "
-					+ ((resultData[0].properties.totalTime) / 60)
+			var tTime =
+					((resultData[0].properties.totalTime) / 60)
 							.toFixed(0) + " 분";
 
 			var innerHtml ="";
-			innerHtml += "<div class='result'><span>"+ tDistance +"</span><br><span>"+tTime+"</span></div>";
+			innerHtml += "<div class='ms-4 me-3 mt-2 row justify-content-between'><div class='col-4 text-center'><div class='card shadow border-0'>총 거리</div></div><div class='col-8 text-start'><span>"
+			+ tDistance +
+			"</span></div></div><div class='ms-4 me-3 mt-3 row justify-content-between'><div class='col-4 text-center'><div class='card shadow border-0'>총 시간</div></div><div class='col-8 text-start'><span>"
+			+tTime+
+			"</span></div></div>";
 			$("#placesList").html(innerHtml);
 			
 			for ( var i in resultData) { //for문 [S]

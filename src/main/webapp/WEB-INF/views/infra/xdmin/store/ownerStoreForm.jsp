@@ -137,7 +137,7 @@
 								</div>
 								<div class="col">
 									<label class="form-label">가게 전화번호</label> 
-									<input type="text" class="form-control" id="ifstPhone" name="ifstPhone" placeholder="01000000000" oninput="autoHyphen1(this)" maxlength="11" value="${item.ifstPhone }">
+									<input type="text" class="form-control" id="ifstPhone" name="ifstPhone" placeholder="01000000000" oninput="autoHyphen1(this)" maxlength="12" value="${item.ifstPhone }">
 								</div>
 							</div>
 							<div class="row mt-3">
@@ -447,7 +447,7 @@
 		const autoHyphen1 = (target) => {
 	 		 target.value = target.value
 	 		   .replace(/[^0-9]/g, '')
-	 		  .replace(/^(\d{0,2})(\d{0,3})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+	 		  .replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
 	 		}
 	</script>
 	<script type="text/javascript">

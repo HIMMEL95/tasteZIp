@@ -101,3 +101,9 @@ input {
 	font-weight: 700;
 	width: 80px;
 }
+.card{
+	background: #ff7f00;
+	color: white;
+	width: 150px;
+	
+}

@@ -42,21 +42,29 @@ carWay = function() {
 
 			var resultData = response.features;
 
-			var tDistance = "총 거리 : "
-					+ (resultData[0].properties.totalDistance / 1000)
-							.toFixed(1) + "km,";
-			var tTime = " 총 시간 : "
-					+ (resultData[0].properties.totalTime / 60)
-							.toFixed(0) + "분,";
-			var tFare = " 총 요금 : "
-					+ resultData[0].properties.totalFare
-					+ "원,";
-			var taxiFare = " 예상 택시 요금 : "
-					+ resultData[0].properties.taxiFare
+			var tDistance =
+					(resultData[0].properties.totalDistance / 1000)
+							.toFixed(1) + "km";
+			var tTime = 
+					(resultData[0].properties.totalTime / 60)
+							.toFixed(0) + "분";
+			var tFare = 
+					resultData[0].properties.totalFare
+					+ "원";
+			var taxiFare =
+					resultData[0].properties.taxiFare
 					+ "원";
 
 			var innerHtml ="";
-			innerHtml += "<div class='result'><span>"+ tDistance +"</span><br><span>"+tTime+"</span><br><span>"+tFare+"</span><br><span>"+taxiFare+"</span></div>";
+			innerHtml += "<div class='ms-4 me-3 mt-2 row justify-content-between'><div class='col-4 text-center'><div class='card shadow border-0'>총 거리</div></div><div class='col-8 text-start'><span>"
+			+ tDistance +
+			"</span></div></div><div class='ms-4 me-3 mt-3 row justify-content-between'><div class='col-4 text-center'><div class='card shadow border-0'>총 시간</div></div><div class='col-8 text-start'><span>"
+			+tTime+
+			"</span></div></div><div class='ms-4 me-3 mt-3 row justify-content-between'><div class='col-4 text-center'><div class='card shadow border-0'>총 요금</div></div><div class='col-8 text-start'><span>"
+			+tFare+
+			"</span></div></div><div class='ms-4 me-3 mt-3 row justify-content-between'><div class='col-4 text-center'><div class='card shadow border-0'>예상 택시 요금</div></div><div class='col-8 text-start'><span>"
+			+taxiFare+
+			"</span></div></div>";
 			$("#placesList").html(innerHtml);
 
 			//교통정보 표출 옵션값을 체크

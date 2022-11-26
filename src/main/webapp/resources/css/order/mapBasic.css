@@ -387,10 +387,7 @@ dl {
 
  .weather_area .icon_weather1 {
     background-position: 0 0;
-}
-
- .weather_area .icon_weather1,  .weather_area .icon_weather2,  .weather_area .icon_weather3,  .weather_area .icon_weather4,  .weather_area .icon_weather5,  .weather_area .icon_weather6,  .weather_area .icon_weather7,  .weather_area .icon_weather8,  .weather_area .icon_weather9,  .weather_area .icon_weather10,  .weather_area .icon_weather11,  .weather_area .icon_weather12,  .weather_area .icon_weather13,  .weather_area .icon_weather14,  .weather_area .icon_weather15,  .weather_area .icon_weather16,  .weather_area .icon_weather17,  .weather_area .icon_weather18,  .weather_area .icon_weather19,  .weather_area .icon_weather20,  .weather_area .icon_weather21,  .weather_area .icon_weather22,  .weather_area .icon_weather23,  .weather_area .icon_weather24,  .weather_area .icon_weather25,  .weather_area .icon_weather26,  .weather_area .icon_weather27,  .weather_area .icon_weather28,  .weather_area .icon_weather29,  .weather_area .icon_weather30 {
-    background-image: url(https://ssl.pstatic.net/static/maps/v5/pc/20220531112111/icon-weather25.png);
+    background-image: url(https://cdn-icons-png.flaticon.com/128/2204/2204346.png);
     background-size: 160px 133px;
 }
 

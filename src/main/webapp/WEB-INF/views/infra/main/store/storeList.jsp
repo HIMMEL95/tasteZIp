@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
 	<link rel="stylesheet" href="/resources/css/store/storeList.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
+	<script defer type="text/javascript" src="/resources/js/main/storelist.js"></script>
 </head>
 
 <body>
@@ -122,35 +123,25 @@
 																<span class="blind">맑음</span>
 															</dd>
 														</div>
-														<div class="half">
-															<dt class="time_text">오후</dt>
-															<dd class="icon_weather1">
-																<span class="blind">맑음</span>
-															</dd>
-														</div>
 													</dl>
 													<dl class="temper_area">
 														<div class="half">
 															<dt class="blind">오전</dt>
 															<dd class="temper">2</dd>
 														</div>
-														<div class="half">
-															<dt class="blind">오후</dt>
-															<dd class="temper">14</dd>
-														</div>
 													</dl>
 												</a>
 												<a class="dust_area ng-star-inserted">
 													<dl class="dust_info_list">
 														<div class="dust">
-															<dt class="label">미세</dt>
-															<dd class="value -good">좋음</dd>
+															<dt class="label">습도</dt>
+															<dd class="value -good humidity">좋음</dd>
 														</div>
 													</dl>
 													<dl class="dust_info_list">
 														<div class="dust">
-															<dt class="label">초미세</dt>
-															<dd class="value -good">좋음</dd>
+															<dt class="label">강수량</dt>
+															<dd class="value -good rain">0 (시간 당)</dd>
 														</div>
 													</dl>
 												</a>

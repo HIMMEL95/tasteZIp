@@ -100,11 +100,11 @@ public class MainController {
     }
     
     @RequestMapping(value = "storeList") 
-    public String storeList(@ModelAttribute("svo") StoreVo svo, Model model) throws Exception {
+    public String storeList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
     	
-    	svo.setParamsPaging(sService.selectOneCount(svo));
+    	vo.setParamsPaging(sService.selectOneCount(vo));
     	
-    	List<Store> store = sService.storeList(svo);
+    	List<Store> store = sService.storeList(vo);
     	model.addAttribute("store", store);
     	
         return "infra/main/store/storeList";

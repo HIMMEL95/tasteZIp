@@ -81,6 +81,8 @@
 		</div>
 		<div class="map_container" id="container">
 			<form id="myForm" name="myForm">
+				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 				<input type="hidden" name="ifstSeq" >
 				<div class="sideInfo">
 					<div class="handle">
@@ -205,6 +207,7 @@
 													</div>
 												</div>
 											</div>
+											<%@include file="../../xdmin/includeV1/pagination.jsp"%>
 										</div>
 									</div>
 									<!-- contents e -->
@@ -392,11 +395,11 @@
 			form.attr("action", goUrlForm).submit();
 		}
 		
-		goList = function(thisPage) {
-			$("input[name=thisPage2]").val(thisPage);
+		goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
-
+		
 	</script>
 </body>
 

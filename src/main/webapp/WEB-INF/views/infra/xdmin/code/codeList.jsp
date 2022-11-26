@@ -94,10 +94,10 @@
 	    </header>
 		<main>
 			<<form method="post" name="formList" id="formList">
-			<input type="hidden" name="ifccSeq">
-			<input type="hidden" name="formNY" value="0">
-			<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
-			<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+				<input type="hidden" name="ifccSeq">
+				<input type="hidden" name="formNY" value="0">
+				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 				<div style="height: 100px"></div>
 				<div class="wrapper">
 					<div class="container" style="height: 100vh;">

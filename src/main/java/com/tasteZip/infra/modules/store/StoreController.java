@@ -30,17 +30,19 @@ public class StoreController {
 	    vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
 	}
 
-	// main
-	@RequestMapping(value = "storeList")
-	public String storeList(StoreVo vo, Model model) throws Exception {
-	    
-	    vo.setParamsPaging(service.selectOneCount(vo));
-	    List<Store> list = service.selectList(vo);
-	    model.addAttribute("list", list);
-	    
-	    return "infra/main/store/store";
-	}
-	
+//	// main
+//	@RequestMapping(value = "storeList")
+//	public String storeList(StoreVo vo, Model model) throws Exception {
+//	    
+//	    vo.setParamsPaging(service.selectOneCount(vo));
+//	    System.out.println("rowNumto : " + vo.getRowNumToShow());
+//	    
+//	    List<Store> list = service.selectList(vo);
+//	    model.addAttribute("list", list);
+//	    
+//	    return "infra/main/store/store";
+//	}
+//	
 	
 	@RequestMapping(value = "storeMain")
 	public String storeMain(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {

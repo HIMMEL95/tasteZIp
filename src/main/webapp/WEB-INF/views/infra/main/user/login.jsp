@@ -36,7 +36,7 @@
 			            	<form class="form-validate">
 								<div class="mb-4">
 				                	<label class="form-label" for="ifmmId"> Id </label>
-				                	<input class="form-control" name="ifmmId" id="ifmmId" type="text" placeholder="Id"  autocomplete="off" data-msg="Please enter your id">
+				                	<input class="form-control" name="ifmmId" id="ifmmId" type="text" placeholder="Id" value="skylee" autocomplete="off" data-msg="Please enter your id">
 				              	</div>
 								<div class="mb-4">
 									<div class="row">
@@ -47,7 +47,7 @@
 											<a class="form-text small" href="#" style="color: #FF5733;">Forgot password?</a>
 										</div>
 									</div>
-									<input class="form-control" name="ifmmPwd" id="ifmmPwd" placeholder="Password" type="password" data-msg="Please enter your password">
+									<input class="form-control" name="ifmmPwd" id="ifmmPwd" placeholder="Password" value="1234" type="password" data-msg="Please enter your password">
 		              			</div>
 			              	<!-- Submit-->
 				             	<div class="d-grid">

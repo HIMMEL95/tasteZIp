@@ -106,6 +106,8 @@ public class OrderController {
     
     @RequestMapping(value = "cartOrder")
     public String cartOrder(MenuVo vo, Menu dto, StoreVo sVo, Model model) throws Exception {
+    	
+    	
         
         Store item = sService.xdminSelectOne(sVo);
         model.addAttribute("item", item);

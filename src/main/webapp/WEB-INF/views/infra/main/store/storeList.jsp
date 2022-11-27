@@ -98,8 +98,7 @@
 									<div class="search_box">
 										<button class="search_btn" type="button" id="search">검색</button>
 										<div class="input_box">
-											<label class="label_search">장소 검색</label>
-											<input type="text" id="shValue" name="shValue" value="${vo.shValue }" autocomplete="none" autofocus class="input_search" oninput="change_text()">
+											<input type="text" id="shValue" name="shValue" value="${vo.shValue }" placeholder="장소 검색" autocomplete="none" autofocus class="input_search" oninput="change_text()">
 										</div>
 									</div>
 								</div>
@@ -119,19 +118,26 @@
 													<dl class="weather_area">
 														<div class="half">
 															<dt class="time_text">오전</dt>
-															<dd class="icon_weather1">
+															<img class="icon_weather1" alt="" src="https://cdn-icons-png.flaticon.com/128/2204/2204346.png">
+															<!-- <dd class="icon_weather1">
 																<span class="blind">맑음</span>
-															</dd>
+															</dd> -->
 														</div>
 													</dl>
 													<dl class="temper_area">
 														<div class="half">
 															<dt class="blind">오전</dt>
-															<dd class="temper">2</dd>
+															<dd class="temper">-2</dd>
 														</div>
 													</dl>
 												</a>
 												<a class="dust_area ng-star-inserted">
+													<dl class="dust_info_list">
+														<div class="dust">
+															<dt class="label">상세정보</dt>
+															<dd class="value -good detail">맑음</dd>
+														</div>
+													</dl>
 													<dl class="dust_info_list">
 														<div class="dust">
 															<dt class="label">습도</dt>
@@ -139,12 +145,16 @@
 														</div>
 													</dl>
 													<dl class="dust_info_list">
-														<div class="dust">
-															<dt class="label">강수량</dt>
+														<div class="dust rainDust" style="display: none">
+															<dt class="label rainLabel">강수량</dt>
 															<dd class="value -good rain">0 (시간 당)</dd>
 														</div>
 													</dl>
 												</a>
+												<div align="right">
+													<span style="font-size: 15px; font-weight: 700;">제공 : </span>
+													<img alt="" src="/resources/images/OpenWeather-Master-Logo-RGB.jpg" width="90" height="45">
+												</div>
 											</div>
 										</div>
 									</div>
@@ -372,6 +382,7 @@
 	<script>
 		var goUrlList = "/storeList";
 		var goUrlForm = "/store/storeMain";
+		var goUrlFindWay = "/findWay";
 		
 		var form = $("#myForm");
 		
@@ -391,6 +402,7 @@
 			form.attr("action", goUrlList).submit();
 		}
 		
+		alert("날씨 영역에 있는 위치수정을 누르고 지도에서 원하는 위치를 선택해보세요!!!")
 	</script>
 </body>
 

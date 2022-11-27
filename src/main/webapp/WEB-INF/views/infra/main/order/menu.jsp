@@ -237,7 +237,7 @@
 																								<c:forEach items="${list }" var="list" varStatus="status2">
 																									<c:choose>
 																										<c:when test="${setDiv.ifmnSet_div eq list.ifmnSet_div }">
-																											<input type="hidden" name="menuSeq${list.ifmnSeq}" value="${list.ifmnSeq }">
+																											<%-- <input type="hidden" name="menuSeq${list.ifmnSeq}" value="${list.ifmnSeq }"> --%>
 																											<div class="menuSeq${list.ifmnSeq}"></div>
 																											<ul class="order_list_area${status.index }">
 																												<li class="order_list_item">
@@ -409,25 +409,22 @@
 			} else {
 				cart.add(value)
 				var innerHtml ="";
-				innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
+				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
 				$(".menuSeq"+value).html(innerHtml);
 				/* document.cookie = "cart=" + cart +"; path=/;" */
-				$.ajax({
+				/* $.ajax({
 					type: "POST"
 					,url: "/menu/cart"
 					,data: {
-						ifmnSeqArr : cart
+						ifmnSeqArr : JSON.stringify(cart)
 					}
 					,success : function(response) {
 						if (response.rt == "success") {
-							var innerHtml ="";
-							innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
-							$(".menuSeq"+value).html(innerHtml);
 						} else if (response.rt == "duplicate") {
 							alert("중복된 상품을 선택 하셨습니다.!!!")
 						}
 					}
-				});
+				}); */
 			}
 		}
 		

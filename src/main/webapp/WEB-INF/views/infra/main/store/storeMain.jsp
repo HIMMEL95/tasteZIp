@@ -111,7 +111,7 @@
 												<div style="width: 100%; height: 100%;">
 													<div class="BXtr_ tAvTy">
 														<div class="place_tab_shadow FFTct IOXHr">
-															<a href="#" role="button" class="DDfpb">
+															<a href="/storeList" role="button" class="DDfpb">
 																<img class="back" alt="" src="https://cdn-icons-png.flaticon.com/512/54/54321.png"> 
 															</a>
 															<h1 class="bh9OH">${item.ifstName}</h1>

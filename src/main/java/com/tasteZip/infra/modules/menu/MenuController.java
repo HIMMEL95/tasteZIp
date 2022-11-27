@@ -233,6 +233,8 @@ public class MenuController {
         
         System.out.println("seq : " + dto.getIfmnSeq());
         
+        System.out.println("seq1 : " + dto.getIfmnSeqArr().toString());
+        
         if (ifmnSeqArray.contains(dto.getIfmnSeq())) {
             returnMap.put("rt", "duplicate");
         } else {

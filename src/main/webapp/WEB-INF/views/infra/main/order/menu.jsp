@@ -399,31 +399,17 @@
 			});
 		} */
 		
-		var cart = new Set()
+		var cart = [];
 		goCart = function (value) {
 			console.log(cart);
-			
-			if (cart.has(value)) {
+			if (cart.includes(value)) {
 				alert("중복된 상품을 선택하셨습니다.");
 			} else {
-				cart.add(value)
+				cart.push(value);
 				var innerHtml ="";
 				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
 				$(".menuSeq"+value).html(innerHtml);
-				/* document.cookie = "cart=" + cart +"; path=/;" */
-				/* $.ajax({
-					type: "POST"
-					,url: "/menu/cart"
-					,data: {
-						ifmnSeqArr : JSON.stringify(cart)
-					}
-					,success : function(response) {
-						if (response.rt == "success") {
-						} else if (response.rt == "duplicate") {
-							alert("중복된 상품을 선택 하셨습니다.!!!")
-						}
-					}
-				}); */
+				/* document.cookie = "cart="+cart; */
 			}
 		}
 		
@@ -436,7 +422,20 @@
 		}
 		
 		$("#buyBtn").on("click", function() {
-			form.attr("action", goUrlCart).submit();
+			$.ajax({
+				type: "POST"
+				,url: "/menu/cart"
+				,data: {
+					ifmnSeq : $("input[name=ifmnSeq]").val()
+				}
+				,success : function(response) {
+					if (response.rt == "success") {
+						form.attr("action", goUrlCart).submit();
+					} else if (response.rt == "duplicate") {
+						alert("중복된 상품을 선택 하셨습니다.!!!")
+					}
+				}
+			});
 		})
 		
 	</script>

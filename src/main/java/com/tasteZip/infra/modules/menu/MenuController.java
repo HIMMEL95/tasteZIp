@@ -233,17 +233,21 @@ public class MenuController {
         
         System.out.println("seq : " + dto.getIfmnSeq());
         
-        System.out.println("seq1 : " + dto.getIfmnSeqArr().toString());
-        
-        if (ifmnSeqArray.contains(dto.getIfmnSeq())) {
-            returnMap.put("rt", "duplicate");
-        } else {
-            ifmnSeqArray.add(dto.getIfmnSeq());
-            Cookie cartCookie = new Cookie("cart", dto.getIfmnSeq());
-            cartCookie.setMaxAge(24 * 30 * 60 * 60 * 1000);
-            response.addCookie(cartCookie);
-            returnMap.put("rt", "success");
-        }
+        String[] str = vo.getIfmnSeq().split(",");
+        String result = "";
+    	for (int i=0; i<str.length; i++) {
+			if(i == str.length-1) {
+				result += str[i];
+			} else {
+				result += str[i] + ",";
+			}
+    	} 
+    	
+    	Cookie cart = new Cookie("cart", result);
+    	cart.setMaxAge(30 * 24 * 60 * 60 * 1000);
+    	response.addCookie(cart);
+    	
+    	returnMap.put("rt", "success");
         
         return returnMap;
     }

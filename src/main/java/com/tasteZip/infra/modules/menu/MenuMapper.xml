@@ -180,6 +180,7 @@
 			LEFT join menuUploaded mu on mu.pseq = m.ifmnSeq
 		WHERE 1=1
 			and m.ifmnSeq in (#{ifmnSeq})
+			<!-- and m.ifmnSeq in (#{ifmnSeq}) -->
 	</select>
 	<!-- 장바구니용 e -->
 </mapper>

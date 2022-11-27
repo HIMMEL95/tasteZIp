@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,28 +109,23 @@ public class OrderController {
     }
     
     @RequestMapping(value = "cartOrder")
-    public String cartOrder(MenuVo vo, Menu dto, StoreVo sVo, Model model) throws Exception {
+    public String cartOrder(MenuVo vo, Menu dto, StoreVo sVo, Model model, HttpServletResponse response, HttpServletRequest request) throws Exception {
     	
     	System.out.println("seq : " + vo.getIfmnSeq());
     	
-    	System.out.println(vo.getIfmnSeq().length());
-    	String[] str = vo.getIfmnSeq().split(",");
-    	
-    	String a = "";
-    	
-    	for(int i=0; i<str.length; i++) {
-    		if (i == str.length-1) {
-    			a += str[i];
-    		} else {
-    			a += str[i] + ",";
+    	Cookie[] cookies = request.getCookies();
+    	String[] b = null;
+    	for (Cookie cookie: cookies) {
+    		if (cookie.getName().equals("cart2")) {
+    			b = cookie.getValue().split(":");
     		}
     	}
     	
-    	String b = a.replace(",", "' ");
-    	
-    	System.out.println(b);
-    	
-    	vo.setIfmnSeq(b);
+    	String[] str = vo.getIfmnSeq().split(",");
+    	int[] result = new int[str.length];
+    	for (int i=0; i<str.length; i++) {
+			result[i] = Integer.parseInt(str[i]);
+    	} 
     	
     	List<Menu> list = mService.selectCart(vo);
     	model.addAttribute("list", list);

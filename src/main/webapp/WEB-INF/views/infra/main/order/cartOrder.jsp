@@ -54,7 +54,7 @@
 													<a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
 													<h5><b>${list.ifmnName }</b></h5>
 													<div class="d-flex align-items-center">
-														<p class="fw-bold mb-0 me-5 pe-3">${list.ifmnPrice }원</p>
+														<p class="fw-bold mb-0 me-5 pe-3"><fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원</p>
 														<div class="def-number-input number-input safari_only">
 															<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
 															class="minus"></button>
@@ -70,7 +70,7 @@
 										<hr class="mb-4" style="height: 2px; background-color: black; opacity: 1;">
 										<div class="d-flex justify-content-between p-2 mb-2" style="background-color: #E6E6E6;">
 											<h5 class="fw-bold mb-0">Total:</h5>
-											<h5 class="fw-bold mb-0">2261$</h5>
+											<h5 class="fw-bold mb-0"><fmt:formatNumber type="number" pattern="#,###" value="${item.ifmnPrice}"/>원</h5>
 										</div>
 									</div>
 									<div class="col-lg-6 px-5 py-4">

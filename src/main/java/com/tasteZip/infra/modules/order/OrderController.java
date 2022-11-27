@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,7 +108,29 @@ public class OrderController {
     @RequestMapping(value = "cartOrder")
     public String cartOrder(MenuVo vo, Menu dto, StoreVo sVo, Model model) throws Exception {
     	
+    	System.out.println("seq : " + vo.getIfmnSeq());
     	
+    	System.out.println(vo.getIfmnSeq().length());
+    	String[] str = vo.getIfmnSeq().split(",");
+    	
+    	String a = "";
+    	
+    	for(int i=0; i<str.length; i++) {
+    		if (i == str.length-1) {
+    			a += str[i];
+    		} else {
+    			a += str[i] + ",";
+    		}
+    	}
+    	
+    	String b = a.replace(",", "' ");
+    	
+    	System.out.println(b);
+    	
+    	vo.setIfmnSeq(b);
+    	
+    	List<Menu> list = mService.selectCart(vo);
+    	model.addAttribute("list", list);
         
         Store item = sService.xdminSelectOne(sVo);
         model.addAttribute("item", item);

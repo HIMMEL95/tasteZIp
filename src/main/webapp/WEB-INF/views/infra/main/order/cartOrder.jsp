@@ -130,7 +130,7 @@
 												<!-- 버튼 -->
 												<div class="row justify-content-center mt-5">
 													<div class="col-4 text-end"><button type="button" class="btn btn-warning" id="btnRV" style="width: 150px; background-color: #FF8000; color: white;"><b>주문하기</b></button></div>
-													<div class="col-4 text-start"><button type="button" class="btn btn-dark" id="btnCancle" style="width: 150px;"><b>취소하기</b></button></div>
+													<div class="col-4 text-start"><button type="button" class="btn btn-dark" id="btnCancle" onclick="goMenu(${item.ifstSeq})" style="width: 150px;"><b>취소하기</b></button></div>
 												</div>
 											</div>
 										</div>
@@ -152,6 +152,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
+	
+		var goUrlMenu = "/menu";
+		var ifstSeq = $("input[name=ifstSeq]");
+		var form = $("#myForm");
+	
 		$("#btnRV").on("click", function() {
 			$.ajax({
 				dataType:"json"
@@ -166,9 +171,15 @@
 				,success : function(response) {
 					alert("asdad")
 					alert(response)
+					console.log(response)
 				}
 			});
 		})
+		
+		goMenu = function(value) {
+			ifstSeq.val(value)
+			form.attr("action", goUrlMenu).submit();
+		};
 	</script>
 </body>
 

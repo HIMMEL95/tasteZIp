@@ -171,9 +171,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
     @Override
-    public List<Menu> selectCart(MenuVo vo, Menu dto) throws Exception {
-        
-        System.out.println(dto.getIfmnSeqArr().length);
+    public List<Menu> selectCart(MenuVo vo) throws Exception {
         
         return dao.selectCart(vo);
     }

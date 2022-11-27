@@ -95,8 +95,7 @@
 									<div class="search_box">
 										<button class="search_btn" type="submit">검색</button>
 										<div class="input_box">
-											<label class="label_search">장소 검색</label>
-											<input type="text" id="shValue" name="shValue" autocomplete="none" autofocus class="input_search" oninput="change_text()">
+											<input type="text" id="shValue" name="shValue" autocomplete="off" placeholder="장소 검색" autofocus class="input_search" oninput="change_text()">
 										</div>
 									</div>
 								</div>
@@ -111,7 +110,7 @@
 												<div style="width: 100%; height: 100vh;">
 													<div class="BXtr_ tAvTy">
 														<div class="place_tab_shadow FFTct IOXHr">
-															<a href="#" role="button" class="DDfpb">
+															<a href="javascript:goList();" role="button" class="DDfpb">
 																<img class="back" alt="" src="https://cdn-icons-png.flaticon.com/512/54/54321.png"> 
 															</a>
 															<h1 class="bh9OH">${item.ifstName }</h1>
@@ -429,7 +428,12 @@
 		}
 		
 		var goUrlCart = "/order/cartOrder";
+		var goStoreList = "/storeList";
 		var form = $("#myForm");
+		
+		goList = function() {
+			form.attr("action", goStoreList).submit();
+		}
 		
 		$("#buyBtn").on("click", function() {
 			form.attr("action", goUrlCart).submit();

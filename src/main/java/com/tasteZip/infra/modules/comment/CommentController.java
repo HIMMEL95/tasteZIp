@@ -1,6 +1,8 @@
 package com.tasteZip.infra.modules.comment;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,12 +14,12 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tasteZip.infra.modules.store.Store;
@@ -79,6 +81,40 @@ public class CommentController {
         return "infra/main/comment/storeComment";
     }
     
+    
+// 스토어 코멘트 등록
+    
+    @ResponseBody
+    @RequestMapping(value = "commentInst")
+	public Map<String, Object> commentInst(@ModelAttribute("vo")CommentVo vo, Comment dto) throws Exception {
+    	
+    	Map<String, Object> returnMap = new HashMap<String, Object>();
+    	
+    	service.regComment(dto);
+    	returnMap.put("rt", "success");
+    	
+        return returnMap;
+	}
+    
+//    @RequestMapping(value = "commentInst")
+//	public String commentInst(@ModelAttribute("vo")CommentVo vo, Comment dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
+//    	
+//    	service.regComment(dto);
+//        redirectAttributes.addFlashAttribute("vo", vo);
+//        
+//        vo.setIfstSeq(vo.getIfstSeq());
+//		
+//        List<Comment> list = service.storeComment(vo);
+//        model.addAttribute("list", list); 
+//        
+//        Comment item = service.xdminSelectOne(vo);
+//        model.addAttribute("item", item);
+//        
+//        List<Comment> img = service.selectImg(vo);
+//        model.addAttribute("img", img);
+//
+//        return "redirect:/comment/storeComment";
+//	}
     
  // --------------- 관리자 --------------
     

@@ -81,7 +81,7 @@
 		</div>
 		<div class="map_container" id="container">
 			<form id="myForm" name="myForm">
-				<input type="hidden" name="ifstSeq" value="<c:out value="${item.ifstSeq}"/>"/>
+				<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
@@ -179,10 +179,10 @@
 																				<a href="/storeMain" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">홈</span>
 																				</a>
-																				<a href="/menu" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
+																				<a href="/menu" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">메뉴</span>
 																				</a>
-																				<a href="/storeComment" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/storeComment" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">리뷰</span>
 																				</a>
 																			</div>
@@ -253,7 +253,8 @@
 																	                    <!-- Name -->
 																	                    <div class="form-group">
 																	                      <label class="visually-hidden" for="reviewName">id:</label>
-																	                      <input class="form-control form-control-sm" id="reviewName" name="ifmmId" type="text" value="${sessId}" required="">
+																	                      <input class="form-control form-control-sm" id="reviewName" name="" type="text" value="${sessId}" required="">
+																	                      <input type="hidden" name="ifmmSeq" value="<c:out value="${sessSeq}"/>"/>
 																	                    </div>
 																	
 																	                  </div>
@@ -262,17 +263,18 @@
 																	                    <!-- Review -->
 																	                    <div class="form-group">
 																	                      <label class="visually-hidden" for="reviewText">후기</label>
-																	                      <textarea class="form-control form-control-sm" id="reviewText" name="ifcmComment" rows="5" placeholder="후기를 작성해주세요." required=""></textarea>
+																	                      <textarea class="form-control form-control-sm" id="ifcmComment" name="ifcmComment" rows="5" placeholder="후기를 작성해주세요." required=""></textarea>
 																	                    </div>
 																	
 																	                  </div>
 																	                  <div class="col-12 text-center" style="margin-top: 3rem;">
 																	
 																	                    <!-- Button -->
-																	                    <button class="btn btn-outline-dark mb-5" type="button" id="BtnComment">후기 등록하기</button>
+																	                    <button class="btn btn-outline-dark mb-5" type="button" id="BtnComment" onclick="commentSave()">후기 등록하기</button>
 																	
 																	                  </div>
 																	                </div>
+																	                
 																	            </div>
 																	       </div>
 																	      </form>
@@ -362,6 +364,8 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
 	<script>
 	
+		/* alert($("input[name=ifstSeq]").val()) */
+	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 		
@@ -417,25 +421,56 @@
 			}
 		}
 		
-		
+	
+	</script>
+	<script type="text/javascript">
+	
 		var goUrlList = "/comment/storeComment";
 		var goUrlInst = "/comment/commentInst";
+		var goStoreList = "/storeList";
 		
 		var form = $("#myForm");
 		
-		goList = function(keyValue){
+		goList = function() {
+			form.attr("action", goStoreList).submit();
+		}
+		
+		/* goList = function(keyValue){
 			$("input:hidden[name=ifstSeq]").val(keyValue);
 			form.attr("action", goUrlList).submit();
-		}
+		} */
 		
 		countingStar = function(key){
 			$("#ifcmGrade").val(key)
 		}
 		
-		$("#BtnComment").on("click", function(){
+		/* $("#BtnComment").on("click", function(){
 			form.attr("action", goUrlInst).submit();
-		});
+		}); */
 		
+		
+		function commentSave() {
+					
+					$.ajax({
+		   				async: true 
+		   				,cache: false
+		   				,type: "post"
+		   				/* ,dataType:"json" */
+		   				,url: "/comment/commentInst"
+		   				/* ,data : $("#formLogin").serialize() */
+		   				,data : { "ifcmGrade" : $("#ifcmGrade").val(), "ifcmComment" : $("#ifcmComment").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val(), "ifstSeq" : $("input[name=ifstSeq]").val()}
+		   				,success: function(response) {
+		   					if (response.rt == "success") {
+		   						location.href = "/comment/storeComment?ifstSeq="+ $("input[name=ifstSeq]").val();
+		   					} else {
+		   						alert("댓글을 입력하시오!!");
+		   					}
+		   				}
+		   				,error : function(jqXHR, textStatus, errorThrown){
+		   					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		   				}
+		   			});
+				}
 	</script>
 </body>
 

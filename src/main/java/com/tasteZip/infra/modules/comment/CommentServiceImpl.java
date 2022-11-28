@@ -40,8 +40,8 @@ public class CommentServiceImpl implements CommentService{
 		return dao.selectOne(vo);
 	}
 	@Override
-	public int insert(Comment dto) throws Exception {
-		return dao.insert(dto);
+	public int regComment(Comment dto) throws Exception {
+		return dao.regComment(dto);
 	}
 	@Override
 	public int update(Comment dto) throws Exception {
@@ -56,7 +56,16 @@ public class CommentServiceImpl implements CommentService{
 		return dao.delete(vo);
 	}
 	
+	// 스토어 이미지 & 정보
 	
+	@Override
+	public List<Comment> selectImg(CommentVo vo) throws Exception {
+		return dao.selectImg(vo);
+	}
+	@Override
+	public Comment xdminSelectOne(CommentVo vo) throws Exception {
+		return dao.xdminSelectOne(vo);
+	}
 	
 }
 

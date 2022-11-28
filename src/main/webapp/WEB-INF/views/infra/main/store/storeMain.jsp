@@ -181,7 +181,7 @@
 																				<a href="javascript:goForm(${item.ifstSeq})" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">메뉴</span>
 																				</a>
-																				<a href="/comment/storeComment" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="javascript:goComment(${item.ifstSeq})" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">리뷰</span>
 																				</a>
 																			</div>
@@ -494,12 +494,18 @@
 		});
 	 	
 	 	var goUrlForm = "/menu";
+	 	var goUrlComment = "/comment/storeComment";
 		var seq = $("input[name=ifstSeq]");
 		var form = $("#myForm");
 		
 		goForm = function(keyValue) {
 			seq.val(keyValue);
 			form.attr("action", goUrlForm).submit();
+		}
+		
+		goComment = function(keyValue) {
+			seq.val(keyValue);
+			form.attr("action", goUrlComment).submit();
 		}
 	</script>
 </body>

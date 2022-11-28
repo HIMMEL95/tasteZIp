@@ -39,9 +39,13 @@ public class CommentDao {
     	return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
     
-    public int insert(Comment dto) {return sqlSession.insert(namespace + ".insert", dto); }
+    public int regComment(Comment dto) {return sqlSession.insert(namespace + ".regComment", dto); }
 	public int update(Comment dto) {return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Comment dto) {return sqlSession.update(namespace + ".uelete", dto); }
 	public int delete(CommentVo vo) {return sqlSession.delete(namespace + ".delete", vo); }
+	
+	// 스토어 이미지 & 정보
+    public List<Comment> selectImg(CommentVo vo) { return sqlSession.selectList(namespace + ".selectImg", vo); }
+    public Comment xdminSelectOne(CommentVo vo){ return sqlSession.selectOne(namespace + ".xdminSelectOne", vo); }
 	
 }

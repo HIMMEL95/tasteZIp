@@ -14,9 +14,12 @@ public interface CommentService {
     public int selectOneCount2(CommentVo vo) throws Exception;
     public Comment selectOne(CommentVo vo) throws Exception;
     
-    public int insert(Comment dto) throws Exception;
+    public int regComment(Comment dto) throws Exception;
    	public int update(Comment dto) throws Exception;
    	public int uelete(Comment dto) throws Exception;
    	public int delete(CommentVo vo) throws Exception;
-	
+   	
+   	// 스토어 이미지 & 정보
+   	public List<Comment> selectImg(CommentVo vo) throws Exception;
+    public Comment xdminSelectOne(CommentVo vo) throws Exception;
 }

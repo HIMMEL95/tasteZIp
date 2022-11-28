@@ -62,7 +62,7 @@
 			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
 			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
 			LEFT JOIN memberUploaded up on up.pseq = c.ifmmSeq
-		WHRER 1=1
+		WHERE 1=1
 			AND s.ifstSeq = #{ifstSeq}
 		ORDER BY c.ifcmSeq DESC
 		<include refid="Base.orderByLimitForMysql" />
@@ -75,6 +75,42 @@
 		WHERE 1=1
 	</select>
 	
+	
+	
+	<!-- 스토어 -->
+	<!-- 스토어 정보 -->
+	<select id="xdminSelectOne" resultMap="resultMapObj">
+		select 
+			s.ifstSeq
+			,s.ifstName
+			,s.ifstPhone
+			,s.ifstZipCode
+			,s.ifstAddress
+			,s.ifstAddressDetail
+			,s.ifstAddressExtra
+			,s.ifstInfo
+			,s.ifstDirections
+			,s.ifstOrderNy
+			,su.path
+			,su.uuidName
+	    from store s
+	    	left join storeUploaded su on su.pseq = s.ifstSeq
+		where 1=1
+			and s.ifstSeq = #{ifstSeq}
+			and su.sort = 1
+	</select>
+	
+	<!-- 스토어 이미지 -->
+	<select id="selectImg" resultMap="resultMapObj">
+		SELECT
+		 * 
+		 FROM storeUploaded
+		 WHERE 1=1
+		 	and pseq = #{ifstSeq}
+	</select>
+	
+
+
 	 <!--          관리자 mapper s        -->	
 	
 	<select id="selectList2" resultMap="resultMapObj">
@@ -114,17 +150,24 @@
 		where 1=1
 	 		AND c.ifcmSeq = #{ifcmSeq}  <!-- #안에 있는 값들은 입력받는 곳에 name값 그대로 가져오기 -->
 	</select> 
-
-	<insert id="insert">
+	
+	<insert id="regComment">
 		INSERT INTO comment (
-			c.ifcmSeq
-			,c.ifcmComment
+			ifcmComment
+			,ifcmCreatedAt
+			,ifcmDelNy
+			,ifmmSeq
+			,ifcmGrade
+			,ifstSeq
 		)
 		VALUES (
-			#{ifcmSeq}
-			,#{ifcmComment}
+			#{ifcmComment}
+			,now()
+			,0
+			,#{ifmmSeq}
+			,#{ifcmGrade}
+			,#{ifstSeq}
 		)
-		
 		<selectKey resultType="String" keyProperty="ifcmSeq" order="AFTER">
 			SELECT last_insert_id()
 		</selectKey>
@@ -133,9 +176,9 @@
 	<update id="update">
 	 	UPDATE comment
 	 	SET
-			c.ifcmComment = #{ifcmComment}
+			ifcmComment = #{ifcmComment}
 		WHERE
-			c.ifcmSeq = #{ifcmSeq}
+			ifcmSeq = #{ifcmSeq}
  	</update>
  	
  	<update id="uelete">
@@ -143,14 +186,14 @@
 	 	SET
 	 		ifcmDelNy = 1
 		WHERE 1=1
-			and c.ifcmDelNy = #{ifcmDelNy}
+			and ifcmDelNy = #{ifcmDelNy}
  	</update>
  	
  	<delete id="delete">
  		DELETE FROM 
  			comment 
 		WHERE 
-			c.ifcmSeq = #{ifcmSeq}
+			ifcmSeq = #{ifcmSeq}
  	</delete>
 
 </mapper>

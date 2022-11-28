@@ -255,5 +255,13 @@ public class MenuController {
         
         return returnMap;
     }
+    
+    @ResponseBody
+    @RequestMapping(value = "cartDel")
+    public Map<String, Object> cartDel() throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>();
+        
+        return returnMap;
+    }
     /* 장바구니 구현 용 e */	
 }

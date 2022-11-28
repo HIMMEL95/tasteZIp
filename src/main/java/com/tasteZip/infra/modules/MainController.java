@@ -1,12 +1,17 @@
 package com.tasteZip.infra.modules;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
@@ -130,6 +135,11 @@ public class MainController {
     
     // ---------------- 관리자 ---------------------
     
+    @RequestMapping(value = "xdminLogin")
+    public String xdminLogin() throws Exception {
+    	return "infra/xdmin/home/xdminLogin";
+    }
+    
     @RequestMapping(value = "xdminMain")
     public String xdminMain(MemberVo vo, Model model, StoreVo svo) throws Exception {
         
@@ -143,7 +153,7 @@ public class MainController {
         
         return "infra/xdmin/home/xdminMain";
     }
-  
+    
     @RequestMapping(value = "xdminMainNewStore")
     public String xdminMainNewStore(Model model, StoreVo svo) throws Exception {
     	

@@ -19,7 +19,7 @@
 
 	<ul class="card_animation" style="list-style: none; margin-top: 10%;">
 		<li onclick="javascript: location.href= '/tasteMain';">User Page</li>
-		<li onclick="javascript: location.href= '/xdminMain';">Admin Page</li>
+		<li onclick="javascript: location.href= '/xdminLogin';">Admin Page</li>
 	</ul>
 	
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>

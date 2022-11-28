@@ -58,13 +58,6 @@
 					                <button type="button" class="btn btn btn-outline-dark" id="kakao"><i class="fa-solid fa-comment-dots"></i> Connect <span class="d-none d-sm-inline">with Kakao</span></button>
 					                <button type="button" class="btn btn btn-outline-success" id="naver"><i class="fa-solid fa-n"></i> Connect <span class="d-none d-sm-inline">with Naver</span></button>
 				              	</div>
-				              	<hr class="my-4">
-				              	<p class="text-center">
-				              		<small class="text-muted text-center">
-				              			Don't have an account yet? 
-				              			<button class="signUpBtn" id="signUpBtn" type="button">Sign Up</button>
-			              			</small>
-		              			</p>
 			            	</form>
 			            	<a class="close-absolute me-md-5 me-xl-6 pt-5" href="/tasteMain"> 
 			              		<i class="fa-solid fa-xmark fa-2x"></i>
@@ -99,7 +92,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
-    	var goUrlHome = "/tasteMain";
+    	var goUrlHome = "/";
     	var goUrlSign = "/signUp";
     	var form = $("#myForm");
     
@@ -120,7 +113,7 @@
 				,data: {"ifmmId": $("#ifmmId").val(), "ifmmPwd": $("#ifmmPwd").val()}
 				,success : function(response) {
 					if (response.rt == "success") {
-						window.location.href = "/tasteMain";
+						window.location.href = "/xdminMain";
 					} else {
 						alert("fail")
 					}

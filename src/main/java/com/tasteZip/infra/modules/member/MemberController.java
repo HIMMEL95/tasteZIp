@@ -36,6 +36,13 @@ public class MemberController {
 		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
 		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
     }
+    
+    public void session(Member dto, HttpSession httpSession) {
+	     httpSession.setAttribute("sessSeq", dto.getIfmmSeq());   
+	     httpSession.setAttribute("sessId", dto.getIfmmId());
+	     httpSession.setAttribute("sessName", dto.getIfmmName());
+	     httpSession.setAttribute("sessEmail", dto.getIfmmEmail());
+	 }
 	
 	@RequestMapping(value = "mypageMemberForm")
 	public String mypageMemberForm(MemberVo vo, Member dto, Model model, HttpSession httpSession) throws Exception {
@@ -211,6 +218,18 @@ public class MemberController {
    }
    
  // ------------------------ 관리자 ------------------------
+   
+   @RequestMapping(value = "sideBar") 
+   public String sideBar(@ModelAttribute("vo") MemberVo vo, Model model, HttpSession httpSession) throws Exception {
+   	
+//   	String ifmmSeq = httpSession.getAttribute("sessSeq").toString();
+//		vo.setIfmmSeq(ifmmSeq);
+   	
+   	Member item = service.selectOne(vo);
+   	model.addAttribute("item", item);
+   	
+       return "infra/main/resources/js/sideBar/sideBar";
+   }
    
    @RequestMapping(value = "xdminMemberList")
 	public String xdminMember(@ModelAttribute("vo") MemberVo vo, Model model) throws Exception {

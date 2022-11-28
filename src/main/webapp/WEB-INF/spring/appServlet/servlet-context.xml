@@ -51,46 +51,47 @@
 			<exclude-mapping path="/storeList" />
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/signUp" />
+			<exclude-mapping path="/xdminLogin" />
 			<exclude-mapping path="/findId" />
 			<exclude-mapping path="/xdminLoginCheck" />
 			<exclude-mapping path="/test/**" />
 			<exclude-mapping path="/rest/**" />
 			<!-- 관리자 영역 -->
-			<exclude-mapping path="/" />
+			<!-- <exclude-mapping path="/" />
 			<exclude-mapping path="/xdminMain" />
-			<exclude-mapping path="/xdminMainNewStore" />
+			<exclude-mapping path="/xdminMainNewStore" /> -->
 			<!-- memberForm/List -->
-			<exclude-mapping path="/member/xdminMemberLita" />
+			<!-- <exclude-mapping path="/member/xdminMemberLita" />
 			<exclude-mapping path="/member/xdminMemberList" />
-			<exclude-mapping path="/member/xdminMemberForm" />
+			<exclude-mapping path="/member/xdminMemberForm" /> -->
 			<!-- storeForm/List -->
-			<exclude-mapping path="/store/xdminStoreLita" />
+			<!-- <exclude-mapping path="/store/xdminStoreLita" />
 			<exclude-mapping path="/store/xdminStoreList" />
-			<exclude-mapping path="/store/xdminStoreForm" />
+			<exclude-mapping path="/store/xdminStoreForm" /> -->
 			<!-- orderList -->
-			<exclude-mapping path="/order/xdminOrderLita" />
+			<!-- <exclude-mapping path="/order/xdminOrderLita" />
 			<exclude-mapping path="/order/xdminOrderList" />
-			<exclude-mapping path="/order/xdminOrderForm" />
+			<exclude-mapping path="/order/xdminOrderForm" /> -->
 			<!-- commentList -->
-			<exclude-mapping path="/comment/xdminCommentLita" />
+			<!-- <exclude-mapping path="/comment/xdminCommentLita" />
 			<exclude-mapping path="/comment/xdminCommentList" />
-			<exclude-mapping path="/comment/xdminCommentForm" />
+			<exclude-mapping path="/comment/xdminCommentForm" /> -->
 			<!-- reservationList -->
-			<exclude-mapping path="/reservation/xdminReservationLita" />
+			<!-- <exclude-mapping path="/reservation/xdminReservationLita" />
 			<exclude-mapping path="/reservation/xdminReservationList" />
-			<exclude-mapping path="/reservation/xdminReservationForm" />
+			<exclude-mapping path="/reservation/xdminReservationForm" /> -->
 			<!-- menuForm/List -->
-			<exclude-mapping path="/menu/xdminMenuLita" />
+			<!-- <exclude-mapping path="/menu/xdminMenuLita" />
 			<exclude-mapping path="/menu/xdminMenuList" />
-			<exclude-mapping path="/menu/xdminMenuForm" />
+			<exclude-mapping path="/menu/xdminMenuForm" /> -->
 			<!-- codeForm/List -->
-			<exclude-mapping path="/code/xdminCodeLita" />
+			<!-- <exclude-mapping path="/code/xdminCodeLita" />
 			<exclude-mapping path="/code/xdminCodeList" />
-			<exclude-mapping path="/code/xdminCodeForm" />
+			<exclude-mapping path="/code/xdminCodeForm" /> -->
 			<!-- codeGroupForm/List -->
-			<exclude-mapping path="/codeGroup/xdminCodeGroupLita" />
+			<!-- <exclude-mapping path="/codeGroup/xdminCodeGroupLita" />
 			<exclude-mapping path="/codeGroup/xdminCodeGroupList" />
-			<exclude-mapping path="/codeGroup/xdminCodeGroupForm" />
+			<exclude-mapping path="/codeGroup/xdminCodeGroupForm" /> -->
 			
 			<beans:bean id="checkLoginSessionInterception" class="com.tasteZip.infra.common.interceptor.CheckLoginSessionInterception"/>
 		</interceptor>

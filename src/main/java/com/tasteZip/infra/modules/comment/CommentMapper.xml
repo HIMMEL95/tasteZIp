@@ -47,6 +47,28 @@
 		<include refid="Base.selectListLowerForMysql2" /> 
 	</select>
 	
+	<select id="storeComment" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql2"/>
+		SELECT
+			m.ifmmId
+			,up.path
+			,up.uuidName
+			,c.ifcmComment
+			,c.ifcmCreatedAt
+			,c.ifcmGrade
+			,s.ifstName
+			,s.ifstAddress
+		FROM comment c 
+			LEFT JOIN store s on s.ifstSeq = c.ifstSeq
+			LEFT JOIN member m on m.ifmmSeq = c.ifmmSeq
+			LEFT JOIN memberUploaded up on up.pseq = c.ifmmSeq
+		WHRER 1=1
+			AND s.ifstSeq = #{ifstSeq}
+		ORDER BY c.ifcmSeq DESC
+		<include refid="Base.orderByLimitForMysql" />
+		<include refid="Base.selectListLowerForMysql2" /> 
+	</select>
+	
 	<select id="selectOneCount" resultType="Integer">
 		SELECT COUNT(*)
 		FROM comment c

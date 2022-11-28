@@ -1,6 +1,8 @@
 package com.tasteZip.infra.modules.comment;
 
-public class Comment {
+import com.tasteZip.infra.common.base.Base;
+
+public class Comment extends Base{
 	
 	public String ifcmSeq;
 	public String ifcmComment; 
@@ -12,6 +14,7 @@ public class Comment {
 // ------- join member s ----------	
 	public String ifmmSeq; 
 	public String ifmmName; 
+	public String ifmmId;
 // ------- join member e ----------	
 	
 // ------- join store s ----------
@@ -43,6 +46,12 @@ public class Comment {
 	}
 	public void setIfmmSeq(String ifmmSeq) {
 		this.ifmmSeq = ifmmSeq;
+	}
+	public String getIfmmId() {
+		return ifmmId;
+	}
+	public void setIfmmId(String ifmmId) {
+		this.ifmmId = ifmmId;
 	}
 	public String getIfcmComment() {
 		return ifcmComment;

@@ -100,12 +100,10 @@
 										    	<h4><b>${list.ifstName}</b></h4>
 										    	<div class="col-3 text-start"><span>${list.ifstAddress}</span></div>
 										    	<div class="col-9 text-start" id="starValue">
-											    	<i class="fa-solid fa-star"></i>
-											    	<i class="fa-solid fa-star"></i>
-											    	<i class="fa-solid fa-star"></i>
-											    	<i class="fa-solid fa-star"></i>
-											    	<i class="fa-solid fa-star"></i>
-											    	&nbsp;<span><b>${list.ifcmGrade}</b></span>
+											    	<c:forEach begin="1" end="${list.ifcmGrade}" varStatus="status">
+														<i class="fa-solid fa-star"></i>  
+													</c:forEach>
+											    	&nbsp;<span><b><c:out value="${list.ifcmGrade}"/>점</b></span>
 										    	</div>
 										    </div>
 										    <p class="card-text mt-2"><b>작성 내용:</b> ${list.ifcmComment}</p>

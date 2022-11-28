@@ -6,6 +6,7 @@ public class CommentVo extends BaseVo{
 
 	private String ifcmSeq;
 	private String ifmmSeq;
+	private String ifstSeq;
 	private Integer shOption;
     private String shValue;
     private Integer shDelNy;
@@ -26,6 +27,12 @@ public class CommentVo extends BaseVo{
 	}
 	public void setIfmmSeq(String ifmmSeq) {
 		this.ifmmSeq = ifmmSeq;
+	}
+	public String getIfstSeq() {
+		return ifstSeq;
+	}
+	public void setIfstSeq(String ifstSeq) {
+		this.ifstSeq = ifstSeq;
 	}
 	public Integer getShOption() {
 		return shOption;

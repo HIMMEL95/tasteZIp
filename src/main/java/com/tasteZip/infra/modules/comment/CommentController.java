@@ -20,12 +20,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tasteZip.infra.modules.store.Store;
+import com.tasteZip.infra.modules.store.StoreServiceImpl;
+import com.tasteZip.infra.modules.store.StoreVo;
+
 @Controller
 @RequestMapping(value = "/comment/")
 public class CommentController {
 	
 	@Autowired
 	CommentServiceImpl service;
+	
+	@Autowired
+    StoreServiceImpl sService;
+	
 	
 	private void setSearch(CommentVo vo) throws Exception {
 		vo.setParamsPaging(service.selectOneCount(vo)); 
@@ -48,6 +56,29 @@ public class CommentController {
     	
         return "infra/main/mypage/mypageReview";
     }
+    
+    
+ // 스토어 리뷰
+    @RequestMapping(value = "storeComment")
+    public String storeComment(@ModelAttribute("vo") CommentVo vo, StoreVo sVo, Model model, HttpSession httpSession) throws Exception {
+    	
+    	String seq = httpSession.getAttribute("sessSeq").toString();
+		vo.setIfmmSeq(seq);
+    	
+    	vo.setParamsPaging2(service.selectOneCount(vo));
+    	
+		List<Comment> list = service.storeComment(vo);
+		model.addAttribute("list", list); 
+		
+		Store item = sService.xdminSelectOne(sVo);
+        model.addAttribute("item", item);
+        
+        List<Store> img = sService.selectImg(sVo);
+        model.addAttribute("img", img);
+    	
+        return "infra/main/comment/storeComment";
+    }
+    
     
  // --------------- 관리자 --------------
     

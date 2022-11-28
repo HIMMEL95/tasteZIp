@@ -400,6 +400,7 @@
 		} */
 		
 		var cart = [];
+		var result = "";
 		goCart = function (value) {
 			console.log(cart);
 			if (cart.includes(value)) {
@@ -409,8 +410,11 @@
 				var innerHtml ="";
 				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
 				$(".menuSeq"+value).html(innerHtml);
+				result += value + " ";
 				/* document.cookie = "cart="+cart; */
 			}
+			alert($("input[name=ifmnSeq]").length)
+			alert(result);
 		}
 		
 		var goUrlCart = "/order/cartOrder";
@@ -426,7 +430,7 @@
 				type: "POST"
 				,url: "/menu/cart"
 				,data: {
-					ifmnSeq : $("input[name=ifmnSeq]").val()
+					ifmnSeq : result
 				}
 				,success : function(response) {
 					if (response.rt == "success") {

@@ -122,10 +122,10 @@ description = function(info) {
 		$(".detail").html("맑음")
 	} else if (info == "few clouds") {
 		$(".detail").html("약간 흐림")
-	} else if (info == "scattered clouds") {
+	} else if (info == "scattered clouds" || info == "broken clouds") {
 		$(".detail").html("흐림")
-	} else if (info == "broken clouds") {
-		$(".detail").html("맑음")
+	} else if (info == "overcast clouds") {
+		$(".detail").html("완전 흐림")
 	} else if (info == "shower rain") {
 		$(".detail").html("소나기")
 	} else if (info == "rain") {

@@ -16,12 +16,13 @@ public class MenuVo extends BaseVo {
 	
 	private String ifstSeq;
 	
-    
-    public String getIfstSeq() {
-        return ifstSeq;
+	private int[] ifmnSeqArr;
+
+    public int[] getIfmnSeqArr() {
+        return ifmnSeqArr;
     }
-    public void setIfstSeq(String ifstSeq) {
-        this.ifstSeq = ifstSeq;
+    public void setIfmnSeqArr(int[] ifmnSeqArr) {
+        this.ifmnSeqArr = ifmnSeqArr;
     }
     
     public String getIfmnSeq() {
@@ -55,29 +56,33 @@ public class MenuVo extends BaseVo {
         this.shDate = shDate;
     }
     public Integer getShUpdt() {
-		return shUpdt;
-	}
-	public void setShUpdt(Integer shUpdt) {
-		this.shUpdt = shUpdt;
-	}
-	public String getShDateStart() {
-		return shDateStart;
-	}
-	public void setShDateStart(String shDateStart) {
-		this.shDateStart = shDateStart;
-	}
-	public String getShDateEnd() {
-		return shDateEnd;
-	}
-	public void setShDateEnd(String shDateEnd) {
-		this.shDateEnd = shDateEnd;
-	}
-	public Integer getShOptionDate() {
-		return shOptionDate;
-	}
-	public void setShOptionDate(Integer shOptionDate) {
-		this.shOptionDate = shOptionDate;
-	}
-	
-
+        return shUpdt;
+    }
+    public void setShUpdt(Integer shUpdt) {
+        this.shUpdt = shUpdt;
+    }
+    public String getShDateStart() {
+        return shDateStart;
+    }
+    public void setShDateStart(String shDateStart) {
+        this.shDateStart = shDateStart;
+    }
+    public String getShDateEnd() {
+        return shDateEnd;
+    }
+    public void setShDateEnd(String shDateEnd) {
+        this.shDateEnd = shDateEnd;
+    }
+    public Integer getShOptionDate() {
+        return shOptionDate;
+    }
+    public void setShOptionDate(Integer shOptionDate) {
+        this.shOptionDate = shOptionDate;
+    }
+    public String getIfstSeq() {
+        return ifstSeq;
+    }
+    public void setIfstSeq(String ifstSeq) {
+        this.ifstSeq = ifstSeq;
+    }
 }

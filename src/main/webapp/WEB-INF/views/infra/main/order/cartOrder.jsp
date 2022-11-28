@@ -48,13 +48,19 @@
 															<img src="https://naverbooking-phinf.pstatic.net/20220823_108/166121414680370cPU_PNG/1%C0%CE%BC%BC%C6%AE_1_%B9%CC%BD%BA%C5%CD%BF%A1%B1%D7_1200X1200.png?type=f220_220_60_sharpen"
 															class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
 														</c:when>
+														<c:otherwise>
+															<img src="${list.path }${list.uuidName}" class="img-fluid" style="width: 150px;" alt="Generic placeholder image">
+														</c:otherwise>
 													</c:choose>
 												</div>
 												<div class="flex-grow-1 ms-3">
 													<a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
 													<h5><b>${list.ifmnName }</b></h5>
 													<div class="d-flex align-items-center">
-														<p class="fw-bold mb-0 me-5 pe-3"><fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원</p>
+														<p class="fw-bold mb-0 me-5 pe-3">
+															<input type="hidden" name="price" id="price${status.index }" value="${list.ifmnPrice }">
+															<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원
+														</p>
 														<div class="def-number-input number-input safari_only">
 															<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
 															class="minus"></button>
@@ -70,7 +76,7 @@
 										<hr class="mb-4" style="height: 2px; background-color: black; opacity: 1;">
 										<div class="d-flex justify-content-between p-2 mb-2" style="background-color: #E6E6E6;">
 											<h5 class="fw-bold mb-0">Total:</h5>
-											<h5 class="fw-bold mb-0"><fmt:formatNumber type="number" pattern="#,###" value="${item.ifmnPrice}"/>원</h5>
+											<h5 class="fw-bold mb-0 totalPrice"><fmt:formatNumber type="number" pattern="#,###" value="${totalPrice}"/>원</h5>
 										</div>
 									</div>
 									<div class="col-lg-6 px-5 py-4">
@@ -175,6 +181,17 @@
 				}
 			});
 		})
+		
+		var totalPrice = 0;
+		for(var i=0; i<$(".plus").length;i++) {
+			totalPrice += parseInt($("#price"+i).val());
+		}
+		
+		totalPrice = String(totalPrice);
+		
+		totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		
+		$(".totalPrice").html(totalPrice + " 원")
 		
 		goMenu = function(value) {
 			ifstSeq.val(value)

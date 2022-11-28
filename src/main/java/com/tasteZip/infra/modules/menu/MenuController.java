@@ -1,6 +1,7 @@
 package com.tasteZip.infra.modules.menu;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -231,19 +232,18 @@ public class MenuController {
     public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         
-        System.out.println("seq : " + dto.getIfmnSeq());
-        
-        String[] str = vo.getIfmnSeq().split(",");
+        String[] str = vo.getIfmnSeq().split(" ");
         String result = "";
     	for (int i=0; i<str.length; i++) {
 			if(i == str.length-1) {
 				result += str[i];
 			} else {
-				result += str[i] + ",";
+				result += str[i] + ":";
 			}
     	} 
     	
     	Cookie cart = new Cookie("cart", result);
+    	cart.setPath("/");
     	cart.setMaxAge(30 * 24 * 60 * 60 * 1000);
     	response.addCookie(cart);
     	

@@ -28,26 +28,6 @@ public class Menu extends Base {
     private Integer totalPrice;
     private Integer count;
     
-    public Integer getTotalPrice() {
-        return totalPrice;
-    }
-    public void setTotalPrice(Integer totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-    public Integer getCount() {
-        return count;
-    }
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-    
-    public String[] getIfmnSeqArr() {
-        return ifmnSeqArr;
-    }
-    public void setIfmnSeqArr(String[] ifmnSeqArr) {
-        this.ifmnSeqArr = ifmnSeqArr;
-    }
-    
     public String getIfmnSeq() {
         return ifmnSeq;
     }
@@ -108,29 +88,46 @@ public class Menu extends Base {
     public void setIfstSeq(String ifstSeq) {
         this.ifstSeq = ifstSeq;
     }
-	public MultipartFile[] getMenuImage() {
-		return menuImage;
-	}
-	public void setMenuImage(MultipartFile[] menuImage) {
-		this.menuImage = menuImage;
-	}
-	public Integer[] getProcess() {
-		return process;
-	}
-	public void setProcess(Integer[] process) {
-		this.process = process;
-	}
-	public String[] getPathFile() {
-		return pathFile;
-	}
-	public void setPathFile(String[] pathFile) {
-		this.pathFile = pathFile;
-	}
-	public String[] getFileSeq() {
-		return fileSeq;
-	}
-	public void setFileSeq(String[] fileSeq) {
-		this.fileSeq = fileSeq;
-	}
-    
+    public MultipartFile[] getMenuImage() {
+        return menuImage;
+    }
+    public void setMenuImage(MultipartFile[] menuImage) {
+        this.menuImage = menuImage;
+    }
+    public Integer[] getProcess() {
+        return process;
+    }
+    public void setProcess(Integer[] process) {
+        this.process = process;
+    }
+    public String[] getPathFile() {
+        return pathFile;
+    }
+    public void setPathFile(String[] pathFile) {
+        this.pathFile = pathFile;
+    }
+    public String[] getFileSeq() {
+        return fileSeq;
+    }
+    public void setFileSeq(String[] fileSeq) {
+        this.fileSeq = fileSeq;
+    }
+    public String[] getIfmnSeqArr() {
+        return ifmnSeqArr;
+    }
+    public void setIfmnSeqArr(String[] ifmnSeqArr) {
+        this.ifmnSeqArr = ifmnSeqArr;
+    }
+    public Integer getTotalPrice() {
+        return totalPrice;
+    }
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+    public Integer getCount() {
+        return count;
+    }
+    public void setCount(Integer count) {
+        this.count = count;
+    }
 }

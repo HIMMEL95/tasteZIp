@@ -116,17 +116,21 @@ public class OrderController {
     	Cookie[] cookies = request.getCookies();
     	String[] b = null;
     	for (Cookie cookie: cookies) {
-    		if (cookie.getName().equals("cart2")) {
+    		if (cookie.getName().equals("cart")) {
     			b = cookie.getValue().split(":");
     		}
     	}
     	
-    	String[] str = vo.getIfmnSeq().split(",");
-    	int[] result = new int[str.length];
-    	for (int i=0; i<str.length; i++) {
-			result[i] = Integer.parseInt(str[i]);
-    	} 
-    	
+    	String str = "";
+    	for(int i=0; i<b.length;i++) {
+    	    if (i == b.length-1) {
+    	        str += b[i];
+    	    } else {
+    	        str += b[i] + ",";
+    	    }
+    	}
+     	
+    	vo.setIfmnSeq(str);
     	List<Menu> list = mService.selectCart(vo);
     	model.addAttribute("list", list);
         

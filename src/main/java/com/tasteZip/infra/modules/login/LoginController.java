@@ -45,6 +45,7 @@ public class LoginController {
             httpSession.setAttribute("sessUser", result.getIfmmUserDiv());
             httpSession.setAttribute("sessSns", result.getIfmmSnsDiv());
             httpSession.setAttribute("sessImg", result.getIfmmSnsImg());
+            httpSession.setAttribute("sessPhone", result.getIfmmPhone());
     
             returnMap.put("rt", "success");
         } else {

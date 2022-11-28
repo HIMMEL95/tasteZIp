@@ -38,7 +38,7 @@
 							<div class="card-body text-black">
 								<div class="row">
 									<div class="col-lg-6 px-5 py-4">
-										<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your Menu</h3>
+										<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your Menu ${sessPhone }</h3>
 										<c:forEach items="${list }" var="list" varStatus="status">
 											<input type="hidden" name="menuSeq${list.ifmnSeq }" id="menuSeq${list.ifmnSeq }">
 											<div class="d-flex align-items-center mb-5">
@@ -62,12 +62,9 @@
 															<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원
 														</p>
 														<div class="def-number-input number-input safari_only">
-															<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-															class="minus"></button>
-															<input class="quantity fw-bold text-black" min="0" name="quantity" value="1"
-															type="number">
-															<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-															class="plus"></button>
+															<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+															<input class="quantity fw-bold text-black" min="1" name="quantity" value="1" type="number">
+															<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
 														</div>
 													</div>
 												</div>
@@ -89,7 +86,14 @@
 												<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
 													<div class="row mt-2 mb-4">
 														<div class="col-4">
-															<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg" style="width: 150px; height: 100px;">
+															<c:choose>
+																<c:when test="${empty item.path }">
+																	<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg" style="width: 150px; height: 100px;">
+																</c:when>
+																<c:otherwise>
+																	<img src="${item.path }${item.uuidName}" class="storeImg" style="width: 150px; height: 100px;">
+																</c:otherwise>
+															</c:choose>
 														</div>
 														<div class="col-8">
 															<div><h5><b>${item.ifstName }</b></h5></div>
@@ -118,7 +122,7 @@
 												<!-- 가격 정보 -->
 												<div class="row justify-content-between mb-2">
 													<div class="col-4" id="finalPrice"><h5><b>예상 주문 금액</b></h5></div>
-													<div class="col-7 text-end"><input type="text" class="form-control" style="color: red;" name="ifrvPrice" value="10000"></div>
+													<div class="col-7 text-end"><input type="text" class="form-control" style="color: red;" name="ifrvPrice" value=""></div>
 													<div class="col-1 text-start"><span><b>원</b></span></div>
 												</div>
 												<hr class="hrstyle mt-4 mb-4">
@@ -191,7 +195,8 @@
 		
 		totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		
-		$(".totalPrice").html(totalPrice + " 원")
+		$(".totalPrice").html(totalPrice + " 원");
+		$("input[name=ifrvPrice]").val(totalPrice);
 		
 		goMenu = function(value) {
 			ifstSeq.val(value)

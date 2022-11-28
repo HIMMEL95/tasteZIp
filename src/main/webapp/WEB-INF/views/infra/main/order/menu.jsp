@@ -182,7 +182,7 @@
 																				<a href="/menu" role="tab" class="tpj9w _tab-menu" aria-selected="true" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">메뉴</span>
 																				</a>
-																				<a href="/comment" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
+																				<a href="/comment/storeComment" role="tab" class="tpj9w _tab-menu" aria-selected="false" title="" id="" style="width: 200px;">
 																					<span class="veBoZ">리뷰</span>
 																				</a>
 																			</div>
@@ -413,8 +413,6 @@
 				result += value + " ";
 				/* document.cookie = "cart="+cart; */
 			}
-			alert($("input[name=ifmnSeq]").length)
-			alert(result);
 		}
 		
 		var goUrlCart = "/order/cartOrder";

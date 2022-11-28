@@ -1,12 +1,11 @@
 package com.tasteZip.infra.modules.menu;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
@@ -24,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import net.sf.json.JSONArray;
 
 @Controller
 @RequestMapping(value = "/menu/")
@@ -32,8 +30,6 @@ public class MenuController {
 	
 	@Autowired
 	MenuServiceImpl service;
-	
-	private List<String> ifmnSeqArray = new ArrayList<String>();
 	
 // --------------- 관리자 --------------
 	@RequestMapping(value = "xdminMenuList")
@@ -229,19 +225,27 @@ public class MenuController {
 	/* 장바구니 구현 용 s */
     @ResponseBody
     @RequestMapping(value = "cart")
-    public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response) throws Exception {
+    public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response, HttpServletRequest request) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         
-        String[] str = vo.getIfmnSeq().split(" ");
+        String[] str = null;
         String result = "";
-    	for (int i=0; i<str.length; i++) {
-			if(i == str.length-1) {
-				result += str[i];
-			} else {
-				result += str[i] + ":";
-			}
-    	} 
-    	
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie: cookies) {
+            if (cookie.getName().equals("cart")) {
+                result = cookie.getValue();
+            } else {
+                str = vo.getIfmnSeq().split(" ");
+                for (int i=0; i<str.length; i++) {
+                    if(i == str.length-1) {
+                        result += str[i];
+                    } else {
+                        result += str[i] + ":";
+                    }
+                }
+            }
+        }
+        
     	Cookie cart = new Cookie("cart", result);
     	cart.setPath("/");
     	cart.setMaxAge(30 * 24 * 60 * 60 * 1000);

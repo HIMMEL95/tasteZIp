@@ -111,8 +111,6 @@ public class OrderController {
     @RequestMapping(value = "cartOrder")
     public String cartOrder(MenuVo vo, Menu dto, StoreVo sVo, Model model, HttpServletResponse response, HttpServletRequest request) throws Exception {
     	
-    	System.out.println("seq : " + vo.getIfmnSeq());
-    	
     	Cookie[] cookies = request.getCookies();
     	String[] b = null;
     	for (Cookie cookie: cookies) {
@@ -129,6 +127,8 @@ public class OrderController {
     	        str += b[i] + ",";
     	    }
     	}
+    	
+    	System.out.println("str : "+ str);
      	
     	vo.setIfmnSeq(str);
     	List<Menu> list = mService.selectCart(vo);

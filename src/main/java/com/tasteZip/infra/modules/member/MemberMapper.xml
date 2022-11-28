@@ -104,6 +104,7 @@
 			,m.ifmmUserDiv
 			,m.ifmmSnsDiv
 			,m.ifmmSnsImg
+			,m.ifmmPhone
 		from member m
 		where 1=1 
 			and ifmmId = #{ifmmId} 

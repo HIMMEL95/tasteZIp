@@ -138,9 +138,13 @@
 			,s.ifstInfo
 			,s.ifstDirections
 			,s.ifstOrderNy
+			,su.path
+			,su.uuidName
 	    from store s
+	    	left join storeUploaded su on su.pseq = s.ifstSeq
 		where 1=1
 			and s.ifstSeq = #{ifstSeq}
+			and su.sort = 1
 	</select>
 	
 	<select id="storeMain" resultMap="resultMapObj">

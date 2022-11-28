@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>xdmin Member Form</title>
+		<title>xdmin Menu Form</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
 		<!-- datepicker s -->
@@ -41,114 +41,41 @@
 			<%-- <%@include file="codeVo.jsp"%> --%>
 			<!-- *Vo.jsp e -->
 				<div class="row" style="width: 1022px; height: 100%">
-					<h2 class="needs-validation mt-5 ms-5">Member Form</h2>
+					<h2 class="needs-validation mt-5 ms-5">Menu Form</h2>
 					<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
 						<div class="start" style="margin-left: auto; margin-right: auto; width: 690px; display: grid;">
 							<div class="row">
 								<div class="col-6">
-									<label class="form-label">코드</label> <input type="text" class="form-control"  placeholder="자동완성">
+									<label class="form-label">메뉴이름</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifmnName}"/>" readonly>
 								</div>
 								<div class="col-6">
-									<label class="form-label">아이디</label> <input type="text" class="form-control" placeholder="영문(대소문자),숫자" value="">
+									<label class="form-label">가격</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifmnPrice}"/>" readonly>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">이름</label> 
-									<input class="form-control" placeholder="한글">
-								</div>
-								<div class="col">
-									<label class="form-label">비밀번호</label> <input type="text" class="form-control" placeholder="영문(대소문자),숫자">
+									<label class="form-label">정보</label> 
+									<textarea class="form-control" id="ifstInfo" name="ifstInfo" aria-label="With textarea" rows="5" readonly>${item.ifmnInfo }</textarea>
 								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">
-									<label class="form-label">생일</label> <input type="date" class="form-control" placeholder="생년월일">
-								</div>
-								<div class="col">
-									<label class="form-label">성별</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>남</option>
-										<option>여</option>
+									<label class="form-label">세트메뉴</label>
+									<select class="form-select" id="ifmnSet_div" name="ifmnSet_div" disabled>
+										<option value="" <c:if test="${empty item.ifmnSet_div}">selected</c:if>>선택</option>
+										<c:set var="listCodeSet" value="${CodeServiceImpl.selectListCachedCode('7') }" />
+											<c:forEach items="${listCodeSet}" var="listSet" varStatus="statusPhone">
+											<option value="${item.ifmnSet_div }" <c:if test="${item.ifmnSet_div eq listSet.ifccSeq}">selected</c:if>>
+												<c:out value="${listSet.ifccName }"/>
+											</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="col">
-									<label class="form-label">통신사</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>SKT</option>
-										<option>KT</option>
-										<option>LGT</option>
-									</select>
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label class="form-label">이메일</label> <input type="text" class="form-control" placeholder="영문(대소문자),숫자, @이후 전체 이메일 주소 포함 ">
-								</div>
-								<div class="col">
-									<label class="form-label">전화번호</label> <input type="text" class="form-control" placeholder="- 를 제외한 숫자만">
-								</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<label class="form-label">우편번호</label> 
-								<div class="col-8">	
-					   				<input type="text" class="form-control">
-					   			</div>
-					   			<div class="col-4">
-					   				<button type="button" class="btn btn-outline-dark" onclick=""> 우편번호 검색 </button>
-					   				<button class="btn btn-outline-dark" type="button" id="" style="height: 2.4rem;"><i class="fa-solid fa-rotate-left"></i></button>
-				   				</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<div class="col-12">	
-									<label class="form-label">주소</label> 
-					   				<input type="text" class="form-control" id="" name="" value="">
-					   			</div>
-							</div>
-							<div class="row mt-3" style="margin-top: 3rem;">
-								<div class="col-6">	
-									<label class="form-label">상세주소</label> 
-					   				<input type="text" class="form-control" id="" name="" value="">
-					   			</div>
-					   			<div class="col-6">
-					   				<label class="form-label">참고 항목</label>
-					   				<input type="text" class="form-control" id="" name="" value=""> 
-				   				</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label class="form-label">사용자 구분</label> <select class="form-select" >
-										<option selected disabled value="">선택</option>
-										<option>고객</option>
-										<option>사장님</option>
-										<option>관리자</option>
-									</select>
-								</div>
-							</div>
-							<div class="row mt-3">
-								<div class="col">
-									<label class="form-label">SNS</label> <select class="form-select" >
-										<option selected disabled value="">선택</option>
-										<option>일반</option>
-										<option>네이버</option>
-										<option>구글</option>
-										<option>페이스북</option>
-										<option>카카오</option>
-									</select>
-								</div>
-								<div class="col">
-									<label class="form-label">이메일여부</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>N</option>
-										<option>Y</option>
-									</select>
-								</div>
-								<div class="col">
-									<label class="form-label">삭제여부</label> <select class="form-select">
-										<option selected disabled value="">선택</option>
-										<option>N</option>
-										<option>Y</option>
-									</select>
+									<label class="form-label">작성일</label> 
+									<input type="text" class="form-control" value="<c:out value="${item.ifmnCreatedAt}"/>" readonly>
 								</div>
 							</div>
 						</div>
@@ -235,19 +162,19 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script>
 			
-			var goUrlList = "/member/xdminMemberList"; 
-			var goUrlForm = "/member/xdminMemberForm"; 
-			var goUrlInst = "/member/memberInst"; /* #-> */
-			var goUrlUpdt = "/member/memberUpdt"; /* #-> */
-			var goUrlUele = "/member/memberUele"; /* #-> */
-			var goUrlDele = "/member/memberDele"; /* #-> */
+			var goUrlList = "/menu/xdminMenuList"; 
+			var goUrlForm = "/menu/xdminMenuForm"; 
+			var goUrlInst = "/menu/menuInst"; /* #-> */
+			var goUrlUpdt = "/menu/menuUpdt"; /* #-> */
+			var goUrlUele = "/menu/menuUele"; /* #-> */
+			var goUrlDele = "/menu/menuDele"; /* #-> */
 			
 			var ccgSeq = $("input:hidden[name=ccgSeq]"); /* #-> */
 			
 			var form = $("form[name=formList]");
 			var formVo = $("form[name=formVo]");
 			
-			var ifmmSeq = $("input[name=ifmmSeq]");
+			var ifmnSeq = $("input[name=ifmnSeq]");
 			
 			$("#btnList").on("click", function() {
 				formVo.attr("action", goUrlList).submit();

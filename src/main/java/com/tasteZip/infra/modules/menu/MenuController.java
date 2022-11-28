@@ -56,6 +56,15 @@ public class MenuController {
 		return "infra/xdmin/menu/xdminMenuLita";
 	}
 	
+	@RequestMapping(value = "xdminMenuForm")
+	public String xdminMenuForm(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
+		
+		Menu item = service.selectOne(vo);
+		model.addAttribute("item", item);
+		
+		return "infra/xdmin/menu/xdminMenuForm";
+	}
+	
 	@RequestMapping(value = "ownerMenuList")
 	public String ownerMenuList(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
 		
@@ -74,15 +83,6 @@ public class MenuController {
 		  }
 		
 		return "infra/xdmin/menu/ownerMenuLita";
-	}
-	
-	@RequestMapping(value = "xdminMenuForm")
-	public String xdminMenuForm(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
-		
-		Menu item = service.selectOne(vo);
-		 model.addAttribute("item", item);
-		 
-		return "infra/xdmin/menu/xdminMenuForm";
 	}
 	
 	@RequestMapping(value = "ownerMenuForm")

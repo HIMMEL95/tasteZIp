@@ -121,9 +121,6 @@
 			                                <button class="border-0 btn bg-success shadow" id="excelBtn" type="button">
 			                                    <i class="fa-regular fa-file-excel" style="color: white;"></i>
 			                                </button>
-			                                <button class="border-0 btn shadow bg-dark" type="button" id="btnForm">
-			                                    <i class="fa-regular fa-plus fa-1x" style="color: white;"></i>
-			                                </button>
 			                            </div>
 			                        </div>
 								</div>
@@ -172,15 +169,12 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script type="text/javascript">
 			
-		var goUrlList = "/menu/xdminMenuList"; 
-		var goUrlForm = "/menu/xdminMenuForm"; 
-		var goUrlExcel = "/menu/excelDownload";
-		var goUrlUele = "/menu/MenuUele";	
-		var goUrlDele = "/menu/MenuDele";
-		
-		var form = $("form[name=formList]");
-		
-		var ifmmSeq = $("input[name=ifmmSeq]");
+			var goUrlList = "/menu/xdminMenuList"; 
+			var goUrlExcel = "/menu/excelDownload";
+			var goUrlUele = "/menu/MenuUele";	
+			var goUrlDele = "/menu/MenuDele";
+			
+			var ifmmSeq = $("input[name=ifmmSeq]");
 
 			/* $(function() {
 		  		$("#datepickerS").datepicker({
@@ -205,35 +199,16 @@
 				form.attr("action", goUrlList).submit();
 			}
 	 		
-	 		/* var seq = $("input:hidden[name=ccgSeq]"); */
-			
 	 		$("#excelBtn").on("click", function() {
 				form.attr("action", goUrlExcel).submit();
 			})
-			
-			$("#btnUel").on("click", function() {
-				DelValidation("#delBtn", goUrlUele, "선택하신 게시물을 삭제하시겠습니까?");
-				alert("uel")
-			})
-			
-			$("#btnDel").on("click", function() {
-				DelValidation("#delBtn", goUrlDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
-				alert("del")
-			})
-			
-			DelValidation = function(confirm, url, msg) {
-				$(".modal-body").html(msg);
-				$(confirm).on("click", function() {
-					form.attr("action", url).submit();
-				})
-			}
 	 		 
  		</script>
 	 	<script type="text/javascript">
 	 	
-	 		var goUrlLita = "/menu/xdminMenuLita";		
-	 		
+ 			var goUrlLita = "/menu/xdminMenuLita";		
 	 	// ----- Lita ajax -----
+	 	
 	 		$(document).ready(function(){
 	 			setMenuLita();
 	 		}); 

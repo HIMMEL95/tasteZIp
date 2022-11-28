@@ -108,7 +108,7 @@
 								<div class="col">
 									<label class="form-label">사용자 구분</label> 
 									<select class="form-select" id="ifmmUserDiv" name="ifmmUserDiv" disabled>
-										<option value="" <c:if test="${empty item.ifmmUserDiv}">selected</c:if>>통신사</option>
+										<option value="" <c:if test="${empty item.ifmmUserDiv}">selected</c:if>>선택</option>
 										<c:set var="listCodeUser" value="${CodeServiceImpl.selectListCachedCode('5') }" />
 											<c:forEach items="${listCodeUser}" var="listUser" varStatus="statusPhone">
 											<option value="${item.ifmmUserDiv }" <c:if test="${item.ifmmUserDiv eq listUser.ifccSeq}">selected</c:if>>
@@ -133,7 +133,7 @@
 								</div>
 								<div class="col">
 									<label class="form-label">이메일여부</label> 
-									<select class="form-select">ㅋ
+									<select class="form-select">
 										<option selected disabled value="">선택</option>
 										<option>N</option>
 										<option>Y</option>

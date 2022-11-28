@@ -74,6 +74,8 @@
 			,m.ifmnPrice
 			,m.ifmnInfo
 			,m.ifmnSet_div
+			,m.ifmnCreatedAt
+			
 	    from menu m
 		where 1=1
 	 		AND m.ifmnSeq = #{ifmnSeq}

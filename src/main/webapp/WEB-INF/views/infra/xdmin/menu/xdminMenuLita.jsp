@@ -14,20 +14,19 @@
 					<th scope="col">
 						<input type="checkbox" name="chk_all" id="chk_all" href="">
 					</th>
-					<th class="text-white">#</th>
-					<th class="text-white" scope="col">Seq</th>
+					<th class="text-white" style="width: 80px">#</th>
 					<th class="text-white" scope="col" style="width: 160px;">Name</th>
 					<th class="text-white" scope="col" style="width: 120px;">Price</th>
-					<th class="text-white" scope="col" style="width: 190px;">Info</th>
-					<th class="text-white" scope="col">Set_Menu</th>
-					<th class="text-white" scope="col" style="width: 140px;">Created At</th>
+					<th class="text-white" scope="col" style="width: 200px;">Info</th>
+					<th class="text-white" scope="col" style="width: 50px">Set_Menu</th>
+					<th class="text-white" scope="col" style="width: 150px;">Created At</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:choose>
 					<c:when test="${fn:length(list) eq 0}">
 						<tr>
-							<td class="text-center" colspan="8">There is no data!</td>
+							<td class="text-center" colspan="7">There is no data!</td>
 						</tr>
 					</c:when>
 					<c:otherwise>
@@ -39,7 +38,6 @@
 									<td>
 										<c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/>
 									</td>
-									<td>${list.ifmnSeq}</td>
 									<td>${list.ifmnName }</td>
 									<td>
 										<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>

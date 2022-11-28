@@ -12,7 +12,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>xdmin Store Form</title>
+		<title>Owner Store Form</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 		<link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
 		<!-- datepicker s -->
@@ -37,7 +37,7 @@
 		  <form id="formList" name="formList" method="post" enctype="multipart/form-data">
 		  	<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
 				<div class="row" style="width: 1022px; height: 100%">
-					<h2 class="needs-validation mt-5 ms-5">Store Form</h2>
+					<h2 class="needs-validation mt-5 ms-5">Owner Store Form</h2>
 					<div class="content" style="height: 500px; width: 1010px; overflow-y: scroll;">
 						<div class="start" style="margin-left: auto; margin-right: auto; width: 690px; display: grid;">
 							<div class="row">

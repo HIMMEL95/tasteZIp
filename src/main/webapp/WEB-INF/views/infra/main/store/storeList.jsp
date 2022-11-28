@@ -401,8 +401,6 @@
 			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
-		
-		alert("날씨 영역에 있는 위치수정을 누르고 지도에서 원하는 위치를 선택해보세요!!!")
 	</script>
 </body>
 

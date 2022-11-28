@@ -40,8 +40,8 @@
 									<div class="col-lg-6 px-5 py-4">
 										<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your Menu</h3>
 										<c:forEach items="${list }" var="list" varStatus="status">
-											<input type="hidden" name="menuSeq${list.ifmnSeq }" id="menuSeq${list.ifmnSeq }">
-											<div class="d-flex align-items-center mb-5">
+											<input type="hidden" class="menuSeq${status.index }" name="menuSeq${list.ifmnSeq }" id="menuSeq${list.ifmnSeq }" value="${list.ifmnSeq }">
+											<div class="d-flex align-items-center mb-5 item${list.ifmnSeq }">
 												<div class="flex-shrink-0">
 													<c:choose>
 														<c:when test="${empty list.path }">
@@ -54,7 +54,7 @@
 													</c:choose>
 												</div>
 												<div class="flex-grow-1 ms-3">
-													<a href="#!" class="float-end text-black"><i class="fas fa-times"></i></a>
+													<button type="button" id="delBtn" class="float-end text-black" onclick="delItem(${list.ifmnSeq})"><i class="fas fa-times"></i></button>
 													<h5><b>${list.ifmnName }</b></h5>
 													<div class="d-flex align-items-center">
 														<p class="fw-bold mb-0 me-5 pe-3">
@@ -72,6 +72,7 @@
 										</c:forEach>
 										<hr class="mb-4" style="height: 2px; background-color: black; opacity: 1;">
 										<div class="d-flex justify-content-between p-2 mb-2" style="background-color: #E6E6E6;">
+											<input type="hidden" name="total" class="total" value="">  
 											<h5 class="fw-bold mb-0">Total:</h5>
 											<h5 class="fw-bold mb-0 totalPrice"></h5>
 										</div>
@@ -176,7 +177,7 @@
 					ifmmId : $("input[name=ifmmId]").val()
 					,ifmmName : $("input[name=ifmmName]").val()
 					,ifstName : $("input[name=ifstName]").val()
-					,totalPrice : 10000
+					,totalPrice : totalPrice
 				}
 				,success : function(response) {
 					alert("asdad")
@@ -197,14 +198,17 @@
 				totalPrice += (parseInt($("#price"+i).val()) * parseInt($(".quantity"+i).val()));
 			}
 			console.log(totalPrice)
+			var a = String(totalPrice);
 			totalPrice = String(totalPrice);
+			$("input[name=total]").val(a);
 			totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			$(".totalPrice").html(totalPrice + " 원");
 			$("input[name=ifrvPrice]").val(totalPrice);
 		})
+		
+		$("input[name=total]").val(totalPrice)
 		totalPrice = String(totalPrice);
 		totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		console.log(totalPrice)
 		
 		$(".totalPrice").html(totalPrice + " 원");
 		$("input[name=ifrvPrice]").val(totalPrice);
@@ -214,7 +218,48 @@
 			form.attr("action", goUrlMenu).submit();
 		};
 		
+		var item = [];
+		for(var i=0; i<$(".plus").length;i++) {
+			item.push($(".menuSeq"+i).val());
+		}
+		console.log(item)
 		
+		delItem = function(value) {
+			alert(value)
+			for (var i=0; i<item.length;i++) {
+				if (item[i] == value) {
+					item.splice(i, 1);
+					$("div").remove(".item"+value);
+					$("input").remove("#menuSeq"+value);
+				}
+			}
+			
+			var result = "";
+			
+			for(var i=0; i<item.length;i++) {
+				if (i == item.length-1) {
+					result += item[i];
+				} else {
+					result += item[i] + " ";
+				}
+			}
+			
+			console.log("item : " + item)
+			console.log("result : " + result)
+			
+			$.ajax({
+				type: "POST"
+				,url: "/menu/cartDel"
+				,data: {
+					ifmnSeq : result
+				}
+				,success : function(response) {
+					if (response.rt == "success") {
+						location.reload();
+					} 
+				}
+			});
+		}
 	</script>
 </body>
 

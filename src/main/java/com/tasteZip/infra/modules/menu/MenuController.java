@@ -258,8 +258,19 @@ public class MenuController {
     
     @ResponseBody
     @RequestMapping(value = "cartDel")
-    public Map<String, Object> cartDel() throws Exception {
+    public Map<String, Object> cartDel(Menu dto, MenuVo vo, HttpServletResponse response) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
+        
+        System.out.println("seq : " + vo.getIfmnSeq());
+        
+        String result = vo.getIfmnSeq().replace(" ", ":");
+        
+        Cookie cart = new Cookie("cart", result);
+        cart.setPath("/");
+        cart.setMaxAge(30 *24 * 60 * 60 * 1000);
+        response.addCookie(cart);
+        
+        returnMap.put("rt", "success");
         
         return returnMap;
     }

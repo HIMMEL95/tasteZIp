@@ -147,10 +147,10 @@ public class MainController {
     @RequestMapping(value = "xdminMainNewStore")
     public String xdminMainNewStore(Model model, StoreVo svo) throws Exception {
     	
-    	svo.setParamsPaging(sService.selectOneCount(svo));
+    	svo.setParamsPaging(sService.xdminSelectOneCount(svo));
     	
-//    	List<Store> sList = sService.selectList(svo);
-//    	model.addAttribute("sList", sList);
+    	List<Store> sList = sService.selectListLimit5(svo);
+    	model.addAttribute("sList", sList);
     	
     	return "infra/xdmin/home/xdminMainNewStore";
     }

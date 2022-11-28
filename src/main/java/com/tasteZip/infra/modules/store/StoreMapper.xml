@@ -81,7 +81,7 @@
 		SELECT COUNT(*)
 		from store s
 		where 1=1
-			<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
+		<if test="shValue != null and !shValue.equals('')">AND ifstName LIKE CONCAT('%',#{shValue},'%')</if>
 	</select>
 	
 	<!-- xdmin s -->
@@ -106,9 +106,24 @@
 	   	<include refid="Base.selectListLowerForMysql" />
 	</select> 
 	
+	<select id="selectListLimit5" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+			select 
+				s.ifstSeq
+				,s.ifstName
+				,s.ifstPhone
+				,s.ifstAddress
+				,s.ifstCreatedAt
+	   <include refid="selectCommon"></include>
+	    	ORDER BY s.ifstCreatedAt DESC
+	   	<include refid="Base.orderByLimitForMysql" />
+	   	<include refid="Base.selectListLowerForMysql3" />
+	</select> 
+	
 	<select id="xdminSelectOneCount" resultType="Integer">
 		SELECT COUNT(*)
-   		<include refid="selectCommon"></include>
+   		from store s
+		where 1=1
 	</select>
 	
 	<select id="xdminSelectOne" resultMap="resultMapObj">

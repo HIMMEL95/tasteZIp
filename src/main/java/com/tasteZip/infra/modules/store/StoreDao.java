@@ -24,6 +24,7 @@ public class StoreDao {
     
     //xdmin 
     public List<Store> xdminSelectList(StoreVo vo) { return sqlSession.selectList(namespace + ".xdminSelectList", vo); }
+    public List<Store> selectListLimit5(StoreVo vo) { return sqlSession.selectList(namespace + ".selectListLimit5", vo); }
     public int xdminSelectOneCount(StoreVo vo) { return sqlSession.selectOne(namespace + ".xdminSelectOneCount", vo); }
     public Store xdminSelectOne(StoreVo vo) { return sqlSession.selectOne(namespace + ".xdminSelectOne", vo); }
     public Store storeMain(StoreVo vo) { return sqlSession.selectOne(namespace + ".storeMain", vo); }

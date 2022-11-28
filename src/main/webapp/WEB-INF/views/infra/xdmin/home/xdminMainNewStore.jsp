@@ -28,7 +28,7 @@
 				<form action="formList" name="formList" method="post">
 					<input type="hidden" name="thisPage" value="1">
 					<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
-					<!-- <input type="hidden" name="ifmmSeq" value="${vo.ifmmSeq}"> -->
+					<input type="hidden" name="ifstSeq" value="${vo.ifstSeq}">
 					<div class="page-content">
 						<div class="content-categories">
 							<div class="label-wrapper">
@@ -53,16 +53,16 @@
 							</div>
 							<div class="tasks-wrapper">
 								<div class="task">
-									<%-- <c:forEach items="${list}" var="list" varStatus="status"> --%>
+									<c:forEach items="${sList}" var="sList" varStatus="status">
 										<label class="text row" style="display: block; margin-bottom: 5px;">
 											<span class="ms-2 col-3"><i class="fa-solid fa-user-plus"></i>
-												이름 : <strong>${}</strong>
+												가게이름 : <strong>${sList.ifstName}</strong>
 											</span>
-											<span class="col-3">아이디 : <strong>${}</strong></span>
-											<span class="col-3">이메일 : <strong>${}</strong></span>
-											<span class="col-3">가입일 : <strong>${}</strong></span>
+											<span class="col-3">전화번호 : <strong>${sList.ifstPhone}</strong></span>
+											<span class="col-3">주소 : <strong>${sList.ifstAddress}</strong></span>
+											<span class="col-3">가입일 : <strong>${sList.ifstCreatedAt}</strong></span>
 										</label>
-									<%-- </c:forEach> --%>
+								 	</c:forEach> 
 								</div>
 							</div>
 							<div style="width: 900px; height: 600px;">

@@ -45,10 +45,15 @@ public class StoreServiceImpl implements StoreService {
     public List<Store> xdminSelectList(StoreVo vo) throws Exception {
         return dao.xdminSelectList(vo);
     }
+ 
+    @Override
+    public List<Store> selectListLimit5(StoreVo svo) throws Exception {
+    	return dao.selectListLimit5(svo);
+    }
 
     @Override
-    public int xdminSelectOneCount(StoreVo vo) throws Exception {
-        return dao.xdminSelectOneCount(vo);
+    public int xdminSelectOneCount(StoreVo svo) throws Exception {
+        return dao.xdminSelectOneCount(svo);
     }
 
     @Override

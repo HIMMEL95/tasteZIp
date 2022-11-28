@@ -2,8 +2,6 @@ package com.tasteZip.infra.modules.store;
 
 import java.util.List;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public interface StoreService {
     
     // main
@@ -15,7 +13,8 @@ public interface StoreService {
     
     //xdmin
     public List<Store> xdminSelectList(StoreVo vo) throws Exception;
-    public int xdminSelectOneCount(StoreVo vo) throws Exception;
+    public List<Store> selectListLimit5(StoreVo svo) throws Exception;
+    public int xdminSelectOneCount(StoreVo svo) throws Exception;
     public Store xdminSelectOne(StoreVo vo) throws Exception;
     public List<Store> openingList(StoreVo vo) throws Exception;
     public List<Store> day(Store dto) throws Exception;

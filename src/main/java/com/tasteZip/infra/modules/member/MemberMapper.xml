@@ -12,6 +12,7 @@
 		FROM member m
 		WHERE 1=1
 		<if test="shDelNy != null and !shDelNy.equals('')">AND ifmmDelNy = #{shDelNy}</if>
+		<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
 		<choose>
 			<when test="shOption == 1">AND ifmmName LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 2">AND ifmmPhone LIKE CONCAT('%',#{shValue},'%')</when>

@@ -38,8 +38,8 @@
 		  	<%-- <%@include file="memberVo.jsp"%> --%>
 				<input type="hidden" name="thisPage" value="1">
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
+               	<input type="hidden" name="ifmmSeq" value="">
                	<input type="hidden" name="checkboxSeqArray" >
-               	<input type="hidden" name="ifmmSeq" value="${vo.ifmmSeq}">
 				<div class="wrapper">
 					<div class="container">
 						<div class="row">
@@ -50,22 +50,24 @@
 										<div class="row mb-2">
 											<div class="col-md-3">
 												<select class="form-select" id="shDelNy" name="shDelNy">
-			                                       	<option value="" >선택</option>
-			                                        <option value="0" selected>N</option>
-			                                        <option value="1" >Y</option>
+			                                       	<option value="" <c:if test="${empty vo.shDelNy }">selected</c:if>>삭제여부</option>
+			                                        <option value="0" <c:if test="${vo.shDelNy eq 0 }">selected</c:if>>N</option>
+			                                        <option value="1" <c:if test="${vo.shDelNy eq 1 }">selected</c:if>>Y</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
 												<select class="form-select" id="shOptionDate" name="shOptionDate">
-													<option value="" selected>선택</option>
-													<option value="1" >등록일</option>
-												</select>
+			                                       	<option value="" <c:if test="${empty vo.shOptionDate }">selected</c:if>>선택</option>
+			                                        <option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>등록일</option>
+			                                    </select>
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerS" name="shDateStart" placeholder="시작일">
+												<fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd HH:mm:ss"/>
+            									<input type="date" id="shDateStart" name="shDateStart" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" class="form-control" autocomplete="off">
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerE" name="shDateEnd" placeholder="종료일">
+												<fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd HH:mm:ss" />
+        										<input type="date" id="shDateEnd" name="shDateEnd" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd"/>" class="form-control" autocomplete="off">
 											</div>
 										</div>
 										<div class="row">
@@ -90,10 +92,7 @@
 									<div id="lita"></div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
-			                                <button id="btnDelete" class="btn border-0 btn shadow" type="button">
-			                                    <i class="fa-solid fa-trash fa-lg"></i>
-			                                </button>
-			                                <!--   <button id="btnDelete" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
+			                               <button id="btnDelete" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-trash fa-lg"></i>
 			                                </button>
@@ -115,7 +114,7 @@
 				                                        </div>
 				                                    </div>
 				                                </div>
-				                            </div> -->
+				                            </div> 
 			                                <button id="btnUelete" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-xmark text-white"></i>
@@ -257,77 +256,36 @@
 		var goUrlMultiUele = "/member/memberMultiUele";	
 		var goUrlMultiDele = "/member/memberMultiDele";
 		
-		var checkboxSeqArray = [];
+		$("#btnUelete").on("click", function() {
+			if ($("input[name=checkboxSeq]:checked").length > 0) {
+				DelValidation("#delBtn", goUrlMultiUele, "선택하신 게시물을 삭제하시겠습니까?");
+			} else {
+				DelValidation("#delBtn", goUrlMultiUele, "데이터를 선택해 주세요!!");
+				$("#delBtn").hide();
+			}
+		})
 		
-		/* DelValidation = function(confirm, url, msg) {
+		$("#btnDelete").on("click", function() {
+			if ($("input[name=checkboxSeq]:checked").length > 0) {
+				DelValidation("#delBtn", goUrlMultiDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");	
+			} else {
+				DelValidation("#delBtn", goUrlMultiDele, "데이터를 선택해 주세요!!");
+				$("#delBtn").hide();
+			}
+		})
+		
+		DelValidation = function(confirm, url, msg) {
 			$(".modal-body").html(msg);
 			$(confirm).on("click", function() {
+				$("input[name=checkboxSeq]:checked").each(function() { 
+					checkboxSeqArray.push($(this).val());
+				});
+				
+				$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+				
 				form.attr("action", url).submit();
 			})
-		} */
-		
-		 /* $("#btnDelete").on("click", function() {
-			DelValidation("#delBtn", goUrlMultiDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
-		}) */ 
-		 
-		 $("#btnDelete").on("click", function(){
-			if($("input[name=checkboxSeq]:checked").length > 0 ) {
-				$("input:hidden[name=exDeleteType]").val(2);
-				$(".modal-title").text("확 인");
-				$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
-				$("#btnModalUelete").hide();
-				$("#btnModalDelete").show();
-				$("#modalConfirm").modal("show");
-			} else {
-				$(".modal-title").text("확 인");
-				$(".modal-body").text("데이터를 선택해 주세요!");
-				$("#modalAlert").modal("show");
-			}
-		});
-		
-		$("#btnModalDelete").on("click", function(){
-			$("input[name=checkboxSeq]:checked").each(function() { 
-				checkboxSeqArray.push($(this).val());
-			});
-			
-			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-			
-			$("#modalConfirm").modal("hide");
-								
-			form.attr("action", goUrlMultiDele).submit();
-		}); 
-		
-	  	 /* $("#btnUelete").on("click", function() {
-			DelValidation("#delBtn", goUrlMultiUele, "선택하신 게시물을 삭제하시겠습니까?");
-		})  */ 
-		
-		  $("#btnUelete").on("click", function(){
-			if($("input[name=checkboxSeq]:checked").length > 0 ) {
-				$("input:hidden[name=exDeleteType]").val(1);
-				$(".modal-title").text("확 인");
-				$(".modal-body").text("해당 데이터를 삭제하시겠습니까 ?");
-				$("#btnModalUelete").show();
-				$("#btnModalDelete").hide();
-				$("#modalConfirm").modal("show");
-			} else {
-				$(".modal-title").text("확 인");
-				$(".modal-body").text("데이터를 선택해 주세요!");
-				$("#modalAlert").modal("show");
-			}
-		});
-		
-		$("#btnModalUelete").on("click", function(){
-			$("input[name=checkboxSeq]:checked").each(function() { 
-				checkboxSeqArray.push($(this).val());
-			});
-			
-			$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
-			
-			$("#modalConfirm").modal("hide");
-			
-			form.attr("action", goUrlMultiUele).submit();
-		}); 
-		
+		}
 		</script>
 </body>
 </html>

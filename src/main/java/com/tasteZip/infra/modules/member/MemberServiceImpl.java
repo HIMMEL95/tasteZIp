@@ -56,7 +56,7 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
     
     @Override
 	public int uelete(Member dto) throws Exception {
-		setRegMod(dto);
+//		setRegMod(dto);
 		return dao.uelete(dto);
 	}
 	

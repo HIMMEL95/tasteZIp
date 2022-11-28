@@ -38,6 +38,7 @@
 				<input type="hidden" name="thisPage" value="1">
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
                	<input type="hidden" name="ifrvSeq" value="${vo.ifrvSeq}">
+               	<input type="hidden" name="checkboxSeqArray" >
 				<div class="wrapper">
 					<div class="container">
 						<div class="row">
@@ -88,7 +89,7 @@
 									<div id="reservationLita"></div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
-			                                <button id="btnDel" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
+			                                <button id="btnDelete" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-trash fa-lg"></i>
 			                                </button>
@@ -111,7 +112,7 @@
 				                                    </div>
 				                                </div>
 				                            </div>
-			                                <button id="btnUel" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
+			                                <button id="btnUelete" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-xmark text-white"></i>
 			                                </button>
@@ -204,23 +205,6 @@
 	 		$("#excelBtn").on("click", function() {
 				form.attr("action", goUrlExcel).submit();
 			})
-			
-			$("#btnUel").on("click", function() {
-				DelValidation("#delBtn", goUrlUele, "선택하신 게시물을 삭제하시겠습니까?");
-				alert("uel")
-			})
-			
-			$("#btnDel").on("click", function() {
-				DelValidation("#delBtn", goUrlDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");		
-				alert("del")
-			})
-			
-			DelValidation = function(confirm, url, msg) {
-				$(".modal-body").html(msg);
-				$(confirm).on("click", function() {
-					form.attr("action", url).submit();
-				})
-			}
 	 		 
  		</script>
 	 	<script type="text/javascript">
@@ -263,6 +247,45 @@
 	 		validationList = function() {
 	 			/* if(!checkNull($.trim($("input[name=searchValue]").val()), "searchValue")) return false; */
 	 		}
+		</script>
+		<script type="text/javascript">
+		
+		/* 체크박스 리스트 삭제 */
+		
+		var goUrlMultiUele = "/reservation/reservationMultiUele";	
+		var goUrlMultiDele = "/reservation/reservationMultiDele";
+		
+		$("#btnUelete").on("click", function() {
+			if ($("input[name=checkboxSeq]:checked").length > 0) {
+				DelValidation("#delBtn", goUrlMultiUele, "선택하신 게시물을 삭제하시겠습니까?");
+			} else {
+				DelValidation("#delBtn", goUrlMultiUele, "데이터를 선택해 주세요!!");
+				$("#delBtn").hide();
+			}
+		})
+		
+		$("#btnDelete").on("click", function() {
+			if ($("input[name=checkboxSeq]:checked").length > 0) {
+				DelValidation("#delBtn", goUrlMultiDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");	
+			} else {
+				DelValidation("#delBtn", goUrlMultiDele, "데이터를 선택해 주세요!!");
+				$("#delBtn").hide();
+			}
+		})
+		
+		DelValidation = function(confirm, url, msg) {
+			$(".modal-body").html(msg);
+			$(confirm).on("click", function() {
+				$("input[name=checkboxSeq]:checked").each(function() { 
+					checkboxSeqArray.push($(this).val());
+				});
+				
+				$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+				
+				form.attr("action", url).submit();
+			})
+		}
+		
 		</script>
 </body>
 </html>

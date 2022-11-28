@@ -2,11 +2,16 @@ package com.tasteZip.infra.modules.reservation;
 
 import java.util.List;
 
+import com.tasteZip.infra.modules.member.Member;
+import com.tasteZip.infra.modules.member.MemberVo;
+
 public interface ReservationService {
 
 	// list
 	public List<Reservation> selectListMyRV(ReservationVo vo) throws Exception;
 	
+	int uelete(Reservation dto) throws Exception; 
+	int delete(ReservationVo vo) throws Exception;
 	
 	// xdmin list
 	public List<Reservation> selectList(ReservationVo vo) throws Exception;

@@ -12,7 +12,7 @@
 			<thead>
 				<tr class="bg-dark">
 					<th scope="col" >
-						<input class="check" type="checkbox" name="check" onclick="selectAll(this)">
+						<input class="form-check-input" type="checkbox" name="checkboxAll" id="checkboxAll">
 					</th>
 					<th class="text-white">#</th>
 					<th class="text-white" scope="col">가게 이름</th>
@@ -37,7 +37,7 @@
 						<c:forEach items="${list}" var="list" varStatus="status">
 							<tr onclick="goForm(${list.ifrvSeq})" class="info" style="cursor: pointer;">
 								<td>
-									<input class="check" type="checkbox" name="check" onclick="checkSelectAll(this)">
+									<input class="form-check-input" type="checkbox" name="checkboxSeq" id="checkboxSeq" value="${list.ifrvSeq }">
 								</td>
 								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
 								<td><c:out value="${list.ifstName}"/></td>
@@ -91,19 +91,24 @@
 			}); 
 				
 
+			/* checkbox delete s */
+			var checkboxSeqArray = [];
+			
 			$("#checkboxAll").click(function() {
+				
 				if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 				else $("input[name=checkboxSeq]").prop("checked", false);
 			});
-
-
+			
 			$("input[name=checkboxSeq]").click(function() {
+				event.stopPropagation()
 				var total = $("input[name=checkboxSeq]").length;
 				var checked = $("input[name=checkboxSeq]:checked").length;
 				
 				if(total != checked) $("#checkboxAll").prop("checked", false);
 				else $("#checkboxAll").prop("checked", true); 
 			});
+			/* checkbox delete e */
  		</script>
 	 		
 </body>

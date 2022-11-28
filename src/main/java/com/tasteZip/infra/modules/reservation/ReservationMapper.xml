@@ -165,4 +165,20 @@
 			 AND r.ifrvSeq = #{ifrvSeq}
 			 AND mm.ifmmSeq = #{ifmmSeq}
 	</select>
+	
+	<!-- user delete -->
+	
+	<update id="uelete">
+		UPDATE reservation
+		SET
+			ifrvDelNy = 1
+		WHERE 1=1
+			AND ifrvSeq = #{ifrvSeq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM reservation
+		WHERE 1=1
+			AND ifrvSeq = #{ifrvSeq}
+	</delete>
 </mapper> 

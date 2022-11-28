@@ -84,6 +84,8 @@ public class MemberController {
     public void setSearch(MemberVo vo) throws Exception {
        vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
        vo.setShOption(vo.getShOption() == null ? 0 : vo.getShOption());
+       vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
+       vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
     }
    
    @RequestMapping("excelDownload")
@@ -259,24 +261,36 @@ public class MemberController {
 	    return "infra/xdmin/member/xdminMemberForm";
 	}
 	
+	/* 다중 삭제 s */
+	@RequestMapping(value = "memberMultiUele")
+	public String memberMultiUele(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			dto.setIfmmSeq(checkboxSeq);
+			service.uelete(dto);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/xdminMemberList";
+	}
+
+	@RequestMapping(value = "memberMultiDele")
+	public String memberMultiDele(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			vo.setIfmmSeq(checkboxSeq);
+			service.delete(vo);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/member/xdminMemberList";
+	}
+	/* 다중 삭제 e */
+	
+	 // ------------------------ 삭제 s ------------------------
+	
 	@RequestMapping(value = "memberUele")
 	public String memberUele(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
 
 		service.uelete(dto);
 		redirectAttributes.addFlashAttribute("vo", vo);
 
-		return "redirect:/member/memberList";
-	}
-	
-	@RequestMapping(value = "memberMultiUele")
-	public String memberMultiUele(MemberVo vo, Member dto, RedirectAttributes redirectAttributes) throws Exception {
-
-		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
-			dto.setIfmmSeq(checkboxSeq);
-			service.uelete(dto);
-		}
-
-		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/member/xdminMemberList";
 	}
 	
@@ -286,21 +300,10 @@ public class MemberController {
 		service.delete(vo);
 		redirectAttributes.addFlashAttribute("vo", vo);
 
-		return "redirect:/member/memberList";
-	}
-	
-
-	@RequestMapping(value = "memberMultiDele")
-	public String memberMultiDele(MemberVo vo, RedirectAttributes redirectAttributes) throws Exception {
-
-		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
-			vo.setIfmmSeq(checkboxSeq);
-//			service.delete(vo);
-		}
-
-		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/member/xdminMemberList";
 	}
+	
+	 // ------------------------ 삭제 e ------------------------
    
  
 }

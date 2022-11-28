@@ -19,7 +19,7 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 		<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 		<!-- datepicker e -->
-		<link rel="stylesheet" href="/resources/css/xdmin/store/xdminStoreList.css">
+		<link rel="stylesheet" href="/resources/css/xdmin/store/OwnerStoreList.css">
 	</head>
 <body>
 <div class="hero">
@@ -37,20 +37,21 @@
 		  	<form id="formList" name="formList" method="post">
 				<input type="hidden" name="thisPage" value="1">
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
+       			<input type="hidden" name="checkboxSeqArray" >
                	<input type="hidden" name="ifstSeq" value="${vo.ifstSeq}">
 				<div class="wrapper">
-					<div class="container" style="height: 100vh; width: 93vh;">
+					<div class="container">
 						<div class="row">
 							<div class="col">
 								<div class="content">
-									<h2 class="row needs-validation ms-3">Store List</h2>
+									<h2 class="row needs-validation ms-3">Owner Store List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">
 												<select class="form-select" id="shDelNy" name="shDelNy">
-			                                       	<option value="" >선택</option>
-			                                        <option value="0" selected>N</option>
-			                                        <option value="1" >Y</option>
+			                                       	<option value="" <c:if test="${empty vo.shDelNy }">selected</c:if>>삭제여부</option>
+			                                        <option value="0" <c:if test="${vo.shDelNy eq 0 }">selected</c:if>>N</option>
+			                                        <option value="1" <c:if test="${vo.shDelNy eq 1 }">selected</c:if>>Y</option>
 			                                    </select>
 											</div>
 											<div class="col-md-3">
@@ -88,7 +89,7 @@
 									<div id="storeLita"></div>
 									<div class="row align-items-center m-2">
 			                            <div class="col-2">
-			                                <button id="btnDel" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
+			                                <button id="btnDelete" class="border-0 btn shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-trash fa-lg"></i>
 			                                </button>
@@ -111,7 +112,7 @@
 				                                    </div>
 				                                </div>
 				                            </div>
-			                                <button id="btnUel" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
+			                                <button id="btnUelete" class="border-0 btn btn-dark shadow" type="button" data-bs-toggle="modal"
 			                                    data-bs-target="#deleteModal">
 			                                    <i class="fa-solid fa-xmark text-white"></i>
 			                                </button>
@@ -272,6 +273,44 @@
 	 		validationList = function() {
 	 			/* if(!checkNull($.trim($("input[name=searchValue]").val()), "searchValue")) return false; */
 	 		}
+		</script>
+		<script type="text/javascript">
+		
+			/* 체크박스 리스트 삭제 */
+			
+			var goUrlMultiUele = "/store/ownerStoreMultiUele";	
+			var goUrlMultiDele = "/store/ownerStoreMultiDele";
+			
+			$("#btnUelete").on("click", function() {
+				if ($("input[name=checkboxSeq]:checked").length > 0) {
+					DelValidation("#delBtn", goUrlMultiUele, "선택하신 게시물을 삭제하시겠습니까?");
+				} else {
+					DelValidation("#delBtn", goUrlMultiUele, "데이터를 선택해 주세요!!");
+					$("#delBtn").hide();
+				}
+			})
+			
+			$("#btnDelete").on("click", function() {
+				if ($("input[name=checkboxSeq]:checked").length > 0) {
+					DelValidation("#delBtn", goUrlMultiDele, "선택하신 게시물을 진짜로 삭제하시겠습니까?");	
+				} else {
+					DelValidation("#delBtn", goUrlMultiDele, "데이터를 선택해 주세요!!");
+					$("#delBtn").hide();
+				}
+			})
+			
+			DelValidation = function(confirm, url, msg) {
+				$(".modal-body").html(msg);
+				$(confirm).on("click", function() {
+					$("input[name=checkboxSeq]:checked").each(function() { 
+						checkboxSeqArray.push($(this).val());
+					});
+					
+					$("input:hidden[name=checkboxSeqArray]").val(checkboxSeqArray);
+					
+					form.attr("action", url).submit();
+				})
+			}
 		</script>
 </body>
 </html>

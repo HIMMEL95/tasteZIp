@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tasteZip.infra.modules.member.Member;
+import com.tasteZip.infra.modules.member.MemberVo;
+
 @Service
 public class ReservationServiceImpl implements ReservationService{
 	
@@ -22,6 +25,16 @@ public class ReservationServiceImpl implements ReservationService{
 	@Override
 	public List<Reservation> selectList(ReservationVo vo) throws Exception {
 		return dao.selectList(vo);
+	}
+	
+	 @Override
+	public int uelete(Reservation dto) throws Exception {
+		return dao.uelete(dto);
+	}
+	
+	@Override
+	public int delete(ReservationVo vo) throws Exception {
+		return dao.delete(vo);
 	}
 	
 	// selectOne

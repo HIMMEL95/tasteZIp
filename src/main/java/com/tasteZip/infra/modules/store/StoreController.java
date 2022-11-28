@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 @Controller
 @RequestMapping(value = "/store/")
 public class StoreController {
@@ -241,6 +240,49 @@ public class StoreController {
 	    return "infra/xdmin/store/xdminStoreForm";
 	}
 	
+// ------------------------ 삭제 s ------------------------
+	
+		@RequestMapping(value = "storeMultiUele")
+		public String storeMultiUele(StoreVo vo, Store dto, RedirectAttributes redirectAttributes) throws Exception {
+			for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+				dto.setIfstSeq(checkboxSeq);
+				service.uelete(dto);
+			}
+			redirectAttributes.addFlashAttribute("vo", vo);
+			return "redirect:/store/xdminStoreList";
+		}
+
+		@RequestMapping(value = "storeMultiDele")
+		public String storeMultiDele(StoreVo vo, Store dto, RedirectAttributes redirectAttributes) throws Exception {
+			for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+				vo.setIfstSeq(checkboxSeq);
+				service.delete(vo);
+			}
+			redirectAttributes.addFlashAttribute("vo", vo);
+			return "redirect:/store/xdminStoreList";
+		}
+		
+		@RequestMapping(value = "memberUele")
+		public String memberUele(StoreVo vo, Store dto, RedirectAttributes redirectAttributes) throws Exception {
+
+			service.uelete(dto);
+			redirectAttributes.addFlashAttribute("vo", vo);
+
+			return "redirect:/store/xdminStore";
+		}
+		
+		@RequestMapping(value = "memberDele")
+		public String memberDele(StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
+
+			service.delete(vo);
+			redirectAttributes.addFlashAttribute("vo", vo);
+
+			return "redirect:/store/xdminStoreList";
+		}
+		
+ // ------------------------ 삭제 e ------------------------
+		
+	
 // ------------------------ 사장님 ------------------------
 
 	@RequestMapping(value = "ownerStoreList")
@@ -280,5 +322,29 @@ public class StoreController {
 		
 		return "infra/xdmin/store/ownerStoreForm";
 	}
+	
+// ------------------------ 삭제 s ------------------------
+	
+			@RequestMapping(value = "ownerStoreMultiUele")
+			public String ownerStoreMultiUele(StoreVo vo, Store dto, RedirectAttributes redirectAttributes) throws Exception {
+				for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+					dto.setIfstSeq(checkboxSeq);
+					service.uelete(dto);
+				}
+				redirectAttributes.addFlashAttribute("vo", vo);
+				return "redirect:/store/ownerStoreList";
+			}
+
+			@RequestMapping(value = "ownerStoreMultiDele")
+			public String ownerStoreMultiDele(StoreVo vo, Store dto, RedirectAttributes redirectAttributes) throws Exception {
+				for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+					vo.setIfstSeq(checkboxSeq);
+					service.delete(vo);
+				}
+				redirectAttributes.addFlashAttribute("vo", vo);
+				return "redirect:/store/ownerStoreList";
+			}
+			
+ // ------------------------ 삭제 e ------------------------
 }
 

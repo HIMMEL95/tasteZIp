@@ -332,6 +332,8 @@
 																								<span class="place_blind">내용 더보기</span>
 																							</span>
 																						</a>
+																					<input type="hidden" name="ifstLat" value="${item.ifstLat} ">
+																					<input type="hidden" name="ifstLng" value="${item.ifstLng}">
 																					</div>
 																				</li>
 																				<li class="SF_Mq DXdyf">

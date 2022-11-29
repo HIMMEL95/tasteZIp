@@ -13,6 +13,8 @@ public class Store extends Base {
     private String ifstAddress;
     private String ifstAddressDetail;
     private String ifstAddressExtra;
+    private String ifstLat;
+    private String ifstLng;
     private String ifstInfo;
     private String ifstDirections;
     private Integer ifstOrderNy;
@@ -115,7 +117,19 @@ public class Store extends Base {
     public void setIfstAddressExtra(String ifstAddressExtra) {
         this.ifstAddressExtra = ifstAddressExtra;
     }
-    public String getIfstInfo() {
+    public String getIfstLat() {
+		return ifstLat;
+	}
+	public void setIfstLat(String ifstLat) {
+		this.ifstLat = ifstLat;
+	}
+	public String getIfstLng() {
+		return ifstLng;
+	}
+	public void setIfstLng(String ifstLng) {
+		this.ifstLng = ifstLng;
+	}
+	public String getIfstInfo() {
         return ifstInfo;
     }
     public void setIfstInfo(String ifstInfo) {

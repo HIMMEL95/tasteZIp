@@ -26,6 +26,8 @@
 				s.ifstSeq
 				,s.ifstName
 				,s.ifstAddress
+				,s.ifstLat
+				,s.ifstLng
 				,up.path
        			,up.uuidName
        			,up.sort
@@ -52,6 +54,8 @@
 				,s.ifstAddress
 				,s.ifstAddressDetail
 				,s.ifstAddressExtra
+				,s.ifstLat
+				,s.ifstLng
 				,s.ifstInfo
 				,s.ifstDirections
 				,s.ifstOrderNy
@@ -135,6 +139,8 @@
 			,s.ifstAddress
 			,s.ifstAddressDetail
 			,s.ifstAddressExtra
+			,s.ifstLat
+			,s.ifstLng
 			,s.ifstInfo
 			,s.ifstDirections
 			,s.ifstOrderNy
@@ -212,6 +218,8 @@
 			,ifstAddress
 			,ifstAddressDetail
 			,ifstAddressExtra
+			,ifstLat
+			,ifstLng
 			,ifstInfo 
 			,ifstDirections 
 			,ifstOrderNy
@@ -226,6 +234,8 @@
 			,#{ifstAddress}
 			,#{ifstAddressDetail}
 			,#{ifstAddressExtra}
+			,#{ifstLat}
+			,#{ifstLng}
 			,#{ifstInfo}
 			,#{ifstDirections}
 			,#{ifstOrderNy}
@@ -267,6 +277,8 @@
 			,ifstAddress = #{ifstAddress}
 			,ifstAddressDetail = #{ifstAddressDetail}
 			,ifstAddressExtra = #{ifstAddressExtra}
+			,ifstLat = #{ifstLat}
+			,ifstLng = #{ifstLng}
 			,ifstInfo = #{ifstInfo}
 			,ifstDirections = #{ifstDirections}
 			,ifstOrderNy = #{ifstOrderNy}

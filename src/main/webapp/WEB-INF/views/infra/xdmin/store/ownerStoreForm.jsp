@@ -178,15 +178,21 @@
 									<label for="ifstAddressDetail" class="form-label">상세주소</label> 
 					   				<input type="text" class="form-control" id="ifstAddressDetail" name="ifstAddressDetail" value="${item.ifstAddressDetail }">
 					   			</div>
-					   			<div class="col">
+					   			<div class="col-6">
 					   				<label for="ifstAddressExtra" class="form-label">참고 항목</label>
 					   				<input type="text" class="form-control" id="ifstAddressExtra" name="ifstAddressExtra" value="${item.ifstAddressExtra }"> 
+				   				</div>
+				   				<div class="col-6 mt-3">
+					   				<input type="text" class="form-control" id="ifstLat" name="ifstLat" placeholder="위도" value="${item.ifstLat }"> 
+				   				</div>
+				   				<div class="col-6 mt-3">
+					   				<input type="text" class="form-control" id="ifstLng" name="ifstLng" placeholder="경도" value="${item.ifstLng }">
 				   				</div>
 							</div>
 							<div class="row mt-3" style="margin-top: 3rem;">
 								<div class="col">	
 									<label class="form-label">간편길안내</label> 
-					   				<input type="text" class="form-control" id="ifstDirections" name="ifstDirections" placeholder="" value="${item.ifstDirections }">
+					   				<input type="text" class="form-control" id="ifstDirections" name="ifstDirections" placeholder="간편 길안내" value="${item.ifstDirections }">
 					   			</div>
 							</div>
 							<div class="row mt-3" style="margin-top: 3rem;">
@@ -398,14 +404,14 @@
 	                // 커서를 상세주소 필드로 이동한다.
 	                document.getElementById("ifstAddressDetail").focus();
 	                
-	    			/* var geocoder = new daum.maps.services.Geocoder();
+	    			var geocoder = new daum.maps.services.Geocoder();
 	    			
 	    			geocoder.addressSearch(addr, function(result, status) {
 	    				if(status === daum.maps.services.Status.OK) {
-	    					$("#lat").val(result[0].y);
-	    					$("#long").val(result[0].x);
+	    					$("#ifstLat").val(result[0].y);
+	    					$("#ifstLng").val(result[0].x);
 	    				}
-	    			}); */
+	    			});
 	
 	                // iframe을 넣은 element를 안보이게 한다.
 	                // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
@@ -432,6 +438,8 @@
 			$("#ifstAddress").val('');
 			$("#ifstAddressDetail").val('');
 			$("#ifstAddressExtra").val('');
+			$("#ifstLat").val('');
+			$("#ifstLng").val('');
 		});
 	    
 	    $("#searchBtn").on("click", function() {

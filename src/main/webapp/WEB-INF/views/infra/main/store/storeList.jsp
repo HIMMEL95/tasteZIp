@@ -196,6 +196,8 @@
 																					<br>
 																					<button type="button" class="btn btn-sm btn-outline-dark">출발</button>
 																					<button type="button" class="btn btn-sm btn-outline-danger">도착</button>
+																					<input type="hidden" name="ifstLat" value="${store.ifstLat} ">
+																					<input type="hidden" name="ifstLng" value="${store.ifstLng}">
 																					<%-- <button type="button" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button> --%>
 																				</div>
 																			</div>
@@ -401,6 +403,7 @@
 			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
+		
 	</script>
 </body>
 

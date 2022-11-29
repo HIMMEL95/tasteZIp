@@ -106,8 +106,22 @@ public class Order {
 	
 // ------- join menu s ----------
 	public String ifmnName;
+	public Integer totalPrice;
+	public Integer totalCount;
 
-	public String getIfmnName() {
+	public Integer getTotalPrice() {
+        return totalPrice;
+    }
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+    public String getIfmnName() {
 		return ifmnName;
 	}
 	public void setIfmnName(String ifmnName) {

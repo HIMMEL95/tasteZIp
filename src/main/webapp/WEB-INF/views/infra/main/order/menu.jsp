@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div class="map_container" id="container">
-			<form id="myForm" name="myForm">
+			<form id="myForm" name="myForm" action="post">
 				<input type="hidden" name="ifstSeq" value="<c:out value="${item.ifstSeq}"/>"/>
 				<div class="sideInfo">
 					<div class="handle">
@@ -257,11 +257,17 @@
 																																</c:choose>
 																															</div>
 																															<div class="info_detail">
-																																<div class="tit${list.ifmnSeq }">${list.ifmnName }<span class="ico_group"></span></div>
+																																<div class="tit${list.ifmnSeq }">
+																																	<input type="hidden" name="name${list.ifmnSeq }" value="${list.ifmnName }">
+																																	${list.ifmnName }<span class="ico_group"></span>
+																																</div>
 																																<div class="detail">
 																																	<span class="detail_txt">${list.ifmnInfo }</span>
 																																</div>
-																																<div class="price${list.ifmnSeq }"><fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원</div>
+																																<div class="price${list.ifmnSeq }">
+																																	<input type="hidden" name="price${list.ifmnSeq }" value="${list.ifmnPrice }">
+																																	<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원
+																																</div>
 																															</div>
 																														</a>
 																														<button class="btn_shop" type="button" onclick="goCart(${list.ifmnSeq})">
@@ -293,15 +299,15 @@
 										</div>
 									</div>
 								</div>
-								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000;">
+								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000; display: none;">
 									<div class="pt-3">
-										<span class="ps-5">자몽에이드</span>
+										<span class="ps-5 buyName">자몽에이드</span>
 									</div>
-									<span class="ps-5" style="font-weight: bold; color: red;">3,600원</span>
+									<span class="ps-5 totalPrice" style="font-weight: bold; color: red;">3,600원</span>
 									<button type="button" id="buyBtn" class="btn btnOrder position-relative" style="margin-left: 200px; float: right; margin-bottom: 0px; bottom: 20px; right: 40px;">
 										주문하기
 										<i class="fa-solid fa-cart-plus"></i>
-										<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>
+										<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">1</span>
 									</button>
 								</div>
 								<!-- content e -->
@@ -399,10 +405,42 @@
 			});
 		} */
 		
+		// 쿠키 값 가져오기 s
+		var getCookieValue = (name) => (
+			document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+		)
+		
+		var value = getCookieValue("cart");
+		
+		if (value != "") {
+			var cookieArr = value.split(":");
+			$(".bg-white").css("display", "");
+			
+			if (cookieArr.length == 1) {
+				$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val());
+			} else {
+				$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val() + " 외 " + (cookieArr.length-1));
+				var totalPrice = 0;
+				for (var i=0; i<cookieArr.length; i++) {
+					totalPrice += parseInt($("input[name=price"+cookieArr[i]+"]").val());
+				}
+				totalPrice = String(totalPrice);
+				totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+				
+				$(".totalPrice").html(totalPrice + " 원");
+			}
+		}
+		// 쿠키 값 가져오기 e
+		
 		var cart = [];
 		var result = "";
+		
+		var ifmnName = [];
+		var ifmnPrice = [];
 		goCart = function (value) {
-			console.log(cart);
+			
+			$(".bg-white").css("display", "");
+			
 			if (cart.includes(value)) {
 				alert("중복된 상품을 선택하셨습니다.");
 			} else {
@@ -411,8 +449,31 @@
 				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
 				$(".menuSeq"+value).html(innerHtml);
 				result += value + " ";
+				
+				ifmnName.push($("input[name=name"+value+"]").val())
+				ifmnPrice.push($("input[name=price"+value+"]").val())
+				
+				$(".badge").css("display", "");
+				$(".badge").html(ifmnName.length);
+				
+				if (ifmnName.length == 1) {
+					$(".buyName").html(ifmnName);
+				} else if (ifmnName.length > 1) {
+					$(".buyName").html(ifmnName[0] + " 외 " + (ifmnName.length-1));
+				}
+				
 				/* document.cookie = "cart="+cart; */
 			}
+			
+			var totalPrice = 0;
+			for(var i=0; i<ifmnPrice.length; i++) {
+				totalPrice += parseInt(ifmnPrice[i]);
+			}
+			
+			totalPrice = String(totalPrice);
+			totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			
+			$(".totalPrice").html(totalPrice + " 원");
 		}
 		
 		var goUrlCart = "/order/cartOrder";
@@ -433,8 +494,8 @@
 				,success : function(response) {
 					if (response.rt == "success") {
 						form.attr("action", goUrlCart).submit();
-					} else if (response.rt == "duplicate") {
-						alert("중복된 상품을 선택 하셨습니다.!!!")
+					} else {
+						alert("상품을 하나 이상 눌러주세요!!");
 					}
 				}
 			});

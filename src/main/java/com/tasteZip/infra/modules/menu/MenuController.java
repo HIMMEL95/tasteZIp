@@ -227,31 +227,46 @@ public class MenuController {
     @RequestMapping(value = "cart")
     public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response, HttpServletRequest request) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
+        System.out.println("seq : " + vo.getIfmnSeq());
         
-        String[] str = null;
-        String result = "";
         Cookie[] cookies = request.getCookies();
+        String[] b = null;
         for (Cookie cookie: cookies) {
             if (cookie.getName().equals("cart")) {
-                result = cookie.getValue();
-            } else {
-                str = vo.getIfmnSeq().split(" ");
-                for (int i=0; i<str.length; i++) {
-                    if(i == str.length-1) {
-                        result += str[i];
-                    } else {
-                        result += str[i] + ":";
-                    }
-                }
+                b = cookie.getValue().split(":");
             }
         }
         
-    	Cookie cart = new Cookie("cart", result);
-    	cart.setPath("/");
-    	cart.setMaxAge(30 * 24 * 60 * 60 * 1000);
-    	response.addCookie(cart);
-    	
-    	returnMap.put("rt", "success");
+        if (b != null || vo.getIfmnSeq() != "") {
+            System.out.println("여기1?");
+            String[] str = null;
+            String result = "";
+            cookies = request.getCookies();
+            for (Cookie cookie: cookies) {
+                if (cookie.getName().equals("cart")) {
+                    result = cookie.getValue();
+                } else {
+                    str = vo.getIfmnSeq().split(" ");
+                    for (int i=0; i<str.length; i++) {
+                        if(i == str.length-1) {
+                            result += str[i];
+                        } else {
+                            result += str[i] + ":";
+                        }
+                    }
+                }
+            }
+            
+            Cookie cart = new Cookie("cart", result);
+            cart.setPath("/");
+            cart.setMaxAge(30 * 24 * 60 * 60 * 1000);
+            response.addCookie(cart);
+            
+            returnMap.put("rt", "success");
+        } else {
+            System.out.println("여기2?");
+            returnMap.put("rt", "fail");
+        }
         
         return returnMap;
     }

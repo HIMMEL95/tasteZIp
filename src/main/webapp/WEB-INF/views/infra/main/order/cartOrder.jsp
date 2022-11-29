@@ -55,7 +55,10 @@
 												</div>
 												<div class="flex-grow-1 ms-3">
 													<button type="button" id="delBtn" class="float-end text-black" onclick="delItem(${list.ifmnSeq})"><i class="fas fa-times"></i></button>
-													<h5><b>${list.ifmnName }</b></h5>
+													<h5>
+														<input type="hidden" name="menuName${list.ifmnSeq }" id="menuName${list.ifmnSeq }" value="${list.ifmnName }">
+														<b>${list.ifmnName }</b>
+													</h5>
 													<div class="d-flex align-items-center">
 														<p class="fw-bold mb-0 me-5 pe-3">
 															<input type="hidden" name="price" id="price${status.index }" value="${list.ifmnPrice }">
@@ -73,6 +76,7 @@
 										<hr class="mb-4" style="height: 2px; background-color: black; opacity: 1;">
 										<div class="d-flex justify-content-between p-2 mb-2" style="background-color: #E6E6E6;">
 											<input type="hidden" name="total" class="total" value="">  
+											<input type="hidden" name="menu" class="menu" value="">
 											<h5 class="fw-bold mb-0">Total:</h5>
 											<h5 class="fw-bold mb-0 totalPrice"></h5>
 										</div>
@@ -167,24 +171,33 @@
 		var goUrlMenu = "/menu";
 		var ifstSeq = $("input[name=ifstSeq]");
 		var form = $("#myForm");
-	
-		$("#btnRV").on("click", function() {
+		
+		/* kakaoPay s */
+		kakaoPay = function() {
 			$.ajax({
 				dataType:"json"
 				,type: "POST"
 				,url: "/order/kakaoPay"
 				,data: {
 					ifmmId : $("input[name=ifmmId]").val()
-					,ifmmName : $("input[name=ifmmName]").val()
+					,ifmnName : $("input[name=menu]").val()
 					,ifstName : $("input[name=ifstName]").val()
-					,totalPrice : totalPrice
+					,totalPrice : $("input[name=total]").val()
 				}
 				,success : function(response) {
-					alert("asdad")
-					alert(response)
 					console.log(response)
+					window.location.href = response.next_redirect_pc_url;
 				}
 			});
+		}
+		/* kakaoPay e */
+	
+		$("#btnRV").on("click", function() {
+			if ($("#pay1:checked").is(":checked")) {
+				kakaoPay();
+			} else {
+				alert("무통장 입금 선택 된")
+			}
 		})
 		
 		var totalPrice = 0;
@@ -260,6 +273,24 @@
 				}
 			});
 		}
+		
+		// 쿠키 값 가져오기 s
+		var getCookieValue = (name) => (
+			document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+		)
+		
+		var value = getCookieValue("cart");
+		
+		if (value != "") {
+			var cookieArr = value.split(":");
+			
+			if (cookieArr.length == 1) {
+				$(".menu").val($("input[name=menuName"+cookieArr[0]+"]").val());
+			} else {
+				$(".menu").val($("input[name=menuName"+cookieArr[0]+"]").val() + " 외 " + (cookieArr.length-1));
+			}
+		}
+		// 쿠키 값 가져오기 e
 	</script>
 </body>
 

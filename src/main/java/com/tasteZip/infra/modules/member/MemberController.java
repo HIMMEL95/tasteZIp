@@ -1,6 +1,8 @@
 package com.tasteZip.infra.modules.member;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tasteZip.infra.common.util.UtilDateTime;
@@ -305,5 +308,20 @@ public class MemberController {
 	
 	 // ------------------------ 삭제 e ------------------------
    
- 
+	// 아이디 중복체크 
+	@ResponseBody
+	@RequestMapping(value = "checkId")
+	public Map<String, Object> checkId(Member dto) throws Exception {
+
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		int result = service.idCheck(dto);
+
+		if (result > 0) {
+			returnMap.put("rt", "fail");
+		} else {
+			returnMap.put("rt", "success");
+		}
+		return returnMap;
+	}
 }

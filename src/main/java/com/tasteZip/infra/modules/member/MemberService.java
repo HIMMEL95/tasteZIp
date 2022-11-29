@@ -44,4 +44,7 @@ public interface MemberService {
     /* sns insert s */
     public int snsInst(Member dto) throws Exception;
     /* sns insert e */
+    
+ // id 중복체크 
+    public int idCheck(Member dto)throws Exception;
 }

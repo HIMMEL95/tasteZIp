@@ -526,3 +526,30 @@ img {
 	color: white;
 	cursor: pointer;
 }
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #198754;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #dc3545;
+    font-size: 15px;
+    height: 15px;
+    margin: 0 5px;
+}
+.msg.success {
+	color: #198754;
+}
+
+.msg.error {
+	color: #dc3545;
+}
+		

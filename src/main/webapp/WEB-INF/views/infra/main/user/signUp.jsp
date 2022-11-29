@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="/resources/demos/style.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script defer type="text/javascript" src="/resources/js/main/validation.js"></script>
 	<!-- datepicker e -->
 </head>
 
@@ -60,8 +61,9 @@
 									<div class="col">	
 										<div class="input-control">
 				                            <label class="form-label" for="ifmmId"> Id <span class="text-danger">*</span></label>
+					                		<input type="hidden" id="idAllowedNY" name="idAllowedNY" value="0">
 					                		<input class="form-control" name="ifmmId" id="ifmmId" type="text" autocomplete="off" data-msg="Please enter your Id">
-				                            <div class="msg" id="ifmmId_msg" name="ifmmId_msg" style="display: none;"></div>
+				                            <div class="invalid-feedback" id="idFeedback"></div>
 				                        </div>									
 									</div>
 									<div class="col">										
@@ -74,11 +76,13 @@
 								<div class="row">
 									<div class="col">
 										<label class="form-label" for="ifmmPwd"> Password <span class="text-danger">*</span></label>
-										<input class="form-control" name="ifmmPwd" id="ifmmPwd" placeholder="Password" type="password" data-msg="Please enter your password">
+										<input class="form-control" name="ifmmPwd" id="ifmmPwd" placeholder="Password" type="password" data-msg="Please enter your password" onkeypress="validationUpdt()">
+										<div class="msg" id="password_msg" name="password_msg" style="display: none; color: #dc3545;"></div>
 									</div>
 									<div class="col">
 										<label class="form-label" for="passwordCheck"> Password Confirm <span class="text-danger">*</span></label>
-										<input class="form-control" name="passwordCheck" id="passwordCheck" placeholder="Password" type="password" data-msg="Please enter your password">
+										<input class="form-control" name="passwordCheck" id="passwordCheck" placeholder="Password" type="password" data-msg="Please enter your password" onkeypress="validationUpdt()">
+										<div class="msg" id="password2_msg" name="password2_msg" style="display: none; color: #dc3545;"></div>
 									</div>
 								</div>
 	              			</div>
@@ -386,9 +390,10 @@
     </script>
     <script type="text/javascript">
     
-		$("#saveBtn").on("click", function() {
+		/* $("#saveBtn").on("click", function() {
       		form.attr("action", goUrlInst).submit();
-		});
+		}); */
+		
 		
 		$("#emailCheck").on("change", function() {
 			if ($('#ifmmEmailCheck').val() == "1") {
@@ -432,7 +437,72 @@
 			.replace(/[^0-9]/g, '')
 			.replace(/^(\d{0,4})(\d{0,2})(\d{0,2})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
  		}
+	
+		
+		/* save */	
+		
+		$("#saveBtn").on("click", function() {
+			if(validationUpdt())
+				form.attr("action", goUrlInst).submit();
+		});
+		
+		/* validation */
+		/* id */
+		
+		$("#ifmmId").on("focusout", function(){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/member/checkId"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "ifmmId" : $("#ifmmId").val() }
+				,success: function(response) {
+					if(response.rt == "success") {
+						document.getElementById("ifmmId").classList.remove('is-invalid');
+						document.getElementById("ifmmId").classList.add('is-valid');
+	
+						document.getElementById("idFeedback").classList.remove('invalid-feedback');
+						document.getElementById("idFeedback").classList.add('valid-feedback');
+						document.getElementById("idFeedback").innerText = "ID 사용 가능 합니다.";
+						
+						document.getElementById("idAllowedNY").value = 1;
+						
+					} else {
+						document.getElementById("ifmmId").classList.add('is-invalid');
+						
+						document.getElementById("idFeedback").classList.remove('valid-feedback');
+						document.getElementById("idFeedback").classList.add('invalid-feedback');
+						document.getElementById("idFeedback").innerText = "ID 사용 불가능 합니다";
+						
+						document.getElementById("idAllowedNY").value = 0;
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+			
+		});
+		
+		
+		$('.error').hide();
+	     validationUpdt = function() {
+	         if (!password_V($('input[name=ifmmPwd]'), $('input[name=ifmmPwd]').val(), "비밀번호를 입력하세요!", $('#password_msg'))) {
+	             return false;
+	         } else if(!password2_V($('input[name=passwordCheck]'), $('input[name=passwordCheck]').val(), "비밀번호가 일치하지 않습니다.", $('#password2_msg'))) {
+	             return false;
+	         } else {
+	        	 //alert("회원가입이 완료 되었습니다.");
+	             return true;
+	         }
+	        	
+	     };	
+	
+		
 	</script>
+	
 </body>
 
 </html>

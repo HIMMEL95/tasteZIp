@@ -54,4 +54,9 @@ public class MemberDao {
     /* sns insert s */
     public int snsInst(Member dto) {return sqlSession.insert(namespace + ".snsInst", dto); }
     /* sns insert e */
+    
+ // 아이디 중복체크
+ 	public int idCheck(Member dto) {
+ 		return sqlSession.selectOne(namespace + ".idCheck", dto);
+ 	}
 }

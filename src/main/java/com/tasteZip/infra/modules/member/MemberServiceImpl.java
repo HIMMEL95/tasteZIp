@@ -218,4 +218,10 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
     }
     /* sns insert e */
     
+ // id 중복체크 
+ 	@Override
+ 	public int idCheck(Member dto) {
+ 		return dao.idCheck(dto);
+ 	}
+    
 }

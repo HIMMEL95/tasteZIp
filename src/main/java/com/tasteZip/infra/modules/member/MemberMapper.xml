@@ -259,6 +259,16 @@
 			and c.ifcgSeq = '1'
 	</select>
 	
+	<!-- id validation -->
+	
+	<select id="idCheck" resultType="Integer">
+		SELECT 
+			COUNT(ifmmId) 
+		FROM member 
+		WHERE ifmmId= #{ifmmId}
+	</select>
+	
+	
 	<!-- user delete -->
 	
 	<update id="uelete">

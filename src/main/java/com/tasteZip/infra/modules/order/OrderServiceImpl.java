@@ -10,13 +10,21 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import com.tasteZip.infra.modules.menu.Menu;
-
 @Service
 public class OrderServiceImpl implements OrderService{
 	
 	@Autowired
 	OrderDao dao;
+	
+	 @Override
+		public int uelete(Order dto) throws Exception {
+			return dao.uelete(dto);
+		}
+		
+		@Override
+		public int delete(OrderVo vo) throws Exception {
+			return dao.delete(vo);
+		}
 
 	@Override
 	public List<Order> myOrder(OrderVo vo) throws Exception {

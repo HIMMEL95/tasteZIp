@@ -15,6 +15,9 @@ public class OrderDao {
 	
 	private static String namespace = "com.tasteZip.infra.modules.order.OrderMapper";
 	
+	public int uelete(Order dto) { return sqlSession.update(namespace + ".uelete", dto); }
+	public int delete(OrderVo vo) { return sqlSession.delete(namespace + ".delete", vo); }
+	
 	public List<Order> myOrder(OrderVo vo){ 
 		return sqlSession.selectList(namespace + ".myOrder", vo);
 	}

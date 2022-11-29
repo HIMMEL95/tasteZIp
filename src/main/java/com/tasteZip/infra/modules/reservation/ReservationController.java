@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tasteZip.infra.common.util.UtilDateTime;
+
 @Controller
 @RequestMapping(value = "/reservation/") 
 public class ReservationController {
@@ -51,6 +53,8 @@ public class ReservationController {
 	 public void setSearch(ReservationVo vo) throws Exception {
 	        vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
 	        vo.setShOption(vo.getShOption() == null ? 0 : vo.getShOption());
+	        vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
+	        vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
 		 }
 	 
 	 @RequestMapping("excelDownload")

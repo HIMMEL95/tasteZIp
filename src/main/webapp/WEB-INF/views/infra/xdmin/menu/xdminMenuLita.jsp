@@ -12,7 +12,7 @@
 			<thead>
 				<tr class="bg-dark">
 					<th scope="col">
-						<input type="checkbox" name="chk_all" id="chk_all" href="">
+						<input type="checkbox" name="checkboxAll" id="checkboxAll">
 					</th>
 					<th class="text-white" style="width: 80px">#</th>
 					<th class="text-white" scope="col" style="width: 160px;">Name</th>
@@ -33,7 +33,7 @@
 						<c:forEach items="${list}" var="list" varStatus="status">
 								<tr onclick="goForm(${list.ifmnSeq})" class="info">
 									<td scope="row" src="#">
-										<input type="checkbox" name="chk_box" onclick="checkSelectAll(this)">
+										<input type="checkbox" name="checkboxSeq" id="checkboxSeq" value="${list.ifmnSeq }">
 									</td>
 									<td>
 										<c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/>
@@ -54,7 +54,7 @@
 		<%@include file="../../xdmin/includeV1/pagination.jsp"%>
 	</div>
 		<!-- end --> 
-		<script>
+	<script>
 		
 		var goUrlForm = "/menu/xdminMenuForm"; 
 		
@@ -62,43 +62,47 @@
 		
 		var ifmnSeq = $("input[name=ifmnSeq]");
 			
-			// ----- form으로 이동 -----
+		// ----- form으로 이동 -----
+		
+		$('#btnForm').on("click", function() {
+ 			goForm(0);                
+ 		});
+		
+		goForm = function(keyValue) {
+			/* if(key != 0) seq.val(btoa(key)); */
+			ifmnSeq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		}
+
+		goList = function(thisPage) {
+			$("input:hidden[name=thisPage]").val(thisPage);
+			setMenuLita();
+		}
+
+		$("#changeRowNum").on("change", function(){
+			$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
+			setMenuLita();
+		}); 
 			
-			$('#btnForm').on("click", function() {
-	 			goForm(0);                
-	 		});
+		/* checkbox delete s */
+		var checkboxSeqArray = [];
+		
+		$("#checkboxAll").click(function() {
 			
-			goForm = function(keyValue) {
-				/* if(key != 0) seq.val(btoa(key)); */
-				ifmnSeq.val(keyValue);
-				form.attr("action", goUrlForm).submit();
-			}
-
-			goList = function(thisPage) {
-				$("input:hidden[name=thisPage]").val(thisPage);
-				setMenuLita();
-			}
-
-			$("#changeRowNum").on("change", function(){
-				$("input:hidden[name=rowNumToShow]").val($("#changeRowNum option:selected").val());
-				setMenuLita();
-			}); 
-				
-
-			$("#checkboxAll").click(function() {
-				if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
-				else $("input[name=checkboxSeq]").prop("checked", false);
-			});
-
-
-			$("input[name=checkboxSeq]").click(function() {
-				var total = $("input[name=checkboxSeq]").length;
-				var checked = $("input[name=checkboxSeq]:checked").length;
-				
-				if(total != checked) $("#checkboxAll").prop("checked", false);
-				else $("#checkboxAll").prop("checked", true); 
-			});
-	 		</script>
+			if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
+			else $("input[name=checkboxSeq]").prop("checked", false);
+		});
+		
+		$("input[name=checkboxSeq]").click(function() {
+			event.stopPropagation()
+			var total = $("input[name=checkboxSeq]").length;
+			var checked = $("input[name=checkboxSeq]:checked").length;
+			
+			if(total != checked) $("#checkboxAll").prop("checked", false);
+			else $("#checkboxAll").prop("checked", true); 
+		});
+		/* checkbox delete e */
+	</script>
 	 		
 	 		
 	 		

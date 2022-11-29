@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tasteZip.infra.common.util.UtilDateTime;
 
 @Controller
 @RequestMapping(value = "/menu/")
@@ -61,6 +62,28 @@ public class MenuController {
 		return "infra/xdmin/menu/xdminMenuForm";
 	}
 	
+	/* 다중 삭제 s */
+	@RequestMapping(value = "menuMultiUele")
+	public String menuMultiUele(MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			dto.setIfmnSeq(checkboxSeq);
+			service.uelete(dto);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/menu/xdminMenuList";
+	}
+
+	@RequestMapping(value = "menuMultiDele")
+	public String menuMultiDele(MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			vo.setIfmnSeq(checkboxSeq);
+			service.delete(vo);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/menu/xdminMenuList";
+	}
+	/* 다중 삭제 e */
+	
 	@RequestMapping(value = "ownerMenuList")
 	public String ownerMenuList(@ModelAttribute("vo") MenuVo vo, Model model) throws Exception {
 		
@@ -92,6 +115,28 @@ public class MenuController {
 		
 		return "infra/xdmin/menu/ownerMenuForm";
 	}
+	
+	/* 다중 삭제 s */
+	@RequestMapping(value = "menuOwnerMultiUele")
+	public String menuOwnerMultiUele(MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			dto.setIfmnSeq(checkboxSeq);
+			service.uelete(dto);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/menu/ownerMenuList";
+	}
+
+	@RequestMapping(value = "menuOwnerMultiDele")
+	public String menuOwnerMultiDele(MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			vo.setIfmnSeq(checkboxSeq);
+			service.delete(vo);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/menu/ownerMenuList";
+	}
+	/* 다중 삭제 e */
 	
 	@RequestMapping(value= "menuInst")
 	public String menuInst(@ModelAttribute("vo") MenuVo vo, Menu dto, RedirectAttributes redirectAttributes) throws Exception {
@@ -131,6 +176,8 @@ public class MenuController {
 	private void setSearch(MenuVo vo) throws Exception {
 		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
 		vo.setShDelNy(vo.getShDelNy() == null ? 0: vo.getShDelNy());
+		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
 	  }
 	
 	@RequestMapping("/excelDownload")

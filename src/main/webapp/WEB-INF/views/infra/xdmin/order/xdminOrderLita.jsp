@@ -12,17 +12,17 @@
 				<thead>
 					<tr class="bg-dark">
 						<th scope="col" >
-							<input type="checkbox" name="chk_all" id="chk_all" onclick="selectAll(this)">
+							<input type="checkbox" name="checkboxAll" id="checkboxAll" style="width: 45px;">
 						</th>
-						<th class="text-white">#</th>
-						<th class="text-white" scope="col">가게 이름</th>
-						<th class="text-white" scope="col">메뉴 이름</th>
+						<th class="text-white" style="width: 50px;">#</th>
+						<th class="text-white" scope="col" style="width: 100px;">가게 이름</th>
+						<th class="text-white" scope="col" style="width: 110px;">메뉴 이름</th>
 						<th class="text-white" scope="col">주문자</th>
 						<th class="text-white" scope="col">전화번호</th>
-						<th class="text-white" scope="col">주문 수량</th>
+						<th class="text-white" scope="col" style="width: 70px;">주문 수량</th>
 						<th class="text-white" scope="col">주문 금액</th>
-						<th class="text-white" scope="col">결제 수단</th>
-						<th class="text-white" scope="col">주문 날짜</th>
+						<th class="text-white" scope="col" style="width: 120px;">결제 수단</th>
+						<th class="text-white" scope="col" style="width: 100px;">주문 날짜</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,7 +36,7 @@
 							<c:forEach items="${list}" var="list" varStatus="status">
 								<tr onclick="goForm(${list.iforSeq})" class="info" style="cursor: pointer;">
 									<th scope="row" class="td1" src="#">
-										<input class="check" type="checkbox" name="check" onclick="checkSelectAll(this)">
+										<input class="check" type="checkbox" name="checkboxSeq" id="checkboxSeq" value="${list.iforSeq }">
 									</th>
 									<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
 									<td><c:out value="${list.ifstName}"/></td>
@@ -72,7 +72,7 @@
 		
 		// ----- form으로 이동 -----
 			 $("#btnForm").on("click", function(){
-				 $(location).attr("href", goUrlForm);
+				 goForm(0); 
 			 });
 		
 			goForm = function(keyValue) {
@@ -92,19 +92,24 @@
 			}); 
 				
 
+			/* checkbox delete s */
+			var checkboxSeqArray = [];
+			
 			$("#checkboxAll").click(function() {
+				
 				if($("#checkboxAll").is(":checked")) $("input[name=checkboxSeq]").prop("checked", true);
 				else $("input[name=checkboxSeq]").prop("checked", false);
 			});
-
-
+			
 			$("input[name=checkboxSeq]").click(function() {
+				event.stopPropagation()
 				var total = $("input[name=checkboxSeq]").length;
 				var checked = $("input[name=checkboxSeq]:checked").length;
 				
 				if(total != checked) $("#checkboxAll").prop("checked", false);
 				else $("#checkboxAll").prop("checked", true); 
 			});
+			/* checkbox delete e */
 	 		</script>
 	 		
 </body>

@@ -23,9 +23,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tasteZip.infra.common.util.UtilDateTime;
 import com.tasteZip.infra.modules.member.Member;
+import com.tasteZip.infra.modules.member.MemberVo;
 import com.tasteZip.infra.modules.menu.Menu;
 import com.tasteZip.infra.modules.menu.MenuServiceImpl;
 import com.tasteZip.infra.modules.menu.MenuVo;
@@ -158,6 +161,8 @@ public class OrderController {
     public void setSearch(OrderVo vo) throws Exception {
         vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
         vo.setShOption(vo.getShOption() == null ? 0 : vo.getShOption());
+        vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
      }
 	
  // ------------------------ 관리자 ------------------------
@@ -190,6 +195,46 @@ public class OrderController {
 		return "infra/xdmin/order/xdminOrderForm";
  		
  	}
+ 	
+ 	 // ------------------------ 삭제 s ------------------------
+	
+ 		@RequestMapping(value = "orderMultiUele")
+ 		public String orderMultiUele(OrderVo vo, Order dto, RedirectAttributes redirectAttributes) throws Exception {
+
+ 			service.uelete(dto);
+ 			redirectAttributes.addFlashAttribute("vo", vo);
+
+ 			return "redirect:/order/xdminOrderList";
+ 		}
+ 		
+ 		@RequestMapping(value = "orderMultiDele")
+ 		public String orderMultiDele(OrderVo vo, RedirectAttributes redirectAttributes) throws Exception {
+
+ 			service.delete(vo);
+ 			redirectAttributes.addFlashAttribute("vo", vo);
+
+ 			return "redirect:/order/xdminOrderList";
+ 		}
+ 		
+// 		@RequestMapping(value = "memberUele")
+// 		public String memberUele(OrderVo vo, Order dto, RedirectAttributes redirectAttributes) throws Exception {
+//
+// 			service.uelete(dto);
+// 			redirectAttributes.addFlashAttribute("vo", vo);
+//
+// 			return "redirect:/order/xdminMemberList";
+// 		}
+// 		
+// 		@RequestMapping(value = "memberDele")
+// 		public String memberDele(OrderVo vo, RedirectAttributes redirectAttributes) throws Exception {
+//
+// 			service.delete(vo);
+// 			redirectAttributes.addFlashAttribute("vo", vo);
+//
+// 			return "redirect:/order/xdminMemberList";
+// 		}
+ 		
+ 		 // ------------------------ 삭제 e ------------------------
  	
     /* kakao pay s */
     @ResponseBody

@@ -14,6 +14,7 @@
 			JOIN menu mn on mn.ifmnSeq = b.ifmnSeq
 		wHERE 1=1		
 		<if test="shDelNy !=null and !shDelNy.equals('')">AND b.iforDelNy = #{shDelNy}</if>
+		<if test="shOptionDate == 1">AND iforCreatedAt between #{shDateStart} and #{shDateEnd}</if>
 		<if test="shValue != null"></if>
 		<choose>
 			<when test="shOption == 1">AND s.ifstName = #{shValue}</when>
@@ -111,6 +112,22 @@
 		SELECT COUNT(*)
 		<include refid="selectCommon"></include>
 	</select>
+	
+		<!-- user delete -->
+	
+	<update id="uelete">
+		UPDATE buy
+		SET
+			iforDelNy = 1
+		WHERE 1=1
+			AND iforSeq = #{iforSeq}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM buy
+		WHERE 1=1
+			AND iforSeq = #{iforSeq}
+	</delete>
 	
 	<!-- list Uele -->
 	<update id="ueleteList">

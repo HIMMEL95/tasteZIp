@@ -12,6 +12,8 @@ public interface OrderService {
 	// xdmin list
 	public List<Order> xdminSelectList(OrderVo vo) throws Exception;
 	public int xdminSelectOneCount(OrderVo vo) throws Exception;
+	int uelete(Order dto) throws Exception; 
+	int delete(OrderVo vo) throws Exception;
 	
 	// selectone Count
 	public int selectOneCount(OrderVo vo) throws Exception;

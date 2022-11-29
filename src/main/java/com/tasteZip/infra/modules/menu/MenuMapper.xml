@@ -160,14 +160,14 @@
 	 	SET
 	 		ifmnDelNy = 1
 		WHERE 1=1
-			and ifmnDelNy = #{ifmnDelNy}
+			and ifmnSeq = #{ifmnSeq}
  	</update>
  	
  	<delete id="delete">
  		DELETE FROM 
  			menu 
-		WHERE 
-			ifmnSeq = #{ifmnSeq}
+		WHERE 1=1
+			and ifmnSeq = #{ifmnSeq}
  	</delete>
 	
 	<!-- 장바구니용 s -->

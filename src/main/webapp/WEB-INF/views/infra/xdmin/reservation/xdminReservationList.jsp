@@ -56,15 +56,17 @@
 											</div>
 											<div class="col-md-3">
 												<select class="form-select" id="shOptionDate" name="shOptionDate">
-													<option value="" <c:if test="${empty vo.shOptionDate }">selected</c:if>>선택</option>
-													<option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>등록일</option>
-												</select>
+			                                       	<option value="" <c:if test="${empty vo.shOptionDate }">selected</c:if>>선택</option>
+			                                        <option value="1" <c:if test="${vo.shOptionDate eq 1 }">selected</c:if>>예약일</option>
+			                                    </select>
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerS" name="shDateStart" placeholder="시작일">
+												<fmt:parseDate var="shDateStart" value="${vo.shDateStart }" pattern="yyyy-MM-dd HH:mm:ss"/>
+            									<input type="date" id="shDateStart" name="shDateStart" value="<fmt:formatDate value="${shDateStart }" pattern="yyyy-MM-dd" />" class="form-control" autocomplete="off">
 											</div>
 											<div class="col-md-3">
-												<input type="text" class="form-control" id="datepickerE" name="shDateEnd" placeholder="종료일">
+												<fmt:parseDate var="shDateEnd" value="${vo.shDateEnd }" pattern="yyyy-MM-dd HH:mm:ss" />
+        										<input type="date" id="shDateEnd" name="shDateEnd" value="<fmt:formatDate value="${shDateEnd }" pattern="yyyy-MM-dd"/>" class="form-control" autocomplete="off">
 											</div>
 										</div>
 										<div class="row">

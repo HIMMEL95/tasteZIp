@@ -286,43 +286,109 @@
 																	           </c:when>
 																	           <c:otherwise>
 																	           		<c:forEach items="${list }" var="list" varStatus="status">
-																	           		<div class="card shadow bg-body rounded cardBorder mb-3">
-																			           <div class="card-body">
-																				           <div class="row">
-																				         		<div class="col-1">
-																									<c:choose>
-																										<c:when test="${list.pseq eq null }">
-																											<img alt="" src="https://intermusicakorea.com/common/img/default_profile.png" class="avatar avatar-review">
-																										</c:when>
-																										<c:otherwise>
-																											<img alt="" src="${list.path}${list.uuidName}" class="avatar avatar-review">
-																										</c:otherwise>
-																									</c:choose>
-																								</div>
-																								<div class="col-11 text-start" id="reviewID">
-																									<span><c:out value="${list.ifmmId}"/></span>
-																								</div>
-																							</div>
-																							<div class="row justify-content-between">
-																								<div class="col-4 text-start">
-																									<div class="reviewStar2">
-																										<c:forEach begin="1" end="${list.ifcmGrade}" varStatus="status">
-																											<i class="fa-solid fa-star"></i>  
-																										</c:forEach>
-																										&nbsp;<span><b><c:out value="${list.ifcmGrade}"/>점</b></span>
+																		           		<c:choose>
+																			           		<c:when test="${sessSeq eq list.ifmmSeq }">
+																				           		<div class="card shadow bg-body rounded cardBorder mb-3">
+																						           <div class="card-body">
+																							           <div class="row">
+																							         		<div class="col-1">
+																												<c:choose>
+																													<c:when test="${list.pseq eq null }">
+																														<img alt="" src="https://intermusicakorea.com/common/img/default_profile.png" class="avatar avatar-review">
+																													</c:when>
+																													<c:otherwise>
+																														<img alt="" src="${list.path}${list.uuidName}" class="avatar avatar-review">
+																													</c:otherwise>
+																												</c:choose>
+																											</div>
+																											<div class="col-5 text-start" id="reviewID">
+																												<span><c:out value="${list.ifmmId}"/></span>
+																											</div>
+																											<div class="col-6 text-end" id="reviewID">
+																												<button type="button" class="btn btn-outline-secondary btn-sm modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${list.ifcmSeq }" onclick="test(${list.ifcmSeq })"><i class="fa-solid fa-trash"></i> 삭제하기</button>
+																												
+																												<!-- Modal -->
+																												<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1000;">
+																												  <div class="modal-dialog">
+																												    <div class="modal-content">
+																												      <div class="modal-header">
+																												        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-file-zipper"></i> MATZIP</h1>
+																												        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																												      </div>
+																												      <div class="modal-body text-start">
+																												      <input type="hidden" name="ifcmSeq" value=""/>
+																												        정말로 삭제하시겠습니까?
+																												      </div>
+																												      <div class="modal-footer">
+																												        <button type="button" class="btn btn-light" data-bs-dismiss="modal">닫기</button>
+																												        <button type="button" class="btn btn-dark" onclick="commentUelete()">삭제하기</button>
+																												      </div>
+																												    </div>
+																												  </div>
+																												</div>
+																											</div>
+																										</div>
+																										<div class="row justify-content-between">
+																											<div class="col-4 text-start">
+																												<div class="reviewStar2">
+																													<c:forEach begin="1" end="${list.ifcmGrade}" varStatus="status">
+																														<i class="fa-solid fa-star"></i>  
+																													</c:forEach>
+																													&nbsp;<span><b><c:out value="${list.ifcmGrade}"/>점</b></span>
+																												</div>
+																											</div>
+																											<div class="col-8 text-end">
+																												<span class="reviewDate"><c:out value="${list.ifcmCreatedAt}"/></span>
+																											</div>
+																										</div>
+																										<div class="reviewContent">
+																											<span>
+																												<c:out value="${list.ifcmComment}"/> 
+																											</span>
+																										</div>
 																									</div>
 																								</div>
-																								<div class="col-8 text-end">
-																									<span class="reviewDate"><c:out value="${list.ifcmCreatedAt}"/></span>
+																							</c:when>
+																							<c:otherwise>
+																								<div class="card shadow bg-body rounded cardBorder mb-3">
+																						           <div class="card-body">
+																							           <div class="row">
+																							         		<div class="col-1">
+																												<c:choose>
+																													<c:when test="${list.pseq eq null }">
+																														<img alt="" src="https://intermusicakorea.com/common/img/default_profile.png" class="avatar avatar-review">
+																													</c:when>
+																													<c:otherwise>
+																														<img alt="" src="${list.path}${list.uuidName}" class="avatar avatar-review">
+																													</c:otherwise>
+																												</c:choose>
+																											</div>
+																											<div class="col-11 text-start" id="reviewID">
+																												<span><c:out value="${list.ifmmId}"/></span>
+																											</div>
+																										</div>
+																										<div class="row justify-content-between">
+																											<div class="col-4 text-start">
+																												<div class="reviewStar2">
+																													<c:forEach begin="1" end="${list.ifcmGrade}" varStatus="status">
+																														<i class="fa-solid fa-star"></i>  
+																													</c:forEach>
+																													&nbsp;<span><b><c:out value="${list.ifcmGrade}"/>점</b></span>
+																												</div>
+																											</div>
+																											<div class="col-8 text-end">
+																												<span class="reviewDate"><c:out value="${list.ifcmCreatedAt}"/></span>
+																											</div>
+																										</div>
+																										<div class="reviewContent">
+																											<span>
+																												<c:out value="${list.ifcmComment}"/> 
+																											</span>
+																										</div>
+																									</div>
 																								</div>
-																							</div>
-																							<div class="reviewContent">
-																								<span>
-																									<c:out value="${list.ifcmComment}"/> 
-																								</span>
-																							</div>
-																						</div>
-																					</div>
+																							</c:otherwise>
+																						</c:choose>
 																	           		</c:forEach>
 																	           </c:otherwise>
 																	       </c:choose>
@@ -471,6 +537,39 @@
 		   				}
 		   			});
 				}
+		
+		$(".modalBtn").on("click", function() {
+			$("div").removeClass("modal-backdrop");
+		})
+		
+		
+		function commentUelete() {
+					
+					$.ajax({
+		   				async: true 
+		   				,cache: false
+		   				,type: "post"
+		   				/* ,dataType:"json" */
+		   				,url: "/comment/commentUele"
+		   				/* ,data : $("#formLogin").serialize() */
+		   				,data : {"ifcmSeq" : $("input[name=ifcmSeq]").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val(), "ifstSeq" : $("input[name=ifstSeq]").val()}
+		   				,success: function(response) {
+		   					if (response.rt == "success") {
+		   						location.href = "/comment/storeComment?ifstSeq="+ $("input[name=ifstSeq]").val();
+		   					} else {
+		   						alert("댓글을 입력하시오!!");
+		   					}
+		   				}
+		   				,error : function(jqXHR, textStatus, errorThrown){
+		   					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+		   				}
+		   			});
+				}
+		
+		test = function(seq) {
+			$("input[name=ifcmSeq]").val(seq);
+		}
+		
 	</script>
 </body>
 

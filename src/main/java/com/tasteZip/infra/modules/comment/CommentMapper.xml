@@ -56,6 +56,8 @@
 			,c.ifcmComment
 			,c.ifcmCreatedAt
 			,c.ifcmGrade
+			,c.ifmmSeq
+			,c.ifcmSeq
 			,s.ifstName
 			,s.ifstAddress
 		FROM comment c 
@@ -64,6 +66,7 @@
 			LEFT JOIN memberUploaded up on up.pseq = c.ifmmSeq
 		WHERE 1=1
 			AND s.ifstSeq = #{ifstSeq}
+			AND c.ifcmDelNy = 0
 		ORDER BY c.ifcmSeq DESC
 		<include refid="Base.orderByLimitForMysql" />
 		<include refid="Base.selectListLowerForMysql2" /> 
@@ -185,8 +188,9 @@
 	 	UPDATE comment
 	 	SET
 	 		ifcmDelNy = 1
+	 		,ifcmCreatedAt = now()
 		WHERE 1=1
-			and ifcmDelNy = #{ifcmDelNy}
+			and ifcmSeq = #{ifcmSeq}
  	</update>
  	
  	<delete id="delete">

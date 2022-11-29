@@ -96,6 +96,28 @@ public class CommentController {
         return returnMap;
 	}
     
+    
+    @ResponseBody
+    @RequestMapping(value = "commentUele")
+	public Map<String, Object> commentUele(@ModelAttribute("vo")CommentVo vo, Comment dto) throws Exception {
+    	
+    	Map<String, Object> returnMap = new HashMap<String, Object>();
+    	
+    	service.uelete(dto);
+    	returnMap.put("rt", "success");
+    	
+        return returnMap;
+	}
+    
+    
+//    @RequestMapping(value= "CommentUele")
+//	public String CommentUele(@ModelAttribute("vo") CommentVo vo, Comment dto, RedirectAttributes redirectAttributes) throws Exception {
+//		service.uelete(dto);
+//		redirectAttributes.addFlashAttribute("vo", vo);
+//		return "redirect:/Comment/commentList";
+//	}
+	
+    
 //    @RequestMapping(value = "commentInst")
 //	public String commentInst(@ModelAttribute("vo")CommentVo vo, Comment dto, Model model, RedirectAttributes redirectAttributes) throws Exception {
 //    	
@@ -244,13 +266,6 @@ public class CommentController {
 		redirectAttributes.addFlashAttribute("vo", vo);
 		return "redirect:/Comment/commentList";
 		
-	}
-	
-	@RequestMapping(value= "CommentUele")
-	public String CommentUele(@ModelAttribute("vo") CommentVo vo, Comment dto, RedirectAttributes redirectAttributes) throws Exception {
-		service.uelete(dto);
-		redirectAttributes.addFlashAttribute("vo", vo);
-		return "redirect:/Comment/commentList";
 	}
 	
 

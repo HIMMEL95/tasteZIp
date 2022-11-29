@@ -24,6 +24,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tasteZip.infra.common.util.UtilDateTime;
 
+import net.nurigo.sdk.NurigoApp;
+import net.nurigo.sdk.message.exception.NurigoMessageNotReceivedException;
+import net.nurigo.sdk.message.model.Message;
+import net.nurigo.sdk.message.service.DefaultMessageService;
+
+
 @Controller
 @RequestMapping(value = "/member/")
 public class MemberController {
@@ -323,5 +329,46 @@ public class MemberController {
 			returnMap.put("rt", "success");
 		}
 		return returnMap;
+	}
+	
+	
+	//SMS 인증
+	@ResponseBody
+	@RequestMapping(value ="checkSms")
+	public Map<String,Object> checkSms (Member dto) throws Exception {
+		
+		System.out.println("폰 번호:" + dto.getIfmmPhone());
+		
+		Map<String,Object> result = new HashMap<String,Object>();
+		
+		//4자리 난수 생성
+		String rndNo = "";
+		
+		for(int i = 0; i < 4; i++) {
+			rndNo += (int)(Math.random()*10-1) + 1;
+			System.out.println("난수: " + rndNo);
+		}
+		
+		DefaultMessageService messageService =  NurigoApp.INSTANCE.initialize("NCSCZEGT6HK0GPVH", "XRZSRU0MPYQ3VUCPZBLDJGMMII5ZB1AN", "https://api.solapi.com"); 
+		// Message 패키지가 중복될 경우 net.nurigo.sdk.message.model.Message로 치환하여 주세요
+		Message message = new Message();
+		message.setFrom("01052506950");
+		message.setTo(dto.getIfmmPhone());
+		message.setText("안녕하세요. MATZIP의 인증번호는 ["+ rndNo +"] 입니다. ");
+
+		try {
+		  // send 메소드로 ArrayList<Message> 객체를 넣어도 동작합니다!
+		  messageService.send(message);
+		} catch (NurigoMessageNotReceivedException exception) {
+		  // 발송에 실패한 메시지 목록을 확인할 수 있습니다!
+		  System.out.println(exception.getFailedMessageList());
+		  System.out.println(exception.getMessage()); 
+		} catch (Exception exception) {
+		  System.out.println(exception.getMessage());
+		}
+		
+		result.put("code", rndNo);
+		
+		return result;
 	}
 }

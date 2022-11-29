@@ -144,17 +144,18 @@
 								</div>
 	              			</div>
 	              			<div class="mb-4">
-	              				 <div class="row" hidden>
+	              				 <div class="row confirm" style="display: none;">
 				                    <div class="col-6">
 				                        <div class="input-control">
-				                            <label for="tel_certification">인증번호</label>
-				                            <input id="tel_certification" name="tel_certification" type="text" onfocusout="validationUpdt()"> 
+				                            <label for="tel_certification" class="text-white">인증번호</label>
+				                            <input class="form-control" id="tel_certification" name="tel_certification" type="text" onfocusout="validationUpdt()"> 
+				                            <input type="hidden" id="phoneCode" value="">
 				                            <div class="msg" id="tel_certi_msg" name="tel_certi_msg" style="display: none;"></div>
 				                        </div>
 				                    </div>
 				                    <div class="col-2">
 				                        <div class="row">
-				                            <div class="col">
+				                            <div class="col"  style="margin-top: 24px">
 				                                <button type="button" class="btn text-white certification"
 				                                    style="background-color: #FF5733;">중복확인</button>
 				                            </div>
@@ -500,7 +501,9 @@
 	        	
 	     };	
 	
-		
+		$(".certification").on("click", function() {
+			$(".confirm").css("display", "");
+		})
 	</script>
 	
 </body>

@@ -51,5 +51,7 @@ public class MemberDao {
     public int deleteUploaded(Member dto) { return sqlSession.insert("Base" + ".deleteUploaded", dto); }
     /* image upload e */
     
-    
+    /* sns insert s */
+    public int snsInst(Member dto) {return sqlSession.insert(namespace + ".snsInst", dto); }
+    /* sns insert e */
 }

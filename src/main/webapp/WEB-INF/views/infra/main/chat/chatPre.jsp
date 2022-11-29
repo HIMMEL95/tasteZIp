@@ -89,152 +89,292 @@
 				<div class="panel">
 					<div class="panel_top">
 						<div class="ng-star-inserted">
-							
-								<!-- contents s -->
-								<div class="contents">
-									<div class="inbox_people">
-							          <div class="headind_srch">
-							            <div class="recent_heading">
-							              <h4 style="text-shadow: 2px 5px lightgrey;">My Chatting List</h4>
-							            </div>
-							           <div class="container" style="margin-top: 2rem;">
-										<div class="row justify-content-center">
-											<div class="SearchBox">
-												<input type="text" class="SearchBox-input" placeholder="Search">
-												<button class="SearchBox-button">
-													<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
-												</button>
-											</div>
+							<!-- contents s -->
+							<div class="contents">
+								<div class="inbox_people">
+						          <div class="headind_srch">
+						            <div class="recent_heading">
+						              <h4 style="text-shadow: 2px 5px lightgrey;">My Chatting List</h4>
+						            </div>
+						           <div class="container" style="margin-top: 2rem;">
+									<div class="row justify-content-center">
+										<div class="SearchBox">
+											<input type="text" class="SearchBox-input" placeholder="Search">
+											<button class="SearchBox-button">
+												<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
+											</button>
 										</div>
-									   </div>
-							          </div>
-							          <div class="inbox_chat">
-							            <a href="/chatRoom">
-								            <div class="chat_list active_chat">
-								              <div class="chat_people">
-								                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
-								                <div class="chat_ib">
-								                  <h5>가나다 <span class="chat_date">Dec 25</span></h5>
-								                  <p>Test, which is a new approach to have all solutions 
-								                    astrology under one roof.</p>
-								                </div>
-								              </div>
-								            </div>
-							            </a>
-							            <div class="chat_list">
+									</div>
+								   </div>
+						          </div>
+						          <div class="inbox_chat friends">
+						          	<p style="">친구 : 20</p>
+						            <a href="/chatRoom">
+							            <div class="chat_list active_chat">
 							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
 							                <div class="chat_ib">
-							                  <h5>Sunil Rajput2 <span class="chat_date">Dec 25</span></h5>
+							                  <h5>가나다</h5>
 							                  <p>Test, which is a new approach to have all solutions 
 							                    astrology under one roof.</p>
 							                </div>
 							              </div>
 							            </div>
+						            </a>
+						            <a href="/chatRoom" id="friendsList">
 							            <div class="chat_list">
 							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
 							                <div class="chat_ib">
-							                  <h5>Sunil Rajput3 <span class="chat_date">Dec 25</span></h5>
+							                  <h5>가나다</h5>
 							                  <p>Test, which is a new approach to have all solutions 
 							                    astrology under one roof.</p>
 							                </div>
 							              </div>
 							            </div>
-							            <div class="chat_list">
+						            </a>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput2 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput3 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput4 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput5 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput6 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput7 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput8 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput9 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>하하하10 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>하하하11 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>하하하12 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						          </div>
+						          <div class="inbox_chat chatList" style="display: none;">
+						            <a href="/chatRoom">
+							            <div class="chat_list active_chat">
 							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
 							                <div class="chat_ib">
-							                  <h5>Sunil Rajput4 <span class="chat_date">Dec 25</span></h5>
+							                  <h5>가나다 <span class="chat_date">Dec 25</span></h5>
 							                  <p>Test, which is a new approach to have all solutions 
 							                    astrology under one roof.</p>
 							                </div>
 							              </div>
 							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput5 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput6 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput7 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput8 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>Sunil Rajput9 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>하하하10 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>하하하11 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							            <div class="chat_list">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
-							                <div class="chat_ib">
-							                  <h5>하하하12 <span class="chat_date">Dec 25</span></h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-							          </div>
-							        </div>	 
-								</div>
-								<!-- contents e -->
+						            </a>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput2 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput3 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput4 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput5 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput6 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput7 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput8 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>Sunil Rajput9 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>하하하10 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>하하하11 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						            <div class="chat_list">
+						              <div class="chat_people">
+						                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+						                <div class="chat_ib">
+						                  <h5>하하하12 <span class="chat_date">Dec 25</span></h5>
+						                  <p>Test, which is a new approach to have all solutions 
+						                    astrology under one roof.</p>
+						                </div>
+						              </div>
+						            </div>
+						          </div>
+						          <div style="width:100%; height: 50px; display: flex; justify-content: space-around;" >
+						          	<button type="button" id="friendsBtn"><i class="fa-solid fa-user-group fa-2x"></i></button>
+						          	<button type="button" id="chatList"><i class="fa-solid fa-comments fa-2x"></i></button>
+						          </div>
+						        </div>	 
+							</div>
+							<!-- contents e -->
 						</div>
 					</div>
 				</div>
@@ -277,6 +417,27 @@
 		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
 		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
 		
+	</script>
+	<script type="text/javascript">
+		Kakao.init('77c9d237ea96142d7fda7576f0a0fc7e'); //★ 수정 할 것 : SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+		console.log(Kakao.isInitialized()); // SDK 초기화 여부를 판단합니다.
+		
+		function talkFriendListWithKakao() {
+		    Kakao.API.request({ 
+		        url: '/v1/api/talk/friends',
+		        success: function(response) {
+		            console.log(response);
+		            document.getElementById("friendsList").innerText = JSON.stringify(response);
+		        },
+		        fail: function(error) {
+		            console.log(error);
+		        }
+		    });
+		}
+		
+		$("freindsBtn").on("click", function() {
+			talkFriendListWithKakao();
+		})
 	</script>
 </body>
 

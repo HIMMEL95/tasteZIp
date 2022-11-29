@@ -89,6 +89,7 @@
 					</div>
 				</div>
 			</div>
+			<input type="hidden" name="gender"/>
 		</form>
     </main>
     
@@ -98,6 +99,12 @@
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <!-- kakao login s -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- kakao login e -->
+    <!-- naver login s -->
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+    <!-- naver login e -->
     <script type="text/javascript">
     	var goUrlHome = "/tasteMain";
     	var goUrlSign = "/signUp";
@@ -130,6 +137,146 @@
 				}
 			});
 		});
+    </script>
+    <script type="text/javascript">
+    	/* sns login s */
+    	/* kakao login s */
+     	Kakao.init('77c9d237ea96142d7fda7576f0a0fc7e'); // test 용
+    	console.log(Kakao.isInitialized());
+    	
+    	$("#kakao").on("click", function() {
+    		/* Kakao.Auth.authorize({
+   		      redirectUri: 'http://localhost:8080/member/kakaoCallback',
+   		    }); */
+    		
+    		Kakao.Auth.login({
+   		      success: function (response) {
+   		        Kakao.API.request({
+   		          url: '/v2/user/me',
+   		          success: function (response) {
+   		        	  
+   		        	  var accessToken = Kakao.Auth.getAccessToken();
+   		        	  Kakao.Auth.setAccessToken(accessToken);
+
+   		        	  var account = response.kakao_account;
+   		        	  
+	  	        	  if (account.gender === "male") {
+	  	        		  $("input[name=gender]").val(4);
+	          		  } else {
+	          			  $("input[name=gender]").val(5);
+         			  } 
+	  	        	  
+	  	        	 /*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
+	  	        	  $.ajax({
+						async: true
+						,cache: false
+						,type:"POST"
+						,url: "snsLoginProc"
+						,data: {
+							ifmmName: account.profile.nickname
+							,ifmmId: "카카오로그인"
+							,ifmmPhone: account.profile.phone_number
+							,ifmmEmail: account.email
+							,ifmmGender: $("input[name=gender]").val()
+							,ifmmDob: account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length)
+							,ifmmSnsImg: account.profile.thumbnail_image_url
+							,ifmmSnsDiv: 1
+						}
+						,success : function(response) {
+							if (response.rt == "fail") {
+								alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+								return false;
+							} else {
+								window.location.href = "/tasteMain";
+							}
+						},
+						error : function(jqXHR, status, error) {
+							alert("알 수 없는 에러 [ " + error + " ]");
+						}
+					});
+   		          },
+   		          fail: function (error) {
+   		            console.log(error)
+   		          },
+   		        })
+   		      },
+   		      fail: function (error) {
+   		        console.log(error)
+   		      },
+   		    })
+		});
+    	/* kakao login e */
+    	
+    	/* naver login s */
+    	var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "6GWqP8GXHwyr9bTe9WXc",
+				callbackUrl: "http://localhost:8080/login",
+				isPopup: false,
+			}
+		); 
+
+   		naverLogin.init();
+   		
+   		$("#naver").on("click", function() {
+   			alert("여기1")
+   			naverLogin.getLoginStatus(function (status) {
+  				if (!status) {
+		   			alert("여기2")
+  					naverLogin.authorize();
+  				} else {
+		   			alert("여기3")
+					setLoginStatus();
+  				}
+  			});
+		})
+   		
+		window.addEventListener('load', function () {
+			if (naverLogin.accessToken != null) { 
+	  			naverLogin.getLoginStatus(function (status) {
+	  				if (status) {
+	  					setLoginStatus();
+	  				}
+  				});
+			}
+   		});
+		
+   		function setLoginStatus() {
+			if (naverLogin.user.gender == 'M'){
+				$("input[name=gender]").val(4);
+			} else {
+				$("input[name=gender]").val(5);
+			}
+			$.ajax({
+				async: true
+				,cache: false
+				,type:"POST"
+				,url: "snsLoginProc"
+				,data: {
+					ifmmName: naverLogin.user.name
+					,ifmmId: "네이버로그인"
+					,ifmmPhone: naverLogin.user.mobile
+					,ifmmEmail: naverLogin.user.email
+					,ifmmGender: $("input[name=gender]").val()
+					,ifmmDob: naverLogin.user.birthyear+"-"+naverLogin.user.birthday
+					,ifmmSnsImg: naverLogin.user.profile_image
+					,ifmmSnsDiv : 2
+				}
+				,success : function(response) {
+					if (response.rt == "fail") {
+						alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
+						return false;
+					} else {
+						window.location.href = "/tasteMain";
+					}
+				},
+				error : function(jqXHR, status, error) {
+					alert("알 수 없는 에러 [ " + error + " ]");
+				}
+			});
+		}
+    	/* naver login e */
+    	/* sns login e */
     </script>
 </body>
 

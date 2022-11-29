@@ -210,4 +210,12 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
         }
     }
     /* image upload e */
+
+    /* sns insert s */
+    @Override
+    public int snsInst(Member dto) throws Exception {
+        return dao.snsInst(dto);
+    }
+    /* sns insert e */
+    
 }

@@ -121,8 +121,9 @@
 			,m.ifmmUserDiv
 			,m.ifmmSnsDiv
 			,m.ifmmSnsImg
-		from user u
+		from member m
 		where 1=1 
+			and ifmmId = #{ifmmId}
 			and ifmmName = #{ifmmName}
 			and ifmmEmail = #{ifmmEmail}
 			and ifmmDelNy = 0
@@ -137,7 +138,7 @@
 			,m.ifmmUserDiv
 			,m.ifmmSnsDiv
 			,m.ifmmSnsImg
-		from user u
+		from member m
 		where 1=1 
 			and ifmmId = #{ifmmId} 
 			and ifmmPwd = #{ifmmPwd}
@@ -273,5 +274,37 @@
 		WHERE 1=1
 			AND ifmmSeq = #{ifmmSeq}
 	</delete>
+	
+	<!-- sns insert s -->
+	<insert id="snsInst">
+		INSERT INTO member (
+			ifmmId
+			,ifmmName
+			,ifmmEmail
+			,ifmmGender
+			,ifmmDob
+			,ifmmCreatedAt
+			,ifmmUserDiv
+			,ifmmSnsDiv
+			,ifmmDelNy
+			,ifmmSnsImg
+		)
+		VALUES (
+			#{ifmmId}
+			,#{ifmmName}
+			,#{ifmmEmail}
+			,#{ifmmGender}
+			,#{ifmmDob}
+			,now()
+			,13
+			,#{ifmmSnsDiv}
+			,0
+			,#{ifmmSnsImg}
+		)
+		<selectKey resultType="String" keyProperty="ifmmSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	<!-- sns insert e -->
 	
 </mapper>

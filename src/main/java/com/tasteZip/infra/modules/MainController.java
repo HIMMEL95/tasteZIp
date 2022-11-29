@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
@@ -169,4 +170,42 @@ public class MainController {
     	
     	return "infra/xdmin/home/xdminMainNewStore";
     }
+    
+    /* sns login process s */
+    @ResponseBody
+    @RequestMapping(value = "snsLoginProc")
+    public Map<String, Object> snsLoginProc(Member dto, HttpSession httpSession) throws Exception {
+        Map<String, Object> returnMap = new HashMap<String, Object>();
+        
+        // id 값 있는지 체크 
+        Member naverLogin = mbService.snsLoginCheck(dto);
+        
+        if (naverLogin == null) {
+            mbService.snsInst(dto);
+            
+            httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
+            //session(naver.getSeq(), naver.getId(), naver.getName(), naver.getEmail(), naver.getUser_div(), naver.getSnsImg(), naver.getSns_type(), httpSession);
+            session(dto, httpSession);
+            returnMap.put("rt", "success");
+        } else {
+            
+            httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE); // 60second * 30 = 30minute
+            //session(naverLogin.getSeq(), naverLogin.getId(), naverLogin.getName(), naverLogin.getEmail(), naverLogin.getUser_div(), naverLogin.getSnsImg(), naverLogin.getSns_type(), httpSession);
+            session(naverLogin, httpSession);
+            returnMap.put("rt", "success");
+        }
+        return returnMap;
+    }
+    
+     public void session(Member dto, HttpSession httpSession) {
+         httpSession.setAttribute("sessSeq", dto.getIfmmSeq());    
+         httpSession.setAttribute("sessId", dto.getIfmmId());
+         httpSession.setAttribute("sessName", dto.getIfmmName());
+         httpSession.setAttribute("sessEmail", dto.getIfmmEmail());
+         httpSession.setAttribute("sessUser", dto.getIfmmUserDiv());
+         httpSession.setAttribute("sessImg", dto.getIfmmSnsImg());
+         httpSession.setAttribute("sessSns", dto.getIfmmSnsDiv());
+     }
+    /* sns login process e */
+    
 }

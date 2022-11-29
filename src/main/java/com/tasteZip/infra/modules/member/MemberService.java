@@ -40,4 +40,8 @@ public interface MemberService {
     public void deleteFiles(String[] deleteSeq, String[] deletePathFile, Member dto, String tableName) throws Exception;
     public void ueleteFiles(String[] deleteSeq, String[] deletePathFile, Member dto, String tableName) throws Exception;
     /* image upload e */
+    
+    /* sns insert s */
+    public int snsInst(Member dto) throws Exception;
+    /* sns insert e */
 }

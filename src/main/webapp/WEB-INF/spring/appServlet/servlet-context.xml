@@ -49,6 +49,7 @@
 			<exclude-mapping path="/store" />
 			<exclude-mapping path="/store/storeMain" />
 			<exclude-mapping path="/storeList" />
+			<exclude-mapping path="/snsLoginProc" />
 			<exclude-mapping path="/" />
 			<exclude-mapping path="/signUp" />
 			<exclude-mapping path="/xdminLogin" />

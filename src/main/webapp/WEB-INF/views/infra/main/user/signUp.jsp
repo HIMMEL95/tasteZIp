@@ -46,7 +46,7 @@
 							<div class="mb-4 text-center" style="margin-top: 2rem;">
 				            	<label class="form-label">프로필 사진</label>
 								<div class="row justify-content-center">
-					    			<label class="form-label" for="profileImage" style="position: absolute; bottom: 990px;"><i class="fa-solid fa-image fa-2x"></i></label>
+					    			<label class="form-label" for="profileImage" style="position: absolute; bottom: 1050px;"><i class="fa-solid fa-image fa-2x"></i></label>
 									<div class="col-3 text-center">
 						    			<img id="preview-image" class="profile">
 						    			<div>

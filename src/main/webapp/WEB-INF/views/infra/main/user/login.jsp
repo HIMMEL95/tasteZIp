@@ -155,10 +155,16 @@
    		          url: '/v2/user/me',
    		          success: function (response) {
    		        	  
+   		        	  console.log(response)
+   		        	  
    		        	  var accessToken = Kakao.Auth.getAccessToken();
+   		        	  console.log(accessToken)
    		        	  Kakao.Auth.setAccessToken(accessToken);
-
+   		        	  window.localStorage.setItem("kakao.access_Token", "Bearer "+accessToken);
+   		        	  
    		        	  var account = response.kakao_account;
+   		        	  
+   		        	  console.log(account)
    		        	  
 	  	        	  if (account.gender === "male") {
 	  	        		  $("input[name=gender]").val(4);
@@ -219,13 +225,10 @@
    		naverLogin.init();
    		
    		$("#naver").on("click", function() {
-   			alert("여기1")
    			naverLogin.getLoginStatus(function (status) {
   				if (!status) {
-		   			alert("여기2")
   					naverLogin.authorize();
   				} else {
-		   			alert("여기3")
 					setLoginStatus();
   				}
   			});

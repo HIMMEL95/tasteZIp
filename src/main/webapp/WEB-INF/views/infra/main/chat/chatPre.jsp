@@ -107,7 +107,7 @@
 									</div>
 								   </div>
 						          </div>
-						          <div class="inbox_chat friends">
+						          <div class="inbox_chat friends"  id="friendsList">
 						          	<p style="">친구 : 20</p>
 						            <a href="/chatRoom">
 							            <div class="chat_list active_chat">
@@ -121,7 +121,7 @@
 							              </div>
 							            </div>
 						            </a>
-						            <a href="/chatRoom" id="friendsList">
+						            <a href="/chatRoom">
 							            <div class="chat_list">
 							              <div class="chat_people">
 							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
@@ -391,6 +391,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
+	<!-- kakao login s -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <!-- kakao login e -->
 	<script>
 	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
@@ -419,14 +422,14 @@
 		
 	</script>
 	<script type="text/javascript">
-		Kakao.init('77c9d237ea96142d7fda7576f0a0fc7e'); //★ 수정 할 것 : SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-		console.log(Kakao.isInitialized()); // SDK 초기화 여부를 판단합니다.
-		
+		Kakao.init('77c9d237ea96142d7fda7576f0a0fc7e'); // test 용
+		console.log(Kakao.isInitialized());
 		function talkFriendListWithKakao() {
 		    Kakao.API.request({ 
 		        url: '/v1/api/talk/friends',
 		        success: function(response) {
 		            console.log(response);
+		            alert("SAdaasd")
 		            document.getElementById("friendsList").innerText = JSON.stringify(response);
 		        },
 		        fail: function(error) {
@@ -434,9 +437,14 @@
 		        }
 		    });
 		}
+		$("#friendsBtn").on("click", function() {
+			$(".chatList").css("display", "none");
+			$(".friends").css("display", "");
+		})
 		
-		$("freindsBtn").on("click", function() {
-			talkFriendListWithKakao();
+		$("#chatList").on("click", function() {
+			$(".chatList").css("display", "");
+			$(".friends").css("display", "none");
 		})
 	</script>
 </body>

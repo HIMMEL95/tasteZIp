@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tasteZip.infra.common.constants.Constants;
+import com.tasteZip.infra.modules.chat.ChatServiceImpl;
 import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
@@ -34,6 +35,8 @@ public class MainController {
     MemberServiceImpl mbService;
     @Autowired
     StoreServiceImpl sService;
+    @Autowired
+    ChatServiceImpl cService;
 
     @RequestMapping(value = "/")
     public String MatZipMain() throws Exception {

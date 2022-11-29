@@ -4,8 +4,16 @@ package com.tasteZip.infra.modules.chat;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class ChatServiceImpl implements ChatService{
@@ -49,4 +57,37 @@ public class ChatServiceImpl implements ChatService{
 		
 		return dao.selectOneChat(dto);
 	}
+	
+	// header() 셋팅
+    private HttpHeaders getHeaders(HttpServletRequest request) throws Exception {
+        
+        Cookie[] cookies = request.getCookies();
+        String b = null;
+        for (Cookie cookie: cookies) {
+            if (cookie.getName().equals("kakao.access_Token")) {
+                b = cookie.getValue();
+            }
+        }
+        
+        System.out.println(b);
+        
+        HttpHeaders headers = new HttpHeaders();
+        
+        return headers;
+    }
+    
+  //결제준비
+    public KakaoFriends payReady(Chat dto, HttpServletRequest req) throws Exception {
+        
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        
+        HttpEntity<MultiValueMap<String, String>> body  = new HttpEntity<MultiValueMap<String, String>>(params, this.getHeaders(req));
+        // 외부url요청 통로 열기.
+        RestTemplate template = new RestTemplate();
+        String url = "https://kapi.kakao.com/v1/api/talk/friends?friend_order=favorite&limit=100&order=asc";
+        // template으로 값을 보내고 받아온 ReadyResponse값 readyResponse에 저장.
+        KakaoFriends KakaoFriends = template.postForObject(url, body, KakaoFriends.class);
+        
+        return KakaoFriends;
+    }
 }

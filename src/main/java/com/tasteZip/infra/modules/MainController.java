@@ -63,6 +63,11 @@ public class MainController {
     public String chat() throws Exception {
         return "infra/main/chat/chat";
     }
+
+    @RequestMapping(value = "chatPre")
+    public String chatPre() throws Exception {
+        return "infra/main/chat/chatPre";
+    }
     
     @RequestMapping(value = "chatRoom")
     public String chatRoom() throws Exception {

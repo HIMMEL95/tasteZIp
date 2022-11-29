@@ -7,11 +7,14 @@ public class CommentVo extends BaseVo{
 	private String ifcmSeq;
 	private String ifmmSeq;
 	private String ifstSeq;
+	
 	private Integer shOption;
     private String shValue;
     private Integer shDelNy;
-    private Integer shDate;
-    private Integer shUpdt;
+    
+//    private Integer shDate;
+//    private Integer shUpdt;
+    
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOptionDate;
@@ -52,18 +55,18 @@ public class CommentVo extends BaseVo{
 	public void setShDelNy(Integer shDelNy) {
 		this.shDelNy = shDelNy;
 	}
-	public Integer getShDate() {
-		return shDate;
-	}
-	public void setShDate(Integer shDate) {
-		this.shDate = shDate;
-	}
-	public Integer getShUpdt() {
-		return shUpdt;
-	}
-	public void setShUpdt(Integer shUpdt) {
-		this.shUpdt = shUpdt;
-	}
+//	public Integer getShDate() {
+//		return shDate;
+//	}
+//	public void setShDate(Integer shDate) {
+//		this.shDate = shDate;
+//	}
+//	public Integer getShUpdt() {
+//		return shUpdt;
+//	}
+//	public void setShUpdt(Integer shUpdt) {
+//		this.shUpdt = shUpdt;
+//	}
 	public String getShDateStart() {
 		return shDateStart;
 	}

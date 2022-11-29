@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.tasteZip.infra.common.util.UtilDateTime;
 import com.tasteZip.infra.modules.store.Store;
 import com.tasteZip.infra.modules.store.StoreServiceImpl;
 import com.tasteZip.infra.modules.store.StoreVo;
@@ -143,6 +144,8 @@ public class CommentController {
     public void setSearchAndPaging(CommentVo vo) throws Exception{
 		vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
 		vo.setShOption(vo.getShOption() == null ? 0: vo.getShOption());
+		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
 	}
     
     @RequestMapping(value = "xdminCommentList")
@@ -172,6 +175,28 @@ public class CommentController {
 	    return "infra/xdmin/comment/xdminCommentForm";
 	}
     
+    /* 다중 삭제 s */
+	@RequestMapping(value = "commentMultiUele")
+	public String commentMultiUele(CommentVo vo, Comment dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			dto.setIfcmSeq(checkboxSeq);
+			service.uelete(dto);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/comment/xdminCommentList";
+	}
+
+	@RequestMapping(value = "commentMultiDele")
+	public String commentMultiDele(CommentVo vo, Comment dto, RedirectAttributes redirectAttributes) throws Exception {
+		for (String checkboxSeq : vo.getCheckboxSeqArray()) {
+			vo.setIfcmSeq(checkboxSeq);
+			service.delete(vo);
+		}
+		redirectAttributes.addFlashAttribute("vo", vo);
+		return "redirect:/comment/xdminCommentList";
+	}
+	/* 다중 삭제 e */
+    
     @RequestMapping("/excelDownload")
     public void excelDownload(CommentVo vo, HttpServletResponse httpServletResponse) throws Exception {
 		
@@ -194,7 +219,7 @@ public class CommentController {
 	            sheet.setColumnWidth(1, 3100);
 
 //	        Header
-	        String[] tableHeader = {"Seq", "댓글", "사용자이름", "등급", "가게이름", "가게주소"};
+	        String[] tableHeader = {"Seq", "댓글", "평점", "사용자이름", "가게이름", "직성일"};
 
 	        row = sheet.createRow(rowNum++);
 	        
@@ -226,12 +251,12 @@ public class CommentController {
 	            cell = row.createCell(2);
 	        	cellStyle.setAlignment(HorizontalAlignment.CENTER);
 	        	cell.setCellStyle(cellStyle);
-	        	cell.setCellValue(list.get(i).getIfmmName());
+	        	cell.setCellValue(list.get(i).getIfcmGrade());
 	            
 	            cell = row.createCell(3);
 	            cellStyle.setAlignment(HorizontalAlignment.CENTER);
 	            cell.setCellStyle(cellStyle);
-	            cell.setCellValue(list.get(i).getIfcmGrade());
+	            cell.setCellValue(list.get(i).getIfmmName());
 	            
 	            cell = row.createCell(4);
 	            cellStyle.setAlignment(HorizontalAlignment.CENTER);
@@ -241,7 +266,7 @@ public class CommentController {
 	            cell = row.createCell(5);
 	            cellStyle.setAlignment(HorizontalAlignment.CENTER);
 	            cell.setCellStyle(cellStyle);
-	            cell.setCellValue(list.get(i).getIfstAddress());
+	            cell.setCellValue(list.get(i).getIfcmCreatedAt());
 	            
 //	            cell = row.createCell(6);
 //	            cellStyle.setAlignment(HorizontalAlignment.CENTER);

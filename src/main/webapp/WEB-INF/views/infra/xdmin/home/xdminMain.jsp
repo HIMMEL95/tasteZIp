@@ -97,8 +97,9 @@
                             label: '주간 신규 가입자 차트', //차트 제목
                             fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
                             data: [
-                                21,19,25,20,23,26,25 //x축 label에 대응되는 데이터 값
+                            	20, 30, 40, 50, 10, 5, 55 //x축 label에 대응되는 데이터 값
                             ],
+                            /* {mb_id:"${member.ifmmSeq}"} */
                             backgroundColor: [
                                 //색상
                                 'rgba(255, 99, 132, 0.2)',
@@ -118,16 +119,7 @@
                                 'rgba(255, 159, 64, 1)'
                             ],
                             borderWidth: 1 //경계선 굵기
-                        }/* ,
-                        {
-                            label: 'test2',
-                            fill: false,
-                            data: [
-                                8, 34, 12, 24
-                            ],
-                            backgroundColor: 'rgb(157, 109, 12)',
-                            borderColor: 'rgb(157, 109, 12)'
-                        } */
+                        }
                     ]
                 },
                 options: {

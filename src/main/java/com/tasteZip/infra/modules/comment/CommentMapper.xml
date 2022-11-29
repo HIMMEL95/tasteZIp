@@ -20,10 +20,6 @@
 			<when test="shOption == 3">AND ifmmName LIKE CONCAT('%',#{shValue},'%')</when>
 			<when test="shOption == 4">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>
 		</choose>
-		<choose>
-			<when test="shOptionDate == 1">AND cc.ifcmCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-			<when test="shOptionDate == 2">AND cc.ifcmModifiedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-		</choose>
 	</sql>
 
 	<select id="myReview" resultMap="resultMapObj">

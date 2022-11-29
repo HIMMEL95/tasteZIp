@@ -60,7 +60,7 @@
 											</span>
 											<span class="col-3">전화번호 : <strong>${sList.ifstPhone}</strong></span>
 											<span class="col-3">주소 : <strong>${sList.ifstAddress}</strong></span>
-											<span class="col-3">가입일 : <strong>${sList.ifstCreatedAt}</strong></span>
+											<span class="col-3">가입일 : <strong pattern="yyyy-MM-dd">${sList.ifstCreatedAt}</strong></span>
 										</label>
 								 	</c:forEach> 
 								</div>

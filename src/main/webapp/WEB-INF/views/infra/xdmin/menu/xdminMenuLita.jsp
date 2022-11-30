@@ -11,10 +11,10 @@
 		<table class="table table-striped table-hover text-center" id="selecBox">
 			<thead>
 				<tr class="bg-dark">
-					<th scope="col">
+					<th scope="col" style="width: 50px;">
 						<input type="checkbox" name="checkboxAll" id="checkboxAll">
 					</th>
-					<th class="text-white" style="width: 80px">#</th>
+					<th class="text-white" style="width: 50px;">#</th>
 					<th class="text-white" scope="col" style="width: 160px;">Name</th>
 					<th class="text-white" scope="col" style="width: 120px;">Price</th>
 					<th class="text-white" scope="col" style="width: 200px;">Info</th>

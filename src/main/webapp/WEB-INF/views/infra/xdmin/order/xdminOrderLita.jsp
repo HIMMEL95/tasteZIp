@@ -12,13 +12,13 @@
 				<thead>
 					<tr class="bg-dark">
 						<th scope="col" >
-							<input type="checkbox" name="checkboxAll" id="checkboxAll" style="width: 45px;">
+							<input type="checkbox" name="checkboxAll" id="checkboxAll" style="width: 50px;">
 						</th>
 						<th class="text-white" style="width: 50px;">#</th>
 						<th class="text-white" scope="col" style="width: 100px;">가게 이름</th>
 						<th class="text-white" scope="col" style="width: 110px;">메뉴 이름</th>
 						<th class="text-white" scope="col">주문자</th>
-						<th class="text-white" scope="col">전화번호</th>
+						<th class="text-white" scope="col" style="width: 100px">전화번호</th>
 						<th class="text-white" scope="col" style="width: 70px;">주문 수량</th>
 						<th class="text-white" scope="col">주문 금액</th>
 						<th class="text-white" scope="col" style="width: 120px;">결제 수단</th>

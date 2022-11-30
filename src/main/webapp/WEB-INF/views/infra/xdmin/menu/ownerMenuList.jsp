@@ -8,7 +8,7 @@
 	<!DOCTYPE html>
 	<html lang="ko" >
 	<head>
-		<title>owner Menu List</title>
+		<title>Owner Menu List</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +45,7 @@
 						<div class="row">
 							<div class="col">
 								<div class="content">
-									<h2 class="row needs-validation ms-3">Menu List</h2>
+									<h2 class="row needs-validation ms-3">Owner Menu List</h2>
 									<div class="row needs-validation ms-3 me-3 mt-3 mb-5 p-3 bg-dark rounded" id="selecBox" novalidate>
 										<div class="row mb-2">
 											<div class="col-md-3">

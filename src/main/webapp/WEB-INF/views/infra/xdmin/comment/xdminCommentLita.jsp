@@ -11,10 +11,10 @@
 		<table class="table table-striped table-hover text-center" id="selecBox">
 			<thead>
 				<tr class="bg-dark">
-					<th scope="col">
+					<th scope="col" style="width: 50px;">
 						<input type="checkbox" name="checkboxAll" id="checkboxAll">
 					</th>
-					<th class="text-white">#</th>
+					<th class="text-white" style="50px;">#</th>
 					<th class="text-white" scope="col">댓글</th>
 					<th class="text-white" scope="col">평점</th>
 					<th class="text-white" scope="col">사용자이름</th>

@@ -148,16 +148,12 @@
     		/* Kakao.Auth.authorize({
    		      redirectUri: 'http://localhost:8080/member/kakaoCallback',
    		    }); */
-    		
+   		    
     		Kakao.Auth.login({
    		      success: function (response) {
    		        Kakao.API.request({
    		          url: '/v2/user/me',
    		          success: function (response) {
-   		        		Kakao.Auth.authorize({
-				   		  redirectUri: 'http://localhost:8080/tasteMain',
-				   		  scope: 'friends',
-				   		});
    		        	  
    		        	  console.log(response)
    		        	  
@@ -196,6 +192,10 @@
 								return false;
 							} else {
 								window.location.href = "/tasteMain";
+								Kakao.Auth.authorize({
+					  		      redirectUri: 'http://localhost:8080/tasteMain',
+					  		      scope: "friends"
+					  		    });
 							}
 						},
 						error : function(jqXHR, status, error) {

@@ -194,7 +194,7 @@
 																					<h5 class="card-title"><b>${store.ifstName}</b></h5>
 																					<p class="card-text">${store.ifstAddress}</p>
 																					<br>
-																					<button type="button" class="btn btn-sm btn-outline-dark">출발</button>
+																					<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark">출발</button>
 																					<button type="button" class="btn btn-sm btn-outline-danger">도착</button>
 																					<input type="hidden" name="ifstLat" value="${store.ifstLat} ">
 																					<input type="hidden" name="ifstLng" value="${store.ifstLng}">
@@ -381,7 +381,8 @@
 			}
 		};
 	</script>
-	<script>
+	<script type="text/javascript">
+	
 		var goUrlList = "/storeList";
 		var goUrlForm = "/store/storeMain";
 		var goUrlFindWay = "/findWay";
@@ -391,7 +392,7 @@
 		$("#btnReset").on("click", function() {
 			$(location).attr("href", goUrlList);
 		});
-		
+	
 		var seq = $("input[name=ifstSeq]");
 		
 		goForm = function(keyValue) {
@@ -404,6 +405,18 @@
 			form.attr("action", goUrlList).submit();
 		}
 		
+		/* $("#btnDep").on("click", function() {
+			event.preventDefault();
+			$(location).attr("href", goUrlFindWay);
+		}); */
+		
+		$('#btnDep').on("click", function(keyValue) {
+			event.preventDefault();
+			/* event.stopPropagation() */
+			/* event.stopImmediatePropagation() */
+			seq.val(keyValue);
+			form.attr("action", goUrlFindWay).submit();
+ 		});
 	</script>
 </body>
 

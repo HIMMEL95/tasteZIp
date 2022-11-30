@@ -11,8 +11,8 @@
 			<table class="table table-striped table-hover text-center" id="selecBox">
 				<thead>
 					<tr class="bg-dark">
-						<th scope="col" >
-							<input type="checkbox" name="checkboxAll" id="checkboxAll" style="width: 50px;">
+						<th scope="col" style="width: 50px;">
+							<input type="checkbox" name="checkboxAll" id="checkboxAll">
 						</th>
 						<th class="text-white" style="width: 50px;">#</th>
 						<th class="text-white" scope="col" style="width: 100px;">가게 이름</th>

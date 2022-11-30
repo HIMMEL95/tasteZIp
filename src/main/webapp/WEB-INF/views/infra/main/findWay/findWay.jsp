@@ -43,7 +43,7 @@
 					</a>
 					<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 						<li class="nav-item">
-							<a href="/store" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+							<a href="/storeList" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 								<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
 							</a>
 						</li>
@@ -118,17 +118,17 @@
 							<div class="search" style="margin-top: 60px;">
 								<div class="search_wrap">
 									<div class="search_box2">
-										<div class="input_box">
+										<div class="input_box ui-widget">
 											<label class="label_search"><img alt="" src="/resources/images/main/placeholder_b.png" style="width: 20px;"></label>
-											<input type="text" id="sPlace" name="sPlace" value="${vo.sPlace }" autocomplete="none" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
+											<input type="text" id="sPlace" name="sPlace" value="${item.ifstAddress}" autocomplete="none" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
 											<button class="search_btn" type="button" id="search1" hidden>검색</button>
 										</div>
 									</div>
 									<div class="search_box2">
 										<div class="input_box">
-											<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"></label>
-											<input type="text" id="ePlace" name="ePlace" value="${vo.ePlace }" autocomplete="none" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
-											<button class="search_btn" type="button" id="search2" hidden>검색</button>
+												<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"></label>
+												<input type="text" id="ePlace" name="ePlace" value="${vo.ePlace }" autocomplete="none" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
+												<button class="search_btn" type="button" id="search2" hidden>검색</button>
 										</div>
 									</div>
 								</div>
@@ -190,8 +190,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
 	<script>
-		
+	
 		$("#changeBtn").on("click", function() {
 			var temp = "";
 			temp = $("#sPlace").val();
@@ -279,6 +281,18 @@
 			}
 		})
 		
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+	        var inputSource = ['서울', '대전', '대구', '부산', '제주', '강릉',
+	                           '원주', '인천', '광주', '울산', '평창', '천안'];
+	
+	        $('#sPlace').autocomplete({
+	            source : inputSource,
+	            minLength : 1
+	        });
+	        
+	    });
 	</script>
 </body>
 

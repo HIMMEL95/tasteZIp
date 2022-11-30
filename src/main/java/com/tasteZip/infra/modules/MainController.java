@@ -111,7 +111,11 @@ public class MainController {
     }
     
     @RequestMapping(value = "findWay") 
-    public String findWay(@ModelAttribute("vo") FindWayVo vo) throws Exception {
+    public String findWay(@ModelAttribute("vo") FindWayVo vo, StoreVo svo, Model model) throws Exception {
+    	
+    	Store item = sService.xdminSelectOne(svo);
+    	model.addAttribute("item", item);
+    	
         return "infra/main/findWay/findWay";
     }
     

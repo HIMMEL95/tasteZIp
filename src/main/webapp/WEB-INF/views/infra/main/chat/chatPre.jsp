@@ -422,21 +422,7 @@
 		
 	</script>
 	<script type="text/javascript">
-		Kakao.init('77c9d237ea96142d7fda7576f0a0fc7e'); // test 용
-		console.log(Kakao.isInitialized());
-		function talkFriendListWithKakao() {
-		    Kakao.API.request({ 
-		        url: '/v1/api/talk/friends',
-		        success: function(response) {
-		            console.log(response);
-		            alert("SAdaasd")
-		            document.getElementById("friendsList").innerText = JSON.stringify(response);
-		        },
-		        fail: function(error) {
-		            console.log(error);
-		        }
-		    });
-		}
+		
 		$("#friendsBtn").on("click", function() {
 			$(".chatList").css("display", "none");
 			$(".friends").css("display", "");

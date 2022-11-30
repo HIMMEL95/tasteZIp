@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tasteZip.infra.common.constants.Constants;
+import com.tasteZip.infra.modules.chat.Chat;
 import com.tasteZip.infra.modules.chat.ChatServiceImpl;
+import com.tasteZip.infra.modules.chat.KakaoFriends;
 import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
@@ -69,7 +74,9 @@ public class MainController {
     }
 
     @RequestMapping(value = "chatPre")
-    public String chatPre() throws Exception {
+    public String chatPre(Chat dto, HttpServletRequest request) throws Exception {
+        KakaoFriends friends = cService.friendReady(dto, request);
+        System.out.println("friends : "+ friends);
         return "infra/main/chat/chatPre";
     }
     
@@ -177,11 +184,18 @@ public class MainController {
     /* sns login process s */
     @ResponseBody
     @RequestMapping(value = "snsLoginProc")
-    public Map<String, Object> snsLoginProc(Member dto, HttpSession httpSession) throws Exception {
+    public Map<String, Object> snsLoginProc(Member dto, HttpSession httpSession, HttpServletResponse response) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         
         // id 값 있는지 체크 
         Member naverLogin = mbService.snsLoginCheck(dto);
+        
+        System.out.println("token : "+ dto.getKakaoToken());
+        
+        Cookie kakaoToken = new Cookie("kakaoToken", dto.getKakaoToken());
+        kakaoToken.setPath("/");
+        kakaoToken.setMaxAge(24 * 60 * 60 * 1000);
+        response.addCookie(kakaoToken);
         
         if (naverLogin == null) {
             mbService.snsInst(dto);

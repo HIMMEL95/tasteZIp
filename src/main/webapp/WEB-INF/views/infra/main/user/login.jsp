@@ -160,11 +160,8 @@
    		        	  var accessToken = Kakao.Auth.getAccessToken();
    		        	  console.log(accessToken)
    		        	  Kakao.Auth.setAccessToken(accessToken);
-   		        	  window.localStorage.setItem("kakao.access_Token", "Bearer "+accessToken);
    		        	  
    		        	  var account = response.kakao_account;
-   		        	  
-   		        	  console.log(account)
    		        	  
 	  	        	  if (account.gender === "male") {
 	  	        		  $("input[name=gender]").val(4);
@@ -187,6 +184,7 @@
 							,ifmmDob: account.birthday.substring(0,2) + "-" + account.birthday.substring(2,account.birthday.length)
 							,ifmmSnsImg: account.profile.thumbnail_image_url
 							,ifmmSnsDiv: 1
+							,kakaoToken : "Bearer:" + accessToken
 						}
 						,success : function(response) {
 							if (response.rt == "fail") {

@@ -64,12 +64,14 @@ public class ChatServiceImpl implements ChatService{
         Cookie[] cookies = request.getCookies();
         String b = null;
         for (Cookie cookie: cookies) {
-            if (cookie.getName().equals("kakao.access_Token")) {
+            System.out.println("여기?");
+            if (cookie.getName().equals("kakaoToken")) {
+                System.out.println("Name : " + cookie.getName());
                 b = cookie.getValue();
             }
         }
-        
-        System.out.println(b);
+        b = b.replace(":", " ");
+        System.out.println("access Token : "+b);
         
         HttpHeaders headers = new HttpHeaders();
         
@@ -77,7 +79,7 @@ public class ChatServiceImpl implements ChatService{
     }
     
   //결제준비
-    public KakaoFriends payReady(Chat dto, HttpServletRequest req) throws Exception {
+    public KakaoFriends friendReady(Chat dto, HttpServletRequest req) throws Exception {
         
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         

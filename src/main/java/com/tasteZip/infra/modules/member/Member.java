@@ -34,6 +34,15 @@ public class Member extends Base{
     private String[] pathFile;
     private String[] fileSeq;
     
+    private String kakaoToken;
+    
+    public String getKakaoToken() {
+        return kakaoToken;
+    }
+    public void setKakaoToken(String kakaoToken) {
+        this.kakaoToken = kakaoToken;
+    }
+    
     public MultipartFile[] getProfileImage() {
         return profileImage;
     }

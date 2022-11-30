@@ -154,6 +154,10 @@
    		        Kakao.API.request({
    		          url: '/v2/user/me',
    		          success: function (response) {
+   		        		Kakao.Auth.authorize({
+				   		  redirectUri: 'http://localhost:8080/tasteMain',
+				   		  scope: 'friends',
+				   		});
    		        	  
    		        	  console.log(response)
    		        	  

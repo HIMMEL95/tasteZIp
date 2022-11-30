@@ -4,10 +4,16 @@ import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,6 +23,8 @@ import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.common.util.UtilDateTime;
 import com.tasteZip.infra.common.util.UtilRegMod;
 import com.tasteZip.infra.common.util.UtilSecurity;
+import com.tasteZip.infra.modules.chat.Chat;
+import com.tasteZip.infra.modules.chat.KakaoFriends;
 
 @Service
 public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
@@ -223,5 +231,40 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
  	public int idCheck(Member dto) {
  		return dao.idCheck(dto);
  	}
+ 	
+ // header() 셋팅
+    private HttpHeaders getHeaders(HttpServletRequest request) throws Exception {
+        
+        Cookie[] cookies = request.getCookies();
+        String b = null;
+        for (Cookie cookie: cookies) {
+            System.out.println("여기?");
+            if (cookie.getName().equals("kakaoToken")) {
+                System.out.println("Name : " + cookie.getName());
+                b = cookie.getValue();
+            }
+        }
+        b = b.replace(":", " ");
+        System.out.println("access Token : "+b);
+        
+        HttpHeaders headers = new HttpHeaders();
+        
+        return headers;
+    }
+    
+  //결제준비
+    public KakaoFriends addReady(Chat dto, HttpServletRequest req) throws Exception {
+        
+        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        
+        HttpEntity<MultiValueMap<String, String>> body  = new HttpEntity<MultiValueMap<String, String>>(params, this.getHeaders(req));
+        // 외부url요청 통로 열기.
+        RestTemplate template = new RestTemplate();
+        String url = "https://kauth.kakao.com/oauth/authorize?client_id=26cf14b8b7c85338520c041ebdd1d58a&redirect_uri=http://localhost:8080/tasteMain&response_type=code&scope=account_email,gender";
+        // template으로 값을 보내고 받아온 ReadyResponse값 readyResponse에 저장.
+        KakaoFriends KakaoFriends = template.postForObject(url, body, KakaoFriends.class);
+        
+        return KakaoFriends;
+    }
     
 }

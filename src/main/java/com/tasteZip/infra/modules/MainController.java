@@ -184,7 +184,7 @@ public class MainController {
     /* sns login process s */
     @ResponseBody
     @RequestMapping(value = "snsLoginProc")
-    public Map<String, Object> snsLoginProc(Member dto, HttpSession httpSession, HttpServletResponse response) throws Exception {
+    public Map<String, Object> snsLoginProc(Member dto, HttpSession httpSession, HttpServletResponse response, HttpServletRequest request, Chat cDto) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         
         // id 값 있는지 체크 

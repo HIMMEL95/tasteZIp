@@ -157,6 +157,10 @@
    		        	  
    		        	  console.log(response)
    		        	  
+						Kakao.Auth.authorize({
+							redirectUri: 'http://localhost:8080/tasteMain',
+							scope: "friends"
+						});
    		        	  var accessToken = Kakao.Auth.getAccessToken();
    		        	  console.log(accessToken)
    		        	  Kakao.Auth.setAccessToken(accessToken);
@@ -192,10 +196,6 @@
 								return false;
 							} else {
 								window.location.href = "/tasteMain";
-								Kakao.Auth.authorize({
-					  		      redirectUri: 'http://localhost:8080/tasteMain',
-					  		      scope: "friends"
-					  		    });
 							}
 						},
 						error : function(jqXHR, status, error) {

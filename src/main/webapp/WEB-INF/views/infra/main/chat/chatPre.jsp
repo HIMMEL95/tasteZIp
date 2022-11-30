@@ -422,6 +422,7 @@
 		
 	</script>
 	<script type="text/javascript">
+	
 		
 		$("#friendsBtn").on("click", function() {
 			$(".chatList").css("display", "none");

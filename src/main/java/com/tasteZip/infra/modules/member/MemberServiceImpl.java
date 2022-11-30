@@ -260,7 +260,7 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
         HttpEntity<MultiValueMap<String, String>> body  = new HttpEntity<MultiValueMap<String, String>>(params, this.getHeaders(req));
         // 외부url요청 통로 열기.
         RestTemplate template = new RestTemplate();
-        String url = "https://kauth.kakao.com/oauth/authorize?client_id=26cf14b8b7c85338520c041ebdd1d58a&redirect_uri=http://localhost:8080/tasteMain&response_type=code&scope=account_email,gender";
+        String url = "https://kapi.kakao.com/v1/api/talk/friends";
         // template으로 값을 보내고 받아온 ReadyResponse값 readyResponse에 저장.
         KakaoFriends KakaoFriends = template.postForObject(url, body, KakaoFriends.class);
         

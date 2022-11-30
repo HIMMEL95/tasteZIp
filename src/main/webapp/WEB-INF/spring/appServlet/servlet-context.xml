@@ -33,6 +33,7 @@
 			<exclude-mapping path="/logoutProc" />
 			<exclude-mapping path="/member/memberInst" />
 			<exclude-mapping path="/member/checkId" />
+			<exclude-mapping path="/member/checkSms" />
 			<exclude-mapping path="/tasteMain" />
 			<exclude-mapping path="/main" />
 			<exclude-mapping path="/tasteMain" />

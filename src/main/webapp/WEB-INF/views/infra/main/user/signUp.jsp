@@ -136,10 +136,10 @@
 			                            </select>
 									</div>
 									<div class="col" style="margin-top: 31px">
-										<input class="form-control" name="ifmmPhone" id="ifmmPhone" placeholder="PhoneNumber" type="text" data-msg="Please enter your phoneNumber" oninput="autoHyphen1(this)" maxlength="13">
+										<input class="form-control" name="ifmmPhone" id="ifmmPhone" placeholder="PhoneNumber" type="text">
 									</div>
 									<div class="col" style="margin-top: 31px">
-										<button type="button" class="btn fw-bold text-white certification" style="background-color: #FF5733;">인증번호</button>
+										<button type="button" class="btn fw-bold text-white certification" style="background-color: #FF5733;" onclick="sendSms()">인증요청</button>
 									</div>
 								</div>
 	              			</div>
@@ -147,17 +147,15 @@
 	              				 <div class="row confirm" style="display: none;">
 				                    <div class="col-6">
 				                        <div class="input-control">
-				                            <label for="tel_certification" class="text-white">인증번호</label>
-				                            <input class="form-control" id="tel_certification" name="tel_certification" type="text" onfocusout="validationUpdt()"> 
+				                            <label class="text-white">인증번호</label>
+				                            <input class="form-control" id="phoneCodeSms" value="" placeholder="인증번호 4자리를 입력해주세요.">
 				                            <input type="hidden" id="phoneCode" value="">
-				                            <div class="msg" id="tel_certi_msg" name="tel_certi_msg" style="display: none;"></div>
 				                        </div>
 				                    </div>
 				                    <div class="col-2">
 				                        <div class="row">
-				                            <div class="col"  style="margin-top: 24px">
-				                                <button type="button" class="btn text-white certification"
-				                                    style="background-color: #FF5733;">중복확인</button>
+				                            <div class="col" style="margin-top: 24px">
+				                                <button type="button" class="btn text-white certification" style="background-color: #FF5733;" onclick="checkSms()">중복확인</button>
 				                            </div>
 				                        </div>
 				                    </div>
@@ -270,6 +268,9 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1d32d56af5.js" crossorigin="anonymous"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <script src="sweetalert2.all.min.js"></script>
     <script type="text/javascript">
     
     	var goUrlInst = "/member/memberInst";
@@ -504,8 +505,75 @@
 		$(".certification").on("click", function() {
 			$(".confirm").css("display", "");
 		})
-	</script>
 	
+		/* sendSms = function() {
+				
+				return false;
+				$.ajax({
+					url: '/member/checkSms'
+					,type: 'POST'
+					,dataType: 'json'
+					,data: {
+						ifmmPhone : $("#ifmmPhone").val()
+					},
+					success:function(result){
+						$("#phoneCode").val(result.code);
+					},
+					error:function(){
+						alert("안됩니다.");
+					}
+				});
+				
+			}; */
+	
+		/* checkSms = function() {
+			
+			  if($("#phoneCodeSms").val() == $("#phoneCode").val()){
+				  Swal.fire("MATZIP", "인증되었습니다.", "success");
+			  }else{
+				  Swal.fire("MATZIP", "인증번호가 틀립니다.", "error");
+			  }
+			  
+		  }; */
+		  
+		  checkSms = function() {
+				
+			  if($("#phoneCodeSms").val() == $("#phoneCode").val()){
+					Swal.fire({
+						  title: '인증되었습니다!',
+						  text: '',
+						  imageUrl: 'https://i.pinimg.com/originals/3c/61/f2/3c61f2ae85b270e19cb7d6ba5eb433bc.gif',
+						  imageWidth: 415,
+						  imageHeight: 395,
+						  imageAlt: 'Custom image',
+						})
+					
+			  }else{
+				   Swal.fire({
+					  title: '인증번호가 틀립니다.',
+					  text: '',
+					  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlwG4nLU4eKrSpX0aX__54DV4qt11PuYf7Jg&usqp=CAU',
+					  imageWidth: 350,
+					  imageHeight: 233,
+					  imageAlt: 'Custom image',
+					})
+					
+					/* Swal.fire({
+					  title: '인증번호가 틀립니다.',
+					  text: '',
+					  imageUrl: 'http://www.jjal.today/data/file/gallery/3556132067_E9JfidGe_d0cc0f796dbb4e0c5a0a73e3204af9ee1a44df97.gif',
+					  imageWidth: 480,
+					  imageHeight: 480,
+					  imageAlt: 'Custom image',
+					}) */
+			  }
+			  
+		  };
+		  
+		  
+		  
+		
+    </script>
 </body>
 
 </html>

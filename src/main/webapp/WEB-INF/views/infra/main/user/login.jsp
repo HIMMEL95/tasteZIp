@@ -159,7 +159,10 @@
    		        	  
 						Kakao.Auth.authorize({
 							redirectUri: 'http://localhost:8080/tasteMain',
-							scope: "friends"
+							scope: "friends",
+							success: function (response) {
+								alert(response)
+							}
 						});
    		        	  var accessToken = Kakao.Auth.getAccessToken();
    		        	  console.log(accessToken)

@@ -26,6 +26,11 @@ public class StoreServiceImpl implements StoreService {
     }
     
     @Override
+    public List<Store> mainStoreList(StoreVo vo) throws Exception {
+        return dao.mainStoreList(vo);
+    }
+    
+    @Override
     public List<Store> menuList(StoreVo vo) throws Exception {
         return dao.menuList(vo);
     }

@@ -906,7 +906,7 @@ a {
 
 .content {
 	margin: 0 100px;
-	padding: 20px 200px;
+	padding: 20px 100px;
 	height: 100%;
 }
 
@@ -1056,11 +1056,12 @@ a {
 
 .snip1515 .profile-image img {
   max-width: 100%;
+  height: 150px;
   vertical-align: top;
 }
 
 .snip1515 figcaption {
-  width: 100%;
+  width: 315px;
   background-color: #151515;
   color: #413F3F;
   padding: 125px 25px 25px;
@@ -1078,10 +1079,10 @@ a {
 
 .l-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 30px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   padding: 30px;
 }
 @media screen and (max-width: 760px) {
@@ -1152,4 +1153,9 @@ a {
 .b-game-card:hover::before {
   opacity: 0.6;
   transform: rotateX(7deg) translateY(-6px) scale(1.05);
+}
+.card-title {
+	text-overflow:ellipsis;
+	overflow:hidden;
+    white-space:nowrap;
 }

@@ -19,6 +19,7 @@ public class StoreDao {
     
     public List<Store> selectList(StoreVo vo) { return sqlSession.selectList(namespace + ".selectList", vo); }
     public List<Store> storeList(StoreVo vo) { return sqlSession.selectList(namespace + ".storeList", vo); }
+    public List<Store> mainStoreList(StoreVo vo) { return sqlSession.selectList(namespace + ".mainStoreList", vo); }
     public List<Store> menuList(StoreVo vo) { return sqlSession.selectList(namespace + ".menuList", vo); }
     public int selectOneCount(StoreVo vo) { return sqlSession.selectOne(namespace + ".selectOneCount", vo); }
     

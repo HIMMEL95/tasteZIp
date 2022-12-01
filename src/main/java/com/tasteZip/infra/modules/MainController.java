@@ -49,7 +49,13 @@ public class MainController {
     }
     
     @RequestMapping(value = "tasteMain")
-    public String tasteMain() throws Exception {
+    public String tasteMain(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+    	
+    	vo.setParamsPaging(sService.selectOneCount(vo));
+    	
+    	List<Store> store = sService.mainStoreList(vo);
+    	model.addAttribute("store", store);
+    	
         return "infra/main/user/taste_main";
     }
     

@@ -131,200 +131,130 @@
             </div>
         </section>
         
-        <section id="overview">
-            <div class="overview_title">
-                <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp; font-family: 'LeferiPoint-SpecialItalicA';">Recently Visited</h1>
-            </div>
-            <div class="content" style="font-family: 'Pretendard-Regular';">
-                <div class="row">
-                    <div class="col">
-                        <a href="#">
-                            <figure class="snip1515">
-							  <div class="profile-image">
-							  	<img src="/resources/images/main/restaurant.jpg"/>
-							  </div>
-							  <figcaption>
-							    <b><h4 class="card-title">힘난다 버거</h4></b>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-							  </figcaption>
-							</figure>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <figure class="snip1515">
-							  <div class="profile-image">
-							  	<img src="/resources/images/main/restaurant.jpg"/>
-							  </div>
-							  <figcaption>
-							    <b><h4 class="card-title">힘난다 버거</h4></b>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-							  </figcaption>
-							</figure>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <figure class="snip1515">
-							  <div class="profile-image">
-							  	<img src="/resources/images/main/restaurant.jpg"/>
-							  </div>
-							  <figcaption>
-							    <b><h4 class="card-title">힘난다 버거</h4></b>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-							  </figcaption>
-							</figure>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <figure class="snip1515">
-							  <div class="profile-image">
-							  	<img src="/resources/images/main/restaurant.jpg"/>
-							  </div>
-							  <figcaption>
-							    <b><h4 class="card-title">힘난다 버거</h4></b>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-							  </figcaption>
-							</figure>
-                        </a>
-                    </div>
-                </div>
-                <!-- <div class="row">
-                    <div class="col">
-                        <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="#">
-                            <div class="card recentCard">
-                                <img src="/resources/images/main/restaurant.jpg" class="card-img-top" alt="...">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">힘난다 버거</h5>
-                                <p class="card-text">서울 서초구 사평대로56길 7</p>
-                                <p class="card-text">한일유앤아이 1층</p>
-                                <p class="card-text">02-595-6768</p>
-                            </div>
-                        </a>
-                    </div>
-                </div> -->
-            </div>
-        </section>
+        <form id="myForm" name="myForm">
+        <input type="hidden" name="ifstSeq" >
+        <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+		<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+	        <section id="overview">
+	            <div class="overview_title">
+	                <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp; font-family: 'LeferiPoint-SpecialItalicA';">Recently Opened Restaurants</h1>
+	            </div>
+	            <div class="content" style="font-family: 'Pretendard-Regular';">
+	                <div class="row">
+	                	
+	                	<c:forEach items="${store}" var="store" varStatus="status">
+	                		<input type="hidden" name="seq" value="${store.seq }">
+		                    <div class="col">
+		                        <a href="javascript:goForm(${store.ifstSeq})" id="goForm">
+		                            <figure class="snip1515">
+									  <div class="profile-image">
+									  	<c:choose>
+											<c:when test="${empty store.path }">
+												<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif">
+											</c:when>
+											<c:otherwise>
+												<c:choose>
+													<c:when test="${store.sort eq 1 }">
+														<img class="d-block w-100" src="${store.path}${store.uuidName}">
+													</c:when>
+												</c:choose>
+											</c:otherwise>
+										</c:choose>
+									  </div>
+									  <figcaption>
+									    <b><h4 class="card-title">${store.ifstName}</h4></b>
+		                                <p class="card-text">${store.ifstAddress}</p>
+		                                <p class="card-text">${store.ifstAddressDetail}</p>
+		                                <p class="card-text">${store.ifstPhone}</p>
+									  </figcaption>
+									</figure>
+		                        </a>
+		                    </div>
+	                    </c:forEach>
+	                    <!-- <div class="col">
+	                        <a href="#">
+	                            <figure class="snip1515">
+								  <div class="profile-image">
+								  	<img src="/resources/images/main/restaurant.jpg"/>
+								  </div>
+								  <figcaption>
+								    <b><h4 class="card-title">힘난다 버거</h4></b>
+	                                <p class="card-text">서울 서초구 사평대로56길 7</p>
+	                                <p class="card-text">한일유앤아이 1층</p>
+	                                <p class="card-text">02-595-6768</p>
+								  </figcaption>
+								</figure>
+	                        </a>
+	                    </div> -->
+	                </div>
+	            </div>
+	        </section>
+        </form>
         <section id="recording">
-            <div class="recording_title">
+           <!--  <div class="recording_title">
                 <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp; font-family: 'LeferiPoint-SpecialItalicA'">Recommend</h1>
-            </div>
+            </div> -->
             <div class="recommend_content">
-                <div class="sub_title">
-                    <h2>Menu</h2>
+                <div class="sub_title mt-5">
+                    <h2>What's your favorite food?</h2>
                     <div class="row justify-content-center">
                     	<div class="l-container">
                     	  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/icecream.jpg);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1576506295286-5cda18df43e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);"></div>
+							  </div>
 						  </div>
 						  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/meat.jpg);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);"></div>
+							  </div>
 						  </div>
 						  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(/resources/images/main/pasta.jpg);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);"></div>
+							  </div>
 						  </div>
 						  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/06/06/43/pizza-2589575_960_720.jpg);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1565299507177-b0ac66763828?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=722&q=80);"></div>
+							  </div>
+						  </div>
+						  <div class="col">
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1600628663500-d031ef956f04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80);"></div>
+							  </div>
 						  </div>
 						</div>
                     </div>
                 </div>
                 <div class="sub_title">
-                    <h2>Restaurant</h2> 
+                    <h2>What's your favorite restaurant?</h2> 
                     <div class="row justify-content-center">
                     	<div class="l-container">
                     	  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(https://t1.daumcdn.net/cfile/tistory/2122564F5777D82638);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1555992336-fb0d29498b13?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80);"></div>
+							  </div>
 						  </div>
 						  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(https://t1.daumcdn.net/cfile/tistory/990B8C3359F838652B);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1569541372853-97033ae8983b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);"></div>
+							  </div>
 						  </div>
 						  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMVhrs0gzSAjpKtXY5GeWL8BUojZqa1nnbwQ&usqp=CAU);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1609534655988-3f5225c13553?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=685&q=80);"></div>
+							  </div>
 						  </div>
 						  <div class="col">
-	                    	  <a href="#">
-								  <div class="b-game-card">
-								    <div class="b-game-card__cover" style="background-image: url(https://mblogthumb-phinf.pstatic.net/MjAxOTEyMDhfMTk1/MDAxNTc1NzczNzQzMDU2.ocUcRJ6rFYm-Xs-cPvhDuYMGxsSOnQb8Ik4lEVITQSYg.hNH0xlh9bJtUVapBR4EjB9o_20W_JM-0UgwWuvDlb1Mg.JPEG.pinkmint86/IMG_0627.JPG?type=w800);"></div>
-								  </div>
-							  </a>
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1593014040390-4f15d7577091?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80);"></div>
+							  </div>
+						  </div>
+						  <div class="col">
+							  <div class="b-game-card">
+							    <div class="b-game-card__cover" style="background-image: url(https://images.unsplash.com/photo-1613946069412-38f7f1ff0b65?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80);"></div>
+							  </div>
 						  </div>
 						</div>
                     </div>
@@ -397,6 +327,26 @@
 			});
 		});
     </script>
+    <script type="text/javascript">
+	
+		var goUrlList = "/tasteMain";
+		var goUrlForm = "/store/storeMain";
+		
+		var form = $("#myForm");
+	
+		var seq = $("input[name=ifstSeq]");
+		
+		goList = function(thisPage){
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
+		
+		goForm = function(keyValue) {
+			seq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		} 
+		
+	</script>
 </body>
 
 </html>

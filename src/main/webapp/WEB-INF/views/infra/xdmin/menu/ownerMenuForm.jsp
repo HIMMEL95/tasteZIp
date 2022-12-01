@@ -49,6 +49,10 @@
 									<label class="form-label">메뉴이름</label> 
 									<input class="form-control" value="<c:out value="${item.ifmnName}"/>" name="ifmnName">
 								</div>
+								<div class="col-6">
+									<label class="form-label">가게번호</label> 
+									<input class="form-control" value="<c:out value="${item.ifstSeq}"/>" name="ifstSeq">
+								</div>
 							</div>
 							<div class="row mt-3">
 								<div class="col">

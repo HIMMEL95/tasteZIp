@@ -189,14 +189,15 @@
 			m.ifmnName
 			,m.ifmnSeq
 			,m.ifmnPrice
+			,m.ifstSeq
 			,up.path
 			,up.uuidName
 			,up.pseq
 	    from menu m
-	    left join menuUploaded up on up.pseq = m.ifmnSeq
+	    left join menuUploaded up on up.pseq = m.ifstSeq
 	    left join store s on s.ifstSeq = m.ifstSeq
 		where 1=1
-			and m.ifstSeq = #{ifstSeq}
+			and up.pseq = #{ifstSeq}
 		<include refid="Base.orderByLimitForMysql" />
 	   	) aa
 		limit 2 offset 0

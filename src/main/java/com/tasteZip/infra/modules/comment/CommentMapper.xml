@@ -23,7 +23,7 @@
 	</sql>
 
 	<select id="myReview" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql2"/>
+		<include refid="Base.selectListUpperForMysql"/>
 		SELECT
 			c.ifcmSeq
 			,c.ifcmComment
@@ -40,7 +40,7 @@
 		AND c.ifcmDelNy = 0
 		ORDER BY c.ifcmSeq DESC
 		<include refid="Base.orderByLimitForMysql" />
-		<include refid="Base.selectListLowerForMysql2" /> 
+		<include refid="Base.selectListLowerForMysql3" /> 
 	</select>
 	
 	<select id="storeComment" resultMap="resultMapObj">
@@ -181,6 +181,15 @@
  	</update>
  	
  	<update id="uelete">
+	 	UPDATE comment
+	 	SET
+	 		ifcmDelNy = 1
+	 		,ifcmCreatedAt = now()
+		WHERE 1=1
+			and ifcmSeq = #{ifcmSeq}
+ 	</update>
+ 	
+ 	<update id="ueleteMypage">
 	 	UPDATE comment
 	 	SET
 	 		ifcmDelNy = 1

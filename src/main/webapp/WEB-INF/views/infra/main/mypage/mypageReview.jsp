@@ -112,11 +112,30 @@
 											    	<p><b>(작성 날짜:</b> ${list.ifcmCreatedAt})</p>
 											    </div>
 											    <div class="col text-end">
-											    	<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="goUele(${list.ifcmSeq})">
+											    	<button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${list.ifcmSeq }" onclick="test(${list.ifcmSeq })">
 											    		<i class="fa-solid fa-trash-can"></i> 
-											    		삭제하기
+											    		 삭제하기
 											    	</button>
 											    </div>
+											    <!-- Modal -->
+												<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												  <div class="modal-dialog">
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-file-zipper"></i> MATZIP</h1>
+												        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												      </div>
+												      <div class="modal-body text-start">
+												      <input type="hidden" name="ifcmSeq" value=""/>
+												        정말로 삭제하시겠습니까?
+												      </div>
+												      <div class="modal-footer">
+												        <button type="button" class="btn btn-light" data-bs-dismiss="modal">닫기</button>
+												        <button type="button" class="btn btn-dark" onclick="commentUeleteMypage()">삭제하기</button>
+												      </div>
+												    </div>
+												  </div>
+												</div>
 											</div>
 										  </div>
 										</div>
@@ -124,7 +143,9 @@
 			           			</c:forEach>
 		           			</c:otherwise>
 	           			</c:choose>
-          			
+          				<div class="row justify-content-center mt-5 mb-3">
+				       		<%@include file="../../xdmin/includeV1/pagination.jsp"%>
+						</div>
           			
           			
            		</div>
@@ -157,16 +178,14 @@
 			form.attr("action", goUrlList).submit();
 		};
 		
-		goUele = function(keyValue) {
+		/* goUele = function(keyValue) {
 			seq.val(keyValue);
 			
 			$.ajax({
    				async: true 
    				,cache: false
    				,type: "post"
-   				/* ,dataType:"json" */
-   				,url: "/comment/commentUele"
-   				/* ,data : $("#formLogin").serialize() */
+   				,url: "/comment/commentUeleMypage"
    				,data : {"seq" : $("input[name=ifcmSeq]").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val()}
    				,success: function(response) {
    					if (response.rt == "success") {
@@ -179,7 +198,35 @@
    					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
    				}
    			});
+		} */
+		
+		function commentUeleteMypage() {
+			
+			$.ajax({
+   				async: true 
+   				,cache: false
+   				,type: "post"
+   				/* ,dataType:"json" */
+   				,url: "/comment/commentUeleMypage"
+   				/* ,data : $("#formLogin").serialize() */
+   				,data : {"ifcmSeq" : $("input[name=ifcmSeq]").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val()}
+   				,success: function(response) {
+   					if (response.rt == "success") {
+   						location.href = "/comment/mypageReview?ifmmSeq="+ $("input[name=ifmmSeq]").val();
+   					} else {
+   						alert("댓글을 입력하시오!!");
+   					}
+   				}
+   				,error : function(jqXHR, textStatus, errorThrown){
+   					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+   				}
+   			});
 		}
+
+		test = function(seq) {
+			$("input[name=ifcmSeq]").val(seq);
+		}
+		
     </script>
 </body>
 </html>

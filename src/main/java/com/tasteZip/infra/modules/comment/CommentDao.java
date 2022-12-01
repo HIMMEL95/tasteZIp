@@ -42,6 +42,7 @@ public class CommentDao {
     public int regComment(Comment dto) {return sqlSession.insert(namespace + ".regComment", dto); }
 	public int update(Comment dto) {return sqlSession.update(namespace + ".update", dto); }
 	public int uelete(Comment dto) {return sqlSession.update(namespace + ".uelete", dto); }
+	public int ueleteMypage(Comment dto) {return sqlSession.update(namespace + ".ueleteMypage", dto); }
 	public int delete(CommentVo vo) {return sqlSession.delete(namespace + ".delete", vo); }
 	
 	// 스토어 이미지 & 정보

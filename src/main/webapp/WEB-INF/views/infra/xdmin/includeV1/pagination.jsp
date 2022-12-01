@@ -1,4 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<style type="text/css">
+	.pagination{
+	    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem #fcc4a361;
+	    --bs-pagination-color: black;
+	    --bs-pagination-hover-color: #f87320;
+	    --bs-pagination-focus-color: #f87320;
+		--bs-pagination-focus-bg: #FCC4A3;
+		--bs-pagination-active-bg: #FCC4A3;
+		--bs-pagination-active-border-color: #FCC4A3;
+	}
+</style>
 
 <div class="container-fluid px-0 mt-3">
     <div class="row">

@@ -17,6 +17,7 @@ public interface CommentService {
     public int regComment(Comment dto) throws Exception;
    	public int update(Comment dto) throws Exception;
    	public int uelete(Comment dto) throws Exception;
+   	public int ueleteMypage(Comment dto) throws Exception;
    	public int delete(CommentVo vo) throws Exception;
    	
    	// 스토어 이미지 & 정보

@@ -111,6 +111,18 @@ public class CommentController {
 	}
     
     
+    @ResponseBody
+    @RequestMapping(value = "commentUeleMypage")
+	public Map<String, Object> commentUeleMypage(@ModelAttribute("vo")CommentVo vo, Comment dto) throws Exception {
+    	
+    	Map<String, Object> returnMap = new HashMap<String, Object>();
+    	
+    	service.ueleteMypage(dto);
+    	returnMap.put("rt", "success");
+    	
+        return returnMap;
+	}
+    
 //    @RequestMapping(value= "CommentUele")
 //	public String CommentUele(@ModelAttribute("vo") CommentVo vo, Comment dto, RedirectAttributes redirectAttributes) throws Exception {
 //		service.uelete(dto);

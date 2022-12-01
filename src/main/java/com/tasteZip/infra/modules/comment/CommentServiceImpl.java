@@ -52,6 +52,10 @@ public class CommentServiceImpl implements CommentService{
 		return dao.uelete(dto);
 	}
 	@Override
+	public int ueleteMypage(Comment dto) throws Exception {
+		return dao.ueleteMypage(dto);
+	}
+	@Override
 	public int delete(CommentVo vo) throws Exception {
 		return dao.delete(vo);
 	}

@@ -308,6 +308,11 @@ public class MenuController {
             cart.setPath("/");
             cart.setMaxAge(30 * 24 * 60 * 60 * 1000);
             response.addCookie(cart);
+
+            Cookie store = new Cookie("store", dto.getIfstSeq());
+            store.setPath("/");
+            store.setMaxAge(30 * 24 * 60 * 60 * 1000);
+            response.addCookie(store);
             
             returnMap.put("rt", "success");
         } else {

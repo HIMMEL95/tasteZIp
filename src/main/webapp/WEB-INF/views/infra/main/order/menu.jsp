@@ -441,6 +441,7 @@
 				,url: "/menu/cart"
 				,data: {
 					ifmnSeq : result
+					,ifstSeq : $("input[name=ifstSeq]").val()
 				}
 				,success : function(response) {
 					if (response.rt == "success") {

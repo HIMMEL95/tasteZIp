@@ -1,36 +1,44 @@
 package com.tasteZip.infra.modules.order;
 
-import java.util.Date;
-
-public class KakaoPayApproval {
-
-    //response
-    private String aid, tid, cid, sid;
-    private String partner_order_id, partner_user_id, payment_method_type;
-    private Object amount;
-    private Integer total, tax_free, vat, point, discount;
+public class KakaoPay {
     
-    private Object card_info;
-    private String purchase_corp, purchase_corp_code;
-    private String issuer_corp, issuer_corp_code;
-    private String bin, card_type, install_month, approved_id, card_mid;
-    private String interest_free_install, card_item_code;
-    private String item_name, item_code, payload;
-    private Integer quantity, tax_free_amount, vat_amount;
-    private Date created_at, approved_at;
-    private String pg_token;
-    
-    public String getAid() {
-        return aid;
-    }
-    public void setAid(String aid) {
-        this.aid = aid;
-    }
+    /* ready s */
+    public String tid;
+    public String next_redirect_pc_url;
+    public String created_at;
     public String getTid() {
         return tid;
     }
     public void setTid(String tid) {
         this.tid = tid;
+    }
+    public String getNext_redirect_pc_url() {
+        return next_redirect_pc_url;
+    }
+    public void setNext_redirect_pc_url(String next_redirect_pc_url) {
+        this.next_redirect_pc_url = next_redirect_pc_url;
+    }
+    public String getCreated_at() {
+        return created_at;
+    }
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+    /* ready e */
+
+    /* Approval s */
+    /* response s */
+    private String aid;
+    private String cid;
+    private String sid;
+    private String partner_order_id;
+    private String partner_user_id;
+    private String payment_method_type;
+    public String getAid() {
+        return aid;
+    }
+    public void setAid(String aid) {
+        this.aid = aid;
     }
     public String getCid() {
         return cid;
@@ -62,6 +70,15 @@ public class KakaoPayApproval {
     public void setPayment_method_type(String payment_method_type) {
         this.payment_method_type = payment_method_type;
     }
+    /* response e */
+    
+    /* amount 객체 안 데이터 s */
+    private Object amount;
+    private Integer total;
+    private Integer tax_free;
+    private Integer vat;
+    private Integer point;
+    private Integer discount;
     public Object getAmount() {
         return amount;
     }
@@ -98,6 +115,29 @@ public class KakaoPayApproval {
     public void setDiscount(Integer discount) {
         this.discount = discount;
     }
+    /* amount 객체 안 데이터 e */
+    
+    /* card_info 객체 안 데이터 s */
+    private Object card_info;
+    private String purchase_corp;
+    private String purchase_corp_code;
+    private String issuer_corp;
+    private String issuer_corp_code;
+    private String bin;
+    private String card_type;
+    private String install_month;
+    private String approved_id;
+    private String card_mid;
+    private String interest_free_install;
+    private String card_item_code;
+    private String item_name;
+    private String item_code;
+    private String payload;
+    private Integer quantity;
+    private Integer tax_free_amount;
+    private Integer vat_amount;
+    private String approved_at;
+    private String pg_token;
     public Object getCard_info() {
         return card_info;
     }
@@ -206,16 +246,10 @@ public class KakaoPayApproval {
     public void setVat_amount(Integer vat_amount) {
         this.vat_amount = vat_amount;
     }
-    public Date getCreated_at() {
-        return created_at;
-    }
-    public void setCreated_at(Date created_at) {
-        this.created_at = created_at;
-    }
-    public Date getApproved_at() {
+    public String getApproved_at() {
         return approved_at;
     }
-    public void setApproved_at(Date approved_at) {
+    public void setApproved_at(String approved_at) {
         this.approved_at = approved_at;
     }
     public String getPg_token() {
@@ -224,4 +258,6 @@ public class KakaoPayApproval {
     public void setPg_token(String pg_token) {
         this.pg_token = pg_token;
     }
+    /* card_info 객체 안 데이터 e */
+    /* Approval e */
 }

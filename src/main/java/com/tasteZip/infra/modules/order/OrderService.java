@@ -23,6 +23,8 @@ public interface OrderService {
 	
 	//uele list
 	public int ueleteList(String iforSeq) throws Exception;
+	
+	public int insertOrder(Order dto) throws Exception;
 
 }
 

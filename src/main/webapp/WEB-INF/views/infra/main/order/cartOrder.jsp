@@ -40,7 +40,7 @@
 									<div class="col-lg-6 px-5 py-4">
 										<h3 class="mb-5 pt-2 text-center fw-bold text-uppercase">Your Menu</h3>
 										<c:forEach items="${list }" var="list" varStatus="status">
-											<input type="hidden" class="menuSeq${status.index }" name="menuSeq${list.ifmnSeq }" id="menuSeq${list.ifmnSeq }" value="${list.ifmnSeq }">
+											<input type="hidden" class="menuSeq${status.index }" name="ifmnSeq" id="menuSeq${list.ifmnSeq }" value="${list.ifmnSeq }">
 											<div class="d-flex align-items-center mb-5 item${list.ifmnSeq }">
 												<div class="flex-shrink-0">
 													<c:choose>
@@ -56,12 +56,12 @@
 												<div class="flex-grow-1 ms-3">
 													<button type="button" id="delBtn" class="float-end text-black" onclick="delItem(${list.ifmnSeq})"><i class="fas fa-times"></i></button>
 													<h5>
-														<input type="hidden" name="menuName${list.ifmnSeq }" id="menuName${list.ifmnSeq }" value="${list.ifmnName }">
+														<input type="hidden" name="ifmnName" id="menuName${list.ifmnSeq }" value="${list.ifmnName }">
 														<b>${list.ifmnName }</b>
 													</h5>
 													<div class="d-flex align-items-center">
 														<p class="fw-bold mb-0 me-5 pe-3">
-															<input type="hidden" name="price" id="price${status.index }" value="${list.ifmnPrice }">
+															<input type="hidden" name="iforPrice" id="price${status.index }" value="${list.ifmnPrice }">
 															<fmt:formatNumber type="number" pattern="#,###" value="${list.ifmnPrice}"/>원
 														</p>
 														<div class="def-number-input number-input safari_only">
@@ -75,8 +75,9 @@
 										</c:forEach>
 										<hr class="mb-4" style="height: 2px; background-color: black; opacity: 1;">
 										<div class="d-flex justify-content-between p-2 mb-2" style="background-color: #E6E6E6;">
-											<input type="hidden" name="total" class="total" value="">  
-											<input type="hidden" name="menu" class="menu" value="">
+											<input type="hidden" name="totalCount" class="count" value="">  
+											<input type="hidden" name="totalPrice" class="total" value="">  
+											<input type="hidden" name="ifmnName" class="menu" value="">
 											<h5 class="fw-bold mb-0">Total:</h5>
 											<h5 class="fw-bold mb-0 totalPrice"></h5>
 										</div>
@@ -177,16 +178,20 @@
 			$.ajax({
 				dataType:"json"
 				,type: "POST"
-				,url: "/order/kakaoPay"
+				,url: "/order/kakaopayReady"
 				,data: {
-					ifmmId : $("input[name=ifmmId]").val()
-					,ifmnName : $("input[name=menu]").val()
-					,ifstName : $("input[name=ifstName]").val()
-					,totalPrice : $("input[name=total]").val()
+					ifstName : $("input[name=ifstName]").val()
+					,totalCount : $("input[name=totalCount]").val()
+					,ifmmName : $("input[name=ifmmName]").val()
+					,ifmnName : $("input[name=ifmnName]").val()
+					,totalPrice : $("input[name=totalPrice]").val()
+					,ifstSeq : $("input[name=ifstSeq]").val()
 				}
 				,success : function(response) {
-					console.log(response)
 					window.location.href = response.next_redirect_pc_url;
+				}
+				,error : function () {
+					alert("ajax error...");
 				}
 			});
 		}
@@ -213,13 +218,13 @@
 			console.log(totalPrice)
 			var a = String(totalPrice);
 			totalPrice = String(totalPrice);
-			$("input[name=total]").val(a);
+			$("input[name=totalPrice]").val(a);
 			totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			$(".totalPrice").html(totalPrice + " 원");
 			$("input[name=ifrvPrice]").val(totalPrice);
 		})
 		
-		$("input[name=total]").val(totalPrice)
+		$("input[name=totalPrice]").val(totalPrice)
 		totalPrice = String(totalPrice);
 		totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 		
@@ -285,9 +290,10 @@
 			var cookieArr = value.split(":");
 			
 			if (cookieArr.length == 1) {
-				$(".menu").val($("input[name=menuName"+cookieArr[0]+"]").val());
+				$(".menu").val($("#menuName"+cookieArr[0]).val());
 			} else {
-				$(".menu").val($("input[name=menuName"+cookieArr[0]+"]").val() + " 외 " + (cookieArr.length-1));
+				$(".menu").val($("#menuName"+cookieArr[0]).val() + " 외 " + (cookieArr.length-1));
+				$(".count").val(cookieArr.length);
 			}
 		}
 		// 쿠키 값 가져오기 e

@@ -91,7 +91,7 @@
 	</select>
 	<!-- 관리자 list -->
 	<select id="xdminSelectList" resultMap="resultMapObj">
-	<include refid="Base.selectListUpperForMysql" />
+		<include refid="Base.selectListUpperForMysql" />
 		SELECT
 			b.iforSeq
 			,s.ifstName
@@ -137,4 +137,29 @@
 		WHERE
 			iforSeq = #{iforSeq}
 	</update>
+	
+	<insert id="insertOrder">
+		insert INTO buy (
+			ifstSeq
+			,ifmnSeq
+			,iforCount
+			,iforPrice
+			,iforPay
+			,iforDelNy
+			,iforCreatedAt
+			,ifmmSeq
+		) VALUES (
+			#{ifstSeq}
+			,#{ifmnSeq}
+			,#{totalCount}
+			,#{totalPrice}
+			,#{iforPay}
+			,0
+			,now()
+			,#{ifmmSeq}
+		)
+		<selectKey resultType="String" keyProperty="iforSeq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
+	</insert>
 </mapper>

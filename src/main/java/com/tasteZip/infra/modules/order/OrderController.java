@@ -1,11 +1,5 @@
 package com.tasteZip.infra.modules.order;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,12 +17,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tasteZip.infra.common.util.UtilDateTime;
-import com.tasteZip.infra.modules.member.Member;
-import com.tasteZip.infra.modules.member.MemberVo;
 import com.tasteZip.infra.modules.menu.Menu;
 import com.tasteZip.infra.modules.menu.MenuServiceImpl;
 import com.tasteZip.infra.modules.menu.MenuVo;
@@ -38,6 +31,7 @@ import com.tasteZip.infra.modules.store.StoreVo;
 
 @Controller
 @RequestMapping(value = "/order/")
+@SessionAttributes({"tid"})
 public class OrderController {
 	
 	@Autowired
@@ -145,16 +139,70 @@ public class OrderController {
     }
     
     @RequestMapping(value = "mypageOrderView")
-    public String mypageOrderView(@ModelAttribute("vo") OrderVo vo, Order dto, Model model, HttpSession httpSession) throws Exception {
+    public String mypageOrderView(@ModelAttribute("vo") OrderVo vo,@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid,  @ModelAttribute("dtoBk") Order dto, Model model, HttpSession httpSession, HttpServletRequest request, HttpServletResponse response) throws Exception {
     	
-    	vo.setIforSeq(dto.getIforSeq());
+		// kakao approve
+		KakaoPay kakaoPayApproval = service.payApprove(tid, pgToken, dto);
+		//return된 객체를 map에 매핑
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> map = objectMapper.convertValue(kakaoPayApproval, Map.class);
+        
+        for(String key : map.keySet()) {
+            String value = String.valueOf(map.get(key));
+            System.out.println("[key]: " + key + ", [value]: " + value);
+        }
+        
+        Map<String, Object> amount = new HashMap<String, Object>();
+        amount = (Map<String, Object>) map.get("amount");
+        
+        for (String key : amount.keySet()) {
+            String value = String.valueOf(amount.get(key));
+            System.out.println("[key]: " + key + ", [value]: " + value);
+        }
+    	
+         //결제 후 db에 insert
+        //dto 에 받아온 정보  set
+        dto.setIfmnName(map.get("item_name").toString());
+        dto.setIforPrice(amount.get("total").toString());
+        
+        dto.setIfmmSeq((String) httpSession.getAttribute("sessSeq"));
+        Order order = (Order) httpSession.getAttribute("dtoBk");
+        dto.setIforPay(1);
+        
+        Cookie[] cookies = request.getCookies();
+        String[] b = null;
+        String storeSeq = "";
+        for (Cookie cookie: cookies) {
+            if (cookie.getName().equals("cart")) {
+                b = cookie.getValue().split(":");
+            }
+            if (cookie.getName().equals("store")) {
+                storeSeq = cookie.getValue();
+            }
+        }
+        
+        dto.setIfstSeq(storeSeq);
+        for (int i=0; i<b.length; i++) {
+            dto.setIfmnSeq(b[i]);
+            service.insertOrder(dto);
+        }
+        
+        Cookie cookie = new Cookie("cart", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
 
-    	String seq = httpSession.getAttribute("sessSeq").toString();
-		vo.setIfmmSeq(seq);
-		
-		Order item = service.selectOne(vo);
-		model.addAttribute("item", item);
-    	
+        Cookie store = new Cookie("store", null);
+        store.setMaxAge(0);
+        response.addCookie(store);
+        
+        vo.setIforSeq(dto.getIforSeq());
+
+        String seq = httpSession.getAttribute("sessSeq").toString();
+        vo.setIfmmSeq(seq);
+        
+        Order item = service.selectOne(vo);
+        model.addAttribute("item", item);
+        
         return "infra/main/mypage/mypageOrderView";
     }
     
@@ -239,9 +287,9 @@ public class OrderController {
     /* kakao pay s */
     @ResponseBody
     @RequestMapping(value="kakaopayReady")
-    public KakaopayReady payReady (@ModelAttribute("dto") Order dto, Model model) throws Exception {
+    public KakaoPay payReady (@ModelAttribute("dtoBk") Order dto, Model model) throws Exception {
          
-        KakaopayReady kakaopayReady = service.payReady(dto);
+        KakaoPay kakaopayReady = service.payReady(dto);
         model.addAttribute("tid", kakaopayReady.getTid());
         
         System.out.println("카카오페이이이이" + kakaopayReady.getNext_redirect_pc_url());
@@ -250,58 +298,16 @@ public class OrderController {
         return kakaopayReady;
     }
     
-//    @RequestMapping(value="kakaopayApproval")
-//    public String payCompleted(@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid,  @ModelAttribute("dto") Order dto,  Model model, HttpSession httpSession,  Menu mDto) throws Exception {
-//        
-//        // 카카오 결제 요청하기
-//        KakaoPayApproval kakaoPayApproval = service.payApprove(tid, pgToken, dto);
-//        
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        Map<String, Object> map = objectMapper.convertValue(kakaoPayApproval, Map.class);
-//        
-//        for(String key : map.keySet()) {
-//            String value = String.valueOf(map.get(key));
-//            System.out.println("[key]: " + key + ", [value]: " + value);
-//        }
-//        
-//        Map<String, Object> amount = new HashMap<String, Object>();
-//        amount = (Map<String, Object>) map.get("amount");
-//        
-//        for (String key : amount.keySet()) {
-//            String value = String.valueOf(amount.get(key));
-//            System.out.println("[key]: " + key + ", [value]: " + value);
-//        }
-//        
-//        dto.setIfmnName(map.get("item_name").toString());
-//        dto.setTotalCount(Int amount.get("total"));
-//        dto.setIfmmSeq((String)httpSession.getAttribute("sessSeq"));
-//        
-//        Booking booking = (Booking) httpSession.getAttribute("dtoBk");
-//        
-//        service.insertBooking(dto);
-//        dto.setTdbkSeq(dto.getTdbkSeq());
-//        
-//        for(int i = 0; i < booking.getTdbsSeatNums().length; i++) {
-//            dto.setTdbsSeatNum(booking.getTdbsSeatNums()[i]);
-//            service.insertBookingSeat(dto);
-//        }
-//        
-//        Booking result = service.selectListAfterPay(dto);
-//        model.addAttribute("result", result);
-//            
-//        return "infra/booking/user/bookingResult";
-//    }
-    
     // 결제 취소시 실행 url
     @GetMapping("kakaopayCancel")
     public String payCancel() {
-        return "redirect:/timetable/choiceMovie";
+        return "redirect:/order/cartOrder";
     }
     
     // 결제 실패시 실행 url        
     @GetMapping("/kakaopayFail")
     public String payFail() {
-        return "redirect:/timetable/choiceMovie"; 
+        return "redirect:/order/cartOrder"; 
     }
     /* kakao pay e */
  	

@@ -50,5 +50,8 @@ public class OrderDao {
 		return sqlSession.update(namespace + ".ueleteList", iforSeq);
 	}
 	
+	public int insertOrder(Order dto) {
+	    return sqlSession.insert(namespace + ".insertOrder", dto);
+	}
 	
 }

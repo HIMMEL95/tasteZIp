@@ -28,58 +28,11 @@
     <!-- start -->
     
     <main class="clearfix">
-		<div id="sidebar" class="sidebar">
-			<div class="d-flex flex-column flex-shrink-0 bg-dark align-center" style="width: 4.5rem; height: 100vh;">
-				<a href="/tasteMain" class="d-block p-3 link-dark text-decoration-none" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
-					<img alt="" src="/resources/images/main/logo2.png" width="40" height="30">
-					<span class="visually-hidden">Icon-only</span>
-				</a>
-				<ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-					<li class="nav-item">
-						<a href="/storeList" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-credit-card text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/favorite" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-heart text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/chat" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-					<!-- <li>
-						<a href="/story" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fas fa-light fa-pen-to-square text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/comment" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fa-regular fa-thumbs-up text-white" style="font-size: 22px;"></i>
-						</a>
-					</li> -->
-					<li>
-						<a href="/findWay" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-							<i class="fa-solid fa-signs-post text-white" style="font-size: 22px;"></i>
-						</a>
-					</li>
-				</ul>
-				<div class="dropdown">
-					<a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-						<img src="https://github.com/mdo.png" alt="mdo" width="30" height="30" class="rounded-circle">
-					</a>
-					<ul class="dropdown-menu text-small shadow" style="">
-						<li><a class="dropdown-item" href="#">New project...</a></li>
-						<li><a class="dropdown-item" href="#">Settings</a></li>
-						<li><a class="dropdown-item" href="#">Profile</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><button type="button" id="signOutBtn" class="dropdown-item">Sign out</button></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+    	
+    	<!-- sidebar s -->
+    	<%@include file="../../xdmin/includeV1/mainSidebar.jsp"%>
+		<!-- sidebar e -->
+		
 		<div class="map_container" id="container">
 			<form id="myForm" name="myForm">
 				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
@@ -380,6 +333,13 @@
 				$(".label_search").text("장소 검색");
 			}
 		};
+		
+		var goUrlLogin = "/login";
+    	
+    	$("#loginBtn").on("click", function() {
+			window.location.href = goUrlLogin;
+		})
+		
 	</script>
 	<script type="text/javascript">
 	

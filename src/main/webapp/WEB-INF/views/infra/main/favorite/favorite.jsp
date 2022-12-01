@@ -62,47 +62,88 @@
 											<td>
 												<h2 class="ms-4 title" style="text-shadow: 2px 5px lightgrey;">My Favorite Restaurants</h2>
 											</td>
-											<td>
-												<h5 class="me-3" style="text-align: right;">nn개</h5>
-											</td>
 										</tr>
 									</table>
-									<hr class="ms-4 me-3">
-									<table>
-										<tr>
-											<td>
-												<select class="form-select ms-4 me-3" aria-label="Default select example" style="width: 100px; border-style: none; ">
-													<option value="1">최신순</option>
-													<option value="2">거리순</option>
-													<option value="3">...</option>
-												</select>	
-											</td>
-											<td style="width: 70px">
-												<button type="button" class="btn btn-outline-danger" >삭제</button>
-											</td>
-											<td>
-												<input type="checkbox" class="form-check-input" name="chkAll" id="chAll" onclick="checkAll(this)">
-											</td>
-										</tr>
-									</table>
-									<!-- List s -->
-									<hr class="ms-4 me-3">
-									<div class="ms-4 me-3">
-										<h3>오리지널시카고피자 홍대본점</h3>
-										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
-										<a class="pt-2" style="display: block; color: #666666; font-size: 18px;">서울특별시 마포구 서교동 395-78 3층</a>
-										<a style="color: #666666; font-size: 18px;"></a>
+									<div class="contents">
+										<!-- 주변 카드 뷰 -->
+										<div class="container">
+											<div class="row justify-content-center">
+												<a href="#" id="goForm">
+													<div class="card_wrap" style="width: 95%; padding-left: 30px;">
+									           			<div class="row pt-3">
+										           			<div class="card shadow bg-body rounded border border-0">
+															    <div class="card-body cardcc">
+															    	<div class="row">
+																		<div class="col-3">
+																			<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 85px; height: 85px;">
+																		</div>
+																		<div class="col-9">
+																			<h5 class="card-title"><b>아놀로지</b></h5>
+																			<p class="card-text">서울특별시 마포구 서교동 395-78 3층</p>
+																			<div class="row justify-content-between">
+																				<div class="col-8 text-start"><p class="card-text">대흥역 3번 출구 도보 100m</p></div>
+																				<div class="col-4 text-end"><button class="custom-btn btn-15"> <i class="fa-solid fa-trash-can"></i> 삭제 </button></div>
+																			</div>
+																		</div>
+																	</div>
+															   	</div>
+														    </div>
+														</div>
+													</div>
+												</a>
+												<a href="#" id="goForm">
+													<div class="card_wrap" style="width: 95%; padding-left: 30px;">
+									           			<div class="row pt-3">
+										           			<div class="card shadow bg-body rounded border border-0">
+															    <div class="card-body cardcc">
+															    	<div class="row">
+																		<div class="col-3">
+																			<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 85px; height: 85px;">
+																		</div>
+																		<div class="col-9">
+																			<h5 class="card-title"><b>아놀로지</b></h5>
+																			<p class="card-text">서울특별시 마포구 서교동 395-78 3층</p>
+																			<div class="row justify-content-between">
+																				<div class="col-8 text-start"><p class="card-text">대흥역 3번 출구 도보 100m</p></div>
+																				<div class="col-4 text-end"><button class="custom-btn btn-15"> <i class="fa-solid fa-trash-can"></i> 삭제 </button></div>
+																			</div>
+																		</div>
+																	</div>
+															   	</div>
+														    </div>
+														</div>
+													</div>
+												</a>
+												<a href="#" id="goForm">
+													<div class="card_wrap" style="width: 95%; padding-left: 30px;">
+									           			<div class="row pt-3">
+										           			<div class="card shadow bg-body rounded border border-0">
+															    <div class="card-body cardcc">
+															    	<div class="row">
+																		<div class="col-3">
+																			<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 85px; height: 85px;">
+																		</div>
+																		<div class="col-9">
+																			<h5 class="card-title"><b>아놀로지</b></h5>
+																			<p class="card-text">서울특별시 마포구 서교동 395-78 3층</p>
+																			<div class="row justify-content-between">
+																				<div class="col-8 text-start"><p class="card-text">대흥역 3번 출구 도보 100m</p></div>
+																				<div class="col-4 text-end"><button class="custom-btn btn-15"> <i class="fa-solid fa-trash-can"></i> 삭제 </button></div>
+																			</div>
+																		</div>
+																	</div>
+															   	</div>
+														    </div>
+														</div>
+													</div>
+												</a>
+											</div>
+										</div>
+										<%@include file="../../xdmin/includeV1/pagination.jsp"%>
 									</div>
-									<hr class="ms-4 me-3">
-									<div class="ms-4 me-3">
-										<h3>이놀로지</h3>
-										<input style="float: right;" type="checkbox" class="form-check-input me-4" id="chkBox" name="chkBox" onclick="checkSelectAll(this)">
-										<a class="pt-2" style="display: block; color: #666666; font-size: 18px;">서울특별시 마포구 대흥동 255-2 지1층</a>
-										<a style="color: #666666; font-size: 18px;">대흥역 3번 출구 도보 100m</a>
-									</div>
-									<hr class="ms-4 me-3">
-									<!-- List s -->
+									<!-- contents s -->
 									<!-- contents e -->
+									
 								</div>
 							</div>
 						</div>

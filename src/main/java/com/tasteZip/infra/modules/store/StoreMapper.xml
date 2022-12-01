@@ -199,7 +199,7 @@
 			and m.ifstSeq = #{ifstSeq}
 		<include refid="Base.orderByLimitForMysql" />
 	   	) aa
-		limit 4 offset 0
+		limit 2 offset 0
 	</select> 
 
 	<select id="openingList" resultMap="resultMapObj">

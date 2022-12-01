@@ -60,7 +60,7 @@
 									<table class="mt-3 me-2">
 										<tr>
 											<td>
-												<h2 class="ms-4 title" style="text-shadow: 2px 5px lightgrey;">My List</h2>
+												<h2 class="ms-4 title" style="text-shadow: 2px 5px lightgrey;">My Favorite Restaurants</h2>
 											</td>
 											<td>
 												<h5 class="me-3" style="text-align: right;">nn개</h5>

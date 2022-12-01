@@ -522,6 +522,12 @@
 				}
 			});
 		});
+
+	 	var goUrlLogin = "/login";
+    	
+    	$("#loginBtn").on("click", function() {
+			window.location.href = goUrlLogin;
+		})
 	</script>
 </body>
 

@@ -315,6 +315,12 @@
 			});
 		});
 		
+		var goUrlLogin = "/login";
+    	
+    	$("#loginBtn").on("click", function() {
+			window.location.href = goUrlLogin;
+		})
+		
 		var content = $("#shValue").val();
 
 		window.addEventListener("load", function() {
@@ -334,11 +340,7 @@
 			}
 		};
 		
-		var goUrlLogin = "/login";
-    	
-    	$("#loginBtn").on("click", function() {
-			window.location.href = goUrlLogin;
-		})
+		
 		
 	</script>
 	<script type="text/javascript">

@@ -60,7 +60,7 @@
 									<table class="mt-3 me-2">
 										<tr>
 											<td>
-												<h2 class="ms-4 title" style="text-shadow: 2px 5px lightgrey;">MatZip List</h2>
+												<h2 class="ms-4 title" style="text-shadow: 2px 5px lightgrey;">My List</h2>
 											</td>
 											<td>
 												<h5 class="me-3" style="text-align: right;">nn개</h5>
@@ -184,6 +184,26 @@
 	function newPage() {
 		window.location.href = ''
 	}
+	</script>
+	<script type="text/javascript">
+		$("#signOutBtn").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
+		});
+		
+		var goUrlLogin = "/login";
+		
+		$("#loginBtn").on("click", function() {
+			window.location.href = goUrlLogin;
+		})
 	</script>
 </body>
 

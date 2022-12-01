@@ -448,6 +448,12 @@
 			});
 		});
 	 	
+		var goUrlLogin = "/login";
+    	
+    	$("#loginBtn").on("click", function() {
+			window.location.href = goUrlLogin;
+		})
+	 	
 	 	var goUrlForm = "/menu";
 	 	var goUrlComment = "/comment/storeComment";
 		var seq = $("input[name=ifstSeq]");

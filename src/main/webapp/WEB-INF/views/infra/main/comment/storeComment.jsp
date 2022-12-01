@@ -438,6 +438,24 @@
 			}
 		}
 		
+		$("#signOutBtn").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
+		});
+		
+		var goUrlLogin = "/login";
+    	
+    	$("#loginBtn").on("click", function() {
+			window.location.href = goUrlLogin;
+		})
 	
 	</script>
 	<script type="text/javascript">

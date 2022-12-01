@@ -124,8 +124,12 @@ public class MainController {
         return "infra/main/order/main";
     }
     
+    public void Ssession(Store dto, HttpSession httpSession) {
+        httpSession.setAttribute("SsessSeq", dto.getIfstSeq());    
+    }
+    
     @RequestMapping(value = "storeList") 
-    public String storeList(@ModelAttribute("vo") StoreVo vo, Model model) throws Exception {
+    public String storeList(@ModelAttribute("vo") StoreVo vo, Model model, HttpSession httpSession) throws Exception {
     	
     	vo.setParamsPaging(sService.selectOneCount(vo));
     	

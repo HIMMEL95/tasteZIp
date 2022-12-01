@@ -169,7 +169,7 @@
 													<div>
 							          					<c:forEach items="${store}" var="store" varStatus="status">
 							          					<input type="hidden" name="seq" value="${store.seq }">
-														<a href="javascript:goForm(${store.ifstSeq})">
+														<a href="javascript:goForm(${store.ifstSeq})" id="goForm">
 															<div class="card_wrap" style="width: 95%;">
 											           			<div class="row pt-3">
 												           			<div class="card shadow bg-body rounded border border-0">
@@ -194,7 +194,7 @@
 																					<h5 class="card-title"><b>${store.ifstName}</b></h5>
 																					<p class="card-text">${store.ifstAddress}</p>
 																					<br>
-																					<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark">출발</button>
+																					<button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark">출발</button>
 																					<button type="button" class="btn btn-sm btn-outline-danger">도착</button>
 																					<input type="hidden" name="ifstLat" value="${store.ifstLat} ">
 																					<input type="hidden" name="ifstLng" value="${store.ifstLng}">
@@ -395,28 +395,61 @@
 	
 		var seq = $("input[name=ifstSeq]");
 		
-		goForm = function(keyValue) {
-			seq.val(keyValue);
-			form.attr("action", goUrlForm).submit();
-		}
-		
 		goList = function(thisPage){
 			$("input:hidden[name=thisPage]").val(thisPage);
 			form.attr("action", goUrlList).submit();
 		}
 		
-		/* $("#btnDep").on("click", function() {
-			event.preventDefault();
-			$(location).attr("href", goUrlFindWay);
-		}); */
+		 goForm = function(keyValue) {
+			seq.val(keyValue);
+			form.attr("action", goUrlForm).submit();
+		} 
 		
-		$('#btnDep').on("click", function(keyValue) {
+		$("#btnDep").on("click", function(keyValue) {
 			event.preventDefault();
-			/* event.stopPropagation() */
-			/* event.stopImmediatePropagation() */
 			seq.val(keyValue);
 			form.attr("action", goUrlFindWay).submit();
- 		});
+		}); 
+		
+		
+		/* $('#btnDep').on("click", function() { 
+			event.stopPropagation();
+			goWay = function(keyValue) {
+				seq.val(keyValue);
+				form.attr("action", goUrlFindWay).submit();
+			}
+		} */
+		
+		/*  $('#btnDep').on("click", function(keyValue) {
+			event.preventDefault();
+			alert(seq);
+			seq.val(keyValue);
+			form.attr("action", goUrlFindWay).submit();
+ 		});  */
+ 		
+ 		 /* $("#btnDep").on("click", function() {
+  			event.preventDefault();
+  			alert(seq);
+ 			$(location).attr("href", goUrlFindWay);
+ 		});  */
+		 
+		 /*  $('#btnDep').on("click", function() { 
+ 			 event.preventDefault(); 
+	 		goWay = function(keyValue) {
+				seq.val(keyValue);
+			form.attr("action", goUrlFindWay).submit();
+			}
+		 } */ 
+ 		
+		 /* $('#btnDep').on("click", function() {
+			goWay(0);  
+		});
+		
+		goWay = function(keyValue, seq) {
+			event.stopPropagation()
+			seq.val(keyValue);
+			form.attr("action", goUrlFindWay).submit();
+		}  */
 	</script>
 </body>
 

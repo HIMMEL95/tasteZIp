@@ -56,6 +56,9 @@
 			<exclude-mapping path="/signUp" />
 			<exclude-mapping path="/xdminLogin" />
 			<exclude-mapping path="/findId" />
+			<exclude-mapping path="/findID" />
+			<exclude-mapping path="/findPwd" />
+			<exclude-mapping path="/changePwd" />
 			<exclude-mapping path="/xdminLoginCheck" />
 			<exclude-mapping path="/test/**" />
 			<exclude-mapping path="/rest/**" />

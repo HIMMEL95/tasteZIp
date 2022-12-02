@@ -59,4 +59,15 @@ public class MemberDao {
  	public int idCheck(Member dto) {
  		return sqlSession.selectOne(namespace + ".idCheck", dto);
  	}
+ 	
+ 	/* findId & pwd */
+	public Member findId(Member dto) {
+	    return sqlSession.selectOne(namespace + ".findId", dto);
+    }
+	public int findPwd(Member dto) {
+        return sqlSession.selectOne(namespace + ".findPwd", dto);
+	}
+    public int changePwd(Member dto) {
+         return sqlSession.update(namespace + ".changePwd", dto);
+    }
 }

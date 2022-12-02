@@ -44,7 +44,7 @@
 											<label class="form-label" for="ifmmPwd"> Password</label>
 										</div>
 										<div class="col-auto">
-											<a class="form-text small" href="#" style="color: #FF5733;">Forgot password?</a>
+											<a class="form-text small" href="/findId" style="color: #FF5733;">Forgot password?</a>
 										</div>
 									</div>
 									<input class="form-control" name="ifmmPwd" id="ifmmPwd" placeholder="Password" value="1234" type="password" data-msg="Please enter your password" tabindex="2">

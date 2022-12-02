@@ -267,4 +267,33 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
         return KakaoFriends;
     }
     
+    //find id & pwd
+    @Override
+    public Member findId(Member dto) throws Exception {
+        
+        Member id = dao.findId(dto);
+        System.out.println("id : " + id.getIfmmId());
+        
+        String myId = id.getIfmmId().substring(0, id.getIfmmId().length()-3);
+        int starLength = id.getIfmmId().length()- myId.length();
+        
+        for (int i=0; i<starLength; i++) {
+            myId += "*";
+        }
+        
+        dto.setIfmmId(myId);
+        
+        return dto;
+    }
+
+    @Override
+    public int findPwd(Member dto) throws Exception {
+        return dao.findPwd(dto);
+    }
+
+    @Override
+    public int changePwd(Member dto) throws Exception {
+        dto.setIfmmPwd(UtilSecurity.encryptSha256(dto.getIfmmPwd()));
+        return dao.changePwd(dto);
+    }
 }

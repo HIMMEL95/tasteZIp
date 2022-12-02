@@ -317,4 +317,36 @@
 	</insert>
 	<!-- sns insert e -->
 	
+	<!-- 아이디 패스워드 찾기 s -->
+	<select id="findId" resultMap="resultMapObj">
+		select
+			m.ifmmId
+		from member m
+		where 1=1
+			and m.ifmmName = #{ifmmName}
+			and m.ifmmDob = #{ifmmDob}
+			and m.ifmmPhone = #{ifmmPhone}
+	</select>
+	
+	<select id="findPwd" parameterType="String" resultType="int">
+		select 
+			count(*)
+		from member m
+		where 1=1
+			and m.ifmmId = #{ifmmId}
+			and m.ifmmName = #{ifmmName}
+			and m.ifmmDob = #{ifmmDob}
+	</select>
+
+	<update id="changePwd">
+		UPDATE member
+		SET
+			ifmmPwd = #{ifmmPwd}
+		where 1=1
+			and ifmmId = #{ifmmId}
+			and ifmmName = #{ifmmName}
+			and ifmmDob = #{ifmmDob}
+	</update>
+	<!-- 아이디 패스워드 찾기 e -->
+	
 </mapper>

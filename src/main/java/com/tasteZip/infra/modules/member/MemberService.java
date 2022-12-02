@@ -47,4 +47,9 @@ public interface MemberService {
     
  // id 중복체크 
     public int idCheck(Member dto)throws Exception;
+    
+    /* findId & pwd */
+	public Member findId(Member dto) throws Exception;
+	public int findPwd(Member dto) throws Exception;
+	public int changePwd(Member dto) throws Exception;
 }

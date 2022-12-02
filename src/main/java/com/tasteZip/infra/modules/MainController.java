@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.modules.chat.Chat;
 import com.tasteZip.infra.modules.chat.ChatServiceImpl;
@@ -80,11 +81,9 @@ public class MainController {
     }
 
     @RequestMapping(value = "chatPre")
-    public String chatPre(Chat dto, HttpServletRequest request) throws Exception {
-        /*
-         * KakaoFriends friends = mbService.addReady(dto, request);
-         * System.out.println("friends : "+ friends);
-         */
+    public String chatPre(HttpSession httpSession, Model model) throws Exception {
+        List<Chat> list = cService.selectChatListFromOne(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()));
+        model.addAttribute("list", list);
         return "infra/main/chat/chatPre";
     }
     

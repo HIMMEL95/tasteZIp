@@ -145,8 +145,6 @@ public class OrderController {
 
         String seq = httpSession.getAttribute("sessSeq").toString();
         vo.setIfmmSeq(seq);
-        System.out.println("iforSeq1 : " + dto.getIforSeq());
-        System.out.println("iforSeq2 : " + vo.getIforSeq());
         Order item = service.selectOne(vo);
         model.addAttribute("item", item);
         

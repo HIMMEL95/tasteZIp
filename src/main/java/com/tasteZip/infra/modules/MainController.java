@@ -81,8 +81,10 @@ public class MainController {
 
     @RequestMapping(value = "chatPre")
     public String chatPre(Chat dto, HttpServletRequest request) throws Exception {
-        KakaoFriends friends = mbService.addReady(dto, request);
-        System.out.println("friends : "+ friends);
+        /*
+         * KakaoFriends friends = mbService.addReady(dto, request);
+         * System.out.println("friends : "+ friends);
+         */
         return "infra/main/chat/chatPre";
     }
     

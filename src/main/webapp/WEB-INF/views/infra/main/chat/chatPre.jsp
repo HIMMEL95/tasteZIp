@@ -60,18 +60,25 @@
 						          </div>
 						          <div class="inbox_chat friends"  id="friendsList">
 						          	<p style="">친구 : 20</p>
-						            <a href="/chatRoom">
-							            <div class="chat_list active_chat">
-							              <div class="chat_people">
-							                <div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
-							                <div class="chat_ib">
-							                  <h5>가나다</h5>
-							                  <p>Test, which is a new approach to have all solutions 
-							                    astrology under one roof.</p>
-							                </div>
-							              </div>
-							            </div>
-						            </a>
+									<c:forEach items="${list }" var="list" varStatus="status">
+							            <a href="/chatRoom">
+								            <div class="chat_list active_chat">
+								              <div class="chat_people">
+								                <div class="chat_img">
+								                	<img src="
+								                		<c:if test="${list.path ne null }">
+								                			${list.path }${list.uuidName }
+								                		</c:if>
+								                	" alt="sunil" class="chatImg"> </div>
+								                <div class="chat_ib">
+								                  <h5>${list.ifmmId }</h5>
+								                  <p>Test, which is a new approach to have all solutions 
+								                    astrology under one roof.</p>
+								                </div>
+								              </div>
+								            </div>
+							            </a>
+									</c:forEach>						          	
 						            <a href="/chatRoom">
 							            <div class="chat_list">
 							              <div class="chat_people">

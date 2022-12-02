@@ -62,6 +62,16 @@
                   <li class="mt-5 pb-3"><button type="button" class="btn btn-dark text-center" id="signOutBtn"><b>Log out</b></buttton></li>
                 </ul>
               </div>
+				<article class="box weather">
+					<div class="icon bubble black" style="margin-bottom: 10px;">
+						<div class="spin">
+							<img src="https://dl.dropbox.com/s/0qq5anxliaopt8d/sun.png">
+						</div>
+					</div>
+					<h1>Monday</h1>
+					<span class="temp">23&deg;</span>
+					<span class="high-low">15&deg;/ 28&deg;</span>
+				</article>
             </div>
          </aside>
          
@@ -82,7 +92,107 @@
            				</div>
            			</div>
            			<div class="row pt-5 mb-3 font"><h4><b>Recently Chat</b></h4></div>
-					<div id="container"></div>
+           			<!-- <div class="mt-3 font dashBord2 row">
+						<div class="col">
+							<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+							<br>
+							<span style="display: block; margin-left: 61px;">ㅇㅇㅇ</span>
+							<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+							<button type="button" class="btn btn-primary position-relative" style="display: block; margin-left: 52px; margin-top: 10px;">
+							 	Reply
+								<span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+									<span class="visually-hidden">New alerts</span>
+								</span>
+							</button>
+           				</div>
+           				<div class="col">
+           					<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+           					<span style="display: block; margin-left: 63px;">ㅇㅇㅇ</span>
+           					<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+           				</div>
+           				<div class="col">
+           					<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+           					<span style="display: block; margin-left: 65px;">ㅇㅇㅇ</span>
+           					<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+           				</div>
+           				<div class="col">
+           					<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+           					<span style="display: block; margin-left: 68px;">ㅇㅇㅇ</span>
+           					<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+           				</div>
+           				<div class="pt-4" style="margin-left: 170px;">
+	           				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" style="left: 333px; top: 542px; height: 200px;">
+								<i class="fa-solid fa-chevron-left" style="color: black;"></i>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" style="top: 542px; height: 200px;">
+								<i class="fa-solid fa-chevron-right" style="color: black;"></i>
+								<span class="visually-hidden">Next</span>
+							</button>
+	           			</div>
+	          		</div> -->
+					<div id="container">
+						<div class="slide_wrap">
+							<div class="slide_box">
+								<div class="slide_list clearfix">
+									<div class="slide_content slide01">
+										<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+			           					<span style="display: block; margin-left: 63px;">ㅇㅇㅇ</span>
+			           					<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+										<button type="button" class="btn btn-primary position-relative" style="display: block; margin-left: 52px; margin-top: 10px;">
+										 	Reply
+											<span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+												<span class="visually-hidden">New alerts</span>
+											</span>
+										</button>
+									</div>
+									<div class="slide_content slide02">
+										<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+										<br>
+										<span style="display: block; margin-left: 61px;">ㅇㅇㅇ</span>
+										<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+										<button type="button" class="btn btn-primary position-relative" style="display: block; margin-left: 52px; margin-top: 10px;">
+										 	Reply
+										</button>
+									</div>
+									<div class="slide_content slide03">
+										<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+										<br>
+										<span style="display: block; margin-left: 61px;">ㅇㅇㅇ</span>
+										<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+										<button type="button" class="btn btn-primary position-relative" style="display: block; margin-left: 52px; margin-top: 10px;">
+										 	Reply
+										</button>
+									</div>
+									<div class="slide_content slide04">
+										<img src="/resources/images/main/user.png" style="width: 150px; height: 135px; z-index:10; position: relative; margin: 5px 0 0 10px;">
+										<br>
+										<span style="display: block; margin-left: 61px;">ㅇㅇㅇ</span>
+										<span style="text-align: center; margin-left: 20px;">2022-12-01 14:46</span>
+										<button type="button" class="btn btn-primary position-relative" style="display: block; margin-left: 52px; margin-top: 10px;">
+										 	Reply
+										</button>
+									</div>
+								</div>
+       							<!-- // .slide_list -->
+      						</div>
+							<!-- // .slide_box -->
+							<div class="slide_btn_box">
+								<button type="button" class="slide_btn_prev">
+									<i class="fa-solid fa-chevron-left" style="color: black;"></i>
+									<span class="visually-hidden">Previous</span>
+								</button>
+								<button type="button" class="slide_btn_next">
+									<i class="fa-solid fa-chevron-right" style="color: black;"></i>
+									<span class="visually-hidden">Next</span>
+								</button>
+							</div>
+						      <!-- // .slide_btn_box -->
+							<ul class="slide_pagination"></ul>
+						      <!-- // .slide_pagination -->
+						</div>
+						    <!-- // .slide_wrap -->
+					</div>
 						  <!-- // .container -->
           		<!-- </div> -->
 	         </section>

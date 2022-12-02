@@ -255,9 +255,8 @@
 																											<div class="col-5 text-start" id="reviewID">
 																												<span><c:out value="${list.ifmmId}"/></span>
 																											</div>
-																											<div class="col-6 text-end" id="reviewID">
-																												<button type="button" class="btn btn-outline-secondary btn-sm modalBtn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${list.ifcmSeq }" onclick="test(${list.ifcmSeq })"><i class="fa-solid fa-trash"></i> 삭제하기</button>
-																												
+																											<div class="col-6 text-end mb-3" id="reviewID">
+																												<button type="button" class="modalBtn learn-more2" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="${list.ifcmSeq }" onclick="test(${list.ifcmSeq })"><i class="fa-solid fa-trash"></i> 삭제하기</button>
 																												<!-- Modal -->
 																												<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1000;">
 																												  <div class="modal-dialog">
@@ -314,8 +313,11 @@
 																													</c:otherwise>
 																												</c:choose>
 																											</div>
-																											<div class="col-11 text-start" id="reviewID">
+																											<div class="col-5 text-start" id="reviewID">
 																												<span><c:out value="${list.ifmmId}"/></span>
+																											</div>
+																											<div class="col-6 text-end mb-3" id="reviewID">
+																												<button class="learn-more"><i class="fa-solid fa-comments"></i> 채팅하기</button>
 																											</div>
 																										</div>
 																										<div class="row justify-content-between">

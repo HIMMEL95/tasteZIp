@@ -57,6 +57,7 @@
 							<div class="ng-star-inserted entry-layout">
 								<!-- content s -->
 		  						<input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
+		  						<input type="hidden" name="ifmmSeq" value="<c:out value="${sessSeq}"/>"/>
 								<div class="entry-place-bridge">
 									<div class="entry_wrap loaded ng-star-inserted">
 										<div class="place_on_pcmap">
@@ -120,6 +121,25 @@
 																		<i class="fa-solid fa-location-dot"></i>
 																		도착															
 																	</a>
+																	<button type="button" id="fv" class="gd2MP">		
+																		<c:choose>
+																			<c:when test="${empty item.iffvUseNy}">
+																				<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="0">
+																				<i class="fa-regular fa-heart"></i> 좋아요
+																			</c:when>
+																			<c:otherwise>
+																				<c:choose>
+																					<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="${item.iffvUseNy }">
+																					<c:when test="${item.iffvUseNy eq 0 }"> <!-- value(useNy)가 0일때 -->
+																						<i class="fa-regular fa-heart"></i> 좋아요
+																					</c:when>
+																					<c:otherwise>
+																						<i class="fa-solid fa-heart"></i> 좋아요
+																					</c:otherwise>
+																				</c:choose>
+																			</c:otherwise>
+																		</c:choose>
+																	</button>
 																</div>
 															</div>
 															<div style="background: #e2e5e8; height: 10px;"></div>
@@ -456,6 +476,8 @@
 	 	
 	 	var goUrlForm = "/menu";
 	 	var goUrlComment = "/comment/storeComment";
+	 	var goUrlInst = "/store/favoriteInst";
+	 	var goUrlUpdt = "/store/favoriteUpdt";
 		var seq = $("input[name=ifstSeq]");
 		var form = $("#myForm");
 		
@@ -468,6 +490,18 @@
 			seq.val(keyValue);
 			form.attr("action", goUrlComment).submit();
 		}
+		
+		/* favorite s */
+		$("#fv").on("click", function() {
+			if ($("#iffvUseNy").val() == '0') {
+				$("#iffvUseNy").val("1")
+				form.attr("action", goUrlInst).submit();
+			} else {
+				$("#iffvUseNy").val("0")
+				form.attr("action", goUrlUpdt).submit();
+			}
+		})
+		/* favorite e */
 	</script>
 </body>
 

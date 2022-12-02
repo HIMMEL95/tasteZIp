@@ -258,7 +258,7 @@
 									<button type="button" id="buyBtn" class="btn btnOrder position-relative" style="margin-left: 200px; float: right; margin-bottom: 0px; bottom: 20px; right: 40px;">
 										주문하기
 										<i class="fa-solid fa-cart-plus"></i>
-										<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">1</span>
+										<span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger" style="display: none;">1</span>
 									</button>
 								</div>
 								<!-- content e -->

@@ -14,6 +14,7 @@ public class StoreVo extends BaseVo {
     private String ifmnSeq;
     private String ifstLat;
     private String ifstLng;
+    private String iffvSeq;
     private String seq;
     
    
@@ -83,5 +84,12 @@ public class StoreVo extends BaseVo {
 	public void setIfstLng(String ifstLng) {
 		this.ifstLng = ifstLng;
 	}
+	public String getIffvSeq() {
+		return iffvSeq;
+	}
+	public void setIffvSeq(String iffvSeq) {
+		this.iffvSeq = iffvSeq;
+	}
     
+	
 }

@@ -47,6 +47,9 @@ public class Store extends Base {
     private String ifmnName;
     private String ifmnInfo;
     
+    // favorite
+    private String iffvSeq;
+    private String iffvUseNy;
     
     public MultipartFile[] getStoreImage() {
         return storeImage;
@@ -245,5 +248,20 @@ public class Store extends Base {
 	public void setIfmnInfo(String ifmnInfo) {
 		this.ifmnInfo = ifmnInfo;
 	}
+	
+	// favorite
+	public String getIffvSeq() {
+		return iffvSeq;
+	}
+	public void setIffvSeq(String iffvSeq) {
+		this.iffvSeq = iffvSeq;
+	}
+	public String getIffvUseNy() {
+		return iffvUseNy;
+	}
+	public void setIffvUseNy(String iffvUseNy) {
+		this.iffvUseNy = iffvUseNy;
+	}
+	
     
 }

@@ -107,11 +107,30 @@ public class StoreServiceImpl implements StoreService {
         return dao.update(dto);
     }
 
+    
+    // favorite
+    @Override
+    public int insertFv(Store dto) throws Exception {
+    	return dao.insertFv(dto);
+    }
+   
+    @Override
+    public int updateFv(Store dto) throws Exception {
+    	return dao.updateFv(dto);
+    }
+    
+    @Override
+    public Store storeSelectOne(StoreVo vo) throws Exception {
+        return dao.storeSelectOne(vo);
+    }
+    
+    
+    
     @Override
     public int runningInsert(Store dto) throws Exception {
         return dao.runningInsert(dto);
     }
-
+    
     @Override
     public int runningUpdate(Store dto) throws Exception {
         return dao.runningUpdate(dto);

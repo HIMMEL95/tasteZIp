@@ -40,6 +40,12 @@ public class StoreDao {
     
     public int insert(Store dto) { return sqlSession.insert(namespace + ".insert", dto); }
     public int update(Store dto) { return sqlSession.update(namespace + ".update", dto); }
+    
+    //favorite
+    public int insertFv(Store dto) { return sqlSession.insert(namespace + ".insertFv", dto); }
+    public int updateFv(Store dto) { return sqlSession.update(namespace + ".updateFv", dto); }
+    public Store storeSelectOne(StoreVo vo) { return sqlSession.selectOne(namespace + ".storeSelectOne", vo); }
+    
     public int runningInsert(Store dto) { return sqlSession.insert(namespace + ".runningInsert", dto); }
     public int runningUpdate(Store dto) { return sqlSession.update(namespace + ".runningUpdate", dto); }
 

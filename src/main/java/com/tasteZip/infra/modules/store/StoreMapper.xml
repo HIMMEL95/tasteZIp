@@ -175,6 +175,32 @@
 			and su.sort = 1
 	</select>
 	
+	<select id="storeSelectOne" resultMap="resultMapObj">
+		select 
+			s.ifstSeq
+			,s.ifstName
+			,s.ifstPhone
+			,s.ifstZipCode
+			,s.ifstAddress
+			,s.ifstAddressDetail
+			,s.ifstAddressExtra
+			,s.ifstLat
+			,s.ifstLng
+			,s.ifstInfo
+			,s.ifstDirections
+			,s.ifstOrderNy
+			,su.path
+			,su.uuidName
+			,fv.iffvSeq
+			,fv.iffvUseNy
+	    from store s
+	    	left join storeUploaded su on su.pseq = s.ifstSeq
+	    	left join favorite fv on fv.ifstSeq = s.ifstSeq
+		where 1=1
+			and s.ifstSeq = #{ifstSeq}
+			and su.sort = 1
+	</select>
+	
 	<select id="storeMain" resultMap="resultMapObj">
 		select 
 			s.*
@@ -194,10 +220,10 @@
 			,up.uuidName
 			,up.pseq
 	    from menu m
-	    left join menuUploaded up on up.pseq = m.ifstSeq
+	    left join menuUploaded up on up.pseq = m.ifmnSeq
 	    left join store s on s.ifstSeq = m.ifstSeq
 		where 1=1
-			and up.pseq = #{ifstSeq}
+			and m.ifstSeq = #{ifstSeq}
 		<include refid="Base.orderByLimitForMysql" />
 	   	) aa
 		limit 2 offset 0
@@ -383,4 +409,31 @@
 		</selectKey>
 	</insert>
 	
+	<!-- favorite Insert -->
+	<insert id="insertFv">
+		INSERT INTO favorite (
+			ifstSeq 
+			,iffvUseNy 
+			,ifmmSeq
+		)
+		VALUES (
+			#{ifstSeq}
+			,#{iffvUseNy}
+			,#{ifmmSeq}
+		)
+		<selectKey resultType="String" keyProperty="iffvSeq" order="AFTER">
+			SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	<!-- favorite update -->
+	<update id="updateFv">
+		UPDATE favorite
+		SET
+			iffvSeq = #{iffvSeq}
+			,iffvUseNy = #{iffvUseNy}
+			,ifmmSeq = #{ifmmSeq}
+			,ifstSeq = #{ifstSeq}
+		where 1=1
+			and iffvSeq = #{iffvSeq}
+	</update>
 </mapper>

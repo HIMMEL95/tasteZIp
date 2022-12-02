@@ -48,7 +48,7 @@ public class StoreController {
 	@RequestMapping(value = "storeMain")
 	public String storeMain(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
 		
-		Store item = service.xdminSelectOne(vo);
+		Store item = service.storeSelectOne(vo);
 	    model.addAttribute("item", item);
 	    
 	    List<Store> menu = service.menuList(vo);
@@ -86,6 +86,26 @@ public class StoreController {
 	    System.out.println("seq : " +  dto.getIfstSeq());
 	    redirectAttributes.addFlashAttribute("vo", vo);
 	    return "redirect:/store/ownerStoreForm";
+	}
+	
+	// favorite
+	
+	@RequestMapping(value = "favoriteInst")
+	public String favoriteInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	    
+		service.insertFv(dto);
+	    vo.setIffvSeq(dto.getIffvSeq());
+	    redirectAttributes.addFlashAttribute("vo", vo);
+	    return "redirect:/store/storeMain";
+	}
+
+	@RequestMapping(value = "favoriteUpdt")
+	public String favoriteUpdt(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
+	    
+		service.updateFv(dto);
+	    vo.setIffvSeq(dto.getIffvSeq());
+	    redirectAttributes.addFlashAttribute("vo", vo);
+	    return "redirect:/store/storeMain";
 	}
 	
 	@RequestMapping(value = "storeDele")

@@ -15,8 +15,23 @@ public class MenuVo extends BaseVo {
 	private Integer shOptionDate;
 	
 	private String ifstSeq;
+	private String price;
+	private String count;
 	
-	private int[] ifmnSeqArr;
+	public String getPrice() {
+        return price;
+    }
+    public void setPrice(String price) {
+        this.price = price;
+    }
+    public String getCount() {
+        return count;
+    }
+    public void setCount(String count) {
+        this.count = count;
+    }
+
+    private int[] ifmnSeqArr;
 
     public int[] getIfmnSeqArr() {
         return ifmnSeqArr;

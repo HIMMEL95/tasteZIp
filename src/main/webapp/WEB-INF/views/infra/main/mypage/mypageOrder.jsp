@@ -22,6 +22,9 @@
 <body>
 	<!-- 상단 -->
 	<form id="myform" name="myform" method="post">
+		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+      	<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+      	<input type="hidden" name="iforSeq" value="${vo.iforSeq}">
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
@@ -67,7 +70,6 @@
           <section class="col-lg-8">
             <!-- list-->
        			<input type="hidden" name="ifmmSeq" value="${sessSeq }">
-           		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            		<div class="cotainer">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
            			<div class="row pt-5 mb-3 font"><h4><b>Order List</b></h4></div>
@@ -80,7 +82,6 @@
 			           			<div class="row pt-3">
 				           			<div class="card">
 								      <div class="card-body cardcc">
-								      	<input type="hidden" name="iforSeq" value="${list.iforSeq}">
 								        <h5 class="card-title"><b>${list.ifstName}</b></h5>
 								        <p class="card-text">주문날짜: ${list.iforCreatedAt}</p>
 								      	<button type="button" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button>
@@ -91,6 +92,7 @@
           				</c:otherwise>
            			</c:choose>
            		</div>
+           		<%@include file="../../xdmin/includeV1/pagination.jsp"%>
           </section>
         </div>
      </div>
@@ -116,7 +118,12 @@
 		goForm = function (keyValue) {
 			seq.val(keyValue);
 			form.attr("action", goUrlForm).submit();
-		}	   	
+		}
+		
+		goList = function (thisPage) {
+			$("input:hidden[name=thisPage]").val(thisPage);
+			form.attr("action", goUrlList).submit();
+		}
 		
     </script>
     <script type="text/javascript">

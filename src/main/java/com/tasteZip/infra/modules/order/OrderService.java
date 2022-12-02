@@ -17,14 +17,19 @@ public interface OrderService {
 	
 	// selectone Count
 	public int selectOneCount(OrderVo vo) throws Exception;
+	public int myOrderCount(OrderVo vo) throws Exception;
 	
 	//selectone
+	public List<Order> myPageViewMenu(OrderVo vo) throws Exception;
 	public Order selectOne(OrderVo vo) throws Exception;
 	
 	//uele list
 	public int ueleteList(String iforSeq) throws Exception;
 	
+	public int insertBuy(Order dto) throws Exception;
 	public int insertOrder(Order dto) throws Exception;
+	
+	public Order payFin(OrderVo vo) throws Exception;
 
 }
 

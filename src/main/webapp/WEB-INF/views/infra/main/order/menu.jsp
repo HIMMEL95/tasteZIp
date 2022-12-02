@@ -388,6 +388,9 @@
 		
 		var ifmnName = [];
 		var ifmnPrice = [];
+		var price = "";
+		var quantity = "";
+		var count = [];
 		goCart = function (value) {
 			
 			$(".bg-white").css("display", "");
@@ -400,9 +403,12 @@
 				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
 				$(".menuSeq"+value).html(innerHtml);
 				result += value + " ";
+				price += $("input[name=price"+value+"]").val() + " ";
+				quantity += "1 ";
 				
 				ifmnName.push($("input[name=name"+value+"]").val())
 				ifmnPrice.push($("input[name=price"+value+"]").val())
+				count.push("1");
 				
 				$(".badge").css("display", "");
 				$(".badge").html(ifmnName.length);
@@ -425,6 +431,9 @@
 			totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			
 			$(".totalPrice").html(totalPrice + " 원");
+			console.log(ifmnName)
+			console.log(ifmnPrice)
+			console.log(count)
 		}
 		
 		var goUrlCart = "/order/cartOrder";
@@ -442,6 +451,8 @@
 				,data: {
 					ifmnSeq : result
 					,ifstSeq : $("input[name=ifstSeq]").val()
+					,ifmnPrice : price
+					,count : quantity
 				}
 				,success : function(response) {
 					if (response.rt == "success") {

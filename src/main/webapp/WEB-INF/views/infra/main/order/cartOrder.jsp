@@ -201,9 +201,20 @@
 			if ($("#pay1:checked").is(":checked")) {
 				kakaoPay();
 			} else {
-				alert("무통장 입금 선택 된")
+				alert("무통장 입금 선택 됨");
 			}
 		})
+		
+		var basicPrice = [];
+		var item = [];
+		var price = [];
+		var count = [];
+		for(var i=0; i<$(".plus").length;i++) {
+			item.push($(".menuSeq"+i).val());
+			price.push($("#price"+i).val());
+			basicPrice.push($("#price"+i).val());
+			count.push($(".quantity"+i).val());
+		}
 		
 		var totalPrice = 0;
 		for(var i=0; i<$(".plus").length;i++) {
@@ -211,11 +222,22 @@
 		}
 		
 		$(".minus, .plus").on("click", function() {
+			item = [];
+			price = [];
+			count = [];
 			totalPrice = 0;
 			for(var i=0; i<$(".plus").length;i++) {
-				totalPrice += (parseInt($("#price"+i).val()) * parseInt($(".quantity"+i).val()));
+				console.log("quantity : " + $(".quantity"+i).val());
+				totalPrice += (parseInt(basicPrice[i]) * parseInt($(".quantity"+i).val()));
+				console.log(totalPrice)
+				$("#price"+i).val(parseInt(basicPrice[i]) * parseInt($(".quantity"+i).val()));
+				item.push($(".menuSeq"+i).val());
+				price.push($("#price"+i).val());
+				count.push($(".quantity"+i).val());
 			}
-			console.log(totalPrice)
+			console.log(item)
+			console.log(price)
+			console.log(count)
 			var a = String(totalPrice);
 			totalPrice = String(totalPrice);
 			$("input[name=totalPrice]").val(a);
@@ -236,40 +258,44 @@
 			form.attr("action", goUrlMenu).submit();
 		};
 		
-		var item = [];
-		for(var i=0; i<$(".plus").length;i++) {
-			item.push($(".menuSeq"+i).val());
-		}
-		console.log(item)
-		
 		delItem = function(value) {
 			alert(value)
 			for (var i=0; i<item.length;i++) {
 				if (item[i] == value) {
 					item.splice(i, 1);
+					price.splice(i, 1);
+					count.splice(i, 1);
 					$("div").remove(".item"+value);
 					$("input").remove("#menuSeq"+value);
 				}
 			}
 			
 			var result = "";
+			var resultPrice = "";
+			var resultCount = "";
 			
 			for(var i=0; i<item.length;i++) {
 				if (i == item.length-1) {
 					result += item[i];
+					resultPrice += price[i];
+					resultCount += count[i];
 				} else {
 					result += item[i] + " ";
+					resultPrice += price[i] + " ";
+					resultCount += count[i] + " ";
 				}
 			}
 			
-			console.log("item : " + item)
-			console.log("result : " + result)
+			console.log("resultPrice : " + resultPrice)
+			console.log("resultCount : " + resultCount)
 			
 			$.ajax({
 				type: "POST"
 				,url: "/menu/cartDel"
 				,data: {
 					ifmnSeq : result
+					,price : resultPrice
+					,totalCount : resultCount
 				}
 				,success : function(response) {
 					if (response.rt == "success") {

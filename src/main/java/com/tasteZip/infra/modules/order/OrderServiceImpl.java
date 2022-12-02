@@ -65,18 +65,37 @@ public class OrderServiceImpl implements OrderService{
 		return dao.selectOne(vo);
 	}
 	
-	// uelete List
+	@Override
+    public List<Order> myPageViewMenu(OrderVo vo) throws Exception {
+        return dao.myPageViewMenu(vo);
+    }
+
+    // uelete List
 	@Override
 	public int ueleteList(String iforSeq) throws Exception {
 		return dao.ueleteList(iforSeq);
 	}
 	
 	@Override
-	public int insertOrder(Order dto) throws Exception {
-	    return dao.insertOrder(dto);
+	public int insertBuy(Order dto) throws Exception {
+	    return dao.insertBuy(dto);
 	}
 	
-	
+    @Override
+    public int insertOrder(Order dto) throws Exception {
+        return dao.insertOrder(dto);
+    }
+    
+    @Override
+    public Order payFin(OrderVo vo) throws Exception {
+        return dao.payFin(vo);
+    }
+
+    @Override
+    public int myOrderCount(OrderVo vo) throws Exception {
+        return dao.myOrderCount(vo);
+    }
+
     /* kakaoPay s */
     // header() 셋팅
     private HttpHeaders getHeaders() throws Exception {
@@ -101,7 +120,7 @@ public class OrderServiceImpl implements OrderService{
         params.add("quantity", dto.getTotalCount().toString());
         params.add("total_amount", dto.getTotalPrice().toString());
         params.add("tax_free_amount", "0");
-        params.add("approval_url", "http://localhost:8080/order/mypageOrderView");
+        params.add("approval_url", "http://localhost:8080/order/kakaopayApproval");
         params.add("cancel_url", "http://localhost:8080/order/cartOrder");
         params.add("fail_url", "http://localhost:8080/order/cartOrder");
         

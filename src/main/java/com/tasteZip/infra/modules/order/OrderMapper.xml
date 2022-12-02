@@ -13,8 +13,8 @@
 			JOIN member m on m.ifmmSeq = b.ifmmSeq
 			JOIN menu mn on mn.ifmnSeq = b.ifmnSeq
 		wHERE 1=1		
-		<if test="shDelNy !=null and !shDelNy.equals('')">AND b.iforDelNy = #{shDelNy}</if>
-		<if test="shOptionDate == 1">AND iforCreatedAt between #{shDateStart} and #{shDateEnd}</if>
+		<if test="shDelNy !=null and !shDelNy.equals('')">AND b.ifbyDelNy = #{shDelNy}</if>
+		<if test="shOptionDate == 1">AND ifbyCreatedAt between #{shDateStart} and #{shDateEnd}</if>
 		<if test="shValue != null"></if>
 		<choose>
 			<when test="shOption == 1">AND s.ifstName = #{shValue}</when>
@@ -22,51 +22,86 @@
 			<when test="shOption == 3">AND m.ifmmName LIKE CONCAT('%', #{shValue},'%')</when>
 		</choose>
 		<choose>
-			<when test="shOptionDate == 1">AND b.iforCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			<when test="shOptionDate == 1">AND b.ifbyCreatedAt BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 		</choose>
 	</sql> 
 	
 	<select id="myOrder" resultMap="resultMapObj">
-		<include refid="Base.selectListUpperForMysql2"/>
+		<include refid="Base.selectListUpperForMysql"/>
 		SELECT
-			b.iforSeq
-			,b.ifmnSeq
-			,b.iforCount
-			,b.iforPrice
-			,b.iforPay
-			,b.iforDelNy
-			,b.iforCreatedAt
-			,b.ifmmSeq
+			o.iforSeq
+			,o.iforCreatedAt
 			,s.ifstName
-		FROM buy b
-			JOIN store s on s.ifstSeq = b.ifstSeq
+		FROM orders o
+			join buy b on b.iforSeq = o.iforSeq
+			join store s on s.ifstSeq = b.ifstSeq
 		WHERE 1=1
 		AND b.ifmmSeq = #{ifmmSeq}
-		ORDER BY b.iforCreatedAt DESC
+		group by o.iforSeq
+		ORDER BY o.iforSeq DESC
 		<include refid="Base.orderByLimitForMysql" />
-		<include refid="Base.selectListLowerForMysql2" /> 
+		) aa
+		limit 5 offset #{startRnumForMysql}
 	</select>
 	
-	<select id="selectOne" resultMap="resultMapObj">
+	<select id="myOrderCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM orders
+		WHERE 1=1
+	</select>
+	
+	<select id="myPageViewMenu" resultMap="resultMapObj">
 		SELECT
-			b.iforSeq
-			,b.ifmnSeq
-			,b.iforCount
-			,b.iforPrice
-			,b.iforPay
-			,b.iforDelNy
-			,b.iforCreatedAt
-			,s.ifstName
-			,m.ifmmName
-			,m.ifmmPhone
-			,m.ifmmEmail
-			,mn.ifmnName
+			mn.ifmnName
+			,b.ifbyPrice
+			,b.ifbyCount
+			,mu.path
+    		,mu.uuidName
 		FROM buy b
 			JOIN store s on s.ifstSeq = b.ifstSeq
 			JOIN member m on m.ifmmSeq = b.ifmmSeq
 			JOIN menu mn on mn.ifmnSeq = b.ifmnSeq
+			join menuUploaded mu on mu.pseq = b.ifmnSeq
 		WHERE 1=1
 		 	and b.iforSeq = #{iforSeq}  <!-- 일단 조건값을 넣어줌 -->
+	</select>
+	
+	<select id="selectOne" resultMap="resultMapObj">
+		SELECT
+			s.ifStName
+			,o.iforCreatedAt
+			,m.ifmmName
+			,m.ifmmPhone
+			,m.ifmmEmail
+			,o.iforPrice
+			,o.iforSeq
+		FROM buy b
+			JOIN store s on s.ifstSeq = b.ifstSeq
+			JOIN member m on m.ifmmSeq = b.ifmmSeq
+			join orders o on o.iforSeq = b.iforSeq
+		WHERE 1=1
+		 	and b.iforSeq = #{iforSeq}
+	 	group by
+	 		ifstName
+	</select>
+
+	<select id="payFin" resultMap="resultMapObj">
+		SELECT
+			o.iforSeq
+			,o.iforName
+			,o.iforPrice
+			,o.iforCount
+			,o.iforCreatedAt
+			,m.ifmmName
+			,m.ifmmPhone
+			,m.ifmmEmail
+		FROM orders o
+			join buy b on b.iforSeq = o.iforSeq
+			join member m on m.ifmmSeq = b.ifmmSeq
+		WHERE 1=1
+			and o.iforSeq = #{iforSeq}
+		group by 
+			iforSeq
 	</select>
 	
 	<select id="selectOneCount" resultType="Integer">
@@ -77,33 +112,33 @@
 	
 	<select id="selectList" resultMap="resultMapObj">
 		SELECT
-			b.iforSeq
+			b.ifbySeq
 			,s.ifstName
 			,mn.ifmnName
 			,m.ifmmName
 			,m.ifmmPhone
-			,b.iforCount
-			,b.iforPrice
-			,b.iforPay
-			,b.iforCreatedAt
+			,b.ifbyCount
+			,b.ifbyPrice
+			,b.ifbyPay
+			,b.ifbyCreatedAt
 		<include refid="selectCommon" />
-		ORDER BY b.iforSeq DESC
+		ORDER BY b.ifbySeq DESC
 	</select>
 	<!-- 관리자 list -->
 	<select id="xdminSelectList" resultMap="resultMapObj">
 		<include refid="Base.selectListUpperForMysql" />
 		SELECT
-			b.iforSeq
+			b.ifbySeq
 			,s.ifstName
 			,mn.ifmnName
 			,m.ifmmName
 			,m.ifmmPhone
-			,b.iforCount
-			,b.iforPrice
-			,b.iforPay
-			,b.iforCreatedAt
+			,b.ifbyCount
+			,b.ifbyPrice
+			,b.ifbyPay
+			,b.ifbyCreatedAt
 		<include refid="selectCommon"></include>
-		ORDER BY b.iforSeq DESC
+		ORDER BY b.ifbySeq DESC
 		<include refid="Base.orderByLimitForMysql" />
 		<include refid="Base.selectListLowerForMysql" />
 	</select>
@@ -118,45 +153,64 @@
 	<update id="uelete">
 		UPDATE buy
 		SET
-			iforDelNy = 1
+			ifbyDelNy = 1
 		WHERE 1=1
-			AND iforSeq = #{iforSeq}
+			AND ifbySeq = #{ifbySeq}
 	</update>
 	
 	<delete id="delete">
 		DELETE FROM buy
 		WHERE 1=1
-			AND iforSeq = #{iforSeq}
+			AND ifbySeq = #{ifbySeq}
 	</delete>
 	
 	<!-- list Uele -->
 	<update id="ueleteList">
 		UPDATE buy
 		SET
-			iforDelNy = 1
+			ifbyDelNy = 1
 		WHERE
-			iforSeq = #{iforSeq}
+			ifbySeq = #{ifbySeq}
 	</update>
 	
-	<insert id="insertOrder">
+	<insert id="insertBuy">
 		insert INTO buy (
 			ifstSeq
 			,ifmnSeq
-			,iforCount
-			,iforPrice
-			,iforPay
-			,iforDelNy
-			,iforCreatedAt
+			,ifbyCount
+			,ifbyPrice
+			,ifbyPay
+			,ifbyDelNy
+			,ifbyCreatedAt
 			,ifmmSeq
+			,iforSeq
 		) VALUES (
 			#{ifstSeq}
 			,#{ifmnSeq}
-			,#{totalCount}
-			,#{totalPrice}
-			,#{iforPay}
+			,#{ifbyCount}
+			,#{ifbyPrice}
+			,#{ifbyPay}
 			,0
 			,now()
 			,#{ifmmSeq}
+			,#{iforSeq}
+		)
+		<selectKey resultType="String" keyProperty="ifbySeq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
+	</insert>
+	
+	<insert id="insertOrder">
+		insert INTO orders (
+			iforName
+			,iforPrice
+			,iforCount
+			,iforCreatedAt
+		) VALUES (
+			#{iforName}
+			,#{iforPrice}
+			,#{iforCount}
+			,now()
 		)
 		<selectKey resultType="String" keyProperty="iforSeq" order="AFTER">
 				SELECT last_insert_id()

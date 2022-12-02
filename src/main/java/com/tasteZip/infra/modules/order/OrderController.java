@@ -93,7 +93,7 @@ public class OrderController {
     	String seq = httpSession.getAttribute("sessSeq").toString();
 		vo.setIfmmSeq(seq);
 		
-		vo.setParamsPaging2(service.selectOneCount(vo));
+		vo.setParamsPaging(service.myOrderCount(vo));
 		
 		List<Order> list = service.myOrder(vo);
 		model.addAttribute("list", list); 
@@ -139,69 +139,19 @@ public class OrderController {
     }
     
     @RequestMapping(value = "mypageOrderView")
-    public String mypageOrderView(@ModelAttribute("vo") OrderVo vo,@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid,  @ModelAttribute("dtoBk") Order dto, Model model, HttpSession httpSession, HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	
-		// kakao approve
-		KakaoPay kakaoPayApproval = service.payApprove(tid, pgToken, dto);
-		//return된 객체를 map에 매핑
-        ObjectMapper objectMapper = new ObjectMapper();
-        Map<String, Object> map = objectMapper.convertValue(kakaoPayApproval, Map.class);
-        
-        for(String key : map.keySet()) {
-            String value = String.valueOf(map.get(key));
-            System.out.println("[key]: " + key + ", [value]: " + value);
-        }
-        
-        Map<String, Object> amount = new HashMap<String, Object>();
-        amount = (Map<String, Object>) map.get("amount");
-        
-        for (String key : amount.keySet()) {
-            String value = String.valueOf(amount.get(key));
-            System.out.println("[key]: " + key + ", [value]: " + value);
-        }
-    	
-         //결제 후 db에 insert
-        //dto 에 받아온 정보  set
-        dto.setIfmnName(map.get("item_name").toString());
-        dto.setIforPrice(amount.get("total").toString());
-        
-        dto.setIfmmSeq((String) httpSession.getAttribute("sessSeq"));
-        Order order = (Order) httpSession.getAttribute("dtoBk");
-        dto.setIforPay(1);
-        
-        Cookie[] cookies = request.getCookies();
-        String[] b = null;
-        String storeSeq = "";
-        for (Cookie cookie: cookies) {
-            if (cookie.getName().equals("cart")) {
-                b = cookie.getValue().split(":");
-            }
-            if (cookie.getName().equals("store")) {
-                storeSeq = cookie.getValue();
-            }
-        }
-        
-        dto.setIfstSeq(storeSeq);
-        for (int i=0; i<b.length; i++) {
-            dto.setIfmnSeq(b[i]);
-            service.insertOrder(dto);
-        }
-        
-        Cookie cookie = new Cookie("cart", null);
-        cookie.setMaxAge(0);
-        response.addCookie(cookie);
-
-        Cookie store = new Cookie("store", null);
-        store.setMaxAge(0);
-        response.addCookie(store);
+    public String mypageOrderView(Order dto, OrderVo vo, HttpSession httpSession, Model model) throws Exception {
         
         vo.setIforSeq(dto.getIforSeq());
 
         String seq = httpSession.getAttribute("sessSeq").toString();
         vo.setIfmmSeq(seq);
-        
+        System.out.println("iforSeq1 : " + dto.getIforSeq());
+        System.out.println("iforSeq2 : " + vo.getIforSeq());
         Order item = service.selectOne(vo);
         model.addAttribute("item", item);
+        
+        List<Order> list = service.myPageViewMenu(vo);
+        model.addAttribute("list", list);
         
         return "infra/main/mypage/mypageOrderView";
     }
@@ -296,6 +246,107 @@ public class OrderController {
         System.out.println("tid??" + kakaopayReady.getTid());
         
         return kakaopayReady;
+    }
+    
+    @RequestMapping(value="kakaopayApproval")
+    public String payCompleted(@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid,  @ModelAttribute("dtoBk") Order dto, OrderVo vo, Model model, HttpSession httpSession, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        
+        KakaoPay kakaoPayApproval = service.payApprove(tid, pgToken, dto);
+        // kakao approve
+        //return된 객체를 map에 매핑
+        ObjectMapper objectMapper = new ObjectMapper();
+        Map<String, Object> map = objectMapper.convertValue(kakaoPayApproval, Map.class);
+        
+        for(String key : map.keySet()) {
+            String value = String.valueOf(map.get(key));
+            System.out.println("[key]: " + key + ", [value]: " + value);
+        }
+        
+        System.out.println("name : " + dto.getIfmnName());
+        System.out.println("price : " + dto.getTotalPrice());
+        System.out.println("count : " + dto.getTotalCount());
+        
+        Map<String, Object> amount = new HashMap<String, Object>();
+        amount = (Map<String, Object>) map.get("amount");
+        
+        for (String key : amount.keySet()) {
+            String value = String.valueOf(amount.get(key));
+            System.out.println("[key]: " + key + ", [value]: " + value);
+        }
+        
+        //결제 후 db에 insert
+        //dto 에 받아온 정보  set
+        dto.setIfmnName(map.get("item_name").toString());
+        dto.setIfbyPrice((int) amount.get("total"));
+
+        dto.setIfmmSeq((String) httpSession.getAttribute("sessSeq"));
+        Order order = (Order) httpSession.getAttribute("dtoBk");
+        dto.setIfbyPay(1);
+        
+        
+        Cookie[] cookies = request.getCookies();
+        String[] cart = null;
+        String storeSeq = "";
+        String[] count = null;
+        String[] price = null;
+        for (Cookie cookie: cookies) {
+            if (cookie.getName().equals("cart")) {
+                cart = cookie.getValue().split(":");
+            }
+            if (cookie.getName().equals("store")) {
+                storeSeq = cookie.getValue();
+            }
+            if (cookie.getName().equals("count")) {
+                count = cookie.getValue().split(":");
+            }
+            if (cookie.getName().equals("price")) {
+                price = cookie.getValue().split(":");
+            }
+        }
+        dto.setIforName(map.get("item_name").toString());
+        dto.setIforPrice(amount.get("total").toString());
+        dto.setIforCount(count.length);
+        service.insertOrder(dto);
+        dto.setIfstSeq(storeSeq);
+        for (int i=0; i<cart.length; i++) {
+            System.out.println("price" + price[i]);
+            System.out.println("cnount" + count[i]);
+            
+            dto.setIfmnSeq(cart[i]);
+            dto.setIfbyCount(Integer.parseInt(count[i]));
+            dto.setIfbyPrice(Integer.parseInt(price[i]));
+            service.insertBuy(dto);
+        }
+        
+        Cookie cookie = new Cookie("cart", null);
+        cookie.setMaxAge(0);
+        cookie.setSecure(true);
+        response.addCookie(cookie);
+
+        Cookie store = new Cookie("store", null);
+        store.setMaxAge(0);
+        store.setSecure(true);
+        response.addCookie(store);
+
+        Cookie price1 = new Cookie("price", null);
+        price1.setMaxAge(0);
+        price1.setSecure(true);
+        response.addCookie(price1);
+        
+        Cookie count1 = new Cookie("count", null);
+        count1.setMaxAge(0);
+        count1.setSecure(true);
+        response.addCookie(count1);
+        
+        vo.setIforSeq(dto.getIforSeq());
+
+        String seq = httpSession.getAttribute("sessSeq").toString();
+        vo.setIfmmSeq(seq);
+        
+        Order item = service.payFin(vo);
+        model.addAttribute("item", item);
+            
+        return "infra/main/mypage/mypageOrderView";
     }
     
     // 결제 취소시 실행 url

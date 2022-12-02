@@ -2,58 +2,65 @@ package com.tasteZip.infra.modules.order;
 
 public class Order {
 	
-	public String iforSeq;
+	public String ifbySeq;
 	public String ifmnSeq;
-	public Integer iforCount;
-	public String iforPrice;
-	public Integer iforPay;
-	public Integer iforDelNy;
-	public String iforCreatedAt;
+	public Integer ifbyCount;
+	public Integer ifbyPrice;
+	public Integer ifbyPay;
+	public Integer ifbyDelNy;
+	public String ifbyCreatedAt;
+	public String iforSeq;
 	
-	public String getIforSeq() {
-		return iforSeq;
-	}
-	public void setIforSeq(String iforSeq) {
-		this.iforSeq = iforSeq;
-	}
-	public String getIfmnSeq() {
-		return ifmnSeq;
-	}
-	public void setIfmnSeq(String ifmnSeq) {
-		this.ifmnSeq = ifmnSeq;
-	}
-	public Integer getIforCount() {
-		return iforCount;
-	}
-	public void setIforCount(Integer iforCount) {
-		this.iforCount = iforCount;
-	}
-	public String getIforPrice() {
-		return iforPrice;
-	}
-	public void setIforPrice(String iforPrice) {
-		this.iforPrice = iforPrice;
-	}
-	public Integer getIforPay() {
-		return iforPay;
-	}
-	public void setIforPay(Integer iforPay) {
-		this.iforPay = iforPay;
-	}
-	public Integer getIforDelNy() {
-		return iforDelNy;
-	}
-	public void setIforDelNy(Integer iforDelNy) {
-		this.iforDelNy = iforDelNy;
-	}
-	public String getIforCreatedAt() {
-		return iforCreatedAt;
-	}
-	public void setIforCreatedAt(String iforCreatedAt) {
-		this.iforCreatedAt = iforCreatedAt;
-	}
-	
-// ------- join store s ----------
+    public String getIfbySeq() {
+        return ifbySeq;
+    }
+    public void setIfbySeq(String ifbySeq) {
+        this.ifbySeq = ifbySeq;
+    }
+    public String getIfmnSeq() {
+        return ifmnSeq;
+    }
+    public void setIfmnSeq(String ifmnSeq) {
+        this.ifmnSeq = ifmnSeq;
+    }
+    public Integer getIfbyCount() {
+        return ifbyCount;
+    }
+    public void setIfbyCount(Integer ifbyCount) {
+        this.ifbyCount = ifbyCount;
+    }
+    public Integer getIfbyPrice() {
+        return ifbyPrice;
+    }
+    public void setIfbyPrice(Integer ifbyPrice) {
+        this.ifbyPrice = ifbyPrice;
+    }
+    public Integer getIfbyPay() {
+        return ifbyPay;
+    }
+    public void setIfbyPay(Integer ifbyPay) {
+        this.ifbyPay = ifbyPay;
+    }
+    public Integer getIfbyDelNy() {
+        return ifbyDelNy;
+    }
+    public void setIfbyDelNy(Integer ifbyDelNy) {
+        this.ifbyDelNy = ifbyDelNy;
+    }
+    public String getIfbyCreatedAt() {
+        return ifbyCreatedAt;
+    }
+    public void setIfbyCreatedAt(String ifbyCreatedAt) {
+        this.ifbyCreatedAt = ifbyCreatedAt;
+    }
+    public String getIforSeq() {
+        return iforSeq;
+    }
+    public void setIforSeq(String iforSeq) {
+        this.iforSeq = iforSeq;
+    }
+
+    // ------- join store s ----------
 	public String ifstSeq;
 	public String ifstName;
 	
@@ -130,6 +137,52 @@ public class Order {
 	
 // ------- join menu e ----------
 		
+    /* order s */
+	public String iforName;
+	public String iforPrice;
+	public Integer iforCount;
+	public String iforCreatedAt;
 
+    public String getIforName() {
+        return iforName;
+    }
+    public void setIforName(String iforName) {
+        this.iforName = iforName;
+    }
+    public String getIforPrice() {
+        return iforPrice;
+    }
+    public void setIforPrice(String iforPrice) {
+        this.iforPrice = iforPrice;
+    }
+    public Integer getIforCount() {
+        return iforCount;
+    }
+    public void setIforCount(Integer iforCount) {
+        this.iforCount = iforCount;
+    }
+    public String getIforCreatedAt() {
+        return iforCreatedAt;
+    }
+    public void setIforCreatedAt(String iforCreatedAt) {
+        this.iforCreatedAt = iforCreatedAt;
+    }
+    /* order e */
+    
+    public String path;
+    public String uuidName;
+
+    public String getPath() {
+        return path;
+    }
+    public void setPath(String path) {
+        this.path = path;
+    }
+    public String getUuidName() {
+        return uuidName;
+    }
+    public void setUuidName(String uuidName) {
+        this.uuidName = uuidName;
+    }
 	
 }

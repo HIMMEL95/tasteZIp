@@ -287,18 +287,28 @@ public class MenuController {
         if (b != null || vo.getIfmnSeq() != "") {
             System.out.println("여기1?");
             String[] str = null;
+            String[] priceArr = null;
+            String[] countArr = null;
             String result = "";
+            String price = "";
+            String count = "";
             cookies = request.getCookies();
             for (Cookie cookie: cookies) {
                 if (cookie.getName().equals("cart")) {
                     result = cookie.getValue();
                 } else {
                     str = vo.getIfmnSeq().split(" ");
+                    priceArr = dto.getIfmnPrice().split(" ");
+                    countArr = dto.getCount().split(" ");
                     for (int i=0; i<str.length; i++) {
                         if(i == str.length-1) {
                             result += str[i];
+                            price += priceArr[i];
+                            count += countArr[i];
                         } else {
                             result += str[i] + ":";
+                            price += priceArr[i] + ":";
+                            count += countArr[i] + ":";
                         }
                     }
                 }
@@ -313,6 +323,16 @@ public class MenuController {
             store.setPath("/");
             store.setMaxAge(30 * 24 * 60 * 60 * 1000);
             response.addCookie(store);
+
+            Cookie pric = new Cookie("price", price);
+            pric.setPath("/");
+            pric.setMaxAge(30 * 24 * 60 * 60 * 1000);
+            response.addCookie(pric);
+            
+            Cookie coun = new Cookie("count", count);
+            coun.setPath("/");
+            coun.setMaxAge(30 * 24 * 60 * 60 * 1000);
+            response.addCookie(coun);
             
             returnMap.put("rt", "success");
         } else {
@@ -331,11 +351,23 @@ public class MenuController {
         System.out.println("seq : " + vo.getIfmnSeq());
         
         String result = vo.getIfmnSeq().replace(" ", ":");
+        String price = vo.getPrice().replace(" ", ":");
+        String count = vo.getCount().replace(" ", ":");
         
         Cookie cart = new Cookie("cart", result);
         cart.setPath("/");
         cart.setMaxAge(30 *24 * 60 * 60 * 1000);
         response.addCookie(cart);
+        
+        Cookie price1 = new Cookie("price", price);
+        price1.setPath("/");
+        price1.setMaxAge(30 *24 * 60 * 60 * 1000);
+        response.addCookie(price1);
+        
+        Cookie count1 = new Cookie("count", count);
+        count1.setPath("/");
+        count1.setMaxAge(30 *24 * 60 * 60 * 1000);
+        response.addCookie(count1);
         
         returnMap.put("rt", "success");
         

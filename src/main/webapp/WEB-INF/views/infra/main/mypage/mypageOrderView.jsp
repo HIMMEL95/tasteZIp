@@ -22,7 +22,7 @@
 <body>
 	<!-- 상단 -->
 	<form id="myform" name="myform" method="post">
-		<%@include file="OrderVo.jsp"%>
+		<input type="hidden" name="iforSeq" value="${item.iforSeq}"/>
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>
@@ -72,9 +72,7 @@
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Order</b></h3></div>
            		</div>
            		<div class="container">
-           		<form  id="form" name="form" method="post">
            		<%-- <input type="hidden" name="ifmmSeq" value="${sessSeq }"> --%>
-           		<input type="hidden" name="iforSeq" value="${item.iforSeq}"/> 
            			<div class="row pt-5 mb-3 font"><h4><b>주문 상세 내역</b></h4></div>
            			
            			<!-- 주문자정보 -->
@@ -86,9 +84,26 @@
 								<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg">
 							</div>
 							<div class="col-10">
-								<div><h5><b>${item.ifstName}</b></h5></div>
+								<div><h5><b>가게 명 : ${item.ifstName}</b></h5></div>
 								<div><span>주문날짜: ${item.iforCreatedAt}</span></div>
 							</div>
+						</div>
+					</div>
+					<!-- 주문자정보 -->
+					<hr class="hrstyle mt-2 mb-2">
+           			<div class="wide">
+	           			<div class="row mt-4 mb-3"><h4><b>메뉴 정보</b></h4></div>
+	           			<div class="row mt-2 mb-4">
+	           				<c:forEach items="${list}" var="list" varStatus="status">
+								<div class="col-2 mt-3">
+									<img src="${list.path }${list.uuidName}" class="storeImg">
+								</div>
+								<div class="col-10 mt-3">
+									<div><h5><b>메뉴 : ${list.ifmnName}</b></h5></div>
+									<div><span>수량: ${list.ifbyCount}</span></div>
+									<div><span>가격: ${list.ifbyPrice}</span></div>
+								</div>
+	           				</c:forEach>
 						</div>
 					</div>
            			<hr class="hrstyle mt-2 mb-2">
@@ -138,7 +153,6 @@
 						</div>
            			</div>
            		</div>
-           		</form>
           </section>
         </div>
       </div>
@@ -155,13 +169,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
     
-    	var goUrlList = "/order/mypageOrderView";
-    	var form = $("form[name=form]");
+    	var goUrlList = "/order/mypageOrder";
+    	var form = $("form[name=myform]");
     	
     	var seq = $("input:hidden[name=iforSeq]");
     	
-    	goList = function(thisPage) {
-			$("input:hidden[name=thisPage2]").val(thisPage);
+    	goList = function() {
 			form.attr("action", goUrlList).submit();
 		};
     </script>

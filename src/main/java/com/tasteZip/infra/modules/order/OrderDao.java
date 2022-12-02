@@ -39,8 +39,17 @@ public class OrderDao {
 	public int selectOneCount(OrderVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOneCount", vo);
 	}
+
+	public int myOrderCount(OrderVo vo) {
+	    return sqlSession.selectOne(namespace + ".myOrderCount", vo);
+	}
 	
 	//selectone
+	
+	public List<Order> myPageViewMenu(OrderVo vo) {
+	    return sqlSession.selectList(namespace + ".myPageViewMenu", vo);
+	}
+	
 	public Order selectOne(OrderVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
@@ -50,8 +59,18 @@ public class OrderDao {
 		return sqlSession.update(namespace + ".ueleteList", iforSeq);
 	}
 	
+	public int insertBuy(Order dto) {
+	    return sqlSession.insert(namespace + ".insertBuy", dto);
+	}
+	
 	public int insertOrder(Order dto) {
 	    return sqlSession.insert(namespace + ".insertOrder", dto);
 	}
+	
+	//selectone
+    public Order payFin(OrderVo vo) {
+        return sqlSession.selectOne(namespace + ".payFin", vo);
+    }
+    
 	
 }

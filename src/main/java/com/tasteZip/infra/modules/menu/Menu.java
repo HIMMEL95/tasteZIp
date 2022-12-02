@@ -26,7 +26,7 @@ public class Menu extends Base {
     private String[] ifmnSeqArr;
     
     private Integer totalPrice;
-    private Integer count;
+    private String count;
     
     public String getIfmnSeq() {
         return ifmnSeq;
@@ -124,10 +124,10 @@ public class Menu extends Base {
     public void setTotalPrice(Integer totalPrice) {
         this.totalPrice = totalPrice;
     }
-    public Integer getCount() {
+    public String getCount() {
         return count;
     }
-    public void setCount(Integer count) {
+    public void setCount(String count) {
         this.count = count;
     }
 }

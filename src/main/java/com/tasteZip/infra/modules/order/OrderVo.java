@@ -19,8 +19,15 @@ public class OrderVo extends BaseVo{
 	private Integer shOptionDate;
 	
 	private String ifmmSeq;
+	private String ifbySeq;
 	
-	public String getIfmmSeq() {
+	public String getIfbySeq() {
+        return ifbySeq;
+    }
+    public void setIfbySeq(String ifbySeq) {
+        this.ifbySeq = ifbySeq;
+    }
+    public String getIfmmSeq() {
 		return ifmmSeq;
 	}
 	public void setIfmmSeq(String ifmmSeq) {

@@ -61,9 +61,6 @@ public class StoreController {
 		Store item = service.storeSelectOne(vo);
 	    model.addAttribute("item", item);
 	    
-//	    Store favorite = service.selectOneFv(vo);
-//	    model.addAttribute("favorite", favorite);
-	    
 	    List<Store> menu = service.menuList(vo);
 	    model.addAttribute("menu", menu); 
 	    
@@ -102,45 +99,29 @@ public class StoreController {
 	}
 	
 	// favorite
-	
+	@ResponseBody
 	@RequestMapping(value = "favoriteInst")
-	public String favoriteInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
-	    
+	public Map<String, Object> favoriteInst(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
 		service.insertFv(dto);
-	    vo.setIffvSeq(dto.getIffvSeq());
-	    redirectAttributes.addFlashAttribute("vo", vo);
-	    return "redirect:/store/storeMain";
+	    return returnMap;
 	}
 
-	@RequestMapping(value = "favoriteUpdt")
-	public String favoriteUpdt(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
-	    
-		service.updateFv(dto);
-	    vo.setIffvSeq(dto.getIffvSeq());
-	    redirectAttributes.addFlashAttribute("vo", vo);
-	    return "redirect:/store/storeMain";
+	@ResponseBody
+	@RequestMapping(value = "favoriteDele")
+	public Map<String, Object> favoriteDele(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		service.deleteFv(dto);
+	    return returnMap;
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "favorite")
-	public Map<String, Object> favorite(Store dto, StoreVo vo) throws Exception {
+	@RequestMapping(value = "favoriteListDele")
+	public Map<String, Object> favoriteListDele(Store dto, StoreVo vo, RedirectAttributes redirectAttributes) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-		
-		int favorite = service.selectOneFv(vo);
-		
-		System.out.println("seq1 : " + vo.getIffvSeq());
-		System.out.println("seq2 : " + dto.getIffvSeq());
-		
-		if (favorite == 0) {
-			service.insertFv(dto);
-			returnMap.put("rt", "success");
-		} else if (favorite != 0) {
-			service.updateFv(dto);
-			returnMap.put("rt", "update");
-		} else {
-			returnMap.put("rt", "fail");
-		}
-		return returnMap;
+		service.deleteFv(dto);
+    	
+    	return returnMap;
 	}
 	
 	

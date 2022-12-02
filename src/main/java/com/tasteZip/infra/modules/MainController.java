@@ -107,8 +107,20 @@ public class MainController {
     }
     
     @RequestMapping(value = "favorite") 
-    public String favorite() throws Exception {
-        return "infra/main/favorite/favorite";
+    public String favorite(@ModelAttribute("vo") StoreVo vo, Store dto, Model model, HttpSession httpSession) throws Exception {
+        
+    	try {
+			String seq = (String) httpSession.getAttribute("sessSeq");
+			vo.setIfmmSeq(seq);
+		} catch (Exception e) {
+		}
+    	
+    	vo.setParamsPaging(sService.selectOneCountFv(vo));
+    	
+    	List<Store> favorite = sService.selectListFv(vo);
+ 	    model.addAttribute("favorite", favorite); 
+ 	    
+    	return "infra/main/favorite/favorite";
     }
     
     @RequestMapping(value = "reservation") 

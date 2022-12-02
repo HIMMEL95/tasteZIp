@@ -34,6 +34,8 @@
 	
 		<div class="map_container" id="container">
 			<form id="myForm" name="myForm">
+			<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+			<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
@@ -68,75 +70,60 @@
 										<!-- 주변 카드 뷰 -->
 										<div class="container">
 											<div class="row justify-content-center">
-												<a href="#" id="goForm">
-													<div class="card_wrap" style="width: 95%; padding-left: 30px;">
-									           			<div class="row pt-3">
-										           			<div class="card shadow bg-body rounded border border-0">
-															    <div class="card-body cardcc">
-															    	<div class="row">
-																		<div class="col-3">
-																			<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 85px; height: 85px;">
-																		</div>
-																		<div class="col-9">
-																			<h5 class="card-title"><b>아놀로지</b></h5>
-																			<p class="card-text">서울특별시 마포구 서교동 395-78 3층</p>
-																			<div class="row justify-content-between">
-																				<div class="col-8 text-start"><p class="card-text">대흥역 3번 출구 도보 100m</p></div>
-																				<div class="col-4 text-end"><button class="custom-btn btn-15"> <i class="fa-solid fa-trash-can"></i> 삭제 </button></div>
-																			</div>
-																		</div>
+		  										<input type="hidden" name="ifmmSeq" value="${sessSeq}"/>
+		  										<input type="hidden" name="ifstSeq" id="ifstSeq"/>
+												<c:choose>
+													<c:when test="${fn:length(favorite) eq 0}">
+														<div class="col text-center mt-4 mb-2"><h5><b>좋아요한 스토어가 존재하지 않습니다.</b></h5></div>
+													</c:when>
+													<c:otherwise>
+														<c:forEach items="${favorite}" var="favorite" varStatus="status">
+															<div id="fvItem${favorite.ifstSeq}">
+															<input type="hidden" name="ifstSeq" value="${favorite.ifstSeq}"/>
+																<div class="card_wrap" style="width: 95%; padding-left: 30px;">
+												           			<div class="row pt-3">
+													           			<div class="card shadow bg-body rounded border border-0">
+																		    <div class="card-body cardcc">
+																		    	<div class="row">
+																					<div class="col-3">
+																						<img src="${favorite.path}${favorite.uuidName}" style="width: 85px; height: 85px;">
+																					</div>
+																					<div class="col-9">
+																						<h5 class="card-title"><b>${favorite.ifstName}</b></h5>
+																						<p class="card-text">${favorite.ifstAddress}</p>
+																						<div class="row justify-content-between">
+																							<div class="col-9 text-start"><p class="card-text">${favorite.ifstPhone}</p></div>
+																							<div class="col-3 text-end">
+																								<button class="custom-btn btn-15" type="button" onclick="openModal(${favorite.ifstSeq})"> <i class="fa-solid fa-trash-can"></i> 삭제 </button>
+																							</div>
+																						</div> 
+																					</div>
+																				</div>
+																		   	</div>
+																	    </div>
 																	</div>
-															   	</div>
+																</div>
+															</div>
+														</c:forEach>	
+														<!-- Modal -->
+														<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 1000;">
+														  <div class="modal-dialog">
+														    <div class="modal-content">
+														      <div class="modal-header">
+														        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-file-zipper"></i> MATZIP</h1>
+														      </div>
+														      <div class="modal-body text-start">
+														        정말로 삭제하시겠습니까?
+														      </div>
+														      <div class="modal-footer">
+														        <button type="button" class="btn btn-light"  onclick="closeModal()">닫기</button>
+														        <button type="button" class="btn btn-dark" onclick="favoriteDele()">삭제하기</button>
+														      </div>
 														    </div>
+														  </div>
 														</div>
-													</div>
-												</a>
-												<a href="#" id="goForm">
-													<div class="card_wrap" style="width: 95%; padding-left: 30px;">
-									           			<div class="row pt-3">
-										           			<div class="card shadow bg-body rounded border border-0">
-															    <div class="card-body cardcc">
-															    	<div class="row">
-																		<div class="col-3">
-																			<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 85px; height: 85px;">
-																		</div>
-																		<div class="col-9">
-																			<h5 class="card-title"><b>아놀로지</b></h5>
-																			<p class="card-text">서울특별시 마포구 서교동 395-78 3층</p>
-																			<div class="row justify-content-between">
-																				<div class="col-8 text-start"><p class="card-text">대흥역 3번 출구 도보 100m</p></div>
-																				<div class="col-4 text-end"><button class="custom-btn btn-15"> <i class="fa-solid fa-trash-can"></i> 삭제 </button></div>
-																			</div>
-																		</div>
-																	</div>
-															   	</div>
-														    </div>
-														</div>
-													</div>
-												</a>
-												<a href="#" id="goForm">
-													<div class="card_wrap" style="width: 95%; padding-left: 30px;">
-									           			<div class="row pt-3">
-										           			<div class="card shadow bg-body rounded border border-0">
-															    <div class="card-body cardcc">
-															    	<div class="row">
-																		<div class="col-3">
-																			<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 85px; height: 85px;">
-																		</div>
-																		<div class="col-9">
-																			<h5 class="card-title"><b>아놀로지</b></h5>
-																			<p class="card-text">서울특별시 마포구 서교동 395-78 3층</p>
-																			<div class="row justify-content-between">
-																				<div class="col-8 text-start"><p class="card-text">대흥역 3번 출구 도보 100m</p></div>
-																				<div class="col-4 text-end"><button class="custom-btn btn-15"> <i class="fa-solid fa-trash-can"></i> 삭제 </button></div>
-																			</div>
-																		</div>
-																	</div>
-															   	</div>
-														    </div>
-														</div>
-													</div>
-												</a>
+													</c:otherwise>
+												</c:choose>
 											</div>
 										</div>
 										<%@include file="../../xdmin/includeV1/pagination.jsp"%>
@@ -149,6 +136,7 @@
 						</div>
 					</div>
 				</div>
+			
 			</form>
 			<div id="map" style="width:100%;height:100%;"></div>
 		</div>
@@ -190,43 +178,6 @@
 		
 	</script>
 	<script type="text/javascript">
-	function checkSelectAll()  {
-		// 전체 체크박스
-		const checkboxes 
-			= document.querySelectorAll('input[name="chkBox"]');
-		// 선택된 체크박스
-		const checked 
-			= document.querySelectorAll('input[name="chkBox"]:checked');
-		// select all 체크박스
-		const selectAll 
-			= document.querySelector('input[name="chkAll"]');
-		
-		if(checkboxes.length === checked.length)  {
-			selectAll.checked = true;
-		}else {
-			selectAll.checked = false;
-		}
-
-	}
-	// 하위 체크박스 전체 선택시 전체박스 체크
-	function checkAll(selectAll)  {
-		const checkboxes 
-			= document.getElementsByName('chkBox');
-		
-		checkboxes.forEach((checkbox) => {
-			checkbox.checked = selectAll.checked
-		})
-	}
-	function deleteValue(){
-		var ur1 = "delete";
-		var valueArr = new Array();
-		var list = $()
-	}
-	function newPage() {
-		window.location.href = ''
-	}
-	</script>
-	<script type="text/javascript">
 		$("#signOutBtn").on("click", function() {
 			$.ajax({
 				type: "POST"
@@ -245,6 +196,50 @@
 		$("#loginBtn").on("click", function() {
 			window.location.href = goUrlLogin;
 		})
+	</script>
+	<script type="text/javascript">
+	<!-- Like 버튼 구현 -->
+	
+	var goUrlList = "/favorite"
+	
+	var form = $("#myForm");
+	
+	goList = function(thisPage){
+		$("input:hidden[name=thisPage]").val(thisPage);
+		form.attr("action", goUrlList).submit();
+	}
+	
+	function favoriteDele(){
+
+		$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url:"/store/favoriteDele"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "ifstSeq" : $("#ifstSeq").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val()}
+				,success: function(response) {
+					$("#exampleModal").removeClass("show");
+					$("#fvItem"+ $("#ifstSeq").val()).remove();
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+	}
+	
+	function openModal(seq){
+		$("#ifstSeq").val(seq);
+		$("div").removeClass("modal-backdrop");
+		$("#exampleModal").addClass("show");
+		$("#exampleModal").css("display","block");
+		
+	}
+	
+	function closeModal(){
+		$("#exampleModal").css("display","none");
+	}
 	</script>
 </body>
 

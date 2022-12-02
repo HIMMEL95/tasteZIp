@@ -31,9 +31,10 @@ public interface StoreService {
     
     //favorite 
     public int insertFv(Store dto) throws Exception;
-    public int updateFv(Store dto) throws Exception;
+    public int deleteFv(Store dto) throws Exception;
     public Store storeSelectOne(StoreVo vo) throws Exception;
-    public int selectOneFv(StoreVo vo) throws Exception;
+    public List<Store> selectListFv(StoreVo vo) throws Exception;
+    public int selectOneCountFv(StoreVo vo) throws Exception;
     
     public int runningInsert(Store dto) throws Exception;
     public int runningUpdate(Store dto) throws Exception;

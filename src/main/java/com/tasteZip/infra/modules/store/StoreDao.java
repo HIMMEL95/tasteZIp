@@ -43,9 +43,10 @@ public class StoreDao {
     
     //favorite
     public int insertFv(Store dto) { return sqlSession.insert(namespace + ".insertFv", dto); }
-    public int updateFv(Store dto) { return sqlSession.update(namespace + ".updateFv", dto); }
+    public int deleteFv(Store dto) { return sqlSession.delete(namespace + ".deleteFv", dto); }
     public Store storeSelectOne(StoreVo vo) { return sqlSession.selectOne(namespace + ".storeSelectOne", vo); }
-    public int selectOneFv(StoreVo vo) { return sqlSession.selectOne(namespace + ".selectOneFv", vo); }
+    public List<Store> selectListFv(StoreVo vo) { return sqlSession.selectList(namespace + ".selectListFv", vo); }
+    public int selectOneCountFv(StoreVo vo) { return sqlSession.selectOne(namespace + ".selectOneCountFv", vo); }
     
     public int runningInsert(Store dto) { return sqlSession.insert(namespace + ".runningInsert", dto); }
     public int runningUpdate(Store dto) { return sqlSession.update(namespace + ".runningUpdate", dto); }

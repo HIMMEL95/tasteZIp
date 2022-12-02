@@ -121,21 +121,19 @@
 																		<i class="fa-solid fa-location-dot"></i>
 																		도착															
 																	</a>
-																	<button type="button" id="fv" class="gd2MP" onclick="favorite()">		
-																		<input type="hidden" name="iffvSeq" id="iffvSeq" value="${favorite.iffvSeq }">
+																	&nbsp;&nbsp;<button type="button" id="fv" class="btn btn-danger" onclick="favorite()">		
+																		<input type="hidden" name="iffvSeq" id="iffvSeq" value="${item.iffvSeq }">
 																		<c:choose>
-																			<c:when test="${empty favorite.iffvUseNy}">
+																			<c:when test="${item.iffvUseNy eq 0}">
 																				<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="0">
 																				<i class="fa-regular fa-heart"></i> 좋아요
 																			</c:when>
 																			<c:otherwise>
 																				<c:choose>
-																					<c:when test="${favorite.iffvUseNy eq 1 }"> <!-- value(useNy)가 0일때 -->
-																						<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="${favorite.iffvUseNy }">
+																					<c:when test="${item.iffvUseNy eq 1 }"> <!-- value(useNy)가 0일때 -->
 																						<i class="fa-solid fa-heart"></i> 좋아요
 																					</c:when>
 																					<c:otherwise>
-																						<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="${favorite.iffvUseNy }">
 																						<i class="fa-regular fa-heart"></i> 좋아요
 																					</c:otherwise>
 																				</c:choose>
@@ -495,16 +493,16 @@
 	<script type="text/javascript">
 	<!-- Like 버튼 구현 -->
 	function favorite(){
-		
-		if ($("input[name=iffvUseNy]").val() == "0") {
-			$("input[name=iffvUseNy]").val("1");
+		var url = "";
+		if ($(".fa-heart").hasClass("fa-regular")) {
 			$(".fa-heart").removeClass("fa-regular");
 			$(".fa-heart").addClass("fa-solid");
+			url= "/store/favoriteInst";
 			/* alert(likeCount) */
 		} else {
-			$("input[name=iffvUseNy]").val("0");
 			$(".fa-heart").addClass("fa-regular");
 			$(".fa-heart").removeClass("fa-solid");
+			url= "/store/favoriteDele";
 		}
 		/* form.attr("action", goUrlInst).submit(); */
 		$.ajax({
@@ -512,13 +510,11 @@
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: "/store/favorite"
+				,url: url
 				/* ,data : $("#formLogin").serialize() */
-				,data : { "ifstSeq" : $("input[name=ifstSeq]").val(), "iffvUseNy" : $("input[name=iffvUseNy]").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val(), "iffvSeq" : $("input[name=iffvSeq]").val()}
+				,data : { "ifstSeq" : $("input[name=ifstSeq]").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val()}
 				,success: function(response) {
-					if(response.rt == "fail") {
-						alert("제대로 선택하세요!!");
-					} 
+					console.log("성공!");
 				}
 				,error : function(jqXHR, textStatus, errorThrown){
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);

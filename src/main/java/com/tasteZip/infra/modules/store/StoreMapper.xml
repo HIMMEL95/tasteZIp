@@ -189,7 +189,7 @@
 			,s.ifstInfo
 			,s.ifstDirections
 			,s.ifstOrderNy
-			,(select f.iffvUseNy from favorite f where 1=1 and f.ifstSeq = #{ifstSeq} and f.ifmmSeq = #{ifmmSeq}) as iffvUseNy
+			,(select count(*) from favorite where 1=1 and ifstSeq = #{ifstSeq} and ifmmSeq = #{ifmmSeq}) as iffvUseNy
 	    from store s
 		where 1=1
 			and s.ifstSeq = #{ifstSeq}
@@ -407,12 +407,10 @@
 	<insert id="insertFv">
 		INSERT INTO favorite (
 			ifstSeq 
-			,iffvUseNy 
 			,ifmmSeq
 		)
 		VALUES (
 			#{ifstSeq}
-			,#{iffvUseNy}
 			,#{ifmmSeq}
 		)
 		<selectKey resultType="String" keyProperty="iffvSeq" order="AFTER">
@@ -421,22 +419,43 @@
 	</insert>
 	
 	<!-- favorite update -->
-	<update id="updateFv">
-		UPDATE favorite
-		SET
-			iffvUseNy = #{iffvUseNy}
-			,ifmmSeq = #{ifmmSeq}
-			,ifstSeq = #{ifstSeq}
-		where 1=1
-			and iffvSeq = #{iffvSeq}
-	</update>
+	<delete id="deleteFv">
+		DELETE
+		FROM favorite 
+		where 1=1 
+		and ifstSeq = #{ifstSeq}
+		and ifmmSeq = #{ifmmSeq}
+	</delete>
 	
-	<select id="selectOneFv" resultType="Integer">
-		SELECT
-			count(iffvSeq)
-		FROM favorite f
+	<select id="selectListFv" resultMap="resultMapObj">
+		<include refid="Base.selectListUpperForMysql" />
+		select
+			s.ifstSeq 
+			,f.ifmmSeq
+			,s.ifstName
+			,s.ifstAddress
+			,s.ifstPhone
+			,up.uuidName
+			,up.path
+	    from favorite f
+	    	left join storeUploaded up on up.pseq = f.ifstSeq
+	    	left join store s on s.ifstSeq = f.ifstSeq
 		where 1=1
+			and up.sort = 1
 			and f.ifmmSeq = #{ifmmSeq}
-			and f.ifstSeq = #{ifstSeq}
+		<include refid="Base.orderByLimitForMysql" />
+	   	) aa
+		limit 5 offset #{startRnumForMysql}
 	</select>
+	
+	<select id="selectOneCountFv" resultType="Integer">
+		SELECT 
+			COUNT(*)
+		from favorite f
+		left join store s on s.ifstSeq = f.ifstSeq
+		where 1=1
+		 and f.ifmmSeq = #{ifmmSeq}
+		<if test="shValue != null and !shValue.equals('')">AND s.ifstName LIKE CONCAT('%',#{shValue},'%')</if>
+	</select>
+	
 </mapper>

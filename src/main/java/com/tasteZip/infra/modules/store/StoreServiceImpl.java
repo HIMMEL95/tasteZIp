@@ -115,8 +115,8 @@ public class StoreServiceImpl implements StoreService {
     }
    
     @Override
-    public int updateFv(Store dto) throws Exception {
-    	return dao.updateFv(dto);
+    public int deleteFv(Store dto) throws Exception {
+    	return dao.deleteFv(dto);
     }
     
     @Override
@@ -125,9 +125,15 @@ public class StoreServiceImpl implements StoreService {
     }
     
     @Override
-    public int selectOneFv(StoreVo vo) throws Exception {
-    	return dao.selectOneFv(vo);
+    public List<Store> selectListFv(StoreVo vo) throws Exception {
+        return dao.selectListFv(vo);
     }
+    
+    @Override
+    public int selectOneCountFv(StoreVo vo) throws Exception {
+        return dao.selectOneCountFv(vo);
+    }
+    
     
     
     

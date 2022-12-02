@@ -88,15 +88,15 @@
 																					<div class="col-3">
 																						<img src="${favorite.path}${favorite.uuidName}" style="width: 85px; height: 85px;">
 																					</div>
-																					<div class="col-9">
+																					<div class="col-6">
 																						<h5 class="card-title"><b>${favorite.ifstName}</b></h5>
 																						<p class="card-text">${favorite.ifstAddress}</p>
 																						<div class="row justify-content-between">
-																							<div class="col-9 text-start"><p class="card-text">${favorite.ifstPhone}</p></div>
-																							<div class="col-3 text-end">
-																								<button class="custom-btn btn-15" type="button" onclick="openModal(${favorite.ifstSeq})"> <i class="fa-solid fa-trash-can"></i> 삭제 </button>
-																							</div>
+																							<div class="col text-start"><p class="card-text">${favorite.ifstPhone}</p></div>
 																						</div> 
+																					</div>
+																					<div class="col-3 text-end">
+																						<button class="learn-more2 mt-3" type="button" onclick="openModal(${favorite.ifstSeq})"><i class="fa-solid fa-trash-can"></i> 삭제</button>
 																					</div>
 																				</div>
 																		   	</div>

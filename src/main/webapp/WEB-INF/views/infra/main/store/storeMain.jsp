@@ -113,14 +113,14 @@
 																	</div>
 																</div>
 																<div class="X0C1I">
-																	<a href="#" target="_self" role="button" class="Pcppb">
+																	<button target="_self" role="button" class="Pcppb">
 																		<i class="fa-solid fa-location-dot text-primary"></i>
 																		출발
-																	</a>
-																	<a href="#" target="_self" role="button" class="gd2MP">		
+																	</button>
+																	<button target="_self" role="button" class="gd2MP">		
 																		<i class="fa-solid fa-location-dot"></i>
 																		도착															
-																	</a>
+																	</button>
 																	&nbsp;&nbsp;<button type="button" id="fv" class="btn btn-danger" onclick="favorite()">		
 																		<input type="hidden" name="iffvSeq" id="iffvSeq" value="${item.iffvSeq }">
 																		<c:choose>

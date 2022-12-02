@@ -45,6 +45,7 @@ public class StoreDao {
     public int insertFv(Store dto) { return sqlSession.insert(namespace + ".insertFv", dto); }
     public int updateFv(Store dto) { return sqlSession.update(namespace + ".updateFv", dto); }
     public Store storeSelectOne(StoreVo vo) { return sqlSession.selectOne(namespace + ".storeSelectOne", vo); }
+    public int selectOneFv(StoreVo vo) { return sqlSession.selectOne(namespace + ".selectOneFv", vo); }
     
     public int runningInsert(Store dto) { return sqlSession.insert(namespace + ".runningInsert", dto); }
     public int runningUpdate(Store dto) { return sqlSession.update(namespace + ".runningUpdate", dto); }

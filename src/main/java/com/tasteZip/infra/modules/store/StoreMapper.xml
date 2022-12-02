@@ -189,16 +189,10 @@
 			,s.ifstInfo
 			,s.ifstDirections
 			,s.ifstOrderNy
-			,su.path
-			,su.uuidName
-			,fv.iffvSeq
-			,fv.iffvUseNy
+			,(select f.iffvUseNy from favorite f where 1=1 and f.ifstSeq = #{ifstSeq} and f.ifmmSeq = #{ifmmSeq}) as iffvUseNy
 	    from store s
-	    	left join storeUploaded su on su.pseq = s.ifstSeq
-	    	left join favorite fv on fv.ifstSeq = s.ifstSeq
 		where 1=1
 			and s.ifstSeq = #{ifstSeq}
-			and su.sort = 1
 	</select>
 	
 	<select id="storeMain" resultMap="resultMapObj">
@@ -425,15 +419,24 @@
 			SELECT last_insert_id()
 		</selectKey>
 	</insert>
+	
 	<!-- favorite update -->
 	<update id="updateFv">
 		UPDATE favorite
 		SET
-			iffvSeq = #{iffvSeq}
-			,iffvUseNy = #{iffvUseNy}
+			iffvUseNy = #{iffvUseNy}
 			,ifmmSeq = #{ifmmSeq}
 			,ifstSeq = #{ifstSeq}
 		where 1=1
 			and iffvSeq = #{iffvSeq}
 	</update>
+	
+	<select id="selectOneFv" resultType="Integer">
+		SELECT
+			count(iffvSeq)
+		FROM favorite f
+		where 1=1
+			and f.ifmmSeq = #{ifmmSeq}
+			and f.ifstSeq = #{ifstSeq}
+	</select>
 </mapper>

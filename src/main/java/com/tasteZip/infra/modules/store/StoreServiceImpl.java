@@ -124,6 +124,11 @@ public class StoreServiceImpl implements StoreService {
         return dao.storeSelectOne(vo);
     }
     
+    @Override
+    public int selectOneFv(StoreVo vo) throws Exception {
+    	return dao.selectOneFv(vo);
+    }
+    
     
     
     @Override

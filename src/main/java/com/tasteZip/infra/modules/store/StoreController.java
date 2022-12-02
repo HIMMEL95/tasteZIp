@@ -1,8 +1,11 @@
 package com.tasteZip.infra.modules.store;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tasteZip.infra.common.util.UtilDateTime;
@@ -46,13 +50,22 @@ public class StoreController {
 //	
 	
 	@RequestMapping(value = "storeMain")
-	public String storeMain(@ModelAttribute("vo") StoreVo vo, Store dto, Model model) throws Exception {
+	public String storeMain(@ModelAttribute("vo") StoreVo vo, Store dto, Model model, HttpSession httpSession) throws Exception {
+		
+		try {
+			String seq = (String) httpSession.getAttribute("sessSeq");
+			vo.setIfmmSeq(seq);
+		} catch (Exception e) {
+		}
 		
 		Store item = service.storeSelectOne(vo);
 	    model.addAttribute("item", item);
 	    
+//	    Store favorite = service.selectOneFv(vo);
+//	    model.addAttribute("favorite", favorite);
+	    
 	    List<Store> menu = service.menuList(vo);
-	    model.addAttribute("menu", menu);
+	    model.addAttribute("menu", menu); 
 	    
 	    List<Store> img = service.selectImg(vo);
 	    model.addAttribute("img", img);
@@ -107,6 +120,31 @@ public class StoreController {
 	    redirectAttributes.addFlashAttribute("vo", vo);
 	    return "redirect:/store/storeMain";
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "favorite")
+	public Map<String, Object> favorite(Store dto, StoreVo vo) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		int favorite = service.selectOneFv(vo);
+		
+		System.out.println("seq1 : " + vo.getIffvSeq());
+		System.out.println("seq2 : " + dto.getIffvSeq());
+		
+		if (favorite == 0) {
+			service.insertFv(dto);
+			returnMap.put("rt", "success");
+		} else if (favorite != 0) {
+			service.updateFv(dto);
+			returnMap.put("rt", "update");
+		} else {
+			returnMap.put("rt", "fail");
+		}
+		return returnMap;
+	}
+	
+	
+	
 	
 	@RequestMapping(value = "storeDele")
 	public String storeDele(StoreVo vo) throws Exception {

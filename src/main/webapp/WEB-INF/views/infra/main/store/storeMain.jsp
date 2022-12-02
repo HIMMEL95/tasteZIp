@@ -121,20 +121,22 @@
 																		<i class="fa-solid fa-location-dot"></i>
 																		도착															
 																	</a>
-																	<button type="button" id="fv" class="gd2MP">		
+																	<button type="button" id="fv" class="gd2MP" onclick="favorite()">		
+																		<input type="hidden" name="iffvSeq" id="iffvSeq" value="${favorite.iffvSeq }">
 																		<c:choose>
-																			<c:when test="${empty item.iffvUseNy}">
+																			<c:when test="${empty favorite.iffvUseNy}">
 																				<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="0">
 																				<i class="fa-regular fa-heart"></i> 좋아요
 																			</c:when>
 																			<c:otherwise>
 																				<c:choose>
-																					<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="${item.iffvUseNy }">
-																					<c:when test="${item.iffvUseNy eq 0 }"> <!-- value(useNy)가 0일때 -->
-																						<i class="fa-regular fa-heart"></i> 좋아요
+																					<c:when test="${favorite.iffvUseNy eq 1 }"> <!-- value(useNy)가 0일때 -->
+																						<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="${favorite.iffvUseNy }">
+																						<i class="fa-solid fa-heart"></i> 좋아요
 																					</c:when>
 																					<c:otherwise>
-																						<i class="fa-solid fa-heart"></i> 좋아요
+																						<input type="hidden" name="iffvUseNy" id="iffvUseNy" value="${favorite.iffvUseNy }">
+																						<i class="fa-regular fa-heart"></i> 좋아요
 																					</c:otherwise>
 																				</c:choose>
 																			</c:otherwise>
@@ -476,8 +478,6 @@
 	 	
 	 	var goUrlForm = "/menu";
 	 	var goUrlComment = "/comment/storeComment";
-	 	var goUrlInst = "/store/favoriteInst";
-	 	var goUrlUpdt = "/store/favoriteUpdt";
 		var seq = $("input[name=ifstSeq]");
 		var form = $("#myForm");
 		
@@ -491,17 +491,40 @@
 			form.attr("action", goUrlComment).submit();
 		}
 		
-		/* favorite s */
-		$("#fv").on("click", function() {
-			if ($("#iffvUseNy").val() == '0') {
-				$("#iffvUseNy").val("1")
-				form.attr("action", goUrlInst).submit();
-			} else {
-				$("#iffvUseNy").val("0")
-				form.attr("action", goUrlUpdt).submit();
-			}
-		})
-		/* favorite e */
+	</script>
+	<script type="text/javascript">
+	<!-- Like 버튼 구현 -->
+	function favorite(){
+		
+		if ($("input[name=iffvUseNy]").val() == "0") {
+			$("input[name=iffvUseNy]").val("1");
+			$(".fa-heart").removeClass("fa-regular");
+			$(".fa-heart").addClass("fa-solid");
+			/* alert(likeCount) */
+		} else {
+			$("input[name=iffvUseNy]").val("0");
+			$(".fa-heart").addClass("fa-regular");
+			$(".fa-heart").removeClass("fa-solid");
+		}
+		/* form.attr("action", goUrlInst).submit(); */
+		$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/store/favorite"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "ifstSeq" : $("input[name=ifstSeq]").val(), "iffvUseNy" : $("input[name=iffvUseNy]").val(), "ifmmSeq" : $("input[name=ifmmSeq]").val(), "iffvSeq" : $("input[name=iffvSeq]").val()}
+				,success: function(response) {
+					if(response.rt == "fail") {
+						alert("제대로 선택하세요!!");
+					} 
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});
+	}
 	</script>
 </body>
 

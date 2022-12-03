@@ -7,4 +7,7 @@ public interface ChatService {
 	
 	public List<Chat> selectChatListFromOne(Integer seq) throws Exception;
 	public Chat createChat(int chatUserA, int chatUserB) throws Exception;
+	
+	public int userCheck(ChatVo vo) throws Exception;
+	public int userCount(ChatVo vo) throws Exception;
 }

@@ -38,6 +38,7 @@
 		WHERE 1=1 
 		AND cu.cuMember != #{cuMember} <!-- cuMember[로그인 USER 시퀀스가 담겨있음] -->
 		AND cu.cuChatSeq = #{chatSeq}  <!-- 내가 찾으려는 채팅방 번호 -->
+		<if test="shValue != null and !shValue.equals('')"> AND mm.ifmmId LIKE CONCAT('%',#{shValue},'%')</if>
 		<!-- 마지막 WHERE 두가지를 통해 로그인한 USER가 참여한 채팅방의 상대방 정보를 추출 -->
 	
 	</select>
@@ -87,5 +88,23 @@
 			,#{cuMember}
 		)
 	</insert>
+	
+	<!-- user check s -->
+	<select id="userCheck" resultType="Integer">
+		SELECT 
+			COUNT(*) 
+		FROM chatUser 
+		WHERE cuMember= #{cuMember}
+	</select>
+	<!-- user check e -->
+	
+	<select id="userCount" resultType="Integer">
+		SELECT COUNT(*)
+		FROM chatUser cu
+		JOIN chat c on c.chatSeq = cu.cuChatSeq
+		AND c.chatDelNy = 0
+		WHERE 1=1
+			and cuMember = #{ifmmSeq}
+	</select>
 
 </mapper>

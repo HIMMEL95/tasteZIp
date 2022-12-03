@@ -43,6 +43,7 @@
 						<div class="ng-star-inserted">
 							<form method="post" id="myForm" name="myForm">
 								<input type="hidden" id="selectedRoom">
+								<input type="hidden" id="cuMember" name="cuMember" value="${dto.ifmmSeq}">
 								<!-- contents s -->
 								<div class="contents">
 									<div class="inbox_people">
@@ -53,15 +54,15 @@
 										<div class="container" style="margin-top: 2rem;">
 											<div class="row justify-content-center">
 												<div class="SearchBox">
-													<input type="text" class="SearchBox-input" placeholder="Search">
-													<button class="SearchBox-button">
+													<input type="text" class="SearchBox-input" placeholder="Search" name="shValue" value="${vo.shValue }">
+													<button type="submit" class="SearchBox-button">
 														<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
 													</button>
 												</div>
 											</div>
 										</div>
 									</div>
-									<h3 class="count" style="margin: 10px 15px;">친구 : 20</h3>
+									<h3 class="count" style="margin: 10px 15px;">친구 : ${count }</h3>
 									<div class="inbox_chat friends"  id="friendsList">
 										<ul class="friendsList">
 											<c:forEach items="${list }" var="list" varStatus="status">
@@ -91,6 +92,7 @@
 									<div class="inbox_chat chatList" style="display: none;">
 										<ul class="chatList">
 											<c:forEach items="${list }" var="list" varStatus="status">
+												<input type="hidden" id="room${status.index }" name="roomNo" value="${list.chatSeq }">
 												<li class="room" id="${list.chatSeq }" onclick="selectChatRoom(${list.chatSeq})">
 													<div class="chat_list">  <!-- active_chat -->
 														<div class="chat_people">
@@ -98,16 +100,16 @@
 																<input type="hidden" id="imgPath${list.chatSeq }" value="${list.path }${list.uuidName}">
 																<c:choose>
 																	<c:when test="${empty list.path }">
-																		<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile" class="chatImg pro${list.chatSeq }"> 
+																		<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile1" class="chatImg"> 
 																	</c:when>
 																	<c:otherwise>
-																		<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg"> 
+																		<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg pro${list.chatSeq }"> 
 																	</c:otherwise>
 																</c:choose>
 															</div>
 															<div class="chat_ib">
-															<h5>${list.ifmmId } <span class="chat_date">Dec 25</span></h5>
-															<p>Test, which is a new approach to have all solutions 
+															<h5>${list.ifmmId } <span class="chat_date lastTime">Dec 25</span></h5>
+															<p class="lastTalk${list.chatSeq }">Test, which is a new approach to have all solutions 
 																astrology under one roof.</p>
 															</div>
 														</div>
@@ -122,10 +124,19 @@
 										<div class="container-fluid" style="hight: 50px; background: #E6E6E6;" >
 											<div class="row hh">
 												<div class="col-2 text-start" style="margin-left: 1rem;">
-													<div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg chatListImg"></div>
+													<div class="chat_img">
+														<c:choose>
+															<c:when test="${empty item.path }">
+																<img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg">
+															</c:when>
+															<c:otherwise>
+																<img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg chatListImg">
+															</c:otherwise>
+														</c:choose>
+													</div>
 												</div>
 												<div class="col-8 text-start">
-													<h4><b class="userId">Robo Cop </b></h4>
+													<h4><b class="userId"></b></h4>
 													<p class="text-muted">Layin' down the law since like before Christ...</p>
 												</div>
 											</div>
@@ -185,9 +196,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
-	<!-- kakao login s -->
-    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <!-- kakao login e -->
 	<script>
 	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
@@ -213,6 +221,9 @@
 	
 		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
 		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
+		
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(container, options);   
 		
 	</script>
 	<script type="text/javascript">
@@ -312,6 +323,8 @@
 		$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
 	};
 	
+	var lastTalk;
+	var lastTime;
 	function readMessage(e){
 
 		const room = e.id; 
@@ -335,15 +348,17 @@
                                 snapshot3.forEach((childSnapshot3) => {
                                         const message = childSnapshot3.val()
                                         console.log(message);
-
 										var txt = '';
 										txt += '<div class="';
 										txt += writer == ${sessSeq} ? 'outgoing_msg' : 'incoming_msg';
 										txt += '">';
 										txt += writer == ${sessSeq} ? '' : '<div class="chat_img"><img src="'+imgPath+'" alt="profile" class="chatImgSm"></div>';
 										txt += writer == ${sessSeq} ? '<div class="sent_msg"><p>'+message+'</p><span class="time_date right">'+getTimeFormat(timetable)+'</span></div>' : '<div class="received_msg"><div class="received_withd_msg"><p>'+message+'</p><span class="time_date">'+getTimeFormat(timetable)+'</span></div></div>';
+										lastTalk = message;
+										lastTime = getTimeFormat(timetable);
+										console.log(lastTalk);
+										console.log(lastTime);	
 				
-
                                         $("#chatBox").append(txt);
                                         $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
                                     });
@@ -354,6 +369,7 @@
                  }		
             });	
 	}
+	
 
 	$(".room").click(function(){
 		readMessage(event.currentTarget);
@@ -390,6 +406,7 @@
 			$(".chatImgSm").attr("src", $("#imgPath"+roomNo).val());
 			$(".userId").html($("#id"+roomNo).val());
 			$(".contents").css("display", "");
+			$(".friends").css("display", "none");
 			$(".chatList").css("display", "none");
 			$(".headind_srch").css("display", "none");
 			$(".count").css("display", "none");
@@ -405,7 +422,6 @@
 		};
 	
 		addChat = function(){
-	
 			$.ajax({
 				url: '/chat/insChat'
 				,type: 'POST'
@@ -415,9 +431,8 @@
 				}
 				,success:function(result){
 					if(result.rt=="success"){
-						
 						$("#cuMember").val("");
-						var txt="";
+						/* var txt="";
 						txt+='<li class="room" id="';
 						txt+=result.newChat.chatSeq;
 						txt+='" onclick="selectChatRoom(';
@@ -441,10 +456,10 @@
 						txt+='</div>';
 						txt+='</div>';
 						txt+='</li>';
-						$("#chatList").prepend(txt);
+						$("#chatList").prepend(txt); */
 						location.reload();
 					}else{
-						alert("fail..!");
+						alert("이미 등록된 친구 입니다!!(새로고침X)");
 					}
 				}
 				,error:function(){
@@ -460,6 +475,9 @@
 			$(".float_bar").css("display", "flex");
 		})
 
+		if ($("input[name=cuMember]").val() != "") {
+			addChat();
+		}
 	</script>
 </body>
 

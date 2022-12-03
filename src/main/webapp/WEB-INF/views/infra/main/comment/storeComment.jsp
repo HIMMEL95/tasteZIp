@@ -214,7 +214,7 @@
 																	                    <!-- Review -->
 																	                    <div class="form-group">
 																	                      <label class="visually-hidden" for="reviewText">후기</label>
-																	                      <textarea class="form-control form-control-sm" id="ifcmComment" name="ifcmComment" rows="5" placeholder="후기를 작성해주세요." required=""></textarea>
+																	                      <textarea class="form-control form-control-sm" id="ifcmComment" name="ifcmComment" rows="5" placeholder="후기를 작성해주세요."></textarea>  <!-- required="" -->
 																	                    </div>
 																	
 																	                  </div>
@@ -317,7 +317,8 @@
 																												<span><c:out value="${list.ifmmId}"/></span>
 																											</div>
 																											<div class="col-6 text-end mb-3" id="reviewID">
-																												<button class="learn-more"><i class="fa-solid fa-comments"></i> 채팅하기</button>
+																												<input type="hidden" name="ifmmSeq" value="${list.ifmmSeq }">
+																												<button type="button" onclick="goChat(${list.ifmmSeq})" class="learn-more"><i class="fa-solid fa-comments"></i> 채팅하기</button>
 																											</div>
 																										</div>
 																										<div class="row justify-content-between">
@@ -464,6 +465,8 @@
 		var goUrlForm = "/store/storeMain";
 	 	var goUrlMenu = "/menu";
 		var seq = $("input[name=ifstSeq]");
+		var memberSeq = $("input[name=ifmmSeq]");
+		var goUrlChat = "/chatPre";
 		var form = $("#myForm");
 		
 		goHome = function(keyValue) {
@@ -474,6 +477,11 @@
 		goMenu = function(keyValue) {
 			seq.val(keyValue);
 			form.attr("action", goUrlMenu).submit();
+		}
+		
+		goChat = function(keyValue) {
+			memberSeq.val(keyValue);
+			form.attr("action", goUrlChat).submit();
 		}
 	</script>
 	<script type="text/javascript">

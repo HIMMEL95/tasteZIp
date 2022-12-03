@@ -14,6 +14,7 @@ public class Chat {
 	private String ifmmId;   //유저 이름 or 닉네임
 	private String path;       //프로필 이미지 경로
 	private String uuidName;   //프로필 이미지 파일 이름
+	private String shValue;
 	
 	public Integer getChatSeq() {
 		return chatSeq;
@@ -39,28 +40,34 @@ public class Chat {
 	public void setChatCreateDate(String chatCreateDate) {
 		this.chatCreateDate = chatCreateDate;
 	}
-    public Integer getIfmmSeq() {
-        return ifmmSeq;
-    }
-    public void setIfmmSeq(Integer ifmmSeq) {
-        this.ifmmSeq = ifmmSeq;
-    }
-    public String getIfmmId() {
-        return ifmmId;
-    }
-    public void setIfmmId(String ifmmId) {
-        this.ifmmId = ifmmId;
-    }
-    public String getPath() {
-        return path;
-    }
-    public void setPath(String path) {
-        this.path = path;
-    }
-    public String getUuidName() {
-        return uuidName;
-    }
-    public void setUuidName(String uuidName) {
-        this.uuidName = uuidName;
-    }
+	public Integer getIfmmSeq() {
+		return ifmmSeq;
+	}
+	public void setIfmmSeq(Integer ifmmSeq) {
+		this.ifmmSeq = ifmmSeq;
+	}
+	public String getIfmmId() {
+		return ifmmId;
+	}
+	public void setIfmmId(String ifmmId) {
+		this.ifmmId = ifmmId;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getShValue() {
+		return shValue;
+	}
+	public void setShValue(String shValue) {
+		this.shValue = shValue;
+	}
 }

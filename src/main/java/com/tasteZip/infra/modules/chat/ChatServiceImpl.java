@@ -92,5 +92,17 @@ public class ChatServiceImpl implements ChatService{
         
         return KakaoFriends;
     }
+
+	@Override
+	public int userCheck(ChatVo vo) throws Exception {
+		return dao.userCheck(vo);
+	}
+
+	@Override
+	public int userCount(ChatVo vo) throws Exception {
+		return dao.userCount(vo);
+	}
+    
+    
     
 }

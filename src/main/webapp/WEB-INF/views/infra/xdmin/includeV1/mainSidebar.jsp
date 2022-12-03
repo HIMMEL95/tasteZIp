@@ -38,7 +38,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="/chatRoom" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+						<a href="/chatPre" class="nav-link py-3 rounded-0 align-center" aria-current="page" data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
 							<i class="fas fa-light fa-comments text-white" style="font-size: 22px;"></i>
 						</a>
 					</li>

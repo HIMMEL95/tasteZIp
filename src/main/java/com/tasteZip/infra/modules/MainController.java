@@ -16,11 +16,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.modules.chat.Chat;
 import com.tasteZip.infra.modules.chat.ChatServiceImpl;
-import com.tasteZip.infra.modules.chat.KakaoFriends;
+import com.tasteZip.infra.modules.chat.ChatVo;
 import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
@@ -81,9 +80,12 @@ public class MainController {
 //    }
 
     @RequestMapping(value = "chatPre")
-    public String chatPre(HttpSession httpSession, Model model, Chat dto) throws Exception {
+    public String chatPre(HttpSession httpSession, Model model, @ModelAttribute("dto") Chat dto, ChatVo vo) throws Exception {
         List<Chat> list = cService.selectChatListFromOne(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()));
         model.addAttribute("list", list);
+        
+        vo.setIfmmSeq(httpSession.getAttribute("sessSeq").toString());
+        model.addAttribute("count", cService.userCount(vo));
         return "infra/main/chat/chatPre";
     }
     

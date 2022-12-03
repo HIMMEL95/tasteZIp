@@ -39,6 +39,14 @@ carWay = function() {
 			"trafficInfo" : trafficInfochk
 		},
 		success : function(response) {
+			
+			// 기존 마커, 팝업 제거
+		   if(markerArr.length > 0){
+			   for(var i in markerArr){
+				   markerArr[i].setMap(null);
+			   }
+		   }
+		   resettingMap();
 
 			var resultData = response.features;
 
@@ -393,4 +401,5 @@ function resettingMap() {
 	drawInfoArr = [];
 	resultMarkerArr = [];
 	resultdrawArr = [];
+	markerArr = [];
 }

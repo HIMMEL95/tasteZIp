@@ -30,4 +30,7 @@ public class ChatDao {
 	public void insertChatUser(Chat dto) { sqlSession.insert(namespace+".insertChatUser", dto); }
 
 	public Chat selectOneChat(Chat dto) { return sqlSession.selectOne(namespace+".selectOneChat", dto);}
+	
+	public int userCheck(ChatVo vo) { return sqlSession.selectOne(namespace + ".userCheck", vo); }
+	public int userCount(ChatVo vo) { return sqlSession.selectOne(namespace + ".userCount", vo); }
 }

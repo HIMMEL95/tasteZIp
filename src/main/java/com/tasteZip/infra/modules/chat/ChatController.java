@@ -32,12 +32,21 @@ public class ChatController {
 
 	@ResponseBody
 	@RequestMapping(value="insChat")
-	public Map<String,Object> insChat(HttpSession httpSession,Chat dto) throws Exception {
+	public Map<String,Object> insChat(HttpSession httpSession,Chat dto, ChatVo vo, Model model) throws Exception {
 		
 		Map<String,Object> result = new HashMap<String,Object>();
 		
-		Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
-		if(newChat != null) {
+		int check = service.userCheck(vo);
+		
+//		Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
+//		if(newChat != null) {
+//			result.put("rt", "success");
+//			result.put("newChat", newChat);
+//		}
+//		else
+//			result.put("rt", "fail");
+		if(check == 0) {
+			Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
 			result.put("rt", "success");
 			result.put("newChat", newChat);
 		}

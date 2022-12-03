@@ -52,7 +52,7 @@
                             <a class="nav-link" href="/favorite">Favorite</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/chat">Crew Chat</a>
+                            <a class="nav-link" href="/chatPre">Crew Chat</a>
                         </li>
                         <c:choose>
                         	<c:when test="${empty sessSeq }">

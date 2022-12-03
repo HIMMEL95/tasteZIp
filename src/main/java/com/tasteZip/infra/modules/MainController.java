@@ -75,10 +75,10 @@ public class MainController {
 //        return "infra/main/store/storeMain";
 //    }
     
-    @RequestMapping(value = "chat")
-    public String chat() throws Exception {
-        return "infra/main/chat/chat";
-    }
+//    @RequestMapping(value = "chat")
+//    public String chat() throws Exception {
+//        return "infra/main/chat/chat";
+//    }
 
     @RequestMapping(value = "chatPre")
     public String chatPre(HttpSession httpSession, Model model) throws Exception {

@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="/resources/css/chat/chat.css">
 	<!-- <link rel="stylesheet" href="/resources/css/story/story.css"> -->
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
+	<!-- <script defer type="text/javascript" src="/resources/js/chat/chat.js"></script> -->
 </head>
 
 <body>
@@ -40,93 +41,129 @@
 				<div class="panel">
 					<div class="panel_top">
 						<div class="ng-star-inserted">
-							<!-- contents s -->
-							<div class="contents">
-								<div class="inbox_people">
-									<div class="headind_srch">
-										<div class="recent_heading">
-											<h4 style="text-shadow: 2px 5px lightgrey;">My Chatting List</h4>
-										</div>
-									<div class="container" style="margin-top: 2rem;">
-										<div class="row justify-content-center">
-											<div class="SearchBox">
-												<input type="text" class="SearchBox-input" placeholder="Search">
-												<button class="SearchBox-button">
-													<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
-												</button>
+							<form method="post" id="myForm" name="myForm">
+								<input type="hidden" id="selectedRoom">
+								<!-- contents s -->
+								<div class="contents">
+									<div class="inbox_people">
+										<div class="headind_srch">
+											<div class="recent_heading">
+												<h4 style="text-shadow: 2px 5px lightgrey;">My Chatting List</h4>
+											</div>
+										<div class="container" style="margin-top: 2rem;">
+											<div class="row justify-content-center">
+												<div class="SearchBox">
+													<input type="text" class="SearchBox-input" placeholder="Search">
+													<button class="SearchBox-button">
+														<i class="SearchBox-icon  material-icons"><i class="fa-solid fa-magnifying-glass"></i></i>
+													</button>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="inbox_chat friends"  id="friendsList">
-						          	<p style="margin: 5px 10px;">친구 : 20</p>
-									<c:forEach items="${list }" var="list" varStatus="status">
-							            <a href="/chatRoom">
-								            <div class="chat_list">  <!-- active_chat -->
-												<div class="chat_people">
+									<h3 style="margin: 10px 15px;">친구 : 20</h3>
+									<div class="inbox_chat friends"  id="friendsList">
+										<ul>
+											<c:forEach items="${list }" var="list" varStatus="status">
+												<li class="room" id="${list.chatSeq }">
+													<div class="chat_list">  <!-- active_chat -->
+														<div class="chat_people">
+															<div class="chat_img">
+																<c:choose>
+																	<c:when test="${empty list.path }">
+																		<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile" class="chatImg"> 
+																	</c:when>
+																	<c:otherwise>
+																		<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg"> 
+																	</c:otherwise>
+																</c:choose>
+															</div>
+															<div class="chat_ib">
+																<h3>${list.ifmmId }</h3>
+															</div>
+														</div>
+													</div>
+												</li>
+											</c:forEach>
+										</ul>
+									</div>
+									<div class="inbox_chat chatList" style="display: none;">
+										<ul class="chatList">
+											<c:forEach items="${list }" var="list" varStatus="status">
+												<li class="room" id="${list.chatSeq }" onclick="selectChatRoom(${list.chatSeq})">
+													<div class="chat_list">  <!-- active_chat -->
+														<div class="chat_people">
+															<div class="chat_img">
+																<c:choose>
+																	<c:when test="${empty list.path }">
+																		<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile" class="chatImg"> 
+																	</c:when>
+																	<c:otherwise>
+																		<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg"> 
+																	</c:otherwise>
+																</c:choose>
+															</div>
+															<div class="chat_ib">
+															<h5>${list.ifmmId } <span class="chat_date">Dec 25</span></h5>
+															<p>Test, which is a new approach to have all solutions 
+																astrology under one roof.</p>
+															</div>
+														</div>
+													</div>
+												</li>
+											</c:forEach>
+										</ul>
+									</div>
+									<!-- contents s -->
+									<div class="contents" style="display: none;">
+										<div class="container-fluid" style="hight: 50px; background: #E6E6E6; margin-top: 3rem;" >
+											<div class="row hh">
+												<div class="col-2 text-start" style="margin-left: 1rem;">
+													<div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+												</div>
+												<div class="col-8 text-start">
+													<h4><b>Robo Cop </b></h4>
+													<p class="text-muted">Layin' down the law since like before Christ...</p>
+												</div>
+											</div>
+										</div>
+										<div class="mesgs">
+											<div class="msg_history" id="chatBox" style="margin-top: 2rem;">
+												<!-- <div class="incoming_msg">
 													<div class="chat_img">
-														<c:choose>
-															<c:when test="${empty list.path }">
-																<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile" class="chatImg"> 
-															</c:when>
-															<c:otherwise>
-																<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg"> 
-															</c:otherwise>
-														</c:choose>
+														<img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImgSm">
 													</div>
-													<div class="chat_ib">
-														<h5>${list.ifmmId }</h5>
-														<p>Test, which is a new approach to have all solutions 
-															astrology under one roof.</p>
+													<div class="received_msg">
+														<div class="received_withd_msg">
+															<p>Test, which is a new approach to have</p>
+															<span class="time_date"> 11:01 AM    |    Yesterday</span>
+														</div>
 													</div>
 												</div>
-								            </div>
-							            </a>
-									</c:forEach>	
-								</div>
-								<div class="inbox_chat chatList" style="display: none;">
-									<c:forEach items="${list }" var="list" varStatus="status">
-										<a href="/chatRoom">
-											<div class="chat_list">  <!-- active_chat -->
-											<div class="chat_people">
-												<div class="chat_img">
-													<c:choose>
-														<c:when test="${empty list.path }">
-															<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile" class="chatImg"> 
-														</c:when>
-														<c:otherwise>
-															<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg"> 
-														</c:otherwise>
-													</c:choose>
-												</div>
-												<div class="chat_ib">
-												<h5>${list.ifmmId } <span class="chat_date">Dec 25</span></h5>
-												<p>Test, which is a new approach to have all solutions 
-													astrology under one roof.</p>
+												<div class="outgoing_msg">
+													<div class="sent_msg">
+														<p>Apollo University, Delhi, India Test</p>
+														<span class="time_date"> 11:01 AM    |    Today</span>
+													</div>
+												</div> -->
+												<div class="type_msg">
+													<div class="input_msg_write">
+														<!-- <input type="text" id="chatMessage" class="write_msg" placeholder="Type a message" /> -->
+														<textarea id="chatMessage" class="form-control type_msg" placeholder="Type your message..."></textarea>
+														<button class="msg_send_btn" type="button" id="sendBtn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+													</div>
 												</div>
 											</div>
-											</div>
-										</a>
-									</c:forEach>
-									<a href="/chatRoom">
-										<div class="chat_list active_chat">
-										<div class="chat_people">
-											<div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"> </div>
-											<div class="chat_ib">
-											<h5>가나다 <span class="chat_date">Dec 25</span></h5>
-											<p>Test, which is a new approach to have all solutions 
-												astrology under one roof.</p>
-											</div>
 										</div>
-										</div>
-									</a>
+									</div>
+									<!-- contents e -->	
 								</div>
-							</div>
-							<div style="width:100%; height: 50px; display: flex; justify-content: space-around;" >
-								<button type="button" id="friendsBtn"><i class="fa-solid fa-user-group fa-2x"></i></button>
-								<button type="button" id="chatList"><i class="fa-solid fa-comments fa-2x"></i></button>
-							</div>
-							<!-- contents e -->
+								<div style="width:100%; height: 50px; display: flex; justify-content: space-around;" >
+									<button type="button" id="friendsBtn"><i class="fa-solid fa-user-group fa-2x"></i></button>
+									<button type="button" id="chatList"><i class="fa-solid fa-comments fa-2x"></i></button>
+								</div>
+								<!-- contents e -->
+							</form>
 						</div>
 					</div>
 				</div>
@@ -204,6 +241,205 @@
     	$("#loginBtn").on("click", function() {
 			window.location.href = goUrlLogin;
 		})
+	</script>
+	<script type="module">
+
+	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+	
+  //Firebase 프로젝트에서 추출한 정보 입력
+	const firebaseConfig = {
+    apiKey: "AIzaSyBJt23BGLDNdnTcoj7Ut0EmEzKEI_z-bhQ",
+    authDomain: "tastezip-8b9e4.firebaseapp.com",
+    databaseURL: "https://tastezip-8b9e4-default-rtdb.firebaseio.com",
+    projectId: "tastezip-8b9e4",
+    storageBucket: "tastezip-8b9e4.appspot.com",
+    messagingSenderId: "734649130564",
+    appId: "1:734649130564:web:9c60fa95c8b7500dd4e611"
+  };	
+	// Initialize Firebase
+	const app = initializeApp(firebaseConfig);
+
+	import { getDatabase, ref, set, onValue }	from "https://www.gstatic.com/firebasejs/9.12.1/firebase-database.js";
+	
+	const db = getDatabase();
+
+	var insMsg = document.getElementById("chatMessage");
+	insMsg.addEventListener('keyup',enterKey);
+
+	var sendBtn = document.getElementById("sendBtn");
+	sendBtn.addEventListener('click',sendMessage);
+
+
+	function enterKey() {
+		
+		var keycode = event.keyCode;
+		
+		if(keycode == 13) //Enter
+			sendMessage();
+	};
+		
+	function sendMessage(){
+
+		var room = $("#selectedRoom").val();
+	
+		if(room == "") {
+			//채팅방을 선택하지 않고 메세지 보내면 동작하지 않도록
+			$("#chatMessage").val("");
+			return;
+		}
+
+		var message = $("#chatMessage").val();
+
+		//메시지 입력창 초기화
+		$("#chatMessage").val("");
+		
+		//새 메세지 추가하면 채팅방에 이전 기록도 다시 다 불러와서 한번 비워줌
+		$("#chatBox").html(""); 	
+	
+		//새 메세지를 Firebase / realtime database / chat / 채팅방seq / 시간대 / 작성자 / 메세지에 입력합니다.
+		set(ref(db,'chat/'+room+'/'+getnow()+'/'+${sessSeq} ),{
+			Masseage: message
+		})
+
+		//스크롤을 제일 아래로 유지
+		$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+	};
+	
+	function readMessage(e){
+
+		const room = e.id; 
+		$("#selectedRoom").val(room);
+		
+		const dbRef = ref(db, 'chat/'+room);
+		const txt = "";
+        onValue(dbRef,(snapshot) => {
+            if(snapshot.key == $("#selectedRoom").val()){
+				//채팅을 누르면 기존 채팅은 지우고 새로 불러오게
+				$("#chatBox").html("");
+                snapshot.forEach((childSnapshot) => {
+                    const timetable = childSnapshot.key;
+                    console.log(timetable); 
+                    onValue(ref(db,'chat/'+room+'/'+timetable),(snapshot2) => {
+                        snapshot2.forEach((childSnapshot2) => {
+                            const writer = childSnapshot2.key
+                            console.log(writer);
+                        
+                            onValue(ref(db,'chat/'+room+'/'+timetable+'/'+writer),(snapshot3) => {
+                                snapshot3.forEach((childSnapshot3) => {
+                                        const message = childSnapshot3.val()
+                                        console.log(message);
+
+										var txt = '';
+										txt += '<div class="';
+										txt += writer == ${sessSeq} ? 'outgoing_msg' : 'incoming_msg';
+										txt += '">';
+										txt += writer == ${sessSeq} ? '<div class="chat_img"><img src="${item.path}${item.uuidName}" alt="profile" class="chatImgSm"></div>' : '';
+										txt += writer == ${sessSeq} ? '<div class="sent_msg"><p>'+message+'</p><span class="time_date">'+getTimeFormat+'</span></div>' : '<div class="received_msg"><div class="received_withd_msg"><p>'+message+'</p><span class="time_date">'+getTimeFormat(timetable)+'</span></div></div>';
+				
+
+                                        $("#chatBox").append(txt);
+                                        $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+                                    });
+                                }); 
+                            }); 
+                        });
+                    });
+                 }		
+            });	
+	}
+
+	$(".room").click(function(){
+		readMessage(event.currentTarget);
+				
+	}); 
+	function getTimeFormat(timetable){
+		//221105080634 
+		return timetable.substring(0,2)+"-"+timetable.substring(2,4)+"-"+timetable.substring(4,6)+" "+timetable.substring(6,8)+":"+timetable.substring(8,10)+":"+timetable.substring(10,12);	
+	}
+
+	</script>
+	<script type="text/javascript">
+		getnow = function() {
+			
+			var timestamp = new Date().getTime();
+			
+			var date = new Date(timestamp); //타임스탬프를 인자로 받아 Date 객체 생성
+			
+			var year = date.getFullYear().toString().slice(-2); //년도 뒤에 두자리
+			var month = ("0" + (date.getMonth() + 1)).slice(-2); //월 2자리 (01, 02 ... 12)
+			var day = ("0" + date.getDate()).slice(-2); //일 2자리 (01, 02 ... 31)
+			var hour = ("0" + date.getHours()).slice(-2); //시 2자리 (00, 01 ... 23)
+			var minute = ("0" + date.getMinutes()).slice(-2); //분 2자리 (00, 01 ... 59)
+			var second = ("0" + date.getSeconds()).slice(-2); //초 2자리 (00, 01 ... 59)
+			
+			return year+month+day+hour+minute+second;
+		};
+	
+		selectChatRoom = function (roomNo) {
+			alert("asd")
+			$(".contents").css("display", "");
+			$(".chatList").css("display", "none");
+		    
+		    var roomArray = $("li[name=room]");
+		    roomArray.each(function (index, item) {
+		        if (index != roomNo - 1)
+		            item.classList.remove("active");
+		        else
+		            item.classList.add("active");
+		    });
+	
+	
+		};
+	
+		addChat = function(){
+	
+			$.ajax({
+				url: '/chat/insChat'
+				,type: 'POST'
+				,datatype:'json'
+				,data:{
+					cuMember : $("#cuMember").val()
+				}
+				,success:function(result){
+					if(result.rt=="success"){
+						
+						$("#cuMember").val("");
+						var txt="";
+						txt+='<li class="room" id="';
+						txt+=result.newChat.chatSeq;
+						txt+='" onclick="selectChatRoom(';
+						txt+=result.newChat.chatSeq;
+						txt+=')">';
+						txt+='<div class="d-flex bd-highlight">';
+						txt+='<div class="img_cont">';
+						//아래 path 와 uuidname 도 본인의 dto field에 맞게 수정
+						txt+='<img src="';
+						if(result.newChat.path != null)
+						{
+							txt+=result.newChat.path + result.newChat.uuidName;
+						}
+						txt+='" class="rounded-circle user_img">';
+						txt+='</div>';
+						txt+='<div class="chat_product_info">';
+						txt+='<span class="status">';
+						txt+=result.newChat.ifmmId;
+						txt+='</span>';
+						txt+='<p>TEST TEXT FIELD</p>';
+						txt+='</div>';
+						txt+='</div>';
+						txt+='</li>';
+						$("#chatList").prepend(txt);
+						location.reload();
+					}else{
+						alert("fail..!");
+					}
+				}
+				,error:function(){
+					alert("ajax error..!");
+				}
+			});
+	
+		}
 	</script>
 </body>
 

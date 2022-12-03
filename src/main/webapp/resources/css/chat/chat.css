@@ -86,7 +86,6 @@ h4{
     font-weight: 400;
     font-style: normal;
 }
-img{ max-width:100%;}
 .inbox_people {
   background: white none repeat scroll 0 0;
   float: left;
@@ -96,6 +95,11 @@ img{ max-width:100%;}
   border-right:1px solid white;
   margin: 5px 0;
 }
+
+.inbox_people::-webkit-scrollbar {
+	display: none;
+}
+
 .inbox_msg {
   border: 1px solid white;
   clear: both;
@@ -202,6 +206,7 @@ img{ max-width:100%;}
   float: left;
   padding: 30px 15px 0 25px;
   width: 99%;
+  font-family: 'Pretendard-Regular';
 }
 
  .sent_msg p {
@@ -236,8 +241,8 @@ img{ max-width:100%;}
   font-size: 17px;
   height: 33px;
   position: absolute;
-  right: 0;
-  top: 11px;
+  right: 5px;
+  top: 5px;
   width: 33px;
 }
 .messaging { padding: 0 0 50px 0;}
@@ -267,3 +272,34 @@ input {
 	color: #000;
 	caret-color:#ff7f00;
 }
+
+.chat_ib h3 {
+	margin: 15px 10px;
+}
+
+
+/* chat room s */
+.incoming_msg_img {
+	display: inline-block;
+	width: 6%;
+}
+
+.incoming_msg_img img {
+	width: 100%;
+}
+
+.hh{
+	margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.chatImgSm{
+		width: 35px;
+		height: 35px;
+		border-radius: 100%;
+}
+
+#myForm {
+	width: 100%;
+}
+/* chat room e */

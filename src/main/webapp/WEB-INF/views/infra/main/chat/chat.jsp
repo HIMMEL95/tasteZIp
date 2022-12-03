@@ -256,35 +256,31 @@
 	                    <div class="card mb-sm-3 mb-md-0 contacts_card">
 	                        <div class="card-header">
 	                            <div class="input-group">
-																	<input type="text" placeholder="add ChatUser Seq..." id="cuMember" name="cuMember" class="form-control search">
+									<input type="text" placeholder="add ChatUser Seq..." id="cuMember" name="cuMember" class="form-control search">
 	                                <span class="input-group-text search_btn" onclick="addChat()"><i class="fa-solid fa-plus"></i></span>
 	                            </div>
 	                        </div>
 	                        <div class="card-body contacts_body">
 	                            <ui class="contacts" id="chatList">
-	                            
 	                            	<c:forEach items="${list }" var="list" varStatus="status">
-	                            		
-																		<li class="room" id="${list.chatSeq}" onclick="selectChatRoom(${list.chatSeq})">
+										<li class="room" id="${list.chatSeq}" onclick="selectChatRoom(${list.chatSeq})">
 		                                    <div class="d-flex bd-highlight">
 		                                        <div class="img_cont">
-																								<!-- 아래 path 와 uuidname 도 본인의 dto field에 맞게 수정 -->
+													<!-- 아래 path 와 uuidname 도 본인의 dto field에 맞게 수정 -->
 		                                            <img src="
-																										<c:if test = "${list.path ne null}">
-																											${list.path}${list.uuidName}
-																										</c:if>
+														<c:if test = "${list.path ne null}">
+															${list.path}${list.uuidName}
+														</c:if>
 		                                                " class="rounded-circle user_img">
 		                                        </div>
 		                                        <div class="chat_product_info">
-																								<!-- 아래 mmNickName  도 본인의 dto field에 맞게 수정 -->
+													<!-- 아래 mmNickName  도 본인의 dto field에 맞게 수정 -->
 		                                            <span class="status"><c:out value="${list.ifmmId }"/></span>
-					                                 			<p>TEST TEXT FIELD</p>
+		                                 			<p>TEST TEXT FIELD</p>
 		                                        </div>
 		                                    </div>
 		                                </li>
-	                            			
 	                            	</c:forEach>
-	                             
 	                            </ui>
 	                        </div>
 	                        <div class="card-footer"></div>
@@ -293,9 +289,7 @@
 	                <div class="col-md-8 col-xl-6 chat">
 	                    <div class="card">	                       
 	                        <div id="chatBox" class="card-body msg_card_body">
-	
-													<!-- 채팅 메세지 박스 -->
-	
+							<!-- 채팅 메세지 박스 -->
 	                        </div>
 	                        <div class="card-footer">
 	                            <div class="input-group">

@@ -263,6 +263,7 @@
 	                        <div class="card-body contacts_body">
 	                            <ui class="contacts" id="chatList">
 	                            	<c:forEach items="${list }" var="list" varStatus="status">
+						        		<input type="hidden" name="cuMember" value="${list.cuMember }"> 
 										<li class="room" id="${list.chatSeq}" onclick="selectChatRoom(${list.chatSeq})">
 		                                    <div class="d-flex bd-highlight">
 		                                        <div class="img_cont">

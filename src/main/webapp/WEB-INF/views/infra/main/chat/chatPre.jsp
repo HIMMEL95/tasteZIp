@@ -61,9 +61,9 @@
 											</div>
 										</div>
 									</div>
-									<h3 style="margin: 10px 15px;">친구 : 20</h3>
+									<h3 class="count" style="margin: 10px 15px;">친구 : 20</h3>
 									<div class="inbox_chat friends"  id="friendsList">
-										<ul>
+										<ul class="friendsList">
 											<c:forEach items="${list }" var="list" varStatus="status">
 												<li class="room" id="${list.chatSeq }">
 													<div class="chat_list">  <!-- active_chat -->
@@ -79,6 +79,7 @@
 																</c:choose>
 															</div>
 															<div class="chat_ib">
+																<input type="hidden" id="id${list.chatSeq }" value="${list.ifmmId }">
 																<h3>${list.ifmmId }</h3>
 															</div>
 														</div>
@@ -94,9 +95,10 @@
 													<div class="chat_list">  <!-- active_chat -->
 														<div class="chat_people">
 															<div class="chat_img">
+																<input type="hidden" id="imgPath${list.chatSeq }" value="${list.path }${list.uuidName}">
 																<c:choose>
 																	<c:when test="${empty list.path }">
-																		<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile" class="chatImg"> 
+																		<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile" class="chatImg pro${list.chatSeq }"> 
 																	</c:when>
 																	<c:otherwise>
 																		<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg"> 
@@ -115,19 +117,22 @@
 										</ul>
 									</div>
 									<!-- contents s -->
-									<div class="contents" style="display: none;">
-										<div class="container-fluid" style="hight: 50px; background: #E6E6E6; margin-top: 3rem;" >
+									<div class="contents talk" style="display: none;">
+										<button type="button" class="backBtn" id="backBtn"><i class="fa-solid fa-arrow-left fa-2x"></i></button>
+										<div class="container-fluid" style="hight: 50px; background: #E6E6E6;" >
 											<div class="row hh">
 												<div class="col-2 text-start" style="margin-left: 1rem;">
-													<div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg"></div>
+													<div class="chat_img"><img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg chatListImg"></div>
 												</div>
 												<div class="col-8 text-start">
-													<h4><b>Robo Cop </b></h4>
+													<h4><b class="userId">Robo Cop </b></h4>
 													<p class="text-muted">Layin' down the law since like before Christ...</p>
 												</div>
 											</div>
 										</div>
 										<div class="mesgs">
+											<input type="hidden" name="path" value="${item.path }">
+											<input type="hidden" name="uuidName" value="${item.uuidName }">
 											<div class="msg_history" id="chatBox" style="margin-top: 2rem;">
 												<!-- <div class="incoming_msg">
 													<div class="chat_img">
@@ -146,19 +151,19 @@
 														<span class="time_date"> 11:01 AM    |    Today</span>
 													</div>
 												</div> -->
-												<div class="type_msg">
-													<div class="input_msg_write">
-														<!-- <input type="text" id="chatMessage" class="write_msg" placeholder="Type a message" /> -->
-														<textarea id="chatMessage" class="form-control type_msg" placeholder="Type your message..."></textarea>
-														<button class="msg_send_btn" type="button" id="sendBtn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-													</div>
+											</div>
+											<div class="type_msg">
+												<div class="input_msg_write">
+													<!-- <input type="text" id="chatMessage" class="write_msg" placeholder="Type a message" /> -->
+													<textarea id="chatMessage" class="form-control type_msg" placeholder="Type your message..."></textarea>
+													<button class="msg_send_btn" type="button" id="sendBtn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 												</div>
 											</div>
 										</div>
 									</div>
 									<!-- contents e -->	
 								</div>
-								<div style="width:100%; height: 50px; display: flex; justify-content: space-around;" >
+								<div class="float_bar" style="width:100%; height: 50px; display: flex; justify-content: space-around;" >
 									<button type="button" id="friendsBtn"><i class="fa-solid fa-user-group fa-2x"></i></button>
 									<button type="button" id="chatList"><i class="fa-solid fa-comments fa-2x"></i></button>
 								</div>
@@ -216,11 +221,13 @@
 		$("#friendsBtn").on("click", function() {
 			$(".chatList").css("display", "none");
 			$(".friends").css("display", "");
+			$(".count").css("display","");
 		})
 		
 		$("#chatList").on("click", function() {
 			$(".chatList").css("display", "");
 			$(".friends").css("display", "none");
+			$(".count").css("display","none");
 		})
 		
 		$("#signOutBtn").on("click", function() {
@@ -333,8 +340,8 @@
 										txt += '<div class="';
 										txt += writer == ${sessSeq} ? 'outgoing_msg' : 'incoming_msg';
 										txt += '">';
-										txt += writer == ${sessSeq} ? '<div class="chat_img"><img src="${item.path}${item.uuidName}" alt="profile" class="chatImgSm"></div>' : '';
-										txt += writer == ${sessSeq} ? '<div class="sent_msg"><p>'+message+'</p><span class="time_date">'+getTimeFormat+'</span></div>' : '<div class="received_msg"><div class="received_withd_msg"><p>'+message+'</p><span class="time_date">'+getTimeFormat(timetable)+'</span></div></div>';
+										txt += writer == ${sessSeq} ? '' : '<div class="chat_img"><img src="'+imgPath+'" alt="profile" class="chatImgSm"></div>';
+										txt += writer == ${sessSeq} ? '<div class="sent_msg"><p>'+message+'</p><span class="time_date right">'+getTimeFormat(timetable)+'</span></div>' : '<div class="received_msg"><div class="received_withd_msg"><p>'+message+'</p><span class="time_date">'+getTimeFormat(timetable)+'</span></div></div>';
 				
 
                                         $("#chatBox").append(txt);
@@ -374,12 +381,20 @@
 			
 			return year+month+day+hour+minute+second;
 		};
-	
+		
+		var imgPath;
 		selectChatRoom = function (roomNo) {
-			alert("asd")
+			imgPath = $("#imgPath"+roomNo).val();
+			$(".chatListImg").attr("src", $("#imgPath"+roomNo).val());
+			$(".pro"+roomNo).attr("src", $("#imgPath"+roomNo).val());
+			$(".chatImgSm").attr("src", $("#imgPath"+roomNo).val());
+			$(".userId").html($("#id"+roomNo).val());
 			$(".contents").css("display", "");
 			$(".chatList").css("display", "none");
-		    
+			$(".headind_srch").css("display", "none");
+			$(".count").css("display", "none");
+			$(".float_bar").css("display", "none");
+			
 		    var roomArray = $("li[name=room]");
 		    roomArray.each(function (index, item) {
 		        if (index != roomNo - 1)
@@ -387,8 +402,6 @@
 		        else
 		            item.classList.add("active");
 		    });
-	
-	
 		};
 	
 		addChat = function(){
@@ -438,8 +451,15 @@
 					alert("ajax error..!");
 				}
 			});
-	
 		}
+		
+		$("#backBtn").on("click", function() {
+			$(".talk").css("display", "none");
+			$(".chatList").css("display","");
+			$(".headind_srch").css("display", "");
+			$(".float_bar").css("display", "flex");
+		})
+
 	</script>
 </body>
 

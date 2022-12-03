@@ -81,7 +81,7 @@ public class MainController {
 //    }
 
     @RequestMapping(value = "chatPre")
-    public String chatPre(HttpSession httpSession, Model model) throws Exception {
+    public String chatPre(HttpSession httpSession, Model model, Chat dto) throws Exception {
         List<Chat> list = cService.selectChatListFromOne(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()));
         model.addAttribute("list", list);
         return "infra/main/chat/chatPre";

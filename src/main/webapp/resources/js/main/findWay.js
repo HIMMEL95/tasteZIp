@@ -365,7 +365,6 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
      } else if (value1 == "" && value2 != null) {
  	    keywordSearch(end.val()); 
      } else if (value1 != null && value2 != null){
-     	$("#footer").css("display", "");
      	if ($(":focus").attr("id") == "sPlace") {
  		    keywordSearch(value1); 
      	} else {

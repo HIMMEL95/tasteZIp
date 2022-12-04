@@ -157,16 +157,20 @@
    		        	  
    		        	  console.log(response)
    		        	  
-						Kakao.Auth.authorize({
+						/* Kakao.Auth.authorize({
 							redirectUri: 'http://localhost:8080/tasteMain',
 							scope: "friends",
 							success: function (response) {
 								alert(response)
+		   		        	  alert("refresh : "+ Kakao.Auth.getRefreshToken)
 							}
-						});
+						}); */
    		        	  var accessToken = Kakao.Auth.getAccessToken();
-   		        	  console.log(accessToken)
+   		        	  console.log("access : "+accessToken)
    		        	  Kakao.Auth.setAccessToken(accessToken);
+   		        	  
+   		        	  var refresh = Kakao.Auth.getRefreshToken();
+   		        	  console.log("refresh : " + refresh);
    		        	  
    		        	  var account = response.kakao_account;
    		        	  
@@ -175,7 +179,7 @@
 	          		  } else {
 	          			  $("input[name=gender]").val(5);
          			  } 
-	  	        	  
+	  	        	  return false;
 	  	        	 /*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
 	  	        	  $.ajax({
 						async: true

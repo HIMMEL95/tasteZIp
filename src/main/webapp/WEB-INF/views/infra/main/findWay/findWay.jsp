@@ -111,7 +111,8 @@
 									<hr class="ms-4 me-3">
 									<!-- contents e -->
 									<div id="menu_wrap">
-										<ul id="placesList"></ul>
+										<ul id="placesList">
+										</ul>
 									</div>
 								</div>
 							</div>
@@ -216,6 +217,7 @@
 		})
 		$(".car").on("click", function() {
 			$("input[name=wayType]").val("2");
+			$(".ft_select").css("display", "");
 		})
 		$(".walk").on("click", function() {
 			$("input[name=wayType]").val("3");
@@ -229,8 +231,10 @@
 		$("#findWay").on("click", function() {
 			if ($("input[name=wayType]").val() == "3") {
 				walkWay();
+				$("#footer").css("display", "");
 			} else if ($("input[name=wayType]").val() == "2") {
 				carWay();
+				$("#footer").css("display", "");
 			}
 		})
 		

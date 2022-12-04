@@ -5,6 +5,7 @@ $(".car").on("click", function(){
 	innerHtml += '<option value="10">최단거리+유/무료</option><option value="12">이륜차도로우선</option><option value="19">교통최적+어린이보호구역 회피</option></select>';
 	innerHtml += '<select id="year" class="form-select"><option value="N" selected="selected">교통정보 표출 옵션</option><option value="Y">Y</option><option value="N">N</option></select></div>';
 	$("#placesList").html(innerHtml);
+	
 })
 
 var marker_p;
@@ -17,9 +18,25 @@ carWay = function() {
 
 	//기존 맵에 있던 정보들 초기화
 	resettingMap();
+	
+	marker_s = new Tmapv2.Marker(
+	{
+		position : new Tmapv2.LatLng(sLat,sLon),
+		icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+		iconSize : new Tmapv2.Size(24, 38),
+		map : map
+	});
+
+	// 도착
+	marker_e = new Tmapv2.Marker(
+	{
+		position : new Tmapv2.LatLng(eLat,eLon),
+		icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+		iconSize : new Tmapv2.Size(24, 38),
+		map : map
+	});
 
 	var searchOption = $("#selectLevel").val();
-
 	var trafficInfochk = $("#year").val();
 
 	//JSON TYPE EDIT [S]
@@ -40,15 +57,14 @@ carWay = function() {
 		},
 		success : function(response) {
 			
-			// 기존 마커, 팝업 제거
-		   if(markerArr.length > 0){
-			   for(var i in markerArr){
-				   markerArr[i].setMap(null);
-			   }
-		   }
-		   resettingMap();
-
 			var resultData = response.features;
+			
+			// 기존 마커, 팝업 제거
+			if(markerArr.length > 0){
+				for(var i in markerArr){
+					markerArr[i].setMap(null);
+				}
+			}
 
 			var tDistance =
 					(resultData[0].properties.totalDistance / 1000)
@@ -396,10 +412,16 @@ function resettingMap() {
 			resultdrawArr[i].setMap(null);
 		}
 	}
+	
+	if(markerArr.length > 0){
+		for(var i in markerArr){
+			markerArr[i].setMap(null);
+		}
+	}
 
 	chktraffic = [];
 	drawInfoArr = [];
 	resultMarkerArr = [];
 	resultdrawArr = [];
-	markerArr = [];
+	marker_p = "";
 }

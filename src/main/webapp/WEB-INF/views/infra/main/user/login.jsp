@@ -157,20 +157,9 @@
    		        	  
    		        	  console.log(response)
    		        	  
-						/* Kakao.Auth.authorize({
-							redirectUri: 'http://localhost:8080/tasteMain',
-							scope: "friends",
-							success: function (response) {
-								alert(response)
-		   		        	  alert("refresh : "+ Kakao.Auth.getRefreshToken)
-							}
-						}); */
    		        	  var accessToken = Kakao.Auth.getAccessToken();
    		        	  console.log("access : "+accessToken)
    		        	  Kakao.Auth.setAccessToken(accessToken);
-   		        	  
-   		        	  var refresh = Kakao.Auth.getRefreshToken();
-   		        	  console.log("refresh : " + refresh);
    		        	  
    		        	  var account = response.kakao_account;
    		        	  
@@ -179,8 +168,8 @@
 	          		  } else {
 	          			  $("input[name=gender]").val(5);
          			  } 
-	  	        	  return false;
-	  	        	 /*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
+
+	  	        	  /*  $("form[name=form]").attr("action", "/member/kakaoLoginProc").submit(); */
 	  	        	  $.ajax({
 						async: true
 						,cache: false
@@ -202,7 +191,21 @@
 								alert("아이디와 비밀번호를 다시 확인 후 시도해 주세요.");
 								return false;
 							} else {
-								window.location.href = "/tasteMain";
+								/* window.location.href = "/tasteMain"; */
+								Kakao.Auth.authorize({
+									redirectUri: 'http://localhost:8080/tasteMain',
+									scope: "friends",
+									success: function (response) {
+										alert(response)
+										Kakao.API.request({
+											url: '/v2/user/me',
+											success: function (response) {
+												var accessToken = Kakao.Auth.getAccessToken();
+												alert("access2 : "+accessToken)
+											}
+										})
+									}
+								});
 							}
 						},
 						error : function(jqXHR, status, error) {

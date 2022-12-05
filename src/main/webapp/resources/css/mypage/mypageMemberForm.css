@@ -20,13 +20,6 @@
 	--bs-nav-link-hover-color: #ff6b00;
 }
 
-.rounded-circle{
-	width: 60px;
-	height: 60px;
-	border-radius: 100%;
-	margin-left: 2rem;
-}
-
 a {
     color: #212529;
     text-decoration: none;
@@ -52,7 +45,7 @@ a :hover{
 }
 
 #account-menu{
-	font-size: 25px;
+	font-size: 22px;
 }
 
 #btnVisit{
@@ -81,6 +74,7 @@ a :hover{
 .cardcc{
 	height: 145px;
 }
+
 
 .storeImg{
 	width: 120px;

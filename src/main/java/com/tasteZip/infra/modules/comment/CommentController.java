@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tasteZip.infra.common.util.UtilDateTime;
+import com.tasteZip.infra.modules.member.Member;
+import com.tasteZip.infra.modules.member.MemberServiceImpl;
+import com.tasteZip.infra.modules.member.MemberVo;
 import com.tasteZip.infra.modules.store.Store;
 import com.tasteZip.infra.modules.store.StoreServiceImpl;
 import com.tasteZip.infra.modules.store.StoreVo;
@@ -37,6 +40,9 @@ public class CommentController {
 	@Autowired
     StoreServiceImpl sService;
 	
+	@Autowired
+    MemberServiceImpl mService;
+	
 	
 	private void setSearch(CommentVo vo) throws Exception {
 		vo.setParamsPaging(service.selectOneCount(vo)); 
@@ -47,7 +53,7 @@ public class CommentController {
 	
 	// 리뷰
     @RequestMapping(value = "mypageReview")
-    public String mypageReview(@ModelAttribute("vo") CommentVo vo, Model model, HttpSession httpSession) throws Exception {
+    public String mypageReview(@ModelAttribute("vo") CommentVo vo, MemberVo mvo, Model model, HttpSession httpSession) throws Exception {
     	
     	String seq = httpSession.getAttribute("sessSeq").toString();
 		vo.setIfmmSeq(seq);
@@ -55,7 +61,10 @@ public class CommentController {
     	vo.setParamsPaging2(service.selectOneCount(vo));
     	
 		List<Comment> list = service.myReview(vo);
-		model.addAttribute("list", list); 
+		model.addAttribute("list", list);
+		
+		Member itemImg = mService.selectImg(mvo);
+		model.addAttribute("itemImg", itemImg);
     	
         return "infra/main/mypage/mypageReview";
     }

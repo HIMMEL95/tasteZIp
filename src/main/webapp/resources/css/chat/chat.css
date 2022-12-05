@@ -75,7 +75,9 @@ h4{
 	margin:auto;
 	font-family: 'Pretendard-Regular';
 }
-
+#container{
+	font-family: 'Pretendard-Regular';
+}
 .inbox_chat{
 	font-family: 'Pretendard-Regular';
 }

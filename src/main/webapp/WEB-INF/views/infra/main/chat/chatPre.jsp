@@ -62,7 +62,7 @@
 											</div>
 										</div>
 									</div>
-									<h3 class="count" style="margin: 10px 15px;">친구 : ${count }</h3>
+									<%-- <h3 class="count" style="margin: 10px 15px;">친구 : ${count }</h3> --%>
 									<div class="inbox_chat friends"  id="friendsList">
 										<ul class="friendsList">
 											<c:forEach items="${list }" var="list" varStatus="status">
@@ -174,10 +174,10 @@
 									</div>
 									<!-- contents e -->	
 								</div>
-								<div class="float_bar" style="width:100%; height: 50px; display: flex; justify-content: space-around;" >
+								<!-- <div class="float_bar" style="width:100%; height: 50px; display: flex; justify-content: space-around;" >
 									<button type="button" id="friendsBtn"><i class="fa-solid fa-user-group fa-2x"></i></button>
 									<button type="button" id="chatList"><i class="fa-solid fa-comments fa-2x"></i></button>
-								</div>
+								</div> -->
 								<!-- contents e -->
 							</form>
 						</div>

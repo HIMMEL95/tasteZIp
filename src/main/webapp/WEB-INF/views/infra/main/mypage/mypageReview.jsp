@@ -45,7 +45,7 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
-           		<input type="hidden" name="ifmmSeq" value="${sessSeq }">
+            	<input type="hidden" name="ifmmSeq" value="${sessSeq}">
            		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
            		<div class="container">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Review</b></h3></div>

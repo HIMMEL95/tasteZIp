@@ -63,6 +63,8 @@ public class CommentController {
 		List<Comment> list = service.myReview(vo);
 		model.addAttribute("list", list);
 		
+		mvo.setIfmmSeq(seq);
+		
 		Member itemImg = mService.selectImg(mvo);
 		model.addAttribute("itemImg", itemImg);
     	

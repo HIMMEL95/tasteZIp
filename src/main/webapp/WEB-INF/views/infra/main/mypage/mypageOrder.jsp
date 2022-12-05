@@ -25,6 +25,7 @@
 		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
       	<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
       	<input type="hidden" name="iforSeq" value="${vo.iforSeq}">
+      	<input type="hidden" name="ifmmSeq" value="${sessSeq}">
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>

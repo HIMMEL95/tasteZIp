@@ -23,6 +23,7 @@
 	<!-- 상단 -->
 	<form id="myform" name="myform" method="post">
 		<input type="hidden" name="iforSeq" value="${item.iforSeq}"/>
+		<input type="hidden" name="ifmmSeq" value="${sessSeq}">
 		<nav class="navbar navbar-expand-lg bg-dark">
 		  <div class="container-fluid">
 		    <a class="navbar-brand" href="/tasteMain"><img class="img-fluid mb-3" src="/resources/images/main/logo2.png" alt="..." style="max-width: 4rem;"></a>

@@ -9,6 +9,7 @@ public class Store extends Base {
     private String ifstSeq;
     private String ifstName;
     private String ifstPhone;
+    private String ifstSns;
     private String ifstZipCode;
     private String ifstAddress;
     private String ifstAddressDetail;
@@ -169,8 +170,13 @@ public class Store extends Base {
     public void setIfstModifiedAt(String ifstModifiedAt) {
         this.ifstModifiedAt = ifstModifiedAt;
     }
-    
-    // runningTime dto
+    public String getIfstSns() {
+		return ifstSns;
+	}
+	public void setIfstSns(String ifstSns) {
+		this.ifstSns = ifstSns;
+	}
+	// runningTime dto
     public String getIfrtSeq() {
         return ifrtSeq;
     }

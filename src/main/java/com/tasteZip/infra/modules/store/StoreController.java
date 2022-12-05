@@ -58,6 +58,8 @@ public class StoreController {
 		} catch (Exception e) {
 		}
 		
+		vo.setParamsPaging(service.selectOneCount(vo));
+		
 		Store item = service.storeSelectOne(vo);
 	    model.addAttribute("item", item);
 	    

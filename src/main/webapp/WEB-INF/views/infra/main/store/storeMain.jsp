@@ -277,16 +277,20 @@
 																						</svg>
 																						<span class="place_blind">홈페이지</span>
 																					</strong>
-																					<div class="x8JmK">
-																						<div class="CQDdi">
-																							<a href="http://himnanda.co.kr" target="_blank" role="button" class="JhzE0">http://himnanda.co.kr</a>
-																						</div>
-																						<div class="CntGM">
-																							<span class="mnnPt">
-																								<a href="https://blog.naver.com/juicybros1" target="_blank" role="button" class="place_bluelink qPoU1">블로그</a>
-																							</span>
-																						</div>
-																					</div>
+																					<c:choose>
+																						<c:when test="${empty item.ifstSns }">
+																							<span>홈페이지가 없습니다.</span>
+																						</c:when>
+																						<c:otherwise>
+																							<div class="x8JmK">
+																								<div class="CntGM">
+																									<span class="mnnPt">
+																										<a name="ifstSns" style="cursor: pointer;" href="${item.ifstSns}">${item.ifstSns} </a>
+																									</span>
+																								</div>
+																							</div>
+																						</c:otherwise>
+																					</c:choose>
 																				</li>
 																				<li class="SF_Mq I5Ypx">
 																					<strong class="RmIE4">
@@ -332,6 +336,7 @@
 																		<h2 class="place_section_header">
 																			메뉴
 																			<em class="place_section_count">77</em>
+																			<%-- <em class="place_section_count">${vo.totalRows}</em> --%>
 																			<div class="rNxBQ">
 																				<span class="N5pEx">
 																					<a href="#" target="_self" role="button" class="place_bluelink EMAxw">메뉴판 이미지로 보기</a>
@@ -362,7 +367,7 @@
 																														<img src="https://www.tobedone.co.kr/uploads/8d0771dbf95f31d6cba1a63d14666d1c.jpg" alt="" width="100%" height="auto">
 																													</c:when>
 																													<c:otherwise>
-																														<img src="${menu.path}${menu.uuidName}" alt="" width="100%" height="auto">
+																														<img src="${menu.path}${menu.uuidName}" alt="" width="265px;" height="201px;"
 																													</c:otherwise>
 																												</c:choose>
 																											</div>
@@ -385,7 +390,7 @@
 																			</ul>
 																		</div>
 																		<div class="lfH3O">
-																			<a href="/restaurant/1470422298/menu/list" target="_self" role="button" class="fvwqf">
+																			<a href="javascript:goForm(${item.ifstSeq})" target="_self" role="button" class="fvwqf">
 																				<span class="iNSaH">메뉴</span>
 																				더보기
 																				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 13" class="W0cVZ" aria-hidden="true" style="margin-top: 30px; margin-left: 10px">
@@ -425,7 +430,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
 	<script>
-	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 		

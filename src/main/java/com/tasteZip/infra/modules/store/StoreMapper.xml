@@ -157,6 +157,7 @@
 			s.ifstSeq
 			,s.ifstName
 			,s.ifstPhone
+			,s.ifstSns
 			,s.ifstZipCode
 			,s.ifstAddress
 			,s.ifstAddressDetail
@@ -180,6 +181,7 @@
 			s.ifstSeq
 			,s.ifstName
 			,s.ifstPhone
+			,s.ifstSns
 			,s.ifstZipCode
 			,s.ifstAddress
 			,s.ifstAddressDetail

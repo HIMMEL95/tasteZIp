@@ -149,6 +149,10 @@
 										<option value="1" <c:if test="${item.ifstOrderNy eq 1 }">selected</c:if>>O</option>
 									</select>
 								</div>
+								<div class="col">
+									<label class="form-label">가게SNS</label> 	
+					   				<input type="text" class="form-control" id="ifstSns" name="ifstSns" value="${item.ifstSns }">
+					   			</div>
 							</div>
 							<div class="row mt-3">
 								<label for="ifstZipCode" class="form-label">우편번호</label> 

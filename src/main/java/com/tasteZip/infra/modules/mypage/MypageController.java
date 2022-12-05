@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
 import com.tasteZip.infra.modules.member.MemberVo;
+import com.tasteZip.infra.modules.store.Store;
+import com.tasteZip.infra.modules.store.StoreServiceImpl;
+import com.tasteZip.infra.modules.store.StoreVo;
 
 
 @Controller
@@ -24,6 +27,9 @@ public class MypageController {
 	
 	@Autowired
     MemberServiceImpl mService;
+	
+	@Autowired
+    StoreServiceImpl sService;
 	
 	// 메인	
 	@RequestMapping(value = "mypageMain")
@@ -48,5 +54,23 @@ public class MypageController {
 		
 		return "infra/main/mypage/mypageBucket";
 	}
+	
+	
+	 @RequestMapping(value = "mypageFavorite") 
+     public String mypageFavorite(@ModelAttribute("vo") StoreVo vo, Store dto, Model model, HttpSession httpSession) throws Exception {
+         
+    	try {
+			String seq = (String) httpSession.getAttribute("sessSeq");
+			vo.setIfmmSeq(seq);
+		} catch (Exception e) {
+		}
+    	
+    	vo.setParamsPaging(sService.selectOneCountFv(vo));
+    	
+    	List<Store> favorite = sService.selectListFv(vo);
+ 	    model.addAttribute("favorite", favorite); 
+ 	    
+    	return "infra/main/mypage/mypageFavorite";
+    }
 
 }

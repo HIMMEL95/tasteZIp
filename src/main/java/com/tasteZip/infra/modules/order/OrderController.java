@@ -22,6 +22,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tasteZip.infra.common.util.UtilDateTime;
+import com.tasteZip.infra.modules.member.Member;
+import com.tasteZip.infra.modules.member.MemberServiceImpl;
+import com.tasteZip.infra.modules.member.MemberVo;
 import com.tasteZip.infra.modules.menu.Menu;
 import com.tasteZip.infra.modules.menu.MenuServiceImpl;
 import com.tasteZip.infra.modules.menu.MenuVo;
@@ -40,6 +43,8 @@ public class OrderController {
 	MenuServiceImpl mService;
 	@Autowired
 	StoreServiceImpl sService;
+	@Autowired 
+	MemberServiceImpl mbService;
 	
 	// search and paging
 	public void setSearchAndPaging(OrderVo vo) throws Exception{
@@ -88,7 +93,7 @@ public class OrderController {
 	
 	// mypage list
     @RequestMapping(value = "mypageOrder")
-    public String mypageOrder(@ModelAttribute("vo") OrderVo vo, Model model, HttpSession httpSession) throws Exception {
+    public String mypageOrder(@ModelAttribute("vo") OrderVo vo, Model model, MemberVo mVo, HttpSession httpSession) throws Exception {
     	
     	String seq = httpSession.getAttribute("sessSeq").toString();
 		vo.setIfmmSeq(seq);
@@ -97,6 +102,9 @@ public class OrderController {
 		
 		List<Order> list = service.myOrder(vo);
 		model.addAttribute("list", list); 
+		
+		Member itemImg = mbService.selectImg(mVo);
+        model.addAttribute("itemImg", itemImg);
 		
         return "infra/main/mypage/mypageOrder";
     }
@@ -139,7 +147,7 @@ public class OrderController {
     }
     
     @RequestMapping(value = "mypageOrderView")
-    public String mypageOrderView(Order dto, OrderVo vo, HttpSession httpSession, Model model) throws Exception {
+    public String mypageOrderView(Order dto, OrderVo vo, HttpSession httpSession, MemberVo mVo, Model model) throws Exception {
         
         vo.setIforSeq(dto.getIforSeq());
 
@@ -151,6 +159,9 @@ public class OrderController {
         
         List<Order> list = service.myPageViewMenu(vo);
         model.addAttribute("list", list);
+        
+        Member itemImg = mbService.selectImg(mVo);
+        model.addAttribute("itemImg", itemImg);
         
         return "infra/main/mypage/mypageOrderView";
     }
@@ -318,7 +329,10 @@ public class OrderController {
         }
         
         if (cookies != null) {
+            System.out.println("여기 돌고 있니?");
             for (int i=0; i<cookies.length; i++) {
+                System.out.println("cookie name : "+ cookies[i].toString());
+                cookies[i].setPath("/");
                 cookies[i].setMaxAge(0);
                 response.addCookie(cookies[i]);
             }

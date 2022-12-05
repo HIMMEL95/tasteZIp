@@ -164,7 +164,7 @@
 									  <figcaption>
 									    <b><h4 class="card-title">${store.ifstName}</h4></b>
 		                                <p class="card-text">${store.ifstAddress}</p>
-		                                <p class="card-text">${store.ifstAddressDetail}</p>
+		                                <br>
 		                                <p class="card-text">${store.ifstPhone}</p>
 									  </figcaption>
 									</figure>

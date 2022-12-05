@@ -57,15 +57,21 @@ public class MypageController {
 	
 	
 	 @RequestMapping(value = "mypageFavorite") 
-     public String mypageFavorite(@ModelAttribute("vo") StoreVo vo, Store dto, Model model, HttpSession httpSession) throws Exception {
+     public String mypageFavorite(@ModelAttribute("vo") StoreVo vo, Store dto, MemberVo mvo, Model model, HttpSession httpSession) throws Exception {
          
     	try {
 			String seq = (String) httpSession.getAttribute("sessSeq");
 			vo.setIfmmSeq(seq);
 		} catch (Exception e) {
 		}
-    	
+    	 
     	vo.setParamsPaging(sService.selectOneCountFv(vo));
+    	
+    	String seq = (String) httpSession.getAttribute("sessSeq");
+    	mvo.setIfmmSeq(seq);
+    	
+    	Member itemImg = mService.selectImg(mvo);
+		model.addAttribute("itemImg", itemImg);
     	
     	List<Store> favorite = sService.selectListFv(vo);
  	    model.addAttribute("favorite", favorite); 

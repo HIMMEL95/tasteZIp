@@ -228,11 +228,11 @@
 											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 										</div>
 										<div class="modal-body">
-											정말로 회원가입을 하기겠습니까?
+											정말로 회원가입 하시겠습니까?
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
-											<button type="button" id="saveBtn" class="btn btn-primary">가입</button>
+											<button type="button" id="saveBtn" class="btn text-white" style="background: #FF5733; border: none;">가입</button>
 										</div>
 									</div>
 								</div>
@@ -403,7 +403,6 @@
 			} else {
 				$('#ifmmEmailCheck').val("1");
 			}
-	    	alert($("#ifmmEmailCheck").val())
 		})
     </script>
     <script type="text/javascript">

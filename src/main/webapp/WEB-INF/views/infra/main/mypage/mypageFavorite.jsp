@@ -153,6 +153,7 @@
 					,success: function(response) {
 						$("#exampleModal").removeClass("show");
 						$("#fvItem"+ $("#ifstSeq").val()).remove();
+						$("#exampleModal").css("display","none");
 					}
 					,error : function(jqXHR, textStatus, errorThrown){
 						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
@@ -171,6 +172,20 @@
 		function closeModal(){
 			$("#exampleModal").css("display","none");
 		}
+    </script>
+    <script type="text/javascript">
+	    $("#signOutBtn").on("click", function() {
+			$.ajax({
+				type: "POST"
+				,url: "/logoutProc"
+				,data: {}
+				,success : function(response) {
+					if (response.rt == "success") {
+						window.location.href = "/tasteMain";
+					} 
+				}
+			});
+		});
     </script>
 </body>
 </html>

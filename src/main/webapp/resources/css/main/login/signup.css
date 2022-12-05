@@ -494,6 +494,11 @@ img {
 	text-decoration: underline;
 }
 
+.form-check-input:checked {
+    background-color: #FF5600;
+    border-color: #FF5600;
+}
+
 .carousel {
 	height: 100%;
 }

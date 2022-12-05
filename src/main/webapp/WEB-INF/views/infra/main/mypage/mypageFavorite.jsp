@@ -45,8 +45,11 @@
           <!-- Content  -->
           <section class="col-lg-8">
             <!-- list-->
+            <form id="myForm" name="myForm">
             	<input type="hidden" name="ifmmSeq" value="${sessSeq}">
+            	<input type="hidden" name="ifstSeq" id="ifstSeq"/>
            		<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+           		<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
            		<div class="container">
            			<div class="row mt-5 menuTitle"><h3><b>Mypage Favorite</b></h3></div>
            		</div>
@@ -111,10 +114,10 @@
 						</div>
 						
            		</div>
+			</form>
           </section>
         </div>
       </div>
-	</form>
 
 
 <!-- 스크립트 -->
@@ -128,7 +131,7 @@
     
 <!-- Like 버튼 구현 -->
 	
-		var goUrlList = "/favorite"
+		var goUrlList = "/mypage/mypageFavorite"
 		
 		var form = $("#myForm");
 		

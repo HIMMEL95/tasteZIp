@@ -103,6 +103,7 @@ public class OrderController {
 		List<Order> list = service.myOrder(vo);
 		model.addAttribute("list", list); 
 		
+		mVo.setIfmmSeq(seq);
 		Member itemImg = mbService.selectImg(mVo);
         model.addAttribute("itemImg", itemImg);
 		
@@ -160,6 +161,7 @@ public class OrderController {
         List<Order> list = service.myPageViewMenu(vo);
         model.addAttribute("list", list);
         
+        mVo.setIfmmSeq(seq);
         Member itemImg = mbService.selectImg(mVo);
         model.addAttribute("itemImg", itemImg);
         
@@ -328,36 +330,30 @@ public class OrderController {
             service.insertBuy(dto);
         }
         
-        if (cookies != null) {
-            System.out.println("여기 돌고 있니?");
-            for (int i=0; i<cookies.length; i++) {
-                System.out.println("cookie name : "+ cookies[i].toString());
-                cookies[i].setPath("/");
-                cookies[i].setMaxAge(0);
-                response.addCookie(cookies[i]);
-            }
-        }
-        
-//        Cookie cookie = new Cookie("cart", null);
-//        cookie.setMaxAge(0);
-//        cookie.setSecure(true);
-//        response.addCookie(cookie);
-//
-//        Cookie store = new Cookie("store", null);
-//        store.setMaxAge(0);
-//        store.setSecure(true);
-//        response.addCookie(store);
-//
-//        Cookie price1 = new Cookie("price", null);
-//        price1.setMaxAge(0);
-//        price1.setSecure(true);
-//        response.addCookie(price1);
-//        
-//        Cookie count1 = new Cookie("count", null);
-//        count1.setMaxAge(0);
-//        count1.setSecure(true);
-//        response.addCookie(count1);
-        
+        Cookie cookie = new Cookie("cart", null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        cookie.setSecure(true);
+        response.addCookie(cookie);
+          
+        Cookie store = new Cookie("store", null);
+        store.setPath("/");
+        store.setMaxAge(0);
+        store.setSecure(true);
+        response.addCookie(store);
+          
+        Cookie price1 = new Cookie("price", null);
+        price1.setPath("/");
+        price1.setMaxAge(0);
+        price1.setSecure(true);
+        response.addCookie(price1);
+          
+        Cookie count1 = new Cookie("count", null);
+        count1.setPath("/");
+        count1.setMaxAge(0);
+        count1.setSecure(true);
+        response.addCookie(count1);
+ 
         vo.setIforSeq(dto.getIforSeq());
 
         String seq = httpSession.getAttribute("sessSeq").toString();

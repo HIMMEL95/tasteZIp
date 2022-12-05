@@ -85,7 +85,7 @@
 			LEFT JOIN storeUploaded su on su.pseq = s.ifstSeq
 		WHERE 1=1
 		 	and b.iforSeq = #{iforSeq}
-		 	and su.sort = 2
+		 	and su.sort = 1
 	 	group by
 	 		ifstName
 	</select>
@@ -100,11 +100,17 @@
 			,m.ifmmName
 			,m.ifmmPhone
 			,m.ifmmEmail
+			,s.ifstName
+			,su.path
+			,su.uuidName
 		FROM orders o
 			join buy b on b.iforSeq = o.iforSeq
 			join member m on m.ifmmSeq = b.ifmmSeq
+			join store s on s.ifstSeq = b.ifstSeq
+			left join storeUploaded su on su.pseq = s.ifstSeq
 		WHERE 1=1
 			and o.iforSeq = #{iforSeq}
+			and su.sort = 1
 		group by 
 			iforSeq
 	</select>

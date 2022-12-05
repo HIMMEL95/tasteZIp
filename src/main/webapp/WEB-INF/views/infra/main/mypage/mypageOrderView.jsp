@@ -109,8 +109,8 @@
 							<div class="col-2 text-end"><span>${item.ifmmName}</span></div>
 						</div>
 						<div class="row mb-2">
-							<div class="col-10"><span><b>전화번호</b></span></div>
-							<div class="col-2 text-end"><span>${item.ifmmPhone}</span></div>
+							<div class="col-9"><span><b>전화번호</b></span></div>
+							<div class="col-3 text-end"><span>${item.ifmmPhone}</span></div>
 						</div>
 						<div class="row mb-4">
 							<div class="col-8"><span><b>이메일</b></span></div>

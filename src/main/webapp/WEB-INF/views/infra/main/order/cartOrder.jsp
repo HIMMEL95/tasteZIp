@@ -173,7 +173,6 @@
 		var goUrlMenu = "/menu";
 		var ifstSeq = $("input[name=ifstSeq]");
 		var form = $("#myForm");
-		alert("totalCount : " + $("input[name=totalCount]").val())
 		/* kakaoPay s */
 		kakaoPay = function() {
 			$.ajax({

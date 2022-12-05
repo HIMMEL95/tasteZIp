@@ -175,13 +175,20 @@
 																						<span class="place_blind">주소</span>
 																					</strong>
 																					<div class="x8JmK">
-																						<a href="#" target="_self" role="button" class="pAe5G" aria-haspopup="true" aria-expanded="false">
-																							<span class="IH7VW">${item.ifstAddress}${item.ifstAddressDetail}${item.ifstAddressExtra }</span>
-																							<span class="KP_NF">
-																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="nHf7b" aria-hidden="true">
-																									<path d="M11.47.52a.74.74 0 00-1.04 0l-4.4 4.45v.01L1.57.52A.74.74 0 10.53 1.57l5.12 5.08a.5.5 0 00.7 0l5.12-5.08a.74.74 0 000-1.05z"></path>
-																								</svg>
-																							</span>
+																						<a href="#" target="_self" role="button" class="pAe5G" aria-haspopup="true" aria-expanded="false" style="display: flex;">
+																							<div class="addFir" class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+																								<span class="IH7VW">${item.ifstAddress}${item.ifstAddressExtra }</span>
+																								<span class="KP_NF">
+																									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="nHf7b" aria-hidden="true">
+																										<path d="M11.47.52a.74.74 0 00-1.04 0l-4.4 4.45v.01L1.57.52A.74.74 0 10.53 1.57l5.12 5.08a.5.5 0 00.7 0l5.12-5.08a.74.74 0 000-1.05z"></path>
+																									</svg>
+																								</span>
+																								<div class="collapse" id="collapseExample">
+																									<div class="card card-body" style="border-color: transparent; padding-top: 0px; padding-bottom: 0px;">
+																										<span class="IH7VW" style="display: block;">${item.ifstAddressDetail}</span>
+																									</div>
+																								</div>
+																							</div>
 																						</a>
 																						<!-- <div class="jyfLw">
 																							<span class="fv9Gn">
@@ -300,7 +307,7 @@
 																						<span class="place_blind">설명</span>
 																					</strong>
 																					<div class="x8JmK">
-																						<a href="#" target="_self" role="button" aria-expanded="false" class="xHaT3" style="display: block;">
+																						<a href="#" target="_self" role="button" aria-expanded="false" class="xHaT3">
 																							<span class="zPfVt text-truncate" style="max-width: 480px;">${item.ifstInfo}</span>
 																							<span class="rvCSr">
 																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="Ky28p" aria-hidden="true">
@@ -430,6 +437,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
 	<script>
+	
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 		

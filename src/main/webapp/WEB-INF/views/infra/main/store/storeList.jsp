@@ -147,7 +147,7 @@
 																					<h5 class="card-title"><b>${store.ifstName}</b></h5>
 																					<p class="card-text">${store.ifstAddress}</p>
 																					<br>
-																					<button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark">출발</button>
+																					<button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark" href="javascript:goWay()" id="goWay">출발</button>
 																					<button type="button" class="btn btn-sm btn-outline-danger">도착</button>
 																					<input type="hidden" name="ifstLat" value="${store.ifstLat} ">
 																					<input type="hidden" name="ifstLng" value="${store.ifstLng}">
@@ -366,13 +366,39 @@
 			seq.val(keyValue);
 			form.attr("action", goUrlForm).submit();
 		} 
-		
-		$("#btnDep").on("click", function(keyValue) {
+		 
+	 </script>	 
+	 <script type="text/javascript">
+	 
+	 /* 
+	 	event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation(); 
+	*/	
+	
+		 $("#btnDep").on("click", function(keyValue) {
 			event.preventDefault();
+			alert($("input[name=ifstSeq]").val());
 			seq.val(keyValue);
 			form.attr("action", goUrlFindWay).submit();
-		}); 
+		});
 		
+		/* goWay = function(event) {
+			event.preventDefault();
+			alert($("input[name=ifstSeq]").val());
+			form.attr("action", goUrlFindWay).submit();
+		}; */
+		
+		/* $('#btnDep').on("click", function() {
+			event.preventDefault();
+			alert($("input[name=ifstSeq]").val());
+			goWay(0);  
+		});
+		
+		goWay = function(keyValue, seq) {
+			seq.val(keyValue);
+			form.attr("action", goUrlFindWay).submit();
+		} */
 		
 		/* $('#btnDep').on("click", function() { 
 			event.stopPropagation();
@@ -403,15 +429,6 @@
 			}
 		 } */ 
  		
-		 /* $('#btnDep').on("click", function() {
-			goWay(0);  
-		});
-		
-		goWay = function(keyValue, seq) {
-			event.stopPropagation()
-			seq.val(keyValue);
-			form.attr("action", goUrlFindWay).submit();
-		}  */
 	</script>
 </body>
 

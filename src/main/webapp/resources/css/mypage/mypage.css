@@ -260,6 +260,7 @@ zoom: 1.7;
 	-webkit-transform: translateZ(0) scale(1.02) perspective(1000px);
 	transform: translateZ(0) scale(1.02) perspective(1000px);
 	float: left;
+	top: 10px;
 }
 
 .weather-side:hover {

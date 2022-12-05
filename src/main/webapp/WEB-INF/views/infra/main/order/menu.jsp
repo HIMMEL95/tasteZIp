@@ -251,7 +251,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000;">
+								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000; display: none;">
 									<div class="pt-3">
 										<span class="ps-5 buyName">자몽에이드</span>
 									</div>

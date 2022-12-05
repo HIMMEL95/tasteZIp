@@ -61,7 +61,7 @@
 			JOIN store s on s.ifstSeq = b.ifstSeq
 			JOIN member m on m.ifmmSeq = b.ifmmSeq
 			JOIN menu mn on mn.ifmnSeq = b.ifmnSeq
-			join menuUploaded mu on mu.pseq = b.ifmnSeq
+			LEFT JOIN menuUploaded mu on mu.pseq = b.ifmnSeq
 		WHERE 1=1
 		 	and b.iforSeq = #{iforSeq}  <!-- 일단 조건값을 넣어줌 -->
 	</select>
@@ -75,12 +75,16 @@
 			,m.ifmmEmail
 			,o.iforPrice
 			,o.iforSeq
+			,su.path
+			,su.uuidName
 		FROM buy b
 			JOIN store s on s.ifstSeq = b.ifstSeq
 			JOIN member m on m.ifmmSeq = b.ifmmSeq
 			join orders o on o.iforSeq = b.iforSeq
+			LEFT JOIN storeUploaded su on su.pseq = s.ifstSeq
 		WHERE 1=1
 		 	and b.iforSeq = #{iforSeq}
+		 	and su.sort = 2
 	 	group by
 	 		ifstName
 	</select>

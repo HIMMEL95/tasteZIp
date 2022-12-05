@@ -81,7 +81,14 @@
 	           			<div class="row mt-4 mb-3"><h4><b>가게 정보</b></h4></div>
 	           			<div class="row mt-2 mb-4">
 							<div class="col-2">
-								<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg">
+								<c:choose>
+									<c:when test="${empty item.path }">
+										<img src="https://ldb-phinf.pstatic.net/20200410_10/1586521245116Ig03n_JPEG/%B3%D7%C0%CC%B9%F6%C6%C4%C6%AE%B3%CA%BD%BA%BC%BE%C5%CD_%C7%A5%C1%A6%C0%CC%B9%CC%C1%F6.jpg" class="storeImg">
+									</c:when>
+									<c:otherwise>
+										<img src="${item.path }${item.uuidName}" class="storeImg">
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<div class="col-10">
 								<div><h5><b>가게 명 : ${item.ifstName}</b></h5></div>
@@ -96,7 +103,14 @@
 	           			<div class="row mt-2 mb-4">
 	           				<c:forEach items="${list}" var="list" varStatus="status">
 								<div class="col-2 mt-3">
-									<img src="${list.path }${list.uuidName}" class="storeImg">
+									<c:choose>
+										<c:when test="${empty list.path }">
+											<img src="https://www.tobedone.co.kr/uploads/8d0771dbf95f31d6cba1a63d14666d1c.jpg" class="storeImg">
+										</c:when>
+										<c:otherwise>
+											<img src="${list.path }${list.uuidName}" class="storeImg">
+										</c:otherwise>
+									</c:choose>
 								</div>
 								<div class="col-10 mt-3">
 									<div><h5><b>메뉴 : ${list.ifmnName}</b></h5></div>

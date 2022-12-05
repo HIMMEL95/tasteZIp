@@ -47,7 +47,7 @@
               <div class="d-md-flex justify-content-between align-items-center text-center text-md-start p-4">
                 <div class="d-md-flex align-items-center">
                   <div class="mx-auto mb-2 mx-md-0 mb-md-0" style="width: 7rem;">
-                  	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner">
+                  	<img class="rounded-circle" src="https://intermusicakorea.com/common/img/default_profile.png" alt="Susan Gardner" width="60">
                   </div>
                   <div class="ps-md-3">
                     <h3 class="fs-base mb-0"><c:out value="${sessId}"/></h3><span class="text-accent fs-sm font"><c:out value="${sessEmail}"/></span>

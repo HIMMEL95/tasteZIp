@@ -77,8 +77,8 @@
 										  <div class="card-body">
 										    <div class="row justify-content-between">
 										    	<h4><b>${list.ifstName}</b></h4>
-										    	<div class="col-3 text-start"><span>${list.ifstAddress}</span></div>
-										    	<div class="col-9 text-start" id="starValue">
+										    	<div class="col-4 text-start"><span>${list.ifstAddress}</span></div>
+										    	<div class="col-8 text-start" id="starValue">
 											    	<c:forEach begin="1" end="${list.ifcmGrade}" varStatus="status">
 														<i class="fa-solid fa-star"></i>  
 													</c:forEach>

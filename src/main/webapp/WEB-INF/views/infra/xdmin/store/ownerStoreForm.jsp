@@ -220,6 +220,14 @@
 							    	</div>
 					   			</div>
 							</div>
+							<div class="row mt-3" style="margin-top: 3rem;">
+					   			<label class="form-label">가게 이미지 미리보기</label>
+					   			<div class="col">
+					   				<c:forEach items="${img}" var="img" varStatus="status">
+					   					<img id="preview-image" class="profile rounded-4" src="${img.path}${img.uuidName}" style="width:200px; height:200px;">
+					   				</c:forEach>
+					   			</div>
+					   		</div>
 						</div>
 					</div>
 					<div class="row align-items-center mt-5">

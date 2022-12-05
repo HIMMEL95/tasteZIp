@@ -363,6 +363,9 @@ public class StoreController {
 		List<Store> opening = service.opening(dto);
 		model.addAttribute("opening", opening);
 		
+		List<Store> img = service.selectImg(vo);
+	    model.addAttribute("img", img);
+	    
 		return "infra/xdmin/store/ownerStoreForm";
 	}
 	

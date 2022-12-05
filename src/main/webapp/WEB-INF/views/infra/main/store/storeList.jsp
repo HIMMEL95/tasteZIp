@@ -147,7 +147,7 @@
 																					<h5 class="card-title"><b>${store.ifstName}</b></h5>
 																					<p class="card-text">${store.ifstAddress}</p>
 																					<br>
-																					<button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark" href="javascript:goWay()" id="goWay">출발</button>
+																					<button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark" href="javascript:goWay(${store.ifstSeq})" id="goWay">출발</button>
 																					<button type="button" class="btn btn-sm btn-outline-danger">도착</button>
 																					<input type="hidden" name="ifstLat" value="${store.ifstLat} ">
 																					<input type="hidden" name="ifstLng" value="${store.ifstLng}">

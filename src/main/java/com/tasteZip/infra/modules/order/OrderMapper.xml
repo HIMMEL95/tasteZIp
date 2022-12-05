@@ -48,6 +48,7 @@
 		SELECT COUNT(*)
 		FROM orders
 		WHERE 1=1
+			and ifmmSeq = #{ifmmSeq}
 	</select>
 	
 	<select id="myPageViewMenu" resultMap="resultMapObj">
@@ -210,11 +211,13 @@
 			,iforPrice
 			,iforCount
 			,iforCreatedAt
+			,ifmmSeq
 		) VALUES (
 			#{iforName}
 			,#{iforPrice}
 			,#{iforCount}
 			,now()
+			,#{ifmmSeq}
 		)
 		<selectKey resultType="String" keyProperty="iforSeq" order="AFTER">
 				SELECT last_insert_id()

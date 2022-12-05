@@ -113,6 +113,7 @@ public class OrderServiceImpl implements OrderService{
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         order_id = dto.getIfstName();
         user_id = dto.getIfmmName();
+        System.out.println("totalCount : " + dto.getTotalCount());
         params.add("cid", "TC0ONETIME");
         params.add("partner_order_id", dto.getIfstName());
         params.add("partner_user_id", dto.getIfmmName());

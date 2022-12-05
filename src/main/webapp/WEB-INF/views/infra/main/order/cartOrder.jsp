@@ -26,6 +26,7 @@
 <body>
     <!-- start -->
     <form id="myForm" name="myForm">
+    	<input type="hidden" name="ifmmSeq" value="${sessSeq }">
     	<input type="hidden" name="ifmmId" value="${sessId }">
     	<input type="hidden" name="ifmmName" value="${sessName }">
     	<input type="hidden" name="ifstSeq" value="${item.ifstSeq }">
@@ -77,7 +78,7 @@
 										<div class="d-flex justify-content-between p-2 mb-2" style="background-color: #E6E6E6;">
 											<input type="hidden" name="totalCount" class="count" value="">  
 											<input type="hidden" name="totalPrice" class="total" value="">  
-											<input type="hidden" name="ifmnName" class="menu" value="">
+											<input type="hidden" name="totalName" class="menu" value="">
 											<h5 class="fw-bold mb-0">Total:</h5>
 											<h5 class="fw-bold mb-0 totalPrice"></h5>
 										</div>
@@ -172,7 +173,7 @@
 		var goUrlMenu = "/menu";
 		var ifstSeq = $("input[name=ifstSeq]");
 		var form = $("#myForm");
-		
+		alert("totalCount : " + $("input[name=totalCount]").val())
 		/* kakaoPay s */
 		kakaoPay = function() {
 			$.ajax({
@@ -183,9 +184,10 @@
 					ifstName : $("input[name=ifstName]").val()
 					,totalCount : $("input[name=totalCount]").val()
 					,ifmmName : $("input[name=ifmmName]").val()
-					,ifmnName : $("input[name=ifmnName]").val()
+					,ifmnName : $("input[name=totalName]").val()
 					,totalPrice : $("input[name=totalPrice]").val()
 					,ifstSeq : $("input[name=ifstSeq]").val()
+					,ifmmSeq : $("input[name=ifmmSeq]").val()
 				}
 				,success : function(response) {
 					window.location.href = response.next_redirect_pc_url;
@@ -317,6 +319,7 @@
 			
 			if (cookieArr.length == 1) {
 				$(".menu").val($("#menuName"+cookieArr[0]).val());
+				$(".count").val(cookieArr.length);
 			} else {
 				$(".menu").val($("#menuName"+cookieArr[0]).val() + " 외 " + (cookieArr.length-1));
 				$(".count").val(cookieArr.length);

@@ -277,6 +277,7 @@ public class OrderController {
         System.out.println("name : " + dto.getIfmnName());
         System.out.println("price : " + dto.getTotalPrice());
         System.out.println("count : " + dto.getTotalCount());
+        System.out.println("seq : " + dto.getIfmmSeq());
         
         Map<String, Object> amount = new HashMap<String, Object>();
         amount = (Map<String, Object>) map.get("amount");

@@ -145,6 +145,7 @@ public class OrderController {
 
         String seq = httpSession.getAttribute("sessSeq").toString();
         vo.setIfmmSeq(seq);
+        
         Order item = service.selectOne(vo);
         model.addAttribute("item", item);
         
@@ -316,25 +317,32 @@ public class OrderController {
             service.insertBuy(dto);
         }
         
-        Cookie cookie = new Cookie("cart", null);
-        cookie.setMaxAge(0);
-        cookie.setSecure(true);
-        response.addCookie(cookie);
-
-        Cookie store = new Cookie("store", null);
-        store.setMaxAge(0);
-        store.setSecure(true);
-        response.addCookie(store);
-
-        Cookie price1 = new Cookie("price", null);
-        price1.setMaxAge(0);
-        price1.setSecure(true);
-        response.addCookie(price1);
+        if (cookies != null) {
+            for (int i=0; i<cookies.length; i++) {
+                cookies[i].setMaxAge(0);
+                response.addCookie(cookies[i]);
+            }
+        }
         
-        Cookie count1 = new Cookie("count", null);
-        count1.setMaxAge(0);
-        count1.setSecure(true);
-        response.addCookie(count1);
+//        Cookie cookie = new Cookie("cart", null);
+//        cookie.setMaxAge(0);
+//        cookie.setSecure(true);
+//        response.addCookie(cookie);
+//
+//        Cookie store = new Cookie("store", null);
+//        store.setMaxAge(0);
+//        store.setSecure(true);
+//        response.addCookie(store);
+//
+//        Cookie price1 = new Cookie("price", null);
+//        price1.setMaxAge(0);
+//        price1.setSecure(true);
+//        response.addCookie(price1);
+//        
+//        Cookie count1 = new Cookie("count", null);
+//        count1.setMaxAge(0);
+//        count1.setSecure(true);
+//        response.addCookie(count1);
         
         vo.setIforSeq(dto.getIforSeq());
 
@@ -343,6 +351,9 @@ public class OrderController {
         
         Order item = service.payFin(vo);
         model.addAttribute("item", item);
+        
+        List<Order> list = service.myPageViewMenu(vo);
+        model.addAttribute("list", list);
             
         return "infra/main/mypage/mypageOrderView";
     }

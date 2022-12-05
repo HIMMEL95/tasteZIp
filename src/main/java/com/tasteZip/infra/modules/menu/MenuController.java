@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -272,7 +273,7 @@ public class MenuController {
 	/* 장바구니 구현 용 s */
     @ResponseBody
     @RequestMapping(value = "cart")
-    public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response, HttpServletRequest request) throws Exception {
+    public Map<String, Object> cart(Menu dto, MenuVo vo, HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception {
         Map<String, Object> returnMap = new HashMap<String, Object>();
         System.out.println("seq : " + vo.getIfmnSeq());
         
@@ -324,6 +325,8 @@ public class MenuController {
             store.setMaxAge(30 * 24 * 60 * 60 * 1000);
             response.addCookie(store);
 
+            session.setAttribute("store", dto.getIfstSeq());
+            
             Cookie pric = new Cookie("price", price);
             pric.setPath("/");
             pric.setMaxAge(30 * 24 * 60 * 60 * 1000);

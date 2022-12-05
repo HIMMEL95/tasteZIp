@@ -33,6 +33,7 @@
 		<div class="map_container" id="container">
 			<form id="myForm" name="myForm" action="post">
 				<input type="hidden" name="ifstSeq" value="<c:out value="${item.ifstSeq}"/>"/>
+				<input type="hidden" name="store" value="<c:out value="${store}"/>"/>
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
@@ -250,7 +251,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000; display: none;">
+								<div class="fixed-bottom bg-white" style="position: relative; box-shadow: 0px -3px 5px lightgrey; z-index: 6000;">
 									<div class="pt-3">
 										<span class="ps-5 buyName">자몽에이드</span>
 									</div>
@@ -364,21 +365,23 @@
 		var value = getCookieValue("cart");
 		
 		if (value != "") {
-			var cookieArr = value.split(":");
-			$(".bg-white").css("display", "");
-			
-			if (cookieArr.length == 1) {
-				$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val());
-			} else {
-				$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val() + " 외 " + (cookieArr.length-1));
-				var totalPrice = 0;
-				for (var i=0; i<cookieArr.length; i++) {
-					totalPrice += parseInt($("input[name=price"+cookieArr[i]+"]").val());
-				}
-				totalPrice = String(totalPrice);
-				totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			if ($("input[name=ifstSeq]").val() == $("input[name=store]").val()) {
+				var cookieArr = value.split(":");
+				$(".bg-white").css("display", "");
 				
-				$(".totalPrice").html(totalPrice + " 원");
+				if (cookieArr.length == 1) {
+					$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val());
+				} else {
+					$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val() + " 외 " + (cookieArr.length-1));
+					var totalPrice = 0;
+					for (var i=0; i<cookieArr.length; i++) {
+						totalPrice += parseInt($("input[name=price"+cookieArr[i]+"]").val());
+					}
+					totalPrice = String(totalPrice);
+					totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					
+					$(".totalPrice").html(totalPrice + " 원");
+				}
 			}
 		}
 		// 쿠키 값 가져오기 e

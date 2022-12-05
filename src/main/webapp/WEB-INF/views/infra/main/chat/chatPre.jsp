@@ -20,9 +20,7 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="/resources/css/order/mapBasic.css">
 	<link rel="stylesheet" href="/resources/css/chat/chat.css">
-	<!-- <link rel="stylesheet" href="/resources/css/story/story.css"> -->
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
-	<!-- <script defer type="text/javascript" src="/resources/js/chat/chat.js"></script> -->
 </head>
 
 <body>
@@ -62,7 +60,7 @@
 											</div>
 										</div>
 									</div>
-									<%-- <h3 class="count" style="margin: 10px 15px;">친구 : ${count }</h3> --%>
+<%-- 									<h3 class="count" style="margin: 10px 15px;">친구 : ${count }</h3>
 									<div class="inbox_chat friends"  id="friendsList">
 										<ul class="friendsList">
 											<c:forEach items="${list }" var="list" varStatus="status">
@@ -88,11 +86,13 @@
 												</li>
 											</c:forEach>
 										</ul>
-									</div>
-									<div class="inbox_chat chatList" style="display: none;">
+									</div> --%>
+									<div class="inbox_chat chatList mt-3">
 										<ul class="chatList">
 											<c:forEach items="${list }" var="list" varStatus="status">
 												<input type="hidden" id="room${status.index }" name="roomNo" value="${list.chatSeq }">
+												<input type="hidden" name="ifmmSeq" id="ifmmSeq${status.index }" value="${list.ifmmSeq }">
+												<input type="hidden" name="userId" id="userId${list.chatSeq }" value="${list.ifmmId }">
 												<li class="room" id="${list.chatSeq }" onclick="selectChatRoom(${list.chatSeq})">
 													<div class="chat_list">  <!-- active_chat -->
 														<div class="chat_people">
@@ -123,28 +123,18 @@
 										<button type="button" class="backBtn" id="backBtn"><i class="fa-solid fa-arrow-left fa-2x"></i></button>
 										<div class="container-fluid" style="hight: 50px; background: #E6E6E6;" >
 											<div class="row hh">
-												<div class="col-2 text-start" style="margin-left: 1rem;">
+												<div class="col-1 text-start" style="margin-left: 1rem;">
 													<div class="chat_img">
-														<c:choose>
-															<c:when test="${empty item.path }">
-																<img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg">
-															</c:when>
-															<c:otherwise>
-																<img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImg chatListImg">
-															</c:otherwise>
-														</c:choose>
+														<img src="" alt="sunil" class="chatImg chatListImg">
 													</div>
 												</div>
 												<div class="col-8 text-start">
 													<h4><b class="userId"></b></h4>
-													<p class="text-muted">Layin' down the law since like before Christ...</p>
 												</div>
 											</div>
 										</div>
 										<div class="mesgs">
-											<input type="hidden" name="path" value="${item.path }">
-											<input type="hidden" name="uuidName" value="${item.uuidName }">
-											<div class="msg_history" id="chatBox" style="margin-top: 2rem;">
+											<div class="msg_history" id="chatBox">
 												<!-- <div class="incoming_msg">
 													<div class="chat_img">
 														<img src=https://intermusicakorea.com/common/img/default_profile.png alt="sunil" class="chatImgSm">
@@ -163,12 +153,12 @@
 													</div>
 												</div> -->
 											</div>
-											<div class="type_msg">
-												<div class="input_msg_write">
-													<!-- <input type="text" id="chatMessage" class="write_msg" placeholder="Type a message" /> -->
-													<textarea id="chatMessage" class="form-control type_msg" placeholder="Type your message..."></textarea>
-													<button class="msg_send_btn" type="button" id="sendBtn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-												</div>
+										</div>
+										<div class="type_msg">
+											<div class="input_msg_write">
+												<!-- <input type="text" id="chatMessage" class="write_msg" placeholder="Type a message" /> -->
+												<textarea id="chatMessage" class="form-control type_msg" placeholder="Type your message..."></textarea>
+												<button class="msg_send_btn" type="button" id="sendBtn"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 											</div>
 										</div>
 									</div>
@@ -184,8 +174,8 @@
 					</div>
 				</div>
 			</div>
-			<div id="map" style="width:100%;height:100%;"></div>
 		</div>
+		<div id="map" style="width:100%;height:100%;"></div>
     </main>
 
     <!-- end -->
@@ -196,51 +186,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77c9d237ea96142d7fda7576f0a0fc7e&libraries=services"></script>
-	<script>
-	
-		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-		
-		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-		var options = { //지도를 생성할 때 필요한 기본 옵션
-			center: new kakao.maps.LatLng(37.5021008334827, 127.024465815419), //지도의 중심좌표.
-			level: 3 //지도의 레벨(확대, 축소 정도)
-		};
-	
-		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-	
-		var mapTypeControl = new kakao.maps.MapTypeControl();
-	
-		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
-		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
-		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
-	
-		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
-		var zoomControl = new kakao.maps.ZoomControl();
-		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-	
-		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
-		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
-		
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(container, options);   
-		
-	</script>
 	<script type="text/javascript">
 	
-		
-		$("#friendsBtn").on("click", function() {
-			$(".chatList").css("display", "none");
-			$(".friends").css("display", "");
-			$(".count").css("display","");
-		})
-		
-		$("#chatList").on("click", function() {
-			$(".chatList").css("display", "");
-			$(".friends").css("display", "none");
-			$(".count").css("display","none");
-		})
-		
 		$("#signOutBtn").on("click", function() {
 			$.ajax({
 				type: "POST"
@@ -323,8 +270,6 @@
 		$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
 	};
 	
-	var lastTalk;
-	var lastTime;
 	function readMessage(e){
 
 		const room = e.id; 
@@ -354,11 +299,6 @@
 										txt += '">';
 										txt += writer == ${sessSeq} ? '' : '<div class="chat_img"><img src="'+imgPath+'" alt="profile" class="chatImgSm"></div>';
 										txt += writer == ${sessSeq} ? '<div class="sent_msg"><p>'+message+'</p><span class="time_date right">'+getTimeFormat(timetable)+'</span></div>' : '<div class="received_msg"><div class="received_withd_msg"><p>'+message+'</p><span class="time_date">'+getTimeFormat(timetable)+'</span></div></div>';
-										lastTalk = message;
-										lastTime = getTimeFormat(timetable);
-										console.log(lastTalk);
-										console.log(lastTime);	
-				
                                         $("#chatBox").append(txt);
                                         $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
                                     });
@@ -369,7 +309,6 @@
                  }		
             });	
 	}
-	
 
 	$(".room").click(function(){
 		readMessage(event.currentTarget);
@@ -382,6 +321,7 @@
 
 	</script>
 	<script type="text/javascript">
+	
 		getnow = function() {
 			
 			var timestamp = new Date().getTime();
@@ -401,16 +341,18 @@
 		var imgPath;
 		selectChatRoom = function (roomNo) {
 			imgPath = $("#imgPath"+roomNo).val();
-			$(".chatListImg").attr("src", $("#imgPath"+roomNo).val());
 			$(".pro"+roomNo).attr("src", $("#imgPath"+roomNo).val());
 			$(".chatImgSm").attr("src", $("#imgPath"+roomNo).val());
-			$(".userId").html($("#id"+roomNo).val());
+			$(".userId").html($("#userId"+roomNo).val());
 			$(".contents").css("display", "");
-			$(".friends").css("display", "none");
 			$(".chatList").css("display", "none");
 			$(".headind_srch").css("display", "none");
-			$(".count").css("display", "none");
-			$(".float_bar").css("display", "none");
+			
+			if (imgPath == "") {
+				$(".chatListImg").attr("src", "https://intermusicakorea.com/common/img/default_profile.png");
+			} else {
+				$(".chatListImg").attr("src", imgPath);
+			}
 			
 		    var roomArray = $("li[name=room]");
 		    roomArray.each(function (index, item) {
@@ -432,31 +374,34 @@
 				,success:function(result){
 					if(result.rt=="success"){
 						$("#cuMember").val("");
-						/* var txt="";
+						/*var txt="";
 						txt+='<li class="room" id="';
 						txt+=result.newChat.chatSeq;
 						txt+='" onclick="selectChatRoom(';
 						txt+=result.newChat.chatSeq;
 						txt+=')">';
-						txt+='<div class="d-flex bd-highlight">';
-						txt+='<div class="img_cont">';
-						//아래 path 와 uuidname 도 본인의 dto field에 맞게 수정
-						txt+='<img src="';
+						txt+='<div class="chat_list"><div class="chat_img"><input type="hidden" id="imagePath';
+						txt+=result.newChat.chatSeq;
+						txt+='" value="';
 						if(result.newChat.path != null)
 						{
-							txt+=result.newChat.path + result.newChat.uuidName;
+							txt+=result.newChat.path;
+							txt+=result.newChat.uuidName;
 						}
-						txt+='" class="rounded-circle user_img">';
-						txt+='</div>';
-						txt+='<div class="chat_product_info">';
-						txt+='<span class="status">';
+						txt+='">';
+						if(result.newChat.path != null) {
+							txt+='<img src="'+result.newChat.path+result.newChat.uuidName+'" alt="profile1" class="chatImg">';
+						} else {
+							txt+='<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile1" class="chatImg">';
+						}
+						txt+='</div><div class="chat_ib"><h5>';
 						txt+=result.newChat.ifmmId;
-						txt+='</span>';
+						txt+='<span class="chat_date lastTime">Dec 25</span></h5>';
 						txt+='<p>TEST TEXT FIELD</p>';
 						txt+='</div>';
 						txt+='</div>';
 						txt+='</li>';
-						$("#chatList").prepend(txt); */
+						$("#chatList").prepend(txt);*/
 						location.reload();
 					}else{
 						alert("이미 등록된 친구 입니다!!(새로고침X)");
@@ -472,12 +417,39 @@
 			$(".talk").css("display", "none");
 			$(".chatList").css("display","");
 			$(".headind_srch").css("display", "");
-			$(".float_bar").css("display", "flex");
 		})
 
 		if ($("input[name=cuMember]").val() != "") {
 			addChat();
 		}
+	</script>
+	<script type="text/javascript">
+		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+		var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+		
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(37.5021008334827, 127.024465815419), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
+		};
+	
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	
+		var mapTypeControl = new kakao.maps.MapTypeControl();
+	
+		// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+		// kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+		map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+	
+		// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+	
+		// 지도에 교통정보를 표시하도록 지도타입을 추가합니다
+		map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);    
+		
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(container, options); 
 	</script>
 </body>
 

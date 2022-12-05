@@ -61,7 +61,7 @@
 		WHERE 1=1  
 		AND cu.cuMember = #{cuMember} <!-- 신규 채팅방 상대유저 정보를 위한 seq -->
 	</select>
-
+	
 	<insert id="insertChat">
 		INSERT INTO chat
 		(
@@ -98,13 +98,4 @@
 	</select>
 	<!-- user check e -->
 	
-	<select id="userCount" resultType="Integer">
-		SELECT COUNT(*)
-		FROM chatUser cu
-		JOIN chat c on c.chatSeq = cu.cuChatSeq
-		AND c.chatDelNy = 0
-		WHERE 1=1
-			and cuMember = #{ifmmSeq}
-	</select>
-
 </mapper>

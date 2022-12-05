@@ -33,4 +33,5 @@ public class ChatDao {
 	
 	public int userCheck(ChatVo vo) { return sqlSession.selectOne(namespace + ".userCheck", vo); }
 	public int userCount(ChatVo vo) { return sqlSession.selectOne(namespace + ".userCount", vo); }
+	
 }

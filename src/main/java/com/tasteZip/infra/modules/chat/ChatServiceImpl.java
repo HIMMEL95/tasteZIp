@@ -103,6 +103,4 @@ public class ChatServiceImpl implements ChatService{
 		return dao.userCount(vo);
 	}
     
-    
-    
 }

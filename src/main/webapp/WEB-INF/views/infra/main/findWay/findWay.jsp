@@ -15,7 +15,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <title>FindWay</title>
-    <title>Game View</title>
     <link href="https://cdn-icons-png.flaticon.com/128/553/553416.png" rel="shortcut icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -71,16 +70,16 @@
 							<div class="search" style="margin-top: 60px;">
 								<div class="search_wrap">
 									<div class="search_box2">
-										<div class="input_box ui-widget">
+										<div class="input_box">
 											<label class="label_search"><img alt="" src="/resources/images/main/placeholder_b.png" style="width: 20px;"></label>
-											<input type="text" id="sPlace" name="sPlace" value="${item.ifstAddress}" autocomplete="none" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
+											<input type="text" id="sPlace" name="sPlace" value="${item.ifstAddress}" autocomplete="off" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
 											<button class="search_btn" type="button" id="search1" hidden>검색</button>
 										</div>
 									</div>
 									<div class="search_box2">
 										<div class="input_box">
 												<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"></label>
-												<input type="text" id="ePlace" name="ePlace" value="${vo.ePlace }" autocomplete="none" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
+												<input type="text" id="ePlace" name="ePlace" value="${vo.ePlace }" autocomplete="off" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
 												<button class="search_btn" type="button" id="search2" hidden>검색</button>
 										</div>
 									</div>

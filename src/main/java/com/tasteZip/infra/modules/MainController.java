@@ -83,9 +83,6 @@ public class MainController {
     public String chatPre(HttpSession httpSession, Model model, @ModelAttribute("dto") Chat dto, ChatVo vo) throws Exception {
         List<Chat> list = cService.selectChatListFromOne(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()));
         model.addAttribute("list", list);
-        
-        vo.setIfmmSeq(httpSession.getAttribute("sessSeq").toString());
-        model.addAttribute("count", cService.userCount(vo));
         return "infra/main/chat/chatPre";
     }
     

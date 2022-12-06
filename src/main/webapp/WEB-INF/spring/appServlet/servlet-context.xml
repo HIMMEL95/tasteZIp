@@ -38,7 +38,7 @@
 			<exclude-mapping path="/main" />
 			<exclude-mapping path="/tasteMain" />
 			<exclude-mapping path="/order" />
-			<exclude-mapping path="/favorite" />
+			<!-- <exclude-mapping path="/favorite" /> -->
 			<exclude-mapping path="/chat" />
 			<exclude-mapping path="/chatRoom" />
 			<exclude-mapping path="/story" />

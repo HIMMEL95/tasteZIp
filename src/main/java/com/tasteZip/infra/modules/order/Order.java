@@ -10,8 +10,8 @@ public class Order {
 	public Integer ifbyDelNy;
 	public String ifbyCreatedAt;
 	public String iforSeq;
-	
-    public String getIfbySeq() {
+
+	public String getIfbySeq() {
         return ifbySeq;
     }
     public void setIfbySeq(String ifbySeq) {

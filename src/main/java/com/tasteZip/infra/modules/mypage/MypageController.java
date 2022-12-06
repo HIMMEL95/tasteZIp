@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
 import com.tasteZip.infra.modules.member.MemberVo;
+import com.tasteZip.infra.modules.order.Order;
 import com.tasteZip.infra.modules.order.OrderServiceImpl;
+import com.tasteZip.infra.modules.order.OrderVo;
 import com.tasteZip.infra.modules.store.Store;
 import com.tasteZip.infra.modules.store.StoreServiceImpl;
 import com.tasteZip.infra.modules.store.StoreVo;
@@ -37,13 +39,18 @@ public class MypageController {
 	
 	// 메인	
 	@RequestMapping(value = "mypageMain")
-	public String mypageMain(MemberVo vo, Model model, HttpSession httpSession) throws Exception {
+	public String mypageMain(@ModelAttribute("vo")MemberVo vo, Model model, OrderVo ovo, HttpSession httpSession) throws Exception {
 		
 		String seq = (String) httpSession.getAttribute("sessSeq");
 		vo.setIfmmSeq(seq);
 		
 		Member itemImg = mService.selectImg(vo);
 		model.addAttribute("itemImg", itemImg);
+		
+		ovo.setParamsPaging(oService.myOrderCount(ovo));
+		
+		List<Order> list = oService.myOrderMain(ovo);
+		model.addAttribute("list", list);
 		
 	    return "infra/main/mypage/mypageMain";
 	}

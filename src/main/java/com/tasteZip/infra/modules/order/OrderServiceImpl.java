@@ -34,6 +34,12 @@ public class OrderServiceImpl implements OrderService{
 		return list;
 	}
 	
+	@Override
+	public List<Order> myOrderMain(OrderVo vo) throws Exception {
+		List<Order> list = dao.myOrderMain(vo);
+		return list;
+	}
+	
 	// xdmin selectList
 	@Override
 	public List<Order> xdminSelectList(OrderVo vo) throws Exception {

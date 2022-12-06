@@ -44,6 +44,23 @@
 		limit 5 offset #{startRnumForMysql}
 	</select>
 	
+	<select id="myOrderMain" resultMap="resultMapObj">
+		SELECT
+			b.ifbySeq
+			,b.ifbyCreatedAt
+			,s.ifstName
+			,up.uuidName
+			,up.path
+		FROM buy b
+			join store s on s.ifstSeq = b.ifstSeq
+			join storeUploaded up on up.pseq = b.ifstSeq
+		WHERE 1=1
+		AND b.ifmmSeq = #{ifmmSeq}
+		AND up.sort = 1
+		ORDER BY b.ifbySeq DESC
+		limit 3
+	</select>
+	
 	<select id="myOrderCount" resultType="Integer">
 		SELECT COUNT(*)
 		FROM orders

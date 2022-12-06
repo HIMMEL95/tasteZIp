@@ -6,6 +6,7 @@ public interface OrderService {
 	
 	// myorder list
 	public List<Order> myOrder(OrderVo vo) throws Exception;
+	public List<Order> myOrderMain(OrderVo vo) throws Exception;
 	
 	public List<Order> selectList(OrderVo vo) throws Exception;
 	

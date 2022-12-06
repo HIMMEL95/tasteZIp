@@ -22,6 +22,10 @@ public class OrderDao {
 		return sqlSession.selectList(namespace + ".myOrder", vo);
 	}
 	
+	public List<Order> myOrderMain(OrderVo vo){ 
+		return sqlSession.selectList(namespace + ".myOrderMain", vo);
+	}
+	
 	public List<Order> selectList(OrderVo vo){ 
 		return sqlSession.selectList(namespace + ".selectList", vo);
 	}

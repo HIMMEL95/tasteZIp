@@ -262,7 +262,7 @@ public class OrderController {
     }
     
     @RequestMapping(value="kakaopayApproval")
-    public String payCompleted(@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid,  @ModelAttribute("dtoBk") Order dto, OrderVo vo, Model model, HttpSession httpSession, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String payCompleted(@RequestParam("pg_token") String pgToken, @ModelAttribute("tid") String tid,  @ModelAttribute("dtoBk") Order dto, OrderVo vo, MemberVo mVo, Model model, HttpSession httpSession, HttpServletRequest request, HttpServletResponse response) throws Exception {
         
         KakaoPay kakaoPayApproval = service.payApprove(tid, pgToken, dto);
         // kakao approve
@@ -333,25 +333,25 @@ public class OrderController {
         }
         
         Cookie cookie = new Cookie("cart", null);
-        cookie.setPath("/");
+        cookie.setPath("http://13.209.12.239:8082/");
         cookie.setMaxAge(0);
         cookie.setSecure(true);
         response.addCookie(cookie);
           
         Cookie store = new Cookie("store", null);
-        store.setPath("/");
+        store.setPath("http://13.209.12.239:8082/");
         store.setMaxAge(0);
         store.setSecure(true);
         response.addCookie(store);
           
         Cookie price1 = new Cookie("price", null);
-        price1.setPath("/");
+        price1.setPath("http://13.209.12.239:8082/");
         price1.setMaxAge(0);
         price1.setSecure(true);
         response.addCookie(price1);
           
         Cookie count1 = new Cookie("count", null);
-        count1.setPath("/");
+        count1.setPath("http://13.209.12.239:8082/");
         count1.setMaxAge(0);
         count1.setSecure(true);
         response.addCookie(count1);
@@ -366,7 +366,11 @@ public class OrderController {
         
         List<Order> list = service.myPageViewMenu(vo);
         model.addAttribute("list", list);
-            
+        
+        mVo.setIfmmSeq(seq);
+        Member itemImg = mbService.selectImg(mVo);
+        model.addAttribute("itemImg", itemImg);
+        
         return "infra/main/mypage/mypageOrderView";
     }
     

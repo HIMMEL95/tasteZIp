@@ -452,7 +452,6 @@
 		}
 		
 		$("#buyBtn").on("click", function() {
-			alert(result)
 			$.ajax({
 				type: "POST"
 				,url: "/menu/cart"

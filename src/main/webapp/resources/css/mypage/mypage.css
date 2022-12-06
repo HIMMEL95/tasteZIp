@@ -538,3 +538,9 @@ button.learn-more2:active::before {
 .form-label{
 	font-weight: bold;
 }
+
+@media only screen and (max-width: 1400px) {
+	.info-side {
+		margin-left: 75px;
+	}
+}

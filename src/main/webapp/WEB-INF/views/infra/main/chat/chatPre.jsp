@@ -89,33 +89,42 @@
 									</div> --%>
 									<div class="inbox_chat chatList mt-3">
 										<ul class="chatList">
-											<c:forEach items="${list }" var="list" varStatus="status">
-												<input type="hidden" id="room${status.index }" name="roomNo" value="${list.chatSeq }">
-												<input type="hidden" name="ifmmSeq" id="ifmmSeq${status.index }" value="${list.ifmmSeq }">
-												<input type="hidden" name="userId" id="userId${list.chatSeq }" value="${list.ifmmId }">
-												<li class="room" id="${list.chatSeq }" onclick="selectChatRoom(${list.chatSeq})">
-													<div class="chat_list">  <!-- active_chat -->
-														<div class="chat_people">
-															<div class="chat_img">
-																<input type="hidden" id="imgPath${list.chatSeq }" value="${list.path }${list.uuidName}">
-																<c:choose>
-																	<c:when test="${empty list.path }">
-																		<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile1" class="chatImg"> 
-																	</c:when>
-																	<c:otherwise>
-																		<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg pro${list.chatSeq }"> 
-																	</c:otherwise>
-																</c:choose>
-															</div>
-															<div class="chat_ib">
-															<h5>${list.ifmmId } <span class="chat_date lastTime">Dec 25</span></h5>
-															<p class="lastTalk${list.chatSeq }">Test, which is a new approach to have all solutions 
-																astrology under one roof.</p>
-															</div>
-														</div>
+											<c:choose>
+												<c:when test="${fn:length(list) eq 0}">
+													<div class="row justify-content-center">
+														<div class="col text-center"><h4><b>채팅 목록이 존재하지 않습니다.</b></h4></div>
 													</div>
-												</li>
-											</c:forEach>
+												</c:when>
+												<c:otherwise>
+													<c:forEach items="${list }" var="list" varStatus="status">
+														<input type="hidden" id="room${status.index }" name="roomNo" value="${list.chatSeq }">
+														<input type="hidden" name="ifmmSeq" id="ifmmSeq${status.index }" value="${list.ifmmSeq }">
+														<input type="hidden" name="userId" id="userId${list.chatSeq }" value="${list.ifmmId }">
+														<li class="room" id="${list.chatSeq }" onclick="selectChatRoom(${list.chatSeq})">
+															<div class="chat_list">  <!-- active_chat -->
+																<div class="chat_people">
+																	<div class="chat_img">
+																		<input type="hidden" id="imgPath${list.chatSeq }" value="${list.path }${list.uuidName}">
+																		<c:choose>
+																			<c:when test="${empty list.path }">
+																				<img src="https://intermusicakorea.com/common/img/default_profile.png" alt="profile1" class="chatImg"> 
+																			</c:when>
+																			<c:otherwise>
+																				<img src="${list.path }${list.uuidName}" alt="profile" class="chatImg pro${list.chatSeq }"> 
+																			</c:otherwise>
+																		</c:choose>
+																	</div>
+																	<div class="chat_ib">
+																	<h5>${list.ifmmId } <span class="chat_date lastTime">Dec 25</span></h5>
+																	<p class="lastTalk${list.chatSeq }">Test, which is a new approach to have all solutions 
+																		astrology under one roof.</p>
+																	</div>
+																</div>
+															</div>
+														</li>
+													</c:forEach>
+												</c:otherwise>
+											</c:choose>
 										</ul>
 									</div>
 									<!-- contents s -->

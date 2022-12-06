@@ -123,50 +123,50 @@
 													<!-- 주변 카드 뷰 -->
 													<div>
 							          					<c:forEach items="${store}" var="store" varStatus="status">
-							          					<input type="hidden" name="seq" value="${store.seq }">
-														<a href="javascript:goForm(${store.ifstSeq})" id="goForm" style="display: contents;"></a>
-															<div class="card_wrap" style="width: 95%;">
-											           			<div class="row pt-3">
-												           			<div class="card shadow bg-body rounded border border-0">
-																	    <div class="card-body cardcc">
-																	    	<div class="row">
-																				<div class="col-4">
-																				    <c:choose>
-																						<c:when test="${empty store.path }">
-																							<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 140px; height: 140px;">
-																						</c:when>
-																						<c:otherwise>
-																							<c:choose>
-																								<c:when test="${store.sort eq 1 }">
-																									<img class="d-block w-100" src="${store.path}${store.uuidName}" alt="First slide" style="width: 140px; height: 140px;">
-																								</c:when>
-																							</c:choose>
-																						</c:otherwise>
-																					</c:choose>
+								          					<input type="hidden" name="seq" value="${store.seq }">
+															<a href="javascript:goForm(${store.ifstSeq})" id="goForm" style="display: contents;">
+																<div class="card_wrap" style="width: 95%;">
+												           			<div class="row pt-3">
+													           			<div class="card shadow bg-body rounded border border-0">
+																		    <div class="card-body cardcc">
+																		    	<div class="row">
+																					<div class="col-4">
+																					    <c:choose>
+																							<c:when test="${empty store.path }">
+																								<img src="http://wepeak.fifas.co.kr/upfile/product/no_image.gif" style="width: 140px; height: 140px;">
+																							</c:when>
+																							<c:otherwise>
+																								<c:choose>
+																									<c:when test="${store.sort eq 1 }">
+																										<img class="d-block w-100" src="${store.path}${store.uuidName}" alt="First slide" style="width: 140px; height: 140px;">
+																									</c:when>
+																								</c:choose>
+																							</c:otherwise>
+																						</c:choose>
+																					</div>
+																					<div class="col-8">
+																						<%-- <input type="hidden" name="ifstSeq" value="${store.ifstSeq}"> --%>
+																						<h5 class="card-title"><b>${store.ifstName}</b></h5>
+																						<p class="card-text">${store.ifstAddress}</p>
+																						<br>
+																						<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark" onclick="goWay(${store.ifstSeq})">
+																							<%-- <a type="hidden" name="stPlace" href="javascript:goWay(${store.ifstName})"> --%> 출발
+																						</button>
+																						<button type="button" id="btnArr" class="btn btn-sm btn-outline-danger">
+																							<%-- <a type="hidden" name="edPlace" href="javascript:goWay2(${store.ifstName})"> --%> 도착
+																						</button>
+																						<%-- <button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark" href="javascript:goWay(${store.ifstSeq})">출발</button> --%>
+																						<!-- <button type="button" class="btn btn-sm btn-outline-danger">도착</button> -->
+																						<input type="hidden" name="ifstLat" value="${store.ifstLat} ">
+																						<input type="hidden" name="ifstLng" value="${store.ifstLng}">
+																						<%-- <button type="button" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button> --%>
+																					</div>
 																				</div>
-																				<div class="col-8">
-																					<%-- <input type="hidden" name="ifstSeq" value="${store.ifstSeq}"> --%>
-																					<h5 class="card-title"><b>${store.ifstName}</b></h5>
-																					<p class="card-text">${store.ifstAddress}</p>
-																					<br>
-																					<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark" onclick="goWay(${store.ifstSeq })">
-																						<%-- <a type="hidden" name="stPlace" href="javascript:goWay(${store.ifstName})"> --%> 출발
-																					</button>
-																					<button type="button" id="btnArr" class="btn btn-sm btn-outline-danger" onclick="goWay2(${store.ifstSeq})">
-																						<%-- <a type="hidden" name="edPlace" href="javascript:goWay2(${store.ifstName})"> --%> 도착
-																					</button>
-																					<%-- <button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark" href="javascript:goWay(${store.ifstSeq})">출발</button> --%>
-																					<!-- <button type="button" class="btn btn-sm btn-outline-danger">도착</button> -->
-																					<input type="hidden" name="ifstLat" value="${store.ifstLat} ">
-																					<input type="hidden" name="ifstLng" value="${store.ifstLng}">
-																					<%-- <button type="button" onclick="goForm(${list.iforSeq})" class="btn btn-dark">주문 내역 보기</button> --%>
-																				</div>
-																			</div>
-																	   	</div>
-																    </div>
+																		   	</div>
+																	    </div>
+																	</div>
 																</div>
-															</div>
-														</a>
+															</a>
 							          					</c:forEach>
 													</div>
 												</div>

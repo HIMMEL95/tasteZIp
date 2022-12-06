@@ -49,6 +49,8 @@ public class MypageController {
 		
 		ovo.setParamsPaging(oService.myOrderCount(ovo));
 		
+		ovo.setIfmmSeq(seq);
+		
 		List<Order> list = oService.myOrderMain(ovo);
 		model.addAttribute("list", list);
 		

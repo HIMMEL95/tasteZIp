@@ -60,28 +60,32 @@
            			</div>
 	           			<div class="row pt-5 mb-3 font" style="display: inline-block;"><h4><b>Recently Order Restaurants</b></h4></div>
 	           			<a class="ms-2" style="font-size: 13px; margin-bottom: 10px;" onclick="location.href='/order/mypageOrder';">전제보기 <i class="fa-solid fa-caret-right"></i></a>
-           			<div class="row">
-	           			<div class="col" style="text-align: center;">
-		       				<!-- <hr style="margin-bottom: 10px; margin-top: 5px;"> -->
-		       				<div class="cardMain">
-		       					<div class="item front">
-			       					<img src="/resources/images/main/icecream.jpg" style="width: 240px; height: 250px; border-radius: 25px; filter: drop-shadow(2px 4px 6px grey);">
-		       					</div>
-		           				<br>
-		           				<div class="item back">
-			           				<span style="display: block; margin-bottom: 10px;">스케줄합정</span>
-			           				<span style="display: block; margin-bottom: 10px;">2022-12-06 01:47:41</span>
-		           				</div>
-	           				</div>
-		       				<!-- <div style="border-style: solid; border-radius: 20px; border-width: thin;">
-		       					<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
-		           				<br>
-		           				<span style="display: block; margin-bottom: 10px;">스케줄합정</span>
-		           				<span style="display: block; margin-bottom: 10px;">2022-12-06 01:47:41</span>
-		           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
-	           				</div> -->
-	           			</div>
-           			</div>
+   						<input type="hidden" name="ifmmSeq" value="${sessSeq }">
+	           			<c:choose>
+	           				<c:when test="${fn:length(list) eq 0}">
+	          					<div class="row justify-content-center">
+	          						<h4 class="text-center">주문 내역이 존재하지 않습니다.</t4>
+	          					</h4>
+	          				</c:when>
+	          				<c:otherwise>
+	          					<c:forEach items="${list}" var="list" varStatus="status">
+				           			<div class="row">
+					           			<div class="col" style="text-align: center;">
+						       				<div class="cardMain">
+						       					<div class="item front">
+							       					<img src="${list.path}${list.uuidName}" style="width: 240px; height: 250px; border-radius: 25px; filter: drop-shadow(2px 4px 6px grey);">
+						       					</div>
+						           				<br>
+						           				<div class="item back">
+							           				<span style="display: block; margin-bottom: 10px;">${list.ifstName}</span>
+							           				<span style="display: block; margin-bottom: 10px;">주문날짜: ${list.ifbyCreatedAt}</span>
+						           				</div>
+					           				</div>
+					           			</div>
+				           			</div>
+				           		</c:forEach>
+				           	</c:otherwise>
+			           </c:choose>
 	         </section>
 	       </div>
 	     </div>

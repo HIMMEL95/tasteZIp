@@ -160,7 +160,7 @@
 		    </div>
 		  </div>
 		  
-<<script type="text/javascript">
+<script type="text/javascript">
 	// 로그아웃
 	
 	$("#logout").on("click", function() {

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
 import com.tasteZip.infra.modules.member.MemberVo;
+import com.tasteZip.infra.modules.order.OrderServiceImpl;
 import com.tasteZip.infra.modules.store.Store;
 import com.tasteZip.infra.modules.store.StoreServiceImpl;
 import com.tasteZip.infra.modules.store.StoreVo;
@@ -30,6 +31,9 @@ public class MypageController {
 	
 	@Autowired
     StoreServiceImpl sService;
+
+	@Autowired
+	OrderServiceImpl oService;
 	
 	// 메인	
 	@RequestMapping(value = "mypageMain")
@@ -49,6 +53,7 @@ public class MypageController {
 		
 		String seq = httpSession.getAttribute("sessSeq").toString();
 		vo.setIfmmSeq(seq);
+		
 		List<Mypage> list = service.bucketList(vo);
 		model.addAttribute("list", list);
 		

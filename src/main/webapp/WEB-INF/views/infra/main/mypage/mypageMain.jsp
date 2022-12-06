@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="/resources/css/mypage/mypage.css">
+    <script defer type="text/javascript" src="/resources/js/main/mypageMain.js"></script>
 </head>
 
 <body>
@@ -57,8 +58,43 @@
 	           				<span>We will always strive for the best service for you.</span>
            				</div>
            			</div>
-           			<div class="row pt-5 mb-3 font"><h4><b>Weather</b></h4></div>
-					<div class="container cont">
+           			<div class="row pt-5 mb-3 font"><h4><b>My activities</b></h4></div>
+           			<div class="row">
+	           			<div class="col" style="text-align: center;">
+		       				<h3>My Order</h3>
+		       				<!-- <hr style="margin-bottom: 10px; margin-top: 5px;"> -->
+		       				<div style="border-style: solid; border-radius: 20px; border-width: thin;">
+		       					<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
+		           				<br>
+		           				<span style="display: block; margin-bottom: 10px;">스케줄합정</span>
+		           				<span style="display: block; margin-bottom: 10px;">2022-12-06 01:47:41</span>
+		           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
+	           				</div>
+	           			</div>
+	           			<div class="col" style="text-align: center;">
+		       				<h3>My Favorite</h3>
+		       				<!-- <hr style="margin-bottom: 10px; margin-top: 5px;"> -->
+		       				<div style="border-style: solid; border-radius: 20px; border-width: thin;">
+		           				<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
+		           				<br>
+		           				<span style="display: block; margin-bottom: 10px;">노티드청담</span>
+		           				<span style="display: block; margin-bottom: 10px;">서울 강남구 도산대로53길 15</span>
+		           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
+		       				</div>
+	           			</div>
+	           			<div class="col" style="text-align: center;">
+		       				<h3>My Review</h3>
+		       				<!-- hr style="margin-bottom: 10px; margin-top: 5px;"> -->
+		       				<div style="border-style: solid; border-radius: 20px; border-width: thin;">
+		           				<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
+		           				<br>
+		           				<span style="display: block; margin-bottom: 10px;">천하보쌈</span>
+		           				<span style="display: block; margin-bottom: 10px;">보쌈 넘 맛있어요</span>
+		           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
+	           				</div>
+	           			</div>
+           			</div>
+					<!-- <div class="container cont">
 					  <div class="weather-side">
 					    <div class="weather-gradient"></div>
 					    <div class="date-container">
@@ -96,7 +132,7 @@
 					      <button class="location-button"> <i data-feather="map-pin"></i><span>Change location</span></button>
 					    </div>
 					  </div>
-					</div>
+					</div> -->
 	         </section>
 	       </div>
 	     </div>
@@ -129,105 +165,7 @@
     </script>
 	<script type="text/javascript">
 	
-	 	(function () {
-		      const slideList = document.querySelector('.slide_list');  // Slide parent dom
-		      const slideContents = document.querySelectorAll('.slide_content');  // each slide dom
-		      const slideBtnNext = document.querySelector('.slide_btn_next'); // next button
-		      const slideBtnPrev = document.querySelector('.slide_btn_prev'); // prev button
-		      const pagination = document.querySelector('.slide_pagination');
-		      const slideLen = slideContents.length;  // slide length
-		      const slideWidth = 400; // slide width
-		      const slideSpeed = 300; // slide speed
-		      const startNum = 0; // initial slide index (0 ~ 4)
-		      
-		      slideList.style.width = slideWidth * (slideLen + 2) + "px";
-		      
-		      // Copy first and last slide
-		      let firstChild = slideList.firstElementChild;
-		      let lastChild = slideList.lastElementChild;
-		      let clonedFirst = firstChild.cloneNode(true);
-		      let clonedLast = lastChild.cloneNode(true);
-	
-		      // Add copied Slides
-		      slideList.appendChild(clonedFirst);
-		      slideList.insertBefore(clonedLast, slideList.firstElementChild);
-	
-		      // Add pagination dynamically
-		      let pageChild = '';
-		      for (var i = 0; i < slideLen; i++) {
-		        pageChild += '<li class="dot';
-		        pageChild += (i === startNum) ? ' dot_active' : '';
-		        pageChild += '" data-index="' + i + '"><a href="#"></a></li>';
-		      }
-		      pagination.innerHTML = pageChild;
-		      const pageDots = document.querySelectorAll('.dot'); // each dot from pagination
-	
-		      slideList.style.transform = "translate3d(-" + (slideWidth * (startNum + 1)) + "px, 0px, 0px)";
-	
-		      let curIndex = startNum; // current slide index (except copied slide)
-		      let curSlide = slideContents[curIndex]; // current slide dom
-		      curSlide.classList.add('slide_active');
-	
-		      /** Next Button Event */
-		      slideBtnNext.addEventListener('click', function() {
-		        if (curIndex <= slideLen - 1) {
-		          slideList.style.transition = slideSpeed + "ms";
-		          slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 2)) + "px, 0px, 0px)";
-		        }
-		        if (curIndex === slideLen - 1) {
-		          setTimeout(function() {
-		            slideList.style.transition = "0ms";
-		            slideList.style.transform = "translate3d(-" + slideWidth + "px, 0px, 0px)";
-		          }, slideSpeed);
-		          curIndex = -1;
-		        }
-		        curSlide.classList.remove('slide_active');
-		        pageDots[(curIndex === -1) ? slideLen - 1 : curIndex].classList.remove('dot_active');
-		        curSlide = slideContents[++curIndex];
-		        curSlide.classList.add('slide_active');
-		        pageDots[curIndex].classList.add('dot_active');
-		      });
-	
-		      /** Prev Button Event */
-		      slideBtnPrev.addEventListener('click', function() {
-		        if (curIndex >= 0) {
-		          slideList.style.transition = slideSpeed + "ms";
-		          slideList.style.transform = "translate3d(-" + (slideWidth * curIndex) + "px, 0px, 0px)";
-		        }
-		        if (curIndex === 0) {
-		          setTimeout(function() {
-		            slideList.style.transition = "0ms";
-		            slideList.style.transform = "translate3d(-" + (slideWidth * slideLen) + "px, 0px, 0px)";
-		          }, slideSpeed);
-		          curIndex = slideLen;
-		        }
-		        curSlide.classList.remove('slide_active');
-		        pageDots[(curIndex === slideLen) ? 0 : curIndex].classList.remove('dot_active');
-		        curSlide = slideContents[--curIndex];
-		        curSlide.classList.add('slide_active');
-		        pageDots[curIndex].classList.add('dot_active');
-		      });
-	
-		      /** Pagination Button Event */
-		      let curDot;
-		      Array.prototype.forEach.call(pageDots, function (dot, i) {
-		        dot.addEventListener('click', function (e) {
-		          e.preventDefault();
-		          curDot = document.querySelector('.dot_active');
-		          curDot.classList.remove('dot_active');
-		          
-		          curDot = this;
-		          this.classList.add('dot_active');
-	
-		          curSlide.classList.remove('slide_active');
-		          curIndex = Number(this.getAttribute('data-index'));
-		          curSlide = slideContents[curIndex];
-		          curSlide.classList.add('slide_active');
-		          slideList.style.transition = slideSpeed + "ms";
-		          slideList.style.transform = "translate3d(-" + (slideWidth * (curIndex + 1)) + "px, 0px, 0px)";
-		        });
-		      });
-	    })();
+	 	
 	</script>
 </body>
 </html>

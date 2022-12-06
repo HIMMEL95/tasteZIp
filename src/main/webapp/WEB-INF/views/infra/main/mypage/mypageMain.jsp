@@ -58,22 +58,20 @@
 	           				<span>We will always strive for the best service for you.</span>
            				</div>
            			</div>
-           			<div class="row pt-5 mb-3 font"><h4><b>My activities</b></h4></div>
+	           			<div class="row pt-5 mb-3 font" style="display: inline-block;"><h4><b>Recently Order Restaurants</b></h4></div>
+	           			<a class="ms-2" style="font-size: 13px; margin-bottom: 10px;" onclick="location.href='/order/mypageOrder';">전제보기 <i class="fa-solid fa-caret-right"></i></a>
            			<div class="row">
 	           			<div class="col" style="text-align: center;">
-		       				<h3>My Order</h3>
 		       				<!-- <hr style="margin-bottom: 10px; margin-top: 5px;"> -->
-		       				<div style="border-style: solid; border-radius: 20px; border-width: thin;">
-		       					<li>
-			       					<section class="front">
-				       					<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
-			       					</section>
-			       					<section class="back">
-				           				<span style="display: block; margin-bottom: 10px;">스케줄합정</span>
-				           				<span style="display: block; margin-bottom: 10px;">2022-12-06 01:47:41</span>
-				           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
-			       					</section>
-		       					</li>
+		       				<div class="cardMain">
+		       					<div class="item front">
+			       					<img src="/resources/images/main/icecream.jpg" style="width: 240px; height: 250px; border-radius: 25px; filter: drop-shadow(2px 4px 6px grey);">
+		       					</div>
+		           				<br>
+		           				<div class="item back">
+			           				<span style="display: block; margin-bottom: 10px;">스케줄합정</span>
+			           				<span style="display: block; margin-bottom: 10px;">2022-12-06 01:47:41</span>
+		           				</div>
 	           				</div>
 		       				<!-- <div style="border-style: solid; border-radius: 20px; border-width: thin;">
 		       					<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
@@ -82,28 +80,6 @@
 		           				<span style="display: block; margin-bottom: 10px;">2022-12-06 01:47:41</span>
 		           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
 	           				</div> -->
-	           			</div>
-	           			<div class="col" style="text-align: center;">
-		       				<h3>My Favorite</h3>
-		       				<!-- <hr style="margin-bottom: 10px; margin-top: 5px;"> -->
-		       				<div style="border-style: solid; border-radius: 20px; border-width: thin;">
-		           				<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
-		           				<br>
-		           				<span style="display: block; margin-bottom: 10px;">노티드청담</span>
-		           				<span style="display: block; margin-bottom: 10px;">서울 강남구 도산대로53길 15</span>
-		           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
-		       				</div>
-	           			</div>
-	           			<div class="col" style="text-align: center;">
-		       				<h3>My Review</h3>
-		       				<!-- hr style="margin-bottom: 10px; margin-top: 5px;"> -->
-		       				<div style="border-style: solid; border-radius: 20px; border-width: thin;">
-		           				<img src="/resources/images/main/icecream.jpg" style="width: 150px; height: 135px; margin: 10px 0 15px 0;">
-		           				<br>
-		           				<span style="display: block; margin-bottom: 10px;">천하보쌈</span>
-		           				<span style="display: block; margin-bottom: 10px;">보쌈 넘 맛있어요</span>
-		           				<a style="font-size: 13px; display: block; margin-bottom: 10px;">전제보기 <i class="fa-solid fa-caret-right"></i></a>
-	           				</div>
 	           			</div>
            			</div>
 	         </section>
@@ -137,8 +113,6 @@
 		});
     </script>
 	<script type="text/javascript">
-	
-	 	
 	</script>
 </body>
 </html>

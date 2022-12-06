@@ -49,14 +49,15 @@ function renderWeatherData(data) {
 	$(".humidity").html(`${data.main.humidity}` + " %");
 	$(".detail").html(`${data.weather[0].description}`)
 	console.log(data['weather'][0]['main'])
+	console.log(data)
 	
 	if (`${data.weather[0].main}` == "Rain") {
-		var rain = data['weather']['rain']['1h'];
+		var rain = data['rain']['1h'];
 		$(".rain").html(rain + "mm (시간 당)");
 		$(".rainLabel").html("강수량")
 		$(".rainDust").css("display", "");
 	} else if (`${data.weather[0].main}` == "Snow") {
-		var rain = data['weather']['snow']['1h'];
+		var rain = data['snow']['1h'];
 		$(".rain").html(rain + "cm (시간 당)");
 		$(".rainLabel").html("적설량")
 		$(".rainDust").css("display", "");

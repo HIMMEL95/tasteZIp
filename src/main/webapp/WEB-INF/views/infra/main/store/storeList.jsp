@@ -149,10 +149,10 @@
 																						<h5 class="card-title"><b>${store.ifstName}</b></h5>
 																						<p class="card-text">${store.ifstAddress}</p>
 																						<br>
-																						<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark" onclick="goWay(${store.ifstSeq})">
+																						<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark">
 																							<%-- <a type="hidden" name="stPlace" href="javascript:goWay(${store.ifstName})"> --%> 출발
 																						</button>
-																						<button type="button" id="btnArr" class="btn btn-sm btn-outline-danger">
+																						<button type="button" id="btnArr" class="btn btn-sm btn-outline-danger" onclick="goWay(${store.ifstSeq})">
 																							<%-- <a type="hidden" name="edPlace" href="javascript:goWay2(${store.ifstName})"> --%> 도착
 																						</button>
 																						<%-- <button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark" href="javascript:goWay(${store.ifstSeq})">출발</button> --%>
@@ -362,7 +362,7 @@
 		$("#btnReset").on("click", function() {
 			$(location).attr("href", goUrlList);
 		});
-	
+
 		var seq = $("input[name=ifstSeq]");
 		
 		goList = function(thisPage){
@@ -376,63 +376,23 @@
 		}
 		 
 	 </script>	 
-	 <script type="text/javascript">
-	 
+	<script type="text/javascript">
+	
 	 /* 
 	 	event.preventDefault();
 		event.stopPropagation();
 		event.stopImmediatePropagation(); 
 	*/	
-	
-	/* seq = '[object Object]' */
-		
-		/* $("#btnDep").on("click", function(keyValue) {
-	 	 	event.preventDefault();
+
+		goWay = function(keyValue) {
 			seq.val(keyValue);
-			alert($("input[name=ifstSeq]").val());
 			form.attr("action", goUrlFindWay).submit();
-		}); */
+		} 
 		
-		/* $('#btnDep').on("click", function(keyValue) {
+		$("#btnDep").on("click", function() {
 			event.preventDefault();
-			alert($("input[name=ifstSeq]").val());
-			seq.val(keyValue);
-			form.attr("action", goUrlFindWay).submit();
- 		}) ;*/
-
-		/* seq = '0' -> 0 빼면 빈칸 */ 
-		
-		/* $('#btnDep').on("click", function() {
-			 event.preventDefault();
-			alert($("input[name=ifstSeq]").val());
-			goWay(0);  
+			$(location).attr("href", goUrlFindWay);
 		});
-		
-		goWay = function(keyValue) {
-			seq.val(keyValue);
-			form.attr("action", goUrlFindWay).submit();
-		} */
-
-		/* seq = 'NULL' */
-		
- 		/* $("#btnDep").on("click", function(keyValue) {
-  			event.preventDefault();
-  			alert($("input[name=ifstSeq]").val());
-  			seq.val(keyValue);
- 			$(location).attr("href", goUrlFindWay);
- 		}); */ 
- 		
-	</script>
-	<script type="text/javascript">
-		goWay = function(keyValue) {
-			$("input[name=stPlace]").val(keyValue);
-			form.attr("action", goUrlFindWay).submit();
-		} 
-
-		goWay2 = function(keyValue) {
-			$("input[name=edPlace]").val(keyValue);
-			form.attr("action", goUrlFindWay).submit();
-		} 
 	</script>
 </body>
 

@@ -79,8 +79,8 @@
 														<c:forEach items="${favorite}" var="favorite" varStatus="status">
 															<div id="fvItem${favorite.ifstSeq}">
 															<input type="hidden" name="ifstSeq" value="${favorite.ifstSeq}"/>
-																<div class="card_wrap" style="width: 95%; padding-left: 30px;">
-												           			<div class="row pt-3">
+																<div class="card_wrap a" style="width: 95%; padding-left: 30px;">
+												           			<div class="row pt-3 b">
 													           			<div class="card shadow bg-body rounded border border-0">
 																		    <div class="card-body cardcc">
 																		    	<div class="row">

@@ -33,7 +33,6 @@
     <!-- start -->
     
     <form action="post" id="myForm" name="myForm" onsubmit="searchPlaces(); return false;">
-    <input type="hidden" name="stPlace" value="${vo.stPlace}">
 	    <main class="clearfix">
 			
 			<!-- sidebar s -->
@@ -73,14 +72,14 @@
 									<div class="search_box2">
 										<div class="input_box">
 											<label class="label_search"><img alt="" src="/resources/images/main/placeholder_b.png" style="width: 20px;"></label>
-											<input type="text" id="sPlace" name="sPlace" value="${vo.stPlace}" autocomplete="off" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
+											<input type="text" id="sPlace" name="sPlace" autocomplete="off" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
 											<button class="search_btn" type="button" id="search1" hidden>검색</button>
 										</div>
 									</div>
 									<div class="search_box2">
 										<div class="input_box">
 											<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"></label>
-											<input type="text" id="ePlace" name="ePlace" value="${vo.edPlace}" autocomplete="off" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
+											<input type="text" id="ePlace" name="ePlace" value="${item.ifstAddress}" autocomplete="off" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
 											<button class="search_btn" type="button" id="search2" hidden>검색</button>
 										</div>
 									</div>

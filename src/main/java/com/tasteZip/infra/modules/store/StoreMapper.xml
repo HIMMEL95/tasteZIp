@@ -445,6 +445,7 @@
 		where 1=1
 			and up.sort = 1
 			and f.ifmmSeq = #{ifmmSeq}
+			<if test="shValue != null and !shValue.equals('')"> AND s.ifstName LIKE CONCAT('%',#{shValue},'%')</if>
 		<include refid="Base.orderByLimitForMysql" />
 	   	) aa
 		limit 5 offset #{startRnumForMysql}

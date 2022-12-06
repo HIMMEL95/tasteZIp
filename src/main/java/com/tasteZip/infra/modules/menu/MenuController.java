@@ -322,24 +322,24 @@ public class MenuController {
             System.out.println("count : " + count);
             
             Cookie cart = new Cookie("cart", result);
-            cart.setPath("/");
+            cart.setPath("http://13.209.12.239:8082/");
             cart.setMaxAge(30 * 24 * 60 * 60 * 1000);
             response.addCookie(cart);
 
             Cookie store = new Cookie("store", dto.getIfstSeq());
-            store.setPath("/");
+            store.setPath("http://13.209.12.239:8082/");
             store.setMaxAge(30 * 24 * 60 * 60 * 1000);
             response.addCookie(store);
 
             session.setAttribute("store", dto.getIfstSeq());
             
             Cookie pric = new Cookie("price", price);
-            pric.setPath("/");
+            pric.setPath("http://13.209.12.239:8082/");
             pric.setMaxAge(30 * 24 * 60 * 60 * 1000);
             response.addCookie(pric);
             
             Cookie coun = new Cookie("count", count);
-            coun.setPath("/");
+            coun.setPath("http://13.209.12.239:8082/");
             coun.setMaxAge(30 * 24 * 60 * 60 * 1000);
             response.addCookie(coun);
             
@@ -364,17 +364,17 @@ public class MenuController {
         String count = vo.getCount().replace(" ", ":");
         
         Cookie cart = new Cookie("cart", result);
-        cart.setPath("/");
+        cart.setPath("http://13.209.12.239:8082/");
         cart.setMaxAge(30 *24 * 60 * 60 * 1000);
         response.addCookie(cart);
         
         Cookie price1 = new Cookie("price", price);
-        price1.setPath("/");
+        price1.setPath("http://13.209.12.239:8082/");
         price1.setMaxAge(30 *24 * 60 * 60 * 1000);
         response.addCookie(price1);
         
         Cookie count1 = new Cookie("count", count);
-        count1.setPath("/");
+        count1.setPath("http://13.209.12.239:8082/");
         count1.setMaxAge(30 *24 * 60 * 60 * 1000);
         response.addCookie(count1);
         

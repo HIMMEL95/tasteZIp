@@ -37,7 +37,7 @@
 		  	<form id="formList" name="formList" method="post">
 				<input type="hidden" name="thisPage" value="1">
                	<input type="hidden" name="rowNumToShow" value="${vo.rowNumToShow }">
-               	<input type="hidden" name="iforSeq" value="${vo.iforSeq}">
+               	<input type="hidden" name="ifbySeq" value="${vo.ifbySeq}">
                		<input type="hidden" name="checkboxSeqArray" >
 				<div class="wrapper">
 					<div class="container">
@@ -177,7 +177,7 @@
 			var goUrlUel = "/order/OrderUele";
 	        var goUrlDel = "/order/OrderDele";		
 			
-			var iforSeq = $("input[name=iforSeq]");
+			var ifbySeq = $("input[name=ifbySeq]");
 			
 			/* $(function() {
 		  		$("#datepickerS").datepicker({

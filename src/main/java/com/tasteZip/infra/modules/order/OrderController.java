@@ -188,6 +188,7 @@ public class OrderController {
  	public String xdminOrderLita(@ModelAttribute("vo") OrderVo vo, Model model) throws Exception {
  		
  		vo.setParamsPaging(service.xdminSelectOneCount(vo));
+ 		
  		  if (vo.getTotalRows() > 0) { 
  			  List<Order> list = service.xdminSelectList(vo);
  			  model.addAttribute("list", list); 

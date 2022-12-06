@@ -17,11 +17,11 @@
 						<th class="text-white" style="width: 50px;">#</th>
 						<th class="text-white" scope="col" style="width: 100px;">가게 이름</th>
 						<th class="text-white" scope="col" style="width: 110px;">메뉴 이름</th>
-						<th class="text-white" scope="col">주문자</th>
+						<th class="text-white" scope="col" style="width: 70px;">주문자</th>
 						<th class="text-white" scope="col" style="width: 100px">전화번호</th>
 						<th class="text-white" scope="col" style="width: 70px;">주문 수량</th>
-						<th class="text-white" scope="col">주문 금액</th>
-						<th class="text-white" scope="col" style="width: 120px;">결제 수단</th>
+						<th class="text-white" scope="col" style="width: 85px;">주문 금액</th>
+						<th class="text-white" scope="col" style="width: 100px;">결제 수단</th>
 						<th class="text-white" scope="col" style="width: 100px;">주문 날짜</th>
 					</tr>
 				</thead>
@@ -34,24 +34,26 @@
 						</c:when>
 						<c:otherwise>		
 							<c:forEach items="${list}" var="list" varStatus="status">
-								<tr onclick="goForm(${list.iforSeq})" class="info" style="cursor: pointer;">
-									<th scope="row" class="td1" src="#">
-										<input class="check" type="checkbox" name="checkboxSeq" id="checkboxSeq" value="${list.iforSeq }">
-									</th>
-									<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
+								<tr onclick="goForm(${list.ifbySeq})" class="info" style="cursor: pointer;">
+									<td scope="row" src="#">
+										<input type="checkbox" name="checkboxSeq" id="checkboxSeq" value="${list.ifmnSeq }">
+									</td>
+									<td>
+										<c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/>
+									</td>
 									<td><c:out value="${list.ifstName}"/></td>
 									<td><c:out value="${list.ifmnName }"/></td>
 									<td><c:out value="${list.ifmmName }"/></td>
 									<td><c:out value="${list.ifmmPhone }"/></td>
-									<td><c:out value="${list.iforCount }"/></td>
-									<td><c:out value="${list.iforPrice }"/></td>
+									<td><c:out value="${list.ifbyCount }"/></td>
+									<td><c:out value="${list.ifbyPrice }"/></td>
 									<td>
 										<c:choose>
-											<c:when test="${list.iforPay eq 6}">무통장입금</c:when>
+											<c:when test="${list.ifbyPay eq 6}">무통장입금</c:when>
 											<c:otherwise>카카오페이</c:otherwise>
 										</c:choose>
 									</td>
-									<td><c:out value="${list.iforCreatedAt }"/></td>
+									<td><c:out value="${list.ifbyCreatedAt }"/></td>
 								</tr>
 							</c:forEach>
 						</c:otherwise>
@@ -68,7 +70,7 @@
 		
 		var form = $("form[name=formList]");
 		
-		var iforSeq = $("input[name=iforSeq]");
+		var ifbySeq = $("input[name=ifbySeq]");
 		
 		// ----- form으로 이동 -----
 			 $("#btnForm").on("click", function(){
@@ -77,7 +79,7 @@
 		
 			goForm = function(keyValue) {
 				/* if(key != 0) seq.val(btoa(key)); */
-				iforSeq.val(keyValue);
+				ifbySeq.val(keyValue);
 				form.attr("action", goUrlForm).submit();
 			}
 

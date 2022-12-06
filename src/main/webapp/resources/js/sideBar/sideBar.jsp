@@ -132,7 +132,7 @@
 		            <line x1="16" y1="3" x2="14" y2="21" /></svg>
 		             <a class="CodeGroup b" href="/codeGroup/xdminCodeGroupList">
 		          		<span>CodeGroup</span>
-			          </a>
+			         </a>
 		        </li>
 		      <hr style="color: white;">
 		        <li class="item pt-2">
@@ -143,7 +143,18 @@
 		            <polyline points="17 6 23 6 23 12" / ></svg>
 		             <a>
 		          		<button type="button" id="logout" name="logout" style="color: #ff7f00;">Logout</button>
-			          </a>
+			         </a>
+		        </li>
+		        <li class="item pt-2">
+		          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+		            stroke-linecap="round" stroke-linejoin="round" style="color: #ff7f00;" stroke-width="2" class="feather feather-inbox"
+		            viewBox="0 0 24 24">
+		            <path d="M22 12h-6l-2 3h-4l-2-3H2" />
+		            <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
+		          </svg>
+			         <a href="/tasteMain" style="color: #ff7f00;">
+		          		<span>Main Home</span>
+			         </a>
 		        </li>
 		      </ul>
 		    </div>

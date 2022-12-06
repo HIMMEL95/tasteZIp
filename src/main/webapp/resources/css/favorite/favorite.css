@@ -144,11 +144,11 @@ button.learn-more2:active::before {
   transform: translate3d(0, 0, -1em);
 }
 
-.a .b{
+/* .a .b{
 	transition: all 0.2s linear;
 }
-
-.a:hover .b{
+ */
+.b:hover{
 	transition: scale(1.4);
 }
 

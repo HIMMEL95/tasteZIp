@@ -47,6 +47,9 @@ public class MypageController {
 		Member itemImg = mService.selectImg(vo);
 		model.addAttribute("itemImg", itemImg);
 		
+		Member day = mService.selectDay(vo);
+		model.addAttribute("day", day);
+		
 		ovo.setParamsPaging(oService.myOrderCount(ovo));
 		
 		ovo.setIfmmSeq(seq);

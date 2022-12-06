@@ -42,6 +42,10 @@ public class MemberDao {
     public Member selectOne(MemberVo vo) {
 		return sqlSession.selectOne(namespace + ".selectOne", vo);
 	}
+
+    public Member selectDay(MemberVo vo) {
+    	return sqlSession.selectOne(namespace + ".selectDay", vo);
+    }
     /* image select */
     public Member selectImg(MemberVo vo) { return sqlSession.selectOne(namespace + ".selectImg", vo); }
     

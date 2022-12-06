@@ -82,6 +82,14 @@
 			AND ifmmSeq = #{ifmmSeq}
 	</select>
 	
+	<select id="selectDay" resultMap="resultMapObj">
+			select 
+				m.ifmmCreatedAt
+			FROM member m
+			WHERE 1=1
+			AND ifmmSeq = #{ifmmSeq}
+	</select>
+	
 	<select id="selectImg" resultMap="resultMapObj">
 		SELECT
 		 * 

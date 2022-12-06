@@ -131,6 +131,11 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService{
 	}
     
     @Override
+    public Member selectDay(MemberVo vo) throws Exception{
+    	return dao.selectDay(vo);
+    }
+    
+    @Override
 	public Member selectImg(MemberVo vo) throws Exception{
     	return dao.selectImg(vo);
 	}

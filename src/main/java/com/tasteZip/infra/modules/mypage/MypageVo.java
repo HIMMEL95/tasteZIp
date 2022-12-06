@@ -11,6 +11,7 @@ public class MypageVo extends BaseVo {
 	private String ifstSeq;
 	private String ifmnSeq;
 	private String ifmmSeq;
+	private String ifmmCreatedAt;
 	
 	public Integer getShOption() {
 		return shOption;
@@ -48,5 +49,11 @@ public class MypageVo extends BaseVo {
 	public void setIfmmSeq(String ifmmSeq) {
 		this.ifmmSeq = ifmmSeq;
 	}
-
+	public String getIfmmCreatedAt() {
+		return ifmmCreatedAt;
+	}
+	public void setIfmmCreatedAt(String ifmmCreatedAt) {
+		this.ifmmCreatedAt = ifmmCreatedAt;
+	}
+	
 }

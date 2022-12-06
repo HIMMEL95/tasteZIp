@@ -53,9 +53,9 @@
            				<div class="pt-4" style="margin-left: 170px;">
 	           				<h4 class="mb-3" style="display: inline-block;">Welcome back <c:out value="${sessName}"/>!</h4>
 	           				<br>
-	           				<span class="mb-2" style="display: inline-block;">You visited <strong style="color: #ff7f00;">MATZIP</strong> 3 times this week.</span>
-	           				<br>
-	           				<span>We will always strive for the best service for you.</span>
+	           				<input type="hidden" name="ifmmCreatedAt" value="${day.ifmmCreatedAt }">
+	           				<!-- <span class="mb-2" style="display: inline-block;">You visited <strong style="color: #ff7f00;">MATZIP</strong> 3 times this week.</span> -->
+	           				<h4>You've been with us for <strong style="color: #ff7f00;">날짜</strong>days.</h4>
            				</div>
            			</div>
 	           			<div class="row pt-5 mb-3 font" style="display: inline-block;"><h4><b>Recently Order Restaurants</b></h4></div>

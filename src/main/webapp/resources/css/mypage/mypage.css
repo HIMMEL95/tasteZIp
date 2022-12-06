@@ -544,3 +544,25 @@ button.learn-more2:active::before {
 		margin-left: 75px;
 	}
 }
+
+li {
+	position: relative;
+}
+.front{
+	position: absolute;
+	z-index: 1; 
+}
+.back {
+	position: absolute;
+	z-index: 2; 
+}
+
+
+
+
+
+
+
+
+
+

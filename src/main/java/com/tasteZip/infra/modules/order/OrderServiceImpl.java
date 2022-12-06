@@ -121,10 +121,14 @@ public class OrderServiceImpl implements OrderService{
         params.add("quantity", dto.getTotalCount().toString());
         params.add("total_amount", dto.getTotalPrice().toString());
         params.add("tax_free_amount", "0");
-        params.add("approval_url", "http://localhost:8080/order/kakaopayApproval");
-        params.add("cancel_url", "http://localhost:8080/order/cartOrder");
-        params.add("fail_url", "http://localhost:8080/order/cartOrder");
+//        params.add("approval_url", "http://13.209.12.239:8082/order/kakaopayApproval");
+//        params.add("cancel_url", "http://13.209.12.239:8082/order/cartOrder");
+//        params.add("fail_url", "http://13.209.12.239:8082/order/cartOrder");
         
+        params.add("approval_url", "http://localhost:8082/order/kakaopayApproval");
+        params.add("cancel_url", "http://localhost:8082/order/cartOrder");
+        params.add("fail_url", "http://localhost:8082/order/cartOrder");
+                 
         HttpEntity<MultiValueMap<String, String>> body  = new HttpEntity<MultiValueMap<String, String>>(params, this.getHeaders());
         // 외부url요청 통로 열기.
         RestTemplate template = new RestTemplate();

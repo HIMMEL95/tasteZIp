@@ -168,14 +168,14 @@ $(document).ready(function(){
 			$("#intro .introVideo h1").removeClass("textAbsolute");
 		}
 
-		 if(scrolltop >= detailTop){
+		 /*if(scrolltop >= detailTop){
 			$("#detail_menu").addClass("active");
 			$("#header .hd nav ul li:last-child").addClass("subMenu");
 		 }else{
 			
 			$("#detail_menu").removeClass("active");
 			$("#header .hd nav ul li:last-child").removeClass("subMenu");
-		 }
+		 }*/
 
 
 		

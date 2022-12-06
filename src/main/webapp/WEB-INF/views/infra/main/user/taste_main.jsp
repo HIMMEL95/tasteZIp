@@ -103,12 +103,12 @@
 					</li>
 					<li>
 						<a href="javascript:;" id="overview_menu" class="cate" data-id="overview">
-							Recently Visited
+							Recently Opened Restaurants
 						</a>
 					</li>
 					<li>
 						<a href="javascript:;" id="recording_menu" class="cate" data-id="recording">
-							Recommend
+							What's your favorite?
 						</a>
 					</li>
 				</ul>
@@ -124,7 +124,7 @@
                     a review of<br>
                     such a good restaurant.
                 </h1>
-                <video autoplay muted volume="10" playsinline="" preload="meta" width="100%" class="intro_video">
+                <video autoplay muted volume="10" playsinline="" loop="loop" preload="meta" width="100%" class="intro_video">
                     <source src="/resources/images/main/matzip.mp4" type="video/mp4">
                     지원하지 않는 웹 브라우저 입니다.
                 </video>
@@ -132,9 +132,9 @@
         </section>
         
         <form id="myForm" name="myForm">
-        <input type="hidden" name="ifstSeq" >
-        <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
-		<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
+	        <input type="hidden" name="ifstSeq" >
+	        <input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
+			<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 	        <section id="overview">
 	            <div class="overview_title">
 	                <h1 class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp; font-family: 'LeferiPoint-SpecialItalicA';">Recently Opened Restaurants</h1>

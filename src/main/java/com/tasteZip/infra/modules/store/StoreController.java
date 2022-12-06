@@ -45,7 +45,7 @@ public class StoreController {
 //	    List<Store> list = service.selectList(vo);
 //	    model.addAttribute("list", list);
 //	    
-//	    return "infra/main/store/store";
+//	    return "infra/main/store/storeList";
 //	}
 //	
 	

@@ -33,6 +33,7 @@
     <!-- start -->
     
     <form action="post" id="myForm" name="myForm" onsubmit="searchPlaces(); return false;">
+    <input type="hidden" name="stPlace" value="${vo.stPlace}">
 	    <main class="clearfix">
 			
 			<!-- sidebar s -->
@@ -72,15 +73,15 @@
 									<div class="search_box2">
 										<div class="input_box">
 											<label class="label_search"><img alt="" src="/resources/images/main/placeholder_b.png" style="width: 20px;"></label>
-											<input type="text" id="sPlace" name="sPlace" value="${item.ifstAddress}" autocomplete="off" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
+											<input type="text" id="sPlace" name="sPlace" value="${vo.stPlace}" autocomplete="off" autofocus class="input_search ms-4" placeholder="출발지를 입력하세요." >
 											<button class="search_btn" type="button" id="search1" hidden>검색</button>
 										</div>
 									</div>
 									<div class="search_box2">
 										<div class="input_box">
-												<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"></label>
-												<input type="text" id="ePlace" name="ePlace" value="${vo.ePlace }" autocomplete="off" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
-												<button class="search_btn" type="button" id="search2" hidden>검색</button>
+											<label class="label_search"><img alt="" src="/resources/images/main/placeholder_r.png" style="width: 20px;"></label>
+											<input type="text" id="ePlace" name="ePlace" value="${vo.edPlace}" autocomplete="off" autofocus class="input_search ms-4" placeholder="도착지를 입력하세요.">
+											<button class="search_btn" type="button" id="search2" hidden>검색</button>
 										</div>
 									</div>
 								</div>
@@ -106,7 +107,7 @@
 							<div class="ng-star-inserted map_wrap">
 								<div class="main -top_space" style="padding-top: 50px; ">
 									<!-- contents s -->
-									<h5 class="ms-4 fw-bold">장소</h5>
+									<h5 class="ms-4 fw-bold">장소<span style="color: red; font-size: 12px;">* 클릭 후 지도에 핀마크 확인</span></h5>
 									<hr class="ms-4 me-3">
 									<!-- contents e -->
 									<div id="menu_wrap">

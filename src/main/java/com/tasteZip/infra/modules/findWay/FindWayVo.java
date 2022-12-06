@@ -4,6 +4,9 @@ public class FindWayVo {
     private String sPlace;
     private String ePlace;
     
+    private String stPlace;
+    private String edPlace;
+    
     private String ifstSeq;
     private String ifstAddress;
     
@@ -31,6 +34,18 @@ public class FindWayVo {
 	}
 	public void setIfstAddress(String ifstAddress) {
 		this.ifstAddress = ifstAddress;
+	}
+	public String getStPlace() {
+		return stPlace;
+	}
+	public void setStPlace(String stPlace) {
+		this.stPlace = stPlace;
+	}
+	public String getEdPlace() {
+		return edPlace;
+	}
+	public void setEdPlace(String edPlace) {
+		this.edPlace = edPlace;
 	}
     
     

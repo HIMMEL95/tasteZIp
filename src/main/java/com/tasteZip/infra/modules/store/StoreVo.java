@@ -18,6 +18,8 @@ public class StoreVo extends BaseVo {
     private String ifmmSeq;
     private String seq;
     
+    private String stPlace;
+    private String edPlace;
    
 	public String getSeq() {
 		return seq;
@@ -96,6 +98,18 @@ public class StoreVo extends BaseVo {
 	}
 	public void setIfmmSeq(String ifmmSeq) {
 		this.ifmmSeq = ifmmSeq;
+	}
+	public String getStPlace() {
+		return stPlace;
+	}
+	public void setStPlace(String stPlace) {
+		this.stPlace = stPlace;
+	}
+	public String getEdPlace() {
+		return edPlace;
+	}
+	public void setEdPlace(String edPlace) {
+		this.edPlace = edPlace;
 	}
 	
 }

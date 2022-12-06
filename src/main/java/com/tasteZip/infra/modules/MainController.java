@@ -151,6 +151,9 @@ public class MainController {
     	
     	vo.setParamsPaging(sService.selectOneCount(vo));
     	
+    	Store item = sService.storeSelectOne(vo);
+    	model.addAttribute("item", item);
+    	
     	List<Store> store = sService.storeList(vo);
     	model.addAttribute("store", store);
     	

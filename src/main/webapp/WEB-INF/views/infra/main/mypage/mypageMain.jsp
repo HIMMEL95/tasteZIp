@@ -61,31 +61,29 @@
 	           			<div class="row pt-5 mb-3 font" style="display: inline-block;"><h4><b>Recently Order Restaurants</b></h4></div>
 	           			<a class="ms-2" style="font-size: 13px; margin-bottom: 10px;" onclick="location.href='/order/mypageOrder';">전제보기 <i class="fa-solid fa-caret-right"></i></a>
    						<input type="hidden" name="ifmmSeq" value="${sessSeq }">
-	           			<c:choose>
-	           				<c:when test="${fn:length(list) eq 0}">
-	          					<div class="row justify-content-center">
-	          						<h4 class="text-center">주문 내역이 존재하지 않습니다.</t4>
-	          					</h4>
-	          				</c:when>
-	          				<c:otherwise>
-	          					<c:forEach items="${list}" var="list" varStatus="status">
-				           			<div class="row">
-					           			<div class="col" style="text-align: center;">
-						       				<div class="cardMain">
-						       					<div class="item front">
-							       					<img src="${list.path}${list.uuidName}" style="width: 240px; height: 250px; border-radius: 25px; filter: drop-shadow(2px 4px 6px grey);">
-						       					</div>
-						           				<br>
-						           				<div class="item back">
-							           				<span style="display: block; margin-bottom: 10px;">${list.ifstName}</span>
-							           				<span style="display: block; margin-bottom: 10px;">주문날짜: ${list.ifbyCreatedAt}</span>
-						           				</div>
+	          			<div class="row">
+		           			<c:choose>
+		           				<c:when test="${fn:length(list) eq 0}">
+	          						<h4 class="text-center">주문 내역이 존재하지 않습니다.</h4>
+	          					</c:when>
+			          			<c:otherwise>
+		          					<c:forEach items="${list}" var="list" varStatus="status">
+				           			<div class="col" style="text-align: center;">
+					       				<div class="cardMain">
+					       					<div class="item front">
+						       					<img src="${list.path}${list.uuidName}" style="width: 240px; height: 250px; border-radius: 25px; filter: drop-shadow(2px 4px 6px grey);">
+					       					</div>
+					           				<br>
+					           				<div class="item back">
+						           				<span style="display: block; margin-bottom: 10px; font-size: 22px;"><b>${list.ifstName}</b></span><br>
+						           				<span style="display: block; margin-bottom: 10px; font-size: 18px;">주문날짜:<br>${list.ifbyCreatedAt}</span>
 					           				</div>
-					           			</div>
+				           				</div>
 				           			</div>
-				           		</c:forEach>
-				           	</c:otherwise>
-			           </c:choose>
+					           		</c:forEach>
+					           	</c:otherwise>
+			          		</c:choose>
+           			   </div>
 	         </section>
 	       </div>
 	     </div>

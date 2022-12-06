@@ -505,9 +505,9 @@
 			$(".confirm").css("display", "");
 		})
 	
-		/* sendSms = function() {
+		 sendSms = function() {
 				
-				return false;
+				/* return false; */
 				$.ajax({
 					url: '/member/checkSms'
 					,type: 'POST'
@@ -523,18 +523,8 @@
 					}
 				});
 				
-			}; */
+			};
 	
-		/* checkSms = function() {
-			
-			  if($("#phoneCodeSms").val() == $("#phoneCode").val()){
-				  Swal.fire("MATZIP", "인증되었습니다.", "success");
-			  }else{
-				  Swal.fire("MATZIP", "인증번호가 틀립니다.", "error");
-			  }
-			  
-		  }; */
-		  
 		  checkSms = function() {
 				
 			  if($("#phoneCodeSms").val() == $("#phoneCode").val()){

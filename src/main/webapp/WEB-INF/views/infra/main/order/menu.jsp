@@ -369,6 +369,10 @@
 				var cookieArr = value.split(":");
 				$(".bg-white").css("display", "");
 				
+				var innerHtml ="";
+				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
+				$(".menuSeq"+value).html(innerHtml);
+				
 				if (cookieArr.length == 1) {
 					$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val());
 				} else {
@@ -448,6 +452,7 @@
 		}
 		
 		$("#buyBtn").on("click", function() {
+			alert(result)
 			$.ajax({
 				type: "POST"
 				,url: "/menu/cart"

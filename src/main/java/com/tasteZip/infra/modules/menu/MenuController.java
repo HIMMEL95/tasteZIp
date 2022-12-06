@@ -282,7 +282,8 @@ public class MenuController {
         for (Cookie cookie: cookies) {
             if (cookie.getName().equals("cart")) {
                 b = cookie.getValue().split(":");
-            }
+            } 
+           
         }
         
         if (b != null || vo.getIfmnSeq() != "") {
@@ -312,8 +313,13 @@ public class MenuController {
                             count += countArr[i] + ":";
                         }
                     }
+                    break;
                 }
             }
+            
+            System.out.println("cart : " + result);
+            System.out.println("price : " + price);
+            System.out.println("count : " + count);
             
             Cookie cart = new Cookie("cart", result);
             cart.setPath("/");

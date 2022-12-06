@@ -38,6 +38,8 @@
 				<input type="hidden" name="thisPage" value="<c:out value="${vo.thisPage }" default="1"/>">
 				<input type="hidden" name="rowNumToShow" value="<c:out value="${vo.rowNumToShow }"/>">
 				<input type="hidden" name="ifstSeq" >
+				<input type="hidden" name="stPlace" value="${vo.stPlace }">
+				<input type="hidden" name="edPlace" value="${vo.edPlace }">
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
@@ -147,13 +149,11 @@
 																					<h5 class="card-title"><b>${store.ifstName}</b></h5>
 																					<p class="card-text">${store.ifstAddress}</p>
 																					<br>
-																					<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark">
-																						<input type="hidden" name="stPlace" value="${vo.stPlace }">
-																						<a type="hidden" name="stPlace" href="javascript:goWay(${store.ifstName})"> 출발
+																					<button type="button" id="btnDep" class="btn btn-sm btn-outline-dark" onclick="goWay(${store.ifstSeq })">
+																						<%-- <a type="hidden" name="stPlace" href="javascript:goWay(${store.ifstName})"> --%> 출발
 																					</button>
-																					<button type="button" id="btnArr" class="btn btn-sm btn-outline-danger">
-																						<input type="hidden" name="edPlace" value="${vo.edPlace }">
-																						<a type="hidden" name="edPlace" href="javascript:goWay2(${store.ifstName})"> 도착
+																					<button type="button" id="btnArr" class="btn btn-sm btn-outline-danger" onclick="goWay2(${store.ifstSeq})">
+																						<%-- <a type="hidden" name="edPlace" href="javascript:goWay2(${store.ifstName})"> --%> 도착
 																					</button>
 																					<%-- <button type="button" id="btnDep" name="sPlace" class="btn btn-sm btn-outline-dark" href="javascript:goWay(${store.ifstSeq})">출발</button> --%>
 																					<!-- <button type="button" class="btn btn-sm btn-outline-danger">도착</button> -->
@@ -384,16 +384,6 @@
 		event.stopImmediatePropagation(); 
 	*/	
 	
- 	goWay = function(keyValue) {
-			$("input[name=stPlace]").val(keyValue);
-			form.attr("action", goUrlFindWay).submit();
-		} 
-
-	goWay2 = function(keyValue) {
-			seq.val(keyValue);
-			form.attr("action", goUrlFindWay).submit();
-		} 
-	
 	/* seq = '[object Object]' */
 		
 		/* $("#btnDep").on("click", function(keyValue) {
@@ -432,6 +422,17 @@
  			$(location).attr("href", goUrlFindWay);
  		}); */ 
  		
+	</script>
+	<script type="text/javascript">
+		goWay = function(keyValue) {
+			$("input[name=stPlace]").val(keyValue);
+			form.attr("action", goUrlFindWay).submit();
+		} 
+
+		goWay2 = function(keyValue) {
+			$("input[name=edPlace]").val(keyValue);
+			form.attr("action", goUrlFindWay).submit();
+		} 
 	</script>
 </body>
 

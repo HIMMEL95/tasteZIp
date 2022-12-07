@@ -267,21 +267,7 @@
 
     <footer>
         <footer id="footer">
-            <div class="ft_hd">
-            <h1><img src="/resources/images/main/logo2.png" style="width: 80px;"></h1>
-            <nav>
-                <h2 class="family_button">FAMILY<span class="footnav fnav_top"></span>
-                    <ul class="family_site_list">
-                        <li>
-                            <a href="http://www.leferi.com/">Homepage</a>
-                        </li>
-                        <li>
-                            <a href="http://leferimarketing.com">Marketing</a>
-                        </li>
-                    </ul>
-                </h2>
-            </nav>
-            </div>
+            <hr style="color: white; margin-bottom: 0px;">
             <div id="ft_company">
                 <div class="ft_info">
                     <div>
@@ -289,15 +275,18 @@
                         <p>사업자등록번호 111-11-11111</p>
                     </div>
                     <div>
-                        <p>bbluesky7738@gmail.com</p>
+                    	<div class="wrapper">
+						    <div class="typing-demo">
+						     	<p>bbluesky7738@gmail.com</p>
+		                        <p>gottkfkd@gmail.com</p>
+		                        <p>skwlsrud3@gmail.com</p>
+		                        <p>heejee.yun@gmail.com</p>
+						    </div>
+						</div>
+                       	<!-- <p>bbluesky7738@gmail.com</p>
                         <p>gottkfkd@gmail.com</p>
                         <p>skwlsrud3@gmail.com</p>
-                        <p>heejee.yun@gmail.com</p>
-                    </div>
-                    <div>
-                        <p>
-                            +82 2 532 6509
-                        </p>
+                        <p>heejee.yun@gmail.com</p> -->
                     </div>
                 </div>
             </div>

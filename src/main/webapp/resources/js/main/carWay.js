@@ -99,8 +99,7 @@ carWay = function() {
 
 					if (geometry.type == "LineString") {
 						//교통 정보도 담음
-						chktraffic
-								.push(geometry.traffic);
+						chktraffic.push(geometry.traffic);
 						var sectionInfos = [];
 						var trafficArr = geometry.traffic;
 
@@ -113,12 +112,10 @@ carWay = function() {
 							var convertPoint = new Tmapv2.Projection.convertEPSG3857ToWGS84GEO(
 									latlng);
 
-							sectionInfos
-									.push(convertPoint);
+							sectionInfos.push(convertPoint);
 						}
 
-						drawLine(sectionInfos,
-								trafficArr);
+						drawLine(sectionInfos, trafficArr);
 					} else {
 
 						var markerImg = "";

@@ -251,7 +251,7 @@
 // ------------------------------------
 
 var map, marker;
-var marker_s, marker_e, marker_p1, marker_p2, marker_p;
+var marker_s, marker_e, marker_p1, marker_p2;
 var totalMarkerArr = [];
 var drawInfoArr = [];
 var resultdrawArr = [];
@@ -362,17 +362,22 @@ $("#sPlace, #ePlace").on("keyup", function (key) {
 
      if (value1 != null && value2 == "") {
  	    keywordSearch(value1);
+ 	    $("#searchType").val("1");
      } else if (value1 == "" && value2 != null) {
  	    keywordSearch(end.val()); 
+ 	    $("#searchType").val("2");
      } else if (value1 != null && value2 != null){
      	if ($(":focus").attr("id") == "sPlace") {
  		    keywordSearch(value1); 
+	 	    $("#searchType").val("1");
      	} else {
  		    keywordSearch(value2); 
+	 	    $("#searchType").val("2");
      	}
-     } else {
+     } 
+     /*else {
      	location.reload();
-     }
+     }*/
  }
  
 var sLat, sLon, eLat, eLon;

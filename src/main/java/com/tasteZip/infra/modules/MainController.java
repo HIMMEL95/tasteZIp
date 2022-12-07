@@ -44,8 +44,6 @@ public class MainController {
     StoreServiceImpl sService;
     @Autowired
     ChatServiceImpl cService;
-    @Autowired
-    FindWayServiceImpl fService;
 
     @RequestMapping(value = "/")
     public String MatZipMain() throws Exception {
@@ -137,12 +135,6 @@ public class MainController {
     	
     	Store item = sService.xdminSelectOne(svo);
     	model.addAttribute("item", item);
-    	
-//    	FindWay findWay = fService.selectOne(vo);
-//    	model.addAttribute("findWay", findWay);
-    	
-    	List<Store> store = sService.storeList(svo);
-    	model.addAttribute("store", store);
     	
         return "infra/main/findWay/findWay";
     }

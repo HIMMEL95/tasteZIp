@@ -69,6 +69,7 @@
 							</div>
 							<!-- search s -->
 							<div class="search" style="margin-top: 60px;">
+								<input type="hidden" name="searchType" id="searchType" value="">
 								<div class="search_wrap">
 									<div class="search_box2">
 										<div class="input_box">
@@ -158,7 +159,7 @@
 		$("#reTyping").on("click", function() {
 			$("#sPlace").val("");
 			$("#ePlace").val("");
-			location.reload();
+			/* location.reload(); */
 		})
 		
 		var start = $("#sPlace");
@@ -170,6 +171,86 @@
 			$(".title"+value).on("click", function() {
 				text = $(".title"+value).text();
 				if ((start.val() != null || start.val() != "") && (end.val() == null || end.val() == "")) {
+					if ($(".title"+value).text().indexOf(sText) != -1) {
+						if(markerArr.length > 0){
+						   for(var i in markerArr){
+							   markerArr[i].setMap(null);
+						   }
+					   }
+						start.val(text);
+						$("#start").text(text);
+						sLat = $(".lat"+value).val();
+						sLon = $(".lon"+value).val();
+						marker_s = new Tmapv2.Marker(
+						{
+							position : new Tmapv2.LatLng(sLat,sLon),
+							icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+							iconSize : new Tmapv2.Size(24, 38),
+							map : map
+						});
+					} 
+				} else if ((start.val() != null || start.val() != "") && (end.val() != null && end.val() != "")) {
+					if ($("#searchType").val() == "1") {
+						if ($(".title"+value).text().indexOf(sText) != -1) {
+							if(markerArr.length > 0){
+							   for(var i in markerArr){
+								   markerArr[i].setMap(null);
+							   }
+						   }
+							start.val(text);
+							$("#start").text(text);
+							sLat = $(".lat"+value).val();
+							sLon = $(".lon"+value).val();
+							marker_s = new Tmapv2.Marker(
+							{
+								position : new Tmapv2.LatLng(sLat,sLon),
+								icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_s.png",
+								iconSize : new Tmapv2.Size(24, 38),
+								map : map
+							});
+						} 
+					} else {
+						if ($(".title"+value).text().indexOf(eText) != -1){
+							if(markerArr.length > 0){
+							   for(var i in markerArr){
+								   markerArr[i].setMap(null);
+							   }
+						   }
+							end.val(text);
+							$("#end").text(text);
+							eLat = $(".lat"+value).val();
+							eLon = $(".lon"+value).val();
+							marker_e = new Tmapv2.Marker(
+							{
+								position : new Tmapv2.LatLng(eLat,eLon),
+								icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+								iconSize : new Tmapv2.Size(24, 38),
+								map : map
+							});
+						}
+					}
+				}
+				else if  ((end.val() != null || end.val() != "") && document.hasFocus()) {
+					if ($(".title"+value).text().indexOf(eText) != -1){
+						if(markerArr.length > 0){
+						   for(var i in markerArr){
+							   markerArr[i].setMap(null);
+						   }
+					   }
+						end.val(text);
+						$("#end").text(text);
+						eLat = $(".lat"+value).val();
+						eLon = $(".lon"+value).val();
+						marker_e = new Tmapv2.Marker(
+						{
+							position : new Tmapv2.LatLng(eLat,eLon),
+							icon : "http://tmapapi.sktelecom.com/upload/tmap/marker/pin_r_m_e.png",
+							iconSize : new Tmapv2.Size(24, 38),
+							map : map
+						});
+					}
+				}
+				/* if ((start.val() != null || start.val() != "") && (end.val() == null || end.val() == "")) {
 					if ($(".title"+value).text().indexOf(sText) != -1) {
 						if(markerArr.length > 0){
 						   for(var i in markerArr){
@@ -207,7 +288,7 @@
 							map : map
 						});
 					}
-				}
+				} */ 
 			})
 		}
 		

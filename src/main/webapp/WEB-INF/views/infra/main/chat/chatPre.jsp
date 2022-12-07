@@ -177,6 +177,7 @@
 									<button type="button" id="friendsBtn"><i class="fa-solid fa-user-group fa-2x"></i></button>
 									<button type="button" id="chatList"><i class="fa-solid fa-comments fa-2x"></i></button>
 								</div> -->
+							</div>
 								<!-- contents e -->
 							</form>
 						</div>

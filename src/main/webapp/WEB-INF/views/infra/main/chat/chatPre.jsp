@@ -352,16 +352,18 @@
 		selectChatRoom = function (roomNo) {
 			imgPath = $("#imgPath"+roomNo).val();
 			$(".pro"+roomNo).attr("src", $("#imgPath"+roomNo).val());
-			$(".chatImgSm").attr("src", $("#imgPath"+roomNo).val());
+			/* $(".chatImgSm").attr("src", $("#imgPath"+roomNo).val()); */
 			$(".userId").html($("#userId"+roomNo).val());
 			$(".contents").css("display", "");
 			$(".chatList").css("display", "none");
 			$(".headind_srch").css("display", "none");
 			
-			if (imgPath == "") {
+			if ($("#imgPath"+roomNo).val() == "") {
 				$(".chatListImg").attr("src", "https://intermusicakorea.com/common/img/default_profile.png");
+				$(".chatImgSm").attr("src", "https://intermusicakorea.com/common/img/default_profile.png");
 			} else {
 				$(".chatListImg").attr("src", imgPath);
+				$(".chatImgSm").attr("src", imgPath);
 			}
 			
 		    var roomArray = $("li[name=room]");

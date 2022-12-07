@@ -58,13 +58,6 @@ carWay = function() {
 		success : function(response) {
 			
 			var resultData = response.features;
-			
-			// 기존 마커, 팝업 제거
-			if(markerArr.length > 0){
-				for(var i in markerArr){
-					markerArr[i].setMap(null);
-				}
-			}
 
 			var tDistance =
 					(resultData[0].properties.totalDistance / 1000)
@@ -222,11 +215,6 @@ carWay = function() {
 		}
 	});
 	//JSON TYPE EDIT [E]
-}
-
-function addComma(num) {
-	var regexp = /\B(?=(\d{3})+(?!\d))/g;
-	return num.toString().replace(regexp, ',');
 }
 
 //마커 생성하기

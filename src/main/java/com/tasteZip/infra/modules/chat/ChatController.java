@@ -38,20 +38,20 @@ public class ChatController {
 		
 		int check = service.userCheck(vo);
 		
-//		Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
-//		if(newChat != null) {
-//			result.put("rt", "success");
-//			result.put("newChat", newChat);
-//		}
-//		else
-//			result.put("rt", "fail");
-		if(check == 0) {
-			Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
+		Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
+		if(newChat != null) {
 			result.put("rt", "success");
 			result.put("newChat", newChat);
 		}
 		else
 			result.put("rt", "fail");
+//		if(check == 0) {
+//			Chat newChat = service.createChat(Integer.parseInt(httpSession.getAttribute("sessSeq").toString()), dto.getCuMember());
+//			result.put("rt", "success");
+//			result.put("newChat", newChat);
+//		}
+//		else
+//			result.put("rt", "fail");
 		
 		return result;
 	}

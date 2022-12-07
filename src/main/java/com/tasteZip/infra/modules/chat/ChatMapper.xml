@@ -60,6 +60,7 @@
 		AND up.defaultNy = 1        
 		WHERE 1=1  
 		AND cu.cuMember = #{cuMember} <!-- 신규 채팅방 상대유저 정보를 위한 seq -->
+		<!-- AND cu.cuChatSeq = (select max(cuChatSeq) from chatUser)	 -->
 	</select>
 	
 	<insert id="insertChat">

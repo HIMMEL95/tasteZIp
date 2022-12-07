@@ -430,6 +430,7 @@
 		})
 
 		if ($("input[name=cuMember]").val() != "") {
+			alert($("input[name=cuMember]").val())
 			addChat();
 		}
 	</script>

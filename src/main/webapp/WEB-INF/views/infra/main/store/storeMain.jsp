@@ -113,11 +113,11 @@
 																	</div>
 																</div>
 																<div class="X0C1I">
-																	<button target="_self" role="button" class="Pcppb">
+																	<button target="_self" role="button" class="Pcppb" onclick="goWay(${List.ifstSeq})" id="btnDep">
 																		<i class="fa-solid fa-location-dot text-primary"></i>
 																		출발
 																	</button>
-																	<button target="_self" role="button" class="gd2MP">		
+																	<button target="_self" role="button" class="gd2MP" onclick="goWay2(${item.ifstSeq})" id="btnArr">		
 																		<i class="fa-solid fa-location-dot"></i>
 																		도착															
 																	</button>
@@ -257,9 +257,9 @@
 																						</svg>
 																					</strong>
 																					<div class="x8JmK">
-																						<span class="dry01">${item.ifstPhone }</span>
+																						<span class="dry01" id="p1">${item.ifstPhone }</span>
 																						<span class="mnnPt">
-																							<a href="#" target="_self" role="button" class="_vIMk" title="복사">
+																							<a href="#" target="_self" role="button" onclick="copyToClipboard('#p1')" class="_vIMk" title="복사">
 																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" class="pHtH_" aria-hidden="true">
 																									<path d="M9 8v.48l-1.98 1.58L6 11H3v1h4.61L10 9.81V3h-.97L9 8zm0-6h1a1 1 0 011 1v7.25L8 13H3a1 1 0 01-1-1v-1H1a1 1 0 01-1-1V1a1 1 0 011-1h7a1 1 0 011 1v1zm-7 8h3.5l.87-.7L8 7.81V1H1v9h1zm0-7h4v1H2V3zm0 2h4v1H2V5zm0 2h2v1H2V7z"></path>
 																								</svg>
@@ -307,7 +307,7 @@
 																						<span class="place_blind">설명</span>
 																					</strong>
 																					<div class="x8JmK">
-																						<a href="#" target="_self" role="button" aria-expanded="false" class="xHaT3">
+																						<a target="_self" role="button" aria-expanded="false" class="xHaT3">
 																							<span class="zPfVt text-truncate" style="max-width: 480px;">${item.ifstInfo}</span>
 																							<span class="rvCSr">
 																								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 7" class="Ky28p" aria-hidden="true">
@@ -320,7 +320,7 @@
 																					<input type="hidden" name="ifstLng" value="${item.ifstLng}">
 																					</div>
 																				</li>
-																				<li class="SF_Mq DXdyf">
+																				<!-- <li class="SF_Mq DXdyf">
 																					<strong class="RmIE4">
 																						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 13" class="nHf7b" aria-hidden="true">
 																							<path d="M7.42 1.92l3.54 3.56L3.55 13H0V9.44l7.42-7.52zM14 12.3v.7H5.6v-.7H14zM10.34 0a2.54 2.54 0 011.91 4.17l-.02.02-.78.79-3.54-3.55.79-.79C9.17.24 9.73 0 10.34 0z"></path>
@@ -335,7 +335,7 @@
 																							</svg>
 																						</a>
 																					</div>
-																				</li>
+																				</li> -->
 																			</ul>
 																		</div>
 																	</div>
@@ -346,7 +346,7 @@
 																			<%-- <em class="place_section_count">${vo.totalRows}</em> --%>
 																			<div class="rNxBQ">
 																				<span class="N5pEx">
-																					<a href="#" target="_self" role="button" class="place_bluelink EMAxw">메뉴판 이미지로 보기</a>
+																					<a target="_self" class="place_bluelink EMAxw">메뉴판 이미지로 보기</a>
 																				</span>
 																			</div>
 																		</h2>
@@ -533,6 +533,40 @@
 				}
 			});
 	}
+	</script>
+	<script type="text/javascript">
+	
+	var goUrlFindWay = "/findWay";
+	 /* 
+	 	event.preventDefault();
+		event.stopPropagation();
+		event.stopImmediatePropagation(); 
+	*/	
+
+		/* goWay = function(keyValue) {
+			formVo.attr("action", goUrlFindWay).submit();
+		} */
+	
+		goWay2 = function(keyValue) {
+			form.attr("action", goUrlFindWay).submit();
+		}
+		
+		 $("#btnDep").on("click", function() {
+			event.preventDefault();
+			$(location).attr("href", goUrlFindWay);
+		}); 
+		
+	</script>
+	
+	<script>
+		function copyToClipboard(element) {
+			var $temp = $("<input>");
+			  $("body").append($temp);
+			  $temp.val($(element).text()).select();
+			document.execCommand("copy");
+			  $temp.remove();
+			/* alert("copy complete"); */ //Optional Alert, 삭제해도 됨
+		}
 	</script>
 </body>
 

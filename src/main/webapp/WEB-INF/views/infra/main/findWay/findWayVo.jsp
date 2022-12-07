@@ -7,6 +7,8 @@
 
 <input type="hidden" name="stPlace" value="<c:out value="${vo.stPlace}"/>"/>
 
+<input type="hidden" name="ifstAddress" value="<c:out value="${vo.ifstAddress}"/>"/>
+
 <input type="hidden" name="shDelNy" value="<c:out value="${vo.shDelNy}"/>"/>
 <input type="hidden" name="shDate" value="<c:out value="${vo.shDate}"/>"/>
 

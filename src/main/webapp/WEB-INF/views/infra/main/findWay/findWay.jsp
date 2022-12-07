@@ -33,6 +33,7 @@
     <!-- start -->
     
     <form action="post" id="myForm" name="myForm" onsubmit="searchPlaces(); return false;">
+    <input type="hidden" name="ifstAddress" value="<c:out value="${vo.ifstAddress}"/>"/>
 	    <main class="clearfix">
 			
 			<!-- sidebar s -->
@@ -61,7 +62,7 @@
 							  		<i class="fa-solid fa-person-walking"></i>
 							  		도보
 						  		</button>
-							  	<button type="button" class="btn btn-outline-secondary bike">
+							  	<button type="mbutton" class="btn btn-outline-secondary bike">
 							  		<i class="fa-solid fa-person-biking"></i>
 							  		자전거
 						  		</button>

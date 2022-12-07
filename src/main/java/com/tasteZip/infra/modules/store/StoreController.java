@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.tasteZip.infra.common.util.UtilDateTime;
+import com.tasteZip.infra.modules.findWay.FindWay;
+import com.tasteZip.infra.modules.findWay.FindWayServiceImpl;
+import com.tasteZip.infra.modules.findWay.FindWayVo;
 
 @Controller
 @RequestMapping(value = "/store/")
@@ -30,6 +33,7 @@ public class StoreController {
 	
 	@Autowired
 	StoreServiceImpl service;
+	FindWayServiceImpl fService;
 	
 	public void setSearchAndPaging(StoreVo vo) throws Exception {
 	    vo.setShDelNy(vo.getShDelNy() == null ? 0 : vo.getShDelNy());
@@ -50,7 +54,7 @@ public class StoreController {
 //	
 	
 	@RequestMapping(value = "storeMain")
-	public String storeMain(@ModelAttribute("vo") StoreVo vo, Store dto, Model model, HttpSession httpSession) throws Exception {
+	public String storeMain(@ModelAttribute("vo") StoreVo vo, Store dto, FindWay fdto, Model model, HttpSession httpSession) throws Exception {
 		
 		try {
 			String seq = (String) httpSession.getAttribute("sessSeq");
@@ -62,6 +66,9 @@ public class StoreController {
 		
 		Store item = service.storeSelectOne(vo);
 	    model.addAttribute("item", item);
+	    	
+//	    List<FindWay> List = fService.selectList(fdto);
+//	    model.addAttribute("List", List);
 	    
 	    List<Store> menu = service.menuList(vo);
 	    model.addAttribute("menu", menu); 

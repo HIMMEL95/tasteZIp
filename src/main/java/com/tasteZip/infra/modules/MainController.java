@@ -20,6 +20,8 @@ import com.tasteZip.infra.common.constants.Constants;
 import com.tasteZip.infra.modules.chat.Chat;
 import com.tasteZip.infra.modules.chat.ChatServiceImpl;
 import com.tasteZip.infra.modules.chat.ChatVo;
+import com.tasteZip.infra.modules.findWay.FindWay;
+import com.tasteZip.infra.modules.findWay.FindWayServiceImpl;
 import com.tasteZip.infra.modules.findWay.FindWayVo;
 import com.tasteZip.infra.modules.member.Member;
 import com.tasteZip.infra.modules.member.MemberServiceImpl;
@@ -42,6 +44,8 @@ public class MainController {
     StoreServiceImpl sService;
     @Autowired
     ChatServiceImpl cService;
+    @Autowired
+    FindWayServiceImpl fService;
 
     @RequestMapping(value = "/")
     public String MatZipMain() throws Exception {
@@ -133,6 +137,12 @@ public class MainController {
     	
     	Store item = sService.xdminSelectOne(svo);
     	model.addAttribute("item", item);
+    	
+//    	FindWay findWay = fService.selectOne(vo);
+//    	model.addAttribute("findWay", findWay);
+    	
+    	List<Store> store = sService.storeList(svo);
+    	model.addAttribute("store", store);
     	
         return "infra/main/findWay/findWay";
     }

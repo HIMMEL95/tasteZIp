@@ -87,8 +87,8 @@
 																					<div class="col-3">
 																						<img src="${favorite.path}${favorite.uuidName}" style="width: 85px; height: 85px;">
 																					</div>
-																					<div class="col-6">
-																						<h5 class="card-title"><b>${favorite.ifstName}</b></h5>
+																					<div class="col-6" id="hBox">
+																						<h5 class="card-title"><span class="highlight">${favorite.ifstName}</span></h5>
 																						<p class="card-text">${favorite.ifstAddress}</p>
 																						<div class="row justify-content-between">
 																							<div class="col text-start"><p class="card-text">${favorite.ifstPhone}</p></div>

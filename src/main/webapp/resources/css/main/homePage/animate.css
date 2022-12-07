@@ -3196,3 +3196,32 @@
     -webkit-animation-name: slideOutUp;
     animation-name: slideOutUp
 }
+
+.zoom {
+	width: 230px;
+	height: 153px;
+	margin: 0 auto;
+}
+
+.zoom:hover {
+	transform: scale(1.5);
+	transition: .5s;
+}
+
+.box.vibration {
+  animation: vibration .1s infinite;
+}
+
+@keyframes vibration {
+  from {
+    transform: rotate(1deg);
+  }
+  to {
+    transform: rotate(-1deg);
+  }
+}
+
+#imgLogo {
+	filter: drop-shadow(7px -3px 6px #ff7f00); 
+}
+

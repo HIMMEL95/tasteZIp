@@ -13,3 +13,4 @@
 <input type="hidden" name="shValue" value="<c:out value="${vo.shValue}"/>"/>
 
 <input type="hidden" name="ifstSeq" value="<c:out value="${vo.ifstSeq}"/>"/>
+<input type="hidden" name="ifstAddress" value="<c:out value="${vo.ifstAddress}"/>"/>

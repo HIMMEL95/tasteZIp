@@ -31,7 +31,7 @@
 		<div class="hd">
 			<h1>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <img src="/resources/images/main/logo2.png" style="width: 100px;">
+                    <img id="imgLogo" class="box vibration" src="/resources/images/main/logo2.png" style="width: 100px;">
                 </button>
 			</h1>
             <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -141,7 +141,6 @@
 	            </div>
 	            <div class="content" style="font-family: 'Pretendard-Regular';">
 	                <div class="row">
-	                	
 	                	<c:forEach items="${store}" var="store" varStatus="status">
 	                		<input type="hidden" name="seq" value="${store.seq }">
 		                    <div class="col">
@@ -155,7 +154,9 @@
 											<c:otherwise>
 												<c:choose>
 													<c:when test="${store.sort eq 1 }">
-														<img class="d-block w-100" src="${store.path}${store.uuidName}">
+														<div class="zoom">
+															<img class="d-block w-100" src="${store.path}${store.uuidName}">
+														</div>
 													</c:when>
 												</c:choose>
 											</c:otherwise>

@@ -17,5 +17,14 @@
 		where 1=1
 	</select>
 	
+	<select id="selectOne" resultMap="resultMapObj">
+		select 
+			f.iffwSeq
+			,s.ifstAddress
+	    from findWay f
+     		left join store s on s.ifstSeq = f.ifstSeq
+		where 1=1
+			and f.iffwSeq = #{iffwSeq}
+	</select>
 	
 </mapper>

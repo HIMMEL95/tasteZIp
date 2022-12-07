@@ -374,7 +374,7 @@
 																														<img src="https://www.tobedone.co.kr/uploads/8d0771dbf95f31d6cba1a63d14666d1c.jpg" alt="" width="100%" height="auto">
 																													</c:when>
 																													<c:otherwise>
-																														<img src="${menu.path}${menu.uuidName}" alt="" width="265px;" height="201px;"
+																														<img src="${menu.path}${menu.uuidName}" alt="" width="265px;" height="201px;">
 																													</c:otherwise>
 																												</c:choose>
 																											</div>

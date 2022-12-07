@@ -51,11 +51,13 @@
            			<div class="mt-3 font dashBord">
            				<img src="/resources/images/main/store.png" style="width: 150px; height: 135px; z-index:10; position: absolute; margin: 5px 0 0 10px;">
            				<div class="pt-4" style="margin-left: 170px;">
-	           				<h4 class="mb-3" style="display: inline-block;">Welcome back <c:out value="${sessName}"/>!</h4>
+	           				<h4 class="mb-3" style="display: inline-block;">Welcome back <strong style="color: #ff7f00;"><c:out value="${sessName}"/></strong>!</h4>
 	           				<br>
 	           				<input type="hidden" name="ifmmCreatedAt" value="${day.ifmmCreatedAt }">
 	           				<!-- <span class="mb-2" style="display: inline-block;">You visited <strong style="color: #ff7f00;">MATZIP</strong> 3 times this week.</span> -->
-	           				<h4>You've been with us for <strong style="color: #ff7f00;">날짜</strong>days.</h4>
+	           				<span>The first day you joined us was<b><strong style="color: #ff7f00;"> ${day.ifmmCreatedAt.substring(0, 10) }</strong></b>.</span>
+	           				<br>
+	           				<span>We will always strive for the best service for you.</span>
            				</div>
            			</div>
 	           			<div class="row pt-5 mb-3 font" style="display: inline-block;"><h4><b>Recently Order Restaurants</b></h4></div>

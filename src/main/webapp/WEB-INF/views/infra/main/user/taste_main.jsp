@@ -277,10 +277,10 @@
                     <div>
                     	<div class="wrapper">
 						    <div class="typing-demo">
-						     	<p>bbluesky7738@gmail.com</p>
-		                        <p>gottkfkd@gmail.com</p>
-		                        <p>skwlsrud3@gmail.com</p>
-		                        <p>heejee.yun@gmail.com</p>
+		                        <p>김진경 skwlsrud3@gmail.com</p>
+		                        <p>박라엘 gottkfkd@gmail.com</p>
+						     	<p>이하늘 bbluesky7738@gmail.com</p>
+		                        <p>윤희지 heejee.yun@gmail.com</p>
 						    </div>
 						</div>
                        	<!-- <p>bbluesky7738@gmail.com</p>

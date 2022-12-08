@@ -11,7 +11,7 @@
 	 <sql id ="selectCommon">
 		FROM store s
 		WHERE 1=1
-		<if test="shDelNy != null and !shDelNy.equals('')">AND ifstDelNy = #{shDelNy}</if>
+		<if test="shDelNy != null and !shDelNy.equals('')">AND s.ifstDelNy = #{shDelNy}</if>
 		<if test="shOptionDate == 1">AND ifstCreatedAt between #{shDateStart} and #{shDateEnd}</if>
 		<choose>
 			<when test="shOption == 1">AND ifstName LIKE CONCAT('%',#{shValue},'%')</when>

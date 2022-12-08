@@ -26,16 +26,18 @@
 				<c:choose>
 					<c:when test="${fn:length(list) eq 0}">
 						<tr>
-							<td class="text-center" colspan="8">There is no data!</td>
+							<td class="text-center" colspan="7">There is no data!</td>
 						</tr>
 					</c:when>
 					<c:otherwise>		
 						<c:forEach items="${list}" var="list" varStatus="status">
 							<tr onclick="goForm(${list.ifstSeq})" class="info" style="cursor: pointer;">
-								<th scope="row" class="td1" src="/">
+								<th scope="row" class="td1" src="#">
 									<input type="checkbox" name="checkboxSeq" id="checkboxSeq" value="${list.ifstSeq }">
 								</th>
-								<td><c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/></td>
+								<td>
+									<c:out value="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + status.index) }"/>
+								</td>
 								<td>${list.ifstName }</td>
 								<td>${list.ifstPhone}</td>
 								<td>${list.ifstAddress}</td>

@@ -399,9 +399,7 @@
 		var quantity = "";
 		var count = [];
 		goCart = function (value) {
-			
 			$(".bg-white").css("display", "");
-			
 			if (cart.includes(value)) {
 				alert("중복된 상품을 선택하셨습니다.");
 			} else {
@@ -425,7 +423,6 @@
 				} else if (ifmnName.length > 1) {
 					$(".buyName").html(ifmnName[0] + " 외 " + (ifmnName.length-1));
 				}
-				
 				/* document.cookie = "cart="+cart; */
 			}
 			

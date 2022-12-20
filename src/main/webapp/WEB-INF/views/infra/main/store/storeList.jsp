@@ -40,6 +40,7 @@
 				<input type="hidden" name="ifstSeq" >
 				<input type="hidden" name="stPlace" value="${vo.stPlace }">
 				<input type="hidden" name="edPlace" value="${vo.edPlace }">
+				<input type="hidden" name="searchType" value="">
 				<div class="sideInfo">
 					<div class="handle">
 						<input type="hidden" name="handle_value" id="handle_value" value="1">
@@ -307,7 +308,6 @@
 		        infowindow.open(map, marker);
 		    });
 		}
-		
 	</script>
 	<script type="text/javascript">
 		$("#signOutBtn").on("click", function() {
@@ -347,9 +347,6 @@
 				$(".label_search").text("장소 검색");
 			}
 		};
-		
-		
-		
 	</script>
 	<script type="text/javascript">
 	

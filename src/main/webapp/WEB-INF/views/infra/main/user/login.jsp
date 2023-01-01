@@ -109,6 +109,28 @@
     	var goUrlHome = "/tasteMain";
     	var goUrlSign = "/signUp";
     	var form = $("#myForm");
+    	
+    	$("#ifmmId, #ifmmPwd").on("keyup", function (key) {
+			if(key.keyCode == 13) {
+				$.ajax({
+					async: true
+					,cache: false
+					,type:"POST"
+					,url: "/loginCheck"
+					,data: {"ifmmId": $("#ifmmId").val(), "ifmmPwd": $("#ifmmPwd").val()}
+					,success : function(response) {
+						if (response.rt == "success") {
+							window.location.href = "/tasteMain";
+						} else {
+							alert("fail")
+						}
+					},
+					error : function(jqXHR, status, error) {
+						alert("알 수 없는 에러 [ " + error + " ]");
+					}
+				});
+			}
+		});
     
     	$("#homeBtn").on("click", function() {
 			form.attr("action", goUrlHome).submit();

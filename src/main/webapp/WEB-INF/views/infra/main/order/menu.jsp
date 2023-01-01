@@ -1,15 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="rb" uri="http://www.springframework.org/tags" %>
-
 <jsp:useBean id="CodeServiceImpl" class="com.tasteZip.infra.modules.code.CodeServiceImpl"/>
-
 <!doctype html> 
 <html lang="ko">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +18,6 @@
 	<link rel="stylesheet" href="/resources/css/order/menu.css">
 	<script defer type="text/javascript" src="/resources/js/order/mapBasic.js"></script>
 </head>
-
 <body>
     <!-- start -->
     
@@ -271,7 +266,6 @@
 			<div id="map" style="width:100%;height:100%;"></div>
 		</div>
     </main>
-
     <!-- end -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
@@ -337,25 +331,6 @@
 			}
 		}
 		
-		/* goCart = function (value) {
-			alert($("input[name=menuSeq"+value+"]").val())
-			$.ajax({
-				type: "POST"
-				,url: "/menu/cart"
-				,data: {
-					ifmnSeq : $("input[name=menuSeq"+value+"]").val()
-				}
-				,success : function(response) {
-					if (response.rt == "success") {
-						var innerHtml ="";
-						innerHtml += '<input type="hidden" name="ifmnSeqArr" id="ifmnSeqArr'+value+'" value="'+value+'">';
-						$(".menuSeq"+value).html(innerHtml);
-					} else if (response.rt == "duplicate") {
-						alert("중복된 상품을 선택 하셨습니다.!!!")
-					}
-				}
-			});
-		} */
 		
 		// 쿠키 값 가져오기 s
 		var getCookieValue = (name) => (
@@ -369,6 +344,9 @@
 				var cookieArr = value.split(":");
 				$(".bg-white").css("display", "");
 				
+				alert(value);
+				alert(cookieArr[0]);
+				
 				var innerHtml ="";
 				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
 				$(".menuSeq"+value).html(innerHtml);
@@ -380,6 +358,7 @@
 					var totalPrice = 0;
 					for (var i=0; i<cookieArr.length; i++) {
 						totalPrice += parseInt($("input[name=price"+cookieArr[i]+"]").val());
+						alert(totalPrice);
 					}
 					totalPrice = String(totalPrice);
 					totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -399,7 +378,9 @@
 		var quantity = "";
 		var count = [];
 		goCart = function (value) {
+			
 			$(".bg-white").css("display", "");
+			
 			if (cart.includes(value)) {
 				alert("중복된 상품을 선택하셨습니다.");
 			} else {
@@ -423,6 +404,7 @@
 				} else if (ifmnName.length > 1) {
 					$(".buyName").html(ifmnName[0] + " 외 " + (ifmnName.length-1));
 				}
+				
 				/* document.cookie = "cart="+cart; */
 			}
 			
@@ -506,5 +488,4 @@
 		})
 	</script>
 </body>
-
 </html>

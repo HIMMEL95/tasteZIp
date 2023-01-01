@@ -338,18 +338,19 @@
 		)
 		
 		var value = getCookieValue("cart");
+		var priceValue = getCookieValue("price");
 		
 		if (value != "") {
 			if ($("input[name=ifstSeq]").val() == $("input[name=store]").val()) {
 				var cookieArr = value.split(":");
+				var priceArr = priceValue.split(":");
 				$(".bg-white").css("display", "");
 				
-				alert(value);
-				alert(cookieArr[0]);
-				
-				var innerHtml ="";
-				innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+value+'" value="'+value+'">';
-				$(".menuSeq"+value).html(innerHtml);
+				for (var i=0; i<cookieArr.length; i++) {					
+					var innerHtml ="";
+					innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+cookieArr[i]+'" value="'+cookieArr[i]+'">';
+					$(".menuSeq"+cookieArr[i]).html(innerHtml);
+				}
 				
 				if (cookieArr.length == 1) {
 					$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val());
@@ -358,7 +359,6 @@
 					var totalPrice = 0;
 					for (var i=0; i<cookieArr.length; i++) {
 						totalPrice += parseInt($("input[name=price"+cookieArr[i]+"]").val());
-						alert(totalPrice);
 					}
 					totalPrice = String(totalPrice);
 					totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");

@@ -346,27 +346,43 @@
 				var priceArr = priceValue.split(":");
 				$(".bg-white").css("display", "");
 				
+				var menu = "";
 				for (var i=0; i<cookieArr.length; i++) {					
 					var innerHtml ="";
 					innerHtml += '<input type="hidden" name="ifmnSeq" id="ifmnSeqArr'+cookieArr[i]+'" value="'+cookieArr[i]+'">';
 					$(".menuSeq"+cookieArr[i]).html(innerHtml);
+					menu += cookieArr[i] + " ";
 				}
 				
 				if (cookieArr.length == 1) {
 					$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val());
+					$(".badge").css("display", "");
+					$(".badge").html(priceArr.length);
+					price += parseInt($("input[name=price"+cookieArr[i]+"]").val());
 				} else {
 					$(".buyName").html($("input[name=name"+cookieArr[0]+"]").val() + " 외 " + (cookieArr.length-1));
 					var totalPrice = 0;
+					var menuPrice = "";
 					for (var i=0; i<cookieArr.length; i++) {
-						totalPrice += parseInt($("input[name=price"+cookieArr[i]+"]").val());
+						totalPrice += parseInt(priceArr[i]);
+						menuPrice += priceArr[i] + " ";
 					}
 					totalPrice = String(totalPrice);
 					totalPrice = totalPrice.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 					
+					price = menuPrice
+					result = menu
+					$(".badge").css("display", "");
+					$(".badge").html(priceArr.length);
+					
 					$(".totalPrice").html(totalPrice + " 원");
 				}
+				quantity = cookieArr.length + " ";
 			}
 		}
+		
+		console.log(result + ", " + price)
+		
 		// 쿠키 값 가져오기 e
 		
 		var cart = [];
@@ -431,6 +447,7 @@
 		}
 		
 		$("#buyBtn").on("click", function() {
+			console.log(result + ", " + price+ ", "+ quantity)
 			$.ajax({
 				type: "POST"
 				,url: "/menu/cart"
